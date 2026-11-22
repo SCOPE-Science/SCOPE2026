@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T07:13:46.301723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite connected multipartite graph has diameter <=2. Packing forces every color >=2 to be a singleton, and any color-one vertices to lie within one independent part. Every high-color singleton broadcasts globally. A block containing only color-one vertices can dominate precisely when it is the entire color-one class and that class equals a full part. This proves kappa=h+1 exactly for full parts and kappa=h otherwise, including absence of color 1. Counting vertex subsets and injective assignments gives E. For W, partition h distinct high-color vertices into k unordered nonempty blocks (Stirling S(h,k)), attach s color-one vertices independently (k^s); in the whole-part case there is exactly one further option: a separate color-one block and S(h,k-1). The lower palette bound max(n-a+1,k) and forced equality cases yield the displayed k-spectrum/optimizer multiplicities, with k=n and complete-graph boundaries checked. Independently recomputed five profiles (K_3, K_{2,2}, K_{3,1}, K_{2,1,1}, K_{3,2}) at six palette values each by full graph-distance packing and set-partition enumeration, matching E and W exactly. The unrestricted proof is structural; finite tests only corroborate. All seven actual Git source blobs were retrieved at the assigned frozen commit; independently reconstructed their Git tree hash to 690aa5773fabf215d0eaf6edf83e6759ea3f9024.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-10-12 packing domatic profiles of diameter-two graphs gives explicit K_{n_1,...,n_r} formula chi_{S,k} with n-max part+1, k if a part of size n-k+1 exists, otherwise k+1.",
+          "2026-10-18 broader counting law F_{G,k}(t)=sum_{h=k}^n i_{n-h}(G)(t-1)_h + m_{n-k+1}(G)(t-1)_{k-1}, and formulas for chi_{rho,k} and N_k."
+        ],
+        "reasoning": "Both the spectrum and optimal named-color counts are special cases of earlier, more general diameter-two theorems. The paper dated 2026-10-12 additionally writes out the complete-multipartite specialization, so neither the part-size gap nor the all-k spectrum is new.",
+        "searches": [
+          "Resultary semantic: packing domatic spectra part-size gaps named optimal colouring counts",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-packing-domatic-profiles-of-diameter-two-graphs--df0dd72b1216/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-packing-domatic-coloring-polynomials-reconstruct-independent-set--6df701a678b0/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-packing-domatic-coloring-polynomials-reconstruct-independent-set--6df701a678b0/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-packing-domatic-profiles-of-diameter-two-graphs--df0dd72b1216/RESULT.md",
+        "https://arxiv.org/abs/2610.03477",
+        "https://arxiv.org/abs/2609.10107",
+        "https://arxiv.org/abs/2303.01944",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-packing-k-domatic-chromatic-spectrum-of-double-star-trees--cc843c723cf9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026-10-18 proof: every high-color singleton broadcasts globally; a high-color-free block can only be the whole independent color-one class if it is maximal. That is exactly the submitted exceptional whole-part case.",
+          "For fixed independent color-one set I of cardinal s and h=n-s high-color vertices, every ordinary k-partition of the h roots has S(h,k) possibilities and attaches I in k^s ways; when I is maximal, a separate I block gives S(h,k-1). This produces W term-by-term with no new structural input.",
+          "The earlier 2026-10-12 theorem states the multipartite k-spectrum verbatim (up to part-size letters)."
+        ],
+        "reasoning": "No title/parameter heuristic is needed: the exact theorem and proof have the same packing/broadcast definition and establish stronger statements. The previous theorem's uniqueness-of-obstruction argument implies the remainder after a single elementary set-partition count. The submitted statement does not supply a new nonstandard lemma or meaningful classification beyond that proof.",
+        "searches": [
+          "Published Resultary 2026-10-18 full RESULT.md via GitHub fetch",
+          "Published Resultary 2026-10-12 full RESULT.md via GitHub fetch",
+          "Partitioning an S-packing coloring into broadcast dominating sets arxiv 2610.03477",
+          "https://arxiv.org/abs/2610.03477"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-10-18 diameter-two F_{G,k}(t) counts all color maps for every k and t; exact original capacity distribution follows by the difference F_{G,k}-F_{G,k+1}.",
+          "For K_{a_1,...,a_r}, i_s=sum_i binom(a_i,s) (s>=1), m_s=# parts of size s; these substitutions reproduce E and M exactly."
+        ],
+        "reasoning": "The named-color enumerator is not merely terminology-equivalent: it is the discrete derivative of the earlier all-k map-count family, for exactly the same functions and normalization. W is omitted by name from the prior theorem but its proof already classifies every permissible witness block.",
+        "searches": [
+          "Resultary semantic: packing k domatic colourings complete multipartite graphs palette chromatic spectrum witnesses Stirling numbers",
+          "packing k domatic coloring complete multipartite exact spectrum witness partitions 2026",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-packing-domatic-coloring-polynomials-reconstruct-independent-set--6df701a678b0/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-18 exact all-palette F_{G,k}(t) theorem determines the entire submitted E polynomial coefficient-by-coefficient, and its exact optimum counts determine M.",
+          "The witness count W is not tabulated there, but the prior block classification yields W via standard Stirling numbers without any additional graph-theoretic lemma."
+        ],
+        "reasoning": "An exact stronger counting theorem is present in the published mathematical record. The only unprinted table is a routine combinatorial expansion of its already-proved necessary-and-sufficient partition condition, not a mathematically independent unknown.",
+        "searches": [
+          "Resultary semantic: packing k domatic colourings complete multipartite graphs palette chromatic spectrum witnesses Stirling numbers",
+          "Resultary semantic: partitioning S packing coloring broadcast dominating sets complete multipartite exact counts",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-packing-domatic-coloring-polynomials-reconstruct-independent-set--6df701a678b0/RESULT.md"
+        ]
+      },
+      "rationale": "A published 2026-10-18 theorem for every connected diameter-at-most-two graph already gives every packing k-domatic map-count polynomial F_{G,k}(t), all optimal palette values, and all optimal named-colouring multiplicities in independent/maximal independent set counts. A complete multipartite graph is a specialization: its independent sets are contained in single parts and its maximal independent sets are precisely entire parts. Thus the submitted capacity enumerator is recovered exactly by [u^j]E=F_{G,j}(t)-F_{G,j+1}(t), and its entire spectrum/optimizer table is prior. An earlier 2026-10-12 published theorem even states the complete multipartite all-k spectrum explicitly. The only formula not printed in these prior findings is W_{G,t,k}, counting witnessing partitions; it follows mechanically from the 2026-10-18 theorem's explicit unique-obstruction proof by applying ordinary Stirling set-partition counts and assigning each color-one vertex to a root-bearing block. This is an immediate corollary of a previously proved stronger characterization, not a substantive new claim. Inaccessible primary manuscript is a disclosed residual risk, not relied upon for rejection.",
+      "residual_risks": [
+        "Full 26-page arXiv:2610.03477 original paper not read due access (arXiv/OA failed; Oxford VPN disconnected); cannot exclude further prior results, but decisive 2026-10-18/10-12 coverage independently establishes lack of novelty.",
+        "The W enumerator is not displayed in the earlier papers and might have standalone applied bookkeeping utility, but is a routine immediate counting corollary of a known exact partition characterization.",
+        "The GitHub connector returned the frozen seven-blob source tree and all seven text source files; no authorized publication has occurred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers E, chi and M; underlying unique-block lemma mechanically supplies W.",
+          "evidence": [
+            "F_{G,k}(t) theorem and exact optima in Finding; unique obstruction proof: a rootless block equals the maximal independent color-one class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-packing-domatic-coloring-polynomials-reconstruct-independent-set--6df701a678b0/RESULT.md",
+          "material_read": "Entire RESULT.md: Finding, complete map-count theorem, recovery/optimum counts, assumptions, unique-obstruction lemma and proof, verification, relationship/limitations.",
+          "method": "GitHub connector fetch_file of the published Resultary source, exact content and blob SHA acd35e8e7fff659c40f49bbb96752c1efd8a263c",
+          "title": "Packing-domatic coloring polynomials reconstruct independent-set profiles in diameter-two graphs",
+          "trigger": "Resultary semantic hit for same invariants and larger diameter-two class"
+        },
+        {
+          "assessment": "Earlier theorem explicitly gives the same entire multipartite k-spectrum and gap condition.",
+          "evidence": [
+            "Finding's explicit K_{n_1,...,n_r} formula and proof through maximal independent parts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-packing-domatic-profiles-of-diameter-two-graphs--df0dd72b1216/RESULT.md",
+          "material_read": "Entire RESULT.md: exact chi_{S,k} theorem and complete multipartite instance, proof, comparison/limitations.",
+          "method": "GitHub connector fetch_file of the published Resultary source, blob SHA 52f6550d45ffd9543c3f793b15ac0b7abc8463f8",
+          "title": "Packing domatic profiles of diameter-two graphs",
+          "trigger": "Resultary published broader exact spectrum, including complete multipartite specialization"
+        },
+        {
+          "assessment": "Known k=2/3 and path/cycle results support background; no whole-document noncoverage claim. Failure is access limitation rather than reason for scientific rejection.",
+          "evidence": [
+            "arXiv:2610.03477 abstract specifies chi_{rho,3}=chi_rho under minimum degree >=2, path/cycle theorems, and S-packing framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03477",
+          "material_read": "arXiv full abstract and indexed bibliographic record; full 26-page PDF/HTML not retrieved. ArXiv/OA links failed, authorized Oxford returned vpn_disconnected.",
+          "method": "Web primary abstract, attempted arXiv HTML/PDF and lawful OA routes, Oxford authorized attempt (blocked by disconnected VPN); no manual authentication bypass",
+          "title": "Partitioning an S-packing coloring into broadcast dominating sets",
+          "trigger": "Primary paper introducing the exact same invariant and plausible stronger results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The problem and exact witness-count normalization are natural, but the main spectrum, all-palette color-map enumeration, optimal-coloring classification and count are already proven by 2026-10-12/18 stronger diameter-two results. The only additional W formula requires no new graph structural understanding: it is the standard Stirling partition count applied immediately to the earlier 2026-10-18 necessary-and-sufficient proof of which rootless block is allowed. This is bookkeeping from an already complete characterization rather than an independently needed new exact invariant, meaningful cutoff or independent classification. Its correctness and reproducibility alone do not establish mathematical value as a new theorem; no surviving substantive repair is identified.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-packing-domatic-coloring-polynomials-reconstruct-independent-set--6df701a678b0/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-packing-domatic-profiles-of-diameter-two-graphs--df0dd72b1216/RESULT.md",
+    "https://arxiv.org/abs/2610.03477",
+    "https://arxiv.org/abs/2609.10107",
+    "https://arxiv.org/abs/2303.01944",
+    "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-packing-k-domatic-chromatic-spectrum-of-double-star-trees--cc843c723cf9"
+  ],
+  "disposition": "failed",
+  "final_claim": "Same submitted all-parameter theorem, found correct but covered in its principal results and routine in its remaining witness enumeration; no scientifically substantive surviving new claim or repaired files.",
+  "limitations": [
+    "Scientific rejection rests on strong directly read prior work; motivating October 2026 26-page preprint inaccessible and Oxford access requires manual VPN connection.",
+    "No repaired claim; no research file modified or published.",
+    "Original source METADATA.json and AUDIT.json include scope_run_id operational identifiers. Moving unchanged source to a public failed path would violate publication confidentiality; no complete sanitized guarded replacement package was established. Publication plan thus not_ready with no operations.",
+    "Historical rows and known gaps preserved verbatim; only this run's rows validated."
+  ],
+  "schema_version": 1
+}
