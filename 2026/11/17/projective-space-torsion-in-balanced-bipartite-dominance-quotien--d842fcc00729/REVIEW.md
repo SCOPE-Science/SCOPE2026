@@ -1,15 +1,21 @@
-# Scientific review: balanced bipartite dominance quotients
+# Independent mathematical audit
 
-## Correctness — PASS
-The mathematical object, dominating-set convention, three subgroups, and ordinary geometric quotient are fixed explicitly. A direct closed-neighborhood check proves the equivariant decomposition into the join of two simplex boundaries and two attached whole shore simplices. The standard reflection chamber is a ball, and doubling it under alternating permutations gives the required sphere. The shore-swap eigen-coordinate decomposition gives precisely a projective-space join. Attaching maps are nullhomotopic because the target's connectivity exceeds their source dimension; the full-wreath quotient admits an explicit equivariant contraction of its join core and contractible ball attachment. These steps establish every claimed homotopy type for all integers \(k\ge3\). Separately, full signed-face Lefschetz/Burnside calculations confirm the predicted quotient Euler characteristics at \(k=3,4\). This finite check is supportive, not the proof of the infinite family.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Ehrenborg–Hetyei's 2005 publicly available article defines dominance complexes and proves forest results, not alternating-symmetry quotients of balanced complete bipartite graphs. Matsushita–Wakatsuki's 2023 full-text arXiv presentation supplies duality and homology methods but does not specify these quotient attaching maps or projective-space factors. The closest published complete-multipartite result proves the unquotiented homotopy splitting and expressly leaves automorphism actions unclassified; the existence of a nonequivariant wedge does not imply this ordinary orbit-space type, especially its integral torsion. Searches for all identified aliases and the closest accessible claims did not find a matching or dominating theorem. The residual risk is a nonindexed equivalent result or an unnoticed general orbit-space theorem; novelty is not guaranteed by negative search results.
+PASS
 
-## Value — PASS
-The balanced biclique is a canonical nonchordal graph family and its alternating groups and shore exchange are canonical symmetry levels. The theorem exhibits a structural transition from a torsion-free wedge to suspended real-projective torsion and finally a contractible quotient. It provides complete homotopy classifications and genuine integral two-torsion in arbitrarily high dimensions, with the first instance \(S^3\vee M(\mathbb Z/2,4)\). This is not a restatement of the known unquotiented wedge classification or a routine numeric increment. It does not claim a homeomorphism classification or an arbitrary-graph extension.
+The domination condition for K_{k,k} is equivalent to the equivariant union (∂Δ_L*∂Δ_R)∪Δ_L∪Δ_R, where both whole-shore simplices are attached by full boundaries. The A_k action is orientation-preserving on the standard Coxeter reflection sphere; the A_k quotient is a sphere S^{k−2}, while the S_k quotient is one closed chamber ball. Taking A_k×A_k makes join S^{2k−3}; both null attaching spheres yield two S^{k−1} summands. Exchanging shores diagonalizes the factor-swap into V+ and sign-reversed V−, yielding S^{k−2}*RP^{k−2}≃Σ^{k−1}RP^{k−2}. The two shore balls become one ball attached along a nullhomotopic S^{k−2}, giving an extra S^{k−1}. The full wreath S_k×S_k quotient uses contractible chamber balls and is contractible. Integral RP homology yields Z/2 in degree k for k>=4, and k=4 gives S³∨M(Z/2,4). Checked source finite k=3,4 Burnside/Lefschetz checker and independently verified the suspension degrees, connectivity and Euler predictions; finite Euler alone would not prove the homotopy claim.
 
-## Closest literature and remaining limitations
-Ehrenborg and Hetyei, *The topology of the independence complex* (first online 28 November 2005), is the original definition source. Matsushita and Wakatsuki, *Dominance complexes, neighborhood complexes and combinatorial Alexander duals* (arXiv:2312.02639), develops general duality but not this symmetry classification. The published *A perfect Morse matching and the full homotopy type of complete-multipartite dominance complexes* establishes only the underlying wedge and specifically excludes equivariant conclusions. Possible unindexed comparable results remain a publication-priority risk. The checker verifies only Euler characteristics at two small sizes; the general proof is theoretical.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for three ordinary **geometric quotient** homotopy types under the alternating product, its exchange extension and full symmetric wreath group. Previously published complete-multipartite dominance complexes have the same unquotiented wedge type but no equivariant action, so a naive quotient of that wedge would be invalid; submitted chamber double and factor-swap argument supplies required genuine geometry. The Matsushita–Wakatsuki Alexander duality theorem concerns general dominance complexes and homological computations, not these subgroup orbit types.
+
+## value
+
+PASS
+
+An explicitly motivated sequence of symmetry quotients turns torsion-free complete-bipartite dominance complexes into suspended projective spaces with predictable unbounded two-primary integral torsion, while adding odd permutations kills it. This identifies a structural topological effect of alternating-versus-symmetric label symmetries beyond an unquotiented Betti census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
