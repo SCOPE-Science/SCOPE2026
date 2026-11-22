@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The complete Pansiot–Brlek square-factor classification as presented in Brown et al. 2006 Theorem 4.1 and Lemma 4.2 gives exactly the two 2-adic cases for square suffixes. Even-endpoint 2-letter and 6-letter conditions are explicitly derived from t(2m)=t(m), t(2m+1)=1-t(m); odd endpoints desubstitute. Pair and fourgram recurrences are proved for all powers and yield \\(A(2^r)=(2^r+9r-4-(r\\bmod 2))/6\\) for all r>=2. All-length halving counts give \\(A(N)=N/6+O((1+\\log N)^2)\\). Direct independent full-square checks at 2048 endpoints, historical 32-term sequence, and dyadic formula for r=2..20 passed. Finite testing is not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown et al. (2006), Theorem 4.1 and Lemma 4.2, give complete square-factor forms and start-position alignment, so they justify the key desubstitution input but do not state a uniform cumulative count at all prefix ends.",
+        "Caveney–Dong–Shallit, arXiv:2608.15670, §2.1 and Theorems 2–12, classify power-avoidance thresholds and constructions; no square-suffix frequency law for the standard Thue–Morse word is given."
+      ],
+      "reasoning": "The general square-factor classification is used as an explicit premise, not presented as new. Translating starts of infinitely many scaled square families into end-indexed prefix counts, calculating their precise overlap, and deriving the parity-sensitive correction require additional recurrences. Power-avoidance theorems for other source words do not imply the count.",
+      "searches": [
+        "Thue Morse curling-number transform density 1/6 exact dyadic prefix count square suffix recursion",
+        "Thue Morse curling number sequence frequency two square suffix positions",
+        "Thue Morse curling number sequence 2-automatic density"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.15670, full accessible primary text",
+      "Brown et al. 2006, DOI 10.1051/ita:2006030, full primary PDF",
+      "Van de Bult et al. 2007 JIS 07.1.2, full primary PDF §5.2",
+      "OEIS A093914, full entry and historical density observation",
+      "Topical mathematical-record searches and related published statements",
+      "Related exact mathematical claims on curling-image fibers, considered only for statement overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown et al. (2006), Theorem 4.1 and Lemma 4.2, are the necessary published input square classification; its Theorem 4.3 and Figure 6 concern the sequence of square beginnings.",
+        "Caveney–Dong–Shallit (2026) Remark 1 is a square-suffix equivalence, but its main theorems concern avoiding repetitions in simultaneous source/transform pairs.",
+        "Related published mathematical results for Abelian square densities concern Parikh-equivalent adjacent blocks, not exact ordinary-square suffixes; finite extremal curling-image fibers concern different sources and observables."
+      ],
+      "reasoning": "The claim is stronger and differently indexed than published square-start regularity: it proves every dyadic count and the global frequency of no-square-suffix prefixes. The cited square-language theorem supplies structural tools from which the new calculation is derived, but the prior inspected statements do not supply the computed formula, phase correction, or density.",
+      "searches": [
+        "Thue Morse curling-number transform density 1/6 exact dyadic prefix count square suffix recursion",
+        "OEIS A093914 density of ones 1/6 curling number Thue Morse",
+        "binary Thue Morse curling number sequence exact Cesaro frequency one sixth",
+        "Thue Morse curling-number transform exact density square suffix",
+        "Repetition Avoidance in Curling-Number Transforms 2608.15670"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A093914 notes on 2017-03-03: density of ones seems to converge to 1/6, without proof.",
+        "Van de Bult et al. (2007), §5.2, lists the transform A093914 and explicitly leaves its properties to readers.",
+        "Brown et al. (2006), §§3–4, count squares beginning rather than the union of square suffixes at each prefix end."
+      ],
+      "reasoning": "A 1 in the direct-prefix curling transform is equivalent to the absence of an ordinary square ending at that prefix. This was compared with square-ending indicators, square-start counts, and integer-sequence descriptions (with the one-initial-term indexing shift accounted for). The inspected sources do not state either the dyadic count or the limit as a proved claim.",
+      "searches": [
+        "Thue Morse curling-number transform density 1/6 exact dyadic prefix count square suffix recursion",
+        "OEIS A093914 density of ones 1/6 curling number Thue Morse",
+        "binary Thue Morse curling number sequence exact Cesaro frequency one sixth",
+        "square ending position Thue Morse dyadic count 2^r + 9r - 4 divided 6",
+        "Thue Morse curling number sequence density of ones one sixth theorem proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A093914 published list/table records transform terms, and a 2017 comment explicitly says that the 1/6 density merely seems to hold.",
+        "The 2007 JIS §5.2 table provides initial terms and no dyadic formula."
+      ],
+      "reasoning": "A finite table of terms does not establish any infinite-density statement or the all-r exact dyadic enumeration. The historical 32-term table was used to verify indexing, not as the source of a closed form.",
+      "searches": [
+        "OEIS A093914 density of ones 1/6 curling number Thue Morse",
+        "Thue Morse curling number sequence density of ones one sixth theorem proof",
+        "OEIS:A093914"
+      ]
+    },
+    "rationale": "The exact square-ending count at every dyadic prefix length and the resulting natural density are not stated in the inspected square-start classification, original transform paper, current curling-transform paper, or OEIS entry. OEIS A093914 (2017 annotation) expressly calls density \\(1/6\\) an empirical suggestion; the present proof supplies an exact parity-sensitive count and controlled all-length error. Related mathematical-record results address Abelian square starts, finite ternary curl-output fibers or constrained binary source fibers, none implying this claimed all-dyadic law. A previously unindexed equivalent derivation remains possible.",
+    "residual_risks": [
+      "A logically equivalent explicit enumeration might occur in unindexed proceedings, notes or an uncatalogued paper.",
+      "The 2006 square classification permits derivation of related prefix results; publication priority requires checking any source not presently indexed, although the inspected article does not state the counted identity.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes repetition avoidance and construction thresholds, not the exact counts or density of curling ones of the standard Thue–Morse word",
+        "evidence": "§2.1 Remark 1 equates curling number 2 to a square suffix; Theorems 2–12 classify power-avoidance cases, and §4 gives finite ternary extrema.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.15670",
+        "material_read": "Full available arXiv HTML sections 1–5 and appendix descriptions, with PDF pp. 1–3 cross-checked",
+        "method": "Read main theorems, the direct-prefix convention, the Thue–Morse construction and comparisons to source properties",
+        "title": "Repetition Avoidance in Curling-Number Transforms",
+        "trigger": "Most recent source on curling-number transforms and Thue–Morse-based constructions"
+      },
+      {
+        "assessment": "STRUCTURAL_PREMISE_ONLY: supplies complete aligned-square forms; studied summatory square starts and largest starting root, not the new formula for cumulative no-square suffixes",
+        "evidence": "§3 defines B(i) as positions marking beginnings of squares; §4 proves their 2-automaticity via starting indices and reports no ending-index dyadic formula.",
+        "identifier_or_url": "https://doi.org/10.1051/ita:2006030",
+        "material_read": "Full PDF, with §§2–4 and Theorem 4.1, Lemma 4.2, Theorem 4.3 and Theorem 4.5 read in detail",
+        "method": "Compared whether start-position square automata/regularity already determine or explicitly state the proposed exact end-index count",
+        "title": "Squares and overlaps in the Thue–Morse sequence and some variants",
+        "trigger": "Original primary square classification and the most plausible broader source for the claim"
+      },
+      {
+        "assessment": "NOT_COVERING: the sequence is introduced, its initial entries displayed and future analysis invited",
+        "evidence": "§5.2 says the curling transform of Thue–Morse takes values 1 and 2 and leaves properties to interested readers.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL10/Sloane/sloane55.pdf",
+        "material_read": "Full PDF accessible, especially §5.2 and introductory conventions",
+        "method": "Checked transform indexing and all relevant explicit properties of A093914",
+        "title": "A Slow-Growing Sequence Defined by an Unusual Recurrence",
+        "trigger": "First printed description of the Thue–Morse curling transform"
+      },
+      {
+        "assessment": "EXPLICIT_UNPROVED_OBSERVATION: lists density 1/6 as seeming to hold, not as proved",
+        "evidence": "The Mar 3 2017 annotation says “The density of 1’s seems to converge to 1/6.”",
+        "identifier_or_url": "https://oeis.org/A093914",
+        "material_read": "Full current entry including 2017 comments, term tables, program and indexing",
+        "method": "Read density comment, sequence definition, source links and term convention",
+        "title": "OEIS A093914",
+        "trigger": "Original sequence record and publicly formulated density observation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f12af332-384e-4d22-a94f-be6527e1dbc4",
+  "value": {
+    "rationale": "The historical transform A093914 has a specific 2017 open-looking observation that its 1-frequency seems 1/6. The claim proves that motivated density along all N and the stronger exact all-r dyadic enumeration, with a parity-sensitive logarithmic correction. This is a natural word-combinatorial invariant, not an arbitrary finite statistic, and its exact law is nontrivial to recover from the published square classification.",
+    "status": "PASS"
+  }
+}
