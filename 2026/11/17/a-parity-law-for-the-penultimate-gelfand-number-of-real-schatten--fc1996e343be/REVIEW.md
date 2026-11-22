@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-sensitive comparison of Schatten quasi-norms is valid for every strict \(0<p<q\le\infty\), including both quasi-Banach exponents and \(q=\infty\). The codimension conversion makes the penultimate index exactly a two-plane problem. A real skew-orthogonal complex structure makes every pencil member conformal in even dimensions; in odd dimensions an odd homogeneous determinant has a nonzero singular point on every real two-plane. The block-embedded construction saturates that forced rank defect. The final-index formula follows from the scalar identity line. The exact finite checker supports the displayed matrix identities but is not the proof of the universal assertions.
+## correctness
 
-**Originality — PASS (qualified).** The 2026 motivating paper [1] and earlier systematic works [2,3] give asymptotic Gelfand-number bounds, and [1] explicitly gives the last-index value. The newly isolated penultimate exact formula separates odd from even matrix size, whereas none of the inspected relevant statements gives this exact neighboring-index parity distinction. The proof ingredients are standard, so the priority claim is limited to the stated exact combination. Relevant published research records and accessible earlier claims were compared by mathematical implication, not title alone. Residual risk: a classical matrix-pencil or optimal-width theorem might subsume this calculation under different terminology.
+PASS
 
-**Value — PASS.** Gelfand numbers are intrinsic optimal subspace-restriction constants, and determining the first value immediately before the last is a natural unresolved exact endpoint not captured by the currently available dimension-independent asymptotics. The even/odd discontinuity provides a sharp finite-dimensional geometric interpretation: a two-dimensional real pencil of full-rank conformal matrices exists in even size, while every odd-size real pencil contains a singular member. The result holds across the entire strict Schatten exponent range, including nonconvex quasi-norms, without an arbitrary special dimension or numerical cutoff. It does not claim a general downstream recovery theorem.
+For 0<p<q<=infty every rank-r nonzero matrix satisfies ||A||_q/||A||_p >=r^(1/q−1/p), including quasi-norm p<1, exponent negative. The penultimate codimension condition forces a real 2-plane. For even N, span(I,J) with J real skew-orthogonal has all N singular values sqrt(a²+b²), saturating the universal bound. For odd N the determinant of a real odd-degree pencil changes sign under (a,b)↦−(a,b), forcing a nonzero rank<=N−1 member on every 2-plane; embedding an N−1 even conformal block saturates that bound. A scalar line gives last c_(N²). Independent exact integer Gram checks N=2..15 corroborate but proof works for all N>=2 and all given exponents.
 
-The most relevant literature is Prochno (2026), Hinrichs–Prochno–Vybíral (2020/2021), and Prochno–Strzelecki (2021/2022). Their exact last-index theorem is explicitly retained as prior work. Earlier widths and pencil terminology remain residual novelty risks; independent expert priority review is not included.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prochno 2026 Theorem A and Remark 1.1 give broad all-index asymptotic bounds and the exact last c_(N²), but not this parity-sensitive penultimate index. Earlier Hinrichs–Prochno–Vybíral and Prochno–Strzelecki estimates similarly lack this exact last-two comparison. A published two-row rectangular theorem and complex 3×3 result cannot directly specialize to square N×N for all N. Standard real skew-complex structures and odd pencil singularity are credited ingredients; a classical matrix-pencil widths corollary remains a priority risk.
+
+## value
+
+PASS
+
+Last two exact Gelfand numbers in a natural finite-dimensional Banach/quasi-Banach operator ideal are canonical endpoint invariants. The discrete parity obstruction and real-field dependence show a strict odd endpoint gap absent in even N, useful in width estimates and selection of extremal codimension-two subspaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
