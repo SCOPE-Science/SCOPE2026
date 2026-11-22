@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:06:22.041631Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The indicator has support on the 44 fixed-point-free permutations; at a Walsh frequency its coefficient equals the ordinary integer permanent of the ±1 hollow 5×5 matrix. The 20 allowed off-diagonal cells form the connected bipartite support K5,5 minus its diagonal, with ten nodes and spanning tree of nine edges specified in RESULT.md. Row/column sign gauge fixes those nine signs (one global redundancy), leaving 11 free signs and hence 2048 normalized signings; each class has exactly 2^9 signings, with 2^5 extra inert diagonal frequency bits. Independently evaluated all 2048 signed derangement-monomial permanents and reproduced normalized |W| histogram 0:338,2:504,4:405,6:260,8:130,10:240,12:90,16:60,22:20,44:1. Independently performed a complete 2^20 integer Walsh transform on all 44 binary derangement matrices, reproducing the same histogram multiplied by512 (sum abs5,197,824), hence full 25-bit multiplicities by factor32. Exact zero count 338*2^14=5,537,792, rank28,016,640, min nonzero 2, pseudoinverse norm1/2, normalized 2048-case average |H|=1269/256 and zero probability338/2048=169/1024. Endpoint norms for Fourier projection onto the 44 derangement frequencies equal the kernel L1 norm; no unsupported claim of norm minimality among all projections is made for this record.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feinsilver–McSorley (2011) evaluates generalized/unsigned derangements via structured sI+tJ matrices, not 20 independent offdiagonal signs.",
+          "Wanless (2005) studies full ±1 matrices and attainable permanents; Tao–Vu (2008) prove asymptotic general random-sign permanent behavior, not fixed hollow size-five exact histogram."
+        ],
+        "reasoning": "Those results cover larger matrix families in other parameters but neither supplies the detailed frequency multiplicities for this constrained hollow subset; no specific numerical implication found.",
+        "searches": [
+          "5 by 5 derangement binary permutation incidence Walsh signed hollow permanent complete distribution 169/1024",
+          "Feinsilver McSorley Zeons Permanents Johnson Scheme Generalized Derangements",
+          "Wanless Permanents matrices signed ones",
+          "Tao Vu permanent Bernoulli matrices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT 84f2d4ea07a0145392b49040df1dab8a192f061b and check_derangement_walsh.py read; exact tree349e14de040ab3895f3bf340afc4a6462f16953b.",
+        "Full published all-120 permutation Fourier RESULT blob 8f80f6b466167d7c201513cc2d9cfbea660df01b",
+        "Full published uniform derangement covariance RESULT blob 3c6402d5e6a6dca5e101238b3c66b2308473d6df",
+        "https://doi.org/10.1155/2011/539030",
+        "https://users.monash.edu.au/~iwanless/papers/wangconjLAMA.pdf",
+        "https://arxiv.org/pdf/0804.2362",
+        "Resultary query: 5 by 5 derangement binary permutation incidence Walsh signed hollow permanent complete distribution 169/1024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full 120 permutation Fourier spectrum counts signed permanents of all entries; deleting permutations with fixed points changes each Walsh coefficient and is not restriction of frequency subset.",
+          "Uniform derangement covariance determines only second moments for linear assignment scores, not all 25-degree Boolean characters."
+        ],
+        "reasoning": "Neither theorem implies the 10-level hollow permanent histogram from its stated data; new computation essential. Wanless full-sign results and Tao–Vu asymptotics likewise do not determine the 338/2048 zero ratio.",
+        "searches": [
+          "5 by 5 derangement binary permutation incidence Walsh signed hollow permanent complete distribution 169/1024",
+          "Resultary exact order five binary permutation Fourier spectrum endpoint norm full result",
+          "Resultary complete covariance spectrum uniform derangement assignment scores full result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W(A) equals the permanent of a hollow matrix with independently chosen ±1 offdiagonal entries; five diagonal Walsh bits are inert.",
+          "The full 120-permutation problem instead equals the permanent of a complete signed 5×5 matrix with nonzero diagonal."
+        ],
+        "reasoning": "Proper equivalence translates the present histogram to signed-hollow permanent distribution or Walsh codebook weight enumerator, not ordinary count 44. Full signed permanent and first-order derangement covariance are distinct functions and not equivalent.",
+        "searches": [
+          "5 by 5 derangement binary permutation incidence Walsh signed hollow permanent complete distribution 169/1024",
+          "random signed hollow 5x5 permanent exact zero probability",
+          "derangement rook polynomial signed assignments Walsh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary full published 2026-11-08 all-120 permutation histogram has 10,342,400 zeros and projection norm33045/4096, differing from hollow 44-case 5,537,792 zeros and1269/256.",
+          "Resultary full derangement covariance theorem (2026-10-26) has only degree-one covariance eigenvalues, both 15/44 at n=5."
+        ],
+        "reasoning": "These exact databases/tables provide useful same-size comparisons but do not tabulate all 2048 hollow signings. An older signed rook polynomial/equivalent code enumerator might still contain this histogram; bounded search found no such table.",
+        "searches": [
+          "5 by 5 derangement binary permutation incidence Walsh signed hollow permanent complete distribution 169/1024",
+          "5x5 signed hollow permanents zero count 338 of 2048",
+          "five-letter derangement exact Fourier Walsh histogram 1269/256"
+        ]
+      },
+      "rationale": "Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.",
+      "residual_risks": [
+        "Unindexed signed rook/derangement code weight enumerator may already determine exact 2048-case table; no categorical historical priority assertion.",
+        "Entire 2^20 offdiagonal Fourier domain was checked, but no larger n result follows.",
+        "The sharp endpoint norm claimed is the norm of the 44-frequency projection, not a universal minimum among projections onto convolution range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All 120 permutations with nonzero diagonal, not the 44 restricted derangements; existing full case does not imply restricted histogram.",
+          "evidence": "Resultary published theorem (2026-11-08), proof and exact table.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-order-five-binary-permutation-fourier-spectrum-and-endpoin--69d359ed8a05/RESULT.md",
+          "material_read": "Entire RESULT.md: exact eight-level histogram, gauge reduction of full signed5x5 permanents, 65536 classes and norm proof read; blob8f80f6b466167d7c201513cc2d9cfbea660df01b",
+          "method": "Read-only full GitHub file",
+          "title": "Exact order-five binary permutation Fourier spectrum and endpoint norm",
+          "trigger": "Closest same-size full-permutation Fourier theorem"
+        },
+        {
+          "assessment": "Degree-one covariance does not determine full nonlinear 25-bit Walsh distribution; n=5 identity is motivation, not coverage.",
+          "evidence": "Resultary published theorem (2026-10-26), theorem/variance formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-complete-covariance-spectrum-of-uniform-derangement-assignme--a208797ec285/RESULT.md",
+          "material_read": "Entire RESULT.md including two-eigenvalue variance proof and exceptional n=5 isotropy; blob3c6402d5e6a6dca5e101238b3c66b2308473d6df",
+          "method": "Read-only full GitHub file",
+          "title": "The complete covariance spectrum of uniform derangement assignment scores",
+          "trigger": "Same underlying derangement set, possible stronger statistical statement"
+        },
+        {
+          "assessment": "Unsigned or structured-parameter generalized derangements, not arbitrary offdiagonal ±1 hollow table.",
+          "evidence": "Feinsilver–McSorley (2011), DOI10.1155/2011/539030.",
+          "identifier_or_url": "https://doi.org/10.1155/2011/539030",
+          "material_read": "Full accessible Wiley article HTML: introduction, structured permanent identities, methods and appendix read",
+          "method": "Public primary article HTML",
+          "title": "Zeons, Permanents, the Johnson Scheme, and Generalized Derangements",
+          "trigger": "Original derangement permanent framework"
+        },
+        {
+          "assessment": "Treats complete ±1 matrix without forced zero diagonal; does not provide order-five hollow multiplicities in reviewed theorem.",
+          "evidence": "Wanless (2005), Linear and Multilinear Algebra53,427–433.",
+          "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/wangconjLAMA.pdf",
+          "material_read": "Original author PDF opened; initial theorem and signed full matrix discussion with screenshot p.0",
+          "method": "Lawful author-hosted full PDF, relevant theorem pages",
+          "title": "Permanents of matrices of signed ones",
+          "trigger": "Most relevant sign-matrix permanent classification"
+        },
+        {
+          "assessment": "Asymptotic unconstrained Bernoulli matrices, no exact 5×5 hollow permanent table in relevant theorem.",
+          "evidence": "Tao–Vu (2008), arXiv:0804.2362.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.2362",
+          "material_read": "ArXiv PDF opened; abstract/introduction and main asymptotic nonvanishing result with screenshot p.0",
+          "method": "PDF primary text, relevant opening theorem",
+          "title": "On the permanent of random Bernoulli matrices",
+          "trigger": "General random signed permanents might imply zero probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The derangements of five elements form a canonical 44-point subfamily of all permutation matrices; order five is naturally distinguished by prior first-order covariance isotropy. Signed hollow permanents capture genuinely different full-order Walsh cancellations from full ±1 permanent tables or degree-one covariance. Exact zero probability, convolution nullity and sharp 44-frequency projection norm are natural intrinsic finite harmonics useful for restricted assignment models, without a claim about large n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed signed rook/derangement code weight enumerator may already determine exact 2048-case table; no categorical historical priority assertion.",
+    "Entire 2^20 offdiagonal Fourier domain was checked, but no larger n result follows.",
+    "The sharp endpoint norm claimed is the norm of the 44-frequency projection, not a universal minimum among projections onto convolution range."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The permanent identity follows term-by-term from the \(44\) derangement matrices. A connected ten-vertex, twenty-edge bipartite support graph has the explicitly listed nine-edge spanning tree, giving exactly \(2^{11}\) free gauge sign assignments, each with a \(2^9\)-element orbit. Five unused diagonal coordinates supply an additional factor \(2^5\). The 2048-case exact integer identity is independently reproduced by a full \(2^{20}\)-entry integer Walsh–Hadamard computation on the off-diagonal coordinates. A separate Parseval check verifies the second moment. Kernel normalization, rank, the least positive singular value, and endpoint norm all follow by standard finite-group Fourier diagonalization. The finite proof covers every prescribed sign assignment and does not infer generality from samples.
+PASS
 
-## Originality — PASS under bounded source comparison
+The indicator has support on the 44 fixed-point-free permutations; at a Walsh frequency its coefficient equals the ordinary integer permanent of the ±1 hollow 5×5 matrix. The 20 allowed off-diagonal cells form the connected bipartite support K5,5 minus its diagonal, with ten nodes and spanning tree of nine edges specified in RESULT.md. Row/column sign gauge fixes those nine signs (one global redundancy), leaving 11 free signs and hence 2048 normalized signings; each class has exactly 2^9 signings, with 2^5 extra inert diagonal frequency bits. Independently evaluated all 2048 signed derangement-monomial permanents and reproduced normalized |W| histogram 0:338,2:504,4:405,6:260,8:130,10:240,12:90,16:60,22:20,44:1. Independently performed a complete 2^20 integer Walsh transform on all 44 binary derangement matrices, reproducing the same histogram multiplied by512 (sum abs5,197,824), hence full 25-bit multiplicities by factor32. Exact zero count 338*2^14=5,537,792, rank28,016,640, min nonzero 2, pseudoinverse norm1/2, normalized 2048-case average |H|=1269/256 and zero probability338/2048=169/1024. Endpoint norms for Fourier projection onto the 44 derangement frequencies equal the kernel L1 norm; no unsupported claim of norm minimality among all projections is made for this record.
 
-The closest inspected full result on all \(120\) permutation matrices at order five does not imply the distribution for the \(44\) diagonal-avoiding permutations; the Walsh transform of a subset is not the restriction of the Walsh transform of its superset. The closest published derangement covariance result only concerns second moments of degree-one functions. Wanless treats full sign matrices rather than hollow matrices; Feinsilver–McSorley treat unsigned \(J-I\) and its zeon powers, not arbitrary off-diagonal signings; Tao–Vu treat large unrestricted random sign permanents. Direct queries for the precise order-five hollow histogram and its rational operator norms found no equivalent statement. Historical signed-rook tables or coding-theoretic enumerators may still contain equivalent data; absence from searched sources is not proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the complete Fourier spectrum of a canonical forty-four-point permutation suborbit, not an arbitrary collection of sign matrices. Order five is the first substantial odd-order derangement family with a rich nontrivial spectrum and is independently distinguished by prior first-order covariance isotropy; it also provides a natural controlled contrast to the known complete-permutation order-five Fourier calculation. The exact sharp endpoint projection constant, convolution rank and smallest positive spectral gap are intrinsic harmonic invariants and expose a null-space proportion and stability constant not determined by derangement counting or first-order covariance. Complete finite census is appropriate for this concrete natural cutoff; no large-order significance is asserted.
+Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.
 
-## Closest literature and scientific limitations
+## value
 
-Feinsilver–McSorley (2011) provide the natural permanent/derangement framework. Wanless (2005) treats unrestricted signed matrix permanents. Tao–Vu (2008) examine asymptotic unrestricted sign permanents. The complete order-five unrestricted-permutation Walsh spectrum and the full covariance spectrum of uniform derangement incidence were inspected in their published texts and their exact implications compared. The claim is finite, its coefficient table rests on exhaustively replayable integer arithmetic, and a possibly older equivalent signed-hollow-permanent table remains a historical-priority risk. Independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The derangements of five elements form a canonical 44-point subfamily of all permutation matrices; order five is naturally distinguished by prior first-order covariance isotropy. Signed hollow permanents capture genuinely different full-order Walsh cancellations from full ±1 permanent tables or degree-one covariance. Exact zero probability, convolution nullity and sharp 44-frequency projection norm are natural intrinsic finite harmonics useful for restricted assignment models, without a claim about large n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
