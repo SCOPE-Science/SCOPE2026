@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For nonzero a and odd prime p, X^8+Y^8=aZ^8 is a smooth genus-21 projective plane curve; Hasse--Weil and at most eight rational points at infinity imply at least p-7-42 sqrt(p) affine solutions, positive from p=1783 onward. The integer-only checker enumerates every one of the 275 primes through 1777, computes every eighth-power image and twofold sumset, confirms the exact 14-entry exception table, cross-checks modular power images by repeated squaring, and verifies the bound. p=2 and a=0 are explicitly covered. This is finite exhaustive verification plus a universal theorem, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arias--Borja--Anaya 2023, Corollary 21: if p>7^4 then full eighth-power coverage follows; the paper treats fourth/fifth/sixth powers specifically in Section 6.",
+        "Bergelson--Best--Iosevich, arXiv:2009.09518, Problem 1 and large-field existence theorems: eventual two-power covering is known."
+      ],
+      "reasoning": "These broader theorems imply eventual surjectivity but do not imply the exact exception list or the optimal cutoff 769. The octic-specific obstruction at p=761 lies well below the established sufficient bound 2401.",
+      "searches": [
+        "Arias Borja Anaya counting integers representable as sums of k-th powers modulo n modular Waring theorem",
+        "https://arxiv.org/abs/2009.09518",
+        "exact count representable as sum of two eighth powers mod prime modulo prime powers"
+      ]
+    },
+    "checked_sources": [
+      "Arias, Borja and Anaya, Journal of Integer Sequences 26 (2023), Article 23.8.1, Corollary 21, Theorem 24 and Section 6.",
+      "Bergelson, Best and Iosevich, arXiv:2009.09518 (2020), finite-field sum-of-powers general theory.",
+      "Relevant published mathematical-index records on fifth-power coverings, tenth-power modular Waring and dyadic even-power sums, distinguishable by exponent or modulus."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 Corollary 21 proves alpha_8(p)=p for p>2401, but gives no implication that the last failure is exactly p=761.",
+        "2023 Theorem 24 implies the p congruent to 5 mod 8 branch, but for p congruent to 1 mod 8 its quartic theorem does not imply octic coverage.",
+        "The general Hasse--Weil estimate alone gives positivity for p>=1783, leaving the intermediate prime census genuinely necessary."
+      ],
+      "reasoning": "The new finite classification is not an immediate corollary of general large-field bounds or quartic results: for example, p=41 is quartic-covered but octic-not-covered. The exact cutoff and octic exception cardinalities require the explicit finite sweep, supported by independently implemented power computations.",
+      "searches": [
+        "octic power residues twofold additive basis of F_p threshold 769 761",
+        "k=8 modular Waring two summands eighth powers sharp exceptional primes",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+        "https://arxiv.org/abs/2009.09518"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For every prime p, alpha_8(p)=p is equivalent to H_8(p)+H_8(p)=F_p, and also to the two-term modular Waring number gamma(8,p) being at most two; this equivalence is explicit in the 2023 article, Section 7.",
+        "The exact octic exceptional list has 11 p congruent to 1 mod 8 plus three known quartic-branch primes."
+      ],
+      "reasoning": "Searches included algebraic sumset, polynomial congruence, Waring-number and Fermat-curve formulations, not solely the headline theorem. The 2023 general framework does not state the octic exception census; an explicit general recipe for computing a sumset does not itself give the exact 761 last obstruction without the new exhaustive finite computation.",
+      "searches": [
+        "x^8+y^8 congruence representation modulo primes exception 761 threshold 769",
+        "prime-field sumset H8+H8 eighth power residues exact exceptional spectrum",
+        "x^8+y^8 mod p complete additive covering exceptional primes",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 article Section 6 tabulates fourth/fifth/sixth-power residue counts, including known fourth-power exceptional primes 5,13,29; it does not print an eighth-power list.",
+        "The exact 14-entry eighth-power count table in RESULT.md was obtained by an exhaustive locally replayed checker, with no bibliographic exact counterpart located."
+      ],
+      "reasoning": "The quartic values for 5,13,29 are already tabulated and are credited. For primes congruent to 1 mod 8, the eighth-power subgroup is a proper subgroup of the quartic powers, so quartic tables are not a substitute. No exact eighth-power census or stronger matching database table was found in the checked sources.",
+      "searches": [
+        "exceptional primes 5 13 17 29 41 73 89 97 113 137 233 257 337 761 all eighth-power sums over prime fields",
+        "complete exceptional primes for sums of two eighth powers finite fields",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf"
+      ]
+    },
+    "rationale": "Arias--Borja--Anaya 2023, Corollary 21, guarantees full eighth-power coverage only for p>2401; Section 6 settles fourth-, fifth- and sixth-power cases but not the 11 genuinely eighth-power exceptional primes p congruent to 1 mod 8. The fourth-power branch p=5,13,29 is explicitly credited as known. Bergelson--Best--Iosevich 2020 supplies general large-field existence, not a sharp prime-field octic census. Direct searches for octic sums, twofold eighth-power sumsets, 761/769 threshold and modular Waring aliases located no covering result. Uncatalogued equivalent work and a potentially relevant unread 2022 thesis remain risks.",
+    "residual_risks": [
+      "The 2022 Anaya thesis was not accessed in full.",
+      "An unindexed or synonymously titled exact eighth-power census might already exist.",
+      "The exact exception table depends on reproducible finite exhaustive calculation; an independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general eventual coverage and explicit k=4/5/6 results; no exact k=8 exception table; fully covers the p=5,13,29 fourth-power branch.",
+        "evidence": [
+          "Corollary 21 supplies p>(k-1)^4 in the two-variable case.",
+          "Section 6 lists k=4,5,6, and Theorem 24 tabulates p=5,13,29.",
+          "Section 7 introduces gamma(k,n) modular Waring number."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+        "material_read": "Full-text sections 1 through 7, with detailed reading of Corollary 21, Theorem 24, Theorem 25, Proposition 27 and modular Waring definitions",
+        "method": "Open-access full PDF text inspected with page screenshot and section searches",
+        "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+        "trigger": "Same invariant alpha for x^k+y^k and possible exact octic classification"
+      },
+      {
+        "assessment": "Studies eventual two-dth-power coverage, but does not classify the octic prime-field exception set or sharp cutoff.",
+        "evidence": [
+          "Problem 1 asks for eventual representation as two d-th powers.",
+          "General large-field methods do not enumerate the exceptional p=761 obstruction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.09518",
+        "material_read": "Abstract, Problem 1, the large-field theorem statements and relevant proof framework",
+        "method": "Open-access preprint full-PDF text and page image inspected",
+        "title": "Sums of Powers in Large Finite Fields: A Mix of Methods",
+        "trigger": "Broad large finite-field two-power coverage might dominate the new statement"
+      },
+      {
+        "assessment": "Uninspected plausible source; novelty risk retained rather than declaring it noncovering.",
+        "evidence": [
+          "A later thesis bibliography explicitly cites S. Anaya (2022) under this title."
+        ],
+        "identifier_or_url": "S. Anaya, Universidad de Córdoba undergraduate thesis (2022), bibliographic citation in related work",
+        "material_read": "No full text available in searched open sources",
+        "method": "Bibliographic title and year cross-checked in accessible later literature; no contents assumed",
+        "title": "Conteo de enteros representables como sumas de potencias k-ésimas módulo n",
+        "trigger": "An earlier work by a coauthor of the 2023 article may contain more examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac0ef6cf-75f0-4259-b6d2-243c83ed727a",
+  "value": {
+    "rationale": "The two-term modular Waring surjectivity problem is natural and directly motivated in the 2023 paper. The complete eighth-power prime classification provides a sharp permanence threshold p=769, an explicit last obstruction p=761 and 11 genuinely octic exception counts not implied by the quartic special case. It closes a precise finite gap between classical eventual existence and exact prime-field behavior; a complete classification is valuable without a downstream theorem.",
+    "status": "PASS"
+  }
+}
