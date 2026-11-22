@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "Exact symbolic expansion verifies the error-coordinate ODE and Lyapunov polynomial identity. Positive forcing in the height equation controls negative \\(z_0\\) by an exponential lower bound. Gronwall gives global E decay, completeness follows from finite-time boundedness of \\(x,u,w\\), and x integrates to a limit with explicit tail. Measure and compact-set statements follow respectively by dominated convergence and backward preimage comparison. The transverse matrix has explicitly computed trace and determinant; \\(\\gamma<0\\) yields positive trace for some s. The checker verifies critical algebra but is not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source Proposition 4.4(1) treats local normal spectra for general balanced coefficients, but does not imply nonlinear global basin behavior.",
+        "Closest quadratic Lorenz-like convergence result addresses another vector field."
+      ],
+      "reasoning": "A general local eigenvalue classification cannot imply global forward completeness or global convergence; the exact beta-and-gamma dissipation identity is necessary. No inspected theorem in the same model has stronger global coverage for gamma>0.",
+      "searches": [
+        "Wang Ke Pan Su cubic Lorenz-like system b1=0 b2=-c b4-b3 c=2a b3 positive globally attracting parabolic equilibria z nonnegative",
+        "Haijun Wang Guiyao Ke Jun Pan Qifang Su 2023 cubic Lorenz-like c=2a b1=0 b2=-c b4-b3 b3>0 globally exponentially attracts parabolic curve every real initial condition",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-global-stabilization-and-logarithmic-critical-relaxation-i--6e81d619c507"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1038/s41598-023-33826-4",
+      "https://pubmed.ncbi.nlm.nih.gov/37095193/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-global-stabilization-and-logarithmic-critical-relaxation-i--6e81d619c507",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-parabolic-confinement-of-bounded-complete-trajectories-in-a-lore--6f4764b80cf0",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-monotone-radial-law-excludes-recurrent-chaos-in-the-yang-liu-c--e5bf26b57123"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang et al. Proposition 4.4(2): b1=b3=0, b2=-cb4, c=2a; Lyapunov U derivative and bound.",
+        "Wang et al. Proposition 4.4(1): transverse trace/determinant formula for general parabolic equilibria.",
+        "New symbolic expansion: E_dot=-2a(a+gamma*z)u²-2a beta w², plus z(t)>=-max(0,-z0)e^-2at."
+      ],
+      "reasoning": "At gamma=0 the prior theorem is a special case; for gamma>0 its hypotheses are false. The original local spectrum is compatible but insufficient for the new all-real nonlinear bound. For gamma<0 the trace sign is directly recoverable from prior spectral formula and therefore treated as a scope delimiter, not independent novelty.",
+      "searches": [
+        "https://doi.org/10.1038/s41598-023-33826-4",
+        "Wang Ke Pan Su cubic Lorenz-like system b1=0 b2=-c b4-b3 c=2a b3 positive globally attracting parabolic equilibria z nonnegative",
+        "3D cubic Lorenz-like global convergence to parabolic equilibrium curve nonzero xz coupling b3 Lyapunov energy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact error-form identity u_dot=-(a+gamma*z)u-beta*y*w appears upon setting u=y-x, w=2az-x² in the specified source model.",
+        "Source Proposition 4.4(2) shows the Lyapunov expression only at gamma=0."
+      ],
+      "reasoning": "The source equilibrium-parameter alias is c=2a, b1=0, b2=-cb4-b3. The transformed global error estimate for every positive gamma is not equivalent to the paper’s gamma=0 restriction. Other searched variable aliases produced unrelated systems.",
+      "searches": [
+        "dot x=a(y-x) dot y=b2 yz+b3 xz+b4 x²y dot z=-c z+y² parabolic continuum z>=0 asymptotic stability",
+        "dot x=a(y-x) dot y=-g z(y-x)-b y(2az-x²) dot z=-2az+y² global asymptotic equilibrium positive g",
+        "https://doi.org/10.1038/s41598-023-33826-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Table 3 describes local equilibrium types using trace and determinant, not a census of trajectories or measures.",
+        "The other indexed record concerns a different Lorenz-like flow."
+      ],
+      "reasoning": "No exact recurrence database, fixed-point table or numeric parameter sheet can dominate a theorem classifying all global trajectories of this polynomial ODE for a positive continuous parameter half-ray.",
+      "searches": [
+        "3D cubic Lorenz-like global convergence to parabolic equilibrium curve nonzero xz coupling b3 Lyapunov energy",
+        "global exponential convergence to parabolic equilibria for cubic Lorenz-like flow nonzero xz yz coupling explicit negative height transient rate",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-parabolic-confinement-of-bounded-complete-trajectories-in-a-lore--6f4764b80cf0"
+      ]
+    },
+    "rationale": "The primary article [DOI 10.1038/s41598-023-33826-4] restricts its nonlinear global Lyapunov theorem (Proposition 4.4(2)) to \\(b_3=0\\), while its more general Proposition 4.4(1) provides local spectral information only. The present original core is a full unbounded half-ray \\(b_3>0\\) with explicit all-real-data exponential control, selected-limit retraction and complete stationary/compact recurrent classification, not implied by the source’s local result. Related accessible published claims were compared for implication and did not cover this cubic system. The negative-sign trace observation is subsumed by the prior local formula and is not claimed separately as novel.",
+    "residual_risks": [
+      "Complete primary-paper PDF was not available for page-by-page inspection, although the key theorem, parameter restrictions, equations and proof were read in indexed form; uninspected appendices could contain extra material.",
+      "Other unindexed publications or mathematically equivalent polynomial normal forms may already imply the same positive-coupling extension.",
+      "This is not an independent publication-priority or mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Global proof explicitly takes b3=0; b3>0 is excluded by its hypotheses, while the local spectrum already implies the negative-gamma trace boundary",
+        "evidence": [
+          "https://www.nature.com/articles/s41598-023-33826-4",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10126056/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-33826-4",
+        "material_read": "Openly indexed article text for the vector field (equation (2)), Proposition 4.1, Proposition 4.4 (both clauses and displayed proof including equations (11)–(12)), the reported Table 3 trace/determinant formulas, Remarks 4.5 and conclusions",
+        "method": "Read indexed primary article passages and check their equations and precise parameter restrictions; direct complete HTML/PDF access was unavailable",
+        "title": "Modeling, dynamical analysis and numerical simulation of a new 3D cubic Lorenz-like system",
+        "trigger": "Same exact six-parameter polynomial ODE, the parabola of equilibria, and an existing Lyapunov theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4475762f-ad24-41a9-b621-ca4c3dc6a12b",
+  "value": {
+    "rationale": "The motivating original 2023 article explicitly sought global stabilization of its parabolic equilibrium manifold, and its only provided Lyapunov proof sets the physically substantive xz coupling \\(b_3\\) to zero. Retaining all positive \\(b_3\\) on the natural equilibrium surface, with no restriction on the initial height, gives a useful parameter half-space of rigorous global nonchaotic dynamics, an explicit transient cost, a continuous phase-selection retraction, and an exact obstruction to universal normal stability on the negative side. These are motivated dynamical distinctions rather than a routine numerical slice.",
+    "status": "PASS"
+  }
+}
