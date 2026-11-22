@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact rational update reduces to 1/(1+kappa h v); the algebraic identity |v-q|<=|phi/h-1|=O(h) holds uniformly over every nonnegative offset. Elementary log-error bound, compactness and injectivity of the exponential rigorously give the all-resolution phase diagram and sharp iff h alpha->0. Finite exact-rational code is supplementary, not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The mPDeC result concerns a two-cell flux-based finite-correction scheme as the offset tends to infinity at fixed positive timestep, not the explicit NSFD gain-loss map as h decreases",
+        "The general NSFD overview motivates positive discretizations but no specific sharp resolution-gauge phase diagram was identified"
+      ],
+      "reasoning": "A general positivity or fixed-representation consistency result is weaker than a uniform-in-offset classification and cannot imply the counterexample with alpha_h proportional to 1/h. Related offset sensitivity for mPDeC has different recurrences and limits.",
+      "searches": [
+        "Research index query: gain-loss parameterization numerical ODE integrator splitting nonunique decomposition arbitrarily large common production destruction causes inconsistent limit as time step tends zero",
+        "Published record ID 2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c",
+        "Mickens nonstandard finite differences 2002 overview DOI 10.1080/1023619021000000807"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.10858v1 primary full manuscript",
+      "https://www.researchgate.net/publication/409070839_Structure-Preserving_Neural_ODEs_via_Nonstandard_Finite_Difference_Discretization",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-time-aliases-a-cubic-third-time-cusp-and-opposite-long-horiz--723be3ffe5ad"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary fixed-model O(h) consistency holds for any fixed alpha, recovered by h alpha -> 0; constants may depend on alpha",
+        "Split exponential–Euler result classifies two-time inverse aliases under real a,b and direct operator maps, not the NSFD positive gain-loss recursion",
+        "mPDeC flux-offset theorem uses fixed-h, large-offset, finite number of corrections and different, coupled linear solves"
+      ],
+      "reasoning": "Neither earlier statement entails the uniform NSFD shadow error nor the attainable cube of decay exponents at refining h; conversely this theorem does not extend their non-NSFD methods or replace the original consistency proof.",
+      "searches": [
+        "arXiv:2607.10858v1 Proposition 1 fixed gain/loss consistency",
+        "Published record ID 2026/11/2/SCOPE-two-time-aliases-a-cubic-third-time-cusp-and-opposite-long-horiz--723be3ffe5ad",
+        "Published record ID 2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.10858v1, equations (1)-(3) and Proposition 1; fixed representation consistency, no complete variable-gauge limit family identified",
+        "Full author-posted primary manuscript https://www.researchgate.net/publication/409070839_Structure-Preserving_Neural_ODEs_via_Nonstandard_Finite_Difference_Discretization"
+      ],
+      "reasoning": "Equivalent statements would determine subsequential rates theta from h alpha (and give exact uniformity); no such theorem appeared in the inspected primary text or searched mathematical descriptions. Search absence does not certify uniqueness.",
+      "searches": [
+        "Research index query: nonstandard finite difference positivity preserving neural ode gain loss gauge representation resolution dependence shadow dynamics sharp h alpha limit",
+        "Research index query: Zinihi Ehrhardt Sidi Ammi nonunique gain loss representation alpha_h 1/h convergence phase continuum effective decay",
+        "web: nonstandard finite difference same ODE different nonnegative production destruction decompositions different numerical trajectories gauge invariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed entry 2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c has a different numerical update and limit regime",
+        "No covering exact formula was found in the inspected published sources; absence of a match is not a uniqueness guarantee"
+      ],
+      "reasoning": "No exact covering database entry or table was found. Completeness was not asserted for all possible external results.",
+      "searches": [
+        "Research index query: modified Patankar nonstandard finite difference decomposition dependence identical ODE positive source sink large common offsets",
+        "Research index query: nonstandard finite difference positivity preserving neural ode gain loss gauge representation resolution dependence shadow dynamics sharp h alpha limit",
+        "Published related numerical-analysis records searched for gain-loss / nonstandard finite difference / gauge / shadow flow"
+      ]
+    },
+    "rationale": "Compared the full July 12 2026 source equation (3) and its fixed-representation Proposition 1 with the sharp gauge-growth phase classification; no statement there gives the uniform offset-independent bound, all shadow rates, or the necessary and sufficient h alpha criterion. A separately published mPDeC flux-offset stalling theorem treats a different numerical method at fixed timestep and its conclusion does not imply the NSFD mesh-limit classification. The earlier split exponential–Euler alias theorem concerns two-time parameter inference rather than resolution dependent gain/loss.",
+    "residual_risks": [
+      "Equivalent mesh-dependent decomposition asymptotics could occur in unexamined classical nonstandard discretization literature; search results do not establish exhaustive priority",
+      "Claim does not extend to general nonlinear or coupled neural dynamics; rate offsets are unbounded along some realizations",
+      "Foundational 2002 general article was available only at abstract level and was not asserted to be fully checked"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Published unconditional positivity and fixed-smooth-representation first-order consistency do not cover unbounded mesh-dependent offset families or the exact phase classification",
+        "evidence": [
+          "Full manuscript lines 193-319 (gain-loss representation, scheme and fixed-representation consistency)",
+          "Full manuscript lines 323-357 (positivity), 379-441 (distinct Patankar extension)"
+        ],
+        "identifier_or_url": "arxiv:2607.10858v1; https://www.researchgate.net/publication/409070839_Structure-Preserving_Neural_ODEs_via_Nonstandard_Finite_Difference_Discretization",
+        "material_read": "Author-posted full manuscript sections 1–6, including equations (1)-(3), Proposition 1 and Theorem 2, Sections 4-5 and references",
+        "method": "Full text inspected with equations and proof passages compared by hypotheses and conclusion",
+        "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+        "trigger": "Exact originating integrator and fixed-model convergence theorem"
+      },
+      {
+        "assessment": "Different positive method, fixed-step offset infinity and finite corrections; no theorem for NSFD resolution-dependent gains",
+        "evidence": [
+          "Its endpoint approaches identity as flux offset C -> infinity at fixed step h and fixed finite correction count, unlike h->0 limit family"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c",
+        "material_read": "Entire published RESULT.md: statement, assumptions, derivation, accuracy consequences, references and limitations",
+        "method": "Read full published theorem and exact mPDeC stage recurrence",
+        "title": "A flux-offset gauge-stalling law for finite-correction modified Patankar deferred correction",
+        "trigger": "Potential strong precedent for representation-gauge numerical stalling"
+      },
+      {
+        "assessment": "Distinct two-time inverse problem for split exponential–Euler maps; does not cover NSFD gauge shadow limits",
+        "evidence": [
+          "Two observed maps have two real decompositions and cubic cusp; not positive gain-loss map or continuum-rate cube"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-time-aliases-a-cubic-third-time-cusp-and-opposite-long-horiz--723be3ffe5ad",
+        "material_read": "Full published RESULT.md including two-branch inverse classification, proof and limitations",
+        "method": "Compared operator family, quantifiers and conclusions",
+        "title": "Two-time aliases, a cubic third-time cusp, and opposite long-horizon signs for split exponential–Euler maps",
+        "trigger": "Potential equivalent parameter identifiability obstruction"
+      },
+      {
+        "assessment": "Not used to conclude full-document noncoverage; residual historical risk preserved",
+        "evidence": [
+          "General nonstandard denominator and positivity-preservation methodology"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/1023619021000000807",
+        "material_read": "Bibliographic/abstract-level material, not entire article",
+        "method": "Title and accessible abstract-level context only",
+        "title": "Nonstandard finite difference schemes for differential equations",
+        "trigger": "Foundational nonstandard discretization context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a1bf481-49cb-4b40-a322-45ecc8e9552d",
+  "value": {
+    "rationale": "An intrinsically motivated resolution-transfer issue for independently parameterized positive gain-loss dynamics receives a complete classification: despite identical physical vector fields and strict numerical positivity, every coordinate can approach any effective decay rate in [0,kappa], with the exact growth condition for restoring the correct flow. This addresses the mathematical gap between fixed-representation consistency and representation-uniform consistency, not a merely arbitrary numerical parameter slice.",
+    "status": "PASS"
+  }
+}
