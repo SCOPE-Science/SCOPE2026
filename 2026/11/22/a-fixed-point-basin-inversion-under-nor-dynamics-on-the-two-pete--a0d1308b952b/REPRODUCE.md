@@ -1,0 +1,3 @@
+# Reproducibility
+
+The graph `GP(10,k)` uses vertices 0,...,9 for outer `u_i` and 10,...,19 for inner `v_i`. Each is adjacent to its two cycle/step neighbors and its paired outer/inner spoke. `nor20.cpp` prints exact full dynamics and basin distributions for `k=2` (dodecahedral) or `k=3` (Desargues); it requires a C++17 compiler only. `nor20_verify.py` is a separate vectorized implementation requiring Python 3 and NumPy, and prints the same counted basin spectra. Text census files are exact reference output; they are not substitutes for recomputing the transition maps. No random seeds or external datasets are needed.
