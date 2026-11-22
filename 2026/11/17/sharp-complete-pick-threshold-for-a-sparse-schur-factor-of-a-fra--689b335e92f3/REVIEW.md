@@ -1,19 +1,21 @@
-# Review: sharp complete-Pick threshold for a sparse Schur factor
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full all-degree coefficient argument was reconstructed: normalized positivity of both factors, nonvanishing, reduction to \(1-1/K\), coefficient identity \(c_n-\tau c_{n-m}\), and strict increase of \(c_n/c_{n-m}\) for \(n\ge m+1\). Endpoint \(\alpha=1\), equality at \(\tau=T_{\alpha,m}\), gamma asymptotics, and the positive concavity-obstruction number \(151/551\) were separately checked. The exact-rational checker passes 41970 supplementary tests; these are not substitutes for the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, with risks)
+Correct under the explicitly normalized radial complete-Pick criterion. Both factors have nonnegative positive-kernel expansions and are nonvanishing on the disk. For F=1-1/K the coefficients at n>=m+1 are c_n-tau c_(n-m), c_n=alpha Gamma(n-alpha)/[Gamma(1-alpha)Gamma(n+1)]; their ratio is the increasing product prod_{j=1}^m(n-j-alpha)/(n-j+1). Thus n=m+1 gives the necessary and sufficient all-degree cutoff, not a finite-experiment inference. The Hardy alpha=1 polynomial has negative degree m+1 for tau>0. The gamma ratio gives the claimed decay. Exact coefficient checks for nine rational (alpha,m) pairs independently verified the bound and first obstruction; exact nonconcavity diagonal equals 151/551>0. Normalizations, tau boundary and m>=2 were checked.
 
-The closest full primary manuscript is H. Sau, arXiv:2606.09680, whose complete-Pick-*factor* conclusion is weaker than complete Pick of the entire kernel. Its Example 3.2 concerns monomial numerator defects. The closest published published-finding corpus classification at `2026/11/8/SCOPE-sharp-complete-pick-phase-diagram-for-monomial-defects-of-power--a614d1883358` also studies a **numerator** monomial defect, and its threshold does not imply the **denominator** Schur-product threshold. Targeted published-finding corpus and web searches for aliases, general Pick inequalities, and reciprocal coefficient conditions found no covering family statement. Older equivalences and unindexed literature are a residual priority risk; an original 2024 characterization was compared through its abstract and the theorem quoted in Sau, not directly in full text.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem exhibits an exact stability boundary for the Schur product of two individually complete-Pick kernels, identifies the first failure degree and its large-order decay, and separates complete Pick from concave operator-shift behavior by an explicit positive-parameter example. The kernel family is natural to complete-Pick factorization, not an arbitrary finite data slice.
+Best-of-knowledge originality for the precisely scoped surviving final claim. Same-object prior and stronger formulations were compared by theorem implication, not titles; preexisting subclaims are credited rather than treated as novel.
 
-## Scope and limitations
+## value
 
-Only normalized single fractional-power kernels with one monomial pullback factor and real nonnegative amplitude are classified; there is no claim about general Schur factors, all concavity parameters, or independently verified publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Motivated sharp stability boundary for Schur products of two separately complete-Pick kernels, a nontrivial kernel-property failure not captured by mere existence of a Pick factor. The degree-localized first obstruction, asymptotic decay and explicit distinction from concave shifts give structural information beyond a relabelled general criterion; narrow but natural family and all-order classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
