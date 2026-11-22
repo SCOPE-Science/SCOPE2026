@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact t-deletion intersection criterion follows from matching rm-t symbols: at most t original blocks contain a source deletion, and at most t additional blocks straddle a receiver deletion, so r>=2t+1 forces a whole consecutive block to align. The signed index displacement is at most t, and conversely a signed cyclic shift of size <=t supplies a length rm-t common subsequence. Therefore components are precisely cycle powers on the rotation classes, of cardinality their least periods d. Cyclic gaps >=t+1 show independent-set maximum k_d; marked-origin gap compositions count all optimum subsets h_d; Möbius inversion counts primitive classes. For fixed q,t, primitive length-m words dominate to give rate 1/(t+1). Actual Python checker independently forms all deletion sets for 16 parameter triples and all codebooks for universes <=16, with no counterexamples. Finite tests are not substituted for the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sala et al., arXiv:1604.03000v1: general reconstruction and common-supersequence extremal bounds, not an exact repeated-block graph.",
+        "Sloane, arXiv:math/0207197v1: deletion shadows and independent-set formulation for general codes."
+      ],
+      "reasoning": "General bounds or algorithmic characterizations may apply but do not determine which pairs in the repeated-block message family are adjacent, let alone all maximizing subcodes. The new theorem specializes these general frameworks nontrivially.",
+      "searches": [
+        "block power code U repeated 2t+1 times t deletion ambiguity graph rotation within t positions maximum independently decodable",
+        "repetition strings multiple block copies common subsequence t deletions independent set power cycles necklaces",
+        "arxiv:1604.03000v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207197v1",
+      "arxiv:1604.03000v1",
+      "doi:10.1137/080730093",
+      "published-finding corpus:2026/11/8/SCOPE-the-one-or-two-maximal-common-subsequence-law-for-disjoint-alpha--a809100b9cd3",
+      "published-finding corpus:2026/11/8/SCOPE-exact-deletion-ambiguity-spectra-and-phase-ordering-for-cyclic-a--658d35d30c24",
+      "published-finding corpus:2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane provides general deletion-shadow packing vocabulary, not this exact phase graph.",
+        "Sala et al. bound general supersequence intersections, not every pairwise t-deletion overlap in powers of arbitrary blocks.",
+        "The previous double-block one-insertion theorem cannot imply multi-deletion behavior after >=2t+1 repetitions."
+      ],
+      "reasoning": "A prior theorem would cover the claim only if it supplies exact pairwise overlap iff signed rotation <=t, including arbitrary repeated-letter blocks and subsequent cycle-power independent-set maximizers. No inspected source supplies such a statement or a stronger result entailing it.",
+      "searches": [
+        "repetition strings multiple block copies common subsequence t deletions independent set power cycles necklaces",
+        "single insertion ambiguity doubled word code UU adjacent cyclic rotations optimal subcodes",
+        "arxiv:math/0207197v1",
+        "arxiv:1604.03000v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The disjoint-alphabet conjugate-power theorem gives two maximal common scattered subsequences only when blocks have disjoint symbol alphabets, whereas here arbitrary blocks U,V share the same alphabet and confusion is by t deletions of U^r and V^r.",
+        "published-finding corpus:2026/11/8/SCOPE-exact-deletion-ambiguity-spectra-and-phase-ordering-for-cyclic-a--658d35d30c24 covers fixed-phase truncations of a permutation period, not arbitrary q^m messages."
+      ],
+      "reasoning": "LCS>=rm-t equivalently means t-deletion shadows intersect; its phase-shift classification for arbitrary messages and optimal independent codebook counts are not furnished by either of these restricted statements.",
+      "searches": [
+        "block power code U repeated 2t+1 times t deletion ambiguity graph rotation within t positions maximum independently decodable",
+        "repetition strings multiple block copies common subsequence t deletions independent set power cycles necklaces",
+        "published-finding corpus:2026/11/8/SCOPE-the-one-or-two-maximal-common-subsequence-law-for-disjoint-alpha--a809100b9cd3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible prior research record contains an earlier exact one-insertion result for the doubled block U^2; it has a different channel and length threshold.",
+        "The published permutation-power embedding-multiplicity spectrum addresses words formed from a cycle of distinct symbols; it does not enumerate all q^m generic message codebooks."
+      ],
+      "reasoning": "The finite checker enumerates sample capacities independently, but this result claims an infinite parameter formula, not new table entries. The t=1 specialization is not separately claimed new.",
+      "searches": [
+        "single insertion ambiguity doubled word code UU adjacent cyclic rotations optimal subcodes",
+        "single insertion ambiguity doubled word code UU adjacent cyclic rotations optimal subcodes",
+        "published-finding corpus:2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997"
+      ]
+    },
+    "rationale": "The assessed statement is the all-alphabet, every-m-and-t exact confusability characterization and enumeration of all optimal message subcodes after at least 2t+1 whole-block repeats. The closest known published related findings describe cyclic-periodic word overlaps or the one-insertion doubled-block case, rather than this arbitrary-message t>=2 deletion graph. General deletion-ball extremal theorems and classical necklaces do not entail the complete restricted graph, nor do symbol-level duplication channels. Inaccessible full text of one related article and imperfect historical indexing remain genuine residual priority risks.",
+    "residual_risks": [
+      "Earlier unindexed identical theorem may exist.",
+      "The full text of the 2010 repetition-error article was not inspected; available synopsis indicates a different channel.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General deletion framework, not exact arbitrary multi-deletion block-power graph",
+        "evidence": [
+          "Definitions and deletion-shadow framework; no message-power factorization of radius-t graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Full accessible HTML relevant definitions, code bounds, and graph discussion",
+        "method": "Read and compare mathematical statements for implications to repeated-block powers",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Foundational deletion-ball and optimal-code context"
+      },
+      {
+        "assessment": "General extremal bounds, not full family-specific confusability and optimal codebook enumeration",
+        "evidence": [
+          "Primary common supersequence extremal theorems do not classify arbitrary message powers U^r,V^r."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.03000",
+        "material_read": "Accessible full primary article including introduction, named extremal theorem and deletion reconstruction discussion",
+        "method": "Read theorem hypotheses and conclusions and compare exact intersection characterization",
+        "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+        "trigger": "General common-supersequence bounds plausibly stronger than a restricted deletion family"
+      },
+      {
+        "assessment": "Disjoint-alphabet two-block conjugate powers only; does not cover arbitrary q-ary message bases U,V",
+        "evidence": [
+          "Equal-power case common-subsequence downset union of two overlaps under alph(A) disjoint alph(B)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-the-one-or-two-maximal-common-subsequence-law-for-disjoint-alpha--a809100b9cd3/RESULT.md",
+        "material_read": "Complete public RESULT.md statement, proof, scope and limitations",
+        "method": "Read full displayed result and test hypothesis differences",
+        "title": "The one-or-two maximal-common-subsequence law for disjoint-alphabet conjugate powers",
+        "trigger": "Conjugate powers as plausible equivalent formulations"
+      },
+      {
+        "assessment": "Only truncations of a permutation period with pairwise distinct symbols, not arbitrary messages of length m",
+        "evidence": [
+          "Greedy distinct-symbol periodicity and fixed phase are essential to its enumeration."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-deletion-ambiguity-spectra-and-phase-ordering-for-cyclic-a--658d35d30c24/RESULT.md",
+        "material_read": "Complete public RESULT.md theorem, assumptions, proof, limitations",
+        "method": "Read exact domain and see whether it dominates arbitrary repeated blocks",
+        "title": "Exact deletion-ambiguity spectra and phase ordering for cyclic alphabet words",
+        "trigger": "Exact multi-radius overlap between rotated periodic words"
+      },
+      {
+        "assessment": "Local symbol-duplication error model appears different; unread full-text residual priority risk remains",
+        "evidence": [
+          "Available abstract classifies repetition-error correcting sets and prefixing, not the claimed complete whole-block deletion graph."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/080730093",
+        "material_read": "Open repository abstract and citation; complete text unavailable due access limitation",
+        "method": "Check stated channel and distinguish local repetition errors from deletion after whole-message replication",
+        "title": "Repetition Error Correcting Sets: Explicit Constructions and Prefixing Methods",
+        "trigger": "Possible direct predecessor with repetition in title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbec9b26-0b49-4ea8-b650-9e95373a4d73",
+  "value": {
+    "rationale": "Repeated message blocks are a natural synchronization code under adversarial deletion. The theorem proves a structural obstruction: cyclic phase shifts of at most t remain confusable regardless of additional whole-message copies, and gives exact optimal payload capacity and the complete number of optimal q-ary subcodes for every block length. In particular, the limiting retained-message fraction is a sharp 1/(t+1). This is a natural all-length family classification rather than a routine single numeric evaluation or a restatement of primitive-necklace enumeration.",
+    "status": "PASS"
+  }
+}
