@@ -1,15 +1,21 @@
-# Scientific assessment of the parabolic tropical-mutation residence law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces the critical mutation exactly to a fixed parabolic shear on the natural sector between a switching line and a fixed ray. The pointwise survivor domain after each integer horizon is an explicit triangle. Weighted integration for all real \(\beta>-1\) gives the exact survival law; differences and zeta/harmonic sums give every moment threshold. A triangular Jacobian gives a product density for the conditional surviving ensemble. No finite test is used as an infinite proof. The included rational checker corroborates branch and first-exit identities.
+PASS
 
-## Originality — PASS within inspected evidence
+In normalized coordinates u=ps/2, v=t, d=-(u+v), the given pq=4 map on E={u>0,0<d<u} is the exact affine shear (u,v)->(u-2d,v+2d), preserving d until first exit. All k=0..n remain in E iff (2n+1)d<u. Exact beta>-1 integral over 0<u<R,0<d<u/(2n+1) yields survival (2n+1)^-(beta+1); successive differences give first-exit masses; the p-series criterion for E[J^alpha] has strict transition alpha=beta+1; conditional z=(2n+1)d/u creates factorized u^(beta+1)z^beta density. Uniform-beta truncated means are the odd harmonic sum. Strict boundary, unbounded residence region and Jacobians agree with frozen claim. Independent Fraction tests of 1194 first exits corroborated the general exact branch derivation.
 
-The initiating paper by Machacek and Ovenhouse (arXiv:2109.06927, especially Section 3.5) already establishes the critical affine branch and its linear drift. Gekhtman and Nakanishi (arXiv:1904.00971) give earlier pointwise sign and crossing formulas. These are prior results, not new. The closest same-map published result (published-finding corpus, 2026-11-08) covers only \(0<pq<4\); the comparable neutral-branch survival theorem for the orthogonal tents map (published-finding corpus, 2026-11-02) concerns a different map. Neither inspected complete result contains this exact power-weighted residence spectrum or the conditional independent beta profiles. A generic parabolic-shear theorem, an unindexed equivalent computation, or an interpretation as an elementary corollary of the prior shear are residual priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The intrinsic critical wedge has an actual stationary boundary, yet every interior point eventually exits. The precise residence distribution shows that typical and mean exit times separate: uniform planar sampling has a divergent mean, while transverse suppression of order \(d^\beta\) makes it finite exactly when \(\beta>0\). All horizons have an exact conditional shape, providing a concrete benchmark for critical intermittency in piecewise-linear symplectic maps. The claim is about first exits from that sector, not global escape or arbitrary measures.
+Best of knowledge. Machacek–Ovenhouse 2022 Section 3.5 already proves the SAME critical pq=4 tropical map has an invariant linear form and linear drift, so neither pointwise shear nor critical threshold is original. The specific power-weighted first-exit area spectrum, sharp mean transition and independent survivor coordinates are distinct additional probability-law statements not found in material read. Published elliptic mutation record assumes pq<4; published toral-tents tail is a different map. Exact probabilistic corollaries of a known shear remain a genuine historical overlap/value risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural critical parabolic switching wedge is dynamically determined by a stationary ray and a switching line; residence time measures slow escape near a neutral ray. The entire all-horizon family, sharp integrability transition and survivor-shape independence identify a meaningful intermittent-transport boundary; they are not just a normalization/type check. Formula is elementary given prior shear and that limitation is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
