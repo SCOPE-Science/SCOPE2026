@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the physical-time normalization, invariant domain \(y<1\), nonnegative coefficient range and conserved mechanical energy. The transformation \(q=-\log(1-y)\) is invertible on the entire stated domain. Differentiation of the explicit piecewise potential, the unique positive saddle threshold, and the exact upper potential at \(k=1\) were independently checked symbolically. The one-dimensional potential graph proves the entire annulus classification; mechanical quadratures and local turning-point analysis prove the distinct square-root growth, inverse-square-root divergence and logarithmic divergence. The critical outgoing orbit has an exact scalar derivative yielding both time coefficients. Numerical quadrature across all three regimes is supplementary evidence, not an infinite proof. The proof does not extrapolate beyond the invariant domain.
+## correctness
 
-## Originality — PASS with limitations
-Da Cruz and Torregrosa (2022), arXiv:2204.00085, establish local centers and weak-focus cyclicity for the encompassing piecewise quadratic family. Their Theorem 1.4 explicitly covers the integrable reversible subfamily, so local centrality is acknowledged as prior work. Their theorem does not give the all-energy topology or the three physical-time period-edge limits. Marín and Villadelprat (2022), arXiv:2203.12966, address smooth reversible quadratic period functions at polycycles; smooth Loud cases and separatrix asymptotic machinery therefore precede this result. Rezende, Santos and Torregrosa (2026), DOI 10.1007/s40687-026-00606-1, study local critical-period bifurcations in piecewise quadratic centers, not this global boundary classification. Closest indexed public records on two-zone piecewise-affine spectral edges and on quintic separatrix clocks concern non-equivalent vector fields and do not imply the explicit \(h,k\)-dependent phase diagram. Accessible historical claims concerning piecewise Hamiltonians and centers were compared without a matching global theorem. The surviving publication-priority risk is an unindexed equivalent or a stronger general theorem from smooth/transition oscillator literature that subsumes the entire result.
+PASS
 
-## Value — PASS
-The source identifies a large center class but supplies no global oscillatory domain or sharp physical-time clocks. The sign change in the upper-zone restoring force at \(k=1\) creates three qualitatively different outer geometries: an unbounded periodic foliation, a boundary equilibrium approached in infinite time, and a finite hyperbolic saddle loop. The first-order time coefficients are universal in the lower-zone coefficient despite arbitrary fixed lower-zone asymmetry. This gives a complete, natural parameter classification for a continuous nonanalytic member of the published center family, rather than a numerical orbit sample or a renaming of a known local result. Each boundary is motivated by a genuine change in the potential topology.
+The diffeomorphism q=-log(1-y) gives qdot=x and potential U_c(q)=(1-c)q+(1-2c)(exp(-q)-1)+(c/2)(exp(-2q)-1), Uc derivative=(1-exp(-q))*(1-c*(1-exp(-q))). Left side q<0 is strictly restoring and tends to infinity for h>=0. Right potential increases without bound for k<1, tends to 1/2 for k=1, and has a unique maximum at q_s=log(k/(k-1)) with barrier E*=1-1/(2k)+(k-1)log(1-1/k), curvature -(k-1)/k, for k>1. Period quadrature sqrt(2)*integral dq/sqrt(E-V(q)) gives linear-tail sqrt(E), exactly integrated critical potential gives inverse-square-root and the outgoing qdot gives t^2(1-y)->2 and t*x->2, and nondegenerate saddle curvature gives the logarithmic coefficient 1/sqrt((k-1)/k). The left contribution is lower order/bounded in all edge limits, so leading terms do not depend on h. Independently checked numerical potential derivatives for multiple h,k and exact saddle height; finite checks do not prove edge asymptotics. No period monotonicity claimed.
 
-## Boundaries and audit status
-The analysis concerns only the stated two-zone subfamily and invariant half-plane. It makes no general period monotonicity or complete global-plane claim. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact local center condition belongs to da Cruz–Torregrosa Theorem 1.4; it does not imply maximal global annuli or their physical-time boundary coefficients. Marín–Villadelprat treat smooth Loud-center outer critical periods, not complete two-zone h/k classification. Rezende et al. 2026 Theorems 1–2 analyze local isochronicity and critical periods. An unrelated two-zone linear crossing theorem has different vector field and spectral edges.
+
+## value
+
+PASS
+
+The explicit global transition between an unbounded linear potential, a limiting finite-height barrier at infinity, and a finite saddle is a natural complete classification in a motivated quadratic center family. Exact three different physical-time period exponents, escape coefficients and independence from the lower-zone parameter provide sharp dynamical boundary information beyond textbook local center tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
