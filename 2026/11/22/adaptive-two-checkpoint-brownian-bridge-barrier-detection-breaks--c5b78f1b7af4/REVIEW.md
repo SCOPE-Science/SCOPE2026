@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For any strictly positive normalized endpoint clearance, a Gaussian one-site optimization yields the exact conditional two-query policy. Gaussian integration and differentiation produce a strictly positive explicit right derivative at the central first-query time and the opposite left derivative. Endpoint continuity and midpoint improvement force a reflected pair of off-center global optima. All boundaries and quantifiers are explicit in `RESULT.md`. The delivered `verification.py` passed deterministic checks; finite numerics supplement rather than replace the proof.
+
+**Originality — PASS, with historical risk.** Searches for two-step Brownian-bridge threshold detection and midpoint symmetry breaking in the mathematical-results index and scholarly literature did not identify a statement that implies the exact two-query functional or its universal cusp. Alabert--Caballero analyze nonadaptive minimum approximation, Calvin--Hefter--Herzwurm analyze asymptotic minimum approximation using a midpoint-based heuristic, and Hoel--Ragunathan analyze exit-time step discretization. The high-relevance Calvin--Hefter--Herzwurm original full text could not be fetched; the abstract and a detailed accessible synopsis were reviewed, so historical priority is provisional. The conditional bridge distribution and interval-crossing formulas are established background, not novelty claims.
+
+**Value — PASS.** The result supplies a structural, all-parameter counterexample to a natural balanced-first retrospective refinement rule under the two-evaluation constraint. The exact positive cusp derivative explains the mechanism, and the policy is implementable without numerical optimization of the second query. At normalized clearance \(c=1/2\), choosing first-time fraction \(1/3\) raises detection from about \(0.23572175\) to \(0.24646203\). The finite-budget, binary crossing-detection objective is distinct from asymptotic accuracy of estimating the minimum or an exit time.
+
+**Limits.** The setting is symmetric pinned Brownian bridges with noiseless offline conditional sampling; no unique off-center optimizer, non-Gaussian, asymmetric, larger-budget, or online extension is asserted. Priority outside inspected material is not established.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The one-interval Gaussian standardized-mean minimization gives unique conditional second sample. Its exact expectation equals the stated J_c. Differentiation at s=1/2 is justified by local Gaussian envelopes; cancellation of linear terms in the exponent gives the strictly positive Gamma(3/4) cusp slope and reflection its negative counterpart. Strict gain over the endpoint limit and continuity guarantee mirrored off-center global maxima. Standalone deterministic checker passed 322 supplementary tests; no finite computation substitutes for these deductions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoel and Ragunathan, arXiv:2208.11288, introduction and Theorems 2.7/2.10: strong error rates and costs for adaptive time-step schemes for diffusion exit times, not finite offline two-query exact detection.",
+        "Calvin, Hefter and Herzwurm, arXiv:1601.01276 accessible synopsis: arbitrary polynomial-rate asymptotic bounds under a sampled-minimum-error objective, with a midpoint-of-interval heuristic."
+      ],
+      "reasoning": "Asymptotic minimum-estimation and exit-time convergence rates are not pointwise two-query optima under a binary detection payoff. A general algorithmic rate theorem does not imply the exact one-sided gamma derivative nor the symmetry-breaking statement. The exact conditional-bridge law is only an input, not the claimed new step.",
+      "searches": [
+        "numerical detection missed excursions Brownian bridge optimal sampling barrier estimate maximal captured crossing fraction",
+        "adaptive bridge refinement one observation then optimally placed second checkpoint minimizing undetected downward excursion",
+        "web: adaptive monitoring of Brownian bridge barrier crossings two observations optimal sequential sampling detection probability",
+        "web: adaptive Brownian bridge optimization minimum sequential measurement two step first midpoint"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2208.11288; accessible HTML full paper read",
+      "https://mat.uab.cat/dpt/Publ/prep/p07_17.pdf; full accessible preprint sections inspected",
+      "https://arxiv.org/abs/1601.01276; original abstract and alternate detailed synopsis read, full text inaccessible",
+      "https://doi.org/10.1137/S0040585X97T989258; abstract scope read",
+      "published-finding corpus semantic searches listed in the four named objects",
+      "Accessible current-week original JSONL generation 124: recoverable titles/claims searched for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alabert--Caballero 2017 preprint, Section 5 (full accessible pages 9--10): nonadaptive point placements assessed by expected sampled-minimum error; does not optimize a conditional second query.",
+        "Calvin--Hefter--Herzwurm 2016: known interval-crossing probabilities guide their adaptive heuristic, and their performance theorem concerns large evaluation budgets, not the exact two-query, first-time symmetry-breaking property."
+      ],
+      "reasoning": "Known Brownian-bridge Gaussian marginals immediately provide the one-query calculus lemma, which is not independently presented as novelty. The strict cusp and forced off-center global first query require optimizing the second query *conditional on the realized first value* and differentiating its envelope. The located prior results neither state these quantifiers nor provide a stronger theorem from which they follow as a direct implication.",
+      "searches": [
+        "web: adaptive monitoring of Brownian bridge barrier crossings two observations optimal sequential sampling detection probability",
+        "web: Calvin Hefter Herzwurm 2017 adaptive approximation minimum Brownian motion PDF full text",
+        "two-stage adaptive Brownian bridge barrier crossing detection with two point evaluations first observation at midpoint is strictly suboptimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alabert and Caballero, arXiv:1511.05735 / 2017 accessible preprint, Sections 2, 5 and 6: minimum distributions and nonadaptive minimum-value approximation; adaptive algorithm postponed.",
+        "Calvin, Hefter and Herzwurm, arXiv:1601.01276: abstract and detailed accessible synopsis discuss adaptive sampled-minimum approximation, not the two-query alarm objective or cusp equation."
+      ],
+      "reasoning": "One can rewrite our claim as optimal binary threshold-alarm probability after one adaptively placed conditional bridge query, not as the expected error of the sampled minimum. The bridge-law formula is shared; no inspected result establishes the exact J_c functional and strict midpoint-first local-minimum derivative. An inaccessible full version leaves residual priority risk.",
+      "searches": [
+        "Brownian bridge a>0 to b>0 barrier zero optimal single intermediate observation t=a/(a+b) maximizes crossing detection; conditional missed crossing probability Mills ratio",
+        "optimal monitoring times Brownian bridge crossing detection probability exactly one checkpoint or multiple checkpoints",
+        "two-stage adaptive Brownian bridge barrier crossing detection with two point evaluations first observation at midpoint is strictly suboptimal",
+        "conditional Brownian bridge sample negative detection one-step optimal timing a/(a+b) and cusp symmetry breaking",
+        "web: Brownian bridge adaptive sampling negative excursions optimal checkpoint midpoint not optimal sequential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest ranked entries concern ecological survey timing, bridge spectral-mode approximation, and random-endpoint persistence; none gives the same binary detector with two adaptive queries.",
+        "Own accessible current-week ledger titles/claims concern numerical quadrature, splines, Markov positivity, linear algebra, and two-point Gaussian-process differentiation; no two-query Brownian crossing detector is present."
+      ],
+      "reasoning": "No exact finite two-query detector or midpoint cusp constant in inspected published-result entries or own ledger. Search incompleteness, and absence of a hit, are not uniqueness or historical-priority proofs.",
+      "searches": [
+        "two-stage adaptive Brownian bridge barrier crossing detection with two point evaluations first observation at midpoint is strictly suboptimal",
+        "conditional Brownian bridge sample negative detection one-step optimal timing a/(a+b) and cusp symmetry breaking",
+        "adaptive bridge refinement one observation then optimally placed second checkpoint minimizing undetected downward excursion",
+        "accessible own ledger: current-week generation 124, 124 recoverable finding titles"
+      ]
+    },
+    "rationale": "Claim-level searches of the mathematical-results index and own accessible current-week research titles, plus scoped source inspections of exact bridge-minimum laws, adaptive minimum approximation and exit-time discretization, do not reveal this exact finite-two-query binary detector or its all-clearance strict midpoint-first symmetry breaking. Bridge marginal and minimum laws are acknowledged as background. The 2016 full paper could not be read, so priority risk is explicitly retained.",
+    "residual_risks": [
+      "Original full text of Calvin--Hefter--Herzwurm 2016 was unavailable; unseen sections might discuss special two-query optimization despite a different stated objective.",
+      "Bibliographic and mathematical-results searches are non-exhaustive, and only a same-model review has been performed.",
+      "Some related Bayesian sequential-testing work was assessed only at abstract level; its different hypothesis-testing objective lowers but does not eliminate priority risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the two-stage binary detector and midpoint derivative: discusses nonadaptive sampled-minimum error and minimum distributions. The 2017 preprint is an accessible version of the 2015 arXiv preprint.",
+        "evidence": "Accessible preprint lines 14--39, 55--75 and 358--379, with Section 5 explicitly titled Non-adaptive optimisation.",
+        "identifier_or_url": "https://mat.uab.cat/dpt/Publ/prep/p07_17.pdf",
+        "material_read": "Opened accessible full-text extraction; read abstract/introduction, conditional-bridge law and explicit nonadaptive comparisons in Section 5, with section summaries for other sections. PDF pages 1 and 8 were inspected as rendered images.",
+        "method": "Opened parsed full text, located relevant sections and read the stated results; screenshots of pages 1 and 8.",
+        "title": "On the minimum of a conditioned Brownian bridge",
+        "trigger": "Same bridge and few-point sampling with potentially overlapping objective"
+      },
+      {
+        "assessment": "NOT_COVERING: time-stepping and strong exit-time error rates, not exact optimal two-point retrospective bridge monitoring.",
+        "evidence": "First arXiv publication timestamp 2022-08-24; introduction lines 18--38, explicit rates in lines 29--33.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.11288",
+        "material_read": "Read accessible arXiv full-text introduction, numerical methods, main convergence theorem statements and expected cost scope; searched the full extracted text for Brownian bridge.",
+        "method": "Read arXiv full-text rendering and searched its text.",
+        "title": "Higher-order adaptive methods for exit times of Itô diffusions",
+        "trigger": "Primary recent-middle source motivating adaptive exit detection under observation budgets"
+      },
+      {
+        "assessment": "No covering two-query statement appeared in inspected material; direct comparison with unseen original theorem details remains provisional.",
+        "evidence": "Original arXiv date 2016-01-06, adaptive minimum-approximation objective and midpoint interval-refinement heuristic summarized in accessible result.",
+        "identifier_or_url": "https://arxiv.org/abs/1601.01276",
+        "material_read": "Original abstract and detailed accessible public explanatory synopsis; full original text not obtained (arXiv/ar5iv unavailable, institutional download VPN disconnected).",
+        "method": "Reviewed arXiv bibliographic abstract, detailed publicly accessible synopsis, searched for alternate lawful full text and attempted institutional retrieval.",
+        "title": "Adaptive Approximation of the Minimum of Brownian Motion",
+        "trigger": "Plausible direct predecessor on adaptive bridge-like point sampling"
+      },
+      {
+        "assessment": "Different statistical problem: testing hypotheses about bridge drift/mean with continuous-time optimal stopping; no binary excursion detector in accessible statement.",
+        "evidence": "SIAM published abstract explicitly describes hypotheses concerning the mean of a Brownian bridge and two stopping boundaries.",
+        "identifier_or_url": "https://doi.org/10.1137/S0040585X97T989258",
+        "material_read": "Published abstract and bibliographic scope, not original full text.",
+        "method": "Examined article abstract and publication metadata.",
+        "title": "Bayesian Sequential Testing Problem for a Brownian Bridge",
+        "trigger": "Possible related Bayesian sequential Brownian-bridge detection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5b78f1b-7af4-476c-b01e-8b1329000e57",
+  "value": {
+    "rationale": "Two exact measurements is a natural finite computational budget when refining simulated Brownian bridges to catch a negative excursion missed by an endpoint-only discretization. The theorem proves a universal strict reversal of the intuitive centered-first decision even though midpoint is the unique optimum with one query; a closed Gamma-function cusp coefficient quantifies the effect for every positive clearance, and the conditional second-query rule is explicit. This is a structural design boundary, not just a numerical fact about an arbitrary parameter slice. At c=1/2 the concrete t=1/3 first query improves detection probability by roughly 4.56% over t=1/2.",
+    "status": "PASS"
+  }
+}
