@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian conditional information and independent Poisson clean probability produce exactly j_i(t,lambda)=exp(-lambda*t)t^2/[(t+a_i)(t+h_i)]. The logarithmic derivative is strictly decreasing from +infinity to -lambda, yielding one finite global maximum. Same-signed sum/product rankings imply strict denominator dominance. Opposite rankings make the difference of stationary curves a quadratic with one positive root. Envelope differentiation gives d/dlambda log(F1/F2)=t2-t1 and hence one log-ratio maximum; small-hazard sum asymptotics and large-hazard product asymptotics prove a unique mode crossing after that maximum, with a strict duration jump. The checker independently replayed 29,265 finite diagnostic assertions, supplementing but not replacing the analytical proof. The assumptions, equality cases, and physical limits are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Regan and Stockman 2001, pp. 2--6, analyze multi-accum versus one long integration and 250/1000-second strategies, with estimated optimum times 3000--4000 seconds in specified detector cases.",
+        "The STIS Instrument Handbook Version 11.0 (2011), section on cosmic rays, recommends exposure splitting while acknowledging added read-noise costs; it does not claim a universal hazard-dependent optimizer comparison."
+      ],
+      "reasoning": "Prior richer detector models can provide better policies in reality, but are not known to imply the exact global phase diagram for the stipulated common-hazard all-or-nothing model. The Regan--Stockman single-hazard optimization framework is a serious related predecessor but does not logically imply uniqueness of optimized-mode reversal without the additional global argument.",
+      "searches": [
+        "astronomy detector readout modes optimal crossover cosmic ray flux read noise overhead switch",
+        "\"readout modes\" \"cosmic ray rate\" \"optimal\" \"overhead\" astronomy",
+        "\"integration time\" \"cosmic rays\" \"overheads\" \"read noise\" unique mode"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/astro-ph/0005486",
+      "https://ar5iv.labs.arxiv.org/html/astro-ph/0005486",
+      "https://ridl.cfd.rit.edu/docs/radiation/TM-2001-0005-A_TM-2001-0005A.pdf",
+      "https://studylib.net/doc/11603992",
+      "https://arxiv.org/abs/1109.2626",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=85-08"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fixsen et al. 2000, sec. 3 and sec. 5, explicitly distinguish whole-read loss from methods recovering information after cosmic-ray hits.",
+        "Regan and Stockman 2001, sec. 4, define an SNR-squared divided by exposure time objective and compare numerical peaks; their model includes multiple read modes and hence is the closest conceptual predecessor.",
+        "The present proof establishes a single positive zero of the optimized-mode difference using a one-positive-root derivative-comparison quadratic and strict envelope monotonicity."
+      ],
+      "reasoning": "Any static optimum is implied by maximizing the modeled efficiency; that static reduction is not counted as an original result. The new implication is a global change-point count in hazard and strict jumping duration under crossing rankings. Neither the constant-hazard graphs nor the general recommendation to optimize SNR squared per time entails a one-switch theorem or identifies its necessary-and-sufficient sum/product hypothesis.",
+      "searches": [
+        "TECHNICAL MEMORANDUM Optimum Integration Times for Different Read Modes Regan Stockman 2001",
+        "Cosmic Ray Rejection and Readout Efficiency for Large-Area Arrays Fixsen Offenberg 2000 arxiv",
+        "\"cosmic ray\" \"optimal exposure duration\" readout overhead Poisson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Regan and Stockman (2001), STSCI-NGST-TM-2001-0005, sec. 4, optimize the same broad SNR-squared/time concept for specified modes but show numerical exposure optima, not an all-hazard pairwise switch law.",
+        "Fixsen et al. (2000), astro-ph/0005486, compare Fowler and nondestructive read algorithms with partial ramp recovery, rather than independently reoptimized constant-noise all-or-nothing modes with distinct fixed overheads."
+      ],
+      "reasoning": "A change in mathematical notation from SNR-squared/time to Fisher information per cycle does not establish novelty. The novelty candidate instead is the exact mode-pair classification using the two coefficients of the quadratic time-denominator and the proof that the envelope difference has exactly one positive zero. No inspected equivalent formulation proves that conclusion.",
+      "searches": [
+        "\"cosmic ray\" \"read noise\" \"optimal exposure time\" equation",
+        "Optimal astronomical exposure duration in the presence of Poisson cosmic-ray hits and readout overhead, sharp optimal exposure time and read noise",
+        "Mode switching with competing read noise and readout dead time and exponential exposure survival astronomical detectors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Subject-specific indexed mathematical records returned closest time-scheduling and detector optimization analogues but no record with the denominator (t+a)(t+h) or a two-mode sum/product switch theorem.",
+        "No exact database or handbook table establishing a parameter-wide switch count appeared in the inspected published records; the primary technical memorandum presents graphs at prescribed instrumental conditions."
+      ],
+      "reasoning": "An absent search hit is not a proof of uniqueness or priority. The exact numerical example is not the novelty claim by itself: the general all-positive-parameter dichotomy and strict mode-duration jump are the target. No inspected table was found to cover those quantified statements.",
+      "searches": [
+        "A unique cosmic ray hazard threshold switches optimal astronomical CCD readout mode between high read noise fast overhead and low read noise slow overhead with discontinuous optimal exposure duration",
+        "Optimal detector read mode transition as radiation strike probability changes, two read noise and overhead choices, Fisher information per wall time, unique crossing",
+        "astronomy detector readout modes optimal crossover cosmic ray flux read noise overhead switch"
+      ]
+    },
+    "rationale": "The exact necessary-and-sufficient one-switch classification concerns two independently reoptimized exposure modes as a common cosmic-ray hazard changes. The relevant Fixsen et al. 2000 full text and Regan--Stockman 2001 six-page memo were materially inspected. Regan--Stockman give a general information-per-time optimization method and fixed-parameter mode comparisons, a strong nearby predecessor; their recorded results do not state or prove the all-hazard single-crossing theorem or its sum/product criterion and discontinuous optimal-duration jump. A general optimization recipe is not logically a proof that two optimized curves have at most one crossing. The inspected material and subject-specific indexed results yielded no stronger covering statement. Novelty remains provisional pending independent literature review.",
+    "residual_risks": [
+      "Regan--Stockman 2001 is a very close prior optimization framework. A separate uninspected appendix or other technical note could already state the comparative all-hazard switch theorem.",
+      "Anderson--Gordon 2011 full text was not examined; its abstract concerns a different algorithmic question, but complete exclusion of related mode comparisons is unwarranted.",
+      "Historical literature search is not exhaustive and no independent novelty determination has been made; absence of an indexed hit is not proof of priority.",
+      "The physical readout-hazard model is idealized and explicitly excludes partial ramp salvage, saturation and mode-specific cosmic-ray susceptibility."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING_THE_NEW_PAIRWISE_THEOREM",
+        "evidence": "Optimizes rejection/weighting algorithms and compares readout efficiency for sample configurations; no general two-mode all-hazard unique switch classification with fixed overhead is presented.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/astro-ph/0005486",
+        "material_read": "Abstract and Sections 2--5, 7, 9--10, including the explained readout-efficiency curves and distinction between salvaged versus lost data",
+        "method": "Accessible complete ar5iv HTML, sections and figure discussions examined",
+        "title": "Cosmic Ray Rejection and Readout Efficiency for Large-Area Arrays",
+        "trigger": "Primary foundational treatment of readout noise, cosmic rays and competing detector readout strategies"
+      },
+      {
+        "assessment": "CLOSEST_RELATED_METHOD_NOT_FOUND_TO_COVER_SWITCH_COUNT",
+        "evidence": "Derives generalized optimize SNR-squared per time rule and reports 3000/4000-second numerical optima for specified cosmic-ray environments; does not provide a necessary-and-sufficient global hazard-switch condition or duration-jump theorem.",
+        "identifier_or_url": "https://ridl.cfd.rit.edu/docs/radiation/TM-2001-0005-A_TM-2001-0005A.pdf",
+        "material_read": "Pages 1--6: abstract, models of three modes, Section 4 calculations, Figures 1--4 and conclusions; page 5 viewed graphically",
+        "method": "Readable full PDF extraction plus page 5 screenshot inspected",
+        "title": "Optimum Integration Times for Different Read Modes",
+        "trigger": "Direct plausible predecessor with same instrumental problem and multiple modes"
+      },
+      {
+        "assessment": "CONTEXT_NOT_PRIOR_THEOREM",
+        "evidence": "Explains why long exposures accumulate cosmic-ray hits and multiple reads have read-noise cost; recommendations are instrument-specific, without claimed exact two-mode crossing.",
+        "identifier_or_url": "https://studylib.net/doc/11603992",
+        "material_read": "Front matter dated December 2011 and the CCD/cosmic-ray operational discussion",
+        "method": "Accessible HTML rendering of instrument handbook",
+        "title": "Space Telescope Imaging Spectrograph Instrument Handbook for Cycle 20, Version 11.0",
+        "trigger": "Archived operational specifications for cosmic-ray damage, read-noise cost of splitting and readout overhead"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_INSPECTED_BUT_LOWER_OVERLAP",
+        "evidence": "Deals with algorithmic detection of cosmic-ray events on nondestructive ramps, not the stated pairwise switching model; residual risk retained.",
+        "identifier_or_url": "https://arxiv.org/abs/1109.2626",
+        "material_read": "Abstract and record describing three detection algorithms only; complete text was not retrieved",
+        "method": "Open scientific index abstract and arXiv record; ar5iv full text unavailable",
+        "title": "Optimal Cosmic-Ray Detection for Nondestructive Read Ramps",
+        "trigger": "Possible stronger detector-optimization result using read-noise-dependent cosmic-ray handling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "236528e3-2d3c-49e0-aa3c-b86c3af431ea",
+  "value": {
+    "rationale": "A genuine operational question is to choose between a fast/high-read-noise mode and a slow/low-read-noise mode under changing radiation hazard while reoptimizing each duration. The result classifies every positive mode pair into permanent dominance, exact equivalence, or one and only one radiation-dependent reversal. The sum/product criterion, two distinct tied durations, exact mean-hit-time boundary and adaptive-mixing bound provide an interpretable sharp benchmark rather than a recomputed optimum at arbitrary numeric parameter values. This has mathematical value as a complete global classification within an instrument-motivated model; it is explicitly not field-calibrated flight guidance.",
+    "status": "PASS"
+  }
+}
