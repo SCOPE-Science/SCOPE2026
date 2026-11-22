@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact log-odds conjugacy reduces the critical map to \((a,b)\mapsto (|a-\kappa(b)|,|b-\kappa(a)|)\). Strict-order preservation and convergence to the origin hold for all ordered initial pairs, and the gap argument proves finite entry into the forward-invariant smooth sector \(b\le\kappa(a)\). The squared sector map has the precise Taylor expansion \(T^2(z)=3z/4+Q(z)+O(\|z\|^3)\). Radial product bounds exclude a zero normalized amplitude, and a convergent telescoping series proves both the asymptotic vector and the quadratic correction. An analogous scalar argument proves the diagonal case. The pure-Python checker verifies the rational coefficients and tests finite trajectories; those tests are not used as infinite proofs. Domain restrictions and lack of uniformity near the diagonal are explicit.
+PASS
 
-## Originality (O): PASS, with historical-priority risk
+Exact log-odds conjugacy at alpha=2 gives (a,b)->(|a-kappa(b)|,|b-kappa(a)|), kappa(s)=log((1+exp(s))/2), and strict order persists. Larger log-odds decreases and the summability of kappa(smaller) plus its recurrence forces both coordinates to zero. If second coordinate never crosses b<=kappa(a), the positive order gap strictly increases despite convergence, contradiction; the smooth cone is forward invariant by kappa 1-Lipschitz. There T=Lz+q(z)+O(|z|^4), L=[[1,-1/2],[1/2,-1]], L^2=(3/4)I and Q=Lq+q o L =(-3a²+4ab-8b²,-4ab-b²)/32. Since the two-step multiplier rho=3/4 dominates quadratic errors, products show nonzero W=lim rho^-n z_even and summable corrections yield exact second coefficient -Q(W)/(rho(1-rho)), validated independently by SymPy. Odd phase is L W; max coordinate remains positive in both parities, so nonlinear max ratios converge to 3/4, not merely linearly approximated. On diagonal scalar multiplier 1/2 with quadratic correction A²/2 gives two-step 1/4. Remainder and normalizations checked; tie-labelled original system interpretation is expressly excluded.
 
-Satur, arXiv:2611.13318v1, Section 5.2, computes the \(3/4\) factor only for the piecewise-linear approximation, explicitly calling rigorous control of the second-order terms an outstanding step. The current theorem resolves precisely that step globally and proves a nonzero phase vector with a universal quadratic correction. Satur's Theorem 2 establishes convergence, not exact nonlinear asymptotic amplitudes. Simpson, arXiv:1612.02932v1, proves general stability criteria on switching manifolds but does not give this model-specific two-step expansion. published-finding corpus similarity searches were run for the model, critical border collision, phase amplitudes, and equivalent nonlinear rates; their nearest entries concern different models. Results of semantic search do not certify global novelty. An unindexed earlier equivalent asymptotic expansion and a general linearization theorem specialized to this model remain residual risks.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The motivating paper identifies the critical collapse but leaves its nonlinear rate open, supported by numerical experiments. An exact all-initial-condition rate and the first nontrivial correction are needed to distinguish a genuine universal physical decay law from a linearization artefact. The surviving two-phase direction records how initial asymmetry affects transients despite universal decay speed; the diagonal/off-diagonal rate distinction is sharp. This is a structural asymptotic classification at a natural border-collision point, not a randomly selected finite calculation.
+Prior Satur Section 5.2 explicitly states Theorem 2 gives no rate and presents 3/4 as numerical/leading-order piecewise-linear calculation; it does not prove a nonzero nonlinear phase W, quadratic coefficient or sharp diagonal asymptotic. Related switching-manifold stability results do not specialize to explicit all-orbit coefficients automatically.
 
-## Closest literature and limitations
+## value
 
-The leading-order involution and \(3/4\) factor belong to Satur (2026), Section 5.2, and are not claimed as new. General nonsmooth exponential stability context belongs to Simpson (2016). The theorem is limited to \(\alpha=2\), the continuous reduced maxima map, and pointwise asymptotics with initial-state-dependent constants. Independent mathematical validation and exhaustive historical-priority adjudication have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nonlinear global-to-local normal form identifies sharp two-phase asymptotics and a universal quadratic correction in a natural singular critical map; it resolves a rate explicitly left unproved in source and explains the discontinuity of phase behavior at diagonal initial data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

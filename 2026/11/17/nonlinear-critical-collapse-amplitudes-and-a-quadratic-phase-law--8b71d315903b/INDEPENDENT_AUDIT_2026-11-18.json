@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact log-odds conjugacy at alpha=2 gives (a,b)->(|a-kappa(b)|,|b-kappa(a)|), kappa(s)=log((1+exp(s))/2), and strict order persists. Larger log-odds decreases and the summability of kappa(smaller) plus its recurrence forces both coordinates to zero. If second coordinate never crosses b<=kappa(a), the positive order gap strictly increases despite convergence, contradiction; the smooth cone is forward invariant by kappa 1-Lipschitz. There T=Lz+q(z)+O(|z|^4), L=[[1,-1/2],[1/2,-1]], L^2=(3/4)I and Q=Lq+q o L =(-3a²+4ab-8b²,-4ab-b²)/32. Since the two-step multiplier rho=3/4 dominates quadratic errors, products show nonzero W=lim rho^-n z_even and summable corrections yield exact second coefficient -Q(W)/(rho(1-rho)), validated independently by SymPy. Odd phase is L W; max coordinate remains positive in both parities, so nonlinear max ratios converge to 3/4, not merely linearly approximated. On diagonal scalar multiplier 1/2 with quadratic correction A²/2 gives two-step 1/4. Remainder and normalizations checked; tie-labelled original system interpretation is expressly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Satur Theorem 2 proves convergence to (1/2,1/2), Section 5.2 says it gives no rate; Simpson studies general switching-manifold stability criteria, not an explicit asymptotic conjugacy for this model."
+        ],
+        "reasoning": "General convergence or local exponential stability yields no unique global nonzero rescaled phase vector nor its quadratic Taylor coefficient.",
+        "searches": [
+          "https://borowiecki.dev/pdf/2611.13318",
+          "https://arxiv.org/abs/1612.02932",
+          "two player maxima critical resource alpha 2 nonlinear 3/4 contraction second order asymptotic vector phase alternating"
+        ]
+      },
+      "checked_sources": [
+        "https://borowiecki.dev/pdf/2611.13318",
+        "https://arxiv.org/abs/1612.02932"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Satur Section 5.2 (lines 1860-66, 1930-56) reports random-sample rate evidence and a piecewise-linear involution with exact 3/4. Theorem 2 only guarantees convergence."
+        ],
+        "reasoning": "The present rigorous nonlinear rescaling and next coefficient are strictly stronger than the prior leading-order heuristic; source supplies expected constant and deserves credit.",
+        "searches": [
+          "https://borowiecki.dev/pdf/2611.13318",
+          "two player maxima critical resource alpha 2 nonlinear 3/4 contraction second order asymptotic vector phase alternating"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Satur uses raw maxima (x,y) while present proof conjugates to odds a=log[x/(1-x)]. Section 5.2 derives piecewise linear s-map involution and factor 3/4."
+        ],
+        "reasoning": "Change of coordinates does not turn an unproved nonlinear asymptotic into an old theorem; the explicit W and second-order coefficient are absent from the source linear reduction.",
+        "searches": [
+          "two player maxima critical resource alpha 2 nonlinear 3/4 contraction second order asymptotic vector phase alternating",
+          "https://borowiecki.dev/pdf/2611.13318"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact rational symbolic expansion gives L²=3/4 I and Q=(-3a²+4ab-8b²,-4ab-b²)/32; the new statement is an infinite-orbit asymptotic, not tabular data."
+        ],
+        "reasoning": "Specific small-parameter formulas and a numerical 3/4 have precedent; the exact all-initial-data second-order phase does not follow from a table or finite fit.",
+        "searches": [
+          "two player maxima critical resource alpha 2 nonlinear 3/4 contraction second order asymptotic vector phase alternating",
+          "maxima alpha two nonlinear asymptotic 3/4 1/4 quadratic direction"
+        ]
+      },
+      "rationale": "Prior Satur Section 5.2 explicitly states Theorem 2 gives no rate and presents 3/4 as numerical/leading-order piecewise-linear calculation; it does not prove a nonzero nonlinear phase W, quadratic coefficient or sharp diagonal asymptotic. Related switching-manifold stability results do not specialize to explicit all-orbit coefficients automatically.",
+      "residual_risks": [
+        "Abstract-level review of broad switching-manifold literature does not exclude equivalent normal-form theorems; historical novelty is qualified.",
+        "No uniform asymptotics near a=b and no assertion for alpha different from two."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: rate factor 3/4 in piecewise-linear limit is known; all-orbit nonlinear phase and quadratic coefficient new relative to this text",
+          "evidence": "Section 5.2 states Theorem 2 establishes convergence but gives no rate, then reports 100000 numerical tests and leading-order involution s->f(s).",
+          "identifier_or_url": "https://borowiecki.dev/pdf/2611.13318",
+          "material_read": "Full arXiv PDF, Theorem 2 and Section 5.2 pages 36–38, inspected with text and PDF screenshot",
+          "method": "Lawful author-hosted complete PDF, section-by-section review",
+          "title": "Satur, From oscillations to symmetry breaking in a two-dimensional piecewise-smooth dynamical system (2026)",
+          "trigger": "Same critical alpha=2 maxima map and claimed 3/4 rate"
+        },
+        {
+          "assessment": "CONTEXT_ONLY; no negative whole-document conclusion",
+          "evidence": "Provides general piecewise-smooth stability background rather than a directly checked second-order formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.02932",
+          "material_read": "Abstract/bibliographic record only, not full article",
+          "method": "arXiv indexed abstract/search",
+          "title": "Simpson, The stability of fixed points on switching manifolds (2016)",
+          "trigger": "Potential general theorem on nonsmooth local rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonlinear global-to-local normal form identifies sharp two-phase asymptotics and a universal quadratic correction in a natural singular critical map; it resolves a rate explicitly left unproved in source and explains the discontinuity of phase behavior at diagonal initial data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Nonlinear critical-collapse amplitudes and a quadratic phase law in two-player maxima dynamics",
+  "limitations": [
+    "Abstract-level review of broad switching-manifold literature does not exclude equivalent normal-form theorems; historical novelty is qualified.",
+    "No uniform asymptotics near a=b and no assertion for alpha different from two."
+  ],
+  "schema_version": 1
+}

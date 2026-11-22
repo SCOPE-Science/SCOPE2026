@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. The checker performs exact rational-arithmetic calculations for the matrix-square, quadratic two-step coefficient, quadratic asymptotic correction and diagonal scalar coefficient. It also tests eight specified ordered initial points for preservation of order, finite entry and invariance of the nonlinear smooth sector, and evaluates 24 finite two-step ratios. The diagonal rate is sampled separately.
+## correctness
 
-Expected output:
+PASS
 
-```
-VERIFY_OK exact_polynomial_identities=4 offdiagonal_trajectories=8 sampled_two_step_ratios=24 diagonal_check=1
-```
+Exact log-odds conjugacy at alpha=2 gives (a,b)->(|a-kappa(b)|,|b-kappa(a)|), kappa(s)=log((1+exp(s))/2), and strict order persists. Larger log-odds decreases and the summability of kappa(smaller) plus its recurrence forces both coordinates to zero. If second coordinate never crosses b<=kappa(a), the positive order gap strictly increases despite convergence, contradiction; the smooth cone is forward invariant by kappa 1-Lipschitz. There T=Lz+q(z)+O(|z|^4), L=[[1,-1/2],[1/2,-1]], L^2=(3/4)I and Q=Lq+q o L =(-3a²+4ab-8b²,-4ab-b²)/32. Since the two-step multiplier rho=3/4 dominates quadratic errors, products show nonzero W=lim rho^-n z_even and summable corrections yield exact second coefficient -Q(W)/(rho(1-rho)), validated independently by SymPy. Odd phase is L W; max coordinate remains positive in both parities, so nonlinear max ratios converge to 3/4, not merely linearly approximated. On diagonal scalar multiplier 1/2 with quadratic correction A²/2 gives two-step 1/4. Remainder and normalizations checked; tie-labelled original system interpretation is expressly excluded.
 
-The checked symbolic identities follow from the independently stated Taylor expansion \(\kappa(t)=t/2+t^2/8+O(t^4)\). The source of that expansion is the explicit elementary function \(\kappa(t)=\log((1+e^t)/2)\), which may be differentiated directly. The all-state finite cone-entry argument, nonzero limiting amplitude, and asymptotic error bounds are proved analytically in `RESULT.md`; a finite checker does not certify them on its own.
+## originality
 
-The separate high-precision check described in `RESULT.md` used the exact log-odds map at initial maxima \((0.81,0.66)\). Its output is supportive and is not required to execute the standalone checker or prove the theorem. Independent validation has not been carried out.
+PASS
+
+Prior Satur Section 5.2 explicitly states Theorem 2 gives no rate and presents 3/4 as numerical/leading-order piecewise-linear calculation; it does not prove a nonzero nonlinear phase W, quadratic coefficient or sharp diagonal asymptotic. Related switching-manifold stability results do not specialize to explicit all-orbit coefficients automatically.
+
+## value
+
+PASS
+
+The nonlinear global-to-local normal form identifies sharp two-phase asymptotics and a universal quadratic correction in a natural singular critical map; it resolves a rate explicitly left unproved in source and explains the discontinuity of phase behavior at diagonal initial data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
