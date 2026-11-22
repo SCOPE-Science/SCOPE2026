@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The cactus tree states are exactly one omitted edge per cycle. Each off-diagonal cut-first edge exchange has probability 1/[2(N-1)], producing a symmetric product coordinate-resampling chain and its full eigenvalue/multiplicity spectrum. In continuous time, the product likelihood separates into a ternary slow factor and many fast factors; Lindeberg/Taylor with c L^2 epsilon^3 -> 0 and bounded second moments yields the asserted lognormal factor. The eigenvalue-multiplicity sum bounds discrete-continuous L2 error. For macroscopic pretransition times, a matching-coordinate count has nonpositive pair covariance and a mean gap dominating both variances; after that window fast chi-square vanishes and a slow ternary eigenmode remains. Both branches of mixing times follow. Full proof and hypothesis boundary are in RESULT.md; actual path verify_cactus_chain.py passed 1818 finite exact/numerical assertions. Infinite limits are proved analytically, not inferred from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen and Kumagai, arXiv:1701.06665, sections 1-3, discuss general heterogeneous product chains and cutoff comparison criteria; their stated examples are not this cactus family.",
+        "Hora 1997, Theorem 2 and Section 2: all coordinates share the same alphabet and a symmetric update rule."
+      ],
+      "reasoning": "General product-chain results cover the method of coordinate factorization and could imply qualitative cutoff criteria, but the examined main theorems do not give this particular Gaussian-categorical total-variation profile or its explicit error-tolerance-dependent constants. The result is presented as a concrete derived exact law, not as an independent discovery of the general product method.",
+      "searches": [
+        "noncutoff two-stage random walk on a heterogeneous Hamming product gaussian discrete mixture profile",
+        "total variation cutoff profile gaussian discrete factor mixed product chains Hamming one slow coordinate",
+        "Cutoffs for product chains Chen Kumagai 2017 heterogeneous independent coordinate rate cutoff criterion"
+      ]
+    },
+    "checked_sources": [
+      "Hora (1997) doi:10.2977/prims/1195145152",
+      "Chen-Kumagai (2017) arxiv:1701.06665",
+      "Russo-Teixeira-Francisco (2018) doi:10.3390/a11040053",
+      "Mohamed (2014) arxiv:1407.0699 abstract",
+      "Related indexed mathematical result: sharp cactus minimum-spanning-tree refresh noise stability (distinct weight-refresh law)",
+      "Related indexed mathematical result: fastest mixing on heterogeneous clique products (distinct objective and kernel)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mohamed, arXiv:1407.0699 abstract: restricted edge-promotion enumeration, not a reversible uniform cut-first transition.",
+        "Russo et al, Algorithms 11(4), 53 (2018), Sections 3-4: insert-first uniform spanning-tree sampling and cactus coupling bounds.",
+        "Chen-Kumagai 2017: cutoff criteria for general product chains, not direct quantitative joint likelihood profile."
+      ],
+      "reasoning": "The new exact ratio arises from combining nontrivial dissimilar-scale coordinate likelihoods, a discrete de-Poissonization bound, and a negative pair-covariance separation argument. Prior general machinery is credited; no actual inspected theorem supplies every quantitative component as a corollary without additional asymptotic derivation.",
+      "searches": [
+        "cactus spanning tree edge deletion reinsertion uniform fundamental cut chain exact spectrum cutoff Gaussian profile",
+        "spanning tree cut first edge reconnect cactus exact mixing profile",
+        "heterogeneous product chain one slow coordinate Gaussian cutoff plateau"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hora 1997, DOI:10.2977/prims/1195145152: homogeneous H(d,n) model and explicit cutoff profile in Theorems 1-2.",
+        "Russo et al 2018, DOI:10.3390/a11040053, Section 3: insert-first kernel selects a host edge before deleting from its fundamental cycle."
+      ],
+      "reasoning": "The cactus edge-deletion walk is exactly a weighted Cartesian complete-graph product, so its Hamming reformulation was included. Homogeneous Hamming walks lose the fixed slow ternary coordinate. The compared spanning-tree algorithm uses reverse exchange order and a different transition law; neither restatement identifies the exact mixed limit.",
+      "searches": [
+        "exact limiting total variation profile lognormal multiplied by Bernoulli ternary factor heterogeneous Cartesian product complete graphs random walk",
+        "random edge deletion cut reconnection uniform spanning tree cactus flower exact spectrum Gaussian Hamming and slow triangle crossover",
+        "random walk heterogeneous Hamming graph gaussian categorical lognormal mixing profile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related publicly indexed cactus minimum-spanning-tree noise stability concerns independent weight refresh, not the cut-first chain.",
+        "Related spanning-tree/Hamming mixing records concern distinct graphs, update kernels, or spectral optimization, not the sequence with one triangle and exponentially many long cycles."
+      ],
+      "reasoning": "No checked indexed result or table supplied the graph-specific finite spectrum together with its two-timescale total-variation limit; semantically similar titles were compared by the mathematical mechanisms rather than title matching. Index searches alone are not a claim of exhaustive novelty.",
+      "searches": [
+        "A cut-first spanning-tree edge-exchange chain on cactus flowers with one triangle and exponentially many length-L cycles has a two-stage no-cutoff total-variation profile: Gaussian-lognormal times categorical slow coordinate near critical time",
+        "random edge deletion cut reconnection uniform spanning tree cactus flower exact spectrum Gaussian Hamming and slow triangle crossover",
+        "cactus spanning tree Markov exchange exact eigenvalues total variation cutoff two stage"
+      ]
+    },
+    "rationale": "The examined primary literature covers homogeneous Hamming cutoff profiles (Hora), general product-chain cutoff criteria and comparisons (Chen-Kumagai), a different insert-first spanning-tree exchange (Russo et al), and restricted deterministic edge exchange enumeration (Mohamed). No inspected result directly states or implies the full cut-first cactus Gaussian-times-ternary total-variation profile and the explicit two-stage mixing-time constants. Exact overlap queries against the accessible mathematical-record index returned related Hamming and cactus results but no statement covering this claim. An undiscovered broader heterogeneous-product theorem or inaccessible source can change the priority assessment; these are residual historical-priority risks rather than mathematical verification.",
+    "residual_risks": [
+      "A general heterogeneous-product-chain theorem not located here may directly imply a subset of the stated asymptotic law.",
+      "The full Mohamed (2014) text was not accessible; only its abstract and date could be checked.",
+      "Historical priority and any independent mathematical review remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Independently refreshing edge weights creates a static two-MST comparison and Poisson refresh count, not a cut-first exchange Markov-chain total-variation profile",
+        "evidence": [
+          "Public RESULT.md Finding/Assumptions/Proof and Limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-noise-stability-ordering-and-poisson-refresh-transition-fo--57f17c94e3c2",
+        "material_read": "Complete public RESULT.md proof, statement, limitations, and references",
+        "method": "Public repository source-file read",
+        "title": "Sharp noise-stability ordering and Poisson refresh transition for cactus minimum spanning trees",
+        "trigger": "Highly relevant published cactus MST stochastic-process result"
+      },
+      {
+        "assessment": "Solves one-step symmetric SLEM minimization over all transition matrices, explicitly excludes exact finite-time total-variation mixing; no covered mixed profile",
+        "evidence": [
+          "Public RESULT.md Finding/Assumptions/Proof/Limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unrestricted-fastest-mixing-and-holding-transitions-on-heterogen--3f462d76a1a1",
+        "material_read": "Complete public RESULT.md theorem, spectrum, proof and limitations",
+        "method": "Public repository source-file read",
+        "title": "Unrestricted fastest mixing and holding transitions on heterogeneous clique products",
+        "trigger": "Same heterogeneous Cartesian complete-graph structure and spectral formula"
+      },
+      {
+        "assessment": "Homogeneous Hamming coordinates with a single alphabet; does not state mixed slow ternary/large-alphabet crossover",
+        "evidence": [
+          "Journal PDF: https://www.jstage.jst.go.jp/article/kyotoms1969/33/4/33_4_695/_pdf/-char/en, Theorems 1-3, Section 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.2977/prims/1195145152",
+        "material_read": "Published article abstract, full PDF pages 1-8 including model, Theorems 1-3, and central-time expressions",
+        "method": "open-access PDF rendered cover plus extracted article text",
+        "title": "The Cut-Off Phenomenon for Random Walks on Hamming Graphs with Variable Growth Conditions",
+        "trigger": "Direct homogeneous Hamming analogue and possible stronger cutoff profile"
+      },
+      {
+        "assessment": "General cutoff comparisons and criteria; examined statements do not give the exact mixed profile, though broader implication risk remains",
+        "evidence": [
+          "arXiv:1701.06665, equations (1.5)-(1.7), Proposition 1.1 and product-chain examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1701.06665",
+        "material_read": "Abstract, Section 1 definitions and main criteria, illustrative early examples, selected theorem statements",
+        "method": "open-access arXiv full PDF text plus rendered theorem/example page",
+        "title": "Cutoffs for Product Chains",
+        "trigger": "General product-chain theory could dominate the heterogeneous-coordinate claim"
+      },
+      {
+        "assessment": "Insert-first host-edge sampling and cycle-edge deletion is mathematically distinct from cut-first uniform tree-edge sampling",
+        "evidence": [
+          "Russo et al (2018), Section 3, and introduction statement of Theorem 3"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/11/4/53",
+        "material_read": "HTML full-article introduction, Section 3 update rule, algorithmic details and Section 4 cactus mixing bounds",
+        "method": "publisher open-access HTML full text",
+        "title": "Linking and Cutting Spanning Trees",
+        "trigger": "Directly relevant spanning-tree exchange walk and cactus hosts"
+      },
+      {
+        "assessment": "Abstract describes deterministic enumeration using leaf exchange and edge promotion; not an equivalent probability kernel on its face, but inaccessible full text retains a limited historical-priority risk",
+        "evidence": [
+          "arXiv:1407.0699v1 publicly posted 2014-07-02 17:15 UTC"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.0699",
+        "material_read": "Dated arXiv title, authors and complete abstract only; full text could not be retrieved",
+        "method": "arXiv metadata and abstract, source date verified 2014-07-02",
+        "title": "Enumeration of Spanning Trees Using Edge Exchange with Minimal Partitioning",
+        "trigger": "Archival first-public source for edge-exchange exploration and potentially overlapping algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6026789-07cd-4fb7-9c16-593cfb3e0eba",
+  "value": {
+    "rationale": "This natural local tree-rewiring chain exhibits two distinct equilibration mechanisms on a specified heterogeneous cactus: exponentially many long-cycle coordinates produce an abrupt Gaussian likelihood transition, while one slow triangle sustains a strictly positive total-variation plateau and later exponential tail. The exact error-tolerance boundary and two mixing-time constants identify when estimates based on the large block alone fail, providing a structural quantitative benchmark for spanning-tree samplers beyond a routine moment or arbitrary finite calculation.",
+    "status": "PASS"
+  }
+}
