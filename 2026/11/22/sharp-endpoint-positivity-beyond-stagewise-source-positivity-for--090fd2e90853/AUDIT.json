@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "Spectral polynomial functional calculus, exact zero parametrization, unique minimum of rational crossing function, Descartes one-root sign argument and stage-source inequality prove all dimensions and exact endpoints; standalone symbolic and rational checker passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2010.12165",
+        "https://arxiv.org/abs/2104.09977",
+        "https://doi.org/10.1137/25M1730582"
+      ],
+      "reasoning": "Prior sources establish stagewise sufficient or (for altered stabilized/extended schemes) unconditional maximum-bound properties; their statements do not imply a sharp endpoint-only interval for the unmodified zero-linear-part cubic Heun polynomial.",
+      "searches": [
+        "sharp positivity threshold 2sqrt2-1 completed two-stage Heun cubic matrix reaction X minus X cubed while intermediate source negative",
+        "SSPRK2 nonlinear matrix Lyapunov Q(X)=X-X^3 step positive semidefinite interval all initial spectral unit contraction",
+        "IF SSPRK2 A=0 nonlinear source cubic positive semidefinite unconditional stages end step boundary",
+        "maximum bound principle preserving integrating factor Runge Kutta methods for semilinear parabolic equations",
+        "A Class of High Order Unconditional Maximum Principle Preserving Extended IFRK Schemes for Allen-Cahn Equation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15703v1",
+      "arxiv:2010.12165",
+      "arxiv:2104.09977",
+      "doi:10.1137/25M1730582",
+      "doi:10.1016/j.apnum.2020.11.022",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11580737/",
+      "published-finding corpus:bc907224a5c8",
+      "published-finding corpus:0932b796eedd",
+      "published-finding corpus:d8dfca2d4d98",
+      "published-finding corpus:3f16ed31cfd1",
+      "published-finding corpus:2edd05e49817"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2606.15703",
+        "https://arxiv.org/abs/2010.12165",
+        "https://doi.org/10.1016/j.apnum.2020.11.022"
+      ],
+      "reasoning": "Stagewise source-positive theorem applies only while Q(Y) is SPSD, guaranteed across the domain through h=1/2. It cannot entail sharp positive endpoint preservation on 1/2<h<=2sqrt2-1, where some Q(Y) is indefinite. Older IFRK MBP analyses address the stronger absolute-value interval guarantee and report sufficient timestep conditions; the 2021 paper full text was not available to rule out its containing this precise endpoint theorem.",
+      "searches": [
+        "IF SSPRK2 A=0 nonlinear source cubic positive semidefinite unconditional stages end step boundary",
+        "SSPRK2 nonlinear matrix Lyapunov Q(X)=X-X^3 step positive semidefinite interval all initial spectral unit contraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 primary equation (5) is Heun for A=0, with source equation (10) Q(X)=X-X^3",
+        "Search hits concerned stabilized ETDRK2, doubly stabilized CN, CN/AB or linear forcing covariance, not the completed cubic map"
+      ],
+      "reasoning": "Matched Heun/SSPRK2, scalar Allen-Cahn, cubic PSD matrix source and stage-versus-endpoint aliases. Search scores and titles alone never establish independence; inspected primary text for mathematical equivalence.",
+      "searches": [
+        "2 sqrt 2 minus 1 Heun SSPRK2 x minus x cubed positive semidefinite matrix Allen Cahn exact timestep threshold",
+        "one step positivity Heun polynomial reaction x-x^3 starting unit interval sharp h 1.828427",
+        "cubic Allen-Cahn reaction SSPRK2 stage interval overshoot endpoint negative matrix cube",
+        "SSPRK2 Heun x-x^3 positivity threshold 2sqrt2-1",
+        "Heun method cubic logistic 2sqrt 2 - 1 positivity invariant interval",
+        "Runge Kutta second order Allen Cahn x-x cubed positivity preservation timestep exact",
+        "2 sqrt(2)-1 Runge Kutta Allen Cahn positive",
+        "Heun method cubic Allen-Cahn reaction maximum bound principle stepsize"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus:bc907224a5c8",
+        "published-finding corpus:0932b796eedd",
+        "published-finding corpus:3f16ed31cfd1"
+      ],
+      "reasoning": "published-finding corpus search yielded semantically related but different update maps/invariants; no exact parameter table or completed-step threshold identified. This is negative search evidence only, not a proof of uniqueness.",
+      "searches": [
+        "2 sqrt 2 minus 1 Heun SSPRK2 x minus x cubed positive semidefinite matrix Allen Cahn exact timestep threshold",
+        "one step positivity Heun polynomial reaction x-x^3 starting unit interval sharp h 1.828427",
+        "cubic Allen-Cahn reaction SSPRK2 stage interval overshoot endpoint negative matrix cube",
+        "sharp positivity threshold 2sqrt2-1 completed two-stage Heun cubic matrix reaction X minus X cubed while intermediate source negative",
+        "SSPRK2 nonlinear matrix Lyapunov Q(X)=X-X^3 step positive semidefinite interval all initial spectral unit contraction",
+        "IF SSPRK2 A=0 nonlinear source cubic positive semidefinite unconditional stages end step boundary",
+        "Heun Allen Cahn reaction cubic 2 sqrt 2 minus 1 positivity Runge Kutta"
+      ]
+    },
+    "rationale": "Exact full text of the 2026 IF-SSPRK2 source gives the stagewise SPSD theorem and a cubic matrix-power experiment, not a sharp completed-step threshold; known maximum-principle articles give sufficient stagewise bounds or study modified methods. No examined source establishes the 2sqrt2-1 endpoint-only frontier, although an inaccessible 2021 full text and unindexed literature leave priority risk.",
+    "residual_risks": [
+      "2021 Applied Numerical Mathematics full text was unavailable; accessible abstract alone cannot exclude a hidden equivalent sharp endpoint threshold",
+      "Older explicit Heun cubic reaction calculations may be indexed under scalar or SSP terminology, beyond the checked literature.",
+      "published-finding corpus semantic search is not an exhaustive mathematical priority check."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source provides method and stagewise SPSD result but not sharp all-input endpoint-only threshold, as supported by inspected sections",
+        "evidence": [
+          "equation (5) IF-SSPRK2",
+          "Theorem 3.1 assumes source Q SPSD",
+          "equation (10) uses U-U^3 and states SPSD on spectrum [0,1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+        "material_read": "Full accessible preprint text: equation (5), section 3 Theorem 3.1 and its hypotheses, section 4.1 equation (10) and discussion",
+        "method": "HTML-transcribed full preprint (author-posted accessible copy) compared definitions and theorem, including nonlinear source evaluation",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Motivating IF-SSPRK2 method, stagewise positivity theorem, matrix cubic experiment"
+      },
+      {
+        "assessment": "Treats MBP preservation and sufficient SSP/IFRK stage hypotheses rather than exact completed-step nonnegative spectrum of unmodified Heun",
+        "evidence": [
+          "full manuscript summary/assumptions for IFRK MBP",
+          "Allen–Cahn Q(u)=u-u^3 and restriction of explicit stages"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.12165",
+        "material_read": "Accessible full preprint introduction, formulation, and maximum-bound sufficient conditions",
+        "method": "Original open-access manuscript text comparison of method assumptions and bounds",
+        "title": "Maximum bound principle preserving integrating factor Runge-Kutta methods for semilinear parabolic equations",
+        "trigger": "Potential stronger maximum-bound principles for the same cubic reaction"
+      },
+      {
+        "assessment": "Uses a distinct stabilizer, so the unconditional result cannot imply the sharp threshold of the unmodified polynomial map",
+        "evidence": [
+          "stabilized IFRK construction and use of positive coefficient kappa"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.09977",
+        "material_read": "Accessible full preprint introductory method construction and stabilization conditions",
+        "method": "Original open-access preprint inspected stabilized correction and maximum bound theorem",
+        "title": "Stabilized integrating factor Runge–Kutta method and unconditional preservation of maximum bound principle",
+        "trigger": "May dominate result through unconditional positivity"
+      },
+      {
+        "assessment": "Different method families; no covering explicit Heun endpoint-only spectral theorem found in inspected material",
+        "evidence": [
+          "numerical time-stepping method section",
+          "stability/maximum-bound examples"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11580737/",
+        "material_read": "Accessible full-text method sections and step-size analysis",
+        "method": "Compared covered backward Euler, Crank–Nicolson and implicit DIRK schemes with proposed explicit map",
+        "title": "Stability and robustness of time stepping methods for the Allen–Cahn equation",
+        "trigger": "Exact positivity bounds could appear among numerical method comparisons"
+      },
+      {
+        "assessment": "Extended IFRK methods differ structurally; full details not used for a complete negative coverage claim",
+        "evidence": [
+          "abstract eIFRK4–6 and extended construction, March 2026 publication"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/25M1730582",
+        "material_read": "Publisher abstract, metadata and introductory public synopsis only",
+        "method": "Public abstract comparison of scheme class and quantifiers",
+        "title": "A Class of High Order Unconditional Maximum Principle Preserving Extended IFRK Schemes for Allen-Cahn Equation",
+        "trigger": "2026 possible stronger unconditionally positive scheme"
+      },
+      {
+        "assessment": "Reported only sufficient MBP stage restrictions; an unobserved endpoint-only exact result cannot be excluded",
+        "evidence": [
+          "2020 first online/2021 volume abstract, Shu-Osher nonnegative coefficient and time-step restriction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2020.11.022",
+        "material_read": "Open abstract, bibliographic metadata and publicly reproduced sufficient SSP restriction; full text not accessible",
+        "method": "Cross-checked abstract/formulation and theorem framing only",
+        "title": "Numerical analysis and applications of explicit high order maximum principle preserving integrating factor Runge-Kutta schemes for Allen-Cahn equation",
+        "trigger": "Plausible prior sufficient bound for unmodified explicit IFRK including Heun"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "090fd2e9-0853-4c83-a488-02742193f51b",
+  "value": {
+    "rationale": "A published matrix-cubic positivity experiment motivates a natural question that the stagewise sufficient hypothesis does not settle. The universal sharp completed-step limit 2sqrt2-1 vs first-stage source limit 1/2 is a meaningful complete classification and usable one-step distinction; the theorem avoids claims about repeated steps or unbounded spectra.",
+    "status": "PASS"
+  }
+}
