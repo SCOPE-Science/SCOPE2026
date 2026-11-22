@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Orthogonal midpoint/difference coordinates reduce the fourth-power difference to \(8h|w|(1+t^2+2su)\). Positive radial monotonicity forces the boundary, a quadratic stationary equation yields the unique angle, and the envelope derivative proves strict increase with pair separation using \((1+a^2)^2\ge4a^2\). All endpoint cases, equality vectors, and budget reciprocity follow analytically; 88,542 standard-library diagnostic assertions reproduce the formulas, without purporting to prove infinite statements.
+
+**Originality — PASS, qualified.** Johnson–Kania (arXiv:2602.09106, publicly dated 9 February 2026), §1, defines the powered modulus and computes only the Hilbert quadratic instance in Proposition 1.4. Their general comparison estimates and the older Kania–Kochanek qualitative property do not fix the coupled quartic optimization. published-finding corpus searches comparing the precise formula, Hilbert fourth powers, Steinhaus aliases, and related parameterizations identified small-radius ordinary-modulus research and unrelated fourth-moment results, not one covering the precise quartic all-radius identity. The full primary PDF's definitions and relevant proof were read, and its searchable text checked; indexed-source coverage cannot rule out an equivalent unindexed or differently named formula.
+
+**Mathematical value — PASS.** This computes a naturally introduced but previously unquantified first nonlinear even-power modulus in the canonical Hilbert geometry across all distances and radii, with complete equality geometry. The strict midpoint enhancement and reciprocal-radius symmetry are structural facts not present in the quadratic case. The result supplies an exact benchmark for proposed powered modulus comparisons on general Banach spaces, rather than an arbitrary special-case number.
+
+**Closest literature and risks.** Johnson–Kania's Proposition 1.4 is the closest direct statement but only concerns quadratic powers; Kania–Kochanek 2013 concerns qualitative Steinhaus geometry. Published scalar–Hilbert \(\ell_1\)-sum and \(\ell_p\) small-radius ordinary-modulus records treat other objectives. Earlier unindexed equivalent quartic work is a residual bibliographic risk; independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
