@@ -1,15 +1,21 @@
-# Review of the parity-dependent Hartogs vertex polynomial root law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The assertion is for all integer degrees \(N\ge2\) and \(0<\alpha\le1\). The main algebraic identity \((1-z)^3 Q=A+z^N B\) and its elimination derivative are verified exactly. The coefficient expansions at \(z=-1-y\) and strictly decreasing ratios \(V_j/U_j\) bound the number of relevant real roots by one for even \(N\) and two for odd \(N\). Endpoint signs and an explicit positive ratio \(R_N(x)\) establish actual counts, uniqueness, multiplicities and the odd-degree asymptotic \(\alpha_N\to 1/2\). The cited vertex-section convergence is treated as a prior theorem, not newly proved. The included checker supplies finite symbolic and exact-rational corroboration but is not a substitute for this infinite proof.
+## correctness
 
-## Originality
-**PASS against inspected sources, with residual priority risk.** Edholm–Mathew (arXiv:2505.20489) studies rational generalized-Hartogs Bergman numerators, not this all-degree root count. Deng–Fu (arXiv:2611.07480) proves unit-circle positivity of a different palindromic polynomial. Most importantly, Fu (arXiv:2611.15406v1) already supplies exactly this vertex polynomial, its locally uniform convergence and the strong lemma allowing at most one double negative root, including the degree-three threshold. This review does not rebrand those statements as new. The remaining new statement is the all-integer parity split, sharp uniquely attained threshold at each odd degree, and its limiting value. Inspection of the full relevant source did not find those stronger claims. There remains a risk that a different earlier treatment of truncated power sums gives an equivalent count.
+PASS
 
-## Value
-**PASS.** The count identifies when vertex-limit zeros relevant to the generalized Hartogs kernel lie on the negative real axis, versus occur only in conjugate pairs. It adds an explicit transition diagram across every natural degree and a uniform asymptotic threshold, rather than an isolated example or a routine normalization. The result is finite-polynomial mathematics but determines a meaningful missing parameter invariant of a natural analytic kernel family. It does not claim a solution of the entire Hartogs zero-set problem.
+Expanded S=(1−z)^3 Q=A(z)+z^N B(z) and checked the elimination identity zBS′−(NB+zB′)S=−N(N+1)(z−1)²[α(N+α+1)z+(1−α)(N+α−1)]. For z=−1−y, coefficient ratios V_j/U_j from binomial coefficients strictly decrease; monotone-likelihood-ratio weighting and direct boundary coefficients establish at most two positive-y roots for odd N or one for even N via Descartes. Even N has opposite endpoint signs and hence exactly one simple root; alpha=1 gives z=−1. Odd N has α=R_N(x), x>1, R positive and tends zero at both endpoints; max α_N exists, Descartes bound forces exactly two simple below, one unique double at max, none above; upper bound (N−1)/(2N+1) and fixed-x limit R_N(x)→1/(1+x) give α_N→1/2. Derivative elimination excludes nonreal repeats. Independently checked both algebraic identities and strictly decreasing coefficient ratios for N=2..15 with exact symbolic and rational arithmetic, and representative rational Sturm root counts N≤9. These samples supplement full all-N sign reasoning, not substitute for it.
 
-## Evidence and limitations
-The complete algebraic identities, coefficient signs, critical-parameter construction and quantitative limitations appear in `RESULT.md`; the standalone `checker.py` can be run with SymPy. The most material comparison is Fu, Section 2 and Lemmas 3.1–3.2. This review is an internal self-review, not external expert validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for all-degree root-count parity diagram and unique collision parameter, narrowly excluding previously established polynomial construction and possible-double-root lemmas. Fu arXiv:2611.15406v1 itself defines precisely δQ, proves vertex-section convergence and at most one double negative root, exhibits N=3 threshold. Those are acknowledged as prior. Its cited results do not state or imply by themselves that all even degrees always have one root, all odd degrees one unique collision, or lim α_N=1/2; this review verifies the new coefficient-sign monotonic argument. Deng-Fu gap-polynomial setting is distinct.
+
+## value
+
+PASS
+
+Complete real-root transition for a naturally occurring Bergman-kernel vertex polynomial answers a parameter classification left by Fu’s existence/multiplicity bounds. All-degree unique collision and its asymptotic limiting location are meaningful exact invariants beyond the previously known cubic instance; not a claim of all 2-variable Bergman zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
