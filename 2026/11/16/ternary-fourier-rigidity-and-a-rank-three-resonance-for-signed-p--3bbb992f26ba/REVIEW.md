@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all matrix sizes, the signed character sum factors into a permanent of a matrix with entries 2 or -1. The permanent has a rigorously proved rook expansion. At the infinite stated ranks, each positive-rook term has larger 3-adic valuation than the factorial term, so cancellation to zero is impossible. At ranks four and five, a direct congruence modulo nine proves the same conclusion. At rank three, every one of 512 binary zero boards is evaluated by two integer methods, every one of 19,683 characters is independently enumerated, and four symmetry orbits account for the entire null set. The full rank-four 27-level census is reproduced by two exact methods for the 65,536 board masks. The attached checker and certificates can be executed without external dependencies. Computation is used only for finite rank-specific claims.
+PASS
 
-## Originality — PASS under bounded comparison
+Summing signs for each fixed underlying permutation gives a factor 2 at a zero-frequency cell and -1 otherwise, hence precisely the permanent of 3Z-J. Rook expansion follows by choosing zero-cells in distinct rows/columns. For n=3^a-b, b=1 or 2, the 3-adic valuations of consecutive n!/(n-k)! match (k+b-1)!/(b-1)! and are strictly smaller than k for all k>=1, preventing any higher rook terms from cancelling the factorial leading term. For n=4,5 all k>=1 terms vanish mod9, (-1)^n n! is 6 mod9. Independent exact 512-board n3 and 65,536-board n4 permanent/rook computations reproduced 72 n3 vanishing boards, weighted nullity 3816, four orbit sizes, n4 no zeros, minimum absolute value3, maximal 384. Finite census is exhaustive only at the stated ranks; infinite zero-free family is proved arithmetically, not inferred from enumeration.
 
-The signed-permutation model itself, the permanent, and the rook identities are prior knowledge. The closest examined mathematical records concern type-B conjugacy-class (nonabelian) Fourier sampling, binary Fourier sampling on ordinary permutation matrices, and ranks of minors of ternary Fourier tables. Those claims do not imply the present ternary additive convolution on the complete signed-permutation orbit. The inspected Foata–Han primary text develops flag-major, length and fixed-point generating functions, while Mitchell develops rook-polynomial algorithms; neither inspected treatment states the uniform 3-adic Fourier valuation, rank-three null-orbit census or singular-to-invertible transition. Priority beyond inspected sources, including unindexed determinant/permanent literature, remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The signed permutation matrices are a canonical reflection-group orbit and a natural finite matrix code. The all-dimensional multiplier formula turns the inverse problem into exact rook data; the uniform valuation theorem identifies infinite families with guaranteed recoverability and an explicit Hilbert-space stability bound. The complete first singularity and the immediate rank-four recovery separate recovery from mere cardinality and exhibit four geometric cancellation classes. This is a structural harmonic statement and an exact classification of a natural first obstruction, rather than a small arbitrary coefficient improvement.
+Type-B/signed-permutation statistics, permanent identities and rook polynomials are classical. The new object is the complete signed-permutation orbit as an additive set of ternary matrix vectors; results on ordinary unsigned permutation matrices or group representations do not mathematically imply its ternary permanent spectrum, valuation families or four rank-three null orbits. Mitchell and Foata-Han are method/object background, not stronger final statements. Unindexed zero-pattern permanent identities remain a priority risk.
 
-## Closest sources and limits
+## value
 
-Mitchell, arXiv:math/0407004 (2004), develops general rook counting, not this Fourier support theorem. Foata and Han, arXiv:math/0606566 (2006), address signed permutation statistics, not additive matrix Fourier support. Available mathematical records on type-B conjugacy classes and binary permutation Fourier transforms were compared by their actual objects and operators. The zero set is exhaustively classified only at size three; no complete criterion at all remaining sizes is asserted. Historical coverage checks and independent verification are not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Signed permutation matrices are a natural reflection-group orbit/matrix code. Their additive convolution invertibility, exact 3-adic separation, first singular size and immediate recovery are meaningful structural recovery questions, with complete classification of the first cancellation geometry and sharp n4 inverse gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
