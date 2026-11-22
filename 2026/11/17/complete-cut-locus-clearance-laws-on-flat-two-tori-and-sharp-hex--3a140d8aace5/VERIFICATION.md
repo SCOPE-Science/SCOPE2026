@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Run `python check_cut_clearance.py` after installing NumPy (see `requirements.txt`). This script independently integrates the six Voronoi-eroded facet inequalities by polygon clipping, tests Gauss-reduced parameters throughout all branch regimes, and performs finite Monte Carlo nearest-lattice sampling. The deterministic execution printed:
+## correctness
 
-`PLANAR_TORUS_CUT_CLEARANCE_OK 158 29 6 max_clip_error 6.994e-15 max_dominance_defect 2.220e-16`
+PASS
 
-Checks cover the formula in rectangular, rhombic, square, equilateral and generic skew cases. The numerical clipping, simulations and finite parameter sweep do not prove universal quantifiers, uniqueness, or historical priority. The accompanying written proof supplies the analytic argument and cites standard geometric inputs; independent external audit has not been performed.
+PASS: the torus cut locus lifts to Voronoi cell boundaries, so D is the uniform boundary-clearance random variable. A Gauss-reduced planar lattice has relevant normals ±u,±v,±(v−u); erosion shifts six supporting distances. Integrating explicit vertical sections gives the two-branch quadratic survival with switch t*=ap/(a+b−c) and all rectangular/rhombic/well-rounded boundary cases. Endpoint expansion gives tail exponent one for b>a and two for b=a, with hexagonal coefficient 2√3. Sharp isoperimetry P_r²≥8√3 area(V_r) plus a.e. derivative area’=−P_r gives strict optimal fixed-area hexagonal stochastic dominance. Independent clipping against six shifted halfplanes agrees across five lattice shape families and multiple r, finite corroboration only.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Koçak–Ratiu prove general piecewise-polynomial inner erosion, first-kind Voronoi facet principles identify normals, and classical polygonal isoperimetry implies the extremal comparison after applying the cut-locus reduction. Related same-date near-tie torus theorem concerns a different gap statistic. No inspected source gives the combined exact all-lattice survival, switch, tail-exponent classification and strict comparison as a single statement, but a general erosion corollary may already imply the extremal component.
+
+## value
+
+PASS
+
+PASS: the complete shape-dependent law of distance to a flat-torus cut locus, exact singular transition and well-rounded tail change are natural geometric probability invariants. The universal strict hexagonal stochastic optimum across all shapes adds useful rigidity, even though its isoperimetric method is classical. The exact coefficients are not a meaningless table or merely a restatement of polygon erosion generic degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

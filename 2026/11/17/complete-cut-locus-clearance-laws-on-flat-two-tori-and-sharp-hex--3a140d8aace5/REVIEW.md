@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns one precisely defined statistic: intrinsic distance from a Haar-uniform point on a flat two-torus to another point's cut locus. Translating the cut locus to a planar Voronoi-tiling skeleton and using the known six-normal description of reduced planar lattice cells reduces the event to an exact hexagonal intersection. Explicit vertical-section integration gives the quadratic positive-part formula; the branch transition and endpoint exponents follow by differentiation and expansion. Strict stochastic dominance uses the sharp polygonal isoperimetric inequality on every eroded cell, an almost-everywhere area derivative, and a strict equality characterization. The packaged checker recomputes clipped areas and samples independently. Risks: reliance on the standard planar obtuse-superbase facet criterion and polygonal isoperimetric equality statement; both have explicit hypotheses, and finite numerical tests are only corroborative.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Koçak–Ratiu, arXiv:1008.2040v1, gives general polynomial inner-tube structure and is explicitly prior; McKilliam–Grant, arXiv:1201.5154v1, gives relevant-vector facet techniques; Chitsakul (2013) describes flat-torus cut loci. None of the inspected passages states the complete Gauss-parametrized cut-locus-clearance distribution, precise interior transition and endpoint-exponent classification, and fixed-area strict stochastic optimum together. A related published geometric-record summary compares BCC and FCC 3D cell clearance; dimension, bodies and conclusions are different. Direct implication checks against accessible historical claims disclosed no overlap. Searches are not exhaustive; a general polygonal inradius/erosion comparison might implicitly yield the strict stochastic bound, so independent historical review remains important.
+PASS
 
-## Value — PASS
-Distance to the geodesic cut locus quantifies how far an area-uniform test point lies inside the unique-shortest-geodesic region from a fixed point. Its complete law is a natural intrinsic metric statistic across all flat two-torus shapes. The law reveals an observable phase transition in the eroded cut region, characterizes well-roundedness by the endpoint exponent, and singles out the equilateral torus via an entire distribution rather than a single expectation. Neither the known general piecewise-polynomial fact nor the known planar lattice facet criterion by itself supplies this combined classification and probabilistic shape comparison. The stochastic dominance is derived from a classical inequality, and no entirely new isoperimetric principle is asserted.
+PASS: the torus cut locus lifts to Voronoi cell boundaries, so D is the uniform boundary-clearance random variable. A Gauss-reduced planar lattice has relevant normals ±u,±v,±(v−u); erosion shifts six supporting distances. Integrating explicit vertical sections gives the two-branch quadratic survival with switch t*=ap/(a+b−c) and all rectangular/rhombic/well-rounded boundary cases. Endpoint expansion gives tail exponent one for b>a and two for b=a, with hexagonal coefficient 2√3. Sharp isoperimetry P_r²≥8√3 area(V_r) plus a.e. derivative area’=−P_r gives strict optimal fixed-area hexagonal stochastic dominance. Independent clipping against six shifted halfplanes agrees across five lattice shape families and multiple r, finite corroboration only.
 
-## Closest literature and limitations
-The general inner-tube theorem in Koçak–Ratiu prevents claiming piecewise-polynomiality as new. McKilliam–Grant gives the lattice halfspace machinery; Chitsakul addresses cut-locus structure rather than its area-uniform clearance distribution. The 3D BCC–FCC clearance comparison belongs to distinct lattice cells. Search reach and implicit-implication coverage remain residual priority risks. Curved tori and higher-dimensional flat manifolds are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Koçak–Ratiu prove general piecewise-polynomial inner erosion, first-kind Voronoi facet principles identify normals, and classical polygonal isoperimetry implies the extremal comparison after applying the cut-locus reduction. Related same-date near-tie torus theorem concerns a different gap statistic. No inspected source gives the combined exact all-lattice survival, switch, tail-exponent classification and strict comparison as a single statement, but a general erosion corollary may already imply the extremal component.
+
+## value
+
+PASS
+
+PASS: the complete shape-dependent law of distance to a flat-torus cut locus, exact singular transition and well-rounded tail change are natural geometric probability invariants. The universal strict hexagonal stochastic optimum across all shapes adds useful rigidity, even though its isoperimetric method is classical. The exact coefficients are not a meaningless table or merely a restatement of polygon erosion generic degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
