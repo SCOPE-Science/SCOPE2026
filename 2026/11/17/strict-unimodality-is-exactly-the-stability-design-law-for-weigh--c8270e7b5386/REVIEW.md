@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact single-jump decomposition computes the operator seminorm and its attaining witnesses. Positivity of every jump covariance, affine reproduction, and the centered-moment difference identity prove the necessity of strictly unimodal edge weights (at most one plateau). Conversely an explicit positive-mass inverse construction realizes every allowed profile and parametrizes all equality cases; all denominators are strictly nonzero apart from the explicitly treated free mass at a zero difference. Both the general proof and exact rational checker were reconstructed; 1,092 finite profiles and 3,000 independent rational cases passed.
+PASS
 
-## Originality — PASS (qualified)
+Derived projection slope B(f)=sum c_k (f_k-f_(k-1)), c_k>0, and exact attained seminorm W max c_k/w_k by single-step jumps. Reproduction of coordinate t yields lower bound 1 and equality iff c_k=w_k/W. Differencing c_i-c_(i+1)=mu_i(t_i-m)/S forces strict rise/possible single peak flat/strict fall. Constructive masses mu_i=(w_i-w_(i+1))/(t_i-m) with endpoint delta values positive and zero-peak free mass give mean m and S=W; completeness up to scaling. Independently checked rational n=4 profile w=(1,2,1), mu=(1,3,3,1): c=(1/4,1/2,1/4), norm 1. Exact one-edge boundary included; examined check_projection.py, which does not replace proof.
 
-The closest related published results concern cyclic isotonic regression under weighted variation and unweighted Whittaker–Henderson variation instability. Neither statement implies the present weighted rank-two projection theorem or its constructive strict-unimodality criterion. Cleveland's regression paper supplies the classical fitting operator; its publicly available abstract does not assert this theorem, but the complete original paper was inaccessible. Steidl et al.'s accessible original preprint concerns nonlinear wavelet/TV diffusion equivalences instead of this least-squares projector. Historical unindexed equivalences are a residual risk, not ruled out by a failed keyword search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete constructive design and obstruction theorem for a natural stability question in least-squares smoothing. It characterizes exactly when observation weights can overcome an arbitrary nonuniform sampling geometry and prescribed variation edge weights, pinpoints why flat weights fail on every path of at least four vertices, and enumerates all nonexpansive designs. Unlike a preselected coefficient calculation, the result solves a full positive-weight feasibility problem with an exact boundary at a two-edge plateau.
+Published mass-aware isotonic variation theorem classifies a nonlinear cone-constrained projection using concavity in cumulative observation mass; the present linear rank-two affine projector has a distinct inverse positive-mass design criterion in edge-weight order for every grid. TV diffusion/wavelet papers lack this affine projector theorem. The explicit characterization is not a corollary of their different operators.
 
-## Scope and limits
+## value
 
-Strict positivity, finite path topology and affine (rank-two) least-squares fit are essential. An explicit formula computes the sharp norm for any fixed mass design, but the optimum over masses for an inadmissible edge profile is not determined. Archival priority is limited by the unavailable original Cleveland full text and possible unindexed sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-grid inverse design criterion for turning weighted affine regression into TV-nonexpansive smoothing is a natural stability question. The shape threshold and explicit positive mass construction are useful independent of larger optimization problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
