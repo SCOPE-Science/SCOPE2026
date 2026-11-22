@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the exact inclusive radius-three Vietoris–Rips complex of the 25-vertex graph metric on \(C_5\square C_5\); the action is precisely the 200 maps displayed, without any claim about a larger automorphism group. The original-radius nonedge graph is exactly the categorical pentagon product after multiplying coordinates by three. A deterministic exhaustive 25,531-face enumeration and explicit 12,761-pair acyclic matching leave a single vertex and nine four-cells; all 142,050 directed Hasse covers pass topological sorting. The signed vertex-orbit graph formula computes the reduced simplicial Lefschetz number for every group element. Exact coset-label permutations independently give the proposed rational module's traces, and all 200 pairwise equalities pass. Maschke's theorem gives the rational module isomorphism; rational orbit chains plus averaging imply the quotient consequence. The character histogram sum is zero.
+## correctness
 
-## Originality — PASS, with priority risk
-Adams et al., arXiv:2502.07134 (2025-02-10), §7 Theorem 7.1, cover the ordinary nine-four-sphere homotopy type but not the 200-element action. The 2026-11-08 translation fixed-space classification in published-finding corpus covers the exact \(A\cong(\mathbb Z/5)^2\) restriction \(\mathbb Q\oplus V_2\oplus V_3\), leaving the 175 nontranslation symmetries undetermined. That restriction does not determine the action of the coordinate swap on its invariant line and cannot yield the zero full-quotient invariant. The 2026-10-25 five-by-five hard-square complex concerns a distinct adjacency graph and makes no such representation claim. The exact module, all reflections and factor swaps, and the resulting vanishing full-symmetry quotient are not deduced from the closest statements inspected. Remaining risk: unindexed equivalents or later literature not captured by the searches; search absence is not uniqueness proof.
+PASS
 
-## Value — PASS
-A known wedge of nine spheres has numerous inequivalent group actions; its homotopy type and translation character alone do not determine the quotient. This computes a natural complete symmetry action, resolves the previously unmeasured sign on its one-dimensional translation-invariant class, and proves the full quotient is rationally acyclic. The distinction concerns a canonical finite torus stage of current interest in Vietoris–Rips topology, not an arbitrary induced subgraph or a routine re-expression of the nine Betti classes.
+The forbidden pairs in C5□C5 at radius3 have both cyclic-coordinate distances 2, forming after invertible scale a categorical C5×C5 graph. Thus the Rips complex is exactly an independence complex. The pinned verifier enumerates 25531 faces including empty, checks all 142050 Hasse covers and an acyclic matching giving 9 unpaired 4-faces (plus base 0-cell), proving wedge9 S4. For each of 200 distinct signed-affine maps the Lefschetz trace is −I(B_g;−1) on the admissible group-orbit conflict graph; an independently assembled finite calculation verified trace equals the predicted swap sign plus fixed-coset augmentation characters element by element for all 200 maps, with histogram {(9,1),(4,8),(1,75),(−1,116)} and total trace zero. Rational characters identify Q-representations; averaging proves no fixed H4, hence no reduced positive rational quotient homology. Finite exhaustion is complete for precisely this 25-point complex.
 
-## Scientific limitations
-The result concerns one 25-vertex grid at one inclusive radius; it describes rational \(G\)-modules, not integral representation lattices, orbit integral torsion, or full equivariant homotopy. The recurrence and matching are finite exact certificates, not claims for all grid sizes. Bibliographic priority cannot be guaranteed by indexing alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adams et al already proved the nine-four-sphere nonequivariant homotopy type, and an earlier published translation classification already determines the 25-element subgroup character. Neither determines the extra 175 nontranslations, the coordinate-swap orientation character or the full quotient invariants. The same-object full action formula appears original in inspected corpus.
+
+## value
+
+PASS
+
+The full symmetry character and quotient rational acyclicity distinguish the geometric reversal of the unique translation-fixed fourth-homology class, a non-obvious effect that the previous wedge and translation-only results leave undetermined. Exact finite symmetry classifications of a naturally studied toroidal Rips complex are useful for equivariant topological computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
