@@ -1,20 +1,21 @@
-# Scientific assessment — unbordered-avoidance Walsh gaps
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is quantified over every binary unbordered forbidden factor of length \(k\ge2\) and every ambient length \(n\ge1\). Overlapping occurrences would force a proper border, so every compatible intersection in inclusion–exclusion fixes exactly \(k\) fresh coordinates per occurrence. The character sum vanishes unless the frequency support lies inside the forced union, and otherwise equals a signed power of two. The maximum number of disjoint intervals is \(\lfloor n/k\rfloor\), giving the claimed universal divisibility. The full-prefix frequency forces a unique maximum packing, giving the exact nonzero gap. For divisible lengths, the unique complete packing gives odd coefficients. When the residue is one, the maximum packings have one missing coordinate and their parity sum is a nonconstant affine functional. Exact checkers reproduced all conclusions at the tested finite sizes, without being used as a substitute for the proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-Guibas–Odlyzko's autocorrelation enumeration and Chandgotia–Marcus–Richey–Wu's replacement/inclusion–exclusion theorem concern avoidance cardinalities, with no characterwise Walsh divisibility or sharp gap in the inspected relevant source material. De Wolf's Fourier survey provides the normalization and convolution diagonalization but no forbidden-pattern result. Bilotta and coauthors consider enumeration of particular binary two-run forbidden patterns; the complete arXiv HTML manuscript was inspected in relevant sections, including its introduction and conclusion, and no Fourier or Walsh statement was found. A previously available exact result for avoiding `001` is a special case of the present all-unbordered-word theorem, not broader coverage. Searches under Fourier, Walsh, unbordered, nonoverlapping pattern and 2-adic synonyms found no theorem asserting this uniform sharp coefficient law. This is a bounded originality assessment, not a proof of historical priority.
+PASS
 
-## Mathematical value — PASS
-The natural object is the whole class of binary one-pattern shifts whose forbidden pattern has trivial autocorrelation. The claim gives a sharp, uniform, all-length Fourier multiplier scale and consequently the exact worst-case recovery norm of the associated counting convolution for *every* such pattern, rather than only a small example. In the full-tiling residue it proves complete invertibility; one step beyond a full tiling it counts exactly half the characters in the first nonzero valuation layer. This connects classical nonoverlap enumeration to robust harmonic recovery and exposes a pattern-independent spectral invariant not obtainable from total word counts alone. It remains valuable without classifying the full spectrum at every residue.
+Unbordered w of length k has no overlapping occurrences; inclusion-exclusion over compatible length-k occurrence intervals J yields W(s)=sum_{J disjoint, supp(s) subset union(J)}(-1)^(|J|+<s,forced(J)>) 2^(n-k|J|). For n=qk+r every term divisible by 2^r. When s is one on all prefix qk positions, unique tiling J={1,1+k,...} gives ±2^r, even for q=0 (empty packing), proving sharp minimum and gcd. When r=0 the only maximal full tiling has odd residue, so all characters nonzero. When r=1, every maximum q-packing misses precisely one of holes 1,1+k,...,1+qk, giving W/2 mod2=(q+1)+sum s_(jk+1), balanced on half the characters, including n=1. Exact independent direct avoidance enumeration plus FWHT checked 216 complete spectra for all unbordered patterns k=2..5 and n=1..9. Finiteness is corroboration only; disjoint-packing argument proves all n,k.
 
-## Closest literature and residual risks
-- Guibas and Odlyzko (1981), DOI 10.1016/0097-3165(81)90005-4: correlation-polynomial/avoidance counts, not the exact signed character law; only the abstract and accessible bibliographic material were examined.
-- De Wolf (2008), DOI 10.4086/toc.gs.2008.001: full 20-page survey, especially Sections 2.2–2.3 on Walsh normalization and convolution; general machinery rather than this pattern-specific bound.
-- Bilotta, Merlini, Pergola, Pinzani (2011), arXiv:1103.5689: unbordered special two-run patterns; the complete arXiv HTML text is available, with relevant enumerative sections and conclusions inspected; no Fourier/Walsh law appears.
-- Chandgotia, Marcus, Richey, Wu (2024), arXiv:2409.09024: accessible full text inspected for unbordered/no-self-overlap equivalences and Theorem 5.4 on unweighted pattern-avoidance counts; no Walsh or characterwise stability theorem found.
+## originality
 
-The result is binary, linear (not circular), unnormalized, and assumes unborderedness. It does not classify all zero multipliers at nonmultiple lengths. Independent mathematical validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Earlier special-pattern 001 theorem obtains its three-phase gap but not uniformity over every unbordered w of every length nor the affine first-valuation-layer parity law. Classical single-pattern avoidance inclusion-exclusion counts sequences, not signed characterwise spectral divisibility.
+
+## value
+
+PASS
+
+A broad natural family of forbidden-factor subshifts receives exact integer Fourier recovery thresholds with a universal residue-class law and a 50% valuation-layer classification. It directly generalizes a motivated special case while exposing a structural role of nonoverlap beyond cardinality counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

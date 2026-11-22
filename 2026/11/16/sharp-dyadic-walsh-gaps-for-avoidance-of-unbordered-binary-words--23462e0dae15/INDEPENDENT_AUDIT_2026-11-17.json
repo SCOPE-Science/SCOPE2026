@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:01:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/16/sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md@3f0b40cda5fe9d897ac830c77047cb9d9adee9ec",
+        "2026/11/16/sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/check_fwht.py@8af85abc6bfe4c69f2f26b1c272ca0db00ee20b8"
+      ],
+      "rationale": "Unbordered w of length k has no overlapping occurrences; inclusion-exclusion over compatible length-k occurrence intervals J yields W(s)=sum_{J disjoint, supp(s) subset union(J)}(-1)^(|J|+<s,forced(J)>) 2^(n-k|J|). For n=qk+r every term divisible by 2^r. When s is one on all prefix qk positions, unique tiling J={1,1+k,...} gives ±2^r, even for q=0 (empty packing), proving sharp minimum and gcd. When r=0 the only maximal full tiling has odd residue, so all characters nonzero. When r=1, every maximum q-packing misses precisely one of holes 1,1+k,...,1+qk, giving W/2 mod2=(q+1)+sum s_(jk+1), balanced on half the characters, including n=1. Exact independent direct avoidance enumeration plus FWHT checked 216 complete spectra for all unbordered patterns k=2..5 and n=1..9. Finiteness is corroboration only; disjoint-packing argument proves all n,k.",
+      "residual_risks": [
+        "Only bounded checks were independently calculated; infinite assertions rely on actual all-order proof inspection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Guibas-Odlyzko overlap/correlation enumeration is about substring counting.",
+          "The later general forbidden-factor treatment uses inclusion-exclusion of compatible occurrences for enumeration."
+        ],
+        "reasoning": "Broader pattern counting does not automatically yield universal Walsh divisibility and sharp nonzero character witness; signed restrictions are essential.",
+        "searches": [
+          "Resultary semantic query: unbordered binary word avoidance Walsh Fourier divisibility 2 power convolution",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+          "https://doi.org/10.1016/0097-3165(81)90005-4"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+        "https://arxiv.org/abs/2409.09024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unbordered overlaps make occurrence blocks disjoint; deriving signed Fourier formula needs support covering and uniquely tiled masks, absent from ordinary avoidance counts.",
+          "At n=qk+1 the affine Boolean parity of 2^(-1)W yields exactly 2^(n-1) minimal-valuation frequencies."
+        ],
+        "reasoning": "Neither the published 001 frequency theorem nor a scalar avoidance recurrence logically entails the general first-layer character count without proof.",
+        "searches": [
+          "Resultary semantic query: unbordered binary word avoidance Walsh Fourier divisibility 2 power convolution",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+          "https://arxiv.org/abs/2409.09024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 001 theorem concerns only one length-3 unbordered word, while the new theorem quantifies all k and all unbordered patterns and gives a mask-parity formula at n≡1 mod k.",
+          "Chandgotia et al study word avoidance counts and autocorrelation-equivalent patterns, not full signed character sums in inspected text."
+        ],
+        "reasoning": "The 001 statement is a strict specialization; it does not imply general w without an additional disjoint-block tiling argument.",
+        "searches": [
+          "Resultary semantic query: unbordered binary word avoidance Walsh Fourier divisibility 2 power convolution",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+          "https://arxiv.org/abs/2409.09024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "001 special-case Fourier gap 1,2,4 has previously been published.",
+          "Bilotta et al treat selected pattern enumeration via Riordan arrays and generating trees, not all-character spectral tables in the accessed portion."
+        ],
+        "reasoning": "Specific 001 gap must be credited, but no inspected source tabulates every unbordered w over all n with first-layer valuation counts.",
+        "searches": [
+          "Resultary semantic query: unbordered binary word avoidance Walsh Fourier divisibility 2 power convolution",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+          "https://arxiv.org/abs/1103.5689"
+        ]
+      },
+      "rationale": "Earlier special-pattern 001 theorem obtains its three-phase gap but not uniformity over every unbordered w of every length nor the affine first-valuation-layer parity law. Classical single-pattern avoidance inclusion-exclusion counts sequences, not signed characterwise spectral divisibility.",
+      "residual_risks": [
+        "A closely disguised general avoidance Fourier theorem in older pattern-matching literature remains a possible historical priority risk.",
+        "No assertion every nonmultiple length is singular; exact nullity beyond residues 0 and 1 not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already covers all n for w=001 only; new theorem all unbordered length k, plus first-layer parity",
+          "evidence": "Its theorem: δ_(n mod3)=1,2,4 for 001; no arbitrary unbordered parameter",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+          "material_read": "Full RESULT.md theorem, three-state signed automaton proof, modulo-4 argument and sharp 001 witnesses",
+          "method": "Read-only GitHub RESULT.md",
+          "title": "A three-phase sharp Walsh stability law for binary words avoiding 001",
+          "trigger": "Direct prior same-object special case and matching 1,2,4 values"
+        },
+        {
+          "assessment": "Relevant cardinality/correlation equivalence; cannot claim whole paper lacks a disguised Fourier theorem without exhaustive inspection",
+          "evidence": "Section with occurrence inclusion-exclusion addresses scalar avoidance counts, not the characterwise signed expression",
+          "identifier_or_url": "https://arxiv.org/abs/2409.09024",
+          "material_read": "Public preprint abstract/intro and section on compatible occurrences and word counting; search within PDF for Fourier",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "Shifts of Finite Type Obtained by Forbidding a Single Pattern",
+          "trigger": "Same unbordered forbidden-word counts and inclusion-exclusion background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+        "https://arxiv.org/abs/2409.09024"
+      ],
+      "rationale": "A broad natural family of forbidden-factor subshifts receives exact integer Fourier recovery thresholds with a universal residue-class law and a 50% valuation-layer classification. It directly generalizes a motivated special case while exposing a structural role of nonoverlap beyond cardinality counts.",
+      "residual_risks": [
+        "Historical originality remains best-of-knowledge; no external expert attestation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/16/sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/RESULT.md@3f0b40cda5fe9d897ac830c77047cb9d9adee9ec",
+    "2026/11/16/sharp-dyadic-walsh-gaps-for-avoidance-of-unbordered-binary-words--23462e0dae15/check_fwht.py@8af85abc6bfe4c69f2f26b1c272ca0db00ee20b8",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-three-phase-sharp-walsh-stability-law-for-binary-words-avoidin--8fc07c00f15e",
+    "https://arxiv.org/abs/2409.09024"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A closely disguised general avoidance Fourier theorem in older pattern-matching literature remains a possible historical priority risk.",
+    "No assertion every nonmultiple length is singular; exact nullity beyond residues 0 and 1 not claimed.",
+    "The frozen public METADATA.json and AUDIT.json each contain scope_run_id, an operational identity. No complete semantically sanitized, blob-guarded replacement files were prepared or checked against the entire publication package; do not publish unsanitized originals."
+  ],
+  "schema_version": 1
+}
