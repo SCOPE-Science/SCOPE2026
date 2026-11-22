@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reduction of \(F^3x=x\) to either the all-zero state or a fully successor-dominated coloring follows from forced transitions and connectedness. The 81-state transfer bijection covers every labelled circumference \(n\ge3\). The integer determinant calculation was reconstructed by two distinct exact methods; the independent C++17 sitewise full enumeration agrees for four lengths. The recurrence and spectral estimates follow rigorously from the fully verified characteristic polynomial. The disjoint-rainbow-triangle event is independent and implies persistence without assuming global eventual three-periodicity.
+## correctness
 
-## Originality — PASS, qualified
-The closest published open/circular rail-ladder results lack Moore diagonals, and hence do not determine the 81-state king-contact transfer spectrum. Durrett–Steif concerns the nearest-neighbor geometry; the fully read Gravner–Lyu–Sivakoff paper treats general excitation and activity rather than this labelled cyclic exact count. Literature and mathematical-record searches found no stronger implication. The original 1980 combinatorial paper could not be examined in full text, and the 1993 spiral paper was accessible at abstract level only; unindexed equivalent results remain possible. This is a best-knowledge priority judgment, not certification of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The fully periodic two-row Moore graph is a canonical minimum-width quotient with the full king neighborhood. A seven-degree denominator after a nontrivial 81-state transfer collapse yields an all-circumference orbit census and an exact spatial entropy. Contrasting immediate-global-clock probability tending to zero against persistent-local-clock probability tending to one is a substantive asymptotic dynamical distinction; the latter does not assert eventual whole-system periodicity. This extends the scientific understanding of how high-contact geometry changes excitation wave populations beyond previously counted cubic ladders.
+For synchronous threshold-one three-state Greenberg–Hastings on the simple-neighbor graph with vertices (row∈Z2,column∈Zn), n>=3, Moore adjacency is all distinct sites at horizontal distance≤1 except self; the two vertical offsets collapse to one opposite-row site. The only third-return nonzero histories must advance 0→1→2→0 everywhere; otherwise the connected cycle constraints yield the all-zero fixed state. Thus each color in each column must have a successor-state neighbor, an exact three-slice local condition, and global labelled period-three states biject with length-n closed walks of a fully specified 81×81 overlapping-column adjacency. Independently constructed the 81x81 binary transfer from the literal update, counted exactly 585 directed edges and factored det(xI-T)=x^74(x^2+3x+9)^2(x^3-6x^2-9x-18). Its Newton/trace identity yields S_n=a_n+4*3^n*cos(2πn/3), a_0=3,a_1=6,a_2=54, a_n=6a_{n-1}+9a_{n-2}+18a_{n-3}; the cubic Perron root ~7.516067898568. Independent ORIGINAL-dynamics enumeration of all 3^(2n) configurations at n=3,4,5 gave 540,3024,23490 third-return states, exactly the transfer counts; transfer counts also independently checked n=6,7,8. Since 7.516...<9, the fraction of immediate period-three globally rotating states tends to zero. Disjoint pairs of columns give at least floor(n/2) independent rainbow triangles with failure (7/9)^floor(n/2), proving a perpetual local three-clock with probability tending one (not globally periodic). Infinite family rests on exact finite matrix identity plus an elementary independent local-obstruction probability bound; finite samples alone do not imply the result.
 
-## Residual limitations
-No basin or general period classification; the full text of Greenberg–Greene–Hastings (1980) remained inaccessible despite the lawful retrieval attempts, and historical priority has not been independently established. Exact computer-assisted determinant confirmation is reproducible but not a handwritten coefficient-by-coefficient matrix expansion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: prior broad 3-color GHM work characterizes synchronization and activity via universal coverings on arbitrary connected graphs, but does not count all labelled immediate three-cycles for the two-row MOORE simple graph or compute degree-seven spatial zeta/persistent-local versus globally-periodic contrast. Durrett–Steif's 1991 GHM studies nearest-neighbor integer lattices, one-dimensional entropy and finite boxes, not this quotient. The indexed Wireworld two-row torus theorem is a four-state conductor rule with eight-offset incidence MULTIPLICITY, hence a different rule and a different characteristic polynomial. No reviewed stronger same-object theorem implies the new all-n count.
+
+## value
+
+PASS
+
+Complete exact all-length temporal-three orbit census and spatial zeta for a natural minimal-width excitable lattice plus a sharp qualitative contrast: random initial configuration almost surely contains a perpetual rotating 3-cycle at some local triangle, yet chance of global immediate three-return vanishes exponentially. This answers two distinct natural questions—local pacemaking and synchronized global clocks—using an exact finite-state invariant and meaningful asymptotic distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
