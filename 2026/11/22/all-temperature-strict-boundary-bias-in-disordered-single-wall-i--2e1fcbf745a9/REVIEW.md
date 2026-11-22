@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness (PASS).** The law of the exponential-walk branch sum obeys an independent log-concave convolution recurrence. A strictly totally positive translation kernel propagates likelihood-ratio ordering. Reciprocal symmetry of the central field yields an exact antisymmetric representation for adjacent Gibbs weights; strict likelihood-ratio domination of the longer branch makes every outward difference positive. All quantifiers are finite-length and arbitrary finite positive scale. Gaussian deterministic quadrature independently checks 36 normalization, symmetry and shape conditions, not an infinite proof.
+
+**Originality (PASS, qualified).** The U-shaped physical effect itself, a high-temperature quadratic approximation and a zero-temperature arcsine limit are established in the cited Ising papers. The additional exact strict ordering at *every* positive temperature and size, plus symmetric strictly log-concave universality, was not found in the inspected literature or semantic-index results. Shanthikumar–Yao's likelihood-ratio theorem provides a known proof ingredient, not the domain-wall conclusion. The supplementary material of the 2022 Ising paper was not fully accessible; an implicit previously published all-temperature proof remains the main priority risk. A failed semantic search is not a uniqueness certificate.
+
+**Value (PASS).** The disorder-induced end bias is used to interpret and fit quantum-annealer control noise. A high-temperature approximation and low-temperature limit do not rule out an intermediate-temperature spatial inversion. This theorem closes that natural all-temperature logical gap for the actual restricted Gibbs benchmark and proves strictness, directly distinguishing the disordered classical baseline from a central-peaked coherent profile without fitting a temperature window. The extension to log-concave non-Gaussian noise identifies precisely a robust disorder class. It is not a claim about every device regime.
+
+**Limits.** Exactly one wall; iid, even, positive, strictly log-concave fields; finite chain; no transverse-field coherence or multi-wall Gibbs excitations. A previously undiscovered equivalent formulation could affect priority.
+
+Self-review: passed. Independent audit: not yet performed.
