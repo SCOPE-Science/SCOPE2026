@@ -1,0 +1,11 @@
+# Self-review: exact Rao–Dixon dependence
+
+**Correctness — PASS.** Uniform circular label order gives the uniform weak-composition law. The exact Rao/runs identity is algebraic for every tie-free sample when the second sample is no larger, and exact mixed factorial moments yield the full covariance and correlation. The squared-correlation numerator/denominator factorization establishes the full small-sample positivity and perfect-correlation boundary; a positive cubic establishes strict decline along balanced sample sizes. The bundled checker independently verified 9560 exact-rational assertions, supporting but not replacing the unrestricted proof.
+
+**Originality — PASS (qualified).** Gatto–Jammalamadaka (2015) already present the individual Rao, circular runs, and Dixon definitions, the half-normalization and general conditional distribution. Jammalamadaka–Guerrier–Mangalam (2021) already publish exact *individual* distributions and separate Gaussian limits. Holst–Rao (1980) already provides general symmetric-frequency asymptotics. The present exact pairwise cross-covariance and full dependence curve, the explicit Rao/runs subbalanced equivalence and the strictly monotone balanced residual are not stated by the directly inspected primary sources or matching research records. They are derived from a known global null law, and older equivalent formulas remain possible.
+
+**Value — PASS.** Rao and Dixon are competing recognized two-sample tests of circular equality. Knowing that Rao exactly duplicates circular runs in a broad sample-size regime prevents redundant testing; the sharp finite-sample dependence law quantifies how much linear fluctuation remains in Dixon after Rao, and its limiting half-variance residual is a useful calibration distinction. It does not prove any extra testing power or nonlinear independence.
+
+**References and residual limitation.** The directly compared 2021 open-access paper and 2015 primary chapter define all test normalizations and models; the 1980 source supplies earlier general asymptotics. No independent validation or comprehensive historical priority determination is claimed. The complete statement and reproducible exact checks are provided separately.
+
+Self-review: passed. Independent audit: not yet performed.
