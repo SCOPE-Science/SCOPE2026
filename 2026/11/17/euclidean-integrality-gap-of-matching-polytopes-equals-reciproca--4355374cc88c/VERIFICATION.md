@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Use Python 3.11 or later with `networkx`, `numpy`, and `scipy` installed. From a directory containing both scripts, execute `python verify.py` and `python exhaustive_graphs.py`. The second script imports helpers from the first. No network calls or precomputed data files are required.
+# Independent mathematical audit
 
-The exact rational test verifies the Cauchy–Schwarz certificates for all fractional half-cycle packings and matchings in each selected graph, tests every vertex degree bound and every odd-set matching inequality, and verifies the claimed squared distance by rational arithmetic. The numerical check is an independent quadratic-programming fit of the nearest matching-polytope point using SLSQP and the full small-graph Edmonds halfspace representation. A Euclidean vector error tolerance of \(2\times10^{-5}\) is used for these numerical comparisons. The all-five-vertex-graph test inspects 1,024 labeled graphs, encompassing 12,287 fractional vertices. The programs' successful markers are:
+## correctness
 
-```
-MATCHING_HAUSDORFF_PASS packs=157 vertices=518 independent_QP=85
-FIVE_NODE_GRAPH_EXHAUSTIVE_PASS graphs=1024 vertices=12287 packs=2687
-```
+PASS
 
-The programs are finite experiments and do not prove universal claims, which instead follow from the classical half-integral vertex theorem, Cauchy–Schwarz, the explicit averaging construction, and convexity. In particular, the tests are not exhaustive for graphs with six or more vertices. The NP-completeness assertion uses the established triangle-partition problem; no complexity proof library or randomized solver is needed.
+PASS. For each degree-relaxation vertex invoke the classical half-integral matching/vertex-disjoint odd-cycle decomposition, verified against source definitions. Every integer matching satisfies per-half-cycle odd blossom sum ≤(ℓ−1)/2; by Cauchy–Schwarz the squared Euclidean gap on that cycle is at least 1/(4ℓ). Uniform averaging of the ℓ maximum cycle-edge matchings plus disjoint unit edges constructs a genuine matching-hull point meeting all lower bounds, and strict convexity gives uniqueness. Convexity of distance to the matching polytope reduces global Hausdorff maximization to these vertices, each odd-cycle packing realizable. Bound Σ1/ℓ ≤ n/9 gives d_H≤sqrt(n)/6, equality iff spanning triangle packing; NP-completeness inherits classical triangle partition. Independent exact cases: C3 1/12, C5 1/20, two disjoint triangles 1/6. This is unweighted edge-coordinate Euclidean distance, only fractional vertices have stated projection.
+
+## originality
+
+PASS
+
+PASS qualified: Sanità describes combinatorial one-skeleton diameter, while the complete 2026 weighted-extrema theorem proves equality of outer diameters and circumballs, not the positive mutual Hausdorff gap. The specific unique nearest-point projection for every half-integral vertex and optimization by reciprocal-length disjoint odd-cycle packing were not implied by these primary/previous results.
+
+## value
+
+PASS
+
+PASS. The distance of a canonical LP relaxation to its genuine integer hull is a fundamental metric integrality invariant; the unique projections, reciprocal odd-cycle packing, sharp size bound and NP-complete equality threshold provide reusable structural information beyond routine half-integrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

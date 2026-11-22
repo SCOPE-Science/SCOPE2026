@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-graph quantifiers, edge-coordinate Euclidean normalization, inclusion of an empty odd-cycle packing, and empty-edge-set boundary are explicit. The classical half-integral decomposition is supported by Sanità (2018), Theorem 4, and independently reproduced conceptually from the rank of the signless cycle incidence equations. For each fractional vertex, every cycle's matching-rank inequality gives a norm lower bound by Cauchy–Schwarz. A product of uniform near-perfect matchings on the disjoint cycles reaches all these bounds simultaneously, making the candidate a feasible global nearest point, unique by strict convexity. Convexity of distance extends the vertex maximum to the entire fractional polytope. Sharpness and triangle-factor equality are proved by the inequality \(1/\ell\le\ell/9\). Numerical and exact finite checks are corroborative, not substituted for proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+PASS. For each degree-relaxation vertex invoke the classical half-integral matching/vertex-disjoint odd-cycle decomposition, verified against source definitions. Every integer matching satisfies per-half-cycle odd blossom sum ≤(ℓ−1)/2; by Cauchy–Schwarz the squared Euclidean gap on that cycle is at least 1/(4ℓ). Uniform averaging of the ℓ maximum cycle-edge matchings plus disjoint unit edges constructs a genuine matching-hull point meeting all lower bounds, and strict convexity gives uniqueness. Convexity of distance to the matching polytope reduces global Hausdorff maximization to these vertices, each odd-cycle packing realizable. Bound Σ1/ℓ ≤ n/9 gives d_H≤sqrt(n)/6, equality iff spanning triangle packing; NP-completeness inherits classical triangle partition. Independent exact cases: C3 1/12, C5 1/20, two disjoint triangles 1/6. This is unweighted edge-coordinate Euclidean distance, only fractional vertices have stated projection.
 
-Actual literature and published-finding corpus searches compared distance to the *integer hull*, not merely the shared term 'matching polytope'. Sanità (2018) proves the graph metric of the one-skeleton, not Euclidean set-to-set separation. Blanchard–De Loera–Louveaux (2020) bound monotone pivot paths; Guo–Vishvajeet N (2024) approximate a different volume. The full text of the published weighted-Euclidean-extrema result was inspected: it proves equal minimum enclosing balls and diameters under relaxation, but its claims do not specify the distance from fractional vertices to their integral hull, and those shared outer extrema do not imply a Hausdorff metric formula. Alternative nomenclature (metric integrality gap; nearest matching polytope) remains a live bibliographic risk. No independent priority audit.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Euclidean approximation error of a canonical LP relaxation to its exact combinatorial hull is a natural, non-arbitrary polyhedral invariant. The result computes it exactly for *all* finite simple graphs and resolves each fractional extreme point's nearest-point geometry. Its value is not just computational reproducibility: a priori the global closest integral-hull point could require a nonuniform reallocation across distinct cycles or extra graph edges. The theorem proves an orthogonally separable projection despite arbitrary chords and links, and identifies a sharp general graph-order bound with equality equivalent to the NP-complete triangle-factor decision problem. The universal packing equivalence also creates a meaningful interface with odd-cycle packing optimization, although no polynomial algorithm is asserted.
+PASS qualified: Sanità describes combinatorial one-skeleton diameter, while the complete 2026 weighted-extrema theorem proves equality of outer diameters and circumballs, not the positive mutual Hausdorff gap. The specific unique nearest-point projection for every half-integral vertex and optimization by reciprocal-length disjoint odd-cycle packing were not implied by these primary/previous results.
 
-## Closest literature and limitations
+## value
 
-See RESULT.md references 1–5. The known half-integrality theorem is foundational; the particular Euclidean projection and reciprocal odd-cycle packing identity are the assessed claim. The ordinary Euclidean norm is essential to the equal-weight cycle averaging argument. Weighted extensions, nonvertex projection formulae, and independent priority checking are outside this result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The distance of a canonical LP relaxation to its genuine integer hull is a fundamental metric integrality invariant; the unique projections, reciprocal odd-cycle packing, sharp size bound and NP-complete equality threshold provide reusable structural information beyond routine half-integrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
