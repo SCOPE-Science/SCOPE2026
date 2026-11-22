@@ -1,19 +1,21 @@
-# Scientific review: unbounded sink multiplicity in sinusoidal feedback
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equilibrium elimination is bijective: the two linear-algebraic equilibrium equations uniquely determine the other coordinates from each root of the scalar cubic-plus-sine equation. On positive-sine lobes beyond the cubic turning point, strict concavity proves an exact zero/one/two root split, including the nondegenerate contact. Uniform compact convergence controls all low-coordinate roots; the turning-point comparison counts the growing number of active lobes. Symbolic recomputation of the full Jacobian characteristic polynomial confirms the determinant sign and Hurwitz conditions. A uniform negative cosine margin on every interior fraction of active lobes implies two hyperbolic sinks per lobe after reflection; the ascending branches cannot be sinks by the determinant sign. The matching upper bound gives the sharp cube-root constant. The scalar fold expansion follows by solving the minimizer equation near sine maxima. All limits take the feedback amplitude to infinity with other parameters fixed. Numerical tests are corroborative only.
+PASS
 
-## Originality — PASS within inspected evidence
+The equilibrium equations give y=ax/m,z=Cx² and h_p(x)=Bx−Cx³+p sin x, B=r−a/m>0,C=a/(mc)>0. Cubic dominance bounds roots at T_p∼(p/C)^(1/3). Above R=√(B/C), each positive-sine lobe has h_p''=−6Cx−p sin x<0, negative endpoints and a single maximum; hence zero/one-double/two roots as p crosses p_j. Full activated lobes occupy asymptotic proportion T_p/(2π) of positive line and contribute two roots each, mirrored negatively. The fold minimizer satisfies tan(t_j−x_j)=P'(x_j)/P(x_j), giving x_j=t_j−3/t_j+O(t_j^-3), p_j=Ct_j³−(B+9C/2)t_j+O(t_j^-1). For the 3×3 Jacobian, A3=−mc h_p'(x), A2=a(1+c)+c−mr−mp cos x+(1+a/c)x² and A1=a+c+1. Left lobe roots have A3<0; right roots in every lobe ending at x≤(1−η)T_p satisfy cos x≤−κ_η, giving A2,A3,A1A2−A3>0 uniformly for large p. Letting η→0 matches lower and upper sink-count leading coefficients. Every stable root is a true 3D Hurwitz sink, not just a scalar root. Direct fresh high-p check for a=2,m=3,c=4,r=5,p=10^6 found 56 positive roots, 28 positive sinks, T_p=181.76; outer fold j=10 x=64.3558715 and p_j=44193.0183, matching asymptotic predictions 64.3560675 and 44193.1114. Finite diagnostics do not establish the asymptotics.
 
-Johansyah et al. 2026 provide precisely this flow, demonstrate three equilibria at one parameter set and show finite-range parameter bifurcation and multistability diagrams. Their accessible complete article contains neither a sequence of fold amplitudes nor a theorem counting arbitrary numbers of hyperbolic sinks. The earlier Nahar et al. 2025 supply-chain model has a different jerk/absolute-value vector field; a September 2026 sequel is four-dimensional and its accessible abstract concerns unstable equilibria. The published finite fixed-parameter census for a sine-controlled multiscroll flow concerns a different dynamical system. A well-known scalar sine/cubic root-count mechanism is acknowledged and not itself asserted as novel. The added statement concerns simultaneous stable equilibria in the coupled 3D model, with exact leading constant. Direct literature and mathematical-research searches were negative for this precise or stronger implication, but absence of results is not proof of priority. The September 2026 sequel could not be inspected in full; its different dimension and abstract substantially reduce, but do not eliminate, residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating study's two stable equilibria do not reveal whether the number of stable stationary regimes remains bounded when sinusoidal feedback is strengthened. The theorem settles that natural model-parameter question with a sharp asymptotic constant and identifies an infinite ordered sequence of parameter folds. Crucially, a scalar-root count would not establish coexistence of stable operating regimes; a separate 3D Hurwitz analysis is essential, and the newly appearing roots need not be stable immediately at their folds. This distinction is relevant for interpreting multistable stationary branches alongside the model's periodic and chaotic attractors. The asymptotic feedback range is mathematical rather than a calibrated physical forecast.
+PASS on a model-specific quantitative complete equilibrium/sink growth law and infinite ordered fold mechanism. The exact sine-perturbed three-echelon model and moderate-p stable states were previously published; stability of every large lobe is new only if the full Hurwitz argument is not already implied by earlier literature.
 
-## Sources, limits, and outstanding checks
+## value
 
-The governing equations, eigenvalue calculation, parameter scans, multistability section, and conclusion of the motivating article were inspected directly in open-access HTML. The related 2025 three-tier paper's dynamical equations were compared. The related 2026 four-dimensional article's abstract and metadata were accessible but its complete text was not. Symbolic and finite numerical checks were run from the included checker; these cannot replace the analytical root-count and stability arguments. No claim is made about global basins, the exact finite-amplitude sink count, or any universal economic interpretation. Historical priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Infinite growth of simultaneously attracting stationary solutions in a natural fixed three-dimensional feedback ODE is nontrivial dynamical multistability. The exact sink coefficient and fold staircase separate scalar root creation from dynamical stability and provide a useful quantitative bifurcation boundary, even absent a global basin classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

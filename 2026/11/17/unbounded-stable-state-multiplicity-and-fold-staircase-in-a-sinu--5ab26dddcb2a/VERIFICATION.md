@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible analytical and numerical checks
+# Independent mathematical audit
 
-Install packages listed in `requirements.txt` in a conventional Python environment, then execute `python check_equilibria.py` in the same directory. The program first reconstructs the characteristic polynomial and its determinant relation symbolically using SymPy. It next locates roots on the full positive-sine lobes beyond the cubic transition for the published example parameters \((a,m,c,r)=(12,14,7,55)\) at two large finite feedback amplitudes, and evaluates all three Routh–Hurwitz inequalities. Finally it compares the unique lobe minimizer at a high index with the explicit two-term fold expansion.
+## correctness
 
-On the reviewed environment the checker printed:
+PASS
 
-```
-p=100000 positive_equilibria_outside_R=22 positive_sinks_outside_R=11 predicted_total_sinks~30.255
-normalized sinks ratio 0.4739756318070145
-p=1e+07 positive_equilibria_outside_R=130 positive_sinks_outside_R=65 predicted_total_sinks~138.210
-normalized sinks ratio 0.6034065483696615
-fold asymptotics checked 629.8845590459729 30567415.499462843
-VERIFY_OK jacobian_characteristic=4 determinant_identity=1 finite_large_p_cases=2 lobe_sinks_checked= 130 fold_asymptotics=1
-```
+The equilibrium equations give y=ax/m,z=Cx² and h_p(x)=Bx−Cx³+p sin x, B=r−a/m>0,C=a/(mc)>0. Cubic dominance bounds roots at T_p∼(p/C)^(1/3). Above R=√(B/C), each positive-sine lobe has h_p''=−6Cx−p sin x<0, negative endpoints and a single maximum; hence zero/one-double/two roots as p crosses p_j. Full activated lobes occupy asymptotic proportion T_p/(2π) of positive line and contribute two roots each, mirrored negatively. The fold minimizer satisfies tan(t_j−x_j)=P'(x_j)/P(x_j), giving x_j=t_j−3/t_j+O(t_j^-3), p_j=Ct_j³−(B+9C/2)t_j+O(t_j^-1). For the 3×3 Jacobian, A3=−mc h_p'(x), A2=a(1+c)+c−mr−mp cos x+(1+a/c)x² and A1=a+c+1. Left lobe roots have A3<0; right roots in every lobe ending at x≤(1−η)T_p satisfy cos x≤−κ_η, giving A2,A3,A1A2−A3>0 uniformly for large p. Letting η→0 matches lower and upper sink-count leading coefficients. Every stable root is a true 3D Hurwitz sink, not just a scalar root. Direct fresh high-p check for a=2,m=3,c=4,r=5,p=10^6 found 56 positive roots, 28 positive sinks, T_p=181.76; outer fold j=10 x=64.3558715 and p_j=44193.0183, matching asymptotic predictions 64.3560675 and 44193.1114. Finite diagnostics do not establish the asymptotics.
 
-The root counts in this log include only lobes strictly above the cubic transition, not all compact-range roots. The predicted total is an asymptotic comparator rather than an exact finite-amplitude count. The checker samples finitely many values and does **not** certify all positive amplitudes, the infinite fold sequence, or the limiting sink law. Those conclusions are proved analytically in `RESULT.md`. Independent audit has not been performed.
+## originality
+
+PASS
+
+PASS on a model-specific quantitative complete equilibrium/sink growth law and infinite ordered fold mechanism. The exact sine-perturbed three-echelon model and moderate-p stable states were previously published; stability of every large lobe is new only if the full Hurwitz argument is not already implied by earlier literature.
+
+## value
+
+PASS
+
+Infinite growth of simultaneously attracting stationary solutions in a natural fixed three-dimensional feedback ODE is nontrivial dynamical multistability. The exact sink coefficient and fold staircase separate scalar root creation from dynamical stability and provide a useful quantitative bifurcation boundary, even absent a global basin classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
