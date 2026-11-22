@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "On connected symmetric stochastic kernels P, X=I-P+J/N is SPD and tr(X^{-1})-1 is strictly convex because its second directional derivative is positive for each nonzero symmetric direction. Therefore its unrestricted minimizer is unique and must inherit all clique and leaf permutations. Exact leaf, clique-contrast, and quotient eigenvalues reduce the Kemeny spectral sum to (r+1)/(N a)+r(N-1)/(N b)+(n-2)/(a+(n-1)c). Monotonicity in b,c forces saturation; the remaining F(z) has strictly positive second derivative, divergent endpoints and a single derivative zero. Fixed-r asymptotics and maximum-degree benchmark follow by exact substitution. The actual standalone checker passed 585 assertions, including 105 independent exact rational inverse traces. Floating checks are supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel-Agharkar-Bullo prove a general SDP/convex formulation but do not state an evaluated formula for arbitrary clique size and gateway-leaf multiplicity in inspected Sections I-II and application discussion.",
+        "Boyd-Diaconis-Xiao 2004 Section 3 computes a four-state pendant-clique SLEM instance, a different loss.",
+        "An existing Kemeny-optimal leaf-corona record covers a separate graph with pendant leaves attached to every core vertex, rather than to a single gateway."
+      ],
+      "reasoning": "General convexity alone supplies neither the three-block exact Kemeny spectrum nor the unique scalar root, full positive support, or r+1 maximum-degree penalty; objective and domain implications were evaluated, not merely similar titles. No dominating evaluated formula found for this graph family.",
+      "searches": [
+        "published-finding corpus: Kemeny optimal complete graph with m leaves attached to one vertex",
+        "published-finding corpus: Kemeny optimal stochastic walk on clique with a single leaf lollipop spectral trace inverse",
+        "web: minimal Kemeny clique leaf transition probabilities",
+        "doi:10.1109/TAC.2015.2426317",
+        "doi:10.1137/S0036144503423264"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144503423264",
+      "doi:10.1109/TAC.2015.2426317",
+      "arxiv:2108.01061",
+      "published-finding corpus multi-leaf pineapple SLEM RESULT.md",
+      "published-finding corpus single-leaf clique SLEM RESULT.md",
+      "Other reviewed Kemeny designs on leaf coronas, clique barbells, split graphs and rook graphs, concerning different graph families."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al 2004 Section 1.2 states maximum-degree walk and Section 3 studies spectral mixing optimization; this does not imply minimization of a spectral reciprocal sum.",
+        "Patel et al 2015 Theorem 2 establishes trace inverse Kemeny expression and convexity; evaluated graph-specific optimizer and asymptotic penalty require additional spectral and scalar analysis.",
+        "The published multi-leaf pineapple SLEM theorem has a phase at number of leaves equal to clique nonhub size; the present Kemeny optimizer uses every clique-internal edge for every r, showing the SLEM theorem cannot simply be substituted.",
+        "Faught et al 2021 uses simple random walk degree-proportional stationary law; arbitrary symmetric design uses uniform stationary law and a different constrained domain."
+      ],
+      "reasoning": "We assessed logical implication rather than matching words. Generic optimization existence and symmetry are known, but the exact Kemeny-optimal weights, strict full-support property and unbounded regret are not corollaries of those published statements without new optimization calculations. Related one-leaf SLEM and all-core leaf-corona Kemeny statements do not cover the localized multi-leaf graph Kemeny optimum.",
+      "searches": [
+        "doi:10.1137/S0036144503423264 Sections 1-3",
+        "doi:10.1109/TAC.2015.2426317 Sections I-II",
+        "arxiv:2108.01061 Sections 1-2",
+        "published-finding corpus path 2026/11/8/SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d/RESULT.md",
+        "published-finding corpus path 2026/11/8/SCOPE-fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Patel, Agharkar, Bullo, 2015, Theorem 2 writes Kemeny as trace inverse for reversible chains; their objective differs by +1 in first-return convention but has identical minimizers.",
+        "Faught, Kempton, Knudson, arxiv:2108.01061, Section 2 concerns degree-proportional simple random walks and 1-separation, not arbitrary symmetric row-stochastic weights.",
+        "published-finding corpus pineapple fastest-mixing records use SLEM, not the Kemeny inverse spectral sum."
+      ],
+      "reasoning": "Aliases include stationary-target mean first passage time, expected time to mixing, Kirchhoff/pseudoinverse spectral sum for uniform-stationary symmetric kernels, and optimal stochastic walk weights. Exact objective identity holds after subtracting the convention-dependent constant one; no inspected source optimizes that objective on the same multi-leaf pineapple family.",
+      "searches": [
+        "published-finding corpus: Kemeny's constant optimal symmetric Markov chain for clique plus pendant vertex, bridge and internal probabilities",
+        "published-finding corpus: Minimize trace Laplacian pseudoinverse for stochastic walk on clique with single attached leaf",
+        "web: Kemeny pineapple graph optimal transition probabilities",
+        "web: Kemeny clique pendant optimal random walk",
+        "arxiv:2108.01061"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest title SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d gives SLEM, not Kemeny, with hub-edge allocations and a phase threshold r=a.",
+        "published-finding corpus SCOPE-fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192 gives a complete SLEM optimizer face, not Kemeny inverse-trace weights.",
+        "Available web searches did not surface an exact stochastic Kemeny-optimal pineapple design table."
+      ],
+      "reasoning": "Closest explicit graph-family tables concern SLEM; even a matching family and parameters do not cover a claim about a different objective. Search absence is evidence of limited coverage only, not a novelty certificate.",
+      "searches": [
+        "published-finding corpus: Kemeny's constant optimal symmetric Markov chain for clique plus pendant vertex, bridge and internal probabilities",
+        "published-finding corpus: Kemeny optimal complete graph with m leaves attached to one vertex",
+        "web: Kemeny pineapple Markov chain stochastic optimization",
+        "web: Kemeny clique pendant optimal random walk"
+      ]
+    },
+    "rationale": "Closest unrestricted stochastic design paper optimizes SLEM rather than the inverse spectral sum, and closest Kemeny design papers provide general convex frameworks, not the evaluated all-n all-r clique-star optimizer and r+1 asymptotic benchmark. Related prior exact Kemeny designs on leaf coronas place leaves at every core vertex, so their symmetry, quotient, constraints and formulas do not imply localized gateway-pendant optimality. Best-knowledge assessment does not establish priority against all unindexed results.",
+    "residual_risks": [
+      "An unindexed source may solve the weighted symmetric inverse-trace objective for pineapple graphs under a different name.",
+      "The general Kemeny convex framework is strong antecedent; an evaluator could classify the scalar reduction as an immediate application rather than a distinct result.",
+      "Full text of every specialized later Kemeny graph-family publication was not exhaustively examined; priority is a best-knowledge judgment rather than certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides symmetric stochastic formulation and SLEM result, not the Kemeny inverse-spectral-sum objective or multi-leaf optimum",
+        "evidence": "Sections 1.1-1.2, pp. 667-670, and Fig. 1/table and example in Sec. 3; electronic publication dated 2004-10-29 on PDF",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full PDF parsed 1208 lines, inspected Sections 1-3 including maximum-degree method and K4 pendant instance, with page-one PDF screenshot",
+        "method": "Primary lawful author-hosted full-text PDF and page image",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Baseline design and same graph's single-pendant fastest-mixing case"
+      },
+      {
+        "assessment": "Trace inverse and general convex optimization established, no explicit localized-star clique optimizer found in inspected material",
+        "evidence": "Theorems 1-2, Problem 1, Introduction; 2014 conference predecessor cited by paper",
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Primary full PDF Sections I-II including Theorems 1-2, optimization Problem 1 and comments on applications; page-three screenshot compared with extracted mathematical definitions",
+        "method": "Author-hosted full text PDF, parsed and image inspected",
+        "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+        "trigger": "Closest general convex Kemeny design framework"
+      },
+      {
+        "assessment": "Evaluates fixed simple random walks and Braess attachments; not stochastic transition optimization under uniform stationary law",
+        "evidence": "Introduction, Definition 1.3 and Theorems 2.1-2.3",
+        "identifier_or_url": "https://arxiv.org/abs/2108.01061",
+        "material_read": "Public full HTML preprint Sections 1 and 2, including graph definition and theorem statements",
+        "method": "Primary arXiv HTML full text",
+        "title": "A 1-Separation Formula for the Graph Kemeny Constant and Braess Edges",
+        "trigger": "Same cut-vertex and twin-pendant graph structure"
+      },
+      {
+        "assessment": "Optimizes largest eigenvalue modulus; different spectral loss and a different edge-support transition, does not imply new Kemeny optimum",
+        "evidence": "Theorem and Proof §§2-5, explicit phase r=a",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d/RESULT.md",
+        "material_read": "Complete RESULT.md including assumptions, theorem, spectral derivation, proof, limitations, references",
+        "method": "Public repository file content retrieval",
+        "title": "Sharp fastest-mixing transition on pineapple graphs",
+        "trigger": "Exact same multi-leaf pineapple graph"
+      },
+      {
+        "assessment": "Gives SLEM optimizer set; does not cover unique Kemeny optimizer or r-leaf regret",
+        "evidence": "Main theorem and strict hub-holding SLEM lower bound",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192/RESULT.md",
+        "material_read": "Complete RESULT.md and proof and relationship to 2004 example",
+        "method": "Public repository file content retrieval",
+        "title": "Fastest mixing on a clique with one pendant vertex: a complete optimizer face",
+        "trigger": "Single-leaf special graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a686ba5-0bfb-42d9-bff2-0b16bc57a790",
+  "value": {
+    "rationale": "A canonical bottleneck-plus-dense-core graph family receives a full unrestricted optimizer for all n≥3 and r≥1; every internal clique edge is strictly used unlike potential SLEM star-equivalent designs, and the maximum-degree stochastic heuristic has limiting multiplicative loss r+1 at fixed r, unbounded as r varies. The parameter r is a natural count of pendant states, not an arbitrary cut; the result is a reusable exact benchmark for mean first-passage design rather than a routine evaluation of a fixed eigenvalue list.",
+    "status": "PASS"
+  }
+}
