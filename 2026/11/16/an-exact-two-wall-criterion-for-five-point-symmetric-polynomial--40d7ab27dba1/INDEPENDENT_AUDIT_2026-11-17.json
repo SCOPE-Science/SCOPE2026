@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:05:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five-state zero-diagonal irreducible Jacobi matrix J with downward parameters d=(0,u,v,w,1), 0<u<v<w<1, has five real distinct orthogonality points and normalized polynomials R_i(1)=1. All product coefficients are exact entries R_i(J)_{j,k}; triangle/parity eliminate zeros, reversibility relates the remaining 125 signs to nine nontrivial symmetric triples. Direct exact SymPy expansion confirms the nine-class table, notably g(2,4;4)=A/(1-u) and g(4,4;4)=C/((1-u)(1-v)(1-w)), so A,C are necessary. For the only third prospective wall B, D=(1-u)(1-w)+uw>0 and DB=(1+w-u)C+w²A; thus A,C also force B nonnegative, and the other classes follow from parameter order. Exact independent symbolic rederivation of the elimination identities and selected coefficient entries passed; finite rational samples add no universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polzer Theorem A assumes log-concave nonnegative Newton coefficients and is only sufficient; paper explicitly asks for the exact boundary.",
+          "The companion manuscript gives perturbation neighborhoods and generic terminal positivity rules; its N=4 references concern radii/derivatives, not the full u,v,w two-wall region."
+        ],
+        "reasoning": "A theorem for all sizes under a stronger sufficient hypothesis does not imply the all-parameter iff classification here; generic exact spectral tests do not directly supply the two polynomial boundary formulas.",
+        "searches": [
+          "five point symmetric finite orthogonal polynomial hypergroup exact nonnegative product linearization two polynomial inequalities for recurrence coefficients u,v,w",
+          "https://arxiv.org/html/2611.01561v1",
+          "https://github.com/skypher/szkraw/blob/v1.0.6/papers/p3.tex"
+        ]
+      },
+      "checked_sources": [
+        "pinned 2026/11/16/an-exact-two-wall-criterion-for-five-point-symmetric-polynomial--40d7ab27dba1/RESULT.md Git blob c472483edf1303c4febe5aaec2552ce9b1085042",
+        "pinned CHECK.py Git blob 8740fefddc9f4c8d639e53951890229c44b5f4f8",
+        "https://arxiv.org/html/2611.01561v1",
+        "https://github.com/skypher/szkraw/blob/v1.0.6/papers/p3.tex",
+        "Resultary query: five point symmetric finite orthogonal polynomial hypergroup exact nonnegative product linearization two polynomial inequalities for recurrence coefficients u,v,w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Polzer Theorem A applies on its log-concave subcone; the provided positive profile (1/20,3/20,7/20) violates its Newton log-concavity.",
+          "Companion N=4 Krawtchouk perturbation analyses do not cover all strictly increasing profiles with A>=0,C>=0."
+        ],
+        "reasoning": "Neither sufficient criterion nor local perturbation guarantee implies the sharp global three-parameter necessity or the positive non-log-concave counterexample.",
+        "searches": [
+          "https://arxiv.org/html/2611.01561v1",
+          "https://github.com/skypher/szkraw/blob/v1.0.6/papers/p3.tex",
+          "Szwarc 2003 finite linearization hypergroup inequalities exact 5 point"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polzer Lemma 2.1 identifies g(m,n;k) with R_m(J)_{n,k}, used here.",
+          "The nine permutation-symmetry classes reduce the sharp five-state test to A>=0 and C>=0 by DB=(1+w-u)C+w²A."
+        ],
+        "reasoning": "The matrix polynomial entry formulation is known; the exact elimination of every sign at N=4 to these two sharp polynomial walls is the claimed new specialization.",
+        "searches": [
+          "five point polynomial hypergroup exact two inequality positive linearization 0 u v w 1",
+          "Szwarc polynomial product g(i,j;k) Jacobi matrix powers finite N=4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary shows a four-point constant-ratio cone and this same five-point manuscript, but no matching independent N=4 all-product two-wall table.",
+          "The original CHECK.py produces exact symbolic entries for all 125 coefficients; this verifies the new table, not priority."
+        ],
+        "reasoning": "An external precomputed five-state table would cover the claim if it yielded the same iff boundary; the search did not locate one, leaving the explicit priority risk.",
+        "searches": [
+          "five point polynomial hypergroup exact two inequality positive linearization 0 u v w 1",
+          "finite symmetric polynomial hypergroup N=4 exact coefficient table",
+          "five point symmetric finite orthogonal polynomial hypergroup exact nonnegative product linearization two polynomial inequalities for recurrence coefficients u,v,w"
+        ]
+      },
+      "rationale": "Inspected primary finite positivity criteria and the closest companion study; the known Newton log-concavity test is sufficient, whereas this result supplies a necessary-and-sufficient exact two-wall N=4 chamber including strictly positive systems outside that test.",
+      "residual_risks": [
+        "An older N=4 exact polynomial-hypergroup product table or an unpublished specialized chamber classification could have the same two walls.",
+        "This is a finite five-point criterion for strictly increasing symmetric profiles, not a universal criterion in other ratios/orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP: known sufficient Newton-profile theorem, no exact iff 5-state two-wall result",
+          "evidence": "Theorem A is a log-concavity implication, explicitly not necessary; exact boundary left open.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01561v1",
+          "material_read": "Complete public HTML, introductory comparison Table 1, Theorem A, finite recurrence Lemma 2.1, limitations and open exact-boundary problem",
+          "method": "web full HTML",
+          "title": "A log-concavity criterion for finite nonnegative linearization",
+          "trigger": "Most relevant broader finite-system positivity theorem"
+        },
+        {
+          "assessment": "NO_MATCHING_N=4_WALL_FOUND in inspected sections; coverage remains a bounded risk",
+          "evidence": "Its N=4 occurrences relate to Krawtchouk perturbation coefficients/radii, not the global (0,u,v,w,1) two-wall iff classification.",
+          "identifier_or_url": "https://github.com/skypher/szkraw/blob/v1.0.6/papers/p3.tex",
+          "material_read": "106,691-character primary LaTeX manuscript fetched at tag v1.0.6; abstract/intro and searched all N=4/five-state and terminal positivity occurrences",
+          "method": "GitHub connector full source textual search",
+          "title": "Exact and perturbative criteria for finite nonnegative linearization",
+          "trigger": "Possible exact stronger N=4 positivity coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete, sharp N=4 boundary classification of finite polynomial hypergroups, where positivity of terminal products is not guaranteed by textbook recurrence positivity. The two minimal semialgebraic walls and explicit hypergroup outside the Newton log-concavity sufficient range determine genuinely new fine structure; the fixed finite size is mathematically motivated, not an arbitrary enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned 2026/11/16/an-exact-two-wall-criterion-for-five-point-symmetric-polynomial--40d7ab27dba1/RESULT.md Git blob c472483edf1303c4febe5aaec2552ce9b1085042",
+    "pinned CHECK.py Git blob 8740fefddc9f4c8d639e53951890229c44b5f4f8",
+    "https://arxiv.org/html/2611.01561v1",
+    "https://github.com/skypher/szkraw/blob/v1.0.6/papers/p3.tex",
+    "Resultary query: five point symmetric finite orthogonal polynomial hypergroup exact nonnegative product linearization two polynomial inequalities for recurrence coefficients u,v,w"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific completed C/O/V assessment is not a publisher, independent-human, or formal proof certificate.",
+    "No public-source changes, sanitized replacement or authorized publication was performed."
+  ],
+  "residual_risks": [
+    "An older N=4 exact polynomial-hypergroup product table or an unpublished specialized chamber classification could have the same two walls.",
+    "This is a finite five-point criterion for strictly increasing symmetric profiles, not a universal criterion in other ratios/orders."
+  ],
+  "schema_version": 1
+}

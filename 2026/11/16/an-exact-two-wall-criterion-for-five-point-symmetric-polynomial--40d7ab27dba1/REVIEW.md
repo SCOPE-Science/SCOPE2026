@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite Jacobi realization makes all quantities well-defined for every \(0<u<v<w<1\), with five simple real support eigenvalues. Orthogonality reduces the complete sign tensor to nine permutation classes. Exact recurrence expansions give every table entry. The two candidate obstructions are literally \(g(2,4;4)\) and \(g(4,4;4)\) times positive denominators. The elimination identity \(DB=(1+w-u)C+w^2A\) removes the only third prospective sign obstruction. Remaining entries have explicit nonnegative formulas. Boundary rational examples and the log-concavity counterexample are checked exactly. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS under inspected evidence
+The five-state zero-diagonal irreducible Jacobi matrix J with downward parameters d=(0,u,v,w,1), 0<u<v<w<1, has five real distinct orthogonality points and normalized polynomials R_i(1)=1. All product coefficients are exact entries R_i(J)_{j,k}; triangle/parity eliminate zeros, reversibility relates the remaining 125 signs to nine nontrivial symmetric triples. Direct exact SymPy expansion confirms the nine-class table, notably g(2,4;4)=A/(1-u) and g(4,4;4)=C/((1-u)(1-v)(1-w)), so A,C are necessary. For the only third prospective wall B, D=(1-u)(1-w)+uw>0 and DB=(1+w-u)C+w²A; thus A,C also force B nonnegative, and the other classes follow from parameter order. Exact independent symbolic rederivation of the elimination identities and selected coefficient entries passed; finite rational samples add no universal claim.
 
-The November 2026 log-concavity theorem states a sufficient test for general constant-ratio recurrences and explicitly leaves sharp boundaries open. Its full HTML text was inspected, including the setting, proof summary, endpoint limitations, and open problems. The same author's perturbative companion was inspected by a search through its lawful text manuscript; it offers perturbative neighborhoods and general inequalities, not this five-point two-wall reduction in the examined sections. Szwarc's 2003 full-text necessary/sufficient matrix criterion was inspected; its abstract criterion encompasses finite recurrence questions but does not itself state the explicit two-scalar characterization. A prior four-point exact classification concerns one fewer support point and does not imply the five-point terminal coefficient. Actual database searches for five-state/five-point hypergroups, aliases, exact boundaries, and equivalent recurrence formulas did not find a decisive duplicate; their absence does not prove priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete sharp, natural small-rank boundary case of a recently posed problem in finite polynomial hypergroups, rather than an isolated numerical example or tiny change to a known constant. Two irredundant semialgebraic walls replace the complete \(125\)-coefficient test, with a simple automatic-positive chamber and explicit nonlinear threshold. The smallest new five-state endpoint structure exposes where positivity survives despite failed Newton log-concavity, which motivates the search for improved recurrence criteria in larger ranks.
+Inspected primary finite positivity criteria and the closest companion study; the known Newton log-concavity test is sufficient, whereas this result supplies a necessary-and-sufficient exact two-wall N=4 chamber including strictly positive systems outside that test.
 
-## Risks and limits
+## value
 
-A highly specialized five-node polynomial-hypergroup table or a different presentation of the older hyperbolic criterion might subsume the same explicit inequalities; no publication priority is certified. Only the symmetric ratio endpoint and strict increasing-profile chamber are addressed. The symbolic checker confirms identities; an independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural complete, sharp N=4 boundary classification of finite polynomial hypergroups, where positivity of terminal products is not guaranteed by textbook recurrence positivity. The two minimal semialgebraic walls and explicit hypergroup outside the Newton log-concavity sufficient range determine genuinely new fine structure; the fixed finite size is mathematically motivated, not an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
