@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every d>=2,k>=1, greedy binary arch decomposition proves universality iff k arches. The factor-monitor/product residuals are completely classified and exhibited by explicit prefixes. For avoiding 0^d1, nonuniversal states after a run of d zeros coalesce into the sink; for avoiding 10^d, all listed factor states remain productive. Minimal-accepted-suffix lengths distinguish arch levels and partial status; concrete forbidden-run completions distinguish every remaining state. Thus exact counts (d+2)k+d+1 and (d+2)k+2 hold by Myhill-Nerode. Standalone verify.py passed 384 finite automaton minima and 196584 independent word comparisons, corroborating but not replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al. 2023, Corollary 31 and Theorem 29: algorithms count accepted k-universal words in any specified automaton, which would apply to these restrictions but do not give a minimization formula.",
+        "General DFA intersection upper bound counts product states and is not a lower bound.",
+        "Indexed run-cap result prohibits every occurrence of a long monochromatic run, while here a long final zero run is allowed."
+      ],
+      "reasoning": "A general algorithm capable of constructing and minimizing automata may compute this answer for individual inputs, but its published statement does not subsume the two closed formulas or provide a uniform distinguishing-suffix argument. The natural run-cap family is neither a superclass of precisely the admitted language nor an equivalent constraint.",
+      "searches": [
+        "minimum DFA state complexity k subsequence universal binary strings avoiding factor 010",
+        "state complexity intersection ideal languages factorial languages forbidden factors k-universal DFA quotient",
+        "state complexity k-universal subsequence words avoiding 001 exact number",
+        "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e (indexed source ID)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.04629v1 (full HTML material)",
+      "arXiv:2311.10658v1 (accessible full conference paper material)",
+      "2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0",
+      "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+      "2026/11/8/SCOPE-five-growth-regimes-for-shortest-binary-subsequence-universal-wo--f3f18a6ce713",
+      "Own accessible ledgers: 2026-11_week2 part 1 generation160; 2026-11_week3 part 1 generation002 (claim-only deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barker 2020 proves k-universality characterizations; adding a particular avoidance monitor and proving all reachable products distinguishable are new tasks not implied by only the arch criterion.",
+        "Adamson 2023 focuses on k-existence/all decision and accepted word counting, not right-quotient minimality.",
+        "The factor-only language can have far fewer states; its minimality says nothing about how the k-arch tracker combines with it.",
+        "Run-capped patterns 0^r,1^s differ from the run-ending factor 0^d1."
+      ],
+      "reasoning": "The conclusion requires both an upper bound after precisely coalescing unreachable/hopeless states and matching lower bounds using shortest accepted completions and context-sensitive forbidden-run suffixes. None of the checked results contains or directly implies this conjunction, hence best-knowledge originality passes subject to the stated source access and priority risks.",
+      "searches": [
+        "arXiv:2003.04629v1 (inspected primary source ID)",
+        "arXiv:2311.10658v1 (inspected primary source ID)",
+        "2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0 (indexed source ID)",
+        "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e (indexed source ID)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barker et al. 2020 arXiv:2003.04629v1, Sections 2 and 4-5: recognizes universality via arches and studies repetitions and circular variants.",
+        "Adamson et al. 2023 arXiv:2311.10658v1, Sections 2-4: regular-language k-universality decision and counting, not this minimal quotient count.",
+        "Relevant published-finding corpus indexed matches were different state-complexity problems; nearest exact same-factor record ID: 2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0"
+      ],
+      "reasoning": "Reversal-closure and binary arch decomposition could be aliases, but neither is a quotient-complexity equality. The left/right languages are reverse images, not automaton-isomorphic under a change of input orientation; an ordinary DFA reversal need not preserve state count. Exact residual distinctions are additional necessary content.",
+      "searches": [
+        "For all d>=2 and k>=1, exact minimal DFA quotient complexity of the set of k-scattered-subsequence universal binary words avoiding contiguous 0^d1; (d+2)k+d+1",
+        "For all d>=2 and k>=1, exact minimal DFA quotient complexity of k-universal binary words avoiding 10^d; (d+2)k+2",
+        "k-subsequence universal words forbidden factor 0^d1 reversed 10^d state complexity d-1 difference",
+        "reversal asymmetry minimal DFA state complexity subsequence universal words avoiding factors 0^d1 versus 10^d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus prefix-sorting record discusses a factor-only language and its Wheeler automata.",
+        "published-finding corpus shortest universal words record enumerates minimal-length hosts under length-four pattern avoidance, not the full regular language and not its minimal DFA.",
+        "The accessible prior-week and current-week own research ledger claim texts include run-limited universal words and forbidden-three-factor enumerators but not this quotient classification."
+      ],
+      "reasoning": "The checked tables classify different invariants: lexical Wheeler width, shortest-word counts, or run-cap distributions. The proposed theorem counts pairwise inequivalent right quotients of the entire k-universal restricted language; no consulted table provides those values.",
+      "searches": [
+        "minimal DFA binary universal words with no occurrence of substring 010",
+        "2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0 (indexed source ID)",
+        "2026/11/8/SCOPE-five-growth-regimes-for-shortest-binary-subsequence-universal-wo--f3f18a6ce713 (indexed source ID)"
+      ]
+    },
+    "rationale": "The two exact all-parameter minimal-state formulas and their unbounded reversal difference are not the arch universality criterion, regular-language decision/counting algorithms, factor-only Wheeler-state calculation, run-cap distribution, or shortest-universal-word avoidance enumeration. Concrete implication comparisons are recorded below. Indexed records are not a novelty certificate, and historical-priority risk remains.",
+    "residual_risks": [
+      "Prior exact formula might exist in a paper not indexed by the searched services.",
+      "Relevant public indexed record full texts were unavailable: only their statements/summaries could be compared.",
+      "Literature search is evidence for best-knowledge priority, not proof of world-wide novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected scope: no deterministic minimal-state count for two forbidden run-ending factors",
+        "evidence": [
+          "arXiv v1 public 2020-03-10; Section 4 addresses universality and reversals of word structures, Section 5 gives algorithms for changing universality indices",
+          "The HTML contains no DFA match and no exact minimal-state theorem for these languages"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "Full HTML, introduction, preliminaries, Section 4 on arch/circular/repetition universality, and Section 5 on modifying indices; section headings and theorem discussion inspected",
+        "method": "Read arXiv HTML including Sections 2, 4 and 5 and searched for DFA terminology",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational arch and reversal framework, potentially containing exact constrained formulas"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected sections: gives algorithmic decisions and counting, not uniform minimal-DFA residual classification for 0^d1 and 10^d",
+        "evidence": [
+          "Definition 5 introduces arches; Section 3 studies existence/all-universality for NFAs",
+          "Section 4 table T[q,l,c,R] and counting Theorem 29 do not enumerate minimal quotients of these fixed intersections"
+        ],
+        "identifier_or_url": "https://research-repository.st-andrews.ac.uk/handle/10023/29996",
+        "material_read": "Open access conference full text, introduction, Definition 5/Theorem 9, Section 3 decision problems, Section 4 path counting/arch table Lemma 25 and Theorem 29",
+        "method": "Read extracted full-paper sections from repository PDF; attempted page-image retrieval failed, so no visual inspection asserted",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Exact same general operation of restricting k-universal words by regular languages"
+      },
+      {
+        "assessment": "KNOWN_STATEMENT_NOT_COVERING: factor-only trim DFA and Wheeler DFA, rather than k-universal intersection; full-text residual risk retained",
+        "evidence": [
+          "Indexed summary gives trim partial DFA r+1 and Wheeler DFA 2r+1 for forbidden 0^r1 without subsequence-universality intersection"
+        ],
+        "identifier_or_url": "2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0",
+        "material_read": "published-finding corpus indexed title and mathematical summary only; public full text could not be retrieved",
+        "method": "Semantic-result summary and attempted public repository link",
+        "title": "Exact prefix-sorting state cost for avoiding a binary zero-run factor",
+        "trigger": "Same forbidden factor 0^r1 and automaton state counts"
+      },
+      {
+        "assessment": "KNOWN_STATEMENT_NOT_COVERING: counts only shortest universal words and their growth, not full-language state complexity",
+        "evidence": [
+          "Indexed summary states rational growth regimes for minimal-length 2k universal words under a four-bit forbidden factor"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-five-growth-regimes-for-shortest-binary-subsequence-universal-wo--f3f18a6ce713",
+        "material_read": "published-finding corpus indexed title and mathematical summary only",
+        "method": "Semantic-result summary",
+        "title": "Five growth regimes for shortest binary subsequence-universal words avoiding one four-letter factor",
+        "trigger": "Potential coverage via a classification over all forbidden four-bit patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41db0a4c-16d8-4beb-9e3b-3e6e02a95bc4",
+  "value": {
+    "rationale": "This is a complete, all-d/all-k exact state classification for a natural regular restriction of binary k-subsequence universality. Although the languages are reversals and have the same length enumerators, their left-to-right streaming-recognition memory differs by exactly d-1, unbounded in the forbidden-run parameter. The directional cost is structural and not supplied by generic product bounds or a small finite census.",
+    "status": "PASS"
+  }
+}
