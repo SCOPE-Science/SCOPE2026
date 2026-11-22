@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:55:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every 0.7<=h<=0.8, the boundary arclength centroid is S=(0,hs/(2(1+s))) and the continuous perimeter Weber functional is coercive and strictly convex, hence has a unique reflection-invariant minimizer. Differentiating the three edge-integrals at S yields exactly the RESULT.md transcendental G(h). An independently reconstructed SymPy derivative and 100 contiguous mpmath.iv outward interval enclosures gave a conservative strict lower derivative bound 0.09508>0.09; independent 55-digit evaluation gave G(0.7)=-0.0066459334627944..., G(0.8)=+0.0067152187453978... and root h=0.7465542709140345326.... Direct quadrature at h=0.7,0.75,0.8,sqrt(3) agrees to >50 decimal places. This is continuum certification on 100 covering intervals, not 100 point samples. Since the vertical derivative is increasing with site height, its sign reverses the Weber-versus-Spieker order across the unique root. Does not assert global uniqueness among all triangle shapes or outside [0.7,0.8].",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.alphaxiv.org/abs/1403.3715 abstract confirms generic polygon boundary integral and Weiszfeld solver; no special crossing explicit in accessible abstract",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61 complete proof uses an identical median objective but evaluates derivative at q=1/3, not Spieker q(h)"
+        ],
+        "reasoning": "Generic integral formulas are tools, not a theorem giving uniqueness of G-root and its signs. Could be specialized with new analysis, but the inspected prior result does not imply the present shape and reversal.",
+        "searches": [
+          "boundary Euclidean distance geometric median convex polygon Zhang Carlsson isosceles triangle center crossing",
+          "Zhang Carlsson 2014 convex polygon Euclidean boundary median integral"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61",
+        "https://www.alphaxiv.org/abs/1403.3715",
+        "https://mathworld.wolfram.com/SpiekerCenter.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61 complete RESULT.md: only proves median hq(h) equals height h/3 at h~0.109 and equilateral; no equality to hs/(2(1+s))",
+          "https://www.alphaxiv.org/abs/1403.3715 generic boundary integral method"
+        ],
+        "reasoning": "Substituting the perimeter-centroid height into the known segment integral is necessary but does not prove the unique crossing; the earlier area-centroid equality does not imply this theorem or its ordering.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61",
+          "boundary Euclidean distance geometric median convex polygon Zhang Carlsson isosceles triangle center crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld Spieker Center https://mathworld.wolfram.com/SpiekerCenter.html identifies it with perimeter centroid",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61 proves median equals area centroid, a different point except equilateral"
+        ],
+        "reasoning": "Area centroid (height h/3) and perimeter centroid (height hs/[2(1+s)]) differ away from equilateral; earlier non-equilateral h in (1/10,1/8) is not the h in (7/10,4/5).",
+        "searches": [
+          "Spieker center perimeter arclength centroid continuous Fermat Weber geometric median isosceles triangle non equilateral coincidence",
+          "Resultary: Spieker center perimeter arclength centroid continuous Fermat Weber geometric median isosceles triangle non equilateral coincidence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest center entries concern area centroid/halfplane perimeter depth, not the same stationarity equality",
+          "MathWorld center coordinates provide no Weber root table"
+        ],
+        "reasoning": "This is a transcendental location/ordering theorem, not a known tabular triangle-center identity. Search failure does not establish exhaustive novelty.",
+        "searches": [
+          "Spieker triangle center X(10) Weber median coincidence exact isosceles parameter",
+          "Resultary semantic center coincidence arclength Weber"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the exactly isolated non-equilateral equality of the perimeter geometric median and perimeter centroid, plus strict ordering reversal, is distinct from an earlier theorem where the same median equals the AREA centroid at h around 0.109 and at equilateral height. The 2014 general polygon distance-integral method supplies stationarity formulas but does not itself settle the unique transcendental crossing. Only abstract/full-source metadata for the 2014 article was accessible in this execution; direct full-text exclusion is not claimed.",
+      "reasoning": "PASS best-of-knowledge: the exactly isolated non-equilateral equality of the perimeter geometric median and perimeter centroid, plus strict ordering reversal, is distinct from an earlier theorem where the same median equals the AREA centroid at h around 0.109 and at equilateral height. The 2014 general polygon distance-integral method supplies stationarity formulas but does not itself settle the unique transcendental crossing. Only abstract/full-source metadata for the 2014 article was accessible in this execution; direct full-text exclusion is not claimed.",
+      "residual_risks": [
+        "Full 2014 polygon-Weber article not freshly inspected in this execution; possible unindexed special triangle section or earlier thesis",
+        "Uniqueness restricted to [0.7,0.8], not the full h>0 family",
+        "Interval arithmetic relies on mpmath.iv transcendental containment semantics, not Lean proof"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different target center: area centroid vs boundary centroid, no implication of new G-root",
+          "evidence": [
+            "RESULT: q=1/3, root in (0.1,0.125), and h=sqrt(3)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61",
+          "material_read": "Entire RESULT.md, including exact B_h(q) formula, non-equilateral area-centroid root and scope",
+          "method": "Read published primary theorem/proof text through authorized GitHub read-only fetch",
+          "title": "A second centroid coincidence for the boundary Fermat–Weber center of an isosceles triangle",
+          "trigger": "Same median objective and same one-parameter triangle; high-coverage risk"
+        },
+        {
+          "assessment": "Generic line-integral/Weiszfeld formulation; uninspected full primary text a residual risk",
+          "evidence": [
+            "Abstract explicitly concerns average Euclidean distance to uniform polygon boundary and solver, no special claim in abstract"
+          ],
+          "identifier_or_url": "https://www.alphaxiv.org/abs/1403.3715",
+          "material_read": "Abstract and bibliographic description accessible; primary full mathematics not newly retrieved",
+          "method": "Web search of arxiv entry, OA abstract; arxiv HTML/full text access failed",
+          "title": "On the continuous Fermat-Weber problem for a convex polygon using Euclidean distance",
+          "trigger": "Generic boundary Weber minimization could be broad coverage"
+        },
+        {
+          "assessment": "Confirms classical perimeter centroid; not Weber coincidence",
+          "evidence": [
+            "Center is perimeter centroid and X(10)"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/SpiekerCenter.html",
+          "material_read": "Definition and coordinates page material",
+          "method": "Web reference inspection",
+          "title": "Spieker Center",
+          "trigger": "Equivalence of named point with wireframe centroid"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Spieker X(10) point is a classical, independently motivated triangle center, and coincidence with a convex boundary 1-median asks whether mean- and median-type centers can agree without full symmetry. The certified exceptional non-equilateral shape and strict order reversal answer a natural geometric question, not an arbitrary sampled parameter or routine rewrite. Local uniqueness is valuable without all-shape classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-second-centroid-coincidence-for-the-boundary-fermat-weber-cent--99768902ec61",
+    "https://www.alphaxiv.org/abs/1403.3715",
+    "https://mathworld.wolfram.com/SpiekerCenter.html"
+  ],
+  "disposition": "passed",
+  "limitations": "Certified in [0.7,0.8] only, excluding a possible second non-equilateral root elsewhere.",
+  "residual_risks": [
+    "Full 2014 polygon-Weber article not freshly inspected in this execution; possible unindexed special triangle section or earlier thesis",
+    "Uniqueness restricted to [0.7,0.8], not the full h>0 family",
+    "Interval arithmetic relies on mpmath.iv transcendental containment semantics, not Lean proof"
+  ],
+  "schema_version": 1
+}
