@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:18:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-short-arm-threshold-for-optimal-signed-lipschitz-extension--743f2915cace/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-short-arm-threshold-for-optimal-signed-lipschitz-extension--743f2915cace/checker.py"
+      ],
+      "rationale": "For leaf-star distances d_ij=a_i+a_j, Kantorovich-Rubinstein dual norm of each zero-total-mass signed measure equals sum a_i|mu_i|. Thus for any real signed extension weights sum u=1, new-point seminorm is max_j Phi_j/R with Phi_j=a_j|1-u_j|+sum_{k != j}a_k|u_k|, and original pair distances add floor 1. For t<=t_c=(m-2)/m, averaging long-leaf dual inequalities yields a global supporting hyperplane max Phi>=1+t, with equality uniquely concentrated on short leaf below threshold and exactly an all-equal long-coefficient line segment at threshold. For t>t_c, positive dual multipliers q=(1+t)/(2(mt+1)) and s=(mt-m+2)/(2(mt+1)) give a common subgradient and sharp value m(1+t)^2/[2(mt+1)], and equality forces all signed optimum weights positive and unique. For R>T, inequalities Phi_j<=R give a full-dimensional compact optimal polytope; R<=T classifications hold even with signed coefficients. Independently solved unrestricted signed LP for m=3..7 and selected t values, confirming exact formulas and optimizer phases; finite checks only supplement all-real proof.",
+      "residual_risks": [
+        "The full-dimensional polytope at R>T has no claimed face-lattice classification.",
+        "At t=1 equilateral endpoint formula was already known; no novelty claimed for that endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basso general linear extension/LP framework; harmonic-conductance star theorem has same t_c but objective max Phi_i/a_i; cluster theorem covers within-cluster equilateral distances and across-cluster constant distance."
+        ],
+        "reasoning": "General finite LP representability does not state the exact signed solution; harmonic theorem solves a distinct extension-point metric. Cluster conditions fail for t<1 with long-long=2 and long-short=1+t unless all leaves equilateral.",
+        "searches": [
+          "linear scalar Lipschitz extension one point star leaf metric one short arm signed coefficients Chebyshev center",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-harmonic-deficit-law-for-one-point-linear-lipschitz-extension--1195e19aae94",
+          "https://arxiv.org/abs/2104.14238"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-harmonic-deficit-law-for-one-point-linear-lipschitz-extension--1195e19aae94",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-water-filling-and-signed-optimizer-transitions-for-equilateral-o--9bb820592792",
+        "https://arxiv.org/abs/2104.14238"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m=4,t=3/4: new T=49/32=1.53125 with R=1; harmonic actual-hub optimum 1+2*(m-1)*t/[m+2t+m*t*t] = 1.580645... ; old and new geometries have different distances to the extension point."
+        ],
+        "reasoning": "The published formula cannot be specialized to new apex with all radius R while retaining unequal original arm geometry, and its unique-hub harmonic minimizer has different optimality constraints. The new exact endpoint/signed classifications require their own supporting-plane proof.",
+        "searches": [
+          "linear scalar Lipschitz extension one point star leaf metric one short arm signed coefficients Chebyshev center",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-harmonic-deficit-law-for-one-point-linear-lipschitz-extension--1195e19aae94",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-water-filling-and-signed-optimizer-transitions-for-equilateral-o--9bb820592792"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "New leaf metric is tree a_i+a_j with two distinct leaf-pair distances; equivalent to weighted-l1 Chebyshev center min max_j Phi_j for a NEW equal-radius apex."
+        ],
+        "reasoning": "Different extension radius denominators matter: prior harmonic star center requires max Phi_i/a_i; current added point requires max Phi_i/R. Equilateral one-point theorem assumes all pair distances identical.",
+        "searches": [
+          "linear scalar Lipschitz extension one point star leaf metric one short arm signed coefficients Chebyshev center",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-harmonic-deficit-law-for-one-point-linear-lipschitz-extension--1195e19aae94",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-water-filling-and-signed-optimizer-transitions-for-equilateral-o--9bb820592792"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search shows original exact t_c threshold in conductance case, but not T_m(t)=m(1+t)^2/[2(mt+1)] for equal-radius added point; equilateral endpoint t=1 is known."
+        ],
+        "reasoning": "Same numerical transition is not proof of coverage; comparing exact objectives and optimizer sets is decisive. No matching signed-polytope table for this non-equilateral base was found.",
+        "searches": [
+          "linear scalar Lipschitz extension one point star leaf metric one short arm signed coefficients Chebyshev center",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-water-filling-and-signed-optimizer-transitions-for-equilateral-o--9bb820592792"
+        ]
+      },
+      "rationale": "A superficially close published one-short-arm harmonic-conductance theorem has identical switching parameter t_c but DIFFERENT target: it extends to the actual weighted-star hub, using denominators 1 for long arms and t for the short arm, rather than an added point equidistant R from all leaves, so its minimax optimum and equality set are different away from t=1. The published equilateral one-point water-filling and equilateral-cluster results do not cover the non-equilateral star-leaf base d(long,long)=2 versus d(long,short)=1+t. Generic Basso extensions supply LP methods, not this signed optimizer equality transition. Best-of-knowledge survival rests on the exact new geometry/minimizer classification.",
+      "residual_risks": [
+        "Coincident threshold with published conductance theorem is a real near-overlap; its full proof was checked to separate target geometry and objective.",
+        "Unindexed weighted-l1 Chebyshev-center literature could imply the signed center in different language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NEAR OVERLAP, BUT NON_COVERING due distinct apex geometry",
+          "evidence": [
+            "Published max_i Phi_i/a_i for actual star center; submitted max_i Phi_i/R for equidistant new point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+          "material_read": "Full RESULT.md with exact operator norm, proof, equality discussion and limitations",
+          "method": "GitHub full text",
+          "title": "Sharp conductance design for Lipschitz-harmonic extension on metric stars",
+          "trigger": "identical one-short-arm threshold t_c strongly suggests coverage"
+        },
+        {
+          "assessment": "NON_COVERING: cluster base cannot encode long-long 2, long-short 1+t for t<1",
+          "evidence": [
+            "Cluster theorem requires constant between-cluster distances."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-harmonic-deficit-law-for-one-point-linear-lipschitz-extension--1195e19aae94",
+          "material_read": "Full RESULT.md, metric hypotheses, proof and one-point norm",
+          "method": "GitHub full text",
+          "title": "A harmonic-deficit law for one-point linear Lipschitz extension over clustered metrics",
+          "trigger": "nontransitive finite base with equidistant added point"
+        },
+        {
+          "assessment": "NON_COVERING except t=1 equilateral endpoint",
+          "evidence": [
+            "Base metric requires all old pair distances equal; asymmetric weighted-star leaves violate this."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-water-filling-and-signed-optimizer-transitions-for-equilateral-o--9bb820592792",
+          "material_read": "Full RESULT.md, definition, optimizer polytope and proof",
+          "method": "GitHub full text",
+          "title": "Water-filling and signed-optimizer transitions for equilateral one-point Lipschitz extensions",
+          "trigger": "same signed-coefficient extension problem and variable radius"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK, historical priority not fully excluded",
+          "evidence": [
+            "Prior generic finite LP reduction does not itself supply the submitted closed one-short-arm signed equality classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.14238",
+          "material_read": "Abstract and cited general result description; not full text",
+          "method": "public arXiv indexing",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "generic finite extension LP framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-short-arm-threshold-for-optimal-signed-lipschitz-extension--743f2915cace/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-short-arm-threshold-for-optimal-signed-lipschitz-extension--743f2915cace/checker.py",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-conductance-design-for-lipschitz-harmonic-extension-on-met--5986e803b2b7",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-water-filling-and-signed-optimizer-transitions-for-equilateral-o--9bb820592792"
+      ],
+      "rationale": "The sharp support-loss threshold and complete signed optimizer set for a simple natural one-defect tree metric with an equidistant new point quantify whether the best linear extension is evaluation, barycentric mixing or a whole interval. A real geometry-driven phase transition and its exact minimax constant are independently useful for finite Lipschitz-free/projection questions, not merely an old equilateral constant.",
+      "residual_risks": [
+        "Finite-dimensional specialized family; no claim for multi-short-arm metrics or Banach-valued targets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Distinct from harmonic conductance at original hub despite same t_c; hypothetical earlier weighted-l1 Chebyshev-center treatment remains priority risk.",
+    "The full-dimensional polytope at R>T has no claimed face-lattice classification.",
+    "At t=1 equilateral endpoint formula was already known; no novelty claimed for that endpoint.",
+    "Coincident threshold with published conductance theorem is a real near-overlap; its full proof was checked to separate target geometry and objective.",
+    "Unindexed weighted-l1 Chebyshev-center literature could imply the signed center in different language.",
+    "Finite-dimensional specialized family; no claim for multi-short-arm metrics or Banach-valued targets."
+  ],
+  "schema_version": 1
+}
