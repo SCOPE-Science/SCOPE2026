@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "All-pairs \\(\\pi/2\\) bound and equality via intercepted-chord detour; exact tangent+arc formula gives positive three-defect expansion. Polar density and simplex Jacobian yield \\(64r^4/[3\\pi^3(R^2-r^2)^2]\\), with \\(O(\u000barepsilon^{7/2})\\) error from the \\(u^{3/2}\\) remainder. Conditional simplex and aspect inversion follow by the same normalized calculation; exact numerical threshold integrations and global finite checks independently match the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang et al. treat algorithms and shortest path geometry for arbitrary disc obstacles; the inspected paper has no statistical distribution or stretch-factor analysis.",
+        "The 2015 Chen–Wang curved-obstacle result, inspected at abstract level, concerns shortest-path algorithms, not an identified stochastic ratio-tail theorem."
+      ],
+      "reasoning": "General obstacle avoidance includes the path formula but not the integration over area-sampled endpoint pairs, marked simplex, sharp constant or inversion. Search did not identify an independently verified dominating result; lack of a match alone is not proof of historical priority.",
+      "searches": [
+        "quasiconvexity complement disk sharp pi over two finite annulus probability",
+        "random points annulus geodesic Euclidean stretch ratio upper endpoint pi over two cubic law",
+        "shortest path outside circle distance ratio distribution geodesic Euclidean",
+        "DOI 10.1145/1064092.1064112"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.nyu.edu/exact/doc/computable.pdf",
+      "https://doi.org/10.1145/1064092.1064112",
+      "https://doi.org/10.1145/2660771",
+      "https://arxiv.org/abs/1110.6333",
+      "Published annulus distance finding 18a133befff2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier annulus law: near \\(\\max d_K\\) the samples approach the OUTER boundary; current law: near \\(\\max (d_K/d_E)\\) the samples approach the INNER boundary. Its marginal law does not encode joint \\((d_K,d_E)\\) statistics.",
+        "Classical tangent-arc shortest paths provide one input used here but do not determine the cubic ratio-tail coefficient."
+      ],
+      "reasoning": "The two extremal events have disjoint limiting maximizing sets for every \\(0<r<R\\), so neither endpoint theorem implies the other. The present result requires an additional maximization over a quotient and an independent three-defect probability calculation.",
+      "searches": [
+        "Published annulus-geodesic record 18a133befff2: complete RESULT.md",
+        "Published 2005 disc-obstacle manuscript, §1.1",
+        "published-finding corpus search: geodesic to Euclidean stretch ratio circular obstacle annulus random endpoints area uniform rare near maximal pi/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published annulus intrinsic-distance study fixes \\(d_K\\), whose maximum occurs at outer-antipodal points; the present observable divides by \\(d_E\\), and its maximum occurs at inner-antipodal points.",
+        "The 2005 disc-obstacle paper gives the tangent/arc geodesic path construction but no two-point ratio statistic."
+      ],
+      "reasoning": "Geodesic dilation, intrinsic/chord stretch, detour ratio, and quasiconvexity constant are treated as aliases. The classical \\(\\pi/2\\) extremum is background; its area-sampled cubic tail and conditional marks are additional statements not implied by the deterministic inequality.",
+      "searches": [
+        "geodesic to Euclidean stretch ratio circular obstacle annulus random endpoints area uniform rare near maximal pi/2",
+        "annulus two uniform random points geodesic Euclidean distance stretch ratio tail",
+        "published-finding corpus search: annulus intrinsic shortest path over Euclidean distance detour ratio near maximum probability tail"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published exact annular tail is for intrinsic distance, with different endpoints, normalization and coefficient.",
+        "Direct inspection of accessible prior annular distance theorem confirms that only its one-dimensional intrinsic marginal and endpoint expansion were treated."
+      ],
+      "reasoning": "No exact annular intrinsic/chord ratio table or stronger upper-tail law was found in the named checks. This is bounded noncoverage evidence, not an assertion that no unpublished computation exists.",
+      "searches": [
+        "random detour ratio circular obstacle annulus Euclidean geodesic distance distribution",
+        "random points annulus geodesic Euclidean stretch ratio upper endpoint pi over two cubic law",
+        "bounded turning annulus sharp geodesic dilation probabilistic shape reconstruction",
+        "published-finding corpus query: detour ratio distribution random points planar domain circular hole inner boundary"
+      ]
+    },
+    "rationale": "Classical disc-avoidance algorithms only imply the shortest-path structure, while the closest full published annular result concerns an intrinsic-distance marginal whose maximizers are outer-antipodal, disjoint from the inner-antipodal ratio maximizers. The quotient-tail coefficient, conditional marks and scale-free inversion were not implied in the inspected works; nonindexed priority remains an explicit risk.",
+    "residual_risks": [
+      "A prior specialist computation of the annular ratio distribution may be unindexed or use a different name.",
+      "The 2015 curved-obstacle article was not read in full; its accessible abstract did not indicate a probability calculation.",
+      "No independent expert-level priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the ratio-tail claim; it treats intrinsic distance, not the quotient by Euclidean chord",
+        "evidence": [
+          "Its maximizing configuration is outer-antipodal, its cubic coefficient is \\(2R^4/(3\\pi r(R^2-r^2)^3)\\); the present maximizing configuration is inner-antipodal, with distinct scale-free quotient coefficient."
+        ],
+        "identifier_or_url": "Published finding identifier 18a133befff2",
+        "material_read": "Complete RESULT.md, including theorem, proof, numerical checks, limitations and references",
+        "method": "Full-text claim and proof comparison",
+        "title": "A sharp disk-to-annulus transition in farthest-pair geodesic statistics",
+        "trigger": "Same sampled annulus and intrinsic metric; strongest candidate for coverage"
+      },
+      {
+        "assessment": "ESTABLISHES_PATH_GEOMETRY_ONLY",
+        "evidence": [
+          "§1.1 states that shortest obstacle-avoiding paths alternate tangent segments and circular boundary arcs; abstract and inspected construction address computation rather than a random ratio distribution."
+        ],
+        "identifier_or_url": "https://cs.nyu.edu/exact/doc/computable.pdf",
+        "material_read": "Title/abstract and introduction through §1.1 (pages 1–2), plus document-wide term searches",
+        "method": "PDF text inspection with page rendering",
+        "title": "Shortest Path amidst Disc Obstacles is Computable",
+        "trigger": "Provides shortest circular-obstacle path structure used in the proof"
+      },
+      {
+        "assessment": "INCOMPLETE_ACCESS_LOW_DIRECT_COVERAGE",
+        "evidence": [
+          "Published 2015 abstract describes exact shortest paths for curved obstacles; no claim about random endpoint ratio tails was visible; full text not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/2660771",
+        "material_read": "Accessible publisher abstract and citation information only",
+        "method": "Abstract-level comparison",
+        "title": "Computing Shortest Paths among Curved Obstacles in the Plane",
+        "trigger": "Broader obstacle-path algorithms might dominate the geometric step"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_TAIL",
+        "evidence": [
+          "A general relation between metric-measure spaces and random distance matrices is stated, not an annular geodesic/chord quotient or leading coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1110.6333",
+        "material_read": "Full abstract and public first-posted date",
+        "method": "Abstract-level relevance screen",
+        "title": "Lipschitz correspondence between metric measure spaces and random distance matrices",
+        "trigger": "General two-point random metric-measure distance statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71320141-40cc-4f00-a9dd-b8ab0ea3aca7",
+  "value": {
+    "rationale": "The ratio is a natural quantitative obstacle-induced metric distortion invariant; its exact global maximizers, cubic rare-event law, universal conditional simplex and invertible aspect coefficient resolve a meaningful geometric probability and inverse-shape question, separate from the known farthest-geodesic law.",
+    "status": "PASS"
+  }
+}
