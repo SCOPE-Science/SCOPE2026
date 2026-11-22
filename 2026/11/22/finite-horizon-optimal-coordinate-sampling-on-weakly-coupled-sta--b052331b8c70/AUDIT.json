@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact coordinate-update projector representation gives a T-fold positive matrix map. Uniform convergence at zero coupling forces all full-simplex optimizers to the uniform law and localizes their differences to O(sqrt(delta)). The finite-horizon operator expansion has an irreducible star off-diagonal term h_T; the Perron largest eigenvalue is strictly convex on the zero-sum probability tangent space, proving unique global leading-order optimal coefficients and the minimum retention. The geometric average ratio is strictly below one for T>=2. Exact rational matrix recurrences and numerical small-coupling checks from the packaged verifier passed, but are not used to certify the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richtárik–Takáč (2015 online) sec. 4.1 determines optimal probabilities for a rate/complexity bound Λ, their eq. (13), not a sharp fixed-T objective.",
+        "Qu–Richtárik 2014/2016 derive arbitrary-sampling expected separable overapproximation inequalities; these apply to the algorithms but do not state this finite-horizon perturbative sharp law.",
+        "Indexed inverse-positive SPD theorem is fully general in Hessian dimension but explicitly restricts to a one-step risk and warns against interpreting it as finite-horizon optimality."
+      ],
+      "reasoning": "The more general matrix or arbitrary-sampling settings are not stronger in the relevant finite-horizon objective. No identified theorem implies the coefficient k_(m,T), its global (asymmetric) minimax characterization, or monotone horizon dependence.",
+      "searches": [
+        "published-finding corpus: sharp one-step convergence randomized coordinate descent diagonal probability semidefinite star Hessian condition exact optimal sampling",
+        "published-finding corpus: two-step optimal iid coordinate descent sampling importance probabilities arrowhead Hessian nonuniform coupled star with eigenvalue",
+        "Web: randomized coordinate descent finite time probability selection exact spectral optimal E-design sampling",
+        "Qu and Richtárik, arXiv:1412.8063, full article web text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1107.2848v1",
+      "arxiv:1310.3438v1",
+      "arxiv:1412.8063v1",
+      "published-finding corpus:2026/9/20 inverse-positive SPD result",
+      "Richtárik–Takáč Optimization Letters 2015 open-access full HTML",
+      "Qu–Richtárik Optimization Methods and Software 2016 article web text",
+      "Pukelsheim–Torsney 1991 optimal experimental-design weights (web search and indexed prior discussion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026/9/20 result gives p_i proportional to normalized-Hessian inverse row sums, which implies the exact T=1 star formula.",
+        "For T>1 the expected product of random coordinate-projection operators cannot generally be reduced to the T-th power of the one-step mean quadratic form.",
+        "The new proof constructs the leading T-fold operator, uses strict convexity of a star Perron root, and derives the precise geometric-horizon factor."
+      ],
+      "reasoning": "The T=1 subcase is covered and is only a baseline, not offered as new. All T>=2 global-minimizer asymptotics, optimal retention and strict bias separation require an additional noncommuting finite-horizon calculation, not a corollary of the cited one-step and ESO results.",
+      "searches": [
+        "published-finding corpus: optimal probability weak coupling randomized Gauss Seidel finite time expectation spectral perturbation hub leaf",
+        "published-finding corpus: inverse positive optimal coordinate sampling",
+        "Richtárik–Takáč 2013 / Optimization Letters 2015 online, section 4.1 and Theorem 3",
+        "Qu–Richtárik 2014 arbitrary sampling ESO"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact finite-horizon risk equals the largest eigenvalue of the T-fold expected conjugation map on an identity matrix, not the T-th power of the one-step risk.",
+        "published-finding corpus 2026/9/20 inverse-positive result gives an exact fixed-iid one-step E-optimal sampling rule.",
+        "Pukelsheim–Torsney 1991 addresses optimal design weights on independent support points, applicable to the single-step smallest-eigenvalue design reformulation."
+      ],
+      "reasoning": "The known E-optimality and spectral-sampling equivalence controls the first projected energy, while noncommuting projection products change the worst direction after repeated updates. The claimed all-horizon coefficient therefore does not follow from equality of titles or a one-step optimizer.",
+      "searches": [
+        "published-finding corpus: finite-horizon exact optimal iid coordinate descent sampling on weakly coupled star quadratics asymptotic hub probabilities for T iterations m leaves",
+        "Web: finite horizon optimal coordinate descent probability distribution worst case expected objective after T iterations arrowhead",
+        "published-finding corpus: optimal importance sampling probabilities for exact randomized coordinate descent one-step expected energy contraction star arrowhead quadratic matrix hub leaf off-diagonal spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus retrieved the 2026/9/20 inverse-positive SPD single-step finding; the search also returned finite-step scalar SGD and Gauss–Seidel ordering results with different objects and criteria.",
+        "No indexed exact table of the all-horizon hub coefficient or finite-horizon optimal probabilities on star SPD Hessians was identified in these searches."
+      ],
+      "reasoning": "The absence of a hit is only search evidence, not an exhaustive novelty proof; the explicit all-T formula is compared with the closest retrieved exact results rather than declared unique by partition.",
+      "searches": [
+        "published-finding corpus: finite-horizon exact optimal iid coordinate descent sampling on weakly coupled star quadratics asymptotic hub probabilities for T iterations m leaves",
+        "published-finding corpus: worst case expected objective after k coordinate updates optimal sampling finite horizon perturbation star matrix m-dependent finite step",
+        "Web: optimal probability weak coupling randomized Gauss Seidel finite time expectation spectral perturbation hub leaf"
+      ]
+    },
+    "rationale": "The closest full-text indexed theorem solves exact single-step sampling on inverse-positive Hessians, and the closely inspected early randomized coordinate descent papers optimize rate/complexity upper bounds. Neither covers the exact finite-horizon worst-initial-energy objective, its full-simplex weak-coupling star perturbation, or the strict all-T bias law. Searches targeted synonyms, alternatives and stronger frameworks; residual unindexed equivalences remain.",
+    "residual_risks": [
+      "Historical equivalent finite-horizon perturbation statements might be unindexed or filed under spectral-design, projection-product or matrix-scaling language.",
+      "Full PDF of first-public 2011 article not inspected; evaluated its abstract and later accessible closely relevant primary papers.",
+      "Qu–Richtárik paper inspected through extensive accessible HTML/search excerpts, not a full cover-to-cover PDF read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact one-step optimizer including this star, explicitly excludes finite-horizon optimization",
+        "evidence": [
+          "The theorem optimizes rho(p)=lambda_min(P^(1/2) C P^(1/2)) and expressly limits performance guarantee to a sharp one-step factor."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Complete RESULT.md through setting, proof, limitations, examples and references",
+        "method": "Read-only repository fetch of RESULT.md",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Strongest retrieved direct one-step spectral optimization theorem, full inverse-positive matrix family"
+      },
+      {
+        "assessment": "Optimizes a complexity-bound parameter, not the exact finite-T worst-start expectation",
+        "evidence": [
+          "Section 4.1 p_i proportional to (L_i+v_i)/v_i; Theorem 3 expresses a global linear convergence bound through Lambda."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11590-015-0916-1",
+        "material_read": "Open-access complete HTML article, especially sections 1–4.3, theorem 3, serial eqs. 13–14 and numerical comparisons",
+        "method": "Web full-text HTML reading",
+        "title": "On optimal probabilities in stochastic coordinate descent methods",
+        "trigger": "Closest primary probability-design paper"
+      },
+      {
+        "assessment": "Describes arbitrary-sampling ESO/complexity bounds; not located a finite-horizon exact weak-coupling coefficient",
+        "evidence": [
+          "Article studies expected separable overapproximation and the spectral parameters governing complexity bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10556788.2016.1190361",
+        "material_read": "Web-accessible long article text including abstract, introduction and discussion of ESO and optimal serial sampling; not the complete PDF",
+        "method": "Web text search/full-article excerpt",
+        "title": "Coordinate descent with arbitrary sampling II: Expected separable overapproximation",
+        "trigger": "Broader arbitrary-probability laws and eigenvalue analysis could dominate the claim"
+      },
+      {
+        "assessment": "Establishes randomized-coordinate method and global complexity rates; not sufficient to adjudicate all possible later finite-horizon results in its own full text",
+        "evidence": [
+          "First public posting July 14, 2011; abstract concerns iteration complexity and strongly convex rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.2848",
+        "material_read": "ArXiv bibliographic abstract and 2014 journal bibliographic abstract; HTML full text not accessible",
+        "method": "ArXiv abstract/web metadata",
+        "title": "Iteration Complexity of Randomized Block-Coordinate Descent Methods for Minimizing a Composite Function",
+        "trigger": "First-public focal methodological source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b052331b-8c70-4b0d-a6bc-340629ce3c37",
+  "value": {
+    "rationale": "The same sampling probabilities are usually reused across an optimization run, but a per-step optimum need not optimize a finite stopping horizon. This all-m and all-fixed-T theorem gives the exact leading globally minimax sampling allocation and retention, plus a strict monotone horizon effect with an interpretable geometric-average coefficient. It is structurally motivated by noncommuting coordinate projections, not an arbitrary finite example. Practical benefit vanishes with coupling and no speedup claim is made.",
+    "status": "PASS"
+  }
+}
