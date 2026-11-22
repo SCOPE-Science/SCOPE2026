@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The state triple stores the final symbol, newest dinucleotide and exactly those older dinucleotides disjoint from a next appended pair; an induction proves the transition rule accepts the full two-stem avoidance language. Exhaustive BFS explores all 22,985 reachable good states and the sink. Moore partitions stabilize after suffix length five at 7,311 classes and give a right congruence; a separate Hopcroft minimization also returns 7,311. Direct index-pair evaluation agreed on all 349,525 words through length nine. The finite graph traversal, not finite-word extrapolation, proves the all-length bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chu, Wang, Zhang, arXiv:2304.11403, Section IV Theorem 6 equates asymptotic capacities of certain upper/lower bounding families, rather than identifying all right languages of the exact avoidance language.",
+        "Nguyen et al., arXiv:2302.13714, Sections III-IV construct DNA code families and redundant-symbol encoders."
+      ],
+      "reasoning": "A general capacity formula or upper/lower constrained-code family does not supply the minimal complete DFA size of the full language. The checked statements are not stronger covering results for the exact automaton-state claim.",
+      "searches": [
+        "secondary structure avoidance automaton states DNA m=2",
+        "DNA secondary structure avoidance m=2 regular language state complexity automaton exact",
+        "secondary structure avoidance DFA 2 DNA state"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.13714",
+      "https://arxiv.org/abs/2304.11403",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10749251/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.11403, Section V, provides a six-vertex overlap graph for one selected six-dinucleotide generating set, and mentions 64 possible sets; it is not the full-language DFA.",
+        "arXiv:2302.13714, Definitions 2-3 and its constructions state no complete-minimal-recognizer count.",
+        "The independent finite-state proof derives the complete-language count 7,311 from 22,986 reachable raw states."
+      ],
+      "reasoning": "The closest six-vertex published graph recognizes sequences all of whose dinucleotides belong to one chosen generating set. The full 2-SSA language also contains finite exceptional mixtures and is not that generated sublanguage. Knowledge of its asymptotic growth rate cannot imply the exact 7,311-state minimal recognizer without additional arguments.",
+      "searches": [
+        "secondary structure avoidance minimal DFA length 2",
+        "DNA m-SSA length 2 exact minimal automaton 7311",
+        "DNA secondary structure avoidance m=2 regular language state complexity automaton exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.13714 defines m-SSA by excluding disjoint reverse-complement factors of length at least m; this is equivalent for m=2 to forbidding the disjoint length-two pair itself.",
+        "arXiv:2304.11403, Section II, explicitly defines the same fixed-length-two obstruction and works with its sequences."
+      ],
+      "reasoning": "The two papers and the new theorem use the same disjoint-dinucleotide semantic condition, so differences in terminology do not evade comparison. The published objects are code capacities or constrained generating sets, not all residual languages and their minimum deterministic recognizer.",
+      "searches": [
+        "DNA m-SSA length 2 exact minimal automaton 7311",
+        "secondary structure avoidance minimal DFA length 2",
+        "secondary structure Myhill Nerode DNA code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 7,311-state entry appeared in the queried mathematical research record summaries or bibliographic search results.",
+        "The exact 22,986-state and 7,311-class counts are recreated by the independently executable proof checker, rather than taken from a database."
+      ],
+      "reasoning": "No matching table or database census was identified. This negative search is weak evidence of absence, not proof of priority; an equivalent item using another language name remains possible.",
+      "searches": [
+        "exact 7311 state minimal DFA for DNA stem length two secondary structure avoidance language 2 SSA",
+        "Myhill Nerode state complexity Watson Crick two disjoint complementary dinucleotides 2 SSA"
+      ]
+    },
+    "rationale": "The exact one-pass deterministic state count 7,311 and five-nucleotide distinguishing-suffix bound concern the full disjoint reverse-complement dinucleotide-avoidance language. The primary literature formulates this avoidance and analyzes code constructions and asymptotic capacity, but the inspected claims and methods do not give the exact minimal DFA for the full language; their small de Bruijn graphs describe restricted generating families. Direct searches and relevant repository comparisons revealed no equal or stronger state-count theorem. Historical priority is qualified by possible unindexed older work.",
+    "residual_risks": [
+      "Earlier state-complexity work may encode this exact language as a reverse-complement pattern-avoidance automaton under terminology not indexed by searches.",
+      "Even full-text searches may miss an implicit equivalent state-count theorem stated under another canonical automaton representation.",
+      "No independent external review of the certificate has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly this avoidance for m=2 and discusses code sizes and encoding; no exact minimum DFA state claim located",
+        "evidence": "Definitions 2-3; sections III and IV; arXiv initially posted 2023-02-27",
+        "identifier_or_url": "https://arxiv.org/abs/2302.13714",
+        "material_read": "ArXiv full-text presentation: Introduction, Definitions 1-3, code-construction sections and encoding discussion",
+        "method": "Read published full-text presentation and compared theorem-level statements and quantified objects",
+        "title": "On the Design of Codes for DNA Computing: Secondary Structure Avoidance Codes",
+        "trigger": "Original 2023 definition and constructions for the same DNA avoidance condition"
+      },
+      {
+        "assessment": "Sharp capacity and six-vertex graph are for generating-set sublanguages; no 7,311-state whole-language minimal automaton result in inspected text",
+        "evidence": "Section IV Theorem 6; Section V first subsection; arXiv initially posted 2023-04-22",
+        "identifier_or_url": "https://arxiv.org/abs/2304.11403",
+        "material_read": "ArXiv full-text presentation: Sections II, IV, V, including definitions, Theorem 6, selected six-dinucleotide generating-set graph and rate calculation",
+        "method": "Read formal statements, hypotheses, construction and rate argument and compared their implication to whole-language state complexity",
+        "title": "Improved constructions of secondary structure avoidance codes for DNA sequences",
+        "trigger": "Closest published exact capacity statement for m=2 and explicit transition digraph"
+      },
+      {
+        "assessment": "Studies the stricter minimum-loop requirement and sequence-replacement constructions; no exact 7,311-state full-language automaton statement was identified",
+        "evidence": "Definitions 2 and 4, Remark 1, highlights and article introduction; original article 2023-11-29",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10749251/",
+        "material_read": "Open-access primary full text: abstract, introduction, definitions and the sequence-replacement/loop-separation framing; searched full text for DFA and automaton state claims",
+        "method": "Read primary open-access full-text presentation, its definitions and principal contribution summary, and performed full-text searches for automaton and DFA state-count claims",
+        "title": "On secondary structure avoidance of codes for DNA storage",
+        "trigger": "Potential terminology overlap and stricter loop-separation variant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "27962a39-d77c-4b63-aa45-b72694378db7",
+  "value": {
+    "rationale": "The minimal complete DFA size is a natural, uniquely determined finite-memory complexity of exact DNA secondary-structure avoidance at the smallest modeled stem length. The result sharpens online checking from an unminimized 22,986-state recognizer to an optimal 7,311-state device and fixes the necessary/sufficient 13 binary state bits. It is not merely an arbitrary slice or known capacity recomputation: the prior six-vertex coding subgraphs do not recognize the entire language. It also exposes a five-nucleotide distinguishing-suffix horizon usable in minimization or finite-length enumerative methods. No general-stem or rate improvement is claimed.",
+    "status": "PASS"
+  }
+}
