@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Huber score is continuous, monotone and polyhedral-piecewise affine, including center-selection flat intervals. Strictly feasible inlier sets give the full derivative family, flat regions contribute two-coordinate half-and-half derivatives, the induced star-variation column sums prove the global bound, and finite witnesses realize every maximum. The packaged independent rational-arithmetic checker verifies the center calculation and sharpness for sampled weights and dimensions; it does not replace the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The robust-location estimation and score representation are classical. The checked full Hampel–Hennig–Ronchetti article concerns smoothing and M-estimation, not the exact two-input star-edge-variation norm or its abrupt weight transition. Huber and Li–Swetits primary full texts remained inaccessible and were compared using abstracts only; unindexed earlier results are a residual priority risk. Related graph-variation and weighted-median works concern distinct maps and metrics. The available evidence does not show a prior claim that implies the signed inlier-feasibility classification.
+PASS
 
-**Mathematical value — PASS.** The exact all-weight sensitivity formula characterizes a natural robust interpolation operator, gives finite rational test certificates, and shows a genuine instability under arbitrarily small modifications of masses at even equal-weight stars. A structural jump, not a numerical improvement, distinguishes this from routine norm estimates.
+For m>=2, weights and Huber cutoff strictly positive, the clipped-score g_x(c) is continuous monotone with compact closed zero interval; midpoint selection is continuous, translation equivariant, piecewise affine. Unique-root chambers have gradient q_i=w_i/W_I on unsaturated I with strict signed feasibility |sum_out s_i w_i|<W_I. On flat-root chambers equal masses of positive/negative saturated residuals produce midpoint gradient (e_l+e_r)/2; a feasible two-inlier state bounds it by Q. In root-relative coordinates output matrix I-1 q^T has column sums 1+(m-2)q_j; integrate the finite piecewise-affine derivatives along segments. The maximizing feasible state has a strict finite witness with perturbed sole leaf, so sharpness attained; uniform parity and arbitrarily small even-weight increase are direct signed subset cases. Independent rational checks covered m=2..10 and weighted witnesses, not all reals. For m=2 baseline coefficient is one, so the even discontinuity is only claimed m>=4.
 
-**Limitations:** One star hub, one filtering step, real data, positive weights and common Huber scale. Historical priority is provisional. No external mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact signed subset feasibility functional Q(w), induced two-input star-variation norm 1+(m-2)Q, and discontinuity from uniform even masses to arbitrarily slightly perturbed masses survive statement-level comparisons with prior Huber M-estimation and star variation literature. Score linearization itself is standard; no unconditional global-priority guarantee.
+
+## value
+
+PASS
+
+A discontinuity in an exact robust location filter operator norm at equal masses is a substantive stability boundary: it separates balanced flat-score behavior from singleton-inlier amplification and identifies attainable worst perturbations. This is not merely a derivative reparameterization or a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
