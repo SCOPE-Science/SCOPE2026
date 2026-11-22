@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:54:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every strong-total-cover indicator is a {0,1}^N vertex; Euclidean squared distance is Hamming distance and is at most N=n+binom(n,2), with equality exactly for complementary cover indicators. Both V(K_n) and E(K_n) are covers for n>=3, so diameter sqrt(N) is attained. Two-coloring all vertices and edges means each edge-triple (u,v,uv) and each vertex star {v}∪delta(v) must use both colors. Choosing a red original vertex set A of size a forces each internal-A edge blue and internal-B edge red; all a(n-a) cross edges are freely colored. Only the one singled-out edge-color assignment for each singleton part size a=1 or n-1 violates a vertex-star constraint, yielding M_{n,a}=binom(n,a)2^{a(n-a)}-n(1_{a=1}+1_{a=n-1}). Dividing all ordered covers by 2 gives H_n. At a=floor(n/2)+j, weights factor as a central binomial coefficient times 2^{-j^2} (even) or 2^{-j(j-1)} (odd), with binomial ratios 1-O(j^2/n); summable Gaussian tails and negligible singleton corrections imply O(1/n) total-variation error and theta asymptotics. Independent direct exhaustive enumeration for n=3,4,5 exactly reproduced ordered distributions (1,9,9,1), (1,28,96,28,1), (1,75,640,640,75,1) and unordered 10,77,716. Finite checks are not the proof of all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary source proves full-dimensional polytope and facet-defining inequalities, weighted complexity even on K_n, but no Euclidean diameter-pair counts; similar domatic enumerators concern different graph families."
+        ],
+        "reasoning": "General covering-polytope and incidence domination theorems provide structure but do not determine which complementary vertices coexist or how their coordinate compositions fluctuate; the K_n exact enumeration is additional.",
+        "searches": [
+          "Aprile–Ferrarini, The Strong Total Cover Problem, Sections 1–4",
+          "Resultary exact total-domatic counts for generalized Petersen graphs; other complementary partition records"
+        ]
+      },
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.23312",
+        "https://arxiv.org/abs/2610.23312",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/diametral-pair-enumeration-and-parity-dependent-discrete-gaussia--9a06013661a0/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-total-domatic-partition-counts-for-operatorname-gp-n-2--43beb49dfa00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Incidence-graph domination equivalence gives constraints but no all-n complementary-domatic count; H_n requires separate forced-edge enumeration and singleton correction; theta limit requires central binomial ratio analysis."
+        ],
+        "reasoning": "The submitted count and discrete Gaussian are not automatic consequences of a known polytope diameter upper bound or defining inequalities. They provide full extremal pair spectrum at each n and a quantitative concentration theorem.",
+        "searches": [
+          "Aprile–Ferrarini incidence graph equivalence and polyhedral Section4",
+          "Frozen RESULT.md two-color proof and theta normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper defines exact strong-total-cover inequalities x_v+Σ_{e∈δv} y_e>=1, x_u+x_v+y_uv>=1 and relates them to domination in incidence graphs."
+        ],
+        "reasoning": "Complementary strong total covers are equivalent to two-color partitions of the incidence graph into dominating sets. This is an alias of the same combinatorial object and is checked; the new exact number of such partitions for incidence(K_n) is not given by the definition alone.",
+        "searches": [
+          "Resultary: strong total cover polytope complete graph diametral complementary covers count partition discrete Gaussian",
+          "Aprile Ferrarini strong total cover incidence graph dominating sets §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full primary paper has no occurrence of diameter and treats facet characterizations and complexity, with complete graph appearing in weighted-hardness proofs, not a count table."
+        ],
+        "reasoning": "The exact M_{n,a}, H_n and parity theta law were not found in inspected tables; absence of matching indexed tables does not establish absolute novelty. Independent n=3,4,5 brute-force counts support arithmetic.",
+        "searches": [
+          "Primary paper full text search for diameter, complete graph, polytope, table",
+          "Resultary complementary dominating partitions, complete graph, strong total cover"
+        ]
+      },
+      "rationale": "The source Aprile–Ferrarini defines strong-total-cover polytopes and the incidence-graph domination equivalence, and studies full dimension, facet systems, complexity and triangular cacti. Its complete accessible text does not derive ambient Euclidean diametral pairs, a complete complementary-cover enumerator or parity-dependent theta total-variation law. Resultary searches and exact complementary-domatic formulations did not identify a stronger all-n theorem. Full prior coverage not ruled out under differently indexed domatic polynomial terminology.",
+      "residual_risks": [
+        "Older complementary dominating-set/domatically two-colorable incidence-graph enumerators could be indexed under different names; not exhaustively excluded.",
+        "Counts Euclidean vertex-pair diameter only, not 1-skeleton diameter or arbitrary graph classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ENUMERATOR",
+          "evidence": "Defines polytope and facet constraints, but no ambient-diameter pair count or parity Gaussian law.",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.23312",
+          "material_read": "Full HTML article, Introduction, §2 equivalence with domination in incidence graphs, §3 complete graph weighted complexity, §4 polyhedral properties and cactus characterizations",
+          "method": "Read and searched accessible full HTML primary text",
+          "title": "Aprile and Ferrarini, The Strong Total Cover Problem",
+          "trigger": "Identical cover definition and strong-total-cover polytope"
+        },
+        {
+          "assessment": "PROOF_RECONSTRUCTED",
+          "evidence": "Forced internal-edge colors, free cut edges and singleton correction establish formula; central weights give theta laws.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/diametral-pair-enumeration-and-parity-dependent-discrete-gaussia--9a06013661a0/RESULT.md",
+          "material_read": "Finding, all assumptions and proof of two-color combinatorics and total variation, verification and references",
+          "method": "Read pinned Git blob, independently enumerated n=3,4,5",
+          "title": "Frozen strong-total-cover diametral RESULT.md",
+          "trigger": "Exact proposed full count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The trivial binary-diameter upper bound is not the novelty. The exact enumeration of ALL Euclidean extremal vertex pairs for a newly natural covering polytope, including a nontrivial singleton constraint correction, and the parity-dependent discrete Gaussian composition law are motivated, useful exact geometric and probabilistic invariants; they extend the initial structural polytope results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 and ordinary Euclidean ambient metric only; no other graph class or skeleton diameter.",
+    "Historical equivalences to complementary total domatic partitions remain a priority risk."
+  ],
+  "schema_version": 1
+}
