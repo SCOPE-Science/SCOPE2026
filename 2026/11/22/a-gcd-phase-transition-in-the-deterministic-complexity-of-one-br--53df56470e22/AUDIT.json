@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Explicit r+s-state epsilon-free NFA recognizes the exact existential marked-b predicate; a CRT construction proves all r 2^(s/g) subsets reachable; separating a-only and a^t b suffixes distinguish all except the g saturated coset classes. State-count formula follows without extrapolating from finite experiments. Independently organized checkers agree for 49 parameter pairs and produce actual positive-output certificates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baburin–Cotterell, arXiv:2611.10911v1, general complexity and subset-complexity theorems: family-independent bounds/PSPACE hardness, no exact specialized quotient.",
+        "Jirásek–Jirásková, arXiv:2511.03814v1, binary multiple-concatenation construction: other transformations and witnesses.",
+        "Hospodár–Mlynárčik (2020), Operations on Permutation Automata, gives sharp concatenation bounds for two permutation languages. The left factor in our decomposition as A_r b B_s is not a permutation language."
+      ],
+      "reasoning": "The strongest relevant general results estimate or bound determinization, while the present theorem classifies exact language quotients. Generic bounds do not force the number r(2^(s/g)-1)+g, and the different concatenation constructions do not represent this language in a way that supplies these necessary Myhill–Nerode lower bounds.",
+      "searches": [
+        "two cycle nondeterministic automaton state complexity gcd prefix modulo suffix modulo marker b binary language",
+        "determinization one nondeterministic b edge between modular a cycles quotients gcd r 2^{s/g} states",
+        "arxiv:2611.10911v1 Section 4 subset complexity",
+        "arxiv:2511.03814v1 binary concatenation witness",
+        "Operations on Permutation Automata Hospodár Mlynárčik 2020 concatenation group languages"
+      ]
+    },
+    "checked_sources": [
+      "Baburin–Cotterell, Towards A Parametrized Complexity of Determinization, arxiv:2611.10911v1",
+      "Baburin–Cotterell, A Close Analysis of the Subset Construction, arxiv:2407.09891v6",
+      "Jirásek–Jirásková, State Complexity of Multiple Concatenation, arxiv:2511.03814v1",
+      "Exact state complexity of modular scattered zero-power–one counts (published 2026-11-08; record 9df1828ce330)",
+      "Sharp parity cost for delayed unary modular languages in bipartite cactus NFAs (published 2026-11-08; record 69e4abd08ccc)",
+      "Hospodár–Mlynárčik, Operations on Permutation Automata (2020), DOI:10.1007/978-3-030-48516-0_10 (abstract accessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical free-prefix Meyer–Fischer witness realizes an exponential boundary, not the gcd-dependent two-guard family.",
+        "Baburin–Cotterell 2026 general-hardness and subset-complexity results yield no exact minimization equivalence classes for these two cycles.",
+        "Published unary delay and modular scattered-pattern results concern different languages, different automata and different state invariants."
+      ],
+      "reasoning": "The result is not an uncredited rewriting of the classical example: simultaneous congruences restrict reachable subsets, and the proof identifies precisely r/g saturated-state mergers per congruence class. These features are not a corollary of the inspected statements; the r=1 exponential phenomenon alone is expressly not claimed as new.",
+      "searches": [
+        "Meyer Fischer automaton two modulus guards on prefix and suffix number of a transitions exact minimal states",
+        "arxiv:2407.09891v1 Eq.(2) general prefix vs our prefix guard",
+        "arxiv:2611.10911v1 Theorems 22-28 vs explicit quotient",
+        "published record 69e4abd08ccc: unary modular delays"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baburin–Cotterell, A Close Analysis of the Subset Construction, arXiv:2407.09891v6, Section 3 Eq. (2) states a free-prefix modular-suffix witness of complexity 2^n; it does not impose a modular guard on the prefix.",
+        "Published exact modular scattered 0^d1-count study is a counting language, not an existential marked b with prefix and suffix a-count congruences."
+      ],
+      "reasoning": "Equivalent formulations were searched through the marked-word language, a one-branch NFA with two a-cycles, and classical Meyer–Fischer modular witnesses. The free-prefix example motivates a boundary case, but its theorem does not state or imply the coprime/intersecting modular-guard quotient for all r,s.",
+      "searches": [
+        "language over a,b containing a marked b where number of a before it multiple r and after it multiple s, exact minimal DFA r(2^(s/gcd(r,s))-1)+gcd(r,s)",
+        "Meyer Fischer automaton two modulus guards on prefix and suffix number of a transitions exact minimal states",
+        "arxiv:2407.09891v1 Section 3 Meyer Fischer suffix modular language"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published November 8, 2026 result on the state complexity of modular scattered zero-power–one counts studies the total number of scattered occurrences, not the existential two-guard marked b language.",
+        "Nearby published finite-NFA classification claims concern bounded state sizes and do not imply a formula for all positive moduli."
+      ],
+      "reasoning": "The exact mathematical statements of the closest published records were compared rather than relying on titles; they do not establish the unrestricted two-modulus formula. This is evidence of no found overlap, not a proof of global novelty.",
+      "searches": [
+        "one nondeterministic branch between two disjoint permutation cycles exact gcd dependent subset reachability and minimization",
+        "determinization one nondeterministic b edge between modular a cycles quotients gcd r 2^{s/g} states",
+        "published result 9df1828ce330: exact modular scattered zero-power-one state complexity"
+      ]
+    },
+    "rationale": "The 2026 determinization paper gives general bounds and hardness, not this two-modulus exact quotient. The classical Meyer--Fischer and Moore special cases establish exponential blow-up but not the gcd-stratified r,s family. The concatenation-state-complexity paper treats different witnesses and does not entail the exact formula. Inspected published related claim records concern unary delays or other modular statistics. No exact equivalent found in actual searches; unindexed priority remains a risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible equivalent exact result could predate this work; searches are not proof of global priority.",
+      "Several general NFA papers could contain unstated specializations; no implication from their inspected stated results is known.",
+      "The full text of the 2020 permutation-language concatenation paper was not accessible in this check; its stated hypotheses do not directly contain the nonpermutation left factor of this language."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant motivating framework but not a theorem implying the exact marked-language formula",
+        "evidence": "arXiv:2611.10911v1, November 7, 2026; sections on approximate hardness, Meyer–Fischer witness and subset complexity.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.10911",
+        "material_read": "Full preprint text and relevant technical results in Sections 2–5, including Meyer–Fischer constructions and subset-complexity estimates",
+        "method": "Examined accessible full text and technical definitions/results; checked for two-modulus guard, gcd and exact quotient",
+        "title": "Towards A Parametrized Complexity of Determinization",
+        "trigger": "Closest first-public-2026 preprint about determinization and subset complexity"
+      },
+      {
+        "assessment": "Classical exponential modular-suffix witness but no double modular-prefix/suffix classification or quotient formula",
+        "evidence": "arXiv:2407.09891v6, pages 1–10; Section 3 Example 1 (Equation (2)) and known Moore/Meyer–Fischer complexity.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.09891",
+        "material_read": "16-page lawful preprint, notably abstract, Sections 1–4, Equation (2), Figure 1, Theorem 2 and related discussion",
+        "method": "Inspected full-text technical portions and rendered first page; checked witness language and proof of 2^n complexity",
+        "title": "A Close Analysis of the Subset Construction (originally Blow-up in Non-Deterministic Automata)",
+        "trigger": "Classical closest Meyer–Fischer modular-suffix example and subset-construction bounds"
+      },
+      {
+        "assessment": "Witnesses concern other automata and multiple-concatenation bounds; does not prove exact two-guard marker quotient",
+        "evidence": "arXiv:2511.03814v1, November 5, 2025; binary construction around pages 13–15.",
+        "identifier_or_url": "https://arxiv.org/pdf/2511.03814",
+        "material_read": "Primary 28-page preprint text and relevant binary-witness proof/construction around pages 13–15",
+        "method": "Read accessible complete preprint and examined displayed binary-witness construction, checking parameter and transition equivalence",
+        "title": "State Complexity of Multiple Concatenation",
+        "trigger": "Potential stronger binary concatenation-state-complexity coverage"
+      },
+      {
+        "assessment": "Not directly covering: first component of A_r b B_s is nonpermutational, so the two-permutation-language theorem cannot establish the exact formula",
+        "evidence": "Hospodár–Mlynárčik, 2020, DOI 10.1007/978-3-030-48516-0_10; scope is operations on permutation automata.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-030-48516-0_10",
+        "material_read": "Open-access abstract and bibliographic synopsis; the full text was not accessible in this check",
+        "method": "Compared the stated class assumptions and sharp bound with the exact marked-language factorization",
+        "title": "Operations on Permutation Automata",
+        "trigger": "Potentially stronger concatenation results for permutation languages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53df5647-0e22-4e85-8ee1-457a3b95f1ae",
+  "value": {
+    "rationale": "A fully parameterized natural regular language with one marked letter makes the dependence of determinization on coprimality visible. The exact quotient explains the systematic collapse from exponential to linear, supplies all reachable and minimal state counts, and can benchmark subset construction and minimization. It is not merely an arbitrary fixed-size census, renaming or generic upper bound.",
+    "status": "PASS"
+  }
+}
