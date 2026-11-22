@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from this extracted directory. No network access or nonstandard Python libraries are required. The standalone verifier independently constructs the adjacency graph and calculates every induced-subset independence number by exact dynamic programming. It compares those values with the proved blockwise formula on every subset, enumerates all simplices, assembles all matching pairs, and performs a complete directed Hasse-incidence acyclicity test (not just an Euler-characteristic calculation).
+## correctness
 
-The verifier tests 21 parameter pairs with widths ranging from 2 to 5 in several mixtures, with between one and five biclique blocks, and thresholds from 2 to 5. It checks the exact unmatched critical-face lists, including the contractible cases. A separate signed Lefschetz evaluation checks 24 automorphism-character instances, including local leaf transpositions, interchanges of equal-size blocks, and composites. The recorded executable output is in `verification_output.txt`; the final two markers are `ROBUST_BICLIQUE_BOUQUET_ALL_EXACT_TESTS_PASS` and `EQUIVARIANT_HOMOLOGY_CHARACTER_TESTS_PASS`.
+PASS
 
-These are finite checks. The unlimited parameter range, integral homotopy statement, and equivariant lattice decomposition follow from the symbolic matching and relative-chain proof in `RESULT.md`, not from extrapolating test values. No independent mathematical audit has been performed.
+For m>=1, t_i>=2, k>=4 and r=k-1, the induced independent-set formulas are alpha(S)=sum_i max(ell_i,q_i) and alpha(S+hub)=max(alpha(S),1+sum_i q_i). The hub-matching pairs all faces with fewer than r selected private vertices, leaving exactly r selected private vertices and at most one leaf from each corresponding block. Distinguished-leaf matching is acyclic on the product of coordinate stars and leaves one (2r-1)-cell for each choice of r blocks and non-basepoint leaves, plus a critical vertex; hence the claimed integral wedge and binomial weighted multiplicity. Separately the relative chains C_*(A,L) decompose as tensor products of augmentation complexes Z[L_i]->Z, giving the canonical integral free top homology module and character sum. Swapping two two-vertex block pieces has even permutation sign, so no extra tensor-swap sign. For r>m the top group vanishes and the complex contracts. The complete attached verify.py independently computes induced independent numbers via a generic recurrence, full finite Hasse graph acyclicity and signed Lefschetz traces in 21 small cases and 24 automorphism comparisons; these finite checks are not used as the universal proof.
+
+## originality
+
+PASS
+
+Qualified PASS for the arbitrary unequal-width rooted K_{2,t_i} bouquets and their integral leaf-block symmetry. Earlier threshold-three, uniform four-cycle bouquet and grid/square-sequence results do not imply the full k>=4 weighted elementary symmetric formula and canonical augmentation tensor action.
+
+## value
+
+PASS
+
+The shared-hub bipartite bouquet is a natural graph amalgamation, and unequal leaf block widths distinguish the top homology multiplicities and integral representation; this is a structural full-threshold homotopy-and-action classification, not an arbitrary tiny numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

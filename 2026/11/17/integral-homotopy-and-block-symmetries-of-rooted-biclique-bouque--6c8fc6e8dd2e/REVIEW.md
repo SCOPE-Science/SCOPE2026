@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph's independent-set number is exactly the sum of blockwise maxima without the hub and the maximum of that sum and the selected-private-vertex count plus one with the hub. These identities exhaust all possible independent sets. The staged matching pairs each admissible face at most once, and the fixed-private-set monotonicity plus strict decrease of the first matching coordinate proves the directed Hasse diagram acyclic for every parameter. Removing the augmented empty-face pair leaves a single critical vertex, hence one CW vertex and only cells of dimension \(2k-3\). The relative-chain decomposition by private-vertex subsets supplies a second, integral, functorial proof of the homology module; exchanging two adjacent complete two-vertex blocks has even sign. Full-face computations and independent subset recurrences passed on 21 finite parameter cases, with 24 symmetry-character checks. Risks: the general proof relies on the specified bouquet structure, which excludes multi-vertex block overlaps; finite testing alone would not justify the all-parameter statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The relevant public paper arXiv:2602.11365, inspected in full text, treats square-sequence graph attachments and does not classify arbitrary one-point sums of differently sized bicliques together with an integral automorphism module. The relevant sections of arXiv:2209.13503 concern single complete bipartite graphs, not these sums. Published classifications of all connected bipartite graphs at \(k=3\) are stronger in that lower threshold but do not imply \(k\ge4\). A separately known all-threshold calculation covers only the special leaf-pair bouquet \(t_i=2\); that specialization is expressly excluded from the novelty claim. Exact semantic searches found no dominating theorem with all of arbitrary widths, all \(k\ge4\), and integral equivariance. A stronger unindexed general decomposition remains possible; the searches cannot prove unique priority.
+PASS
 
-## Mathematical value — PASS
-The one-vertex amalgamation operation is natural, and its large higher-threshold simplicial complexes need not admit a transparent homotopy model. The theorem gives all dimensions and integral groups for any number and widths of biclique blocks, plus the complete natural integral representation and computable character under block swaps, which neither a numerical Betti formula nor the known special cases supplies. The explicit local-to-global augmented-chain splitting explains why elementary symmetric polynomials appear and offers a reusable structural model. It does not claim a theorem for arbitrary graph amalgamations.
+For m>=1, t_i>=2, k>=4 and r=k-1, the induced independent-set formulas are alpha(S)=sum_i max(ell_i,q_i) and alpha(S+hub)=max(alpha(S),1+sum_i q_i). The hub-matching pairs all faces with fewer than r selected private vertices, leaving exactly r selected private vertices and at most one leaf from each corresponding block. Distinguished-leaf matching is acyclic on the product of coordinate stars and leaves one (2r-1)-cell for each choice of r blocks and non-basepoint leaves, plus a critical vertex; hence the claimed integral wedge and binomial weighted multiplicity. Separately the relative chains C_*(A,L) decompose as tensor products of augmentation complexes Z[L_i]->Z, giving the canonical integral free top homology module and character sum. Swapping two two-vertex block pieces has even permutation sign, so no extra tensor-swap sign. For r>m the top group vanishes and the complex contracts. The complete attached verify.py independently computes induced independent numbers via a generic recurrence, full finite Hasse graph acyclicity and signed Lefschetz traces in 21 small cases and 24 automorphism comparisons; these finite checks are not used as the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS for the arbitrary unequal-width rooted K_{2,t_i} bouquets and their integral leaf-block symmetry. Earlier threshold-three, uniform four-cycle bouquet and grid/square-sequence results do not imply the full k>=4 weighted elementary symmetric formula and canonical augmentation tensor action.
+
+## value
+
+PASS
+
+The shared-hub bipartite bouquet is a natural graph amalgamation, and unequal leaf block widths distinguish the top homology multiplicities and integral representation; this is a structural full-threshold homotopy-and-action classification, not an arbitrary tiny numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
