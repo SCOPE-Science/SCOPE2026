@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For precisely specified orbit labels, all nonempty matching faces and all quotient faces have been exhaustively enumerated. No nontrivial cyclic rotation stabilizes a simplex; the quotient therefore has a legitimate three-dimensional chain sequence in cell dimensions zero through two with ranks 3, 15, 15. The two quotient one-cells forming a maximal tree have a primitive boundary minor. Every triangle attaching word is constructed by oriented boundary traversal. The exact elimination uses only single-occurrence generator substitutions, so it preserves the nonabelian presented group; the remaining exponents are minus 21, zero and minus 42. This proves the full fundamental group, not merely the abelianization. Hurewicz and the integer Euler characteristic give all integral homology groups. The executable and the full cell presentation are present, and the recorded output was reproduced from the delivered source. No computer search timeout or finite-field rank is used as a proof of the infinite group assertion.
+PASS
 
-## Originality — PASS, relative to inspected sources
+M(K7) has exactly 21 zero-,105 one-,105 two-simplices, checked from disjoint graph-edge matchings. C7 moves each nonempty face freely since an orbit of any single graph edge has length 7>3 (maximum matching size). Quotient face counts are (3,15,15). Reconstructed quotient cell boundary and 15 cyclic attaching relators from canonical oriented face orbits independently of certificate text; contracting spanning one-cell orbits A1,A2 and 12 actual single-occurrence Tietze eliminations (indices 4,0,8,9,3,13,10,6,12,7,5,14) leave one generator A11 with relators u^-21, 1, u^-42. Thus the entire nonabelian π1 is Z/21, not merely its abelianization. Cellular χ=3; H1=Z/21, H2 is free of rank 2 because kernel of boundary between integral free chains, higher zero by dimension. Complete finite enumeration and reversible word moves verify the one fixed complex.
 
-The closest primary results determine the homology of the unquotiented seven-point matching complex, notably Bouc's three-torsion as reported and proved by Shareshian–Wachs and independently computed by Mondal–Mukherjee–Saha. Their statements do not determine the nonabelian fundamental group of the cyclic orbit quotient. Jonsson treats exact homology sequences on the original matching complexes. Bate–Everitt–Ford–Ramos concern symmetric-group homology representations. The nearest retrieved database records on sevenfold rotation concern a different multipath complex or Fano cap complex, or modular representations of the original matching complex. None of these implies the nonabelian quotient claim. The indexed literature is not exhaustive; original Bouc (1992) was not obtained in full text, and publication priority remains conditional.
+## originality
 
-## Value — PASS
+PASS
 
-The seven-point matching complex is the first classic complete-graph matching complex with an order-three first-homology torsion class. Its canonical transitive order-seven symmetry is unique up to relabeling, and therefore its quotient is mathematically natural rather than an arbitrary finite slice. The exact cyclic fundamental group of order twenty-one exhibits the interaction between intrinsic three-torsion and a free sevenfold covering, not merely a Betti-number computation. Determining a nonabelian fundamental group is stronger than calculating its abelianization and gives concrete information for further topological comparisons of symmetric matching complexes.
+Best-of-knowledge PASS: known unquotiented M7 torsion Z/3 and top Betti Z^20 or general S_n homology representation do not give integral π1 of the free C7 orbit space. A separate same-day quotient of M8 with one fixed ground label has different 7-primary Moore type and is not a dominating theorem for M7/Z7. Exact Z/21 and noncommutative Tietze reduction are a new natural quotient invariant in checked literature.
 
-## Closest sources and risks
+## value
 
-Shareshian–Wachs, arxiv:math/0409054; Jonsson, arxiv:1203.5641; Mondal–Mukherjee–Saha, arxiv:2305.02973; Bate–Everitt–Ford–Ramos, arxiv:2312.13750. Risks are equivalent statements in unindexed literature and independent reproduction of the attaching presentation. The result does not determine the full homotopy type of the quotient.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural free seven-cycle quotient of a classical matching complex has a mixed 3·7 fundamental-group order 21 and free top homology rank 2. Proving the whole π1 (rather than just a Smith-normal-form abelianization) is a useful exact topological classification for a canonical small equivariant complex and explains interaction of cover torsion with rotation symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
