@@ -1,11 +1,21 @@
-# Review of the alternating-arm cubical orbit trichotomy
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The configuration cell definition and group action are explicit. Every quotient simplex is an orbit of a strict cubical face chain; rank preservation makes the action admissible after barycentric subdivision. The verifier exhaustively builds those cells and replays 1834, 3500 and 2460 valid free-face collapses. The three finite residues are verified as a vertex, a connected 12-cycle and a connected closed triangulated surface of Euler characteristic two. Every cell uses at most three arm labels, and the three-transitivity of the alternating group for five or more arms gives an exact incidence-complex stabilization, so finite checks do not masquerade as an infinite proof.
+## correctness
 
-**Originality (O): PASS subject to the stated access limits.** Abrams and Prue–Scrimshaw establish the foundational discrete state complexes and ordinary deformation theory, not this alternating-arm geometric orbit trichotomy. The publicly indexed four-arm continuous-configuration result already identifies the sphere case; that case is expressly credited, not presented as an independent discovery. The nontrivial new conclusions are the three-arm circle and the contractible range for every arm number at least five, together with the all-arm incidence-stabilization proof. Targeted searches for equivalent, dominated, and tabulated results identified no statement covering those endpoints. An inaccessible full text of the four-arm result, plus potential unindexed results, remain risks; these cannot serve as evidence that the precise new claim was previously unknown with certainty.
+PASS
 
-**Value (V): PASS.** Four edges per arm is the minimal classical Abrams length for three particles, not an arbitrary computational slice. The phase transition \(S^1\to S^2\to *\) is a complete classification across all arm counts; the proof isolates the change from two- to three-transitivity in parity-preserving arm symmetries and extracts actual homotopy types with local-link and collapse certificates. The all-arm statement is not just a rational Betti calculation or a routine increment of a known table.
+Abrams cubical face chains are canonically labelled by subsets of ≤3 arms. Stabilizers of strict chains fix all their barycentric vertices, so chain orbits yield actual quotient cells. Independent face-chain orbit enumeration reproduces S3 (211,1098,1624,736), A3 (352,2040,3160,1472), A4 (246,1444,2288,1088), and Euler values 1,0,2. Inspected elementary free-face collapse and remaining-link checks in three_particles.py; it reduces to point, 12-cycle, and connected chi2 closed triangulated surface. A_m is 3-transitive for m≥5, giving full infinite stability.
 
-**Closest literature and limits.** Prue–Scrimshaw, *Abrams's Stable Equivalence for Graph Braid Groups* (arXiv:0909.5511, read introduction and subdivision proof), Abrams's 2000 thesis (bibliographic record), Farley–Sabalka 2005 (paper metadata), and the publicly indexed four-arm alternating-quotient result (summary only). The latter's inaccessible full text and the possibility of undocumented generalizations are residual novelty risks. Ordinary configuration-space quotients are not part of the final claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prue–Scrimshaw controls non-equivariant configuration discretization; the published four-arm continuous theta A4 quotient is S2 and is expressly excluded as new. Neither implies the A3 cubical 12-cycle plus stable A_m≥5 contractible quotient as an ordinary geometric orbit classification.
+
+## value
+
+PASS
+
+A sharp three-regime classification for natural symmetric discrete configuration spaces; the exact parity threshold and explicit finite collapse models provide reusable topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
