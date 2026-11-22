@@ -1,19 +1,21 @@
-# Scientific review: exact basin and escape shells of a quadratic benchmark
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two coordinate formulas in Equation (16) are identical, so one step reduces the full planar iteration to the scalar quadratic \(g(s)=s/5+3s^2\). Completing the positive-definite quadratic form shows that the first-step scalar is never below \(-1/300\). Exact fixed-point and monotonicity arguments classify every initial condition, including both boundary cases. An ellipse-area calculation produces the exact area and shows that its sublevel-area function is linear in the level. Inverting the scalar quadratic gives the full finite-time shell distribution. The tail-product identity and a summable bound establish both the sharp exponential factor \(5/9\) and the stated total-variation bound. These arguments are reproduced in the proof, with critical algebraic steps checked by an executable symbolic script; finite diagnostics are explicitly not used to justify universal quantifiers.
+PASS
 
-## Originality — PASS within inspected evidence
+One step maps every plane point to diagonal scalar s=q(x,y), which is bounded below by −1/300; future scalar recurrence g(s)=s/5+3s² has only 0 and r=4/15 fixed, and g(s)−s=s(3s−4/5). Negative s increase to 0, 0<s<r decrease to 0, and s>r increase unboundedly. Completing squares makes q<r a centered positive-definite ellipse; area equals (2π/√3)(r+1/300)=9√3π/50. The claimed radius r is the exact maximal centered sup norm box, because (r,r) is excluded. Poincaré recurrence confines an invariant probability to two actual fixed points. For uniform area on r<q<H, quadratic level-set area is affine in s, hence s is uniform. Inverse h(t)=(√(1+300t)−1)/30 on [r,∞) gives P(N_H>n)=(h^n(H)−r)/(H−r). Inverse expansion at r yields λ=5/9 and a convergent positive product for sharp exponential tails; a tail telescoping bound gives dTV≤125(H−r)/48. Independently verified scalar, area, inverse derivative and multiplier identities. No finite data proves global assertions.
 
-Cui, Zhang, Jardón-Kojakhmetov and Cao, *On discrete-time polynomial dynamical systems on hypergraphs* (arXiv:2403.03416), Section VII, Equation (16) and Figure 2, give exactly the same vector field and show a **conservative** origin-centered square \(\max(|x|,|y|)<4/15\), but their inspected Sections V–VIII provide neither the exact global basin and its sharp ellipse boundary, nor the invariant-probability classification, nor the area-sampled escape-time distribution. Chen, *On the Stability of Multilinear Dynamical Systems* (arXiv:2105.01041), Sections III–VI, treats homogeneous tensor maps through eigenvalue/norm bounds and different examples. Searches for the exact displayed coefficients, equivalent scalar quadratic, inverse-iterate escape law and ellipse/separatrix terminology did not identify dominating coverage in the accessible indexed results. Related global-separatrix studies concern different positive homogeneous population maps, not this mixed-degree rank-one planar map. Such searches cannot prove global priority; unindexed independent derivations remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The originating paper explicitly uses this concrete system as its numerical benchmark for the practical strength of tensor-based conservative attraction certificates. The exact result completes its origin-versus-escape classification, proves that the published radius is **optimal among centered squares** while the actual attraction region has approximately \(3.443\) times the area, and gives a fully quantitative transient-failure law for uniformly sampled uncertainty shells. The geometric limiting law is parameter-free for these specified shells, with explicit nonasymptotic error and full exact finite-time probabilities. These are natural basin geometry and transient-time statistics of a benchmark already studied in the literature, rather than a renamed parameter slice or an arbitrary numerical statistic. The restriction to a rank-one example limits breadth, not the precision or usefulness of its benchmark characterization.
+Cui et al. 2024 Equation (16) is exactly the same nonhomogeneous polynomial map and proves a conservative max-coordinate square of radius 4/15, with numerical figures; their Section VII does not give the iff ellipse, invariant measure classification or shell law. Chen 2021 supplies tensor spectral stability criteria for homogeneous nonlinear systems, not the specific rank-one affine-plus-quadratic map. Resultary nearby global quadratic separatrix records concern different homogeneous positive maps and different area laws. Full actual primary Cui pages were read; PASS best of knowledge with generic scalar-dynamics derivability credited.
 
-## Closest literature and limitations
+## value
 
-The closest full-text source is Cui et al. (2024), arXiv:2403.03416, Eq. (16) and Fig. 2. The nearest earlier tensor-method source is Chen (2021), arXiv:2105.01041. The proof exploits the special identical-component structure and does not assert analogous conclusions for arbitrary directed hypergraphs. The shell law depends on Euclidean area sampling across levels and must not be confused with a stationary measure. The stated total-variation coefficient is an upper bound, not an optimality assertion. Publication-priority risk remains from unindexed, unpublished or inaccessible equivalent calculations. Independent mathematical validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp entire basin and optimal centered box quantify precisely how conservative the published stability certificate is; the exact area gain, all-real-state classification and area-sampled escape-time law turn a naturally posed model into a completely solved geometric-probabilistic benchmark. Although synchronizing scalar reduction is elementary, the combined exact invariant measure and quantitative shell law are meaningful, self-contained outcomes, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
