@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "The Green-function covariance gives Var(J)=1/180, cross-covariance G=(2c-1)(4c(1-c)-h²)/24 and observation variance D=c(1-c)-h/6+η>0. The posterior variance reduction is G²/D. Reflection and z=c(1-c) reduce all feasible locations to a compact interval. An exact derivative factorization with N''= -64 and explicit endpoint signs proves a unique interior optimum if S>0 or strict boundary optimality if S≤0, including all equality cases. Implicit derivatives prove inward movement with increasing noise; compact optimization yields the high-noise limit. Exact symbolic identities and independent quadrature checks passed; finite scans are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2109.03457 sections 1, 2 and 3: linear operator GP posterior and sequential data acquisition for inverse problems",
+        "arxiv:1812.07319 sections 1, 2, 4: covariance integration of squared-exponential line measurements",
+        "arxiv:1801.04153 multi-output BQ formulas, convergence and sampling-design discussion"
+      ],
+      "reasoning": "General operator-observation posterior formulas or optimization routines would cover the framework but supply neither this closed-form noise boundary nor uniqueness under a specified footprint. The cited work optimizes different objectives, operators or algorithms. No inspected theorem dominates the specialized global phase diagram.",
+      "searches": [
+        "Gaussian process linear measurement interval mean Brownian bridge design placement",
+        "Gaussian process quadrature linear functionals interval averages sensor placement noisy observations",
+        "2019 optimal polynomial approximation Brownian motion sensor observation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1801.04153v7",
+      "https://arxiv.org/abs/1904.06998",
+      "https://arxiv.org/html/1812.07319v1",
+      "https://arxiv.org/html/2109.03457v4",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-an-exact-overlap-optimal-three-segment-quadratic-histopolation-r--6b64b371a801/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Related earlier point-observation mathematical claims for Beta-weighted bridge moments and paired bridge moments use scalar point readings, not a fixed-width interval average.",
+        "arxiv:1904.06998 Theorem 5 and polynomial moment sections",
+        "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+        "2026/11/2/SCOPE-an-exact-overlap-optimal-three-segment-quadratic-histopolation-r--6b64b371a801",
+        "Final exact-operator searches returned distinct finite-difference, path-approximation, and point-sampling results rather than a matching fixed-width boxcar design theorem."
+      ],
+      "reasoning": "Pointwise sensor formulas arise only as a limit of shrinking footprint; they cannot imply the finite positive-width edge/interior boundary. A general Bayesian quadrature conditional variance identity supplies the objective but does not determine its unique constrained maximizer without nontrivial global analysis. The earlier histopolation rule does not estimate the random moment under Gaussian noise. The current claim does not assert novelty of any generic Gaussian-conditioning identity. Those separate point-reading claims were compared as possible reductions; they require a different forward operator and do not imply the full positive-footprint phase diagram.",
+      "searches": [
+        "optimal finite-volume cell average observation Gaussian Brownian bridge integrated polynomial moment one noisy interval sensor",
+        "Brownian bridge one interval averaged observation optimal window placement antisymmetric first polynomial moment squared error edge interior noise",
+        "\"Gaussian process\" \"integral observations\" \"optimal design\" Brownian bridge",
+        "boxcar Gaussian observation of Brownian bridge polynomial integral risk maximization h eta",
+        "optimal window center for noisy interval averaging Brownian bridge weighted integral variance exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1801.04153 sections 2, 5 and conclusion: posterior variance for related integrals and an open sampling-distribution question",
+        "arxiv:1904.06998 sections 1-3 and theorem 5: Brownian polynomial moment representation, no fixed-width noisy averaged placement",
+        "2026/11/2/SCOPE-an-exact-overlap-optimal-three-segment-quadratic-histopolation-r--6b64b371a801",
+        "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4"
+      ],
+      "reasoning": "Equivalent encodings would be one scalar noisy boxcar operator on a Dirichlet Green kernel, an RKHS worst-case squared-error design under a fixed linear functional, or a spatially footprint-constrained Gaussian linear inverse design. The cited general Gaussian formulas imply the risk formula once a sensor is fixed, not the sharp all-width and all-noise position classification. The published two-node and overlapping-three-mean results cannot specialize to a single fixed-width sensor with this signed moment and independent noise.",
+      "searches": [
+        "optimal finite-volume cell average observation Gaussian Brownian bridge integrated polynomial moment one noisy interval sensor",
+        "Brownian bridge one interval averaged observation optimal window placement antisymmetric first polynomial moment squared error edge interior noise",
+        "Brownian bridge finite footprint sensor window average optimal design integrated signed moment boundary transition",
+        "\"Brownian bridge\" \"interval average\" \"optimal\" \"sensor\" observation",
+        "\"Gaussian process\" \"integral observations\" \"optimal design\" Brownian bridge",
+        "noise-induced endpoint to interior sensor placement fixed-width interval average signed Brownian bridge first moment sharp threshold h eta",
+        "boxcar Gaussian observation of Brownian bridge polynomial integral risk maximization h eta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/11/2/SCOPE-an-exact-overlap-optimal-three-segment-quadratic-histopolation-r--6b64b371a801",
+        "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+        "2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+        "No covering fixed-width one-sensor placement in returned mathematical search summaries"
+      ],
+      "reasoning": "The publicly accessible overlap-histopolation RESULT.md concerns three deterministic interval means reconstructing quadratics, with a different norm. The public iid two-point Brownian-bridge kernel rule concerns two random noiseless point values and unweighted integration. Neither contains a table of the present width/noise thresholds or reduces to this admissible design family. Search absence is not proof of novelty.",
+      "searches": [
+        "Gaussian process quadrature linear functionals interval averages sensor placement noisy observations",
+        "quadrature from fixed-width interval-average Brownian bridge observations optimal window location",
+        "optimal finite-support boxcar observation of Brownian bridge signed integral posterior variance",
+        "Gaussian process linear measurement interval mean Brownian bridge design placement",
+        "\"Brownian bridge\" \"cell averages\" Bayesian quadrature",
+        "noise-induced endpoint to interior sensor placement fixed-width interval average signed Brownian bridge first moment sharp threshold h eta",
+        "boxcar Gaussian observation of Brownian bridge polynomial integral risk maximization h eta",
+        "optimal window center for noisy interval averaging Brownian bridge weighted integral variance exact"
+      ]
+    },
+    "rationale": "The inspected general Gaussian-conditioning and Brownian polynomial-moment theorems do not entail the global fixed-footprint placement phase diagram: deriving it requires the explicit width- and noise-dependent covariance and a new strict quadratic derivative-sign analysis. Closest public interval-mean histopolation and iid point-sampling theorems have different measurements and objectives. Direct earlier exact specialization remains a historical risk; the literature search is not an independence or exhaustiveness certificate.",
+    "residual_risks": [
+      "Older finite-footprint experimental-design literature could contain an unlocated equivalent specialization.",
+      "Generic Gaussian conditioning is prior work and is explicitly excluded from the originality claim.",
+      "Mathematical record searches and source inspections are not an exhaustive historical priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general posterior formula applies; its reported sampling design discussion does not establish the fixed-window placement phase diagram.",
+        "evidence": [
+          "arxiv:1801.04153 section 2 Gaussian conditioning formula",
+          "section 5 discussion of open optimal sampling distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1801.04153v7",
+        "material_read": "Full HTML sections 1 and 2, multi-output methodology and mathematical posterior formulas, conclusion and sampling-design discussion; search within the full HTML",
+        "method": "Read public full text and compare observation operator, sampling objective, and the implied one-reading risk expression",
+        "title": "Bayesian Quadrature for Multiple Related Integrals",
+        "trigger": "Closest general Bayesian quadrature result for integral functionals"
+      },
+      {
+        "assessment": "A Brownian polynomial moment basis is analyzed, not a single noisy fixed-width interval-mean sensor location",
+        "evidence": [
+          "arxiv:1904.06998 Theorems 5 and 7, covariance and moment representations",
+          "absence of an interval-averaged sensor-design theorem in inspected sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+        "material_read": "Full-text HTML introduction, sections 2 and 3 selected theorems and proofs, full-text term search for observations and quadrature",
+        "method": "Inspected Brownian bridge covariance/polynomial KL structure, moment estimates and the distinct pathwise approximation objective",
+        "title": "An optimal polynomial approximation of Brownian motion",
+        "trigger": "Same Brownian-bridge kernel and polynomial moment functions"
+      },
+      {
+        "assessment": "Numerical covariance evaluation for a squared-exponential kernel rather than exact Brownian-bridge footprint design",
+        "evidence": [
+          "arxiv:1812.07319 sections 2 and 4 and objective statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.07319v1",
+        "material_read": "Full-text sections 1 through 4 including kernel covariance line-integral formulas and numerical approach",
+        "method": "Compared kernel, number of linear observations, and whether locations optimize target posterior moment risk",
+        "title": "Evaluating the squared-exponential covariance function in Gaussian processes with integral observations",
+        "trigger": "Actual line-integral measurement operator under a GP prior"
+      },
+      {
+        "assessment": "Does not imply the sharp placement phase transition; supplies general computation techniques only",
+        "evidence": [
+          "arxiv:2109.03457 section 2 formulas and section 3 excursion set application"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.03457v4",
+        "material_read": "Full-text introduction, section 2 including exact posterior low-rank update formulas, section 3 application outline and abstract",
+        "method": "Compared operator-admissible design and aims (scalability/excursion recovery) to exact single-window scalar optimization",
+        "title": "Uncertainty Quantification and Experimental Design for Large-Scale Linear Inverse Problems under Gaussian Process Priors",
+        "trigger": "General linear-operator observation and sensor experimental design could dominate the statement"
+      },
+      {
+        "assessment": "Different deterministic polynomial interpolation model; does not imply the stochastic one-window optimality",
+        "evidence": [
+          "2026/11/2/SCOPE-an-exact-overlap-optimal-three-segment-quadratic-histopolation-r--6b64b371a801"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-an-exact-overlap-optimal-three-segment-quadratic-histopolation-r--6b64b371a801/RESULT.md",
+        "material_read": "Complete public RESULT.md including theorem, proof, limitations and references",
+        "method": "Compared three strongly overlapping mean operators with one fixed-width Gaussian observation and different risk objective",
+        "title": "An exact overlap-optimal three-segment quadratic histopolation rule",
+        "trigger": "Exact interval-average measurement design and boundary optimality"
+      },
+      {
+        "assessment": "No coverage: two noiseless point values targeting ordinary integration, versus one noisy interval average targeting signed moment",
+        "evidence": [
+          "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4/RESULT.md",
+        "material_read": "Complete public RESULT.md including global distributional proof and limitations",
+        "method": "Compared measurement type, target signedness, random iid design space, and noise",
+        "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+        "trigger": "Exact design on same Brownian-bridge kernel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f8539d07-67e8-4220-a054-35c344e1c03b",
+  "value": {
+    "rationale": "Fixed-footprint boxcar measurements are natural finite-resolution sensors and linear inverse observations. The complete nontrivial phase diagram resolves whether a sensor should touch the spatial boundary, including an exact width constant, a positive noise-induced switch for intermediate widths, strict location response and an explicit high-noise limit. For h=1/4, η=1/5 the optimum improves variance explained by approximately 27.69% over boundary sensing. This is a meaningful constrained design fact independent of unavailable generalizations.",
+    "status": "PASS"
+  }
+}
