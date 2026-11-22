@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Each signed transitive A4 action is classified by a conjugacy class of stabilizer and sign character. A4 has exactly seven such types, yielding degrees (1,3,3,4,6,6,12) and centralizer factors (2,6,2,2,4,4,24). The kernel/core calculation makes exactly types 2–6 faithful; Aut(A4) preserves each type, so the normalizer is 24 times the complete centralizer. Orbit-stabilizer and exact rational generating functions then follow. Root-of-unity pole orders prove degree six, period exactly twelve and the leading coefficient. Standalone verification checks profiles and exact arithmetic through n=12, actual subgroup generator counts through n=6 and conjugacy orbits through n=4. Finite checks corroborate, not replace, the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Müller, Enumerating representations in finite wreath products, Adv. Math. 153 (2000), 118–154, cited by Schlage-Puchta 2011",
+        "Marberg and Zhang, Perfect models for finite Coxeter groups, https://arxiv.org/abs/2201.00748",
+        "Klawuhn and Schmidt, Transitivity in wreath products with symmetric groups, https://arxiv.org/abs/2409.20495"
+      ],
+      "reasoning": "Müller develops a general enumerative theory that likely encompasses homomorphism enumeration and therefore the embedded-total exponential identity. No accessible inspected statement in it establishes the seven A4 conjugacy types and normalizers. The latter two sources focus on perfect models and transitive subsets, not subgroup image profiles. This is a residual source-inspection risk, not evidence of disjoint subject areas.",
+      "searches": [
+        "\"finite Coxeter B_n conjugacy classes of A4 subgroups signed tetrahedral embeddings normalizer 24 product, degree six quasipolynomial\"",
+        "Müller 2000 Enumerating representations in finite wreath products",
+        "arxiv:2201.00748",
+        "arxiv:2409.20495"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2202.04463",
+      "https://arxiv.org/abs/2201.00748",
+      "https://biblio.ugent.be/publication/1848757/file/1848765.pdf",
+      "https://arxiv.org/abs/2107.04645",
+      "https://arxiv.org/abs/2409.20495",
+      "Müller, Advances in Mathematics 153 (2000), 118–154, via citation and subsequent article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zibrowius 2022, https://arxiv.org/abs/2202.04463: Coxeter involution conjugacy correspondence",
+        "Schlage-Puchta 2011, https://biblio.ugent.be/publication/1848757/file/1848765.pdf: homomorphism counting formula on page 3",
+        "Bernhardt et al. 2021, https://arxiv.org/abs/2107.04645: conjugacy and centralizers of individual elements"
+      ],
+      "reasoning": "The 2011 formula can imply the embedded-count exponential by subtracting noninjective maps and dividing by 24, so that identity is credited as a specialization, not an independent discovery. It does not by itself give the profile normalizer formula or rational conjugacy-class enumeration. Individual involution or single-element conjugacy classifications do not classify simultaneous noncommuting generators of A4.",
+      "searches": [
+        "\"finite group G homomorphisms into wreath product C2 wr S_n classified by stabilizers H and characters H to C2; exact subgroup embeddings A4\"",
+        "arxiv:2202.04463",
+        "arxiv:1105.1301",
+        "arxiv:2107.04645"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schlage-Puchta 2011, Lemma 4 and proof of Lemma 5, https://biblio.ugent.be/publication/1848757/file/1848765.pdf: counts homomorphisms into wreath products via G-set stabilizers",
+        "Bernhardt et al. 2021, https://arxiv.org/abs/2107.04645: element conjugacy and centralizers, not conjugacy of embedded subgroups"
+      ],
+      "reasoning": "One can recast the theorem as the classification of faithful monomial A4-actions modulo automorphisms of A4. The general homomorphism counting formula reproduces the number of homomorphisms, but its displayed claim does not determine all image normalizers, all subgroup conjugacy classes or the least quasipolynomial period. No equivalent seven-type normalizer table was identified.",
+      "searches": [
+        "\"conjugacy classes of embedded A4 subgroups of B_n hyperoctahedral signed permutation wreath C2 wr S_n, generating function\"",
+        "\"finite group G homomorphisms into wreath product C2 wr S_n classified by stabilizers H and characters H to C2; exact subgroup embeddings A4\"",
+        "arxiv:1105.1301",
+        "arxiv:2107.04645"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hit describes signed-permutation single-element reflection Fourier spectra, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-type-b-conjugacy-class-fourier-spectra-and-tight-sampling--a41852442f2b",
+        "Direct computation of actual A4 subgroups in B_3,B_4,B_5,B_6 found 1,12,50,1500; code embedded as verification.py"
+      ],
+      "reasoning": "No exact A4-subgroup normalizer table or sequence for all ranks surfaced. The verified finite counts rule out some formula errors but do not establish novelty. Known single-element type-B conjugacy tables do not determine subgroup embeddings and their normalizers.",
+      "searches": [
+        "\"conjugacy classes of embedded A4 subgroups of B_n hyperoctahedral signed permutation wreath C2 wr S_n, generating function\"",
+        "\"finite Coxeter B_n conjugacy classes of A4 subgroups signed tetrahedral embeddings normalizer 24 product, degree six quasipolynomial\"",
+        "number of conjugacy classes tetrahedral A_4 subgroups type B Coxeter group growth polynomial",
+        "published-finding corpus: 2026/10/11/SCOPE-exact-type-b-conjugacy-class-fourier-spectra-and-tight-sampling--a41852442f2b"
+      ]
+    },
+    "rationale": "The specific profile-by-profile normalizer theorem, faithful seven-orbit classification, conjugacy-class rational generating function and exact least period are not stated or directly implied by the inspected Coxeter involution and wreath single-element conjugacy work. Schlage-Puchta (2011) covers general homomorphism counts (and can yield the embedded-count EGF after specialization), not subgroup normalizer spectra; this difference is central. Müller (2000) provides a serious potential older general-coverage risk, disclosed below. Originality is relative to accessible scientific comparisons, not a guarantee of priority.",
+    "residual_risks": [
+      "Older wreath-product representation literature, in particular Müller (2000), might contain the same subgroup profile/normalizer specialization; its original full text was not inspected.",
+      "A semigroup- or embedding-theoretic reformulation of the same seven-profile table may be unindexed.",
+      "General homomorphism-count machinery already implies the enumerator of labeled homomorphisms and, on specialization, the embedded-total exponential generating function; this is explicitly not claimed as a new general method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers counting homomorphisms into C2 wr S_n, not the displayed A4 subgroup normalizer spectrum; exact EGF mechanism is prior",
+        "evidence": [
+          "2011 Lemma 4; page 3 homomorphism formula; reference Müller (2000)"
+        ],
+        "identifier_or_url": "https://biblio.ugent.be/publication/1848757/file/1848765.pdf",
+        "material_read": "All four pages, especially Lemma 4 and summation in proof of Lemma 5 (page 3), and references",
+        "method": "Open-access PDF text and page 3 visual inspection",
+        "title": "Homomorphisms from a finite group into wreath products",
+        "trigger": "Potential stronger general wreath-product enumeration"
+      },
+      {
+        "assessment": "Classifies dual involutions, not nonabelian embedded A4 subgroups",
+        "evidence": [
+          "arXiv first public 2022-02-09; Coxeter involution classification stated in abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.04463",
+        "material_read": "Abstract, introduction and selected classification text/pages (not claimed as complete paper inspection)",
+        "method": "arXiv text extraction and PDF screenshots of selected pages",
+        "title": "Dual involutions in finite Coxeter groups",
+        "trigger": "2022 type-B conjugacy-group research impetus"
+      },
+      {
+        "assessment": "Induced character/perfect model statements rather than enumeration of A4 subgroup normalizers",
+        "evidence": [
+          "2022 introduction Theorem 1.3 and type-B model classification Theorem 4.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00748",
+        "material_read": "Abstract, introduction and relevant type-B portions, selected PDF screenshots",
+        "method": "arXiv readable text and selected PDF pages",
+        "title": "Perfect models for finite Coxeter groups",
+        "trigger": "Type-B centralizers and possible induced representation coverage"
+      },
+      {
+        "assessment": "Studies transitive subsets and related design/spectral questions, not A4 subgroup conjugacy-class enumeration",
+        "evidence": [
+          "Abstract on PDF page 1; first public arXiv September 2024"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.20495",
+        "material_read": "Abstract and beginning of introduction, first-page visual inspection",
+        "method": "arXiv PDF text with visual first-page screenshot",
+        "title": "Transitivity in wreath products with symmetric groups",
+        "trigger": "Possible stronger all-wreath-product coverage"
+      },
+      {
+        "assessment": "Single-element conjugacy/centralizer formulas; not enough to infer group-normalizer table",
+        "evidence": [
+          "Abstract describes conjugacy classes and centralisers of elements in wreath products"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.04645",
+        "material_read": "Abstract and article description only, no claim to having examined entire full text",
+        "method": "arXiv bibliographic and abstract search",
+        "title": "Conjugacy classes and centralisers in wreath products",
+        "trigger": "Potential equivalent centralizer formula"
+      },
+      {
+        "assessment": "Strongest residual potential overlap for homomorphism EGF; explicit A4 subgroup normalizers not verified from full text",
+        "evidence": [
+          "Schlage-Puchta (2011) reference [1]; Müller–Shareshian (2002) abstract"
+        ],
+        "identifier_or_url": "Müller, Adv. Math. 153 (2000), 118–154",
+        "material_read": "Bibliographic reference and descriptions in Schlage-Puchta (2011) and Müller–Shareshian (2002) abstract, not the full 2000 article",
+        "method": "Citation-traced bibliographic and abstract comparison",
+        "title": "Enumerating representations in finite wreath products",
+        "trigger": "General theorem potentially dominating exact enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53a6a632-91b4-4821-8b9d-458fd0719538",
+  "value": {
+    "rationale": "The natural nonabelian tetrahedral subgroup problem is solved simultaneously for all ranks of a fundamental Coxeter family, including a complete orbit-type classification, every subgroup normalizer, exact class counts, and a period-12 growth invariant. The distinguishable signed 3-point actions and Aut(A4) lifting create substantive subgroup structural content beyond a generic homomorphism counting substitution. Not claimed to generalize the established wreath-product enumeration machinery.",
+    "status": "PASS"
+  }
+}
