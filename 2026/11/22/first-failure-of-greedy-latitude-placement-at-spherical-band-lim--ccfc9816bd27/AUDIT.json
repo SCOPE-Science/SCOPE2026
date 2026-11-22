@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Spherical order-m functions are sin^m(theta) times polynomials in cos(theta), so their Lagrange row-sum norm equals F_L(S). Every possible fixed-grid ring ordering corresponds bijectively to a saturated chain of subsets. The attached deterministic, standard-library-only verifier uses exact rational intervals for pi, sines, cosines, cardinal interpolation, and all strict comparisons; its subset-reachability cut proves the lower bound exhaustively for every L<=12. A displayed chain attains the bound at each L; for L=12 the greedy chain is strictly worse. The L=2 polar case is analytically zero. No finite experiment is claimed to prove an infinite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khalid 2026 Section VI-C formula (25) chooses one ring at a time and explicitly recommends a look-ahead search",
+        "2014/2017 optimizing different condition numbers give no dominance theorem for weighted-cardinal amplification"
+      ],
+      "reasoning": "The strongest plausible published same-grid algorithmic results are neither a globally minimizing nested-chain theorem nor an exact first failure at L=12. Thus they do not imply the present restricted-objective optimum.",
+      "searches": [
+        "sharp globally minimal maximum weighted Lagrange extrapolation Lebesgue constant spherical optimal dimensionality iso latitude rings equiangular bandlimit 12",
+        "2026 An O(L^3) Spherical Harmonic Transform on L^2 Samples optimal latitude ordering versus greedy Lambda amplification",
+        "\"spherical harmonic transform\" \"global minimax\" \"amplification\"",
+        "https://arxiv.org/html/2611.16441v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.16441v1",
+      "https://arxiv.org/html/1709.02497v1",
+      "https://arxiv.org/html/1403.4661v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 VI-C gives greedy local argmin, whereas the new claim minimizes max over all nested selections and locates first failing L",
+        "2017 and 2014 control different operator condition numbers"
+      ],
+      "reasoning": "The new global minimax value at L=12 and cutoff for all L<12 cannot be inferred from a local greedy optimality at each step. Condition-number improvement cannot imply the weighted-Lagrange minimax without an unavailable equality/dominance comparison.",
+      "searches": [
+        "https://arxiv.org/html/2611.16441v1",
+        "https://arxiv.org/html/1709.02497v1",
+        "https://arxiv.org/html/1403.4661v2",
+        "optimal dimensionality spherical harmonic transform iso latitude L squared samples ring placement greedy amplification global minimax"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper explicitly calls the objective the Lebesgue constant of weighted extrapolation but gives only one-step greedy minimization",
+        "Distinct earlier condition-number algorithms do not bound this row-sum objective sharply"
+      ],
+      "reasoning": "Equivalent weighted-Lagrange, Lebesgue-norm, extrapolation and look-ahead formulations were compared. The exact same objective appears in the 2026 source, but its greedy prescription has a weaker quantifier than a global minimax across all permutations.",
+      "searches": [
+        "optimal dimensionality spherical harmonic transform iso latitude L squared samples ring placement greedy amplification global minimax",
+        "weighted Lagrange extrapolation Lebesgue constants ring co latitudes greedy fails bandlimit twelve",
+        "\"L=12\" \"Lebesgue\" \"spherical\" ring placement greedy",
+        "arxiv:2611.16441 Section VI-C"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering exact indexed table found in literature queries",
+        "The motivating 2026 paper includes numerical plots but no exhaustive subset table or precise global optimum for L=12"
+      ],
+      "reasoning": "The finite constants and all L<=12 global subset-certificate classification were not located in indexed tables; negative search does not establish worldwide novelty.",
+      "searches": [
+        "weighted Lagrange extrapolation Lebesgue constants ring co latitudes greedy fails bandlimit twelve",
+        "Khalid 2026 2611.16441 OSHT non-greedy ring placement exact minimum amplification",
+        "\"4.491280813\" \"3.746944004\" spherical",
+        "\"L=12\" \"Lebesgue\" \"spherical\" ring placement greedy"
+      ]
+    },
+    "rationale": "The November 2026 primary paper introduces the precise weighted-cardinal amplification and a greedy one-step rule, identifying look-ahead as an improvement direction, not the full nested-ordering minimax. Older close papers optimize different condition numbers. Five research-record and published-source searches found no covering exact first-failure cutoff; a missed equivalent numerical/interpolation investigation remains possible.",
+    "residual_risks": [
+      "An unindexed optimal interpolation design table or independent calculation might already contain this exact finite cutoff and minimizer.",
+      "A later revision of the November 12 source could add global optimization, but the inspected v1 does not."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not give the globally minimizing order at band-limit twelve, prove greedy optimality for all smaller limits, or classify the first greedy failure; proposes look-ahead as next step",
+        "evidence": [
+          "Section VI-C (25) is a greedy one-step argmin; it does not search all nested placements",
+          "The statement after (25) recommends a look-ahead or elimination-style search rather than reporting global optimality",
+          "The exact weighted profile and interpolation formulas are credited to this paper and not asserted as new"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.16441v1",
+        "material_read": "Complete open HTML text; specifically Section II-D grid, Section III-B order-m profile, Section VI-A formula (23) and Section VI-C formula (25), Procedure 3 and conclusion",
+        "method": "Read open full paper and compare its optimization quantifiers with the finite minimax and cutoff theorem",
+        "title": "An O(L^3) Spherical Harmonic Transform on L^2 Samples",
+        "trigger": "The first-public 2026 source introduces the exact weighted cardinal norm and the greedy longitude-ring placement under examination"
+      },
+      {
+        "assessment": "Does not imply claimed minimax cutoff because it optimizes coefficient-system conditioning rather than the later weighted cardinal amplification constant",
+        "evidence": [
+          "The paper describes eliminating colatitudes to improve conditioning of order-wise linear systems",
+          "No comparison theorem translates condition-number-optimal placement into exact minimax weighted-cardinal placements"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1709.02497v1",
+        "material_read": "Open HTML full text; introduction, ring placement methodology, optimization and numerical comparisons",
+        "method": "Direct comparison of condition-number objective against weighted-Lagrange extrapolation operator norm",
+        "title": "Optimal-Dimensionality Sampling on the Sphere: Improvements and Variations",
+        "trigger": "Nearby ring placement algorithms and historical best-conditioned layouts"
+      },
+      {
+        "assessment": "Establishes original optimal-dimensionality grid and conditions, but no exact optimization of 2026 weighted-cardinal extrapolation norm",
+        "evidence": [
+          "Original ring placement minimizes condition numbers of Legendre collocation matrices",
+          "The norm associated with the later sampling-function extrapolation is a different object"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.4661v2",
+        "material_read": "Open full HTML, sampling scheme, placement procedure and stability results",
+        "method": "Compare optimization objectives and ring parametrization",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "Original equiangular ring geometry and greedy condition number design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccfc9816-bd27-462c-9fe9-98ce2a807a39",
+  "value": {
+    "rationale": "Identifies the first exact band-limit where the motivating practical greedy stability criterion is globally nonoptimal on the natural equiangular sampling grid. The exhaustive optimal replacement improves the sharp worst-case amplification by over 16%, with a rigorous cutoff for every smaller limit; the finite first-failure boundary is mathematically structural rather than an arbitrary numerical instance.",
+    "status": "PASS"
+  }
+}
