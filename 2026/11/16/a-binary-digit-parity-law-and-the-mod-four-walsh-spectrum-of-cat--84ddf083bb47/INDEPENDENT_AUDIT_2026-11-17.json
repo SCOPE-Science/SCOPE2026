@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:03:00.422323Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob f267f3925e0fcc051a6f5c38e806015f9515d98b",
+        "Frozen verify_dyck_fourier.py blob 898c30c1c2d87ac0978931c05efb143fcea8f093",
+        "Independent exact Dyck enumeration/fast Walsh transform all 2^(2n) frequency coefficients n=1..7 (Catalan_Dyck_Walsh_PASS)",
+        "Catalan valuation via Legendre and exact C_n formula"
+      ],
+      "rationale": "First-return U A D B with the marked up-step gives F=yC(y)^2/(1+xyC(y)+x^2 C(x)) in F_2[[x,y]]. In characteristic two Catalan C=1+z^2 C^2 and uniqueness imply C(z)=sum_a z^(2^(a+1)-2). Multiplication verifies (x+y)F=xy C(x)C(y)+C(y)+1. Diagonal and swapped off-diagonal monomials divided by x+y yield exactly I_n when n+1 has one or two binary bits, and none otherwise; binary expansion uniqueness avoids overlap. Expanding product (1-2u_t) modulo 4 yields W_n(b)=C_n-2 sum_{t in I_n}b_t. Legendre gives nu2(C_n)=s2(n+1)-1. For digit sums 1,2,3, W_n(0)=C_n establishes sharp gcd valuations and half the characters with W=2 (mod4) for sum 2. Independence from finite evidence: a separate path enumeration and Walsh transform checked every character for n=1..7; the universal conclusion follows from the algebra, not tests.",
+      "residual_risks": [
+        "The bound for even Catalan numbers does not prove nonvanishing or invertibility; exact nullities and higher dyadic layers not asserted.",
+        "Finite tests only through n=7 independently; all-length algebra checked symbolically by the displayed formal identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Postnikov–Sagan weights ascents by HEIGHT and proves 2-adic divisibility; position-index weights and all Walsh characters are different specializations.",
+          "Classical Catalan valuation fixes only the trivial Walsh coefficient W_n(0)."
+        ],
+        "reasoning": "A general height-dependent ascent valuation does not imply each individually fixed position parity: height and time are not synonymous, and valuation of an aggregate weighted count is weaker than all 2n marginals.",
+        "searches": [
+          "Postnikov Sagan What power of two divides a weighted Catalan number arxiv:math/0601339",
+          "Catalan matroid Dyck path position up step parity mod 2 Walsh transform modulo 4 inclusion counts"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/S0097-3165(03)00121-3",
+        "https://math.mit.edu/~apost/papers/weightedCatalan.pdf",
+        "Resultary semantic search Catalan matroid Dyck path position up step parity mod 2 Walsh transform modulo 4 inclusion counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ardila defines the same object and proves Tutte identities but not the claimed all-character mod-four congruence.",
+          "Postnikov–Sagan supplies familiar Catalan 2-adic valuation input; it does not state this position inclusion law."
+        ],
+        "reasoning": "Combining the older foundations yields definitions and C_n valuation, not the precise interval I_n without the new marked-step formal-series calculation. Thus no proved prior claim directly dominates the final theorem.",
+        "searches": [
+          "https://doi.org/10.1016/S0097-3165(03)00121-3",
+          "https://math.mit.edu/~apost/papers/weightedCatalan.pdf",
+          "Catalan matroid Dyck path position up step parity mod 2 Walsh transform modulo 4 inclusion counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The input is exactly the Catalan matroid up-step basis indicator, and the mod4 Walsh law is equivalent to all parity marginals N_{n,t} via singleton characters.",
+          "Ardila Theorem 2.1 identifies these up-step subsets as bases, but the inspected sections study matroid axioms/Tutte data."
+        ],
+        "reasoning": "A parity count of paths using a prescribed position is the equivalent formulation. The older marked-path statistic studies do not, in material inspected, give the binary digit interval classification; exact wording is unnecessary but implications were compared.",
+        "searches": [
+          "Catalan matroid Dyck path position up step parity mod 2 Walsh transform modulo 4 inclusion counts",
+          "Dyck path up-step position odd counts generating function marked Dyck parity",
+          "Ardila Catalan matroid up-step bases 2003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Catalan number table provides C_n and valuations, not a table of N_{n,t} for every n or all 2^(2n) Walsh residues.",
+          "Independent finite enumeration agrees n<=7 and is not a cited prior tabulation."
+        ],
+        "reasoning": "No exact numerical table or exhaustive catalogue of position Fourier parities was identified. Tables of C_n and Catalan matroid bases alone do not imply full positional parity.",
+        "searches": [
+          "Catalan matroid Dyck path position up step parity mod 2 Walsh transform modulo 4 inclusion counts",
+          "OEIS Catalan numbers A000108 positional Dyck up step parity"
+        ]
+      },
+      "rationale": "Position-character Walsh residues are a more specialized invariant than the matroid bases, Catalan valuations, or weighted counts by height found in inspected sources. Actual query searches and primary text comparisons did not show this full all-position all-n mod-four law. Best-of-knowledge PASS with a real chance of uncatalogued equivalent marked-path congruences.",
+      "residual_risks": [
+        "Historical marked-Dyck congruences may be indexed by a different generating function or terminology.",
+        "Only relevant parts of longer primary sources were inspected, not an exhaustive bibliography."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_THE_POSITIONAL_WALSH_CLAIM",
+          "evidence": [
+            "Definition of bases = up-step sets and matroid theorem; Theorem 3.6 concerns Tutte polynomial."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0097-3165(03)00121-3",
+          "material_read": "Introduction, Theorem 2.1, matroid and Tutte polynomial discussion, first-return decomposition material",
+          "method": "Accessible full-text article sections",
+          "title": "The Catalan matroid",
+          "trigger": "Identical up-step basis objects"
+        },
+        {
+          "assessment": "CLASSICAL_VALUATION_INPUT_DIFFERENT_WEIGHTING",
+          "evidence": [
+            "Height-dependent ascents versus position-indexed up-step marginals; exact binary digit valuation is a known input."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~apost/papers/weightedCatalan.pdf",
+          "material_read": "Theorem 1.1 and Theorem 2.1 and relevant height-dependent weighted Catalan definitions",
+          "method": "Lawful full-text PDF, main theorem inspection",
+          "title": "What power of two divides a weighted Catalan number?",
+          "trigger": "Catalan parity/weighted ascent potential domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual formal generating-function proof",
+        "Ardila and Postnikov–Sagan foundational comparison",
+        "Independent all-character n<=7 corroboration"
+      ],
+      "rationale": "Uniform binary-position parity of Catalan matroid bases is a structural combinatorial law, not a renamed Catalan count. It gives every Walsh coefficient modulo four at once for arbitrary semilength and immediate sharp nontrivial dyadic obstructions and rank information. This is mathematically useful for finite Boolean convolution even though it does not solve higher layers or exact rank.",
+      "residual_risks": [
+        "Value is restricted to mod-four information; exact ranks at higher-digit sums remain unknown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion of exact zero set, exact convolution rank outside the stated cases, odd gcd factors or dyadic layers above four."
+  ],
+  "schema_version": 1
+}

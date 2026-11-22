@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement is uniform in semilength and character frequency. A first-return decomposition of Dyck paths with a marked up-step gives the bivariate generating function; the Catalan relation over characteristic two yields an exact algebraic identity with explicitly separable binary-power monomials. Their coefficient extraction proves every positional parity. Expanding the Walsh character product modulo four yields the full claimed residue formula. The only external arithmetic input is the classical Catalan valuation, independently derivable from Legendre's formula. The edge case \(n=1\) is included. The executable checks test 1,398,100 Fourier coefficients and all marginals through semilength one hundred, but are not substituted for the proof.
+PASS
 
-## Originality
+First-return U A D B with the marked up-step gives F=yC(y)^2/(1+xyC(y)+x^2 C(x)) in F_2[[x,y]]. In characteristic two Catalan C=1+z^2 C^2 and uniqueness imply C(z)=sum_a z^(2^(a+1)-2). Multiplication verifies (x+y)F=xy C(x)C(y)+C(y)+1. Diagonal and swapped off-diagonal monomials divided by x+y yield exactly I_n when n+1 has one or two binary bits, and none otherwise; binary expansion uniqueness avoids overlap. Expanding product (1-2u_t) modulo 4 yields W_n(b)=C_n-2 sum_{t in I_n}b_t. Legendre gives nu2(C_n)=s2(n+1)-1. For digit sums 1,2,3, W_n(0)=C_n establishes sharp gcd valuations and half the characters with W=2 (mod4) for sum 2. Independence from finite evidence: a separate path enumeration and Walsh transform checked every character for n=1..7; the universal conclusion follows from the algebra, not tests.
 
-**PASS, subject to bounded historical comparison.** Ardila's original Catalan-matroid paper supplies the base family and matroid theory, not the all-position binary-power parity formula or full Walsh residues. Postnikov and Sagan prove valuation results for weights depending on ascent **height**, not on a freely chosen set of ascent **positions**. Results concerning Dyck shattering, noncrossing-matching first-coordinate sampling and Johnson-slice Walsh minors concern different invariants and do not imply these parity strata. Direct searches for aliases and equivalent character-weighted statements returned no decisive covering result; absence from these searches is not proof of historical uniqueness. A previously derived marked-position ballot congruence is a residual priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result resolves a natural all-length arithmetic question about the complete Fourier transform of the bases of a canonical matroid at the first nontrivial modulus. It isolates a clean digit-sum threshold and an exact half-spectrum of coefficients that necessarily survive convolution when two binary digits are present. These statements are not determined by Catalan counts, ordinary parity of the number of bases, or finite sample computations alone. Higher-order spectral classification remains open.
+Position-character Walsh residues are a more specialized invariant than the matroid bases, Catalan valuations, or weighted counts by height found in inspected sources. Actual query searches and primary text comparisons did not show this full all-position all-n mod-four law. Best-of-knowledge PASS with a real chance of uncatalogued equivalent marked-path congruences.
 
-## Closest literature and limits
+## value
 
-Ardila, *The Catalan matroid* (2002), defines and studies the same basis objects. Postnikov–Sagan, *What power of two divides a weighted Catalan number?* (2006), supplies known arithmetic context and the ordinary valuation; its height-weight condition does not directly specialize to arbitrary position-dependent characters. The mathematical statement is not a claim of complete Walsh rank or exact least nonzero magnitude.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform binary-position parity of Catalan matroid bases is a structural combinatorial law, not a renamed Catalan count. It gives every Walsh coefficient modulo four at once for arbitrary semilength and immediate sharp nontrivial dyadic obstructions and rank information. This is mathematically useful for finite Boolean convolution even though it does not solve higher layers or exact rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
