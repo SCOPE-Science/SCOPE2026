@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "An interrupted attempt at state i has success probability p_i=E exp(-rS_i) and expected duration (1-p_i)/r. The exact two-equation renewal system has determinant ab+c(a+b-2ab)>0; its average inverse yields the announced rational mean. Symbolic differentiation gives -(a-b)^2/[2r(ab+c(a+b-2ab))^2], establishing all endpoints and equality cases. The Brownian ring discounted hitting transform uniquely solves D u''=r u with boundary u(0)=u(L)=1. Reproduced symbolic identities, 120 exact rational samples and 20 independently constructed killed cycle-generator checks using the bundled verify.py. The proof, not numerical evidence, establishes all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Julián-Salgado et al. full-text §IV-VI treats optimizing reset rate and marginal site weights, not switching between the last reset states.",
+        "A published indexed result, Oscillatory memory hidden by the stationary law of a cyclically reset Brownian particle (2026), concerns stationarity and autocovariance without absorbing first-passage completion.",
+        "A published indexed result, Distance-driven reversal of search efficiency under a persistent two-state reset clock (2026), changes the instantaneous reset rate, not the reset location."
+      ],
+      "reasoning": "The most plausible broader reset-process treatments either remove the persistent phase variable or study an observable different from the mean target-arrival time. Their formulas do not dominate the phase-dependent strict monotonicity statement; unindexed general Markov-renewal optimizers remain a plausible residual risk.",
+      "searches": [
+        "Mirror transitions in diffusion with stochastic resetting confined on a ring arxiv 2605.08414 correlated alternation of reset sites",
+        "Markov-modulated resetting locations alternating two spatial locations first passage mean first passage",
+        "correlated resetting locations anti-persistent alternating first passage MFPT diffusion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.08414v1 (full text)",
+      "arXiv:2401.01125 (full text)",
+      "doi:10.1088/1751-8121/ac9765 (journal text)",
+      "scientific indexed summaries of correlated cyclic reset-site memory and two-state switching reset-rate papers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Explicit implication: our M(1/2)=(2-a-b)/(r(a+b)), in agreement with the 2026 paper Eq. (27) for two equiprobable iid sites.",
+        "Non-implication witness: at a=0.7682458009617922, b=0.6492211213477849 and r=4 the marginal is identical at all c but M(1/2)≈0.1027419174 and M(1)≈0.1013820555."
+      ],
+      "reasoning": "The IID prior case is a covered special case and is explicitly disclaimed as novel. The new statement is the exact strict ordering of correlated protocols and geometric equality boundary, which needs the additional two-state phase renewal system absent from the iid hypotheses. Finite examples illustrate but do not prove priority.",
+      "searches": [
+        "alternating deterministic reset positions versus iid randomized reset sites Markov-correlated resetting mean first passage universal improvement binary sites",
+        "Mirror transitions in diffusion with stochastic resetting confined on a ring arxiv 2605.08414 correlated alternation of reset sites",
+        "alternating reset positions stochastic resetting Markov chain first passage two sites correlated reset locations",
+        "Markov-modulated resetting locations alternating two spatial locations first passage mean first passage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Julián-Salgado et al., arXiv:2605.08414v1, full text §II Eq. (1) defines independent successive position draws; Eq. (27) is recovered by setting c=1/2.",
+        "Méndez et al., arXiv:2401.01125, full text §II Eqs. (1),(14) use a reset-location PDF without a persistent site state."
+      ],
+      "reasoning": "Temporal anticorrelation at fixed one-time marginals changes the distribution of failed attempts. IID mixture formulas depend only on (a+b)/2 and cannot imply a nonconstant formula for c while holding that marginal fixed. Searches for alternating sites and Markov phase equivalents did not yield an exact covering theorem.",
+      "searches": [
+        "alternating deterministic reset positions versus iid randomized reset sites Markov-correlated resetting mean first passage universal improvement binary sites",
+        "anti-persistent two-state Markov resetting locations reduces mean first passage strictly with switching probability",
+        "alternating reset positions stochastic resetting Markov chain first passage two sites correlated reset locations",
+        "stochastic resetting multiple site Markov correlated phase serial reset location first-passage"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant scientific-index results included fixed-reset and reset-rate-switching studies, but no table or exact parameter entry encoding M(c) with two correlated reset site choices.",
+        "The 2026 iid ring paper presents phase diagrams of reset-rate minimizers, which are not tables of serial reset-site Markov transition probabilities."
+      ],
+      "reasoning": "Our claim is continuous in arbitrary p_A,p_B and c with a universal derivative, not a missing numerical value in an existing table; no exact database entry was located.",
+      "searches": [
+        "two reset locations Markov correlated site selection anticorrelation alternating resets same marginals first passage universal mean improvement",
+        "two reset locations Markov correlated site selection anticorrelation alternating resets same marginals first passage universal mean improvement"
+      ]
+    },
+    "rationale": "The 2026 primary full text assumes iid successive reset sites in Sec II and optimizes their mixing weights in Secs IV-VI; its formula is exactly c=1/2 of the claim. The 2024 full-text distributed-resetting analysis is also an iid-location comparison. The 2022 discrete-space model uses a fixed reset node. Indexed cycling reset-location work studies stationary autocovariance, and Markov-modulated-rate work varies rate, not serial site selection. No inspected source implies the global strict derivative for the phase-persistent two-state search. An unindexed two-state Markov-renewal theorem remains a priority risk.",
+    "residual_risks": [
+      "A broader unindexed result for Markov-renewal restart policies may already imply the exact two-site c-monotonicity.",
+      "The two indexed scientific summaries were not assessed against full texts; neither summary reports a matching first-passage theorem.",
+      "Only fixed independent Poisson clocks and equal stationary initial site weights are covered; no conclusion for alternate phase initialization or other risk metrics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering correlated reset-site transitions: Eq. (1) states z_1,z_2,... are iid; its result is the c=1/2 specialization. Ring hitting transform is credited.",
+        "evidence": [
+          "https://www.researchgate.net/publication/404751813_Mirror_transitions_in_diffusion_with_stochastic_resetting_confined_on_a_ring",
+          "arXiv:2605.08414v1; Sec II; Eqs. (27)-(30); Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.08414",
+        "material_read": "Full lawful text: introduction, Section II Eqs. (1)-(5), Sections IV-VI Eqs. (26)-(30), Section VII and Appendix A",
+        "method": "Inspected accessible full HTML transcription of the paper and checked its explicit iid wording and governing equations",
+        "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+        "trigger": "Same ring geometry, two resetting locations and averaged first-passage time, direct starting paper"
+      },
+      {
+        "assessment": "Distributed reset locations drawn from one fixed marginal PDF; no state carried through successive reset events. Does not state global Markov-phase alternation ordering.",
+        "evidence": [
+          "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/04/128.pdf",
+          "DOI:10.1103/PhysRevE.109.044134"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "Author-hosted lawful full 12-page PDF: Introduction, Section II Eqs. (1),(13)-(15), Sections VI-VIII and Appendix; page one visually inspected",
+        "method": "Read parsed primary full-text PDF and first-page screenshot, compared renewal setup and conclusions",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Closest earlier paper on reset locations and first-passage laws"
+      },
+      {
+        "assessment": "One fixed reset node; does not encode persistent Markov switching among two reset nodes.",
+        "evidence": [
+          "https://doi.org/10.1088/1751-8121/ac9765"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/ac9765",
+        "material_read": "Accessible article text Section 2 model definition, Section 3 first-passage formulas (19)-(20), concluding model discussion",
+        "method": "Read journal-hosted HTML scientific text of reset rule and first-passage formula",
+        "title": "Discrete space-time resetting model: application to first-passage and transmission statistics",
+        "trigger": "General discrete renewal treatment that could subsume two-state models"
+      },
+      {
+        "assessment": "Known spectral autocovariance of a three-state reset cycle; does not itself imply two-state mean first-passage monotonicity. Full text not inspected.",
+        "evidence": [
+          "Indexed summary explicitly concerns stationary law and temporal covariance, not target absorption."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-oscillatory-memory-hidden-by-the-stationary-law-of-a-cyclically--0d062c042f78",
+        "material_read": "Indexed public title and scientific summary only; no full-paper noncoverage inference",
+        "method": "Compared accessible indexed statement to proposed first-passage claim",
+        "title": "Oscillatory memory hidden by the stationary law of a cyclically reset Brownian particle",
+        "trigger": "A phase-memory resetting result with identical stationary one-point laws"
+      },
+      {
+        "assessment": "Two-state Markov variation of reset RATE at one point, unlike varying reset-site transition c. Full text not inspected.",
+        "evidence": [
+          "Indexed summary identifies switching of two reset rate levels and retained phase."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-distance-driven-reversal-of-search-efficiency-under-a-persistent--e307799ab9d0",
+        "material_read": "Indexed public title and scientific summary only; no full-paper noncoverage inference",
+        "method": "Compared state variable and measurement with proposed theorem",
+        "title": "Distance-driven reversal of search efficiency under a persistent two-state reset clock",
+        "trigger": "Persistent two-state Markov modulation of resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7dc3fc35-ecdc-4185-9d4a-fea6e4397d76",
+  "value": {
+    "rationale": "The theorem supplies a complete and operationally motivated two-site correlation-control law, not a narrow arbitrary calculation: all policies share both reset-alarm intensity and unconditioned site marginals, yet anticorrelation alone strictly improves mean capture unless the sites have equal single-attempt success. The exact Brownian ring strictness boundary and closed-form iid-to-alternating gain give a measurable consequence and guide which site pairs benefit. No claim is made for full-distribution stochastic dominance or general policy optimality.",
+    "status": "PASS"
+  }
+}
