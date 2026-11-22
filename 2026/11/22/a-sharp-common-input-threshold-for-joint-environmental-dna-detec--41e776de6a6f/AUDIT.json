@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Derivative R prime is strictly negative, so G(s)=log(1-exp(-exp(s))) is increasing strictly concave. Both log-input functions are strictly concave; therefore log F is strictly concave. Endpoint limits guarantee unique global optimum and positive derivative through 1/b. Derivative sign at 2/b yields exactly C versus Ae^-2. The asymptotic proof uses the exact stationarity relation and a logarithmic inequality; all parameters and equality cases covered. Standalone checker passed 24,077 supplementary numerical assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1002/edn3.578",
+        "https://doi.org/10.1002/edn3.420",
+        "Indexed Hill-law shared-dose result published indexed theorem on independent Hill-inhibition dose allocation"
+      ],
+      "reasoning": "The 2024 study of reagent choices does not optimize over volume, and the 2023 duplex study analyzes detection frequency rather than an inhibitory exponent. The indexed Hill-law result is a different fixed-resource allocation objective and does not dominate the common-dose theorem.",
+      "searches": [
+        "environmental DNA amplification target inhibitor resistant pair dilution optimal common input two assays abundance crossover",
+        "qPCR two target multiplex amplification inhibition detection common template volume optimal compromise",
+        "PCR inhibition diluted environmental DNA increasing DNA input qPCR detection \"optimum\" dilution template"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/edn3.578",
+      "https://doi.org/10.1002/edn3.37",
+      "https://doi.org/10.1002/edn3.420",
+      "published indexed theorem on independent Hill-inhibition dose allocation",
+      "published indexed theorem on two-visit ecological occupancy Fisher design",
+      "published indexed theorem on Poisson detection dependence thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary full texts https://doi.org/10.1002/edn3.578 ; https://doi.org/10.1002/edn3.37 ; https://doi.org/10.1002/edn3.420",
+        "published mathematical index published indexed theorem on independent Hill-inhibition dose allocation"
+      ],
+      "reasoning": "The nearby Hill-law result allocates one dose among mechanisms, whereas the claimed objective is the product of two independent nonzero-Poisson probabilities under a single common input, with one amplification mean proportional to input times an exponential inhibitor survival factor. Neither mathematical assumption implies the other threshold. Ecological replicated-detection and Fisher-design results lack this joint input and attenuated molecular count law.",
+      "searches": [
+        "joint detection probability (1-exp(-a x exp(-b x)))(1-exp(-c x)) log concavity unique optimal volume PCR inhibition",
+        "environmental DNA amplification target inhibitor resistant pair dilution optimal common input two assays abundance crossover",
+        "qPCR two target multiplex amplification inhibition detection common template volume optimal compromise"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published mathematical index nearest IDs published indexed theorem on independent Hill-inhibition dose allocation, published indexed theorem on two-visit ecological occupancy Fisher design, published indexed theorem on Poisson detection dependence thresholds",
+        "Uchii et al. (2019), DOI 10.1002/edn3.37"
+      ],
+      "reasoning": "Reparameterizations by y=bx,u=A/b,v=C/b retain the distinctive exponential-decaying target mean and second linear mean. Retrieved Hill-law dose allocations and occupancy detection designs are not equivalent under that reparameterization.",
+      "searches": [
+        "two target qPCR environmental DNA template input volume inhibiting exponential mean stable other assay optimal joint detection volume exact threshold",
+        "joint detection probability (1-exp(-a x exp(-b x)))(1-exp(-c x)) log concavity unique optimal volume PCR inhibition",
+        "two target eDNA qPCR inhibitor tolerant assay template volume detection tradeoff co-detection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical research records returned nearby ecology detection and PCR inhibition results but no exact match for the complete boundary",
+        "https://doi.org/10.1002/edn3.578"
+      ],
+      "reasoning": "No indexed natural database or table from the inspected material records the exact maximizer or the sharp Ae^-2 ratio; the search result is an evidence limit, not proof of universal absence.",
+      "searches": [
+        "two target qPCR environmental DNA template input volume inhibiting exponential mean stable other assay optimal joint detection volume exact threshold",
+        "environmental DNA amplification target inhibitor resistant pair dilution optimal common input two assays abundance crossover",
+        "environmental DNA amplification target inhibitor resistant pair dilution optimal common input two assays abundance crossover"
+      ]
+    },
+    "rationale": "Compared exact two-target common-input product claim and its implied sharp C=Ae^-2 boundary against three directly read full-text primary studies, actual indexed queries, and recoverable prior claim statements. No inspected theorem or full text directly or through stronger coverage entails this specific result. Novelty remains historical evidence-limited.",
+    "residual_risks": [
+      "The exact exponential inhibition functional form is a declared idealization and is not experimentally calibrated by the three studies.",
+      "Earlier optimal-dilution or generic log-concave optimization literature may contain an equivalent theorem not captured by semantic searches.",
+      "The assumed independent target-success counts and arbitrarily large shared volume can be unrealistic in individual assay platforms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; it experimentally compares assay chemistries, field matrix effects and detection limits, but does not optimize the specified product of two Poisson success functions over one input volume",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.578",
+          "2024 first published June 18; assays studied with controlled dilution series and eLowQuant Poisson-based detection analysis"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.578",
+        "material_read": "Full publicly accessible HTML: abstract, introduction, materials/dilutions, binomial-Poisson analytical method, experimental result sections, discussion and limitations",
+        "method": "Read full-text article sections and compared its probabilistic assay assumptions, protocols, and measured outcomes with the joint common-input theorem",
+        "title": "Systematic evaluation of the influence of Taq enzyme choice and amplification conditions on targeted environmental DNA assay performance and detection in field samples",
+        "trigger": "2024 date-eligible qPCR sensitivity and inhibition comparison; motivating primary source"
+      },
+      {
+        "assessment": "NOT_COVERING; inhibition is measured via cycle shifts and detection rates rather than the claimed common-input dual-target global optimization",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.37",
+          "2019 study tested humic, fulvic and tannic acids across several reagents and field matrices"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.37",
+        "material_read": "Full publicly accessible HTML: abstract, introduction, inhibitor concentration experiments, results with amplification failure and reagent resistance",
+        "method": "Inspected methods sections 2.4–2.7 and results/conclusions concerning PCR inhibition and different master mixes",
+        "title": "Comparison of inhibition resistance among PCR reagents for detection and quantification of environmental DNA",
+        "trigger": "Inhibition-resistant versus susceptible qPCR reagents and co-extracted inhibitors"
+      },
+      {
+        "assessment": "NOT_COVERING; empirical multi-marker sensitivity is analyzed but no same-input exponential inhibition tradeoff, global unique optimizer, or twofold threshold is given",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.420",
+          "2023 multiple-marker study documents duplex detection advantages and constraints from qPCR competition"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.420",
+        "material_read": "Full publicly accessible HTML: introduction, simplex/duplex experimental outcomes, precision and rarefaction discussion including assay interference",
+        "method": "Compared quantified duplex sensitivity and qPCR interference discussion to exact model assumptions and statement",
+        "title": "Combining multiple markers significantly increases the sensitivity and precision of eDNA-based single-species analyses",
+        "trigger": "Two-marker simultaneous detection and assay competition as plausible prior stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41e776de-6a6f-4362-a2fe-d0dbd689511e",
+  "value": {
+    "rationale": "For the ecologically motivated objective of confirming two targets with the same sample input, the theorem proves the inhibited-target-alone optimum is always suboptimal and gives a sharp twofold-input boundary C=Ae^-2. The threshold compares abundance/sensitivity parameters rather than an unmotivated slice, and provides an interpretable benchmark for inhibition-sensitive multi-target assay designs. Field calibration is explicitly excluded.",
+    "status": "PASS"
+  }
+}
