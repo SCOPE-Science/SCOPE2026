@@ -1,0 +1,21 @@
+# Scientific review
+
+## Correctness — PASS
+
+The theorem uses the exact strong-resolving/vertex-cover characterization of Oellermann–Peters-Fransen. Its nonstandard new step identifies all mutually maximally distant pairs in a thick generalized quadrangle: precisely noncollinear point pairs and nonconcurrent line pairs. For nonincident point–line pairs, the unique quadrangle connector creates a neighboring line at distance four, ruling out a missed cross-shore MMD edge. The axioms force pairwise-collinear omitted points into a single full block and pairwise-concurrent omitted lines into a single pencil. Unique containers for two-element omitted subsets justify every coefficient of the two factors; maximal admissible omissions yield only the claimed full block–pencil pairs. The exact exchange costs between distinct blocks/pencils, together with the fact that both collinearity graphs have diameter two, establish the threshold and Cartesian-product diameter. All quantifiers cover only existing finite thick quadrangles with \(s,t\ge2\).
+
+The Python checks construct and test \(W(3,2)\) and a generalized quadrangle of order \((2,4)\) independently of the all-order deduction, and the C++ check uses a separate duad–syntheme model of \(W(3,2)\). Source code and actual passing replay logs are embedded. The computations supplement but do not replace the uniform proof.
+
+## Originality — PASS (priority uncertainty noted)
+
+The closest pre-existing theorem is Oellermann–Peters-Fransen (2006 online, 2007 print), which supplies the universal vertex-cover reduction and therefore part of the proof technique, but gives no generalized-quadrangle MMD classification, full polynomial, pure-facet classification or minimum-basis exchange geometry. The fully inspected 2017 arXiv paper by Bartoli et al. addresses ordinary metric dimension in affine and generalized quadrangle incidence graphs, not the strong-resolving property. The examined Kuziak–Yero–Rodríguez-Velázquez paper reuses the vertex-cover theorem for rooted graph products, not finite quadrangles. Standard GQ axioms provide geometric inputs but do not directly state the complete strong-resolving-set count or exchange graph. Searches of mathematical research records for strong resolving quadrangles, collinearity complements, aliases and exact exchange invariants did not locate the same statement. Earlier unindexed finite-geometry calculations remain a genuine priority risk; a negative search alone is not evidence of uniqueness.
+
+## Value — PASS
+
+Strong metric landmarks are a geodesic localization invariant distinct from ordinary metric dimension. For a whole design-theoretically natural class, including nonsymmetric, non-Desarguesian and non-self-dual instances when they exist, the result replaces a generic vertex-cover formulation by a complete explicit classification and generating function. The purity theorem says all inclusion-minimal valid landmark configurations have the same optimal size, a property not automatic for strong resolving sets. The sharp simultaneous-exchange threshold and the product metric describe exactly how all optimal landmark placements can be reconfigured without extra temporary landmarks. The asymmetric order-\((2,4)\) example exhibits a nontrivial two-stage transition before connectivity; its complete benchmark gives a natural test case for reconfiguration algorithms. This is a motivated exact all-order structural classification, not an arbitrary restriction of parameters.
+
+## Sources and remaining limits
+
+Primary comparison: Oellermann–Peters-Fransen, *Discrete Applied Mathematics* (online 2006-08-21), DOI 10.1016/j.dam.2006.06.009; Bartoli–Héger–Kiss–Takáts, arXiv:1706.06583 (full 22-page manuscript, especially Section 4); Kuziak–Yero–Rodríguez-Velázquez, DOI 10.1080/00207160.2015.1061656; and standard generalized-quadrangle incidence properties in Godsil–Royle (2001). Unindexed earlier work, including isolated strong-metric calculations on small symmetric graphs, could reduce priority. Thin generalized quadrangles and other reconfiguration move rules are excluded. No external scholarly audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
