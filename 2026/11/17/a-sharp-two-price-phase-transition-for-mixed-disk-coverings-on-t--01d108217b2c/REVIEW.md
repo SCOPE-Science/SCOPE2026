@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the actual index-three A sublattice and proves that the six B vertices of an A Voronoi hexagon are the only relevant B sites. In the nonoverlapping range, a radial maximum must lie on a hexagon side or on a clipped B-circle, each giving the same sharp upper radius. In the overlapping range, radial rays reduce the maximum to the inner intersection of two B circles, and the derivative has a fixed sign for every allowed angle. The two resulting cost branches have explicitly and uniquely determined interior minimizers. Comparing their exact values yields one sharp crossing at \(w=\sqrt3/2\) with two nonidentical global minimizers; no other endpoint can win. The standalone checker was executed from its actual file and passed both lattice-distance and direct price-minimization tests. Finite diagnostics are additional evidence, not proof of the continuum statement.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The index-three A sites have Voronoi regular hexagons of circumradius one; six B sites lie at the vertices and all other B sites are farther from every central-hexagon point. Thus full plane coverage is equivalent to radial A disks of radius r covering the B-uncovered part of one hexagon. For s≤1/2 the maximal B-uncovered radial norm is sqrt(1−s+s²); for 1/2≤s≤1, a polar ray at angle π/6 gives (sqrt3−sqrt(4s²−1))/2; for s≥1 B disks alone cover. The exact all-point geometry, including equality at s=1/2 and s=1, supports F(s), not the finite Monte Carlo. Two strictly convex/unimodal branch costs have unique interior minima at s1=1/(2c), s2=(1/2)sqrt(1+3/c²) with E1,E2; E2−E1=(c−2−2/c)/4 yields sole c*=1+sqrt3 and exactly two distinct minimizers, derivative jump 1/2+1/c*². Independently checked algebra, stationary derivatives, and bounded grid only as corroboration. Applies to fixed index-three coloring and w>0, not arbitrary sensor positions.
 
-Abbas and Koutsoukos' 2014 first-online, 2015-volume study of two-radius deterministic disk coverage is the closest source and gives the **unweighted** optimum of the same deployment. The paper's benchmark \((r,s)=(\sqrt{31}/6,1/6)\) is explicitly credited and is not the proposed novelty. What is assessed here is the *complete* second overlapping-disk feasibility branch, the entire species-price phase diagram for \(w>0\), and the two-minimizer coexistence at the exact critical price. The geometric and optimization claims were compared, not merely the names of papers. Broad sensor-covering surveys and published fixed-lattice or polygon coverings supply neither the weighted coexistence nor a stronger result that immediately implies it. Risk remains that an unindexed heterogeneous-cost treatment contains equivalent formulas, and the primary full-text source's archival PDF became inaccessible on a later retrieval request. An earlier successfully extracted scientific text was available for comparison; no assertion of exhaustive priority is made.
+## originality
 
-## Value — PASS
+PASS
 
-Two-class sensor deployments naturally have different unit expenses. Under a fixed node layout, changing a species price can induce a discontinuous reconfiguration rather than merely a smooth interpolation of sensing ranges. The two distinct cooperative mechanisms, an exact critical price, a jump in the optimal species radius, and a quantified corner in the best-value envelope are geometric design conclusions, not a routine change of symbols or a decimal improvement. Both phases correspond to nondegenerate positive disk radii for every finite positive price.
+Bounded PASS for the weighted two-price branch-resolved exact covering and sharp first-order transition. Abbas–Koutsoukos 2014/2015 proves the same fixed triangular deployment and unit-price benchmark; those ingredients are explicitly not counted as new.
 
-## Scope and limitations
+## value
 
-No unrestricted plane-covering optimum is asserted. All positions and the 1:2 class population are fixed; costs are quadratic and the relative price must be positive. No independent mathematical or historical audit has been performed. Prior equal-price results are distinguished from the new price-dependent transition.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The deployment and energy objective are natural in lattice covering and heterogeneous sensing. Exact feasibility for the entire two-radius plane plus a discontinuous optimizer and sharp price coexistence are a complete parameter classification and useful network design phase boundary, beyond the known equal-price numerical benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

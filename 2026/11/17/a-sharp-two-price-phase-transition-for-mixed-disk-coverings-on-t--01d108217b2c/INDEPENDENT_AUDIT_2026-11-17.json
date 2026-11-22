@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:09:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, checker.py, VERIFICATION.md",
+        "direct symbolic differentiation and independent bounded price minimization"
+      ],
+      "rationale": "The index-three A sites have Voronoi regular hexagons of circumradius one; six B sites lie at the vertices and all other B sites are farther from every central-hexagon point. Thus full plane coverage is equivalent to radial A disks of radius r covering the B-uncovered part of one hexagon. For s≤1/2 the maximal B-uncovered radial norm is sqrt(1−s+s²); for 1/2≤s≤1, a polar ray at angle π/6 gives (sqrt3−sqrt(4s²−1))/2; for s≥1 B disks alone cover. The exact all-point geometry, including equality at s=1/2 and s=1, supports F(s), not the finite Monte Carlo. Two strictly convex/unimodal branch costs have unique interior minima at s1=1/(2c), s2=(1/2)sqrt(1+3/c²) with E1,E2; E2−E1=(c−2−2/c)/4 yields sole c*=1+sqrt3 and exactly two distinct minimizers, derivative jump 1/2+1/c*². Independently checked algebra, stationary derivatives, and bounded grid only as corroboration. Applies to fixed index-three coloring and w>0, not arbitrary sensor positions.",
+      "residual_risks": [
+        "Geometric reduction must be retained; a finite lattice patch cannot certify global coverage independently of nearest-site geometry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abbas–Koutsoukos (2015) section III, configuration Y, supplies a covering relation for radius inequality and equal-price sensing cost, not the whole shape of F(s) over 0≤s≤1 or weighted w.",
+          "Classical Kershner homogeneous covering optimum has no distinct site prices."
+        ],
+        "reasoning": "Prior 2015 geometry includes the branch s≤1/2. The new result explicitly completes s≥1/2 overlaps and finds two globally competing optima; this is not forced by merely solving the w=1 cost.",
+        "searches": [
+          "two radius triangular lattice heterogeneous sensor coverage weighted cost transition two prices",
+          "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/06901219.pdf",
+          "two radius triangular disk lattice unequal price exact global optimum"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/06901219.pdf",
+        "doi:10.1109/LWC.2014.2358631",
+        "Resultary mixed radii and price transition related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Here E1=1−1/(4c), E2=(c+2−3/c)/4, c=1+2w, so E2−E1=(c−2−2/c)/4 vanishes only at c=1+sqrt3.",
+          "Prior paper uses c=3 (w=1) where E1=11/12 uniquely; the second optimizer is never selected at that price."
+        ],
+        "reasoning": "Price variation exposes a non-convex envelope with precisely two distinct minimizers at w*=sqrt3/2 and a derivative jump; the prior single-price first branch does not imply this transition or its exact jump.",
+        "searches": [
+          "two radius triangular lattice heterogeneous sensor coverage weighted cost transition two prices",
+          "Abbas Koutsoukos section III Y configuration eq 4",
+          "Resultary alternating row triangular coverings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abbas–Koutsoukos configuration Y: one large- and two small-radius disks per triangular primitive cell, standard sensing cost δ1²+2δ2², optimum equal price gives r=sqrt31/6, s=1/6.",
+          "Resultary checkerboard transition is on a square rather than triangular lattice."
+        ],
+        "reasoning": "The equal-cost geometric branch is prior. New weighted w≠1 objective and both overlapping/nonoverlapping B-disk coverage branches produce a distinct full two-price phase diagram.",
+        "searches": [
+          "two radius triangular lattice heterogeneous sensor coverage weighted cost transition two prices",
+          "Abbas Koutsoukos Efficient Complete Coverage Through Heterogeneous Sensing Nodes 2015 configuration Y",
+          "Resultary 2026/11/17 checkerboard weighted price disk coverage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Abbas–Koutsoukos table/equations give same w=1 benchmark 11/12 and sqrt31/6,1/6 (up to normalization).",
+          "Other indexed exact tables differ in lattice coloring/site ratios."
+        ],
+        "reasoning": "The known equal-price optimizer is covered and excluded. No matched all-w triangular index-three two-price transition table was identified; this does not establish absolute novelty.",
+        "searches": [
+          "two radius triangular lattice heterogeneous sensor coverage weighted cost transition two prices",
+          "Abbas Koutsoukos 2015 11/12 known covering benchmark",
+          "Resultary weighted checkerboard 2026/11/17",
+          "Resultary four phase alternating radius triangular rows 2026/11/17"
+        ]
+      },
+      "rationale": "Bounded PASS for the weighted two-price branch-resolved exact covering and sharp first-order transition. Abbas–Koutsoukos 2014/2015 proves the same fixed triangular deployment and unit-price benchmark; those ingredients are explicitly not counted as new.",
+      "residual_risks": [
+        "Prior 2015 geometry already covers known branch/equal-price optimum; any assertion of all-new geometry would be false.",
+        "An unindexed study of asymmetric sensor prices could cover the transition; literature searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong direct prior coverage of the equal-price benchmark and geometry, but no distinct w-weighted phase/coexistence theorem nor the s>1/2 overlapping branch",
+          "evidence": "PDF pp 16-17 Figure4 and Eq(4), sensing cost comparison and optimum normalized 11/12",
+          "identifier_or_url": "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/06901219.pdf",
+          "material_read": "Entire accessible four-page primary paper including Sections II–V, configuration Y formulas, density/energy comparisons and Figure 4; PDF page 3 inspected visually",
+          "method": "Author-hosted lawful full PDF text plus direct screenshot",
+          "title": "Efficient Complete Coverage Through Heterogeneous Sensing Nodes",
+          "trigger": "Identical triangular fixed two-radius site pattern and cost functional"
+        },
+        {
+          "assessment": "Similar structural phase transition but square checkerboard rather than index-three triangular lattice; not a proof of target exact constants",
+          "evidence": "Indexed square checkerboard geometry and price ratio one",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-an-exact-weighted-price-transition-in-checkerboard-lattice-disk--30c44c89e1c3",
+          "material_read": "Resultary indexed title and summary",
+          "method": "Semantic indexed summary inspection only",
+          "title": "An exact weighted price transition in checkerboard lattice disk coverings",
+          "trigger": "Possible dominating earlier two-price transition result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Author-hosted original 2015 sensor coverage article",
+        "Exact two-branch calculus and geometry"
+      ],
+      "rationale": "The deployment and energy objective are natural in lattice covering and heterogeneous sensing. Exact feasibility for the entire two-radius plane plus a discontinuous optimizer and sharp price coexistence are a complete parameter classification and useful network design phase boundary, beyond the known equal-price numerical benchmark.",
+      "residual_risks": [
+        "Result only for fixed three-color triangular lattice and quadratic per-site price; no global optimal deployment or finite network edge-effects conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment, not external peer certification; originality residual risks preserved.",
+    "Only checked listed source files and relevant primary material, not every file in recursive package. No GitHub write or dispatcher completion call made."
+  ],
+  "schema_version": 1
+}
