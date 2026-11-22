@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T15:02:57.820884Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-capacity-redistributed-seven-column-chessboard-complex-is-a--b89a3f02e3b9",
+        "checker.py, exact cover and signed Morse matrix construction",
+        "https://arxiv.org/pdf/2610.37827"
+      ],
+      "rationale": "The 5-ary column-word model is bijective with all faces; independent direct enumeration of 5^7=78125 words recovered f-vector (1,28,315,1820,5670,9240,6930,1680), total 25684 including empty and reduced Euler characteristic -148. The inspected full checker.py specifies a deterministic lower/upper toggle matching, traverses all 128338 Hasse cover relations, and checks full directed acyclicity on the face set, not samples; its unmatched ordinary Morse cells are one 0-cell plus 2 dimensions-3,124 dimensions-4,270 dimensions-5 cells. Its signed integral Morse differentials D4: Z^124→Z^2 and D5: Z^270→Z^124 satisfy D4D5=0 with Smith diagonal 1×2 and 1×122, respectively. Primitive images and equal ranks imply H4=0 and H5=Z^(270-122)=Z^148 without torsion; no 1- or 2-cells and the vanishing lower homology yield 4-connectivity by Hurewicz. A wedge of 148 S5 maps by a basis in π5 and homological Whitehead gives the claimed homotopy type. I inspected the exact integer Smith algorithm rather than equating a mod-p result with integral topology.",
+      "residual_risks": [
+        "Independent count/Euler verified; the large Smith computation itself was source-code reviewed and supported by its certificate; it was not independently rerun in this execution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Limonchenko–Yu Theorem 1.2 covers (2,2,2,m−5) (m=7 gives (2,2,2,2)); Theorem 1.3 requires at least four rows each of cap at least 2.",
+          "The same-day separate row-symmetry result treats (1,2,2,2), total cap7, and finds a mixed S4+S5 wedge."
+        ],
+        "reasoning": "The general preprint neither specializes to (1,2,2,3) nor dominates its torsionfree integral wedge assertion; the adjacent capacity vector is not a graph/simplicial isomorphism.",
+        "searches": [
+          "multiple chessboard complex 4 row capacities 1 2 2 3 7 columns wedge 148 5 spheres integral",
+          "https://arxiv.org/abs/2610.37827",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-integral-sphere-wedges-and-the-full-row-symmetry-character-of-a--725e179aee5e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2610.37827",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-integral-sphere-wedges-and-the-full-row-symmetry-character-of-a--725e179aee5e/RESULT.md",
+        "https://www-users.cse.umn.edu/~rober005/chessmatch.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Limonchenko–Yu Example 5.6 identifies the torsion-free (1,2,2,2) and torsionful (2,2,2,2) but no interpolation transfer theorem to (1,2,2,3).",
+          "Reiner–Roberts representation-theoretic formulas give rational homological information; they do not by themselves determine integral torsion or CW attaching maps."
+        ],
+        "reasoning": "The exact target homotopy type requires genuine integral Smith and Morse work. Existing rational formulas and distinct neighboring capacities do not imply a sphere wedge of 148 S5.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37827",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-integral-sphere-wedges-and-the-full-row-symmetry-character-of-a--725e179aee5e/RESULT.md",
+          "Reiner Roberts 2000 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "As a bounded rook/matching complex, a face is a partial matching between 7 labelled columns and four capacity-limited rows.",
+          "Limonchenko–Yu use precisely multiple chessboard Δ_[m]^{(k1,...,kr)}; caps (1,2,2,3) are equivalent under row reordering but not to (2,2,2,2) or (1,2,2,2)."
+        ],
+        "reasoning": "The standard chessboard language has no secret normalization difference. Total capacity 8 alone is not equivalence; individual capacities control topology.",
+        "searches": [
+          "multiple chessboard complex 4 row capacities 1 2 2 3 7 columns wedge 148 5 spheres integral",
+          "https://arxiv.org/abs/2610.37827",
+          "Reiner Roberts 2000 multiple chessboard rational homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary Examples and four-row theorems list nearby (1,2,2,2) and (2,2,2,2), but no 148 five-sphere classification.",
+          "The inspected exact 5^7-word census yields 25684 faces and χtilde=-148, and source Smith certificate resolves torsion and homotopy beyond face counts."
+        ],
+        "reasoning": "No known integral topology table at exactly this capacity was found; failed search is only a limitation, not the originality proof.",
+        "searches": [
+          "multiple chessboard complex 4 row capacities 1 2 2 3 7 columns wedge 148 5 spheres integral",
+          "arxiv:2610.37827 Example 5.6",
+          "Resultary: four row 7 column capacity 1 2 2 3 integral homology 148"
+        ]
+      },
+      "rationale": "Full nearby primary theorem Limonchenko–Yu (arXiv:2610.37827) does not imply the specific redistributed four-row vector. Its torsion theorem requires at least four capacities >=2, while (1,2,2,3) has precisely three. The four-row classified family (2,2,2,m-5) at m=7 is (2,2,2,2), different. The exact integral wedge 148 is not a routine numerical restatement of Reiner–Roberts rational homology.",
+      "residual_risks": [
+        "Reiner–Roberts 2000 complete paper was not freshly read; a hidden case-specific theorem there or other unindexed source is possible.",
+        "Large Smith-form certificate independently code-inspected, not rerun in full; correctness conclusion relies on traceable exhaustive finite algorithm, not just the printed log."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED but hypotheses of torsion/classification theorems do not include (1,2,2,3)",
+          "evidence": "Theorem1.3 requires four entries >=2; (1,2,2,3) only three. Example5.6 contrasts (1,2,2,2) and (2,2,2,2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.37827",
+          "material_read": "Full 24-page source loaded and relevant statements Theorems 1.1–1.3, proof section and Example 5.6 inspected; PDF screenshots of page 1 and page 19",
+          "method": "ArXiv lawful full-text PDF and extracted text; screenshots verified",
+          "title": "Homotopy types and torsion in homology of generalized chessboard complexes",
+          "trigger": "Very closely matched four-row/m=7 torsion theorem"
+        },
+        {
+          "assessment": "Does not cover redistributed (1,2,2,3)",
+          "evidence": "Target (1,2,2,2) has 63 S4 +36 S5; not 148 S5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-integral-sphere-wedges-and-the-full-row-symmetry-character-of-a--725e179aee5e/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, integral Morse proof, symmetry table, comparison and limitations",
+          "method": "Public GitHub raw full text",
+          "title": "Integral sphere wedges and the full row-symmetry character of a seven-column multiple chessboard complex",
+          "trigger": "Same row/column counts, neighboring capacity vector"
+        },
+        {
+          "assessment": "Consistent complete finite integer-Morse proof and homotopy argument",
+          "evidence": "Full finite word basis and integral Smith diagonal check are explicitly constructed.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-capacity-redistributed-seven-column-chessboard-complex-is-a--b89a3f02e3b9",
+          "material_read": "Entire RESULT.md, checker.py, pinned directory listing",
+          "method": "GitHub pinned snapshot and independent face enumeration",
+          "title": "Assigned capacity-redistributed chessboard complex",
+          "trigger": "Exact submitted mathematics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-capacity-redistributed-seven-column-chessboard-complex-is-a--b89a3f02e3b9",
+        "https://arxiv.org/abs/2610.37827"
+      ],
+      "rationale": "The first nearby capacity-redistribution boundary for four-row multiple chessboards answers a natural exact integral homotopy/torsion question: cap (2,2,2,2) has 2-torsion, while (1,2,2,3) has 148 integral 5-spheres. Precisely determining torsion absence and the wedge type is useful as a finite classification data point and may inform general capacity-transport conjectures; no general theorem required.",
+      "residual_risks": [
+        "This is a single capacity vector, not an entire four-row phase diagram; the significance is the adjacent torsion boundary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For labelled columns 1..7, four rows with caps (1,2,2,3) and at most one rook per column, the multiple chessboard simplicial complex is integrally homotopy equivalent to wedge^{148} S^5; all other reduced integral homology groups vanish.",
+  "limitations": [
+    "Smith invariants not independently recomputed from scratch in this execution; inspected exact checker and homological consequences.",
+    "Adjacent theorem comparison uses full primary arXiv PDF, not title only."
+  ],
+  "schema_version": 1
+}

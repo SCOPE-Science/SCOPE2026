@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the finite integral certificate
+# Independent mathematical audit
 
-Use Python 3 with SymPy installed and run `python checker.py`. The bundled output `VERIFICATION_OUTPUT.txt` records the expected exact results. The program enumerates all 78,125 column assignments with digits in \(\{0,1,2,3,4\}\); 25,684 satisfy row capacities. It checks all 128,338 Hasse cover edges, acyclicity by topological sort, every pair of the matching, and the integer Morse boundaries using recursively signed gradient replacements. The two Smith diagonal profiles are all units: twice for degree four to three and 122 times for degree five to four. Composition is zero, and the face-number alternating sum independently gives reduced Euler characteristic \(-148\).
+## correctness
 
-Acyclicity is proved for this finite complex by exhaustive traversal; integer Smith forms (not ranks over a field) establish absence of hidden torsion. In the ordinary, nonaugmented face poset, the paired empty face is deleted and its vertex becomes the unique critical zero-cell. Critical cells occur only in dimensions three through five, providing simple connectivity. The Hurewicz and Whitehead arguments are written in `RESULT.md`.
+PASS
 
-The computation does not claim an all-board theorem; the title and claims apply only to the precisely specified seven-column four-row complex. This is a reproducible computational mathematical proof but not an independent mathematical audit.
+The 5-ary column-word model is bijective with all faces; independent direct enumeration of 5^7=78125 words recovered f-vector (1,28,315,1820,5670,9240,6930,1680), total 25684 including empty and reduced Euler characteristic -148. The inspected full checker.py specifies a deterministic lower/upper toggle matching, traverses all 128338 Hasse cover relations, and checks full directed acyclicity on the face set, not samples; its unmatched ordinary Morse cells are one 0-cell plus 2 dimensions-3,124 dimensions-4,270 dimensions-5 cells. Its signed integral Morse differentials D4: Z^124→Z^2 and D5: Z^270→Z^124 satisfy D4D5=0 with Smith diagonal 1×2 and 1×122, respectively. Primitive images and equal ranks imply H4=0 and H5=Z^(270-122)=Z^148 without torsion; no 1- or 2-cells and the vanishing lower homology yield 4-connectivity by Hurewicz. A wedge of 148 S5 maps by a basis in π5 and homological Whitehead gives the claimed homotopy type. I inspected the exact integer Smith algorithm rather than equating a mod-p result with integral topology.
+
+## originality
+
+PASS
+
+Full nearby primary theorem Limonchenko–Yu (arXiv:2610.37827) does not imply the specific redistributed four-row vector. Its torsion theorem requires at least four capacities >=2, while (1,2,2,3) has precisely three. The four-row classified family (2,2,2,m-5) at m=7 is (2,2,2,2), different. The exact integral wedge 148 is not a routine numerical restatement of Reiner–Roberts rational homology.
+
+## value
+
+PASS
+
+The first nearby capacity-redistribution boundary for four-row multiple chessboards answers a natural exact integral homotopy/torsion question: cap (2,2,2,2) has 2-torsion, while (1,2,2,3) has 148 integral 5-spheres. Precisely determining torsion absence and the wedge type is useful as a finite classification data point and may inform general capacity-transport conjectures; no general theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every face and cover edge is enumerated exactly. The deterministic first-available-vertex matching has an independently checked acyclic oriented Hasse graph on 25,684 nodes. Its Morse complex has critical dimensions 0, 3, 4, 5 with cell counts 1, 2, 124, 270. Both exact *integral* signed boundaries and their composition are reconstructed; nonzero Smith factors are 1 twice for the four-to-three differential and 1 122 times for the five-to-four differential. These prove precisely the claimed torsion-free homology. The model is two-connected, so Hurewicz and homological Whitehead upgrade this to the wedge of 148 five-spheres. The bundled checker was run on the specified object, with no unproved infinite extrapolation.
+## correctness
 
-**Originality — PASS (best-knowledge, residual bibliographic risk).** Limonchenko–Yu, arXiv:2610.37827, Theorem 1.3 establishes sufficient conditions for two-torsion with *four* capacities at least two. Its Theorem 1.2 treats capacities \((2,2,2,m-5)\), and its Example 5.6 contrasts \((1,2,2,2)\) with \((2,2,2,2)\). These do not settle the distinct capacity redistribution \((1,2,2,3)\), with total eight and only three rows of capacity at least two. Theorem 3.3 of Reiner–Roberts (2000) covers rational representations/Bettis in general and so any rank inferable rationally is *not* claimed novel on its own; the actual integral homotopy classification remains an additional assertion. Searches of equivalent descriptions and available research records did not identify a stronger covering integral theorem. An unindexed matching theorem is still possible.
+PASS
 
-**Value — PASS.** This finite instance is fixed by the natural boundary in Theorem 1.3: four rows, seven unit columns, total row budget eight, but only three rows of capacity at least two. Comparing it with the published two-torsion \((2,2,2,2)\) case demonstrates that the capacity distribution, not just the total budget, controls integral torsion. A complete integral homotopy classification, rather than a routine Euler characteristic or field computation, is the mathematically relevant exact invariant.
+The 5-ary column-word model is bijective with all faces; independent direct enumeration of 5^7=78125 words recovered f-vector (1,28,315,1820,5670,9240,6930,1680), total 25684 including empty and reduced Euler characteristic -148. The inspected full checker.py specifies a deterministic lower/upper toggle matching, traverses all 128338 Hasse cover relations, and checks full directed acyclicity on the face set, not samples; its unmatched ordinary Morse cells are one 0-cell plus 2 dimensions-3,124 dimensions-4,270 dimensions-5 cells. Its signed integral Morse differentials D4: Z^124→Z^2 and D5: Z^270→Z^124 satisfy D4D5=0 with Smith diagonal 1×2 and 1×122, respectively. Primitive images and equal ranks imply H4=0 and H5=Z^(270-122)=Z^148 without torsion; no 1- or 2-cells and the vanishing lower homology yield 4-connectivity by Hurewicz. A wedge of 148 S5 maps by a basis in π5 and homological Whitehead gives the claimed homotopy type. I inspected the exact integer Smith algorithm rather than equating a mod-p result with integral topology.
 
-The comparison is intentionally limited: no general criterion for arbitrary four-row capacities is asserted. Reiner–Roberts' rational formula and any equivalent unindexed integral classification are residual priority risks. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full nearby primary theorem Limonchenko–Yu (arXiv:2610.37827) does not imply the specific redistributed four-row vector. Its torsion theorem requires at least four capacities >=2, while (1,2,2,3) has precisely three. The four-row classified family (2,2,2,m-5) at m=7 is (2,2,2,2), different. The exact integral wedge 148 is not a routine numerical restatement of Reiner–Roberts rational homology.
+
+## value
+
+PASS
+
+The first nearby capacity-redistribution boundary for four-row multiple chessboards answers a natural exact integral homotopy/torsion question: cap (2,2,2,2) has 2-torsion, while (1,2,2,3) has 148 integral 5-spheres. Precisely determining torsion absence and the wedge type is useful as a finite classification data point and may inform general capacity-transport conjectures; no general theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
