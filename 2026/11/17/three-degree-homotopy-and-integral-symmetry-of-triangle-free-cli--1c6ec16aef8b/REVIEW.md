@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The face partition is exhaustive: no central vertex permits two outer vertices in one block; one central vertex permits at most one per block; two central vertices permit no outer vertices; and three central vertices are forbidden. Consequently the complex is exactly a union of joins plus discrete central edges. The zero- and one-skeleta of a simplex have the stated free integral homology, so the join products and their connectivity bounds are valid for all quantified parameters. Both attaching maps from the connected intersection are nullhomotopic, giving the nonequivariant wedge splitting. The natural relative homology sequences identify the integral automorphism modules without requiring an equivariant wedge splitting. Transfer after barycentric subdivision proves the quotient's rational acyclicity. The actual standalone verifier independently checked six cases and 255 oriented Lefschetz equalities. No extrapolation from finite tests is used in the symbolic proof.
+PASS
 
-## Originality: PASS, with risks
+The exact forbidden-triangle face predicate separates 0,1,2 central-clique vertices and yields A=join of graph one-skeleta, B=join of discrete outer sets, central cones on B and isolated central edges. A is (2n-2)-connected while B has dimension n-1, so B→A is null, and B→S0*B is null by a cone. The homotopy pushout yields a high sphere wedge plus s suspensions of B; central edges add binom(s,2) free circles. Integral augmentation lattice V_i, wedge^2 V_i and join-Kunneth yield the three natural homology representations; degree shifts provide correct signs on outer-block exchange. Rational group invariants vanish for full internal symmetric groups, only rational (not integral) acyclicity claimed. Direct independent bitset boundary ranks matched three cases (s;q)=(2;3,3),(3;3,3,3),(3;3,4). All quantified parameters are supported by structural proof, not just finite tests.
 
-The closest 2026 source, Ghosh--Selvaraja, proves shellability for diamond-free chordal graphs; the new family is chordal but contains an induced diamond, and that paper does not give the stated homotopy or group modules. Namiq's chordal clique-skeleton theorems concern different complexes and do not imply the triangle-avoiding subset construction. The generalized split-join edge-ring literature concerns graph independence complexes; its full text was not accessible, so an implicit result is a residual risk. The single-universal-vertex windmill result does not cover the larger central clique, its new circle module, or the central permutation module in middle homology. Actual searches of the relevant mathematics index and publicly available primary literature did not identify equivalent or stronger coverage. The absence of a search hit is not a novelty proof; equivalence in unindexed sources remains possible.
+## originality
 
-## Value: PASS
+PASS
 
-This natural clique-join graph is chordal but has overlapping triangles, so existing diamond-free shellability statements do not settle its topology. The theorem identifies three distinct nonzero integral homology dimensions with exact multiplicities for arbitrary nonuniform outer-clique widths, supplies a complete integral automorphism-module structure, and yields a rationally acyclic symmetry quotient. These structural facts are not implied by face counts, shellability criteria, or prior single-center cases. The example with two central vertices and two three-vertex blocks already exhibits three different homology degrees.
+MAJOR OVERLAP EXPLICITLY ACKNOWLEDGED: full published common-clique-book theorem (2026-11-17, result 094dc4498204) proves IDENTICAL wedge and integral automorphism modules for s>=3,n>=3 and all q_i>=3. Earlier edge-glued complete-graph theorem (2026-11-08, deda11c4cbed) proves identical formula/modules/quotient for s=2,n>=2 with EQUAL q_i. Earlier two-clique theorem (2026-11-01, 2c130c6d765f) gives the SAME integral Betti ranks/representations for n=2,s>=2 and arbitrary q1,q2 but does NOT determine integral homotopy type. The assigned claim adds full integral homotopy for n=2 across s and all unequal two-clique sizes, and s=2 with UNEQUAL private clique sizes (n>=3). These natural boundary and heterogeneous page cases do NOT follow as statements from the previously inspected theorem domains, though their elementary proof ideas transfer; the central generic s>=3,n>=3 case is NOT new. O is qualified on the genuinely un-covered full-homotopy/unequal-page corners only.
 
-## Sources and scientific limits
+## value
 
-Primary full text inspected: Ghosh--Selvaraja, arXiv:2602.09623v1, especially Sections 1, 3, 4; Namiq, arXiv:2603.17776v2, especially Sections 1--4 and the Alexander-dual distinction. The abstract of Rather, arXiv:2606.24822, was read, but its full text could not be retrieved. Residual originality risk persists for unindexed, inaccessible or unpublished work. The finite checker only verifies selected cases and signed traces; the all-parameter claim requires the written proof. No integral orbit-space classification or equivariant homotopy splitting is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact full homotopy type in the n=2 boundary is stronger than pre-existing homology data and detects attachments that ranks alone cannot rule out; heterogeneous private-page sizes at the minimal shared edge s=2 complete the natural clique-book parameter classification. The resulting all-s,n formula has practical value as a reference classification and equivariant consistency check; the overlapping large-parameter formula is explicitly not credited as new. This surviving boundary completion is modest but mathematically natural, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
