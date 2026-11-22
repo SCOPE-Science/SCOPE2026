@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized one-atom coordinate norm is established by direct equality of reproducing kernels. An exact even/odd splitting then gives the canonical two-atom norm. The squaring map is represented by a bounded block operator \(L\), and the displayed calculation of \(LL^*\) is exact. A finite-rank reduction and a weakly-null approximate shift eigenvector show the essential norm is two. Above its essential spectral edge, all possible eigenvalues satisfy a second-order Hardy-coefficient recurrence and its boundary equation. The latter is equivalent to the unique cubic root greater than four; the resulting geometric eigenvector produces a rational norm-attaining function. The analytical proof covers infinite dimensions and verifies all boundaries and normalizations. The accompanying code performs only supplementary finite checks.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Independently traced the canonical RKHS K_b=(1-b(z)conj(b(w)))/(1-zwbar) to the one-atom coordinate norm 2|x|²+4||g||² and K_b2=(1+zwbar)K_b1(z²,w²). Even/odd decomposition gives the exact C2 block L(a,b,p,q)=(a+b,p+Sq+sqrt(2)b*1,p+q), with finite rank coupling to B(p,q)=(p+Sq,p+q). Norm B<=2, while weakly-null high-degree nearly shift-invariant blocks approach 2: essential norm exactly 2. LL* eigen-equations for lambda>4 reduce to a decaying Hardy recurrence v_n=r^n, r=1/(lambda-1), forcing lambda^3-6lambda²+8lambda-4=0; unique root >4 and explicit adjoint eigenvector prove attainment. Independent Python reconstructing the rational extremizer gives squared output/input quotient 4.382975767906236, within 4e-15 of the root. Finite calculation checks arithmetic only; the operator-theoretic proof establishes the infinite claim.
 
-The most relevant published result is Dellepiane–Seco, arXiv:2603.03093, Theorem 3.9; its isometry has target \(\mathcal H(b\circ z^N)\), not the **same** source space \(\mathcal H((1+z^2)/2)\). The cross-space results of Fricain–Hartmann–Ross–Timotin, arXiv:2609.10115, do not imply a self-norm value. Alhajj–Fricain, arXiv:2211.04864, give qualitative boundedness criteria for rational symbols; their different unbounded squaring example has another symbol and different boundary-zero multiplicities. Fricain–Karaki–Mashreghi–Ostermann, arXiv:2512.15287, work with a merely equivalent, noncanonical norm for qualitative operator questions. Searches of published mathematical-result summaries and literature for the precise cubic, aliases, self-composition, and Hardy local-Dirichlet formulations found no equivalent or stronger theorem. This is not a uniqueness or global priority proof: older local Dirichlet spectral computations could conceivably yield this exact special case. They are a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first nontrivial two-atom example maps both boundary atoms to the same atom. Computing only boundedness misses a strict norm/essential-norm separation. This result determines both sharp constants and an explicit rational extremizer for the natural canonical norm, revealing an isolated amplification that is invisible in known cross-space isometry and set-equivalence results. The scope is deliberately limited to the least-degree natural coalescence example, with no implication of a general power-map classification.
+A March 2026 isometric monomial-composition theorem is cross-space H(b1)->H(b1 composed z²), not the canonical same-space C2 on H(b2). A 2022 unbounded squaring example uses different boundary-zero multiplicities and equivalent norms. Nearby published exact norm-equivalence results compare norms, not this operator norm. Searches and inspected texts did not provide a dominating exact self-C2 cubic spectral formula; priority remains best-of-knowledge.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The canonical same-space norm is sensitive to the precise RKHS norm, unlike equivalent atomic Dirichlet norms. This exact norm/essential-norm gap is a natural boundary-collision spectral phenomenon and explicit extremizing function; those exact constants and isolated mode are useful for testing composition-operator inequalities. No claim about all Schur functions or power maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
