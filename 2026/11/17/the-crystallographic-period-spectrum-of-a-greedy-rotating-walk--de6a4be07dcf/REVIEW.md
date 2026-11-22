@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The q-block squared-norm drift and discreteness of the translated Eisenstein lattice imply that every nonterminating orbit at denominator three or six enters an explicit fixed absorbing disk. The exact rational-cell argument is therefore globally exhaustive, not a bounded numerical experiment. The five switching lines form 39 verified strata and all 48,750 required stratum/offset combinations are traced in the embedded standalone checker. The checker reproduced the claimed period sets and four sharpness examples. The elementary decoupled coordinate argument settles denominators one, two and four, including the tie convention.
+## correctness
 
-## Originality
-**PASS within inspected sources.** The original full text of arXiv:2409.08961 explicitly restricts its major periodic-sign theorems to irrational rotation and conditions them on prolonged observed sign behavior. Its statements do not imply this unconditional rational-angle period spectrum. The closely related full text of arXiv:2412.04284 was inspected in its introduction and deterministic-results sections: it treats uniformly random directions and van der Corput sequences, not fixed-period equispaced rotations. No covering published result record was found by searches of the walk's name, equivalent nearest-origin signed roots-of-unity formulation or rational-angle period statements. Related records concern distinct maps or other greedy expansions. Absence from the searched records does not establish absolute publication priority.
+PASS
 
-## Value
-**PASS.** The five denominators are the complete classical crystallographic list for planar roots-of-unity step lattices. The result gives an exact, sharp period spectrum for *every* nonterminating initial condition in that whole natural boundary family, beyond eventual periodicity alone. This complements a published open problem about periods and highlights a qualitative difference between finite-lattice forcing and irrational rotation. The 39-stratum exact certificate makes the classification independently reproducible.
+For the exact nearest-origin signed unit steps u_n=e^{2πipn/q}, ties terminate by convention. For q=1,2 the one-dimensional real greedy displacement converges to a 2-cycle; for q=4 alternating orthogonal coordinate directions yield a 4-cycle. For q=3,6, each q-block obeys |Z_q|²−|Z|²≤q²−2 c_q|Z| with c_3=√3 and c_6=2√3. On a fixed fractional Eisenstein lattice, strict radius decline cannot persist indefinitely outside the resulting threshold; the block-start disks of radii 6 and 12 are absorbing and forward invariant. In Eisenstein fractional coordinates, three affine sign families cut the closed unit square into exactly 10 faces, 19 edges and 10 vertices. Uniform bounds on trapped integer offsets imply a complete rational finite search over 39*(17²+31²)=48,750 stratum/offset starts. Independently constructed a distinct exact-Fraction checker of the line arrangement and all block return maps: q3 11,271 starts and q6 37,479 starts; both have period-set histogram 24 strata {3,6}, 11 strata {3}, four strata {6}, and no other nonterminating recurrent block period. The supplied complete verifier additionally provides strict period-3 and period-6 rational witnesses. These exact finite checks, together with the analytical absorbing argument, cover all initial points without unjustified finite extrapolation.
 
-## Closest literature and limitations
-The strongest overlap risk is unindexed work on deterministic greedy vector balancing or another reformulation of the same rational angle walk. The present proof does not treat noncrystallographic rational angles, irrational angles, terminating ties or a global uniform capture time. The certificate is exact arithmetic but has not received independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Steinerberger–Zeng paper investigates rotating greedy signed walks mainly with irrational angles and conditional periodic sign words. Its irrationality hypotheses and sign-period implications do not yield unconditional position-periodicity at rational crystallographic denominators. The later Albors et al model uses random or van-der-Corput directions rather than q-periodic roots of unity. Resultary searches found no stronger complete position-period classification for q in {1,2,3,4,6}; best of knowledge PASS, allowing unindexed rational-angle follow-ups as residual risk.
+
+## value
+
+PASS
+
+Exact global dynamics of a natural greedy walk is mathematically nontrivial because phase-dependent threshold choices and unbounded initial positions can generate long transients. The crystalline Eisenstein lattice trapping, closed exact 39-stratum census, and sharp full least-position period spectrum supply a motivated complete classification for precisely the rational rotations compatible with planar crystallographic directions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
