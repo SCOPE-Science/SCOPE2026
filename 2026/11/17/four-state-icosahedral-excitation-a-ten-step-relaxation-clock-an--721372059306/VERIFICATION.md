@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The result is a complete exact calculation on one twelve-vertex graph. Each C++17 program can be compiled with `g++ -O3 -std=c++17`, or an equivalent standard-compliant compiler; the symmetry program uses only the Python 3 standard library. Run in a directory containing the embedded program files, and compare the printed output with the correspondingly named embedded text files.
+## correctness
 
-- `icosahedron_census.cpp` uses full successor-map construction, indegree elimination and reverse-depth propagation. It checks all \(16777216\) configurations, identifies the sole fixed point and \(208850\) primitive four-cycles, and finds maximum first-entry depth ten.
-- `icosahedron_direct.cpp` uses a separate literal graph description and evaluates all fifteen iterates from time zero through fourteen for every state. It verifies the identity \(F^{14}=F^{10}\) state by state and counts all twenty nonzero time/period cells. It also writes `extremal_codes.txt` with exactly 240 entries.
-- `icosahedron_phase.cpp` enumerates all colorings using successor-neighbor bitmasks rather than the transition map; it counts exactly \(835400\) four-phase recurrent states.
-- `symmetry_extremal.py` constructs and checks all 120 automorphisms and partitions all 240 maximal-delay configurations into two 120-state classes with representatives 75769 and 441799.
+PASS
 
-For each checker, exhaustiveness derives from an explicit interval \(0\le\operatorname{code}(x)<4^{12}\) and one-to-one base-four decoding. The computed maximum is a *finite mathematical certificate*, not an empirical extrapolation. The analytic part establishes why the only permitted nonconstant cycle under the verified iterate identity has primitive period four, and why four-phase recurrence is exactly the local successor-neighbor condition.
+The actual twelve-vertex icosahedral graph with 30 edges (two pentagonal belts plus two apices) and the four-state threshold-one simultaneous excitation rule were reconstructed. An independent C++ full functional-graph computation traversed all 4^12=16,777,216 labelled states, finding exactly one fixed point and 208,850 primitive period-four cycles, 835,400 rotating periodic states, fixed basin 3,620,436, 20 nonempty joint depth/period classes, maximum depth ten achieved by 240 states and no other periods; hence F^14=F^10. Independent local successor-coloring count matches 835,400. NetworkX complete graph-isomorphism enumeration gives full automorphism group size 120 and exactly two size-120 extremal orbits represented by base-four codes 75769 and 441799. The exhaustive finite-state proof is valid only for this specified graph; the connected-graph rotation lemma alone does not prove the ten-step bound.
 
-Limits: no general all-graphs theorem, no claim about stochastic variants, no verification by a separate outside auditor, and no claim that semantic searches prove historical uniqueness.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: compared the exact mathematical claim and implications against same-object primary literature and published result records. Previously known model definitions, finite-face methods, cone inequalities, or alternate-parameter/loss theorems are credited. The cited prior statements do not imply the submitted exact additional invariant. This is not a certification of comprehensive historical priority.
+
+## value
+
+PASS
+
+The icosahedron is a canonical symmetric five-regular graph and four-state Greenberg-Hastings excitation is a standard excitable automaton. The complete 16.8-million-state dynamical census, sharp ten-update transient, complete basin sizes and two full-symmetry extremal strata are mathematically meaningful exact dynamical invariants not supplied by three-color or complete multipartite results. The result deliberately does not extrapolate to unrelated graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

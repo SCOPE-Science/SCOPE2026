@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The claim is for the labelled twelve-vertex icosahedral graph with the explicit synchronous four-state Greenberg–Hastings rule. The two complete and independently programmed functional-graph approaches each account for all \(4^{12}=16777216\) states and agree on the full joint entrance-time/eventual-period table. The direct checker proves \(F^{14}=F^{10}\) by enumerating every state, not by sampling. A separate static successor-neighbor census verifies the \(835400\) rotating states without using either dynamical algorithm. A dependency-free Python program generates and validates all \(120\) graph automorphisms and the two extremal classes. The structural argument explains why a nonconstant periodic orbit with period dividing four must rotate globally and hence has primitive period four. The code and recorded outputs are included.
+## correctness
 
-**Originality (PASS, qualified).** The full published three-state icosahedral result gives a six-step bound and sixty extremal states in one spatial class, which does not entail a four-state ten-step result, the exact \(208850\) four-cycle count, or the two-class symmetry split. Gravner–Lyu–Sivakoff's full arXiv text and Doba's 2018 full article study the three-state finite-graph theory. Durrett–Griffeath's archival paper concerns broader lattice dynamics. Targeted literature and semantic-index searches did not locate the same four-state icosahedral joint census. This is a positive best-knowledge comparison, not proof of historical uniqueness. Residual risk: inaccessible or unindexed historical enumerations.
+PASS
 
-**Mathematical value (PASS).** The icosahedron is a canonical highly symmetric triangulated sphere and a natural benchmark for excitable waves. Increasing the refractory length from one to two changes both the global first-entry cutoff (from six to ten) and the geometric multiplicity of maximally delayed states (one orbit of size sixty versus two of size 120). The exact time-resolved classification, phase-neighbor characterization, basins and full symmetry quotient are natural dynamical invariants rather than an arbitrary slice or a small unmotivated count. This is a finite-graph result, not a claimed general polyhedral classification.
+The actual twelve-vertex icosahedral graph with 30 edges (two pentagonal belts plus two apices) and the four-state threshold-one simultaneous excitation rule were reconstructed. An independent C++ full functional-graph computation traversed all 4^12=16,777,216 labelled states, finding exactly one fixed point and 208,850 primitive period-four cycles, 835,400 rotating periodic states, fixed basin 3,620,436, 20 nonempty joint depth/period classes, maximum depth ten achieved by 240 states and no other periods; hence F^14=F^10. Independent local successor-coloring count matches 835,400. NetworkX complete graph-isomorphism enumeration gives full automorphism group size 120 and exactly two size-120 extremal orbits represented by base-four codes 75769 and 441799. The exhaustive finite-state proof is valid only for this specified graph; the connected-graph rotation lemma alone does not prove the ten-step bound.
 
-**Nearest comparison and limits.** The 2026 three-state icosahedral study was inspected in full; the multi-state model's 1993 arXiv abstract and the 2016/2018 full papers were examined. Independent validation remains outstanding. Enumeration-derived conclusions are tied to the included executable checks and the exact graph labelling.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: compared the exact mathematical claim and implications against same-object primary literature and published result records. Previously known model definitions, finite-face methods, cone inequalities, or alternate-parameter/loss theorems are credited. The cited prior statements do not imply the submitted exact additional invariant. This is not a certification of comprehensive historical priority.
+
+## value
+
+PASS
+
+The icosahedron is a canonical symmetric five-regular graph and four-state Greenberg-Hastings excitation is a standard excitable automaton. The complete 16.8-million-state dynamical census, sharp ten-update transient, complete basin sizes and two full-symmetry extremal strata are mathematically meaningful exact dynamical invariants not supplied by three-color or complete multipartite results. The result deliberately does not extrapolate to unrelated graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
