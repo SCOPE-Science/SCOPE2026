@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "A two-way elementary bijection maps each maximal independent set to the unique point selection S for which the union of S and all lines disjoint from S covers the 21 points. The complete 2^21 subsets are exhaustively enumerated over exact GF(4) arithmetic in C++17, yielding exactly 17 nonzero bivariate coefficients, sum 25237. A second independent affine-chart Python/NumPy incidence construction and complete masks produces exactly the same coefficient map. Both programs and incidence checks passed. The scope is strictly the finite PG(2,4) incidence graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Héger and Nagy, arXiv:1603.02933, Theorem 1.5, studies near-minimum minimal dominating sets in plane orders q>=5; the finite q=4 bivariate enumerator is not its theorem.",
+        "Goldberg et al., Theorem 5.2, establishes the minimum dominating number 2q, but the equality of minima does not determine any higher coefficients."
+      ],
+      "reasoning": "A dominating-number theorem is strictly weaker than the entire bivariate generating function, and bounds for larger orders do not imply the full finite polynomial. There is no claimed general q theorem here.",
+      "searches": [
+        "exact independence domination polynomial of projective plane order four incidence graph inclusion-maximal independent sets",
+        "independent domination number point line incidence graph finite projective plane minimal maximal independent sets order q",
+        "block design minimal dominating sets point-line skew sets full cardinality spectra projective plane order four"
+      ]
+    },
+    "checked_sources": [
+      "Goldberg, Rajendraprasad and Mathew, arXiv:1405.3436v1 (entire 11-page preprint; Theorem 5.2 and Section 6)",
+      "Héger and Nagy, arXiv:1603.02933 (entire preprint; Theorem 1.5 and Problem 4.3)",
+      "Hauschild, Ortiz and Vega, arXiv:1408.2879 (entire seven-page preprint; Lemma 1 and Theorem 1)",
+      "Della Vedova, Pagani and Pianta, DOI 10.1007/s00022-022-00662-2 (full HTML article; Section 5.3)",
+      "Published 2026 research on a PG(2,4) point–line incidence submatrix extremum (distinct invariant)",
+      "Published 2026 maximal-independent-set polynomial of two-token complete bipartite graphs (distinct host)",
+      "Published 2026 independent-domination polynomial of subdivided bicliques (distinct host)",
+      "Published 2026 induced-matching census of the order-three projective-plane Levi graph (different invariant and order)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldberg et al., arXiv:1405.3436v1, Theorem 5.2/Proposition 6.3: independent domination minimum is 8 but does not give all counts.",
+        "Hauschild et al., arXiv:1408.2879, Lemma 1: produces at least v+b+2 maximal independent sets, namely 44 for v=b=21, not the exact 25237.",
+        "Héger and Nagy, arXiv:1603.02933, Problem 4.3 identifies the general counting problem but gives no quaternary generating function."
+      ],
+      "reasoning": "Each closest primary result is explicitly weaker or addresses a different counting question. Knowing the minimum, a constructive lower bound, or a counting problem does not logically imply the 17 bivariate coefficients without independent enumeration.",
+      "searches": [
+        "PG(2,4) Heawood generalized projective plane order four independent domination polynomial maximal independent sets point line incidence graph Baer subplanes",
+        "exact independence domination polynomial of projective plane order four incidence graph inclusion-maximal independent sets",
+        "bivariate polynomial enumerating all maximal independent sets of 42-vertex PG(2,4) incidence (Levi) graph by points and lines: 25237, 16800, 5460, 2408",
+        "independent dominating sets projective plane PG(2,4) exact 105 minimum configurations and all possible sizes 8 10 11 12 14 17 21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Independent dominating sets are precisely inclusion-maximal independent sets; the dual plane exchanges the polynomial variables.",
+        "Goldberg et al., arXiv:1405.3436v1, Section 6, studies independent domination but not the quaternary complete 17-bidegree polynomial.",
+        "Hauschild et al., arXiv:1408.2879, Lemma 1, constructs sample maximal independent sets but gives no full census."
+      ],
+      "reasoning": "The evaluation treats independent domination, maximal independent sets, well-coveredness, and dual point-line descriptions as aliases. The point-line duality is incorporated by the coefficient symmetry and cannot yield missing numerical terms from the cited qualitative results.",
+      "searches": [
+        "PG(2,4) Heawood generalized projective plane order four independent domination polynomial maximal independent sets point line incidence graph Baer subplanes",
+        "exact independence domination polynomial of projective plane order four incidence graph inclusion-maximal independent sets",
+        "independent domination number point line incidence graph finite projective plane minimal maximal independent sets order q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An archived result, *Sharp 8-by-8 point-line incidence ceiling in PG(2,4)* (2026), establishes an incidence submatrix extremum rather than an independent-domination polynomial.",
+        "Published maximal-independent-set enumerators for two-token complete bipartite graphs and once-subdivided bicliques concern different graph constructions.",
+        "Marco L. Della Vedova, Silvia M. C. Pagani, Silvia Pianta (2022), *Power sum polynomials and the ghosts behind them*, Journal of Geometry, DOI 10.1007/s00022-022-00662-2, classifies GF(2) parity-code ghost point sets of PG(2,4), not selected point sets whose disjoint lines cover all omitted points.",
+        "Direct queries for the numerical spectrum 25237, 16800, 5460, 2408 and the 105 minima did not produce an exact same-object published table."
+      ],
+      "reasoning": "Checked indexed exact numeric matches, bidegree aliases and the most plausible projective-plane table; none of the returned named items supplies this spectrum. Database incompleteness remains a residual risk.",
+      "searches": [
+        "bivariate polynomial enumerating all maximal independent sets of 42-vertex PG(2,4) incidence (Levi) graph by points and lines: 25237, 16800, 5460, 2408",
+        "independent dominating sets projective plane PG(2,4) exact 105 minimum configurations and all possible sizes 8 10 11 12 14 17 21",
+        "block design minimal dominating sets point-line skew sets full cardinality spectra projective plane order four",
+        "\"projective plane\" \"well-covered polynomial\" incidence"
+      ]
+    },
+    "rationale": "The full quaternary projective-plane two-shore enumerator is not entailed by the inspected primary research, which gives minimum parameters, selected maximal-independent families, or asymptotic bounds. Searches of published mathematical records for aliases, numerical coefficients, and finite geometry returned related but non-subsuming findings. Residual historical priority risk remains; absence from a search is not mathematical proof of originality.",
+    "residual_risks": [
+      "A previously unindexed complete enumeration of maximal independent sets of the same 42-vertex graph might already list these coefficients.",
+      "Semantic index search and primary-literature screening cannot prove priority, including under unexpected names.",
+      "The result is a complete finite instance and does not yield an asymptotic or all-projective-plane formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known minimum size and Fano small-order computations, no order-four complete bivariate polynomial",
+        "evidence": "arXiv:1405.3436v1, posted 14 May 2014, page 1 header, Theorem 5.2 and section 6",
+        "identifier_or_url": "https://arxiv.org/pdf/1405.3436",
+        "material_read": "Full 11-page PDF, definitions, Theorems 4.3 and 5.2, Section 6 including Proposition 6.3, Example 6.4 and references",
+        "method": "Full-text read with focused theorem comparison and page inspection",
+        "title": "Domination in Designs",
+        "trigger": "Oldest directly applicable primary independent-domination foundation and archival-date anchor"
+      },
+      {
+        "assessment": "Provides structural theory and explicit open counting direction, but no full q=4 polynomial",
+        "evidence": "Héger and Nagy, arXiv:1603.02933; Problem 4.3 asks for magnitude of counts of independent dominating sets",
+        "identifier_or_url": "https://nagyzoli.web.elte.hu/projdom-FIN-jav.pdf",
+        "material_read": "Full preprint including abstract, Theorem 1.5, Section 2 small-set structure, Section 4 problems and references",
+        "method": "Full-text read and PDF page inspection, checked exact constraints and asymptotic scope",
+        "title": "Dominating sets in projective planes",
+        "trigger": "Highly relevant structural work on minimal domination and possible count coverage"
+      },
+      {
+        "assessment": "Constructs only v+b+2 distinct maximal independent sets, no exhaustive order-four coefficients",
+        "evidence": "Hauschild, Ortiz and Vega, Lemma 1 and Theorem 1, pp. 3–5",
+        "identifier_or_url": "https://arxiv.org/pdf/1408.2879",
+        "material_read": "Full seven-page preprint, with particular attention to Lemma 1, its two families of maximal independent sets, and Theorem 1 on well-covered dimension",
+        "method": "Full-text read and PDF page inspection",
+        "title": "On the Levi Graph of Point-Line Configurations",
+        "trigger": "Same graph-construction formalism and same maximal-independent-set object"
+      },
+      {
+        "assessment": "Counts subsets whose line intersections have constant parity; this is not the maximal-independent-set coverage predicate, and the 17 bivariate graph polynomial terms are absent",
+        "evidence": "Della Vedova, Pagani and Pianta, Journal of Geometry, DOI 10.1007/s00022-022-00662-2, Section 5.3 (published 19 November 2022)",
+        "identifier_or_url": "https://doi.org/10.1007/s00022-022-00662-2",
+        "material_read": "Full open-access online text, in particular Sections 1, 2 and 5.3 on all 2^21 point subsets and parity-code ghost classes",
+        "method": "Read the online journal article and compared the defining incidence predicates and numerical invariants",
+        "title": "Power sum polynomials and the ghosts behind them",
+        "trigger": "A published exact enumeration of PG(2,4) point subsets, possibly subsuming a size table under a code-theory alias"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15b46d8f-6e4d-443c-becc-ea11e8bc5404",
+  "value": {
+    "rationale": "An exact bivariate distribution on the first square-order plane is a natural full classification of maximal independent sets by shores, considerably stronger than its known minimum independent-domination number. The cardinality gaps and 25237 total give a reproducible finite benchmark for the independent dominating set counting question explicitly posed by Héger–Nagy (Problem 4.3), without claiming asymptotic progress. The object and both parameters are canonical, rather than an arbitrary chosen slice.",
+    "status": "PASS"
+  }
+}
