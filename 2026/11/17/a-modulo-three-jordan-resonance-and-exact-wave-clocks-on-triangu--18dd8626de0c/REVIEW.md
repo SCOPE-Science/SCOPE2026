@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full statement, for every \(n\ge3\), every finite field of characteristic three, and every positive time, is supported by a complete incidence-matrix decomposition. The identities \(A=B^\mathsf T B+I\) and \(BB^\mathsf T=(n-2)I+J\) are derived from the graph definition. Full row rank of the unsigned incidence matrix is proved using a triangle; each modulo-three residue yields exact spatial Jordan multiplicities. The temporal lifting gives blocks \(J_{2s}(1)\), \(J_{2s}(-1)\), and order-four blocks. Their kernels prove the time-indexed exponents and, by Möbius inversion, the primitive orbit populations. The graph and transition are finite, the temporal map is explicitly invertible, and a direct-sum state realizes each claimed sharp global order. There are no unproved infinite extrapolations.
+PASS
 
-Two independently coded numerical checks agree: modular matrix powers and nullities at all times through the proposed order for graph parameters \(3\le n\le10\), plus direct state evolution and the exact 729-state population census at \(n=3\). The complete proof is independent of these finite checks.
+For n>=3 the unsigned K_n edge-incidence B has full row rank over characteristic 3. A=B^T B+I and BB^T=(n-2)I+J with J^2=nJ. Rank C^r=rank(BB^T)^{r-1} gives exact length-one/two Jordan blocks in all three n mod3 classes, including n=3. A block J_s(2) or J_s(1) lifts under (u,v)->(Au-v,u) to J_{2s}(1) or J_{2s}(-1), while adjacency eigenvalue 0 yields an order-four two-dimensional block. Frobenius gives fixed dimensions min(2s,3^{nu3(t)}), restricted to divisible-by-2 time for eigenvalue -1; order-four blocks contribute two if 4|t. This proves the all-time displayed E_n(t), global orders 9/18/36, and period populations by Mobius inversion. An independently written exact mod3 matrix implementation checked ALL 1<=t<=L_n and n=3..8 with predicted nullities.
 
-## Originality — PASS, qualified
+## originality
 
-The traditional reversible construction in Macfarlane (2004) and Vlasov (2013) is prior work; so is the triangular graph as the line graph of a complete graph. A characteristic-three reversible-wave classification on complete bipartite graphs has a different rank-two shore module, and one on divisible-alphabet Hamming graphs has a tensor-sum nilpotent module. Neither implies the edge-incidence Gram Jordan structures, the 9/18/36 trichotomy, or the time-indexed Johnson census. A strongly regular graph wave theorem in characteristic two cannot provide odd-characteristic Jordan data. Relevant primary full text and direct published-record queries did not identify the same theorem, including aliases Johnson, triangular graph, and clique line graph. Search cannot establish absolute priority; obscure modular Johnson-algebra work remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
+The generic reversible previous-state construction and Johnson graph definition are standard. Nearest related published exact wave clocks concern complete bipartite/Hamming/crown graphs or strongly regular graphs in characteristic two. Their adjacency modules cannot be specialized to the signed unsigned-edge incidence Jordan structure over F3 of J(n,2), and no listed stronger result entails the given 9/18/36 n mod3 clock or E_n(t). Claim remains best-of-knowledge versus unindexed modular association-scheme sources.
 
-The triangular graphs form a canonical infinite family with ordinary spectra known in closed form. Their integer spectra alone do not determine nonsemisimple modular Jordan blocks, and hence do not determine the full temporal census. The characteristic-three resonances produce an exact small period clock across every graph size: the smallest graph has period nine, later multiples of three have period eighteen, and the two other residues have period thirty-six. This is a mathematically motivated exact dynamical classification, not a narrow numerical test or an arbitrary parameter slice.
+## value
 
-## Closest literature and limits
+PASS
 
-Macfarlane, DOI 10.1088/0305-4470/37/45/006, treats first-order matrix equivalents for binary one-dimensional second-order automata; Vlasov, arXiv:1311.4297, presents the general reversible mechanism and ternary variants without this graph-specific Jordan census. The publicly recorded complete-bipartite and modular Hamming-wave results are close techniques on different graph modules; the binary strongly regular theorem is not characteristic three. The full text of Macfarlane was available as a paper text extraction, while visual retrieval encountered access friction; any unindexed matching source remains a priority concern. No independent mathematical review has been performed.
+The triangular Johnson graphs are a basic natural algebraic graph family. The exact characteristic-three Jordan resonance and its consequences for all-time reversible dynamics supply a structural family classification and precise primitive periods/orbit populations, including a sharp n mod3 phase boundary. The result is not just a routine restatement of finite reversibility or real adjacency eigenvalues, since modular nilpotent chains control the clock.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

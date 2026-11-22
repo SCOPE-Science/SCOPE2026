@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The source files `verify_johnson.py` and `verify_direct.py` are standalone and included alongside this document. The former uses Python 3 and NumPy, and the latter only the standard library. Exact captured outputs are embedded as `matrix_output.txt` and `direct_output.txt`.
+## correctness
 
-Running `OPENBLAS_NUM_THREADS=1 python verify_johnson.py` constructs the 2-subset graph independently from intersecting endpoint pairs and forms the full two-time-level transition. It reduces all integer matrix operations modulo three and tests \(\dim\ker(T_n^t-I)\) for each \(1\le t\le L_n\), at every \(n\) from 3 to 10, together with the identity at the predicted order and failure of the identity at proper divisors. All checks passed, including dimensions up to 90.
+PASS
 
-Running `python verify_direct.py` implements time updates by directly summing neighboring vertex states. It enumerates all \(3^6=729\) states at \(n=3\) and finds \(9\), \(234\), and \(486\) states of least periods 1, 3, and 9, respectively. It also verifies return within the stated clock for 120 reproducibly seeded initial states at each \(n=4,5,6,7,8\). All direct-update checks passed.
+For n>=3 the unsigned K_n edge-incidence B has full row rank over characteristic 3. A=B^T B+I and BB^T=(n-2)I+J with J^2=nJ. Rank C^r=rank(BB^T)^{r-1} gives exact length-one/two Jordan blocks in all three n mod3 classes, including n=3. A block J_s(2) or J_s(1) lifts under (u,v)->(Au-v,u) to J_{2s}(1) or J_{2s}(-1), while adjacency eigenvalue 0 yields an order-four two-dimensional block. Frobenius gives fixed dimensions min(2s,3^{nu3(t)}), restricted to divisible-by-2 time for eigenvalue -1; order-four blocks contribute two if 4|t. This proves the all-time displayed E_n(t), global orders 9/18/36, and period populations by Mobius inversion. An independently written exact mod3 matrix implementation checked ALL 1<=t<=L_n and n=3..8 with predicted nullities.
 
-These are finite diagnostics, not a substitute for the all-parameter proof; their outputs do not independently certify novelty or the mathematical review. The unlimited statement follows from the exact incidence rank and Jordan proof in `RESULT.md`. Independent audit remains not performed.
+## originality
+
+PASS
+
+The generic reversible previous-state construction and Johnson graph definition are standard. Nearest related published exact wave clocks concern complete bipartite/Hamming/crown graphs or strongly regular graphs in characteristic two. Their adjacency modules cannot be specialized to the signed unsigned-edge incidence Jordan structure over F3 of J(n,2), and no listed stronger result entails the given 9/18/36 n mod3 clock or E_n(t). Claim remains best-of-knowledge versus unindexed modular association-scheme sources.
+
+## value
+
+PASS
+
+The triangular Johnson graphs are a basic natural algebraic graph family. The exact characteristic-three Jordan resonance and its consequences for all-time reversible dynamics supply a structural family classification and precise primitive periods/orbit populations, including a sharp n mod3 phase boundary. The result is not just a routine restatement of finite reversibility or real adjacency eigenvalues, since modular nilpotent chains control the clock.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
