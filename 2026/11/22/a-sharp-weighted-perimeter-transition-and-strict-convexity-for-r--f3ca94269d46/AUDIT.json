@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "evidence": [
+      "Exact derivation in RESULT.md steps 1–5",
+      "verify.py, successfully executed from current package directory: PASS 1094 checks",
+      "Python Fraction factorization checks for s=1,9/8,4/3,3/2,7/4,2"
+    ],
+    "rationale": "For every integer n>=3 and conjugate p,q in [1,infinity], the boundary arcs and straight segment lengths yield the exact loss function F(alpha,beta). Its derivative factors as 2 sin(beta/2)[(p+q)sin(beta/2)-q tan(alpha)cos(beta/2)], giving a unique optimum at beta=min(alpha,2 arctan(tan(alpha)/p)), with properly treated p=1 and infinite endpoints. Closed-form substitution gives the reported minimum. The second alpha-derivative has a strictly positive prefactor and polynomial H(p,s), whose threshold value H(1+s,s)=2s(2-s)(s+1)^2>=0 for 1<s<=2 and which increases in p. This proves strict real-order convexity via G_n\"=2pi^2 f\"/n^3, and monotonicity. Jensen bounds for nested n-gons and strict optimal crossing prove the unrestricted nonnesting obstruction. The included standard-library checker passed 1094 finite checks and is supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basit–Lángi (2023), Theorem 1 on one-sided C-n-gon sequences, and Section 5 Problem 1 on weighted perimeter deviation.",
+        "Fodor (2021) Theorem 1.1 and Eggleston (1957) are unweighted.",
+        "Complete published RESULT.md of first intrinsic-volume shadow distance from disk: integrates absolute support-function loss rather than original boundary-arc deviation."
+      ],
+      "reasoning": "Classical Dowker/Eggleston results cover the p=q=2 special case but cannot imply a finite-p crossing optimal radius. The shadow-distance result has a different integrand and optimizes a different metric even though it also uses centered regular polygons. The new universal exclusion of nested polygon classes does not follow from known one-sided optimality.",
+      "searches": [
+        "Dowker perimeter deviation optimal concentric regular polygons disk strictly convex n",
+        "Basit Langi weighted perimeter deviation disk regular polygon circle 2023",
+        "\"weighted perimeter deviation\" polygon approximation 2024 2025 2026",
+        "published-finding corpus hit 2026/11/1/SCOPE-sharp-first-intrinsic-volume-shadow-distance-from-a-disk-to-orig--e6bedc320bbd"
+      ]
+    },
+    "checked_sources": [
+      "Basit and Lángi, arXiv:2307.04026v5, HTML Introduction (Definitions 1–4, Theorems 1–3), proof section overviews, and Section 5 Problems 1–4; v1 public 2023-07-08",
+      "Fodor, Perimeter Approximation of Convex Discs in the Hyperbolic Plane and on the Sphere, DOI:10.1007/s00454-021-00291-7, HTML introduction, Theorem 1.1 and references",
+      "published-finding corpus: 2026/11/1/SCOPE-sharp-first-intrinsic-volume-shadow-distance-from-a-disk-to-orig--e6bedc320bbd, complete RESULT.md",
+      "published-finding corpus: 2026/10/25/SCOPE-unique-optimal-two-sided-disk-approximation-within-rotationally--f77924764139, complete RESULT.md",
+      "Targeted web searches for weighted perimeter deviation, regular circle/polygon approximations, Eggleston, and the Dowker extension"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary 2023 work poses unrestricted weighted perimeter convexity instead of proving even the present regular-family profile.",
+        "Fodor cites an unweighted inscribed-optimum theorem.",
+        "The distinct published-finding corpus area disk-polygon result optimizes radial center separation for intersections of circles, not perimeter of straight-edged regular polygons."
+      ],
+      "reasoning": "The exact claim combines a sharp p=1+sec(pi/n) phase transition, order convexity, and an unrestricted nested-class obstruction. The nearest results neither contain the same weighted perimeter functional with all finite p nor provide statements logically implying the three assertions. All overlaps are confined to known unweighted endpoints or related geometric models.",
+      "searches": [
+        "weighted perimeter deviation unit disk regular n-gon polygon approximation p q phase transition inscribed circumscribed",
+        "\"perimeter deviation\" \"regular polygon\" \"disk\" minimizer",
+        "\"weighted perimeter deviation\" \"regular\" \"circle\" geometry",
+        "arXiv:2307.04026v5 Section 5",
+        "Fodor 2021 Theorem 1.1",
+        "sharp weighted perimeter deviation of a unit disk from a concentric regular polygon inscribed to crossing transition 1+sec(pi/n) strict convexity",
+        "circle regular n-gon conjugate p q perimeter deviation sequence convex nonnested optimal polygon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Basit–Lángi arXiv:2307.04026v5, Section 5 defines weighted C-perimeter deviation with conjugate p,q and asks Problem 1 (web turn462598view0 lines 497–513).",
+        "Fodor 2021 DOI:10.1007/s00454-021-00291-7, Theorem 1.1 recounts the unweighted perimeter-deviation principle (web turn841874view0 lines 63–78)."
+      ],
+      "reasoning": "The source-defined weighted boundary loss is matched term by term. The p=q=2 case is twice the ordinary unweighted deviation and is explicitly prior, whereas p>1+sec(pi/n) produces a boundary-crossing regular n-gon, impossible under Eggleston’s unweighted optimality. No searched equivalent weighted phase or strict convexity law was identified.",
+      "searches": [
+        "weighted perimeter deviation unit disk regular n-gon polygon approximation p q phase transition inscribed circumscribed",
+        "Dowker perimeter deviation optimal concentric regular polygons disk strictly convex n",
+        "\"weighted perimeter deviation\" disk regular polygon p q",
+        "published-finding corpus queries: weighted perimeter deviation unit disk regular n-gon polygon approximation p q phase transition inscribed circumscribed",
+        "sharp weighted perimeter deviation of a unit disk from a concentric regular polygon inscribed to crossing transition 1+sec(pi/n) strict convexity",
+        "circle regular n-gon conjugate p q perimeter deviation sequence convex nonnested optimal polygon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned the different 2026 disk-polygon area-approximation record; complete RESULT.md read."
+      ],
+      "reasoning": "No exact table, parameterized optimizer, or equivalent transition formula appeared in accessible record searches. No completeness or uniqueness is inferred from search failure; the identified nearby indexed works were checked by actual content and not simply titles.",
+      "searches": [
+        "weighted perimeter deviation unit disk regular n-gon polygon approximation p q phase transition inscribed circumscribed",
+        "Dowker perimeter deviation optimal concentric regular polygons disk strictly convex n",
+        "Basit Langi weighted perimeter deviation disk regular polygon circle 2023",
+        "published-finding corpus source ID 2026/10/25/SCOPE-unique-optimal-two-sided-disk-approximation-within-rotationally--f77924764139",
+        "sharp weighted perimeter deviation of a unit disk from a concentric regular polygon inscribed to crossing transition 1+sec(pi/n) strict convexity",
+        "circle regular n-gon conjugate p q perimeter deviation sequence convex nonnested optimal polygon"
+      ]
+    },
+    "rationale": "Basit–Lángi introduce the exact two-sided weighted perimeter functional and leave the general Dowker convexity as an open problem, but their inspected results do not give the exact centered regular-polygon minimizer, weight transition, strict order-convexity or unrestricted nonnesting obstruction. Fodor recounts classical Eggleston for unweighted deviation, which only implies the already-credited p=q=2 inscribed subcase. Full published published-finding corpus records checked for disk shadow metric and disk-polygon weighted area concern different functionals/bodies. The remaining historical priority risk is unindexed or differently termed weighted perimeter approximation.",
+    "residual_risks": [
+      "The original 1957 Eggleston paper and all historical weighted variants were not exhaustively inspected; priority is provisional.",
+      "Unindexed notes, dissertations, or differently named weighted boundary-perimeter approximations may contain equivalent formulas.",
+      "The theorem does not resolve full unrestricted weighted-perimeter approximation convexity; nearest stronger statements concern different metrics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT MOTIVATION, NOT COVERING: weighted perimeter deviation proposed but exact finite-n regular polygon optimization, curvature and crossing phenomenon not given",
+        "evidence": [
+          "HTML text arXiv 2307.04026v5, Definition 4 and Theorems 1–3 (turn568005view0 lines 59–111)",
+          "Section 5 Problem 1, lines 497–513 (turn462598view0)",
+          "Proof sections 2–4 (turn315921view0–2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.04026v5",
+        "material_read": "Introduction definitions and main theorems; selected arguments in sections 2–4; complete Section 5 open-question text (including Problems 1–4)",
+        "method": "HTML full-text sections inspected and searched; v1 date checked from arXiv submission history",
+        "title": "Dowker-type theorems for disk-polygons in normed planes",
+        "trigger": "Exact source defining weighted perimeter deviations and publishing the central open problem"
+      },
+      {
+        "assessment": "COVERS only the p=q=2 inscribed special case, not weighted threshold or convexity family",
+        "evidence": [
+          "Publisher HTML lines 63–95 (turn841874view0)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-021-00291-7",
+        "material_read": "Open-access HTML abstract, Introduction and Theorem 1.1, context of Dowker convexity",
+        "method": "Publisher HTML inspected; original Eggleston 1957 statement cited as reported by Fodor",
+        "title": "Perimeter Approximation of Convex Discs in the Hyperbolic Plane and on the Sphere",
+        "trigger": "Original unweighted optimal polygon principle and related classic references"
+      },
+      {
+        "assessment": "NOT COVERING: support-function L1 projection metric, not perimeter deviation; optimizer scale and functional differ",
+        "evidence": [
+          "Complete published RESULT.md and its defining integral of |1-h_Q|"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-sharp-first-intrinsic-volume-shadow-distance-from-a-disk-to-orig--e6bedc320bbd/RESULT.md",
+        "material_read": "Entire RESULT.md, including Finding, proof, relationships and limitations",
+        "method": "Read with repository file API",
+        "title": "Sharp first intrinsic-volume shadow distance from a disk to origin-containing polygons",
+        "trigger": "Nearest circle/regular polygon approximation record in published-finding corpus"
+      },
+      {
+        "assessment": "NOT COVERING: area loss and intersection of translated unit disks; different approximation and invariant",
+        "evidence": [
+          "Published RESULT.md radial area formula and unique center-circle radius equation"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-unique-optimal-two-sided-disk-approximation-within-rotationally--f77924764139/RESULT.md",
+        "material_read": "Entire RESULT.md, including proof and references",
+        "method": "Read with repository file API",
+        "title": "Unique optimal two-sided disk approximation within rotationally symmetric disk-polygons",
+        "trigger": "Nearest weighted two-sided disk approximation record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f3ca9426-9d46-4965-99c6-f995402b2922",
+  "value": {
+    "rationale": "The work resolves a natural weight-dependent regular-family specialization of an explicit published open Dowker-type perimeter-deviation question, with a sharp inscribed-to-crossing boundary p=1+sec(pi/n), a complete unique-radius profile, strict order convexity, and a new rigorous implication for all convex n-gons: above the threshold neither wholly inside nor wholly outside polygons can be optimal. This is a mathematically motivated classification and phase transition, not a mere low-order computation or a claim of global unrestricted optimization.",
+    "risks": [
+      "No determination of unrestricted optimizer or necessary nonnesting threshold.",
+      "The profile is confined to a fixed regular symmetry family for exact optimization."
+    ],
+    "sources": [
+      "Basit–Lángi 2023, Section 5 Problem 1",
+      "Fodor 2021, Theorem 1.1 on the classical unweighted boundary case"
+    ],
+    "status": "PASS"
+  }
+}
