@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_pressure.py` using Python 3 and the standard library. The program enumerates generator transition counts for \(88\) integer cases, checks \(42\) sample combinations of real edge rewards and integer frequency parameters, compares six finite truncated renewal roots per example, and verifies the freezing root equations for eleven integer parameters. Expected success marker: `VERIFY_OK cases=42 finite_roof_roots=6 per_case critical_roots=11 exact_word_checks=88`.
+## correctness
 
-The infinite-parameter assertions are **not** inferred from sampling: they follow from the precise marker-return coding, Kac's theorem, Abramov's formula, the inequality \(h_{\mathrm{ret}}\le H(p)\), and the KL identity \(D(p\Vert q)=-H(p)-s+L\mathbb E M\ge0\). Equality requires iid geometric return lengths and identifies the unique non-atomic ergodic candidate. The imported coded-support premise is Theorem C of Reyes (arXiv:2611.10995v1). General older frameworks supply context, not an independent audit or certification.
+PASS
+
+For the rational shift Sigma(k/(k+1)) with k>=1, the invariant-support theorem of Reyes reduces all positive-[10]-frequency ergodic measures to returns 0^m1^(km). The roof is (k+1)m, one-generator edge counts are (m-1,1,1,km-1), and energy is m(a+kd)+(b+c-a-d). Abramov/Kac identities plus H(return process)<=H(one-letter marginal), followed by KL divergence against q_m=e^s exp[-m log(1+e^s)], prove the sharp bulk free energy R=(a+kd+log(1+e^s))/(k+1); iid geometric returns alone attain equality. Measures with [10]=0 are the two fixed-point atoms. Ergodic decomposition gives exactly max(a,d,R), all equilibrium mixtures and transverse coexistence; direct algebra gives both freezing roots. Independent finite check covered 20 (k,a,b,c,d) choices and transition identities; it does not prove all k or potentials.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
+
+## value
+
+PASS
+
+A complete equilibrium-simplex and exact pressure classification for every two-edge potential on a natural non-sofic frequency shift, including first-order atomic/renewal coexistence and distinct parameter-dependent versus universal freezing curves, is a motivated thermodynamic-formalism invariant beyond zero-potential entropy or a routine reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-For every integer \(k\ge1\) and all finite real edge weights, the proof reduces the variational problem to the unique inducing marker \([10]\). Reyes' Theorem C provides support on the prescribed coded shift; any positive-marker ergodic measure has a stationary return-size sequence with a finite mean by Kac. Generator edge counts yield the exact roof/energy formula; Abramov and the entropy-rate bound reduce free energy to a one-variable Kullback–Leibler inequality. Equality uniquely determines the geometric iid return sizes. The two fixed-point atoms cover all zero-marker ergodic measures, so the supremum and every equilibrium mixture are identified. The checker corroborates algebra and explicitly does not prove the infinite claims.
+## correctness
 
-## Originality: PASS with residual historical-priority risk
-Reyes (arXiv:2611.10995v1, full §§5–6 and Theorems C–D) identifies the unweighted MME, not the all-edge-potential pressure or equality cases. Pavlov (arXiv:1803.05966v1, Theorems 1.1–1.5) supplies general **unweighted** generator entropy criteria. Climenhaga (arXiv:1502.00931v4, Theorems 1.1 and 1.8) supplies sufficient uniqueness under a strict pressure gap, which excludes the two coexistence curves. Relevant semantic research-record searches returned renewal-pressure and Sturmian-pressure results on different shifts and potentials, not an implication covering the exact formula. The most similar earlier local result gives correlations and coboundary for the zero-potential equilibrium in this frequency family, not weighted pressure. Generic methods are credited; a previously unindexed equivalent computation remains possible.
+PASS
 
-## Mathematical value: PASS
-This is a natural complete thermodynamic classification for a recently introduced, non-sofic and non-specification frequency-shift family. It identifies the *entire* equilibrium-simplex phase diagram, gives explicit two-edge statistics, separates analytic and frozen regimes, and proves different sharp algebraic and universal freezing laws for the two natural edge rewards. Those questions are not implied by the known topological entropy or zero-potential uniqueness and are relevant to equilibrium-selection and perturbation theory. Scope: locally constant two-symbol potentials only; no claim for arbitrary Hölder perturbations.
+For the rational shift Sigma(k/(k+1)) with k>=1, the invariant-support theorem of Reyes reduces all positive-[10]-frequency ergodic measures to returns 0^m1^(km). The roof is (k+1)m, one-generator edge counts are (m-1,1,1,km-1), and energy is m(a+kd)+(b+c-a-d). Abramov/Kac identities plus H(return process)<=H(one-letter marginal), followed by KL divergence against q_m=e^s exp[-m log(1+e^s)], prove the sharp bulk free energy R=(a+kd+log(1+e^s))/(k+1); iid geometric returns alone attain equality. Measures with [10]=0 are the two fixed-point atoms. Ergodic decomposition gives exactly max(a,d,R), all equilibrium mixtures and transverse coexistence; direct algebra gives both freezing roots. Independent finite check covered 20 (k,a,b,c,d) choices and transition identities; it does not prove all k or potentials.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
+
+## value
+
+PASS
+
+A complete equilibrium-simplex and exact pressure classification for every two-edge potential on a natural non-sofic frequency shift, including first-order atomic/renewal coexistence and distinct parameter-dependent versus universal freezing curves, is a motivated thermodynamic-formalism invariant beyond zero-potential entropy or a routine reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
