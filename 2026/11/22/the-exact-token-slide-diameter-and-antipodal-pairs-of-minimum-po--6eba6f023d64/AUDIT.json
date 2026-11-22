@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, independently proved exact power-domination feasibility from the initial unobserved rectangle U x W. Minimum sets are exactly row or column near-transversals. The induced row/column slide graphs each have degree n(n-1), their overlap has degree 2(n-1), and no cross-family slide bypasses their intersection, yielding the exact edge formula. An explicit two-coordinate slide strategy gives distance <=2(n-1) for all pairs; if any coordinate is shared it saves a move, while same-family pairs need at most n moves. Hence only the specified n^2 opposite row-column star pairs can attain the bound; the two-coordinate demand per token proves each requires at least 2(n-1). Independently implemented code directly checks power-domination closure and bitmask-based state graphs at n=3,4,5; all-pairs distances at n=3,4 and selected BFS at n=5 agree. Finite code is supporting evidence, not the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bjorkman et al., arXiv:2201.01798v1, defines TAR/TJ/TS; inspected sections give a universal TAR/TJ theory, not a rook-specific TS metric.",
+        "Exact reconfiguration components of power-dominating sets in rook graphs (2026), RESULT.md, determines bounded-TAR component counts for all m,n,k, not this fixed-size TS graph."
+      ],
+      "reasoning": "The broader universal reconfiguration machinery and the full budget-dependent component profile apply different transitions. A TAR path may change cardinality and use intermediate cells not allowed by TS, so neither known result entails the present exact edge and diameter formulas.",
+      "searches": [
+        "published-finding corpus: power domination rook graphs Cartesian product complete graphs minimum sets token jumping sliding",
+        "published-finding corpus: power domination reconfiguration rook graph K_n cartesian K_m sensors rows columns optimal placement",
+        "Web: \"minimum power domination\" \"reconfiguration diameter\" \"rook\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.01798v1 (2022-01-05)",
+      "doi:10.1080/09728600.2014.12088762 (historical scalar optimum)",
+      "published-finding corpus public rook-graph classification: 2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+      "published-finding corpus public rook-graph connected enumerators: 2026/11/2/SCOPE-complete-ordinary-and-connected-power-domination-enumerators-of--e4946fa80078",
+      "published-finding corpus public rook-graph TAR components: 2026/11/8/SCOPE-exact-reconfiguration-components-of-power-dominating-sets-in-roo--99dbf6bd21a3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Soh--Koh (2014) covers scalar gamma_P, not local-slide reconfiguration.",
+        "The 2026 rook classification implies the n-1 token states and |V|=2n^n-n^2(n-1)!, expressly treated as prior.",
+        "The 2026 TAR component theorem yields only counts of components for addition/removal at bounded budgets, not shortest paths of adjacent slides between fixed-optimum configurations.",
+        "The n^2 extremal pairs follow from a newly supplied geometric obstruction: absent any shared source-target row/column, every token must change both coordinates."
+      ],
+      "reasoning": "Neither stronger set-feasibility knowledge nor components in a graph with different edges can determine |E(R_n)|, diam(R_n), or its complete extremal pair set. The exact unproved implication in prior references would require a theorem preserving both fixed cardinality and local adjacency; none was identified.",
+      "searches": [
+        "arXiv 2201.01798v1 full HTML: rook; Cartesian product; diameter; token sliding",
+        "Published rook bounded-TAR record 2026-11-08 RESULT.md: exact component formulas",
+        "published-finding corpus: minimum power domination rook graph reconfiguration row transversal column transversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph K_n square K_n is the line graph L(K_{n,n}); TS replaces one selected edge of K_{n,n} by an incident edge, but no equivalently stated distance formula was located.",
+        "Found power-domination and minimum-code results on rook graphs, and bounded TAR component results; none of the inspected claims states the fixed-optimum slide diameter 2n-2 or n^2 antipodal pairs."
+      ],
+      "reasoning": "An edge-set translation alone does not imply that each intermediate set power dominates, and existing formulas for minimum-set counts or TAR connectivity do not imply shortest distances under size-preserving adjacent slides. The searched aliases expose no covering result; an undetected equivalent remains possible.",
+      "searches": [
+        "published-finding corpus: rook graph minimum power domination token sliding diameter 2n-2 antipodal full row full column",
+        "published-finding corpus: rook graph optimal phasor sensor moving along edges minimum placement sliding geodesics antipodes",
+        "Web: \"line graph\" \"complete bipartite\" \"power domination\" \"reconfiguration\"",
+        "Web: \"power domination\" \"rook graph\" \"token sliding\" diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Complete power-domination-set classification and polynomial of rectangular rook graphs (2026), RESULT.md, contains exact minimum multiplicities but not an adjacent-slide edge or distance table.",
+        "Complete ordinary and connected power-domination enumerators of rook graphs (2026), RESULT.md, provides set enumerators and cardinalities, not local relocation distances.",
+        "The independently computed small-order TS records are n=3: 36 vertices, 126 edges, diameter 4, 9 antipodal pairs; n=4: 416, 2784, 6, 16; n=5: 5650, 60100, 8, 25 checked antipodes."
+      ],
+      "reasoning": "The tables in prior work count power-dominating sets, rather than reconfiguration adjacency or distances. The present count and metric are not entries of the identified prior tables.",
+      "searches": [
+        "published-finding corpus: rook graph optimal phasor sensor moving along edges minimum placement sliding geodesics antipodes",
+        "published-finding corpus: rook graph minimum power domination token sliding diameter 2n-2 antipodal full row full column",
+        "Web: \"square rook graphs\" \"power domination\" \"slide\" \"diameter\""
+      ]
+    },
+    "rationale": "The 2014 scalar optimum and later published exact rook-graph power-domination classifications imply the state family and its cardinality but not the claimed fixed-optimum slide edges, diameter, or complete extremal pairs. The inspected 2022 power-domination reconfiguration paper treats general TAR/TJ structures and defines TS but contains no rook-graph theorem. The most relevant published rook reconfiguration record treats bounded TAR, not slides. Searches by rook-graph, line-graph, sensor move and antipodal equivalences did not yield a stronger covering statement; residual unindexed priority risk is retained.",
+    "residual_risks": [
+      "An unindexed or inaccessible paper may state an equivalent square-rook TS metric under a different graph or PMU terminology.",
+      "The graphical premise and minimum-set count are covered by existing work; originality is restricted to slide edges, distances and extremal pairs.",
+      "Source inspection cannot certify global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the TS move definition and general TAR/TJ theory but does not state a rook-graph TS distance theorem.",
+        "evidence": [
+          "arXiv initial posting dated 2022-01-05; MSC includes 68R10",
+          "Text has no matching rook or Cartesian-product occurrence; sections emphasize TAR/TJ, not the present square-rook TS metric"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+        "material_read": "Abstract, introductory definitions, relevant TAR and TJ statements, and document-wide searches for rook, Cartesian product, diameter and token sliding",
+        "method": "Accessible arXiv full-text HTML with section reading and in-document searches",
+        "title": "Power domination reconfiguration",
+        "trigger": "Primary 2022 framework for power-domination reconfiguration and assigned scientific domain"
+      },
+      {
+        "assessment": "All budgets of the token-addition/removal reconfiguration graph are covered. No fixed-size adjacent-slide metric or antipodal pair classification is given.",
+        "evidence": [
+          "Its main formulas are c_{m,n}(k), the numbers of bounded TAR connected components.",
+          "Its proofs explicitly pass through cardinality-changing additions/removals, unlike minimum-size slides."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-reconfiguration-components-of-power-dominating-sets-in-roo--99dbf6bd21a3",
+        "material_read": "Complete 10494-byte RESULT.md including claim, theorem, proof, verification, relationship and limitations",
+        "method": "Fetched public repository RESULT.md text and compared move definitions and conclusions",
+        "title": "Exact reconfiguration components of power-dominating sets in rook graphs",
+        "trigger": "Same object family and reconfiguration term; strongest apparent overlap"
+      },
+      {
+        "assessment": "Covers row/column feasibility and optimum counts, duly acknowledged. No claimed local-slide distance classification.",
+        "evidence": [
+          "Criterion: occupies all but at most one row or all but at most one column",
+          "Minimum-set multiplicity: 2n^n-n^2(n-1)! for a square n-by-n board"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+        "material_read": "Finding, assumptions, beginning of proof, references, and document-wide targeted term scan of fetched RESULT.md",
+        "method": "Fetched public RESULT.md and compared known premises to new TS claim",
+        "title": "Complete power-domination-set classification and polynomial of rectangular rook graphs",
+        "trigger": "Exactly the underlying power-domination criterion and known optimum count"
+      },
+      {
+        "assessment": "Enumerates feasible sets and their induced connectivity, not the connectivity or diameter of the minimum-placement reconfiguration graph.",
+        "evidence": [
+          "Both ordinary and connected power-domination polynomials are evaluated",
+          "No shortest slide geometry follows from their coefficients alone"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-ordinary-and-connected-power-domination-enumerators-of--e4946fa80078",
+        "material_read": "Theorem statement, definitions, enumerators and minimum-count formulas from fetched RESULT.md",
+        "method": "Public repository text and direct statement comparison",
+        "title": "Complete ordinary and connected power-domination enumerators of rook graphs",
+        "trigger": "Potentially stronger full-state enumeration and coverage of new claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6eba6f02-3d64-4f37-a2b7-1f4116daeddc",
+  "value": {
+    "rationale": "A natural optimal sensor movement problem is solved for every square rook graph, not a handpicked numerical instance. The theorem shows that all minimum-size monitoring placements remain connected under physical graph-edge moves, but the sharp worst-case effort grows linearly as 2n-2 even though a single rook-graph vertex has diameter two. Its n^2 diameter pairs have an intrinsic, exactly characterized geometry (opposite missing-row/missing-column star configurations). The number of legal slides is also exact. These conclusions are not simple consequences of the known minimum-set count, and furnish a structural benchmark for constrained relocation without spare sensors.",
+    "status": "PASS"
+  }
+}
