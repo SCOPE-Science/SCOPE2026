@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "For every fixed k>=2 and strictly positive a,b,lambda,mu, a two-state first-step Laplace-transform computation yields a killed shared active occupation with atom d and exponential rate r; conditioning leaf Poisson transmissions gives the exact NI beta-binomial mixture. In the LI model a killed two-state generator yields a two-exponential link survival nu(t); gamma-tail scaling of E[(1-nu(T))^k] proves the LI power exponent and prefactor. Small-time scaling proves its no-transmission probability is asymptotic to mu/(lambda*pi*k). A characteristic-polynomial argument shows rho<lambda*pi<lambda*mu/r, hence strict separation of exponents for all rates. Independent finite-state exact-rational absorption calculations verify both extremes at degrees 2,3,4,5 (unit rates), plus three non-symmetric positive parameter choices at degree 3, and direct quadrature corroborates k=20,100,500,2000 constants. See RESULT.md proof and check.py. No unproved passage from finite tests to infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giordano et al., DOI 10.1007/s11009-026-10327-1: fixed-time MMPP probability and central-limit theory; scalar matrix exponent is prior machinery",
+        "Hilton–Hall DOI 10.1101/2023.03.24.23287701: beta-Poisson and zero-inflated offspring, but not switching activity exact degree-tail exponents",
+        "Ball et al., DOI 10.1007/s00285-019-01329-4: edge-dropping SIR and shared-recovery effects",
+        "published-finding corpus 2026/10/13/b769c52b1efb and 2026/10/25/1d4b8a70bdd4: outbreak variance and convex-order under transmissibility heterogeneity, covered generic aspects"
+      ],
+      "reasoning": "Prior general models include the mathematical ingredients (Markov-modulated Poisson, mixtures, convex-order), but none inspected states the sharp pair of complete-infection exponents plus the NI residual zero-offspring atom under matching entire one-edge contact laws. The cited SCOPE heterogeneity results can imply overdispersion and convex order, not the specific rate-dependent exponents absent this switching law.",
+      "searches": [
+        "intermittent quarantine nodes links reproduction offspring distribution common source activity binomial mixture correlated transmissions",
+        "Markov-modulated SIR star first generation all-contact infection power law k asymptotic independent switching edges",
+        "randomly active infectious individual exponential recovery number contacted neighbors beta-binomial mixture probability infect all large degree",
+        "contact process shared versus independent renewal channels sharp probability no contacts versus all contacts asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00429v1 full public HTML",
+      "doi:10.1007/s11009-026-10327-1 full public HTML",
+      "doi:10.1101/2023.03.24.23287701 full public HTML",
+      "doi:10.1007/s00285-019-01329-4 full public HTML",
+      "doi:10.1103/PhysRevX.9.031017 full public HTML",
+      "published-finding corpus indexed records 2026/10/25/1d4b8a70bdd4 and 2026/10/13/b769c52b1efb (summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source arXiv:2610.00429v1 reports qualitative stronger NI epidemic suppression and simulated star SIS lifetimes, not a hub-only SIR offspring limit as k grows",
+        "published-finding corpus 2026/10/25/1d4b8a70bdd4 states full epidemic-size convex-order inflation for heterogeneous transmissibility; this covers the Jensen substatement but does not specify switching-quarantine distributions or spectral exponents",
+        "MMPP 2026 article proves fixed-time counting distributions and CLT; does not impose per-leaf first-success truncation with a random recovery horizon"
+      ],
+      "reasoning": "Conditioning on recovery time and the source-activity path yields the exact mixture, with NI exponent r/lambda; separately averaging each independent contact clock conditional on the common recovery horizon yields exponent mu/rho. These two operations are not interchangeable. The strict difference and zero-offspring atom require the complete switching mechanism and independent per-link versus shared clock, so are not consequences of the cited generic convex-order statement alone. The full GitHub content of nearest records was inaccessible and priority must remain qualified.",
+      "searches": [
+        "node intermittency shared activity star epidemic offspring count overdispersion convex order independent link intermittency equal marginal transmission renewal process",
+        "intermittent quarantine nodes links reproduction offspring distribution common source activity binomial mixture correlated transmissions",
+        "finite star SIR renewal on off quarantine exactly probability infect all leaves tails degree asymptotic",
+        "Markov alternating quarantine hub on-off epidemic all leaves infected positive no-secondary atom polynomial exponent",
+        "Markov-modulated SIR star first generation all-contact infection power law k asymptotic independent switching edges",
+        "shared on off Markovian infectious hub with independent links exact star epidemic all infected tail exponent probability no transmission atom stationary environmental switching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moraes–Ferreira arXiv:2610.00429v1 §§II–IV: node and link intermittency, simulated epidemic thresholds and star SIS lifetimes, not the exact hub-only SIR all-neighbor law",
+        "Giordano–Martinucci–Paraggio DOI 10.1007/s11009-026-10327-1 §§2–3: two-state switched Poisson law over deterministic horizons and its Gaussian asymptotic, not exponentially killed all-leaf comparisons",
+        "published-finding corpus 2026/10/25/1d4b8a70bdd4: convex-order inflation for random individual transmissibility (ancillary generic result covered)"
+      ],
+      "reasoning": "Common alternative expressions are an atom-plus-beta mixture for hub cumulative activity and a stationary killed-Markov Feynman–Kac survival function for one independently switched link. The generic beta mixture and Jensen convex-order implication are already known and therefore not counted as new. A complete-transmission event simultaneously involving a growing number of separately contacted susceptible leaves under two exactly marginal-matched temporal mechanisms has no found equivalent, especially not the pair of distinct asymptotic powers.",
+      "searches": [
+        "node intermittency shared activity star epidemic offspring count overdispersion convex order independent link intermittency equal marginal transmission renewal process",
+        "finite star SIR renewal on off quarantine exactly probability infect all leaves tails degree asymptotic",
+        "Markov alternating quarantine hub on-off epidemic all leaves infected positive no-secondary atom polynomial exponent",
+        "shared on off Markovian infectious hub with independent links exact star epidemic all infected tail exponent probability no transmission atom stationary environmental switching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned nearest IDs 2026/11/2/1620b4681bbf (independent switched star links cover-time, different model) and 2026/11/8/2f9e3a0273aa (degree-only full-outbreak source ranking, different model)"
+      ],
+      "reasoning": "No exact numerical table or recorded formula for the specific two exponents was identified. This is a theoretical parametric theorem, not a finite table result. Absence of a search hit is not a proof of novelty,.",
+      "searches": [
+        "finite star SIR renewal on off quarantine exactly probability infect all leaves tails degree asymptotic",
+        "Markov alternating quarantine hub on-off epidemic all leaves infected positive no-secondary atom polynomial exponent",
+        "shared on off Markovian infectious hub with independent links exact star epidemic all infected tail exponent probability no transmission atom stationary environmental switching"
+      ]
+    },
+    "rationale": "The proposed novelty is not the generic Jensen or beta-binomial mixture, both established in earlier work. The new comparison is the shared-hub exponential switching law versus k independent identically switching edges, with exactly matched one-edge temporal processes, an NI zero-offspring atom, LI 1/k zero-offspring law, exact NI all-leaf beta/gamma probability and strict smaller NI than LI exponent for every positive parameter set. Moraes–Ferreira provides the motivation but not these exact claims; Giordano et al. gives fixed-time switched-Poisson count laws, while Hilton–Hall provides beta/zero-inflated epidemic offspring models without this switching comparison. The published research index exposes broader convex-order statements that cover only an ancillary observation. No covering exact atom-plus-two-exponent theorem identified; full access limits and historical priority remain risks.",
+    "residual_risks": [
+      "Full source text for two closest published records could not be opened: only indexed claims available. Generic convex-order facts from these records are explicitly excluded from the novelty assertion.",
+      "Unindexed theoretical results on stopped Markov-modulated infection and contact clustering may already imply the exact pair of exponents.",
+      "The initiating paper switches all nodes, whereas the proved model switches only the infectious hub; the result does not imply whole-network epidemiological benefits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper reports simulated thresholds and SIS star lifetimes, not this hub-only SIR first-generation atom/exponent comparison. The paper intermittently switches every node rather than only the hub, a stated difference.",
+        "evidence": [
+          "arxiv:2610.00429v1 first posted 2026-09-30, arxiv HTML lines 29–36, 61–86, 122–140"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00429v1",
+        "material_read": "Open arXiv HTML abstract, Introduction, model, numerical Results III.1–III.3 and star SIS section (lines 29–140); full references and appendices not retrievable on a subsequent access attempt",
+        "method": "Read public primary HTML source text, including its explicit epidemic mechanism and principal results, and compared SIR/SIS/star claims",
+        "title": "Intermittent quarantine suppresses epidemic spreading beyond simple contact reduction",
+        "trigger": "same intermittent node/link epidemiological process and source of question"
+      },
+      {
+        "assessment": "Known exact switched-Poisson mechanisms; no recovery-stopped, independently first-infected leaves or shared-vs-independent matched-edge power-exponent result.",
+        "evidence": [
+          "Giordano et al. 2026, §§2.1 and 2.3, https://doi.org/10.1007/s11009-026-10327-1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11009-026-10327-1",
+        "material_read": "Open full-text HTML abstract, introduction, §2 switching-count laws and §2.3 Gaussian limit, §5 conclusion and references",
+        "method": "Inspected full online HTML article sections and searched for epidemiology, recovery, relevant tail theorem",
+        "title": "Explicit distributions and time-changed dynamics of the two-state Markov modulated Poisson process",
+        "trigger": "two-state switching Poisson is core prior mathematical machinery"
+      },
+      {
+        "assessment": "Models beta mixing and zero-inflation, but its Poisson contact count and exogenous beta probability are not the Markovian hub versus independent-link switching model with all-leaf degree-tail exponents.",
+        "evidence": [
+          "Hilton & Hall (2023), introduction and model results, DOI 10.1101/2023.03.24.23287701"
+        ],
+        "identifier_or_url": "https://www.medrxiv.org/content/10.1101/2023.03.24.23287701v1.full",
+        "material_read": "Open primary HTML abstract, introduction, beta-Poisson and zero-inflation results and model specification",
+        "method": "Read open HTML article and compared parametric offspring model and stochastic causal mechanism",
+        "title": "A beta-Poisson model for infectious disease transmission",
+        "trigger": "known overdispersed and zero-inflated epidemic offspring laws may subsume mixture"
+      },
+      {
+        "assessment": "Irreversible prevention upon epidemic detection and asymptotic population processes; not stationary reversible shared hub activity versus independent edge switching nor all-k exponents.",
+        "evidence": [
+          "Ball et al. (2019) abstract and introduction, DOI 10.1007/s00285-019-01329-4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-019-01329-4",
+        "material_read": "Open primary HTML abstract, introduction and §2 first definitions, including explicit shared-recovery versus independent-dropping comparison",
+        "method": "Read full open article HTML relevant claims",
+        "title": "A stochastic SIR network epidemic model with preventive dropping of edges",
+        "trigger": "dependent recovery versus independent contact discontinuation is a close competing mechanism"
+      },
+      {
+        "assessment": "Temporal edge-based SIR message passing and threshold, not switched-source degree-tail distinction.",
+        "evidence": [
+          "Koher et al. (2019), PRX 9 031017"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7219481/",
+        "material_read": "Open primary HTML abstract, Introduction and temporal edge model description",
+        "method": "Read accessible primary HTML and compared claim domain",
+        "title": "Contact-Based Model for Epidemic Spreading on Temporal Networks",
+        "trigger": "temporal SIR correlation and exact tree propagation"
+      },
+      {
+        "assessment": "The generic convex-order component is covered and not claimed new; no retrieved evidence establishes the sharp rate-dependent pair of all-leaf exponents.",
+        "evidence": [
+          "published-finding corpus id 2026/10/25/1d4b8a70bdd4, indexed abstract"
+        ],
+        "identifier_or_url": "Published mathematical finding, identifier 1d4b8a70bdd4",
+        "material_read": "published-finding corpus title and summary; attempt to open primary GitHub file did not yield content",
+        "method": "Compared precise abstract summary and attempted source fetch",
+        "title": "Convex-order inflation and a sharp branching index for final-size risk in tree SIR epidemics",
+        "trigger": "published-finding corpus closest broad heterogeneity theorem that could dominate generic convex-order claim"
+      },
+      {
+        "assessment": "Variance differences in heterogeneous SIR on trees, no matched switching-contact extreme-event exponents in accessible summary.",
+        "evidence": [
+          "published-finding corpus id 2026/10/13/b769c52b1efb indexed abstract"
+        ],
+        "identifier_or_url": "Published mathematical finding, identifier b769c52b1efb",
+        "material_read": "published-finding corpus title and summary; primary GitHub unavailable",
+        "method": "Compared title, abstract and implications",
+        "title": "Exact outbreak-variance excess and sharp branching extremizers on rooted contact trees",
+        "trigger": "published-finding corpus directly related branching/correlation result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4c7f58ce-fef7-41ee-92ba-c9baf91dce41",
+  "value": {
+    "rationale": "The two infection mechanisms have identical complete one-edge temporal contact laws and equal reproduction mean, yet disagree in two operationally important rare outbreak extremes: the chance of no secondary infection remains positive under shared hub quarantine but vanishes like 1/k with independent link switching, while the chance of infecting every neighbor has a strictly lower power under shared quarantine. The exact nonzero atom and two provably distinct exponents are motivated hub superspreading/tail-risk quantities; they give a sharp boundary on any independently thinned-edge approximation. This is not just a numerical recalculation or unmotivated special slice. Limitations: fixed-rate one-source star SIR and Markovian stationary switching.",
+    "status": "PASS"
+  }
+}
