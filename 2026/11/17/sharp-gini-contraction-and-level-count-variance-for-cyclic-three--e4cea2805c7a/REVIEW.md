@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof supplies a complete chain of quantifiers for every integer \(n\ge3\) and every real signal: pairwise layer cake reduces the linear quotient seminorm to indicators; bistochasticity and the three exact local occupancy levels give a squared level-count variance identity; each side of a cut of size at least two has two boundary sites, yielding sharp deficit \(8/3\). Balanced arcs attain this deficit and maximize the cut denominator. Singleton cuts and the exceptional three- and four-site operators are handled separately. A general checker exhausts binary cuts through sixteen sites and checks nonbinary signals; those computations are corroborative rather than the basis for the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Positive linear averaging admits exact binary-cut norm reduction. For any bistochastic image y in [0,1]^n of a k-cut, layer-cake proves k(n-k)-G(y)=int_0^1(m(t)-k)^2 dt; cyclic three-tap outputs have levels 0,1/3,2/3,1, giving the exact sum of squares for counts d,b,e. For a cut with at least two 1s and two 0s, cyclic boundary counts imply d-k>=2 and e-k<=-2, so deficit >=8/3, with equality for single runs. Singleton deficit is 2. Taking k maximizing k(n-k)=floor(n^2/4) proves gamma_n=1-8/[3 floor(n^2/4)] for n>=4, and n=3 rank-one constant map. n=4 exact complement of antipodal permutation gives all-real 1/3 equality. Two disjoint row supports for n>=6 prove oscillation coefficient 1. The all-n claim depends on the boundary lemma, not the finite enumeration.
 
-The closest research-level primary sources on stochastic contraction are Gaubert and Qu, arXiv:1302.5226 and arXiv:1307.4649. Their displayed norms are Hopf oscillation and the dual total-variation norm of measures, not the unweighted complete-pair Gini seminorm. Yitzhaki's 2003 Gini survey defines and motivates pairwise dispersion without evaluating this three-site averaging operator. A previous directed two-tap cyclic exact coefficient uses a different multiplier and does not imply the present three-level cut deficit. Broader and alternate-phrase literature and mathematical-record searches found no covering formula, but this is not a uniqueness certificate. Residual risk is an older or unindexed discrete rearrangement computation of precisely the same operator norm.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural, uniformly weighted, symmetric nearest-neighbor smoothing operator. The exact all-size stability coefficient and extremizers distinguish its global pairwise dispersion from Dobrushin oscillation from six sites onward. The sharp decay defect is a dimension-sensitive \(n^{-2}\) law with exact coefficient and a local-to-global squared level-count mechanism. The result is an explicit structural finite-dimensional stability fact, not a routine normalization or an arbitrary isolated number. It does not claim a full multiparameter filter classification.
+The explicit all-cycle-level cardinality variance proof and exact n=3/4/composite-n norm are not covered by prime-only boxcar majorization, though the width-three prime subfamily is exactly its special case. Prior two-tap cyclic sharp norms do not imply the three-level window deficit.
 
-## Limits and provenance
+## value
 
-No inference is drawn from inaccessible source text, and publication priority is provisional. The analytic proof is reproduced in RESULT.md and the exact checker is embedded. An earlier 2003 publication has no verified day-level public posting date, so the supplied dated arXiv lead is dated 2013-02-21 without assigning an invented day to the older paper. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives an all-size exact global dispersion contraction law for a natural local filter, norming cut geometry, and a quantifiable separation from oscillation mixing. The extension to composite cycles is substantive because the prime rearrangement lemma does not apply there.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

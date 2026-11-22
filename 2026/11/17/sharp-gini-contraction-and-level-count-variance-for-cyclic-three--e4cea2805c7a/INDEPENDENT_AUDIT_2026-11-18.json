@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:00:27.432305Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive linear averaging admits exact binary-cut norm reduction. For any bistochastic image y in [0,1]^n of a k-cut, layer-cake proves k(n-k)-G(y)=int_0^1(m(t)-k)^2 dt; cyclic three-tap outputs have levels 0,1/3,2/3,1, giving the exact sum of squares for counts d,b,e. For a cut with at least two 1s and two 0s, cyclic boundary counts imply d-k>=2 and e-k<=-2, so deficit >=8/3, with equality for single runs. Singleton deficit is 2. Taking k maximizing k(n-k)=floor(n^2/4) proves gamma_n=1-8/[3 floor(n^2/4)] for n>=4, and n=3 rank-one constant map. n=4 exact complement of antipodal permutation gives all-real 1/3 equality. Two disjoint row supports for n>=6 prove oscillation coefficient 1. The all-n claim depends on the boundary lemma, not the finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8",
+          "Resultary:2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6",
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas"
+        ],
+        "reasoning": "General prime boxcar covers width 3 only for odd prime orders; the lack of composite coverage is decisive. Two-tap operator formula does not extend by semigroup factorization with nonnegative real weights to 1+z+z². Dobrushin oscillation coefficient can be 1 where Gini strictly contracts.",
+        "searches": [
+          "cyclic three point averaging Gini complete pair variation exact sharp norm",
+          "uniform cyclic three tap Gini contraction formula for arbitrary odd/composite cycle lengths compared prime boxcar"
+        ]
+      },
+      "checked_sources": [
+        "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+        "Yitzhaki, Gini Mean Difference: A Superior Measure of Variability for Non-Normal Distributions, Metron 61 (2003), 285–316 (bibliographic/secondary context only)",
+        "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8",
+        "Resultary:2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+          "Cyclic prime boxcar width 3 and two-tap expressions from published mathematical index"
+        ],
+        "reasoning": "The actual theorem includes all composite cycle orders, all n>=3, explicit exact cut-level deficit, equality geometry and oscillation separation. Prime-only theorem does not imply composite values; the old Dobrushin norm lacks the metric. Same-day publication order of overlapping prime part is unverified, and neither is assumed to predate the other.",
+        "searches": [
+          "cyclic three point averaging Gini complete pair variation exact sharp norm",
+          "uniform cyclic three tap Gini contraction formula for arbitrary odd/composite cycle lengths compared prime boxcar"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8",
+          "For odd prime n and m=3, the boxcar B_{n,3} is a shifted copy of P_n and gives identical constant 1-8/(3Q)"
+        ],
+        "reasoning": "The prime boxcar theorem is logically equivalent to this result on odd primes at width three, but says nothing about composite n and n=4. The present cut-deficit proof covers all n>=3.",
+        "searches": [
+          "cyclic three point averaging Gini complete pair variation exact sharp norm",
+          "uniform cyclic three tap Gini contraction formula for arbitrary odd/composite cycle lengths compared prime boxcar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-and-level-count-variance-for-cyclic-three--e4cea2805c7a",
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8"
+        ],
+        "reasoning": "The target record itself does not count as prior. The independently published prime boxcar formula contains only the odd-prime slice; no searched table covers n divisible by 2 or 3 and the n=4 equality classification.",
+        "searches": [
+          "cyclic three point averaging Gini complete pair variation exact sharp norm",
+          "uniform cyclic three tap Gini contraction formula for arbitrary odd/composite cycle lengths compared prime boxcar"
+        ]
+      },
+      "rationale": "The explicit all-cycle-level cardinality variance proof and exact n=3/4/composite-n norm are not covered by prime-only boxcar majorization, though the width-three prime subfamily is exactly its special case. Prior two-tap cyclic sharp norms do not imply the three-level window deficit.",
+      "residual_risks": [
+        "Prime-n,m=3 formula is already contained in the separately published boxcar claim; originality applies to the composite/all-order and level-variance theorem, not to its prime-only specialization",
+        "Unindexed independent three-tap Gini norm derivations might exist under Schur-convex smoothing terminology",
+        "Exact finite cut enumeration through n=13 confirms only a bounded domain"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_SEMINORM_NOT_COVERING",
+          "evidence": [
+            "The Dobrushin/Hopf oscillation norm is max-min, and dual TV acts on probability measures; neither equals unweighted complete-pair Gini on signal coordinates",
+            "Positive stochastic kernels can be oscillation-contracting but amplify Gini"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649",
+          "material_read": "Introduction and main operator contraction formulas for Hopf oscillation and dual total variation",
+          "method": "Accessible primary author PDF text, relevant theorem passages, page-image inspected",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones",
+          "trigger": "Potential stronger sharp contraction theorem for positive averaging operators"
+        },
+        {
+          "assessment": "SUPPORTS_LEMMA_NOT_EXACT_GINI_OPTIMIZATION",
+          "evidence": [
+            "Lemma 6.3 gives majorization of set-convolution by rearranged intervals in prime cyclic groups",
+            "It does not optimize complete-pair Gini norm across cut sizes and widths"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1710.00812v4",
+          "material_read": "Lemma 6.3 and surrounding Sections 6.2–6.3 with parity-compatible interval rearrangements",
+          "method": "Lawful open-access full-text mathematical sections and PDF lemma page image",
+          "title": "Entropy Inequalities for Sums in Prime Cyclic Groups",
+          "trigger": "Critical nonstandard Lev rearrangement lemma required for every prime boxcar width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an all-size exact global dispersion contraction law for a natural local filter, norming cut geometry, and a quantifiable separation from oscillation mixing. The extension to composite cycles is substantive because the prime rearrangement lemma does not apply there.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform symmetric three sites only, simultaneous step",
+    "Contraction of complete-pair Gini, not generally max-min oscillation",
+    "Claimed equality uniqueness concerns norming binary cuts, not a proved full classification of all real maximizers for n>=5"
+  ],
+  "schema_version": 1
+}
