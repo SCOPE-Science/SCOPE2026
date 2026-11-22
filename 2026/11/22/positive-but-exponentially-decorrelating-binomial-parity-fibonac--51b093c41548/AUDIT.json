@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Theorem 5 and Theorem 6 of arXiv:2309.04012v1 give the two exact Fibonacci run-length formulas. The weighted binary-word prefix decomposition yields H(z)=A(z)/(1-zA(z)); the five weight series have rational denominators verified directly by the Fibonacci recurrence. Independent digit-parity enumeration agrees on the first 1200 indices and all five full dyadic moment series through length fourteen. Fibonacci addition identities establish coordinate monotonicity, an induction proves positive association, and a strict conditional covariance occurs whenever the binary length is at least two. The three cubic characteristic polynomials have three disjoint rational root intervals each, proving dominance. Rational bounds prove the mixed spectral root exceeds the mean-product scale but lies below the geometric mean of the two square-moment roots. Residue coefficients are nonzero and positive, implying the exact exponential Pearson decay. Finite tests are support, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rampersad-Wiebe Section 3 constructs linear representations for all run-length transforms of recurrences, a method capable in principle of tensor-product moments.",
+        "Zhang-Grossman (2018) studies powers of second-order linear recurrence sequences (journal PDF, introduction and first theorem), not the random index joint dependence.",
+        "Closest published mathematical-record hit on companion binomial transforms concerns different fourth-order sequences and parity support, not the two Fibonacci binomial sums."
+      ],
+      "reasoning": "The general transfer-matrix and recurrence-power techniques can compute components of the answer but do not state the specific positive-yet-exponentially-decaying Pearson correlation. Such implicit derivability is the largest residual priority risk; the asserted result is the spectral comparison, not merely rationality.",
+      "searches": [
+        "mathematical-record search: second moment variance Fibonacci run length transform sum of squares 2^n",
+        "mathematical-record search: Rampersad Wiebe Theorem 5 Theorem 6 covariance correlation two binomial parity sums",
+        "published-web search: \"run length transform\" \"joint\" \"moments\" Fibonacci",
+        "published-web search: \"run length transform\" \"correlation\" \"Fibonacci\" binomial",
+        "published-web search: \"Recurrence relations and generating functions\" Yifan Zhang Grossman 2018 products finitely many second order recurrence sequences arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.04012v1 relevant primary HTML sections",
+      "https://oeis.org/A030186 full sequence entry",
+      "Zhang-Grossman JIS 2018 primary PDF, opening and Section 2",
+      "Published mathematical-record title/summary for fourth-order companion parity support"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rampersad-Wiebe Theorems 5/6 imply individual run transforms and Section 6 gives individual averages.",
+        "The source theorem for arbitrary two-regular run transforms and the published OEIS square moment provide tools but no explicit cross-moment root comparison.",
+        "The current theorem isolates mixed root 3.490863..., marginal roots 3.214319... and 3.895106..., proving 3.490863... < sqrt(3.214319...*3.895106...)."
+      ],
+      "reasoning": "Individual means and marginals do not logically determine a mixed moment, although general transfer machinery could yield it. The new claim explicitly proves a strict asymptotic decorrelation between the published companion sums, while the published marginal results are clearly credited.",
+      "searches": [
+        "mathematical-record search: cross product run length transforms Fibonacci and truncated Fibonacci asymptotic decorrelation",
+        "published-web search: \"Sums of products of binomial coefficients mod 2 and 2-regular sequences\"",
+        "published-web search: \"A Combinatorial Proof for the Generating Function of Powers of a Second-Order Recurrence Sequence\" Zhang Grossman 2018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2309.04012v1, Theorems 5-6: both run-length transforms are published separately.",
+        "Exact mixed coefficient sequence from this proof begins 1,3,11,38,133,464,1620; no matching retrieved OEIS entry."
+      ],
+      "reasoning": "The run weights of the two binomial sums are consecutive Fibonacci indices on each binary one-run, so the mixed moment is exactly their product-weight run transform. Individual transforms are not equivalent to this joint statistic. The joint rational series and spectral inequality were not found under these aliases.",
+      "searches": [
+        "mathematical-record search: Fibonacci run-length transform and shifted Fibonacci run-length transform mixed moment covariance binomial parity sums",
+        "mathematical-record search: dyadic joint moment 1/(1-3z-2z^2+z^3) Fibonacci shifted products",
+        "published-web search: \"Fibonacci\" \"truncated Fibonacci\" \"covariance\" run length transform",
+        "published-web search: site:oeis.org \"1, 3, 11, 38, 133, 464\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A030186 exactly equals the first squared-moment coefficient series and lists its rational generating function (1-z)/(1-3z-z^2+z^3).",
+        "OEIS entries returned for other searches had different sequences or generating functions; no matching mixed coefficient table was found."
+      ],
+      "reasoning": "The first marginal square moment is known; it is excluded from novelty. The mixed moment and its Pearson correlation do not follow from the A030186 numerical table alone because they also depend on the second marginal and the cross-product.",
+      "searches": [
+        "published-web search: \"1, 2, 7, 22, 71, 228, 733\" fibonacci run length",
+        "published-web search: \"1, 3, 11, 38, 133, 464, 1620\" Fibonacci",
+        "published-web search: site:oeis.org \"1,3,11,38,133,464\"",
+        "published-web search: \"1-3x-2x^2+x^3\" sequence OEIS"
+      ]
+    },
+    "rationale": "The closely relevant 2023 primary paper explicitly proves the two marginal run-length representations and marginal means, but its inspected Theorems 4-6 and Section 6 do not give the mixed dyadic moment or positive-but-asymptotically-zero correlation. OEIS A030186 already records the squared marginal recurrence, which is deliberately not asserted as novel. The 2018 Zhang-Grossman paper gives formulas for powers of recurrence sequences, not dyadic binomial-sum dependence. Search of published mathematical findings and sequence/database aliases did not locate a dominating explicit comparison. An implicit equivalent in a general tensor-matrix framework remains a non-negligible risk, not a novelty certificate.",
+    "residual_risks": [
+      "General tensor products of the published 2-regular representations might have an unindexed explicit formula equivalent to the new joint moment.",
+      "The closest fourth-order binomial-transform publication was not inspectable in full, though its announced objects differ.",
+      "An independent external scientific audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS separate run-length identities and first moments, does not in inspected sections state exact mixed joint moment or Pearson decay",
+        "evidence": "Theorems 5,6 identify shifted Fibonacci weights; Section 6 constructs marginal mean matrix powers.",
+        "identifier_or_url": "https://arxiv.org/html/2309.04012",
+        "material_read": "HTML introduction, Section 3 Theorem 4, Section 4 Theorems 5-6, Section 6 averaging, and opening of Section 7",
+        "method": "Primary open-access full-text HTML read in the research session",
+        "title": "Sums of products of binomial coefficients mod 2 and 2-regular sequences",
+        "trigger": "Exact source defining both binomial-parity sums and run transforms"
+      },
+      {
+        "assessment": "COVERS coefficient sequence and rational generating function of the first marginal second moment; this component is prior knowledge",
+        "evidence": "The listed coefficients 1,2,7,22,71 and denominator 1-3z-z^2+z^3 agree exactly.",
+        "identifier_or_url": "https://oeis.org/A030186",
+        "material_read": "Complete displayed OEIS entry including comments, formulas, links and references",
+        "method": "Primary database HTML entry",
+        "title": "OEIS A030186",
+        "trigger": "Exact match to computed first squared-moment coefficients"
+      },
+      {
+        "assessment": "COVERS generating functions for powers of single recurrence sequences; does not state this pairwise dyadic binomial-sum correlation in inspected material",
+        "evidence": "The declared objects are powers of one second-order recurrence and tilings, not joint run-length transforms.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Zhang/zhang44.pdf",
+        "material_read": "Full-text PDF title/abstract, introductory prior-work comparison, Section 2 definitions and tiling construction; page images 1 and 4 verified",
+        "method": "Primary journal PDF text plus selected page screenshots",
+        "title": "A Combinatorial Proof for the Generating Function of Powers of a Second-Order Recurrence Sequence",
+        "trigger": "General recurrence-power generating functions might dominate part of the method"
+      },
+      {
+        "assessment": "Different fourth-order companion sums and mod-two support; not evidence of coverage for the present Fibonacci mixed moment. Full text remains a residual risk.",
+        "evidence": "Summary states two transforms sharing a fourth-order recurrence and their differing odd support exponents.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-parity-support-separation-for-two-companion-binomial-trans--a83c6be5e82d",
+        "material_read": "Published title and search summary only; direct full-text request inaccessible",
+        "method": "Semantic-index result and attempted direct publication URL",
+        "title": "Sharp parity support separation for two companion binomial transforms",
+        "trigger": "High-ranked published mathematical-record overlap candidate with binomial run-length transforms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "51b093c4-1548-43af-970c-a07ebf5e4537",
+  "value": {
+    "rationale": "The two specific binomial-parity counts are published natural companion transforms with known separate means. Their dependence is therefore a motivated invariant, rather than an arbitrary numerical slice. The new theorem proves that their covariance is strictly positive at every nondegenerate dyadic length while Pearson correlation nevertheless decreases exponentially, and identifies its exact algebraic decay rate from three spectral roots. This sharp finite-to-asymptotic contrast adds structural information not given by the marginal means or a table of one squared-moment sequence.",
+    "status": "PASS"
+  }
+}
