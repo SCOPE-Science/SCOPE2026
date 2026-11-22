@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed point exists by prolongability, and each binary adjacent pair occurs inside the image of 0. The level-three image lengths are exactly 150 and 100; consequently every factor of length at most 25 occurs inside one of four two-block words, which conversely all occur in the infinite fixed point. The standalone exhaustive enumeration checks 23,800 windows and matches an independently hardcoded full palindrome list of 37. Absence of length-24 and length-25 palindromes is sufficient to exclude every longer even and odd palindrome, respectively. Symmetric one-letter extensions of all 37 entries are checked to establish the six center-maximal palindromes. The argument's cutoff is mathematically exhaustive, not a sampled-prefix extrapolation.
+PASS
 
-## Originality — PASS, with bibliographic risk
+The morphism is prolongable on 0, yielding a one-sided fixed point w. Every adjacent binary source pair occurs already inside φ(0)=010011. The true φ³ images have lengths 150 and 100, so each factor of length n≤25 in w=φ³(w) lies within two consecutive φ³-blocks. Conversely every such concatenation φ³(ab) occurs because ab occurs. This proves equality of all length-n factor sets, not sample-based inference. An independent standard-library program enumerated all 23,800 windows of lengths 1..25 in the four words of lengths 300,250,250,200 and recovered the explicit 37 palindromes, their exact lengthwise counts, and absence at lengths 24 and 25. Centered subpalindromes exclude every longer even/odd palindrome. Exactly six catalogue elements lack both 0p0 and 1p1 in the complete language, establishing global center-maximality. A separately constructed six-iterate 18,750-letter prefix gave all the same palindromes (468,450 windows) as a diagnostic, not as the infinite proof.
 
-The 2023 Rigo–Stipulanti–Whiteland conference manuscript defines the **same fixed point**, proves its automaticity and studies abelian complexity, but does not present its palindromic catalogue. Their complete 2024 open article addresses generalized abelian complexity and recognizability, not this invariant. Dvořáková–Ochem–Opočenská study extremal critical exponents among binary words with few palindromes, not the exact language of this fixed point. Frid–Laborde–Peltomäki establish conditional regularity of prefix palindromic length but do not evaluate the present word. Exact-phrase and equivalent-invariant searches of research records and public literature found no statement covering the 37 factors, length-23 cutoff or six maximal factors. This is evidence of novelty, not proof of nonexistence: an unindexed equivalent or a different presentation of the same morphism remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The word is a specifically studied aperiodic 5-automatic example for which abelian complexity was a central motivation, so full symmetry-factor data are mathematically natural rather than an arbitrary finite sample. The result proves a sharp global cutoff and gives the **complete infinite-word palindromic factor language**, not a generic existence lemma or finite prefix count. It makes the finite-palindrome hypothesis of Frid–Laborde–Peltomäki applicable to this particular example. Although this is a single natural fixed point, exact palindromic complexity and center-maximal factors are independently useful structural invariants.
+The exact same binary fixed point was checked against its founding 2023 paper and 2024 extension; these determine automaticity and abelian complexity, not the 37-entry palindrome language, length-23 bound, or six maximal factors. A 2024 primary classification treats critical exponents of words with at most 25 palindromes (including empty), whereas this word has 38 including empty. The 2021 conditional PPL theorem applies only after a finite-palindrome property is supplied. Two recently published Resultary palindrome classifications involve demonstrably different morphisms/words. Specific published coverage was not located. This is a best-of-knowledge judgment, not proof of global bibliographic nonexistence.
 
-## Closest literature and limitations
+## value
 
-The full 2023 conference preprint and the open 2024 research article were inspected for the same word. The 2023 paper establishes aperiodic abelian complexity; the 2024 paper generalizes its automaticity. A primary 2023 article on few-palindrome binary words and the 2020 prefix-palindromic-length article were also compared. The result neither supplies palindrome occurrence densities nor a formula for prefix palindromic length, and is not asserted for arbitrary Parikh-collinear fixed points. Bibliographic search cannot establish uniqueness, and independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed point was independently introduced as a notable aperiodic 5-automatic Parikh-collinear example in Rigo–Stipulanti–Whiteland 2023. Palindromic complexity, sharp maximum-palindrome length and global center-maximal factors are natural structural invariants of that particular studied word, distinct from its previously known abelian-complexity function. The exact 37-word global classification is not an arbitrary finite slice: an all-factor cover and two forbidden central lengths establish a complete infinite-language invariant. This supplies the nontrivial finite-palindrome hypothesis required to apply the Frid–Laborde–Peltomäki PPL regularity theorem to this instance. Even without computing the full PPL function or a universal classification, the exact independently useful data pass the standard for a motivated natural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
