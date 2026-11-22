@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:08:33.715791Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real cyclic signals with p prime=1(mod4), the difference D maps signals modulo constants isomorphically to H={u:sum u=0}, and the H unit l1 ball is convex hull of (e_i-e_j)/2, so the sharp TV norm of translation-invariant projection is half the maximal l1 norm of difference between shifted convolution kernels. Classical quadratic Gauss sum gives K(0)=(p-1)/(2p), K(x)=(-1+sqrt(p)chi(x))/(2p) otherwise; Legendre autocorrelation sum_x chi(x)chi(x-d)=-1 yields kernel-difference l1=1+(p-1-2chi(d))/(2sqrt(p)), maximized on quadratic nonresidue arc jumps. The exact norm is 1/2+(p+1)/(4sqrt(p)). A small arc perturbation h and real Fourier basepoint with coefficients 2lambda aligned on residues give the EXACT nonlinear difference S_lambda(b+h)-S_lambda(b)=P_R h+mean(h)1 and hence an attained sharp lower witness for BV Lipschitz. Coordinatewise radial proximal nonexpansivity, Fourier commutation with D and Parseval give upper sqrt(p), not an asserted exact nonlinear constant. Independently recomputed kernel shifts for p=5,13,17,29,37 and all nonzero d, agreeing with nonresidue maxima and formula; these finite p calculations corroborate the all-prime arithmetic proof. RESULT.md blob 01455c13a36c9c6d3db7058276367b555267a722 and artifacts/verify_paley.py blob 4b6e43ffe76310efa476513a1bd7192e4472e40a read.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete-square prime-power Fourier-algebra theorem computes the FULL-space l1/l-infinity norm of all square residues including zero, distinct from nonzero residue mask restricted to zero-sum derivatives.",
+          "Sharp harmonic projection constants on finite metric cycles use maximum-edge Lipschitz norm with one real harmonic pair, not edge-sum TV Paley half-spectrum.",
+          "DCT-II square-root TV soft thresholding has a different Fourier boundary and active coefficient set; it does not determine this prime cyclic Legendre constant."
+        ],
+        "reasoning": "Shared square-root growth or harmonic terminology is insufficient: the normed space, selected frequency set and exact extremizers differ.",
+        "searches": [
+          "Resultary: Paley quadratic residue Fourier multiplier norm bounded variation sum differences zero-sum prime quadratic residue projection",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-harmonic-projection-constants-on-finite-metric-cycles--616f4adc601f/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-square-root-variation-instability-of-discrete-cosine-soft-thresh--5000fe7c11db/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-harmonic-projection-constants-on-finite-metric-cycles--616f4adc601f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-square-root-variation-instability-of-discrete-cosine-soft-thresh--5000fe7c11db/RESULT.md",
+        "https://arxiv.org/abs/1407.5339",
+        "https://arxiv.org/abs/1304.0035",
+        "https://doi.org/10.4171/RMI/345"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier full-space convolution norms determine sum |K|, whereas zero-sum TV norm is half max sum|K(x)-K(x-d)| and explicitly depends on chi(d).",
+          "Poon studies TV minimization for recovery from undersampled Fourier data, not forward Paley projection seminorm.",
+          "Chen and Selesnick study transformed group shrinkage; no published statement there gives this precise two-input real Paley active-mask lower witness."
+        ],
+        "reasoning": "An exact formula with a different norm/frequency mask does not imply the new one by parameter substitution; the nonlinear witness uses the exact low-dimensional active coefficient geometry.",
+        "searches": [
+          "Resultary: Paley quadratic residue Fourier multiplier norm bounded variation sum differences zero-sum prime quadratic residue projection",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-harmonic-projection-constants-on-finite-metric-cycles--616f4adc601f/RESULT.md",
+          "arxiv:1407.5339",
+          "arxiv:1304.0035"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "TV norm is precisely induced l1 norm of the Paley convolution restricted to zero-sum discrete derivatives, equivalent to one-half maximum pairwise shift distance of its kernel.",
+          "Classical quadratic Gauss sums describe K but do not alone supply which shift maximizes the restricted zero-sum norm and the active-mask nonlinear witness."
+        ],
+        "reasoning": "The zero-mean restriction is essential: replacing it by full l1 convolution norm would change the problem and invalidate a direct implication from conventional Fourier algebra norms.",
+        "searches": [
+          "Resultary: Paley quadratic residue Fourier multiplier norm bounded variation sum differences zero-sum prime quadratic residue projection",
+          "Resultary: Paley quadratic residue spectral Fourier projection total variation sharp norm nonlinear radial shrinkage",
+          "Legendre quadratic character Paley projection l1 operator norm cyclic BV graph total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby indexed Paley results concern quartic moments, localization or full-space endpoint norms, not the exact nonresidue difference-kernel TV norm 1/2+(p+1)/(4sqrt(p)).",
+          "Independent p=5,13,17,29,37 exhaustive shift checks reproduced the formula but are not evidence of historical uniqueness."
+        ],
+        "reasoning": "No known exact TV table in inspected indexed results; unindexed cyclic convolution coefficient tables are a meaningful residual risk.",
+        "searches": [
+          "Resultary: Paley quadratic residue Fourier multiplier norm bounded variation sum differences zero-sum prime quadratic residue projection",
+          "Resultary: quadratic residue Fourier idempotent zero-sum l1 shift norm",
+          "Resultary: exact Fourier algebra norm complete square set odd prime power cyclic"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact zero-sum derivative l1/TV Paley half-frequency projection constant with extremal arcs and its explicit nonlinear radial soft-threshold witness, not the old full-space Fourier algebra norms or generic Fourier TV recovery.",
+      "residual_risks": [
+        "Unindexed Paley idempotent BV or cyclotomic kernel-distance identity may reproduce the same constant.",
+        "Nonlinear theorem only bounds its global Lipschitz constant between an attained lower witness and sqrt(p); no exact value is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_BANACH_NORM",
+          "evidence": [
+            "Full-space A(G) norm includes zero-frequency and is not restricted to H=zero-sum gradients."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08/RESULT.md",
+          "material_read": "Indexed research theorem, exact full-space l1/l-infinity multiplier description and its zero-frequency convention",
+          "method": "Resultary ranked semantic output and source comparison",
+          "title": "Exact Fourier-algebra norm of the complete square set on odd prime-power cyclic groups",
+          "trigger": "Closest arithmetic Fourier idempotent norm comparison"
+        },
+        {
+          "assessment": "DISTINCT_TRANSFORM",
+          "evidence": [
+            "DCT-II transform has different selected modes and boundaries, so the Paley exact prime formula is not implied."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-square-root-variation-instability-of-discrete-cosine-soft-thresh--5000fe7c11db/RESULT.md",
+          "material_read": "Published research theorem summary with square-root growth and DCT-II spectral derivative projection",
+          "method": "Resultary semantic index and comparative mathematical reasoning",
+          "title": "Square-root variation instability of discrete-cosine soft thresholding",
+          "trigger": "Similar nonlinear instability of Fourier-like shrinkage"
+        },
+        {
+          "assessment": "DIFFERENT_PROBLEM_AS_STATED",
+          "evidence": [
+            "Primary topic is optimization-based signal recovery from partial Fourier samples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.5339",
+          "material_read": "Abstract, definitions and bibliographic comparison only; no full-document non-coverage assertion",
+          "method": "ArXiv bibliographic and assigned package comparison",
+          "title": "On the role of total variation in compressed sensing",
+          "trigger": "Potential broad TV/Fourier prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp induced BV variation of a natural quadratic-residue spectral projector is a meaningful exact arithmetic operator invariant; Legendre nonresidue arcs classify all sharp jump lengths. Its exact active-mask construction gives a concrete, dimension-growing nonlinear two-input BV instability despite Euclidean nonexpansiveness, useful when interpreting cyclic spectral denoising. The value lies in the extremal zero-sum variation calculation and constructive nonlinear consequence, not in rederiving a Gauss sum alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-harmonic-projection-constants-on-finite-metric-cycles--616f4adc601f/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-square-root-variation-instability-of-discrete-cosine-soft-thresh--5000fe7c11db/RESULT.md",
+    "https://arxiv.org/abs/1407.5339",
+    "https://arxiv.org/abs/1304.0035",
+    "https://doi.org/10.4171/RMI/345"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Prime p≡1 mod4, p>=5; real signals and unweighted cyclic sum-edge TV only.",
+    "Nonlinear sharpness means attained explicit lower witness, not exact whole Lipschitz coefficient."
+  ],
+  "schema_version": 1
+}
