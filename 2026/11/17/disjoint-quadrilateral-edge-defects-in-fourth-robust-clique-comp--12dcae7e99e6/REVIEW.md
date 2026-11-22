@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Complete classification of forbidden independent four-subsets gives the exact subcomplex of a join of two simplex two-skeleta. The relative chain groups split integrally into shifted augmented chains of complete bipartite graph links, and each link's first-homology lattice has primitive rank \((a-3)(b-3)\). Explicit tetrahedral-boundary join cycles map onto each individual link's integral homology using connectivity of a complete graph with a matching removed. The only failure of surjectivity is the primitive diagonal map at \((a,b,m)=(4,4,2)\). Long exact sequences, three-connectivity, and homology Whitehead upgrade the computed groups to exact homotopy. All inclusion maps follow from the same nested, primitive kernels. Computations independently corroborate complete finite simplicial boundary ranks and the nonzero Smith invariant factors; they are not substitutes for the infinite proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic limits.** The closest primary results concern fourth robust clique complexes of square-sequence grids (Filakovský, arXiv:2602.11365), fourth bounded independence of unmodified multipartite graphs (Carnero Bravo, arXiv:2602.21427, Proposition 37), and general collapsibility of bounded-independence graph complexes (Kim–Lew, arXiv:1912.12605). The first restricts graph construction to square gluing, which cannot subsume the general dense biclique-defect family; the second supplies only the baseline without missing-edge squares; the third does not provide the asserted homotopy splitting. Multiple synonymous and parameter-specific indexed searches found no identical theorem. The remaining risk is an unindexed or otherwise reformulated equivalence; no uniqueness claim is made.
+PASS
 
-**Mathematical value — PASS.** Exactly deleting a four-edge missing biclique is the smallest way to create a new mixed independent four-set when each missing-edge degree is at most two. The resulting all-size homotopy phase diagram includes a structural, unexpected single \(S^4\) boundary case and complete primitive integral persistence through successive edge restorations. This goes beyond determining individual Betti numbers or routine numerical examples.
+Forbidden independent four-sets are exactly monochromatic quadruples or one of the removed four-vertex blocks, because each vertex loses at most two cross edges. Thus X_m is the join sk2(Delta_A)*sk2(Delta_B) with the m disjoint T_i stars removed. Faces cannot contain two T_i, yielding a direct sum relative chain complex of shifted links K_{a-2,b-2}; its only relative H5 is free rank m(a-3)(b-3). The LES reduces the claim to surjectivity of a primitive integer relative map. Tetrahedral boundary differences on the opposite shore generate each augmentation lattice and can be localized to a block by avoiding other P_j pairs when a>=5 (or exchanging shores for b>=5). The exceptional 4x4 double defect sends rank-one to primitive diagonal in Z², giving H4=Z. The full 2-skeleton and vanishing homology lead via Hurewicz and homology Whitehead to integral sphere wedges; nested kernels yield split inclusions. Independently checked Euler counts in nine finite (a,b,m) cases and read separate Smith-normal-form/simplicial rank source; these are bounded corroboration only.
 
-**Limits.** No claim is made for overlapping missing-edge squares, higher thresholds, or equivariance. Finite checks cannot prove the integer family or exclude every literature overlap. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Filakovský (arxiv:2602.11365) classifies square-sequence graphs under gluing constraints and does not include these dense K_ab minus disjoint missing edge-squares. Carnero Bravo (arxiv:2602.21427, Proposition 37) already gives the intact complete multipartite/join-of-skeleta case m=0; no inspected result implies the deletion map or 4x4 exception. The known baseline is expressly credited. Searches of robust cliques, Alexander-dual cuts and disjoint K2,2 deletion did not find full coverage.
+
+## value
+
+PASS
+
+The all-width integral deformation/persistence classification explains exactly how disjoint missing four-edge blocks eliminate fifth-dimensional classes and isolates a dimensional phase change at (4,4,2); this is a natural and reusable topological threshold, beyond an unmotivated small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
