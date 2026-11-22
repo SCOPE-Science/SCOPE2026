@@ -1,0 +1,17 @@
+# Self-review
+
+## Correctness
+**PASS.** The result is a universal theorem on real parameters \(A>0\), \(\omega>0\), \(z_0\in\mathbb R\), \(h\ge0\), and \(0\le\phi\le\pi\). The proof establishes the pointwise feasibility condition, proves a sharp pairwise necessary-and-sufficient Lipschitz criterion with an explicit periodic selection, evaluates the full circular-time supremum including both orientations, and proves uniqueness of the scalar root. Its boundary cases and the asymptotic exponents follow from Taylor expansions with the stated nondegeneracy conditions. The accompanying standard-library checker passed 4,541 supplementary assertions; these are not an infinite proof.
+
+## Originality
+**PASS with specified historical-priority limits.** The 2024 ecological sources provide empirical thermal and dissolved-oxygen constraints, not the full-speed-constrained equal-amplitude sinusoidal interval theorem in the inspected material. The 2023 refuge review addresses thermal variability, lags and fish movements but not this exact viability-speed frontier. The 2020 general Lipschitz-selection literature covers broader mathematical existence questions, including minimal selection Lipschitz constants as a general subject, but no inspected passage supplies the phase-specific unique-root evaluation or its distinct near-feasibility exponents. The distinction is the *evaluated natural invariant*, not a new general selection theorem. See the structured originality comparisons in AUDIT.json.
+
+A directly relevant 2024 empirical paper was available in abstract form but its full text was not accessible; a 2026 paper investigating asynchronous temperature and hypoxia was also available only in abstract. Their mathematical implications have therefore not been excluded by full-document inspection. Generic one-dimensional interval-selection techniques are an especially important possible route to historical equivalence; independently checking older viability and reachability theory remains prudent. No claim of exhaustive global priority is made.
+
+## Value
+**PASS.** A time-varying interval may be nonempty at each time yet dynamically unavailable to a speed-limited animal. The theorem supplies (i) an instantaneous feasibility boundary, (ii) an exact all-day minimum speed for a biologically motivated depth-window model, (iii) a constructive feasible trajectory, and (iv) a nontrivial change from exponent \(2/3\) to \(1/2\) at lag onset. These are quantitatively distinct questions that can motivate observational resolution and model refinement. The result requires no downstream theorem to be useful as a complete benchmark, but the symmetric sinusoids and ideal speed cap are uncalibrated simplifications.
+
+## Limitations and closest literature
+Moravek et al. (2024), DOI:10.1111/rec.14110, is the first dated motivating public source (2024-02-08); Barrett et al. (2024), DOI:10.1111/fwb.14294, is the closest temperature–oxygen context. Mejia et al. (2023), DOI:10.1111/gcb.16844, is a broad biological review. Shvartsman (2020), arXiv:2010.04540, supplies general Lipschitz-selection background. Barrett et al. (2026), DOI:10.1002/lno.70536, is close in motivation but not established to contain the speed theorem. No field calibration, robust-noise analysis, movement energetics, unequal-amplitude result, or independent audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
