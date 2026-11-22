@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the exact 16-arc graph and admissible subsets. A complete, runnable 260-face certificate verifies the 116-pair acyclic matching (704 directed incidences), its 28 critical cells, and all entries of the signed integral Morse differential. The cellular CW and Hurewicz argument proves the integral wedge, not just mod-two homology. A second exact chain-level computation on the original face complex establishes all eight rational group-action traces and dihedral irreducible multiplicities. The mod-two boundary ranks are an additional consistency check.
+## correctness
 
-**Originality — PASS, with the stated residual risk.** The checked 2026 primary full-text sources cover bidirected paths/polygons, directed linear forests with acyclicity or forest/cycle hypotheses, but not the bidirected five-vertex wheel. The indexed wheel **discrete Morse complex** is a different construction; indexed multipath work on double stars is a different digraph. The present joint homotopy-and-dihedral-character statement is not implied by those results or by the earlier path/cycle calculations. No equivalent theorem surfaced in alias and exact-parameter searches; this is not proof of absolute uniqueness.
+PASS
 
-**Value — PASS.** The wheel is the smallest non-complete cone over a simple cycle, a symmetric first test of the multipath construction beyond paths, polygons and forest-like arrangements. Its degree-two and degree-three homotopy coexist, while the top representation is exactly regular and the lower representation contains three distinct invariant generators. Exact integral attaching maps and the complete group character provide structural information missing from Betti-number-only calculations. The natural next question is whether analogous features persist for longer wheel rims.
+The fully bidirected wheel with four rim vertices has 16 ordered arcs. An arc subset is a multipath precisely if indegree/outdegree<=1 and there are no directed cycles. Independent exhaustive 2^16 mask traversal found 260 nonempty faces with f=(16,76,120,48), complete face Hasse graph with 704 covers, exactly 116 deterministic Morse pairs, acyclicity of all 260 nodes after reversing matched covers, and unmatched cells one 0-cell, 19 two-cells and 8 three-cells. Independent signed integer Morse reduction gives the full 19x8 differential identically zero; Hurewicz for the wedge of S2 makes all 3-cell attachments nullhomotopic, proving integral wedge ^19 S2 and ^8 S3. Independently built rational 120x48 third-boundary matrix of rank 40 and signed D4 arc action; the H3 character on 5 class types is (8,0,0,0,0), hence regular, and reduced Lefschetz formula yields H2=(19,3,-1,1,1), decomposing 3A1+2A2+3B1+3B2+4E. These are exhaustive exact finite checks of this graph, not extrapolated family claims.
 
-**Closest literature and limits.** Caputi–Collari–Smith, arXiv:2601.05670 (complete accessible HTML, Sections 1–3); Deshpande–Sawant, arXiv:2602.14936 (accessible complete HTML rendering, focus on definitions and classification hypotheses); public indexed wheel-Morse and double-star-multipath records, distinguished by the mathematical constructions. This computation is confined to the five-vertex wheel; independent external validation and exhaustive coverage of unpublished sources are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published earlier wheel mod-two census already gives this same W5 Betti numbers 19 and 8, and **those ranks alone are not new**. It explicitly does not determine integral homotopy type, torsion, or dihedral action. The present exact acyclic integer Morse differential establishes a mixed wedge (not implied solely by F2 Betti ranks) and complete new D4 rational characters. Caputi–Collari–Smith 2026 Theorem 2.10 addresses pure bidirected polygons, no hub; other fan and alternate-spoke wheel computations do not imply this fully bidirected W5 group action. Best-of-knowledge PASS for surviving integral homotopy plus representation.
+
+## value
+
+PASS
+
+A small fully bidirected wheel is a natural first cyclic hub extension of known polygon multipath complexes, where torsion and attaching maps cannot be decided from mod-two Betti counts. Exact integral mixed-dimensional homotopy together with automorphism-character resolution is a meaningful complete finite classification and useful benchmark for higher wheel families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
