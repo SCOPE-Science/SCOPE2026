@@ -1,0 +1,17 @@
+# Scientific review: arithmetic spherical Fourier-energy floors
+
+## Correctness — PASS
+The Fourier transform of a translated ball has the stated exact Bessel form. Expanding the squared transform separates self-terms from angular cross-terms; the latter are smaller by a fixed power because the centers are separated and \(d\ge2\). Fixed-order Bessel asymptotics give the all-real-frequency uniform remainder in (1), including where leading cosines vanish. The closure of a continuous torus orbit is characterized exactly by its integer annihilator; intersecting it with the finite product of cosine-zero classes proves the quantified condition (2). For two balls, the relation lattice is rank one and the two parity choices yield (3). Direct differentiation and comparison of the two critical-point magnitudes prove the sharp constant (5). No finite calculation is used as proof of a universal or limiting statement.
+
+## Originality — PASS relative to inspected sources
+Iosevich–Merlo–Mourgoglou (2026, arXiv:2611.04426) prove generic upper decay and observe ball Fourier zeros, but do not classify eventual all-radius positive lower envelopes for unions of disjoint balls. Brandolini–Hofmann–Iosevich (2003, arXiv:math/0303188) and Iosevich–Rudnev (2005) address upper exponents and worst-case energy classes, respectively, without the present geometric/arithmetic equivalence. The published two-ball intensity Hessian theorem determines low-frequency geometry, while the rectangle resonance-floor theorem concerns edge singularities and a different Fourier-decay scaling. The rationally separated Bessel zero theorem concerns exact zeros of different spherical-harmonic multipliers, not uniform asymptotic lower envelopes. No inspected theorem implies the stated condition \(4\nmid(p-q)(d+3)\) or its finite-family relation-lattice extension.
+
+The comparison remains limited by possible older unindexed diffraction/asymptotic literature and by the absence of an exhaustive bibliographic database. This is a relative, not absolute, priority determination.
+
+## Mathematical value — PASS
+The natural geometric model is the first nontrivial disconnected smooth-ball family for the spherical-average decay problem. The finding answers a qualitative question that generic upper bounds cannot settle: precisely when does *every sufficiently large frequency sphere* carry a quantitatively nonvanishing amount of Fourier energy? The answer is a sharp arithmetic criterion, independent of separation distance, with genuine positive and zero-floor regimes. The explicit \(1{:}2\) planar sharp coefficient and the all-finite-family torus characterization show a substantive structural phase distinction rather than a numerical example or a known-table recomputation.
+
+## Boundaries and verification
+The result is for disjoint fixed balls in \(d\ge2\), angular Haar probability and all positive real frequency radii. It does not extend to dimension one or arbitrary smooth shapes. The supplied standard-Python checker tests the exact congruence over 9,177 finite instances, the explicit planar constant and five elementary three-dimensional spectral identities. Those tests corroborate but do not prove the infinite-dimensional statements; the proof is the Bessel/torus argument in `RESULT.md`. The principal residual risk is an unindexed prior formula for the same arithmetic lower-envelope transition.
+
+Self-review: passed. Independent audit: not yet performed.
