@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:52:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dimensionless reversible Langevin generator L=∂²−V'∂ with V=x⁴/4−ρx²/2 and stationary Gibbs density gives the Poisson-energy formula F=2Z^{-1}∫e^V J². Direct substitution yields J(x)=(√π/2)e^{ρ²/4}erfc((x²−ρ)/2) and a square-integrable corrector. After u=x² the partition function Z=e^Q∫u^{-1/2}exp(−(u−ρ)²/4)du has Gaussian-saddle coefficients a_k=(4k)!/[16^k(2k)!k!], as does the interior barrier integral B=∫_{−√ρ/2}^{√ρ/2}exp(−ρx²/2+x⁴/4)dx under x=√(2/ρ)z. On the barrier J is √π e^Q times a negligible error, and outside it the integrand is exponentially subdominant compared with π e^{2Q}B, so arbitrary fixed-order Laplace expansion makes the two full algebraic series cancel in 2πe^{2Q}B/Z. Therefore F=√2 π exp(ρ²/4)(1+O_N(ρ^{-2N})) for every fixed N, with no stronger uniform-N or exponential-error assertion. Independently derived the two coefficient formulas and verified exact equality for k=0,...,9 using rational arithmetic; high-order finite checks corroborate only the coefficient identity, not the Gaussian tail estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2007 primary gives an exact correlation-time representation and leading high-barrier correction for normalized correlation time. General exact representation makes F computable but does not explicitly state arbitrary-order cancellation or coefficient equality."
+        ],
+        "reasoning": "A complete prior explicit asymptotic expansion would dominate; inspected relevant paper addresses different normalization and finite leading order. This is the main residual priority risk, not automatically independent novelty.",
+        "searches": [
+          "Kalmykov Coffey Titov 2007 high barrier asymptotic and continued fractions",
+          "Weis et al arxiv 2207.11667 critical coefficient",
+          "Resultary quartic pitchfork phase diffusion query"
+        ]
+      },
+      "checked_sources": [
+        "Kalmykov Coffey Titov 2007 primary full text",
+        "Shmakov Littlewood arxiv:2306.09524 primary phase section",
+        "Resultary quartic pitchfork semantic search",
+        "Weis et al arxiv:2207.11667 overview"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known exact integral implies F as an evaluable function, not the new all-order simplification without carrying out both saddle expansions. The audited calculation explicitly proves coefficient-wise identity for all k and controls Gaussian tails."
+        ],
+        "reasoning": "This is a genuine new asymptotic conclusion from a known integral, not novelty of a renamed phase variable or of the leading Kramers factor.",
+        "searches": [
+          "Kalmykov Coffey Titov integral relaxation time 2007 eq 21 and asymptotic eq 23",
+          "Shmakov Littlewood 2023 covariance phase diffusion eq 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Old integrated positional autocorrelation and new phase-variance diffusion rate are equivalent after multiplying by equilibrium variance and applying physical time scaling; prior exact integral thus determines F implicitly."
+        ],
+        "reasoning": "Explicitly compared unnormalized integrated covariance against normalized correlation time and stationary variance, so a nonzero first-order correction to normalized time does not refute all-order cancellation of unnormalized F.",
+        "searches": [
+          "Kalmykov Coffey Titov 2007 Physica A double-well position correlation time eqs 17,21,23",
+          "Shmakov Littlewood arxiv 2306.09524 equations 12,16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ~0.97499 dimensionless critical rate is previously known and credited; the finite reported values and leading Kramers constant do not constitute the all-orders coefficient cancellation."
+        ],
+        "reasoning": "A numerical table of diffusivities cannot certify vanishing of infinitely many formal asymptotic coefficients; only arbitrary-order proof provides that exact invariant.",
+        "searches": [
+          "Resultary semantic search quartic double well phase diffusion all-orders cancellation",
+          "Shmakov Littlewood phase variance scaling 2023",
+          "Kalmykov Coffey Titov analytic tables"
+        ]
+      },
+      "rationale": "The same quartic stationary correlation integral and leading Kramers limit existed in classical Brownian double-well literature, and this is expressly credited. The claim is narrowly the all-orders vanishing of polynomial corrections for the unnormalized integrated position covariance, which the inspected prior first-order normalized correlation-time formulas do not provide; best-of-knowledge originality with a genuine strong implicit-coverage risk.",
+      "residual_risks": [
+        "Unindexed original asymptotics or continued-fraction work might explicitly state the same all-orders unnormalized cancellation.",
+        "The exact integral is known; priority only concerns the proved beyond-all-orders statement, not the integral or leading Arrhenius growth.",
+        "The 2022 Weis paper full text was not inspected, only reported critical/scaling antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_INTEGRAL_NOT_ALL_ORDER_STATEMENT",
+          "evidence": "Eq (21) handles integrated positional relaxation and eq (23) first high-barrier normalized-time correction; not an explicit theorem of all-orders unnormalized cancellation.",
+          "identifier_or_url": "https://www.academia.edu/21180461/On_the_Brownian_motion_in_a_double_well_potential_in_the_overdamped_limit",
+          "material_read": "OCR-accessible full 2007 nine-page article text, including integral relaxation-time discussion and equations (17),(21),(23)",
+          "method": "primary full-text reading in lawful accessible page",
+          "title": "On the Brownian motion in a double-well potential in the overdamped limit",
+          "trigger": "exact same quartic positional correlation, highest-risk source"
+        },
+        {
+          "assessment": "KNOWN_PHASE_SCALING_NOT_ALL_ORDER_STATEMENT",
+          "evidence": "Establishes integrated-phase covariance scaling context and crossover rather than complete asymptotic coefficient identity.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09524",
+          "material_read": "OA HTML relevant phase-covariance sections, eqs (12),(16), scaling discussion",
+          "method": "primary OA text inspection",
+          "title": "Coalescence of limit cycles in the presence of noise",
+          "trigger": "the motivating integrated pitchfork covariance phase diffusion"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_RISK",
+          "evidence": "Critical universal coefficient and qualitative Kramers interpretation, not an inspected all-orders proof.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.11667",
+          "material_read": "abstract and source summary, no full text read",
+          "method": "scholarly overview",
+          "title": "Exceptional points in nonlinear and stochastic dynamics",
+          "trigger": "critical diffusion coefficient and telegraph description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact absence of every inverse-power correction for a natural double-well additive diffusion and its integrated phase is a delicate analytic rigidity statement: two separately nontrivial full saddle series cancel. Knowing this exact asymptotic structure changes high-barrier approximation practice and distinguishes normalized correlation times from physical phase-variance growth. The known integral alone does not make the cancellation a routine textbook deduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric quartic stationary potential, additive noise, unwrapped linear phase and fixed-order asymptotic errors.",
+    "All-orders cancellation does not claim exponentially sharp uniform remainder; priority of previously known exact integral fully credited."
+  ],
+  "schema_version": 1
+}

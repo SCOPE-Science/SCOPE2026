@@ -1,15 +1,21 @@
-# Scientific review: quartic pitchfork phase diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary quartic Langevin diffusion is reversible and confining. Its odd-observable Poisson equation has the explicitly differentiated solution stated in `RESULT.md`; the stationary martingale decomposition yields the variance rate. The identity for the complementary error function is derived by the substitution \(u=y^2\). With \(\lambda>0\), the well partition function and saddle numerator have identical complete Gaussian coefficient sequences \(a_k=(4k)!/(16^k(2k)!k!)\). Uniform tail controls suppress every off-saddle contribution faster than a fixed algebraic power. Therefore the ratio has no inverse-power corrections at any order. Finite rational checks and direct quadrature in the included script corroborate, but do not substitute for, the analytic argument.
+PASS
 
-## Originality — PASS within inspected evidence
+Dimensionless reversible Langevin generator L=∂²−V'∂ with V=x⁴/4−ρx²/2 and stationary Gibbs density gives the Poisson-energy formula F=2Z^{-1}∫e^V J². Direct substitution yields J(x)=(√π/2)e^{ρ²/4}erfc((x²−ρ)/2) and a square-integrable corrector. After u=x² the partition function Z=e^Q∫u^{-1/2}exp(−(u−ρ)²/4)du has Gaussian-saddle coefficients a_k=(4k)!/[16^k(2k)!k!], as does the interior barrier integral B=∫_{−√ρ/2}^{√ρ/2}exp(−ρx²/2+x⁴/4)dx under x=√(2/ρ)z. On the barrier J is √π e^Q times a negligible error, and outside it the integrand is exponentially subdominant compared with π e^{2Q}B, so arbitrary fixed-order Laplace expansion makes the two full algebraic series cancel in 2πe^{2Q}B/Z. Therefore F=√2 π exp(ρ²/4)(1+O_N(ρ^{-2N})) for every fixed N, with no stronger uniform-N or exponential-error assertion. Independently derived the two coefficient formulas and verified exact equality for k=0,...,9 using rational arithmetic; high-order finite checks corroborate only the coefficient identity, not the Gaussian tail estimates.
 
-The 2007 Kalmykov–Coffey–Titov paper already provides the full integral relaxation-time formula for the same quartic potential and its first high-barrier correction; this general formula is explicitly credited. The 2022 Weis et al. paper provides the critical variance constant and telegraph description; the 2023 Shmakov–Littlewood paper provides the phase-coupling model and scaling. The narrowly claimed novelty is the all-orders vanishing of the *unnormalized phase-variance-rate* algebraic corrections, a cancellation not located in the primary presentations or targeted literature and semantic database searches. Because a prior exact integral expression implies the new asymptotic after further nontrivial manipulation, this is a real priority caveat, not proof of uniqueness. See `AUDIT.json` for precise implication comparisons.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A phase-diffusion observable central to noisy limit-cycle coalescence has a much sharper large-barrier scaling law than the usual leading Kramers estimate, because two individually nonzero infinite sequences of corrections cancel. The cancellation is structurally specific to the quartic odd-observable problem and provides a stringent analytical benchmark for rare-switching models. It is not a generic textbook inference from a leading-order escape rate. Neither an optimal exponential remainder nor a broader potential class is asserted.
+The same quartic stationary correlation integral and leading Kramers limit existed in classical Brownian double-well literature, and this is expressly credited. The claim is narrowly the all-orders vanishing of polynomial corrections for the unnormalized integrated position covariance, which the inspected prior first-order normalized correlation-time formulas do not provide; best-of-knowledge originality with a genuine strong implicit-coverage risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact absence of every inverse-power correction for a natural double-well additive diffusion and its integrated phase is a delicate analytic rigidity statement: two separately nontrivial full saddle series cancel. Knowing this exact asymptotic structure changes high-barrier approximation practice and distinguishes normalized correlation times from physical phase-variance growth. The known integral alone does not make the cancellation a routine textbook deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
