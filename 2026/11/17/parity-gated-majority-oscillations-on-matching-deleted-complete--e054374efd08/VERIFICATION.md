@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is the symbolic case analysis in `RESULT.md`; the following finite experiments are reproducibility checks rather than replacements for it.
+## correctness
 
-Run `python3 verify_labelled.py`: for \(44\) graph parameter pairs with \(r\ge1\), \(0\le u\le7\), \(2r+u\le15\), it iterates through \(261804\) labelled configurations, calculates neighbors directly, compares fixed states and true primitive two-cycle counts with the theorem, and checks the universal return-map identities. Its captured expected output is `verify_labelled.out`.
+PASS
 
-Run `python3 verify_profiles.py`: a separate implementation enumerates \(288\) weighted pair-type populations \((00,11,01/10)\) with singleton-one counts, using a local pair-neighborhood formula. It compares fixed and period-at-most-two weighted totals against the theorem, and verifies that the total population weights equal the number of labelled states. Its captured expected output is `verify_profiles.out`.
+For every missing-edge pair (a,b), its common neighborhood contains S-a-b ones among N-2 vertices; a universal vertex x sees S-x ones among N-1. The exact tie rules give consensus off critical levels and an involution on central balanced states when u is even. For even u, the middle layer has binom(2r+u,r+u/2) periodic states and either 2^r extra fixed states only when u=0 or no balanced fixed states when u>=2; fixed and 2-orbit formulas follow. For odd u, only S=h or h+1 can avoid immediate consensus; every pair becomes 00/11 and universal bits agree after one update. Counting the possible alternating pair profiles yields u=1, odd h with h=r+(u-1)/2, and the parity/size extinction conditions for u>=3; after at most three updates any nonperiodic configuration enters a uniform consensus. An independent literal-neighborhood binary state enumeration r=1..4,u=0..4 (up to 12 vertices) matched fixed counts and primitive 2-cycle formulas; the exact weighted pair-profile verifier source independently establishes finite instances.
 
-Both programs ran successfully; the displayed output files were captured from executed code. They require only Python's standard library. They cannot rule out an analytic error outside the checked domains; the all-size justification is the elementary transition classification in the proof.
+## originality
+
+PASS
+
+Earlier published cocktail-party plus one-universal-vertex result already determines u=0 and u=1 exact cycle populations; these special cases are explicitly credited. The new full unbounded u>=2 parity-and-availability criterion, even-u balanced-layer family, and extinction/reappearance for odd u>=3 were not found as corollaries of accessible broader complete-multipartite majority results. Best-of-knowledge PASS with clear prior art and residual risk.
+
+## value
+
+PASS
+
+The mixed-size multipartite graph K_{2^r,1^u} is a natural, sharply parameterized family bridging cocktail-party graphs and complete graphs. An exact all-r,u oscillation phase diagram proves that increasing universal-vertex count can eliminate and later restore periodic disagreement depending on parity; closed cycle formulas and uniform three-step bounds are independently useful natural invariants, beyond the known u=0/u=1 examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
