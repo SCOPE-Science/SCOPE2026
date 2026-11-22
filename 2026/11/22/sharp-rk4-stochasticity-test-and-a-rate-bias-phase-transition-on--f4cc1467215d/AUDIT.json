@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Cayley-Hamilton matrix reduction is exact, G>0 follows from a strictly negative quadratic discriminant; ordered pairs give exact two-inequality stochasticity. In the two-equal-rate family the direct edge is strictly decreasing, the resultant and Bernstein signs isolate exactly one sextic crossing, and diagonal monotonicity/concavity proves the full no-reentry phase classification. A standalone rational matrix and symbolic verification passed 1,728 general cases, 30 family cases and required algebraic identities. No finite sample is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The heterogeneous directed-cycle theorem explicitly assumes at least five states and uses a nonwrapping walk expansion valid only below cycle length.",
+        "The bidirected-star result treats a different graph with reciprocal leaf-center edges and no directed three-cycle.",
+        "Both motivating journal papers concern positivity-enforcing methods or broad solver classes, not an explicit unmodified three-cycle parameter bifurcation."
+      ],
+      "reasoning": "The present 3-cycle wraps at the third graph jump, so the n≥5 coefficient formulas do not extend by substitution. The two-state/bidirected-star generator families do not contain an irreducible one-way three-cycle.",
+      "searches": [
+        "published-finding corpus: 2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c",
+        "published-finding corpus: 2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+        "arxiv:2102.08242",
+        "arxiv:2005.06268"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2005.06268v2",
+      "https://arxiv.org/pdf/2102.08242",
+      "https://arxiv.org/pdf/1406.6755",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth–Song–Terlaky 2014 Section 3.3 explicitly warns its polynomial-based computed bounds may not be the largest.",
+        "The 2020 adaptive RK paper changes weights at the end of stages; this theorem keeps standard RK4 weights.",
+        "The heterogeneous cycle published proof uses n≥5 to exclude wrapped returns."
+      ],
+      "reasoning": "Known results imply general positivity concerns and algorithmic finite polynomial tests but do not supply the exact ordered-rate reduction, the sextic threshold or the classified rate-biased critical mechanism; these require the three-state characteristic reduction and sign arguments.",
+      "searches": [
+        "arxiv:1406.6755 theorem and Section 3.3 on conservative step bounds",
+        "arxiv:2005.06268 Sections 1–4 and RK4 discussion",
+        "arxiv:2102.08242 introduction and Sections 1, 5–6",
+        "published-finding corpus published 2026/11/8 heterogeneous cycles full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equal-rate three-cycle calculation has a fixed scalar cutoff 1.4933773767, whereas the present result gives a continuously variable cutoff and an algebraic obstruction switch at rate ratio 0.5424375778.",
+        "The generic polyhedral-invariance theory provides root-finding sufficient step bounds, not the two-rate ordering identity or the rate-parameter sextic."
+      ],
+      "reasoning": "Searched direct and equivalent Markov positivity, polynomial stochasticity, and RK4 rate-bias formulations. A homogeneous three-cycle is a specialization, not a formula implying the asymmetric transition. Generic root methods require separate algebraic classification and do not imply this explicit phase result.",
+      "searches": [
+        "classical fourth order Runge Kutta three-state directed cycle unequal positive transition rates exact positivity boundary diagonal edge competition",
+        "heterogeneous 3-cycle Markov RK4 positivity phase transition discriminant",
+        "directed three-cycle polynomial numerical propagator order four exact offdiagonal sign",
+        "arxiv:1406.6755 Sections 3.1–3.3",
+        "published-finding corpus: 2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record 2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff tabulates only unit-rate cycles.",
+        "Accessible ledger contains results on two-state Markov splitting, cyclic quadrature positivity and two-state Richardson positivity, none involving the present three-state RK4 rate diagram."
+      ],
+      "reasoning": "The exact equal-rate table is subsumed at r=1 and explicitly acknowledged. No checked table gives unequal three-rate positivity or the mechanism-switch root.",
+      "searches": [
+        "published-finding corpus queries about heterogeneous three-cycle RK4 positivity, fourth-order stochasticity and Markov cycle cutoffs",
+        "Own current-week ledger title scan and claim search for RK4, cycle, Markov, positivity, three-state, Runge"
+      ]
+    },
+    "rationale": "The checked 2014 root-based theory does not yield the sharp ordered-rate reduction or the sextic mechanism switch; the homogeneous three-cycle published classification is recovered at r=1 and the heterogeneous cycle published theorem requires n≥5. The claim is limited to the uncovered three-state unequal-rate classification, not generic RK positivity.",
+    "residual_risks": [
+      "A specialist finite-state CTMC or positivity-polynomial publication outside searched sources may contain an equivalent classification.",
+      "The general algebraic membership test (1) is a low-dimensional consequence of characteristic reduction; its novelty is intertwined with the nontrivial sharp mechanism-switch theorem (2).",
+      "Independent peer priority and proof verification remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: adaptive terminal weights rather than exact heterogeneous three-cycle unmodified RK4 frontier.",
+        "evidence": [
+          "arxiv:2005.06268 Sections 1–3; RK4 weight freedoms table"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.06268v2",
+        "material_read": "Full accessible HTML, especially Introduction, positivity constraints, order conditions and RK4 treatment in Section 3.",
+        "method": "Read searchable full text and checked instances of RK4 and cyclic terminology.",
+        "title": "Positivity-Preserving Adaptive Runge–Kutta Methods",
+        "trigger": "Primary numerical-analysis publication motivating high-order positivity; it lists classical RK4."
+      },
+      {
+        "assessment": "NOT_COVERING: introduces other positivity schemes and treats RK4 as a baseline, no exact 3-rate cyclic RK4 cutoff.",
+        "evidence": [
+          "arxiv:2102.08242 p. 1–4, p. 19, p. 26"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.08242",
+        "material_read": "Abstract, introductory graph generator material, comparisons and conclusion; examined RK4 reference at PDF page 19 and relevant sections.",
+        "method": "Examined extracted PDF text plus page screenshot; searched full document for directed cycle and RK4.",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Primary OA work on graph-Laplacian nonnegative ODE solvers including comparison to RK4."
+      },
+      {
+        "assessment": "PARTIAL_GENERAL_COVERAGE: provides valid root-based thresholds and general polynomial machinery, but not the sharp ordered-rate 3-cycle equivalence or the parameter phase diagram.",
+        "evidence": [
+          "arxiv:1406.6755 pp. 4–7, 12–13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.6755",
+        "material_read": "Abstract, introduction, Section 3.1 derivations, Section 3.3 step-threshold and sufficiency caveat.",
+        "method": "PDF text read and page-5 screenshot; checked theorem 3.3 and discussion following theorem 3.13.",
+        "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+        "trigger": "General Taylor-discretization positivity/root methodology potentially stronger."
+      },
+      {
+        "assessment": "COVERS_LIMITING_CASE_ONLY: r=1 published, not unequal-rate switch.",
+        "evidence": [
+          "2026/11/2/...6cbc274839ff/RESULT.md, 3-cycle case"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff",
+        "material_read": "Entire published RESULT.md including proof and stated scope.",
+        "method": "Fetched full RESULT.md by its repository path through read-only repository access.",
+        "title": "Sharp cycle-length positivity frontiers for fourth-order Runge–Kutta",
+        "trigger": "Exact RK4 positivity on homogeneous three-cycles."
+      },
+      {
+        "assessment": "NOT_COVERING: theorem n≥5; the 3-cycle has wraparound matrix contributions absent from its proof.",
+        "evidence": [
+          "2026/11/8/...36d0a038ee0c/RESULT.md, n≥5 hypothesis and no-wrap lemma"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c",
+        "material_read": "Entire published RESULT.md including proofs, scope and boundary limitations.",
+        "method": "Fetched full RESULT.md by repository path through read-only repository access.",
+        "title": "Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain",
+        "trigger": "Closest heterogeneous directed-cycle RK4 result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f4cc1467-215d-4522-820e-48f0d8d8a1ad",
+  "value": {
+    "rationale": "The directed three-cycle is the smallest irreducible one-way cyclic Markov generator with wraparound terms in the RK4 polynomial. The theorem replaces a nine-entry polynomial positivity test with two rate-order statistics and gives an exact nonreentrant timestep and sharp mode-change parameter for a natural rate-heterogeneous family. This materially distinguishes spurious negative holding probabilities from spurious negative direct transitions in chemical master-equation stepping. Not a generic asymptotic extrapolation or renaming of the known homogeneous result.",
+    "status": "PASS"
+  }
+}
