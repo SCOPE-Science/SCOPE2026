@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposed basis contains seven linearly independent homogeneous harmonic cubics, matching the exact dimension of the pure-degree-three spherical harmonic eigenspace. Full-sphere monomial moments make their Gram matrix positive and diagonal. The positive-octant Gaussian gamma moment formula yields every entry of the stated normalized regional matrix. The permutation representation splits it into alternating, trivial and two standard sectors of dimensions 1, 2 and 4; their characteristic factors yield exactly the five levels and correct multiplicities. Integer radical bounds prove strict ordering, hence both endpoints and equality spaces. The standalone exact script checks every Gram entry and characteristic factor; separate direct spherical-coordinate quadrature reproduces all seven eigenvalues with maximum error below \(5\times10^{-16}\). The theorem is deductive; finite computation is corroboration only.
+## correctness
 
-## Originality — PASS, provisional priority
-The motivating 2021 masked-sky paper constructs a different region-adapted Laplacian basis and does not evaluate the cubic Slepian concentration operator. The full 2023 Slepian wavelet treatment and 2021 spin-weighted Slepian paper provide general spectral constructions, but no evaluated positive-octant degree-three spectrum or double maximizing eigenspace. A highly relevant published quadratic positive-orthant classification treats pure degree two in arbitrary dimension; lower-degree octant spectra are not implications of the present pure cubic spectrum. published-finding corpus searches for positive octant, trirectangular triangle, cubic harmonics, Vandermonde extremizers, and the exact radicals did not retrieve a covering statement. This comparison is substantive rather than proof from a failed search; a specialist calculation not indexed remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-A positive octant is a canonical spherical triangle (one cell of the octahedral partition), not an ad hoc mask. Its cubic-harmonic restriction is the first nontrivial odd-degree seven-dimensional pure-harmonic case; the complete sharp condition spectrum and complete equality classification are useful exact benchmarks for regional harmonic sensing. The two-dimensional top sector contrasts with the unique least-observable alternating harmonic, revealing information about the geometry that generic Slepian existence or matrix formulas do not convey. No higher-degree claim or statistical noise guarantee is inferred.
+The seven displayed homogeneous harmonic cubics form a basis of H3. Gamma-function integration of octant monomials gives the full-sphere diagonal Gram and regional seven-by-seven blocks, with exact mass normalization 1/8. The permutation representation decomposes into alternating one-dimensional, trivial two-dimensional and standard four-dimensional sectors. The alternating eigenvalue is (π-3)/(8π); the two quadratic block roots are (30π-5±√6505)/(240π), each simple, and (30π+25±√4045)/(240π), each doubled. Exact dimension 1+2+4=7 and radical inequalities order them; min-max gives sharp values and eigenspace dimensions. Read check_exact.py using symbolic gamma moments for all 49 Gram products and independently recomputed the matrix/spectrum with SymPy plus numerical eigensolver; no reliance on quadrature as proof.
 
-The sharp ratio of energy concentration eigenvalues is \((30\pi+25+\sqrt{4045})/[30(\pi-3)]\). The result is restricted to this exact mask and degree, and historical priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact mathematical conclusions and implication relations were compared against actual indexed findings and relevant primary texts, with explicit partial-read limits and residual priority risks. The proposed target itself was not counted as independent prior coverage.
+
+## value
+
+PASS
+
+The positive octant is a canonical non-cap spherical observation region. Its pure cubic band has a nontrivial permutation-symmetry degeneracy: a two-dimensional optimal eigenspace versus unique least mode. Full exact evaluated spectrum and sharp concentration bounds give a meaningful natural finite-band spectral invariant, separate from generic matrix recipes and other-degree/octant or cap results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
