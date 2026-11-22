@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py`. The script uses only Python 3 standard-library modules and no downloaded data. For every labeled simple graph on up to five vertices with no forbidden induced cycle, the checker enumerates all independent equitable vertex partitions, verifies that their quotients have no forbidden induced cycle, enumerates every cyclic automorphism subgroup arising from every individual graph automorphism, and compares its invariant independent vertex subsets with all faces of the orbit-conflict graph. Four further cases test genuinely noncyclic generated subgroups.
+## correctness
 
-The accompanying `verification_output.txt` reports 906 eligible graphs, 1695 equitable partitions, 3633 group actions including 2727 nontrivial actions, and 24273 fixed/model face comparisons, all passing. These are independent finite checks of definitions and logic, not certification of the infinite statement. The proof's shortest-cycle argument is required to pass from the finite checks to every finite graph. No independent audit has been performed.
+PASS
+
+The quotient-lifting argument correctly uses independent equitable blocks and positive uniform interblock degree. A hypothetical chordless quotient C_l (l=4 or l>=6) induces a graph T with minimum degree at least 2 and a homomorphism T->C_l. Its shortest cycle is chordless; l=4 makes T bipartite so this is a forbidden even induced cycle >=4, and l>=6 makes T triangle- and pentagon-free, so its shortest cycle is forbidden length 4 or >=6. Removing internally adjacent automorphism orbits preserves equitability, hence the class. Orbit-constant barycentric coordinates give a simplexwise affine PL homeomorphism of geometric fixed points with Ind(Q_H). Woodroofe supplies vertex decomposability, nonpure shellability and torsion-free wedges. Scope includes all finite H, but not arbitrary nonequitable quotients.
+
+## originality
+
+PASS
+
+Woodroofe proves vertex decomposability for the forbidden-cycle graph class, and the orbit-barycenter identification is a standard combinatorial fixed-point method. The new substantive structural closure is that equitable independent-block quotient retains precisely the same induced-cycle restriction; this lets Woodroofe apply simultaneously to all subgroup geometric fixed spaces, beyond chordal/forest cases.
+
+## value
+
+PASS
+
+A motivated structural closure theorem enables canonical PL subgroup-fixed models in a rich natural class containing genuine pentagons, not only forests or chordal graphs. The immediate torsion-free mixed-dimensional wedge classification for every subgroup is an independently reusable equivariant-topology consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
