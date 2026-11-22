@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:13:17.658104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each graph uses 10 labelled vertices with explicit 15 edges and 3^10 states. For both CCA and GHM local transition rules, the complete state function is computed exactly. Functional graph indegree peeling finds every cycle, then reverse topological propagation assigns eventual least period to every state. Independently implemented iterative functional graph classification recovered exact joint tables and transit maxima (GP51: 8409,2460,38430,2190,7560 on diagonal; GP52: diagonal counts 7839,4500,5040,27270,9600 plus (8,4) 4800). Five-subset Kneser realization makes Aut Petersen S5: stars are the only four-point intersecting families, hence group size120. Independent action enumerated all 120 permutations, and the 4800 exceptional configurations form exactly 40 orbits of 120, with no stabilizers. This is a complete finite exhaustive proof, not a sample and not an infinite-family generalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff Theorem 3 determines activity versus synchronization, not exact temporal least periods; biclique pC=pH result assumes K_ab, whereas GP(5,1) and GP(5,2) are nonbipartite."
+        ],
+        "reasoning": "Neither the general result nor the exact biclique equality theorem covers this cubic graph joint law; a marginal basin histogram does not mathematically determine the joint distribution.",
+        "searches": [
+          "two cubic generalized Petersen graphs CCA Greenberg Hastings 4800 8 4 40 orbits joint periods",
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "GP51 GHM basin table [8409,2460,38430,2190,7560] matches prior; GP52 GHM 4-bin 9840 splits as 5040+4800; biclique theorem gives pointwise pC=pH but only complete bipartite graphs."
+        ],
+        "reasoning": "The new joint split is consistent with the old marginal yet strictly refines it; nonbipartiteness gives a motivated boundary counterexample to extending pointwise biclique equality.",
+        "searches": [
+          "two cubic generalized Petersen graphs CCA Greenberg Hastings 4800 8 4 40 orbits joint periods",
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-02 GP(5,1)/(5,2) result specifies only GHM primitive cycles and basins; its Petersen GHM period-four marginal 9840 equals 5040+4800, but cannot distinguish which CCA period each state has."
+        ],
+        "reasoning": "General activity classification and one-model marginalization cannot yield a coupling of eventual period labels under two distinct rules.",
+        "searches": [
+          "two cubic generalized Petersen graphs CCA Greenberg Hastings 4800 8 4 40 orbits joint periods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete GHM-only published table gives marginal 9840 GHM 4-period basins and 9600 8-period basins, but joint 4800 split is not specified.",
+          "Same-day Resultary Frucht graph 1496 mismatch concerns a different 12-vertex cubic graph."
+        ],
+        "reasoning": "An exact one-model lookup table fails to imply the shared-input two-model coupling or 40 full S5 action orbits.",
+        "searches": [
+          "two cubic generalized Petersen graphs CCA Greenberg Hastings 4800 8 4 40 orbits joint periods",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a/RESULT.md"
+        ]
+      },
+      "rationale": "Published GHM-only marginal census and general synchronization/activity theorem are premises; joint CCA/GHM per-initial-color comparison and the free S5 orbit refinement are additional exact invariants.",
+      "residual_risks": [
+        "Unindexed CCA orbit tables on Petersen might independently encode or dominate this exact joint classification.",
+        "The conclusion is finite and specific to GP(5,1) and GP(5,2); not a general theorem for cubic graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Synchrony/activity not exact eventual least periods or joint table",
+          "evidence": [
+            "Defines both CCA/GHM on general graphs, uses circulation to classify long-term activity"
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Original journal PDF §§1-3 and Theorem 3 coverage, definitions, tree and circulation criteria",
+          "method": "author-hosted PDF full access and page screenshot",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same two rules and possible dominating arbitrary graph theorem"
+        },
+        {
+          "assessment": "Provides correct GHM marginal only; does not assign CCA least periods for the same states",
+          "evidence": [
+            "GP52 GHM basin 4 = 9840, GP51 4 =38430; first entry six on Petersen and eight on prism"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a/RESULT.md",
+          "material_read": "Entire published RESULT.md including proof and basin table",
+          "method": "GitHub published original text",
+          "title": "Exact recurrence and basins on the two ten-vertex generalized Petersen graphs",
+          "trigger": "Exact same graph and GHM map"
+        },
+        {
+          "assessment": "Pointwise equality applies to complete bipartite graphs, not odd-cycle-containing GP(5,k)",
+          "evidence": [
+            "K_ab exact equality p_C(x)=p_H(x) for every initial x"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md",
+          "material_read": "Entire published RESULT.md, theorem, proof, scope and limitations",
+          "method": "GitHub full scientific text",
+          "title": "Matched eventual periods but different transient clocks for three-state excitable dynamics on bicliques",
+          "trigger": "Prior two-model pointwise eventual-period equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact comparison on two canonical equally sized cubic graphs detects 4800 genuine period-halving discrepancies, and the 40 free S5 orbit decomposition adds structural symmetry information beyond a routine one-model enumeration; it supplies a sharp natural boundary to period coincidence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite graphs only, no inferred relation to every GP(n,k) or other nonbipartite graph.",
+    "External enumeration provenance priority cannot be fully excluded by searchable literature.",
+    "Unindexed CCA orbit tables on Petersen might independently encode or dominate this exact joint classification.",
+    "The conclusion is finite and specific to GP(5,1) and GP(5,2); not a general theorem for cubic graphs."
+  ],
+  "schema_version": 1
+}

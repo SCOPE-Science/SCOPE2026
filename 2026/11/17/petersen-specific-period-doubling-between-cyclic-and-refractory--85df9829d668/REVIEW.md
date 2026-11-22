@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Both deterministic rules and the graph adjacency are defined vertex by vertex. A bijective base-three representation exhausts all \(3^{10}=59049\) states on each graph, and an indegree-peeling algorithm assigns the eventual cycle length of every state. An independent C++ implementation reconstructs the adjacency and both local rules and uses Floyd cycle detection on every state; all joint-period populations agree. The symmetry checker independently verifies the Petersen identification with \(KG(5,2)\), implements all 120 automorphisms and confirms exactly 40 free orbits of exceptional states. The claim is restricted to the fully enumerated finite domain, so it does not infer universal behavior from a sample. The primary risk is implementation mistakes shared by two implementations; different methods and an explicit witness mitigate but do not remove that risk.
+## correctness
 
-**Originality: PASS, qualified.** The 2016 full-text primary source of Gravner–Lyu–Sivakoff supplies a circulation criterion for activity and synchronization, not least-period pair counts on the two graphs. The directly relevant published full-text classification on these two graphs supplies **GHM** marginals and some GHM spatial classes; it cannot determine the CCA/GHM joint table. A published biclique comparison establishes pointwise equality of least eventual periods but only for complete bipartite graphs, unlike either of the nonbipartite examples here. Database searches for Petersen CCA, period eight versus four, joint period classes, and the 4800-count pattern found no covering scientific statement. Exact older or unpublished joint classifications remain possible and are not ruled out by search alone.
+PASS
 
-**Mathematical value: PASS.** The two classical excitable automata have the same winding-based qualitative activity criterion, and a published exact result shows even their eventual periods can coincide pointwise on an infinite family of bicliques. The complete 10-vertex cubic comparison establishes a sharp, natural boundary for this stronger coincidence: two same-order, same-degree canonical graphs behave differently, with 4800 exceptions—not an isolated toy witness—and a 40-orbit full-symmetry decomposition. The exact invariant is reproducible and reusable as a benchmark for period classification, without claiming a universal theorem or paper-sized generalization.
+Each graph uses 10 labelled vertices with explicit 15 edges and 3^10 states. For both CCA and GHM local transition rules, the complete state function is computed exactly. Functional graph indegree peeling finds every cycle, then reverse topological propagation assigns eventual least period to every state. Independently implemented iterative functional graph classification recovered exact joint tables and transit maxima (GP51: 8409,2460,38430,2190,7560 on diagonal; GP52: diagonal counts 7839,4500,5040,27270,9600 plus (8,4) 4800). Five-subset Kneser realization makes Aut Petersen S5: stars are the only four-point intersecting families, hence group size120. Independent action enumerated all 120 permutations, and the 4800 exceptional configurations form exactly 40 orbits of 120, with no stabilizers. This is a complete finite exhaustive proof, not a sample and not an infinite-family generalization.
 
-The claim establishes exactly the joint eventual-period classification and its stated symmetry refinement. Both models' convergence times and their full attractor basins are not independently claimed. Full historical novelty and external mathematical verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published GHM-only marginal census and general synchronization/activity theorem are premises; joint CCA/GHM per-initial-color comparison and the free S5 orbit refinement are additional exact invariants.
+
+## value
+
+PASS
+
+A natural exact comparison on two canonical equally sized cubic graphs detects 4800 genuine period-halving discrepancies, and the 40 free S5 orbit decomposition adds structural symmetry information beyond a routine one-model enumeration; it supplies a sharp natural boundary to period coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
