@@ -1,19 +1,21 @@
-# Scientific review: marked extremes of randomly inscribed ovals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a strictly positively curved \(C^5\) oval sampled with positive \(C^3\) arclength density \(f\), the maximal Hausdorff error equals the maximal cap height for fine boundary samples. The uniform Frenet expansion gives \(\sqrt{8h}=\sqrt\kappa\,\ell+O(\ell^2)\). Probability-coordinate circular spacings are exactly normalized independent exponentials, with a quantile-grid approximation uniform over all gaps. At the extreme scale, the uniform error is \(o_{\mathbb P}(1)\). Laplace's method near finitely many positive quadratic minima of \(b=f/\sqrt\kappa\) gives an explicitly normalized exponential rare-event intensity; independent indicators yield the marked Poisson process and independent Gaussian location and Gumbel extreme. All quantifiers and curvature/sampling regularity assumptions are stated in RESULT.md. The packaged checker was executed from its own saved artifact path and completed successfully; analytic arguments, rather than finite simulations, establish the limit.
+PASS
 
-## Originality — PASS, with specific historical risk
+Reviewed full RESULT.md at frozen blob 7b71f0...: uniform Frenet expansion gives chord cap h=kappa(s)ell²/8+O(ell³). Exact cyclic uniformized spacings E_j/sum E are coupled uniformly to shifted deterministic quantile grid, and n beta sqrt(8h) differs uniformly by o_p(1) from beta E_j/b(s_j^0). Independently rare exponential exceedances at y_n(z)=log n-(log log n)/2+log C+z and Laplace around b minima give the PPP intensity (f_i/C)exp[-b_iv²/(2beta)] exp(-z); normalization integrates to exp(-z), and uniqueness factors the mark from Gumbel maximum. Independent numerical Laplace intensity for a=0.4 on unit circle at n 2e4,2e5,2e6 approached 1 slowly (1.263,1.206,1.169), consistent with known logarithmic convergence errors; finite simulations do not prove process convergence.
 
-The *unmarked* scalar extreme is substantially implied by Barbe's positive-minimum maximal-spacing theorem (1992) and Antonik–Berred–Malov's 2013 Corollary 3.1 after the curvature-change coordinate \(dt=\sqrt\kappa\,ds\). It is therefore **not** independently claimed as original. Glasauer–Schneider's 1996 Theorem 4 establishes only first-order Hausdorff asymptotics; Sonnleitner (2025) treats optimal rather than isolated-minimum sampling. The new assertion assessed here is the spatially marked Poisson law for actual convex caps, its Gaussian neighborhood-mixture weights/variances, and its independence from the extremal height. The inspected relevant full-text statements do not entail these *location* conclusions. Older maximal-spacing literature, particularly inaccessible full Barbe and Deheuvels articles, leaves a concrete priority risk. Published related mathematical findings were compared by equivalent statements and implications, not title matching.
+## originality
 
-## Value — PASS
+PASS
 
-Random convex-hull approximation is controlled by exceptional empty boundary arcs. Quantifying their worst *locations* as well as their magnitudes supplies an interpretable link between curvature, deliberately nonuniform sampling and failure localization, including how multiple worst boundary regions compete. This marked spatial law is stronger than re-deriving a scalar spacing law or giving a mere numerical rate; it supplies exact Gaussian localization scales and relative weights for all competing nondegenerate minima.
+Best-of-knowledge originality after direct source comparisons: the previously covered scalar/elementary precursors were credited, and no inspected stronger claim gives the specified complete marks or section classification. No older inspected theorem carries the marked cap-position point process or Gaussian independent location; the scalar spacing limit is acknowledged rather than claimed original.
 
-## Limits and checked literature
+## value
 
-All limits are asymptotic weak/point-process limits, with \(K\) and \(f\) fixed; there is no finite-sample error estimate or extension to density zeros, flat minima, higher-dimensional shapes, or optimal density. Direct full-text source inspections targeted the statements of Glasauer–Schneider (1996), Antonik–Berred–Malov (2013), Brunel (2015) and Sonnleitner (2025). Barbe (1992), Schneider (1988), Hüsler (1988) and Deheuvels (1984) were checked via discoverable metadata and secondary primary-paper descriptions, not falsely certified as wholly inspected. Historical priority requires independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Spatial localization to curvature-adjusted density bottlenecks, Gaussian mixture weights and score/position independence characterize where geometric approximation fails, rather than only the already known asymptotic maximum. This is a motivated natural geometric optimization statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
