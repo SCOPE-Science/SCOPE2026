@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The character-to-signed-matching reduction and the adjacent-pair subtraction prove the exact formula for every \(n\ge4\). The three small signings give the exact integer gcd; Vandermonde's identity verifies the mod-four residue table. An explicit seven-edge negative star gives an actual zero at \(n=8\), while another eight-edge negative graph gives a multiplier of \(2\). The entire rank census is independently recomputed by two distinct exact-state updates over all \(2^{27}\) gauge representatives, checked against 2,048 direct character evaluations and Parseval. The infinite claim does not depend on the finite computation.
+## correctness
 
-**Originality: PASS under bounded comparisons.** Kamat–Misra (arXiv:1303.4061v1) prove a matching-family intersection theorem, not a signed Fourier rank. Li–Shi–Trinks (arXiv:1404.3469v1) study unsigned matching-polynomial reconstruction. The adjacent indexed complete-graph perfect-matching spectrum is for size-four, not size-two, matchings on eight vertices. Published related work and recoverable prior claims on other matching orbits do not imply the precise \(20{,}467{,}680\) vanishing coefficients here. The elementary expansion is treated as a tool rather than a novelty claim. Full historical priority remains an uncertainty.
+PASS
 
-**Mathematical value: PASS.** The first singular order of a natural matching orbit is a motivated boundary: order seven is universally invertible by parity, while order eight has a nontrivial kernel occupying \(639615/8388608\) of the Fourier space. The exact kernel dimension and sharp Moore–Penrose norm measure harmonic recoverability that the mere count of 210 matchings cannot determine. The infinite arithmetic classification explains additional even-cardinality orders where no cancellation is possible. This is a natural complete cutoff, not an arbitrary labelled frequency slice.
+For any two-edge matching the two sign indicators expand as 1-2I_e-2I_f+4I_e I_f. Counting disjoint partners of each edge proves W=3*C(n,4)-2*C(n-2,2)t+4q, while summing edge-sign products minus pairs meeting at vertices proves (S²-sum_v d_v²+N)/2. The signings with no negative edges, one negative edge and two disjoint negatives realize the gcd of A,2b,4; elementary binomial congruences make the gcd periodic modulo16. n=4,...,7 have odd A, and a seven-negative-edge star has W_8=0. Six negative star edges plus (1,2),(1,3) yield t=8,q=8 and W_8=2. The pinned C++17 2^27 representative Gray-code enumerator exploits the global sign symmetry, compares degree and negative-pair exact recurrences, and records the 84 signed-level histogram. A separate independently written C++ integer enumeration reproduced 2^28 total, zero count 20467680, 84 levels, min_nonzero=2 and Parseval energy 56371445760. Thus the finite rank and gap follow by Walsh diagonalization; no infinite nullity classification follows from the finite census.
 
-**Limitations and risk.** No complete large-order zero-multiplier classification or endpoint Banach projection norm is claimed. The order-eight exact census is machine-reproducible rather than independently audited. Indexed and primary-literature comparison is bounded; an unidentified stronger old theorem remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact first-singular-order all-frequency nullity and sharp spectral gap for size-two matchings of complete graphs were not implied by the inspected unsigned matching-polynomial and intersecting-matching literature or by the eight-vertex four-edge perfect-matching spectrum; the elementary moment formula is not claimed independently new.
+
+## value
+
+PASS
+
+The first dimension where the two-edge matching indicator develops a Fourier kernel is an intrinsic sharp cutoff; exact nullity and least surviving eigenvalue quantify reconstructibility and stable inversion on a natural complete-graph matching orbit. Distinguishing even-cardinality but zero-free residue classes from genuine zeros is a structural arithmetic phenomenon, not arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
