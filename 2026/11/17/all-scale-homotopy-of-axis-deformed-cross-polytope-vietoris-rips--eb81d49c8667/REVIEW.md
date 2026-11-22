@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The squared Euclidean distances have only the two claimed forms, \(w_i+w_j\) between different axes and \(4w_i\) along an antipodal axis. Every induced weighted-sum graph has one nontrivial component if it has edges, with a minimum-weight universal axis. Below \(4w_1\) this supplies an exact simplicial join with \(S^0\) and a terminating suspension recurrence. At and above \(4w_1\), the active component is an exact join with an edge and contracts; isolated fibers have the stated component counts. Equality thresholds are included. All homology groups are free because the homotopy model is a wedge of spheres. The 570 independent mod-two chain tests in `VERIFY.py`/`VERIFY_OUTPUT.txt` agree; they support but do not replace the proof.
+## correctness
 
-## Originality — PASS with residual risk
-The closest primary paper is Saleh–Titz Mite–Witzel, arXiv:2302.14388, Theorem and Lemma 2.2: regular Platonic solids and symmetric antipodal sphere stages. That does not settle arbitrarily unequal radii, their many threshold orders, or mixed-degree homology. Carnero Bravo, arXiv:2307.14321, Theorem 7/Corollary 8 addresses broad suspended polyhedral joins; its explicit warnings about desuspension make the unstabilized homotopy classification a further step, and it does not state the Euclidean scale thresholds or this recurrence. Adamaszek–Adams, arXiv:2103.01040, uses graph/Hamming distances for hypercubes. Compared against the accessible prior local claims (including axis-aligned rectangular-box and twisted-double-polygon Euclidean Rips claims) and live published-finding corpus similarity results, no prior equivalent statement or a published theorem directly implying all its geometric and unstabilized conclusions was found. The broad polyhedral-join theory and unindexed literature remain residual coverage risks; absence of a search hit is not itself proof of originality.
+PASS
 
-## Value — PASS
-The result determines a complete topological phase classification, with an explicit finite recurrence, for every real axis deformation and every scale in every dimension. Unlike the regular orthoplex, a naturally deformed four-axis example has \(S^2\vee 2S^1\) at one Euclidean scale; the universal killing of positive homology at the first antipodal edge is a sharp geometric boundary. The object is a canonical deformation of a cross-polytope, and these exact ranks, dimensions, torsion-free conclusions and phase boundary are useful in controlled topological-data-analysis examples. The claim does not purport to give persistent maps or an independent certification.
+With Euclidean distances, two points from different axes have squared distance w_i+w_j irrespective of signs and each antipodal pair squared distance 4w_i. Thus the Rips flag complex is the graph T_t fiber substitution by S^0 when t<4w_i or simplex Δ^1 when t≥4w_i. Every nonempty active weighted-threshold subgraph has a universal minimum-weight vertex: if jk is an edge then both w_v+w_j and w_v+w_k are ≤w_j+w_k. For t<4w_1 all fibers are S^0, the active complex is S^0*J(T\{v})=ΣJ, while s isolated axes are 2s isolated vertices. This gives exact terminating F(I;z)=2s+z F(A\{v};z), base 2|I|-1, and integral sphere wedges by induction. For t≥4w_1, if an active edge exists axis 1 is active/universal and its filled antipodal edge joins the active complex, making that component contractible; remaining isolated fibers contribute 1 or 2 contractible components as in c formula. If no active edges all fibers are isolated and c formula still works. Equality thresholds, positive weights, all d≥2, repeated lengths and mixed-degree intervals are included; no persistence maps claimed. An independent evaluation for w=(100,113,212,218), t=325 gives active edges 12,13,14,23 and F=z²+2z. Frozen VERIFY.py constructs exact clique complexes and boundary ranks modulo 2 across 570 stages; the universal integer statement follows from join homotopy, not mod-two data.
 
-## Sources and limitations
-Primary source comparison: Saleh–Titz Mite–Witzel, arXiv:2302.14388 (first available 2023-02-28), especially pages 1–2 and 5; Carnero Bravo, arXiv:2307.14321 (first available 2023-07-26), especially introductory claims, Corollary 8, and Theorem 28; Adamaszek–Adams, arXiv:2103.01040 (2021-03-01), page 1. The source-specific residual risks are set out in AUDIT.json. The checks are scientific self-review, not independent third-party review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for full Euclidean arbitrary-positive-axis stagewise homotopy recurrence and shortest-antipodal vanishing boundary. Regular Platonic octahedron VR and general suspended polyhedral join theorems predate it, but their inspected theorems neither state this weighted threshold graph calculation nor dominate its unsuspended parameter-wide classification.
+
+## value
+
+PASS
+
+The complete homotopy phase diagram of a natural continuous deformation of cross-polytopal point clouds, with an explicit mixed-dimensional wedge and a sharp first-antipodal annihilation threshold, is a useful exact finite-point-cloud persistent-topology benchmark. Unlike an arbitrary numerical example, it classifies every dimension, positive semiaxis choice and equality wall; it does not claim barcodes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
