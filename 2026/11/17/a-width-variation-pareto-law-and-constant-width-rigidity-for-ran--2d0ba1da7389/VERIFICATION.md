@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible mathematical verification
-The exact normal-line intersection equation is derived in `RESULT.md`, equation (1). The only nonremovable singularity is antipodal and its numerator is \(w'(\theta)\). For \(q=Rs\), the conditional densities are supported in a fixed bounded angular strip and converge to the displayed limiting density, whose integral is exactly one. Scheffé's lemma provides the asserted total-variation statement. These are analytical checks, not computational substitutions.
 
-The companion `normal_intersection_checks.py` uses 4,000,000 uniformly sampled normal-angle pairs for the strictly convex Fourier support \(h=1+0.2\cos(2\theta)\), which has curvature radius at least 0.4. Ratios of empirical \(R\Pr(\|Z\|>R)\) to the exact coefficient at thresholds 20, 40, 80, 160 are 0.99991, 1.00405, 1.00818, 0.98795. It separately tests \(h=1+0.1\cos(3\theta)\) with curvature radius at least 0.2, a noncircular constant-width example, and reports a bounded sampled maximum. Output ends in `NORMAL_INTERSECTION_CHECKS_OK`.
+# Independent mathematical audit
 
-Run with Python 3 and NumPy: `python normal_intersection_checks.py`. Finite sampling does not prove uniform boundedness or exact asymptotics; these follow from the support-function proof. No independent audit or external mathematical validation has occurred. Historical priority is provisional.
+## correctness
+
+PASS
+
+Verified support-function contact x=h n+h_prime t and full normal-line equation Z·t_theta=h_prime(theta). Solving second normal equation gives radial coefficient [h_prime(theta)cos delta-h_prime(theta+delta)]/sin delta. At coincident normals delta≈0 numerator vanishes and intersection is uniformly bounded; at opposite normals delta=pi+s the only pole is w_prime(theta)/s+O(1), uniformly in theta. A large intersection forces |s|<=B/R; substitute q=Rs and apply bounded convergence to obtain constant 2∫ff_antipodal|w_prime|. Convergence of event densities and their masses permits Scheffé total-variation convergence. The exact pole is absent iff width constant. Positive f and nonconstant w yield C>0 and tail integration gives moment p<1. For h=1+0.2cos(2theta), independently integrated the width derivative under uniform f giving C=0.162113893774 versus analytic 1.6/pi²=0.162113893828; quadrature is corroborative.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
+
+## value
+
+PASS
+
+Geometrically natural sharp heavy-tail coefficient turns width variation into a measurable random-normal escape invariant and sharply singles out constant-width bodies. The marked near-antipodal law is an independently meaningful distributional refinement; a tangent-line analogue has opposite constant-width behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
