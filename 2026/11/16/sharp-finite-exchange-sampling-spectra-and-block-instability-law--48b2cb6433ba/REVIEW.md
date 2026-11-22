@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** Equations (41), (52), and Proposition 7.2 of Dellepiane--Monguzzi--Monti supply the exact, fully normalized identification of boundary parity traces with two orthonormal bases. The new argument writes the infinite frame operator as half of \(I-P+Q\), with finite-rank orthogonal projections. The Cauchy determinant certifies the precise deficiency, the principal-angle decomposition supplies all sharp spectral extrema, and an exact rational interpolation formula for the inverse Cauchy matrix gives the distant-block coefficient and exponent. Finite algebra and asymptotic tests agree; the proof, not finite truncation, establishes the universal assertions.
+## correctness
 
-**Originality (PASS relative to inspected literature).** The motivating preprint explicitly proves parity sampling, not arbitrary parity-site exchanges, optimal bounds or distance-exponent laws. The earlier discrete Paley--Wiener manuscript concerns a different whole-plane growth space and gives general sampling criteria, not this result. Classical two-projection spectra, Cauchy determinants, and finite exponential-basis perturbations are acknowledged; none of the inspected relevant documents gives this joint sharp formula for boundary discrete-holomorphic Hardy sampling. All-comprehensive publication priority is not claimed. An alternate nonharmonic-Fourier formulation is a residual risk.
+PASS
 
-**Value (PASS).** The new Hilbert-space model has two critical parity sampling sets, so the robustness of exact boundary sampling to missing samples is a natural question. The complete finite-defect cardinality criterion and sharp condition constants answer it for every finite exchanged configuration. More significantly, the severe, explicit \(N^{-(4m-2)}\) block instability quantifies why qualitative recovery is inadequate for stable reconstruction, with an exponent varying with block size. This is a motivated structural boundary result, not a fixed arbitrary numerical example.
+On the Fourier representation of the claimed discrete Hardy boundary space, even and odd half-frequency exponentials are two orthonormal bases and their matrix elements are a unitary half-integer Cauchy kernel (sign conventions irrelevant to singular values). The exact frame operator is (I-P_J+U*P_LU)/2. Every maximal Cauchy minor is nonzero, so rank(C)=min(m,ell), and a finitely supported vector cannot have all of Ux supported on a finite L (rational function vanishing at infinitely many integers). Two-projection canonical angles then give 1/2(1±sqrt(1-sigma²)), essential 1/2 and unmatched 0/1 eigenvalues. For contiguous blocks the exact inverse of B_N=[1/(N+r-s+1/2)] has rank-one N^(2m-1) leading term and singular coefficient S_m, hence sigma_min~N^(-2m+1)/(pi S_m) and A~N^(-4m+2)/(4pi²S_m²). Independent high-precision m=1..3, N=40 normalized ratios 0.9876543,0.9635651,0.9397764 corroborate but do not prove the asymptotic. External source Proposition 7.2 could not be independently read in full; this is explicitly a dependency on a cited established Hardy model rather than self-contained proof of its equivalence.
 
-**Closest literature and limits.** The source's Proposition 7.2 is the direct starting point, and its equation (52) yields the conversion matrix. All general two-projection and Cauchy algebra is standard and not independently presented as novel. Claims are confined to finitely exchanged boundary nodes in \(H^2\), with no generality in \(H^p\), positive vertical heights, or infinite defect sets. Classical Kadec-type or finite basis-perturbation theorems may imply the qualitative invertibility and might contain the same quantitative special case under another name.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. Dellepiane–Monguzzi–Monti supplies the model and parity transform, not proven here to state finite-exchange bounds; the submitted theorem is a quantitative extension, conditional on the cited model. Original manuscript could not be read in full.
+
+## value
+
+PASS
+
+The node-exchange criterion and exact principal-angle spectrum settle the natural stability question for sampling a discrete Hardy boundary space after finite parity replacements. The explicit N^(-4m+2) law quantifies a severe long-range near-instability that qualitative finite-basis perturbation alone does not supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
