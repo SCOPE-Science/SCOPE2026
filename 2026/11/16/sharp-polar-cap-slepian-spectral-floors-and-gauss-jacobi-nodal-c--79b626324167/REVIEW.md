@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sector decomposition follows from associated Legendre polynomial factors and normalized spherical area; a small-endpoint weighted-polynomial lemma is proved with both upper and lower estimates using finite-dimensional coefficient compactness. The Jacobi orthogonality identity supplies the exact constants, and comparison of distinct powers isolates the zonal global minimizer. The eigenvalue simplicity argument, convergent root geometry, and rank-one evaluation limit provide all remaining conclusions. The reproduction code confirms exact moments and numerically checks all sectors through bandwidth five; it does not replace the infinite proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2004 spherical concentration treatment analyzes angular-order blocks and the large-bandwidth/small-area fixed-Shannon-number limit; its conclusion does not imply fixed-bandwidth endpoint constants. The 2021 scalar-and-spin Slepian paper constructs commuting operators without this asymptotic or the Gauss–Jacobi scaled nodal classification. The closely related narrow-equatorial-belt result treats a central shrinking interval, with a different decay hierarchy and weight. Older general concentrated-polynomial literature could contain an equivalent result; the Gilbert–Slepian full text was not accessible, so this is an explicit residual priority risk, not a definitive absence claim.
+PASS
 
-## Mathematical value — PASS
-The sharp worst-case cap-observation decay and condition-number leading coefficient quantify a natural inverse problem for every fixed harmonic cutoff. The order-by-order spectral floors and convergence of all hidden-mode nodes reveal geometry beyond a routine spectral estimate, allowing precise asymptotic mode identification. These are meaningful exact invariants, not a numerical table or a rephrasing of the standard cap eigenproblem.
+In angular order m, spherical harmonics degrees <=L reduce exactly to polynomials p(t) degree <=L-m with full/cap Rayleigh norms (1/2)integral t^m(2-t)^m|p|^2 over [0,2]/[0,h]. Positive definiteness is immediate. At fixed n=L-m, the least cap energy is attained asymptotically by rescaled weighted monic minimizer on [0,1], namely shifted Jacobi P_n^(0,m)(2u-1)/binom(2n+m,n). The leading normalization is I_{n,m}=2^{2(n+m)}Beta(2n+m+1,m+1). Competitor gives upper bound; normalize actual minimizers by full norm, bound rescaled coefficients via finite-dimensional norm equivalence, then force lower bound and coefficient convergence by uniqueness of monic orthogonal polynomial. Thus sector floor C_{L,m} h^(2L-m+1), with exact beta/binomial constant; m=0 alone dominates for h->0, and eigenvector uniqueness plus simple Jacobi roots gives eventual zonal simplicity and nodal collapse. Point-evaluation reproducing kernel norm (L+1)^2 gives max eigenvalue ~(L+1)^2h/2 and condition number. L=0 exact h/2.
 
-## Limits and close prior work
-The result is neither a high-bandwidth asymptotic nor a quantitative stability guarantee for noisy discrete observations. The critical closest sources are Simons–Dahlen–Wieczorek (2004 preprint), Michel–Plattner–Seibert (2021 preprint), Gilbert–Slepian (1977 concentrated polynomials; abstract only), and a published narrow-equatorial-belt spectral hierarchy. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Simons–Dahlen–Wieczorek give sphere concentration blocks and a high-bandwidth/small-cap fixed-Shannon-number asymptotic, not the fixed-L endpoint-weight least sectoral eigenvalues. Michel–Plattner–Seibert give commuting-operator and spin constructions; the Resultary narrow equatorial belt result is in a different shrinking region with different endpoint weights. The plausible 1977 Gilbert–Slepian polynomial concentration paper was not fully accessible, so this best-of-knowledge comparison is explicitly provisional rather than asserting whole-document noncoverage. Best-of-knowledge PASS with recorded risks; no failure-to-find-is-proof-of-novelty inference.
+
+## value
+
+PASS
+
+Worst-case continuous polar-cap observability is a meaningful inverse problem; exact high-order eigenvalue constants, all sector hierarchies, condition-number blowup and Gauss–Jacobi localization identify how information is lost and where least-observable nodal circles move.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
