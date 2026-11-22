@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian Schur-complement risk is exact. Cauchy–Schwarz minimizes the jointly allocated independent measurement noise as squared total variation of signed quadrature weights. Exponential covariance has a tridiagonal Stieltjes precision matrix; integrated Markov interpolation is strictly positive, making all active weights positive. At an optimum endpoint shifts strictly decrease error, and splitting an atom yields a strict first-order improvement, so all sensors are distinct and interior. Residual-potential derivative jumps and its inhomogeneous Helmholtz ODE force equal weights/interior gaps/symmetric margins; the remaining scalar equation has a strictly monotone unique root. The spacing threshold follows algebraically. Standalone verifier reports 656 formula/design checks plus 4788 finite competitor comparisons, corroborating but not replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lam–Scarlett addresses noisy BQ average-case error rates and not exact finite-n designs.",
+        "Karvonen–Kanagawa–Särkkä address positivity and local kernel quadrature conditions, without joint global precision-budget allocation."
+      ],
+      "reasoning": "General BQ frameworks, asymptotic error rates, and weight-positivity criteria neither give the unique optimum for each n, λ, P nor imply the nontrivial P=n spacing transition.",
+      "searches": [
+        "kernel quadrature total noise precision allocation l1 regularized weights exponential Markov covariance",
+        "noisy Gaussian-process quadrature optimal sensor precision allocation exponential Ornstein Uhlenbeck kernel estimation integral on finite interval",
+        "arxiv:2202.10615",
+        "arxiv:1812.08509v1"
+      ]
+    },
+    "checked_sources": [
+      "L. Pronzato and A. Zhigljavsky (2018), arXiv:1808.10722v1, Bayesian quadrature and energy minimization; includes exponential covariance example.",
+      "T. Karvonen, M. Kanagawa and S. Särkkä (2018), arXiv:1812.08509v1, positivity and magnitudes of Bayesian quadrature weights.",
+      "X. Cai, C. T. Lam and J. Scarlett (2022), arXiv:2202.10615v1, average-case error bounds for Bayesian quadrature.",
+      "K. Sikolya and S. Baran (2018), arXiv:1808.03444, prediction of complex Ornstein–Uhlenbeck processes.",
+      "published-finding corpus 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+      "B. Mukherjee, On Sampling Designs for Integral Estimation of a Random Process (2003), DOI:10.1081/STA-120022249, abstract only",
+      "B. Mukherjee, Optimal designs for estimating the path of a stochastic process, Purdue dissertation (2001), accessible abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published published-finding corpus theorem sets noise variance to zero.",
+        "A previously recorded two-noisy-site equal-variance exponential-kernel optimum is the n=2 special case but does not cover precision-allocation over all n.",
+        "The Brownian and Brownian-bridge arbitrary-n total-precision results concern kernels with different Markov boundary conditions."
+      ],
+      "reasoning": "The present classification is strictly stronger in its own OU finite-precision setting than the n=2 fixed-noise case. It does not reclaim noiseless optimal OU nodes; its new claims require both the global positive-weights and atom-splitting lemmas and a precision-coupled scalar gap equation.",
+      "searches": [
+        "stationary Ornstein Uhlenbeck exponential covariance Bayesian quadrature integral noisily observed n arbitrary points total measurement precision budget optimal equal precision identical gaps symmetric margins",
+        "equally spaced optimally weighted quadrature noisy exponential kernel global optimum variable sensor precisions n sites",
+        "noisy Gaussian-process quadrature optimal sensor precision allocation exponential Ornstein Uhlenbeck kernel estimation integral on finite interval",
+        "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+        "arxiv:1808.10722v1",
+        "arxiv:1812.08509v1",
+        "arxiv:2202.10615v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Generalized kernel/Bayesian quadrature is an equivalent Gaussian linear estimation formulation for the objective; Pronzato–Zhigljavsky (2018) gives that formulation but not the joint cost allocation.",
+        "The accessible 2003 Mukherjee abstract covers integral estimation but makes no visible claim about adjustable independent noise precisions."
+      ],
+      "reasoning": "The equivalent minimization is a positive-kernel energy penalized by squared total variation of the weights, rather than the noiseless conditional variance. Existing noiseless global results are not equivalent after adding the coupled precision penalty.",
+      "searches": [
+        "stationary Ornstein Uhlenbeck exponential covariance Bayesian quadrature integral noisily observed n arbitrary points total measurement precision budget optimal equal precision identical gaps symmetric margins",
+        "equally spaced optimally weighted quadrature noisy exponential kernel global optimum variable sensor precisions n sites",
+        "On Sampling Designs for Integral Estimation of a Random Process Mukherjee optimal point observation precision",
+        "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus item 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba has exact all-n noiseless OU nodes but no measurement-noise resource constraint.",
+        "No exact table or closed-form finite-n budget allocation equivalent to the candidate was identified in the accessible sources."
+      ],
+      "reasoning": "The theorem is a continuous-parameter design classification, not a lookup-table computation; a database search alone is insufficient to prove priority.",
+      "searches": [
+        "stationary Ornstein Uhlenbeck exponential covariance Bayesian quadrature integral noisily observed n arbitrary points total measurement precision budget optimal equal precision identical gaps symmetric margins",
+        "equally spaced optimally weighted quadrature noisy exponential kernel global optimum variable sensor precisions n sites",
+        "kernel quadrature total noise precision allocation l1 regularized weights exponential Markov covariance",
+        "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+      ]
+    },
+    "rationale": "The accessible closest exponential-kernel theorem assumes noiseless evaluations; the accessible BQ papers cover general kernel energy, positivity, or rate estimates; none of these inspected statements implies simultaneous precision allocation, positive all-n weights, the exact finite-n optimal mesh, or the universal noise-budget transition. Distinct previously known two-site fixed-noise and all-n Brownian/Brownian-bridge precision-budget results do not subsume the OU all-n classification. A historical integral-estimation paper could not be fully inspected and remains a stated priority risk.",
+    "residual_risks": [
+      "An older equivalently formulated exact finite-precision integral-design theorem may be absent from indexed sources.",
+      "Mukherjee (2003) and a related older dissertation were accessible only by abstract, not full text; their possible precedence is unresolved, although their visible abstracts do not assert the present finite-precision theorem.",
+      "Same-model review does not constitute independent confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the distinct noiseless equal-internal-gap and symmetric-margin result, and a jitter CLT; it assumes exact point observations, so does not entail finite-P freely allocated noise or the unique universal P=n transition.",
+        "evidence": [
+          "The source explicitly assumes exact observations, without measurement noise, and optimizes a different precision regime.",
+          "The new theorem includes a nontrivial joint precision-allocation optimum and risk for finite P."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba/RESULT.md",
+        "material_read": "Full public RESULT.md: theorem, exact Markov-gap variance decomposition, convexity proof, references, and noiseless scope.",
+        "method": "Full-text repository file retrieval and statement/implication comparison.",
+        "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+        "trigger": "Same exponential covariance kernel and optimal posterior integral variance for arbitrary sample count."
+      },
+      {
+        "assessment": "Provides the Gaussian Bayesian quadrature framework and an exponential kernel example, without the present exact all-n, freely allocable observation-precision budget and spacing threshold.",
+        "evidence": [
+          "Example 3.8 concerns exponential covariance and estimation/energy principles; the current joint precision-budget sensor optimization is absent from the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.10722v1",
+        "material_read": "Full-text online HTML introduction, kernel energy development and exponential kernel example.",
+        "method": "Open-access arXiv HTML, theorem and example comparison.",
+        "title": "Bayesian quadrature and energy minimization for space-filling design",
+        "trigger": "Foundational exponential-covariance quadrature example; earliest motivating source."
+      },
+      {
+        "assessment": "Certain smoothness/total-positivity hypotheses and fixed-noise results do not directly deliver the present exponential-kernel cusp/precision-allocation theorem.",
+        "evidence": [
+          "The new positivity argument uses the tridiagonal precision matrix and Markov interpolation; the final result additionally classifies sensor locations and precisions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.08509v2",
+        "material_read": "Open-access full-text HTML introduction, setup, positivity results including locally optimal designs.",
+        "method": "Definition/hypothesis and positivity implication comparison.",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Positive Bayesian quadrature weights might imply part of positivity lemma."
+      },
+      {
+        "assessment": "Addresses average-case convergence rates, not a finite-n globally optimal location and continuously divisible precision allocation for exponential covariance.",
+        "evidence": [
+          "A convergence-rate result without this exact objective/classification does not imply the location formula or budget transition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "Available rendered full-text introduction, problem setup, main error-bound directions and related literature.",
+        "method": "Rate-theorem objective and assumptions comparison.",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Potentially stronger theory for noisy kernel quadrature with measurement costs."
+      },
+      {
+        "assessment": "Analyzes spatially integrated pointwise prediction error and entropy for a complex OU process, not the posterior variance of one integrated functional under allocated sensor precision.",
+        "evidence": [
+          "Different random target and design loss are explicitly stated in the accessible abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.03444",
+        "material_read": "Accessible abstract and mathematical problem description.",
+        "method": "Objective/criterion comparison, without claiming a complete full-text assessment.",
+        "title": "On the optimal designs for the prediction of complex Ornstein–Uhlenbeck processes",
+        "trigger": "Same OU process and design nomenclature."
+      },
+      {
+        "assessment": "A plausible historical risk remains: no accessible statement identified a finite independent-noise total precision budget or all-n joint classification, but lack of full text prevents ruling it out categorically.",
+        "evidence": [
+          "Public description addresses integral estimation for random processes, without an explicit precision-budget allocation result."
+        ],
+        "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+        "material_read": "Available abstract and bibliographic record only; full text not accessible.",
+        "method": "Abstract objective and stated assumptions compared; arXiv/open-access options did not supply full text, institutional access unavailable.",
+        "title": "On Sampling Designs for Integral Estimation of a Random Process",
+        "trigger": "Highly relevant older integral-estimation optimal-design article by B. Mukherjee; possible historical precedence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7be6c7d-db05-4180-a302-9fc83f6c426f",
+  "value": {
+    "rationale": "This solves the natural exact finite-n joint sampling/measurement-resource design for a stationary Markov Gaussian integrand, without fixing either node positions or per-node noise. It adds an all-n positive-weights classification, proof of nonredundancy of each sensor, exact risk, and a dimensionless P=n grid transition independent of covariance scale, relevant to budgeting repeated measurements and noisy Gaussian-process numerical integration. The special two-sensor or noiseless cases do not resolve the arbitrary-n resource allocation.",
+    "status": "PASS"
+  }
+}
