@@ -1,0 +1,15 @@
+# Scientific review: integral homology lattices of clique-expanded double stars
+
+## Correctness — PASS
+The cover by leaf-only and the two opposite-leaf hub joins is exact. Both successive intersection embeddings are nullhomotopic, giving the ordinary wedge splitting and all integer Betti ranks. More importantly, the canonical long exact sequence for the invariant leaf-only subcomplex and the two relative cone chain groups determine the **full integral group action**; the two lower modules are whole hub-color permutation lattices, rather than a generally invalid integral split of the augmentation sequence. Degree separation uses \(p,q\ge2\). The signed action under interchange of the two equal-size sides is fixed by the join orientation. Full finite face/boundary checks over two primes, weighted examples and signed Lefschetz tests agree with the proof; finite checks are only corroboration.
+
+## Originality — PASS on inspected evidence, subject to residual bibliographic risk
+Okura (2021, arXiv:2109.04181) gives the general nonequivariant forest wedge property and a path formula, and Okura (2023, arXiv:2303.11984) gives the polyhedral-join version, also with explicit path calculations. Their full accessible statements and proof sections were examined. They cover the general qualitative homotopy *form* but not the decorated double-star graded ranks, full natural group module, or the non-splitting of the integral center-color extension. Vander Meulen--Van Tuyl (arXiv:1505.02838) cover shellability/vertex decomposition of clique expansions, not the module. Indexed comparisons with double-star higher-independence, bidirected multipath, and cyclic clique-substitution claims involve different complexes or base graphs. The literature and indexed search do not establish global novelty; an unindexed exact equivalent is possible.
+
+## Value — PASS
+A double star is the first tree with two genuinely branching adjacent hubs, hence a natural next case after the paths explicitly classified in prior work. The classification resolves **three independently varying homological degrees**, accommodates arbitrary distinct fiber sizes, and determines a nontrivial integral representation absent from ordinary Betti or nonequivariant wedge data. Its full hub permutation lattice has a nonsplit augmentation sequence over \(\mathbb Z\), a phenomenon invisible to rational characters. The rationally acyclic full-symmetry quotient is a further structural consequence, not a separate claimed main finding.
+
+## Sources and limits
+Primary sources: https://arxiv.org/abs/2109.04181 (2021-09-09); https://arxiv.org/abs/2303.11984 (2023-03-21). Supporting context: https://arxiv.org/abs/1505.02838 (2015-05-12). Relevant prior indexed work is compared in AUDIT.json, with named residual risks. No claim is made for arbitrary forests, nonclique fibers, integral quotient acyclicity, or an equivariant wedge homotopy decomposition. The finite computations do not substitute for the uniform integral proof.
+
+Self-review: passed. Independent audit: not yet performed.
