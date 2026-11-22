@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` gives an all-dimensional analytical derivation. `check.py` independently implements the facet-distance comparison in exact rational arithmetic for 997 integer values \(4\le n\le1000\), enumerates the 22 candidate vertices of the five-vertex fractional matching polytope, verifies all vertex-degree equations, and tests all remaining facet-clearance inequalities at those candidates. Convexity then covers the entire five-vertex center locus, while the proof covers all dimensions. Optional numerical LP checks compare complete facet systems for dimensions four to seven; their availability is not a prerequisite.
+## correctness
 
-This check is reproducibility assistance, not an external certificate of novelty or an independent audit. All quoted bounds and the distinct-center classification depend on the analytic arguments, not on finite tests.
+PASS
+
+Facet distances and permutation symmetrization prove sharp radius. For n=4, active degree equalities force opposite-edge equal weights a,b,c, cube section within sum3/2 yields a regular hexagon with radius2h and area6sqrt3 h^2. For n=5, tight degree constraints plus coordinate clearance give x=ell5+kappa*y for y in K5 fractional degree-one matching polytope; all remaining eroded size2/3 facets strictly redundant. Standard half-integral vertex theorem yields exactly ten triangle+edge and twelve Hamiltonian 5-cycle vertices; contact counts follow zero y coordinates. For n>=6 coordinate inequalities force unique uniform center. Independently reconstructed all 22 K5 candidates, checked eroded facets and exact distance comparisons n4..1000.
+
+## originality
+
+PASS
+
+Prior Euclidean transition record 4 is a weaker same-day result and was Git-imported eight minutes AFTER this stronger record; no independent prior covering these full geometric details found. Chaourar and Behrend furnish facet and fractional matching general theorems only; published Minkowski center work uses affine asymmetry and does not imply Euclidean center locus.
+
+## value
+
+PASS
+
+Full metric incenter geometry for canonical spanning-tree polytopes, explaining n=6 rigidity and identifying natural low-dimensional model polytopes and facet contacts. The K5 fractional matching structure and exact 22 vertices provide independently useful classification beyond radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

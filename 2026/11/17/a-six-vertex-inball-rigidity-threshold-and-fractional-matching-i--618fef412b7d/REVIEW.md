@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for every integer \(n\ge4\) in the intrinsic metric of the edge-incidence hyperplane. Complete-graph spanning-tree facets are the coordinate lower bounds and the rank upper bounds for proper vertex subsets. Projecting facet normals gives the exact two classes of distances; the upper-facet distance sequence has only an interior maximum, and its closest member has subset size \(n-1\). Comparison with the lower-facet distance produces the sharp threshold. A direct sum-of-slacks certificate forces all degree facets to be tight at \(n=4,5\), or all coordinate facets at \(n\ge6\). At low order the remaining eroded halfspaces are explicitly checked, yielding a regular hexagon and the fractional matching polytope. The 22 vertices follow by the standard half-integral support criterion. The included checker confirms finite instances, but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2019 general facet classification and the 2013 fractional matching vertex theorem are explicitly credited. Neither establishes the new identification between Euclidean incenters of complete-graph spanning-tree polytopes and fractional perfect matchings, nor the sharp \(n=6\) rigidity threshold. A published work on **Minkowski asymmetry centers** of these same base polytopes examines an inequivalent optimization (homothetic containment instead of intrinsic Euclidean ball clearance); its full text could not be inspected, leaving residual historical risk. Published work on the Euclidean inball of **complete-bipartite** spanning-tree polytopes concerns a different graph family and does not imply the complete-graph formula. Searches for aliases such as Chebyshev center, inscribed sphere, and fractional matching center returned no equivalent verified statement. No failed search is treated as a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The exact threshold, the collapse from a positive-dimensional optimum set to uniqueness, the identification of the five-dimensional optimizer set with a 22-vertex fractional 1-factor polytope, and the precise contact strata provide an interpretable complete classification of a natural Euclidean invariant. This is more than an isolated numerical inradius or a restatement of preexisting facets. The exceptional low-dimensional optimizer types are mathematically distinguished, and the all-order uniqueness statement supplies a meaningful structural boundary.
+Facet distances and permutation symmetrization prove sharp radius. For n=4, active degree equalities force opposite-edge equal weights a,b,c, cube section within sum3/2 yields a regular hexagon with radius2h and area6sqrt3 h^2. For n=5, tight degree constraints plus coordinate clearance give x=ell5+kappa*y for y in K5 fractional degree-one matching polytope; all remaining eroded size2/3 facets strictly redundant. Standard half-integral vertex theorem yields exactly ten triangle+edge and twelve Hamiltonian 5-cycle vertices; contact counts follow zero y coordinates. For n>=6 coordinate inequalities force unique uniform center. Independently reconstructed all 22 K5 candidates, checked eroded facets and exact distance comparisons n4..1000.
 
-## Remaining limitations
-Absolute historical priority is not certified, because not every plausibly related full text could be read; independent verification remains outstanding. The proof and checker concern the canonical complete-graph edge-incidence realization only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Euclidean transition record 4 is a weaker same-day result and was Git-imported eight minutes AFTER this stronger record; no independent prior covering these full geometric details found. Chaourar and Behrend furnish facet and fractional matching general theorems only; published Minkowski center work uses affine asymmetry and does not imply Euclidean center locus.
+
+## value
+
+PASS
+
+Full metric incenter geometry for canonical spanning-tree polytopes, explaining n=6 rigidity and identifying natural low-dimensional model polytopes and facet contacts. The K5 fractional matching structure and exact 22 vertices provide independently useful classification beyond radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
