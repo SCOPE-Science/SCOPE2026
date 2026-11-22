@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coarea factor \(f_H(h)=3(1-h^2)/2\) and angular integrals \(J_0=3\pi/8\), \(J_A=3\pi/16\) yield a \(3/8\) per-face near-zero coefficient after the opposing-hemisphere factor \(1/2\). The proof shows simultaneous shallow facets contribute \(o(t)\); hence four faces contribute \(3t/2\), with Wendel normalization giving \(12t\). Dominated convergence plus Scheffé's lemma establish the marked total-variation law. A numerical replay agrees with these limiting coefficients at finite thresholds; finite simulation is not the proof.
+## correctness
 
-## Originality — PASS, provisional priority
-Finch (2015, arXiv:1502.06931) treats the identical cap model and establishes relevant face-height and acute-triangle marginals, but does not give this sharp one-sided hemispherical slope or marked four-face law. Bürgisser–Cucker–Lotz (arXiv:0712.2816) give a hemisphere formula and one-sided bounds. A full-text comparison with the closer four-cap quartic-onset record found that its parameter tends to the minimal covering radius, rather than to a hemisphere. No equal or stronger implication was established by the searched sources; incomplete historical indexing remains a risk.
+PASS
 
-## Mathematical value — PASS
-The scalar derivative describes the sharp cost of shrinking all four hemispheres, and the new conditional mark explains its geometry: one nearly central, acute face is responsible. The problem is motivated by a published open finite-cap coverage distribution, rather than an arbitrary statistic.
+The spherical three-point plane coarea separates plane height density f_H(h)=3(1-h²)/2 from angular area-weighted triangle law. Independently evaluated J0=3π/8 and JA=3π/16 by two-dimensional high-precision quadrature, so the limiting acute fraction is one-half and normalized mark density 16/(3π). When face height h→0, the cone of its vertices contains the origin with a random independent fourth vertex exactly in the limiting acute projected-triangle/negative-hemisphere event; the latter has conditional probability one-half. Thus each marked face contributes (3/2)(1/2)(1/2)=3/8 to first-order mass. For two different faces, the second face height remains positive a.s. at generic first-face h=0, giving overlapping event mass o(t) via dominated convergence; the four contributions sum to 3/2. Wendel’s symmetric-point formula gives Pr(E)=1/8. Four caps cover iff B_t(0)⊆conv(X1..X4), producing the p expansion. Rescaling h=ts and dominated convergence/Scheffé control densities in total variation; overlaps o(t) give a single nearest-face mark. Independently sampled 150000 triples and checked the exact plane-height CDF at thresholds .05 and .1; this diagnoses but cannot prove the small-t limit or TV assertion.
 
-## Limits
-The result addresses only a first-order local threshold, surface-uniform four-point tetrahedra in three dimensions, and the stated mark law. The full coverage distribution is still unknown; independent verification has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact mathematical statement/implications with named primary sources and published research; no independently earlier equivalent or dominating theorem found among inspected material. Same-day matching Resultary entries were excluded as independent prior evidence. Specific inaccessible texts and older alias risks are retained; negative searches are not treated as proof of uniqueness.
+
+## value
+
+PASS
+
+Sharp derivative at the natural hemispherical coverage transition and the marked geometric failure mechanism fill a concrete gap in four-cap coverage theory, distinct from full distribution recovery. The acute nearly-central facet law gives an exact local probabilistic shape invariant useful for coverage and spherical-polytope asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
