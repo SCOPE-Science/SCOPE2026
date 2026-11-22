@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof identifies actual geometric fixed points rather than merely invariant vertices. Odd hyperedge cardinality rules out individually fixed hyperedges; admissible two-hyperedge orbits are exactly binary transversals modulo complement. Compatibility equals disjointness of support blocks. The top boundary is a block-diagonal integer map indexed by perfect partitions, and its kernel in each block is the tensor product of integral augmentation kernels. The full centralizer action, including the sign arising from permuted join factors, follows from those oriented integer chains. The reduced-chain case for one block and the even-uniform exclusion are explicit. Standard-library numerical checks independently reconstruct small original hyperedge orbits and exact modular top boundary ranks; they are corroboration, not a proof of arbitrary size.
+## correctness
 
-## Originality
-**PASS relative to inspected sources; residual priority risk remains.** The nearest general theorem is Björner–Wachs–Welker, *Poset Fiber Theorems*, Theorem 6.2 and Corollaries 6.3, 8.5. It covers nonequivariant inflation ranks over integers and general equivariant inflation homology **over characteristic-zero fields**. These are acknowledged as prior coverage. Shareshian–Wachs studies ordinary hypergraph matching-complex homology over complex coefficients, and Bate–Everitt–Ford–Ramos treats ordinary complete-hypergraph matching homology and representation stability. The actual odd-uniform free-involution fixed-space PL model and the signed full-centralizer **integral** top lattice were not identified in the inspected source texts. A different application or strengthened integral form of the known inflation theory may reduce novelty; no priority proof from negative search results is claimed.
+PASS
 
-## Value
-**PASS.** The problem is natural because hypergraph matchings carry permutation symmetries and geometric fixed loci may differ from ordinary invariant homology. A single family theorem works in every odd uniformity and every multiple of it, identifies an explicit PL model, computes top integral ranks, and retains integral symmetry data that a rational character does not specify. At the smallest nontrivial connected case, ten component graphs carry ninety cycles; higher parameters yield unbounded ranks. The separate integral lattice result is an actual structural classification, not an arbitrary fixed-size computation.
+For odd r≥3 and m=rk, τ swaps m pairs in a 2m-point ground set. An invariant geometric point has constant barycentric coefficients on τ-orbits of r-hyperedges. Odd r forbids a τ-fixed hyperedge; an admissible orbit has E∩τE=∅ and exactly one point from each of r ground pairs, so its support is an r-label block B and its phase is a binary transversal modulo complement, of size Q_B=2^{r−1}. Compatible hyperedge orbits have disjoint supports, giving a PL homeomorphism of the fixed set to uniform vertex inflation of the complete r-uniform matching complex on m labels. A top simplex selects a perfect partition P into k r-blocks; deleting one block uniquely identifies that P, so top relative boundary splits over partitions. The augmented tensor complex for each set of phase choices has top boundary kernel ⊗_{B∈P}ker(Z[Q_B]→Z), integrally without torsion. Top homology equals that kernel since dim k−1; rank ((rk)!/(r!)^k k!)(2^{r−1}−1)^k and W=C2 wr Sm action is induced from block stabilizer with sign of permuting oriented simplex blocks. For k=1 reduced augmentation gives q−1, and τ acts trivially on complement-identified phase classes. No lower homology classification asserted.
 
-## Checked literature and limits
-Full relevant sections of Björner–Wachs–Welker (especially §6 inflation and §8 equivariant homology), the introduction and relevant definitions of Shareshian–Wachs, and the ordinary hypergraph matching treatment in Bate–Everitt–Ford–Ramos were compared to the exact claim. The top dimension only is determined; lower homology may be nonzero or have torsion. The nearest general results yield parts of the rank and rational story and are expressly excluded from the claimed novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Björner–Wachs–Welker Theorem 6.2/Corollary 6.3 give general nonequivariant inflation homotopy/homology; their §9 equivariant character method explicitly assumes a characteristic-zero field, and thus does not assert the integral centralizer-module lattice. Ordinary hypergraph matching representation papers classify different un-fixed complexes. Identifying the geometric τ-fixed locus as an inflation with parity-defined phase classes and deriving the integral signed induced tensor-augmentation lattice directly are specific new structures, not merely the already-known nonequivariant rank; no dominating prior exact result surfaced in targeted Resultary searches.
+
+## value
+
+PASS
+
+A natural geometric fixed-point problem in equivariant combinatorial topology, where simple fixed vertices do not capture geometric fixed points. The explicit integral lattice, phase action and tensor-orientation signs give information not determined by rational characters or abstract wedge ranks and unify all odd uniformities and partition lengths. Future equivariant homology calculations can use this exact integer module.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
