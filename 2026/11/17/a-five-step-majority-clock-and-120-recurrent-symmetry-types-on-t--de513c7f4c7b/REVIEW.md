@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The two included integer-only C++17 implementations enumerate the complete \(2^{20}\)-configuration transition function and agree in all counts. One uses indegree peeling and a union-find spatial quotient; the other independently builds column-major transitions, uses explicit trajectory tracing, directly counts \(F(s)=s\) and \(F^2(s)=s\), and applies Burnside's lemma. The finite exhaustive proof establishes each integer and the sharp upper bound five without extrapolation.
+## correctness
 
-**Originality — PASS, qualified.** Searches of published mathematical records for `C4 Cartesian C5`, `4x5 torus majority`, period counts, symmetry quotients and exact entrance basins did not locate this numerical census. The closest previously published \(C_4\square C_4\cong Q_4\) result concerns 16 vertices, while the 2025 Nakar–Ron structural theorem identifies already-periodic toroidal threshold configurations but does not count attraction shells on this graph. The classical period-two theorem is stronger only on the *range of possible periods*, not on these exact counts. Precise historical priority remains uncertain, notably because some old full texts and published-record bodies were not accessible.
+PASS
 
-**Value — PASS.** This is a complete exact dynamical classification at the first non-hypercubic, triangle-free rectangular torus with four distinct neighbors, where the presence of a pentagonal cycle distinguishes it from the previously classified four-cube. The exact basin split, sharp five-update entry clock and 120 symmetry types are natural, interpretable invariants which neither the general period-two theorem nor structural periodic-state descriptions determine. The result is a finite benchmark, not a formula for all toroidal grid sizes.
+The rule on the labelled graph C4 square C5 uses four distinct neighbors and synchronous binary threshold >=3, <=1 and incumbent retention on ties. Two separately written packaged C++17 implementations construct all 2^20=1048576 transitions; indegree peeling finds exactly recurrent functional-graph cycles and recovers entrance depths backwards; independent column-major trajectory traversal and Burnside fixed-cycle sums yield period/symmetry counts. An independent newly written C++ 20-bit enumerator was compiled and executed this run and reproduced 3186 fixed states, 3225 primitive two-cycle orbits, maximum entry depth five, exact 12 period-by-entry counts and 53+67=120 classes under 160 symmetries. The exact joint table by t=0..5: period1 [3186,96300,346900,226680,68760,5800], period2 [6450,94740,138400,51120,10080,160], totaling 1,048,576. Group action is correct because graph automorphisms and bitwise complement commute with F; Burnside sums 8480 and 10720 divided by 160 equal 53 and 67. Full finite enumeration is exhaustive for THIS graph and proves its finite assertion; the classical period-two theorem is not replaced or claimed novel.
 
-**Closest literature and limitations.** Goles–Olivos (1980), Benjamini et al. (arXiv:1405.2486), and Nakar–Ron (arXiv:2507.14569) provide general or structural foundations. A published four-cube majority census is a near parameter comparator but not a covering graph result. The proof depends on two exact exhaustive implementations; no external validation or inaccessible-source priority guarantee is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The period<=2 assertion follows already from classical Goles–Olivos for finite symmetric threshold dynamics and is not new. Nakar–Ron 2025 treats stability and periodic pattern structure on 2D tori, but does not state the full C4xC5 global attraction basins, exact 5-step entry distribution and 120 orbit quotient. Other published exact dynamic censuses for C4xC4≅Q4, dodecahedral and prism graphs have different adjacency matrices and cannot supply these 20-site torus counts by graph isomorphism. Novelty rests on the exact complete basin and symmetry census for this particular natural graph, not generic period-two behavior.
+
+## value
+
+PASS
+
+A finite complete basin and symmetry classification on the smallest non-hypercubic 4x5 square torus with an odd cycle provides exact benchmark data at a natural graph size. Its sharp 5-step settling time, 120 spatial classes and precise split of one- vs two-period attraction are not determined by the generic period-two theorem or recurrent-state structural classification. A natural exact finite invariant can be valuable without a theorem for all grid sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction of exact finite classification
+# Independent mathematical audit
 
-The two source programs `verify_indegree.cpp` and `verify_trajectory.cpp` were copied into this scientific package and **compiled and replayed from these exact paths** with standard C++17 and integer arithmetic. The first was executed with parameters `4 5`, the second has these dimensions built into a separate column-major construction. Raw expected outputs are `out_indegree.txt` and `out_trajectory.txt`.
+## correctness
 
-```sh
-g++ -O3 -std=c++17 verify_indegree.cpp -o check_indegree
-./check_indegree 4 5 > actual_indegree.txt
-g++ -O3 -std=c++17 verify_trajectory.cpp -o check_trajectory
-./check_trajectory > actual_trajectory.txt
-diff -u out_indegree.txt actual_indegree.txt
-diff -u out_trajectory.txt actual_trajectory.txt
-```
+PASS
 
-Both programs exhaust the \(2^{20}=1,048,576\) distinct states. Program one implements a full indegree-based functional-graph decomposition and union-find cycle-equivalence classes; program two traces trajectories with separately constructed transitions, independently tests every state's fixedness and period-two return, and applies Burnside's lemma to 160 symmetries. The two agree on both classes of temporal cycles, all 12 period/entry cells, all basins, and a sharp maximal first-entry depth five. Their group orbit counts are 53 fixed and 67 two-cycle classes. Burnside fixed-cycle sums equal 8,480 and 10,720 for those periods.
+The rule on the labelled graph C4 square C5 uses four distinct neighbors and synchronous binary threshold >=3, <=1 and incumbent retention on ties. Two separately written packaged C++17 implementations construct all 2^20=1048576 transitions; indegree peeling finds exactly recurrent functional-graph cycles and recovers entrance depths backwards; independent column-major trajectory traversal and Burnside fixed-cycle sums yield period/symmetry counts. An independent newly written C++ 20-bit enumerator was compiled and executed this run and reproduced 3186 fixed states, 3225 primitive two-cycle orbits, maximum entry depth five, exact 12 period-by-entry counts and 53+67=120 classes under 160 symmetries. The exact joint table by t=0..5: period1 [3186,96300,346900,226680,68760,5800], period2 [6450,94740,138400,51120,10080,160], totaling 1,048,576. Group action is correct because graph automorphisms and bitwise complement commute with F; Burnside sums 8480 and 10720 divided by 160 equal 53 and 67. Full finite enumeration is exhaustive for THIS graph and proves its finite assertion; the classical period-two theorem is not replaced or claimed novel.
 
-**Limits.** Finite exhaustive computations prove claims for the specified 20-site grid; they are not a theorem for arbitrary sizes. Neither implementation has received independent external mathematical validation. A separate general theorem already supplies eventual period at most two; the new contribution is only the explicit finite census.
+## originality
+
+PASS
+
+The period<=2 assertion follows already from classical Goles–Olivos for finite symmetric threshold dynamics and is not new. Nakar–Ron 2025 treats stability and periodic pattern structure on 2D tori, but does not state the full C4xC5 global attraction basins, exact 5-step entry distribution and 120 orbit quotient. Other published exact dynamic censuses for C4xC4≅Q4, dodecahedral and prism graphs have different adjacency matrices and cannot supply these 20-site torus counts by graph isomorphism. Novelty rests on the exact complete basin and symmetry census for this particular natural graph, not generic period-two behavior.
+
+## value
+
+PASS
+
+A finite complete basin and symmetry classification on the smallest non-hypercubic 4x5 square torus with an odd cycle provides exact benchmark data at a natural graph size. Its sharp 5-step settling time, 120 spatial classes and precise split of one- vs two-period attraction are not determined by the generic period-two theorem or recurrent-state structural classification. A natural exact finite invariant can be valuable without a theorem for all grid sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
