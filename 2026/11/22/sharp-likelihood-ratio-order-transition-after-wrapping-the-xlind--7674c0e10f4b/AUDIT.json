@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Starting from the 2023 wrapped XLindley density, the mixed angular/parameter log derivative is J=-1-b'/((t+b)^2); the sign at t=0 is governed by K(λ)=(exp(2πλ)-1)[(λ+2)^2+1]+2π(2λ+4-2π). Its derivative is strictly positive, K(0)<0, and K tends to infinity, proving a unique boundary. At the terminal angle J<0 for every positive parameter. The explicit two-parameter slope Q(t) is either everywhere negative or strictly decreases and crosses zero exactly once. All quantifiers and the fixed-origin seam are specified. Standalone Python checker passed 506 tests, including exact rational π and exponential bounds proving the cutoff enclosure and strict positive slope for parameters 0.10 and 0.11; numerical diagnostics do not replace the all-parameter argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bell and Nadarajah (2024), DOI 10.3390/math12162440, Section 2.45 surveys wrapped XLindley density and trigonometric moments",
+        "Chouia–Zeghdoudi (2021) Section 5 states a comparison for the unwrapped family only"
+      ],
+      "reasoning": "A published general theorem for likelihood-ratio order under a fixed-origin wrap, if applicable, would dominate the exact cutoff. The inspected original article and the circular-distribution review contain no such general order result. An unwrapped likelihood-ratio theorem cannot imply the wrapped conclusion, as the explicit small-parameter pair has a single interior likelihood-ratio maximum.",
+      "searches": [
+        "\"The wrapped XLindley distribution\" likelihood ratio ordering stochastic order parameter",
+        "\"wrapped Lindley\" \"total positivity\" density ratio",
+        "wrapped distributions likelihood ratio stochastic ordering all parameters monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s10651-023-00579-2",
+      "https://doi.org/10.2991/jsta.d.210607.001",
+      "https://doi.org/10.3390/math12162440"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 Section 5: the unwrapped density family has strict likelihood-ratio order",
+        "2023 source: defines wrapped density gλ and discusses location-origin dependence, but no all-pair likelihood-ratio classification",
+        "2024 Section 2.45: repeats wrapped density and moment facts, not a pairwise order theorem"
+      ],
+      "reasoning": "The 2021 result is stronger for unwrapped data, not the same statistical experiment: taking residues modulo 2π merges arbitrarily ordered tails and does not preserve density-ratio monotonicity. The 2023 and 2024 descriptions supply formulas from which new, nonautomatic derivative sign analysis is required. The sharp λ* threshold and interior-arc NP region are not corollaries of any inspected theorem.",
+      "searches": [
+        "Zinhom Nassar Radwan Elmasry 2023 wrapped XLindley distribution likelihood ratio order threshold b lambda monotonic mixed derivative circular",
+        "Chouia Zeghdoudi 2021 XLindley likelihood-ratio order after modulo 2pi double crossing increasing decreasing angular ratio",
+        "WXL lambda circular density likelihood ratio phase transition 0.1800847384888",
+        "\"wrapped XLindley\" likelihood ratio transformation wrapped density stochastic order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zinhom et al., 2023, DOI 10.1007/s10651-023-00579-2, wrapped angular density and its parametrization",
+        "Chouia–Zeghdoudi, 2021, DOI 10.2991/jsta.d.210607.001, Section 5, unwrapped likelihood-ratio order"
+      ],
+      "reasoning": "Directly rewrote the published angular density as exp(-λt)(t+bλ) times a positive λ-only factor, and compared its exact density ratio with unwrapped monotone likelihood ratio. The absolute angular origin is fixed; modulo mapping is not an order-preserving injective transformation, and the positive ratio derivative for (0.10,0.11) disproves implication from the unwrapped theorem.",
+      "searches": [
+        "\"wrapped XLindley\" \"likelihood ratio\" ordering",
+        "\"XLindley\" wrapping monotone likelihood ratio 2pi",
+        "\"wrapped XLindley\" sharp parameter cutoff mixed derivative",
+        "wrapped XLindley mixed derivative density score total positivity monotone likelihood ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 primary article tabulates moments, numerical fits and density shapes, not a likelihood-ratio parameter-boundary table",
+        "The 2024 wrapped-distributions review reproduces density and moments, without parameter ordering thresholds"
+      ],
+      "reasoning": "The exact transition root and classification are not an extraction from any table or database inspected. Search absence is only supporting evidence; it is not a proof of global priority.",
+      "searches": [
+        "\"wrapped XLindley\" \"likelihood ratio\" ordering",
+        "\"XLindley\" \"0.180084\" order",
+        "wrapped Lindley ratio phase diagram table circular parameter"
+      ]
+    },
+    "rationale": "The source Zinhom et al. (2023) develops the fixed-origin wrapped XLindley density, moments, estimation and origin conventions, without a likelihood-ratio order cutoff. Chouia–Zeghdoudi (2021) prove an unwrapped likelihood-ratio order that does not survive modulo wrapping below the derived cutoff; the fixed-origin sharp family classification is not implied. Bell–Nadarajah (2024) review the same wrapped density and moments, without this classification. Actual literature and mathematical-record searches found no covering theorem, though global priority remains uncertain.",
+    "residual_risks": [
+      "Generic but unindexed likelihood-ratio preservation or single-crossing results might yield the same special case; no global novelty guarantee.",
+      "Publication/source priority assessed from accessible papers and search results, not every mathematical book or paywalled source.",
+      "Likelihood-ratio order is branch-origin dependent and is not intrinsic circular stochastic order."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_NOT_COVERING_CLAIM",
+        "evidence": "Contains the law, trigonometric moments and estimators; the proposed sharp parameter-dependent likelihood-ratio classification and NP interior-arc consequence were not present in inspected main sections.",
+        "identifier_or_url": "https://doi.org/10.1007/s10651-023-00579-2",
+        "material_read": "HTML full scientific article, Sections 2–5 including formulas for the density, estimation and discussion of the origin",
+        "method": "Read complete accessible article HTML and checked the wrapped-density formula and statements for likelihood-ratio comparisons",
+        "title": "The wrapped XLindley distribution",
+        "trigger": "Exactly the same statistical model and wrapped density"
+      },
+      {
+        "assessment": "UNWRAPPED_ORDER_ONLY_NOT_EQUIVALENT",
+        "evidence": "Unwrapped likelihood-ratio order holds, but wrapping destroys it at λ=(0.10,0.11); no cutoff at λ* for fixed-origin wrapped density is stated.",
+        "identifier_or_url": "https://doi.org/10.2991/jsta.d.210607.001",
+        "material_read": "HTML full scientific article, especially Section 5 and Theorem 1",
+        "method": "Compared definitions and implication under the many-to-one modulo mapping",
+        "title": "The XLindley Distribution: Properties and Application",
+        "trigger": "The same unwrapped one-parameter law has an existing likelihood-ratio theorem"
+      },
+      {
+        "assessment": "DENSITY_SURVEY_NOT_COVERING_CLAIM",
+        "evidence": "Reviews the density and circular moments; did not state a likelihood-ratio ordering classification for this model.",
+        "identifier_or_url": "https://doi.org/10.3390/math12162440",
+        "material_read": "Full open HTML; Section 2.45 relevant to wrapped XLindley",
+        "method": "Examined distribution review and referenced moment formulas",
+        "title": "A Review of Wrapped Distributions for Circular Data",
+        "trigger": "Broad survey might contain a stronger theorem or alternate equivalent parametrization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7674c0e1-0f4b-4a39-bd8c-f5a99812d16f",
+  "value": {
+    "rationale": "The direct publication of a wrapped version of a likelihood-ratio-ordered family raises a natural mathematically substantive question: does strong stochastic comparison survive a many-to-one time-of-day transformation? The theorem supplies a complete sharp threshold for universal order and an exact all-parameter density-ratio shape classification. This is structurally stronger than a pointwise counterexample and has immediate NP most-powerful rejection-geometry implications (initial versus interior angular arcs) for a single observation. It does not claim unknown-location inference or multi-observation UMP performance.",
+    "status": "PASS"
+  }
+}
