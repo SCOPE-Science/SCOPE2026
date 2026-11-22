@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The independent-of-formula finite script `verify.py` reconstructs both graph families from their edge sets and derives the independence number of each induced vertex subset by exact recursion. It verifies all six local filtration states, the image of every robust-clique face under simultaneous contraction, and the exact mod-two reduced Betti numbers for all sixteen pairs \(1\le m\le4\), \(2\le k\le5\). There are no external Python dependencies.
+# Independent mathematical audit
 
-Run with `python3 verify.py`; the original recorded output is in `verification_output.txt`. The final output line is `ALL_PETAL_CONTRACTION_CHECKS_PASS`. The largest tested pentagonal complex contains 19,150 nonempty faces, corresponding to four petals and robustness threshold five. Mod-two boundary calculations are independent checks, not an integral homotopy proof; that conclusion comes from the finite-cover homotopy equivalence and the symbolic quadrilateral acyclic matching in the result.
+## correctness
 
-The scientific argument does not claim edge-contraction invariance for other graphs or an equivariant equivalence. Independent validation has not been performed.
+PASS
+
+For each petal, private-path independence p and chosen-middle independence q determine α(S) without hub and max(Σp,1+Σq) with hub. Edge contraction preserves q and cannot increase p, hence gives a simplicial face map. Six local threshold pairs (p,q) show identity of empty/endpoint subcomplexes, path contraction, or full-simplex contraction; every local map is a homotopy equivalence. All finite intersections of threshold-cover joins are again productwise-minimum threshold joins and commute with the contraction, allowing finite homotopy-colimit gluing on deletion X and link L. The hub cone decomposition then supplies full map equivalence. For the square bouquets, a specified discrete-Morse pairing with monotone hub/middle/endpoint order leaves one critical 0-cell and binom(m,k-1) cells of dimension 2k-3, yielding the integral wedge. Independent induced-independence enumeration checks Euler and face counts at (m,k)=(1,2),(2,3),(3,3),(3,4); larger finite table and exact mod-2 Betti ranks in source corroborate. k=2 and contractible m<k-1 boundaries included.
+
+## originality
+
+PASS
+
+Published quadrilateral-bouquet threshold wedge formula is used as a target, not a statement of equivalence from nonbipartite five-cycle petals. Filakovský studies bipartite square-sequence graphs and Kim–Lew general bounded-independence complexes; threshold three pentagonal bouquet homotopy was known but does not imply all thresholds or the map. New structural extension is the all-k contraction map for the nonbipartite bouquet.
+
+## value
+
+PASS
+
+The theorem identifies a nontrivial edge-contraction homotopy invariance that fails generically and transports a full infinite-family integral sphere-wedge classification from squares to pentagons. The local filtration/gluing criterion is an independently useful explanation of stable topology under a natural graph simplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
