@@ -1,72 +1,64 @@
-# A certified productive crown core at order 13
+# An explicit thousand-ary, height-35 productivity certificate for crown cores of order at least 13
 
 ## Finding
 
-For each integer \(n\ge13\), the bipartite crown core with incidence matrix \(C_n=J_n-I_n\) is **productive**: its graph formed by attaching a complete rooted 1000-ary tree of height 35 to each core vertex satisfies
+For each integer \(n\ge13\), consider the crown biadjacency matrix \(C_n=J_n-I_n\). Attach to every core vertex a complete rooted tree with exactly 1000 children at each nonterminal level and height 35, denoting the resulting bipartite graph by \(T_{C_n}(1000^{[35]})\). For the complex operator Schur-multiplier norm,
 \[
-\|T_{C_n}(1000^{[35]})\|_{\bullet}
->2+\frac{7053468}{1625\cdot5606050}>2.
+\big\|T_{C_n}(1000^{[35]})\big\|_{\bullet}
+>2+\frac{7053468}{1625\cdot5606050}>2
+>\|C_n\|_{\bullet}=2-\frac2n.
 \]
-The crown's own Schur norm is \(\|C_n\|_{\bullet}=2-2/n<2\). This gives explicit productivity parameters \((R_0,h_0)=(1000,35)\) for every \(n\ge13\). No analogous assertion is made for \(n\le12\).
+Thus these explicit attachments certify productivity of every crown core of order at least 13. The contribution is the **quantitative construction at branching 1000 and height 35 for orders 13 and 14**, not the first proof of productivity at those orders or a new smallest-order cutoff. A separate published certificate already establishes productivity for every order at least 12, with branching 10000 and height 100. Another earlier certificate gives branching 1000 and height 12 for every order at least 15. The present witness supplies an intermediate, strictly smaller attachment bound in both resources than the order-12 construction for the previously unaddressed order-13/14 parameter pair; it does not improve the order-12 structural cutoff.
 
-## Assumptions and scope
+## Definitions and scope
 
-Graphs are finite bipartite graphs identified with their zero–one incidence matrices; \(\|G\|_{\bullet}\) is the operator norm of entrywise multiplication by the incidence matrix on bounded Hilbert-space operators. The core \(C_n\) is the bipartite complement of a perfect matching, with \(n\) vertices on each side. In \(T_{C_n}(1000^{[35]})\), every vertex at depth strictly less than 35 receives 1000 children; the original core vertices have depth zero. The proof uses the finite-tree norm formula, Definition 3.7 and Theorem 3.8 of Levene [1].
+The graph is finite and bipartite, with incidence matrix viewed as a zero–one multiplier on bounded operators between the corresponding two Hilbert spaces. Its norm is
+\(\|M\|_{\bullet}=\sup_{\|X\|\le1}\|M\circ X\|\).
+The notation \(1000^{[35]}\) means 35 levels of downward edges beyond the original core vertices at depth zero. The construction is not claimed to have minimal branching, minimal height, minimal graph size, or the exact multiplier norm. The tree-attachment trace-norm formula is imported explicitly from Levene [1], Theorem 3.8 and equation (3.2); no enumeration of the enormous attached graph is necessary.
 
 ## Proof
 
-First work at \(n=13\), and denote the common branching number by \(R=1000\) and the tree height by \(h=35\). Take the positive integer vector
+At \(n=13\) take \(R=1000\), \(h=35\), and the 36 positive integers
 
 ```
-u = [1000, 730, 691, 653, 617, 583, 551, 520, 491, 463, 436, 410, 386, 363, 340, 319, 298, 279, 260, 242, 224, 207, 191, 175, 160, 145, 130, 116, 103, 89, 76, 63, 50, 38, 25, 12]
+u = [1000, 730, 691, 653, 617, 583, 551, 520, 491,
+     463, 436, 410, 386, 363, 340, 319, 298, 279,
+     260, 242, 224, 207, 191, 175, 160, 145, 130,
+     116, 103, 89, 76, 63, 50, 38, 25, 12]
 ```
 
-and the nonnegative depth weights \(x_j=u_j^2\) for \(0\le j\le35\). Their sum and the adjacent product sum excluding the first edge are
+Set the depth weights \(x_j=u_j^2\), and put
 \[
 S=\sum_{j=0}^{35}u_j^2=5606050,\qquad
 H=\sum_{j=1}^{34}u_ju_{j+1}=4330856.
 \]
+The singular values of the normalized 13-crown incidence matrix are \(12/13\) once and \(1/13\) twelve times. In the tree norm formula [1], each positive-depth tridiagonal trace norm is at least twice the magnitude of its first off-diagonal entry, by pinching onto a principal two-by-two corner. A chain at depth \(\ell\in\{1,\ldots,34\}\) has \(13R^\ell-13R^{\ell-1}\) copies, and its relevant off-diagonal entry is \(u_\ell u_{\ell+1}/(13R^\ell)\). Thus the sum of their contributions is bounded below by \(2(R-1)H/R=1998H/1000\).
 
-The 13 singular values of the normalized core incidence matrix are \(12/13\) once and \(1/13\) twelve times, because \(J_{13}-I_{13}\) has eigenvalues \(12,-1,\ldots,-1\). Levene's Theorem 3.8 and equation (3.2) yield \(\|T_{C_{13}}(1000^{[35]})\|_{\bullet}\ge F(x)/S\).
-
-For each positive depth \(1\le\ell\le34\), the trace norm of the tridiagonal chain \(Q_\ell\) is at least \(2c_\ell\), by pinching onto its first two coordinates, where \(c_\ell=u_\ell u_{\ell+1}/(13R^\ell)\). Its multiplicity is \(13R^\ell-13R^{\ell-1}\). Therefore these depths contribute to \(F(x)\) at least \(2(R-1)H/R=1998H/1000\).
-
-At depth zero the same pinching of each core singular-value block to its leading two coordinates gives
+The same trace-norm pinching of the two leading coordinates of the 13 depth-zero singular blocks yields the fully explicit lower bound
 \[
-F(x)\ge
-\frac{1}{13}
-\left(\sqrt{(12u_0^2)^2+4(u_0u_1)^2}
-+12\sqrt{(u_0^2)^2+4(u_0u_1)^2}\right)
+S\big\|T_{C_{13}}(1000^{[35]})\big\|_{\bullet}\ge
+\frac{\sqrt{(12u_0^2)^2+4(u_0u_1)^2}+12\sqrt{(u_0^2)^2+4(u_0u_1)^2}}{13}
 +\frac{1998}{1000}H.
 \]
-The two radicands are exact integers
+Here the two integer radicands are, respectively, \(146131600000000\) and \(3131600000000\). Their strict integer square-root floors are \(12088490\) and \(1769632\). Substituting these *strict lower bounds* and the exact sums gives
 \[
-(12u_0^2)^2+4(u_0u_1)^2=146131600000000,
+S\big\|T_{C_{13}}(1000^{[35]})\big\|_{\bullet}
+>\frac{12088490+12\cdot1769632}{13}
+  +\frac{1998}{1000}\cdot4330856
+=2S+\frac{7053468}{1625}.
 \]
-\[
-(u_0^2)^2+4(u_0u_1)^2=3131600000000.
-\]
-Rather than use approximations, take their exact integer square-root floors \(12088490\) and \(1769632\), respectively. Both floors are strict; this is verified by squaring them as in the standalone checker. Substitution yields the strict inequality
-\[
-F(x)>\frac{12088490+12(1769632)}{13}+\frac{1998}{1000}(4330856)
-=2(5606050)+\frac{7053468}{1625}.
-\]
-Thus \(\|T_{C_{13}}(1000^{[35]})\|_{\bullet}>2+7053468/(1625\cdot5606050)>2\).
+Division by \(S>0\) proves the stated strict bound at order 13. For any \(n\ge13\), choose 13 row and 13 column indices in \(C_n\) and all the trees attached to these selected core vertices. Their incidence submatrix is \(T_{C_{13}}(1000^{[35]})\), so Schur-multiplier norm monotonicity under matrix compression yields the same lower bound. Finally, transitivity and the singular spectrum of \(J_n-I_n\) give \(\|C_n\|_{\bullet}=2-2/n<2\); hence the productivity criterion of [1] is satisfied. \(\square\)
 
-For \(n\ge13\), select 13 row and 13 column core indices and their entire attached trees. This is an induced copy of \(T_{C_{13}}(1000^{[35]})\) inside \(T_{C_n}(1000^{[35]})\). Restriction to a submatrix cannot increase the Schur multiplier norm, hence the same strict bound holds for all \(n\ge13\). Finally \(\|C_n\|_{\bullet}=2-2/n\) by its normalized singular-value sum, so Levene's Definition 4.2 applies.
+## Exact check and limitations
 
-## Verification
+Run the accompanying unchanged `check_certificate.py` using Python 3's standard library. It verifies all 36 positive entries, both integer sums, the strict integer square-root inequalities, and the exact rational excess \(7053468/1625\). The numerical facts can be checked independently with integer arithmetic. The program does not prove the imported tree norm formula, and a finite numerical experiment is not used to infer any infinite theorem: extension to all \(n\ge13\) follows from the displayed submatrix argument.
 
-Run `python3 check_certificate.py` with Python 3 standard library. It checks the 36 integer entries, both sums, both strict square-floor comparisons, the exact rational surplus and its positivity. The code checks the finite arithmetic, not Levene's analytical trace-norm formula, which is an explicit cited premise. No enumeration of the enormous graph is attempted.
+The conclusion is a particular constructive resource bound, not the optimal productivity threshold in \(n\), the best height at branching 1000, or an exact norm. The preceding order-12 result does not imply the present smaller branching/height instance, but it *does* already imply the qualitative productivity of all orders \(n\ge13\). Therefore the sole possible originality here is this explicit quantitative witness, and its value is the substantially reduced attachment size for the two intermediate orders, rather than a claim that 13 is a new productive family cutoff. Possible other parameter-specific certificates remain a historical-priority risk.
 
-## Relationship to prior work
+## References and precise comparison
 
-Levene [1], Section 6, reports numerical evidence for productivity of the 15-crown at branching 1000 and height 12, but explicitly states that this experiment was not certified. An existing exact certificate for all crown orders at least 15 establishes a stronger bound at height 12, and is not repeated here. The present statement crosses a previously uncovered structural boundary by proving productivity already at order 13 (and thereby at 14), at the cost of height 35. The core norm, induced-subgraph argument, pinching technique and tree-weight formula are sourced from [1]; the contribution is this distinct, verified 13-crown witness and its improved family cutoff. The threshold 13 is not claimed optimal.
+1. R. H. Levene, *A half-line of Schur idempotent norms*, arXiv:2611.08419v1 (2026-11-05), especially equation (3.2), Theorem 3.8 and Definition 4.2, https://arxiv.org/html/2611.08419v1. This source supplies the general multiplier trace-norm formula and productivity criterion, with numerical discussion of a 15-crown but not the integer witness above.
+2. *Twelve-vertex crown sides form a productive Schur core*, published research record (2026-11-17), https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-twelve-vertex-crown-sides-form-a-productive-schur-core--d24f02729fc3/RESULT.md. This proves qualitative productivity already for \(n\ge12\) using branching 10000 and height 100, thereby superseding any claim that the family cutoff 13 is new.
+3. *Certified productivity of crown-graph cores for Schur idempotents*, published research record (2026-11-17), https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-certified-productivity-of-crown-graph-cores-for-schur-idempotent--1904e223ddd1/RESULT.md. This supplies branching 1000 and height 12 for \(n\ge15\). Its larger core-size restriction does not imply the order-13/14 certificate above.
 
-## Limitations
-
-The certificate gives a strict lower bound, not the exact multiplier norm, a best possible branching parameter, or a classification of the small cores. It is conditional on the established tree norm formula in [1]; direct exhaustive verification of the constructed finite matrix is computationally impractical. Possible independent earlier certificates with different terminology are a publication-priority risk.
-
-## References
-
-[1] Rupert H. Levene, *A half-line of Schur idempotent norms*, arXiv:2611.08419v1 (first posted 2026-11-05), Sections 3–6, especially equation (3.2), Definition 3.7, Theorem 3.8, Definition 4.2 and Section 6. https://arxiv.org/html/2611.08419v1
+These publications share a calendar publication date; no claim of individual intra-day priority is made.
