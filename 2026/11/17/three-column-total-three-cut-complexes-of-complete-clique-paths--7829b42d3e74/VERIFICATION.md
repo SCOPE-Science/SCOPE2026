@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The general claim is proved by a symbolic lexicographic acyclic matching in `RESULT.md`. The critical-fiber argument applies to every integer \(m\ge2\); the tests below are finite corroboration only.
+# Independent mathematical audit
 
-The standalone Python program `verify.py` uses ordinary adjacency in \(K_m\square P_3\) to generate all independent triples, builds the total three-cut complex from complements of those triples, performs the sequential coordinate matching, checks the exact list and dimensions of critical faces, and verifies acyclicity by topologically sorting the complete oriented face-incidence graph.
+## correctness
 
-To replay from the extracted package: `python3 verify.py`. Tested \(m=2,3,4,5\), respectively with 15, 298, 3247 and 29466 faces including the empty face. All four full-incidence checks passed. See `verify_output.txt` for counts and the exact program exit summary.
+PASS
 
-The test does not independently prove the infinite quantifier, exclude equivalent work outside the inspected literature, or provide independent mathematical audit. The special \(m=2\) case correctly gives two components (the discrete sphere \(S^0\)).
+The independent triples of K_m square P_3 are exactly A_i B_j C_k with i!=j and k!=j. At fixed B,C missing indices Q,R, the available A subsets form an empty fiber if |J|=0, a cone freely toggled at A_j when |J|=1, or full simplex boundary if |J|>=2; sequential A_0 toggling then leaves the A_1..A_m−1 face. For |R|>=2 the B fiber is the (m−3)-skeleton and its B_0 matching leaves m−1 subsets of B_1..; singleton R gives a free cone coordinate. C skeleton similarly leaves m−1 subsets. The complete acyclic sequential matching therefore has exactly (m−1)² critical (3m−6)-cells and the empty face is matched. For m>=3, one basepoint plus only these higher-dimensional cells yields wedge of spheres; m=2 gives S0. Independently built graph adjacency and all complex faces and rematched at m=2,3,4: face counts 15,298,3247, matched pairs 7,147,1619, critical 1,4,9 with predicted exact masks. Finite checks corroborate rather than replace the all-m fiber argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: published Conjecture 4.3 already predicts the exact reduced homology for n=3, so the Betti-number formula alone is not novel. The uniform all-m acyclic matching and integral homotopy sphere wedge instead provide proof and strengthen the conjecture. Broader published total-two-cut results and tables do not settle this total-three-cut slice.
+
+## value
+
+PASS
+
+A uniform integral homotopy classification of the first arbitrary-width n=3 slice settles an explicit published homology conjecture for infinitely many m and strengthens it to a sphere wedge. This is motivated by an open named family, not a re-tabulation of finitely checked cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
