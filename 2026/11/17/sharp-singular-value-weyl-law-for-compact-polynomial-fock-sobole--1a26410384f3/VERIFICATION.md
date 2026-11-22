@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Scientific verification
+# Independent mathematical audit
 
-The infinite-dimensional spectral claim is proved by the four-step analytical argument in `RESULT.md`. It uses exact monomial moments, a finite-band weighted Weyl lemma proved from closed-walk moments and Riemann sums, low/high-index control, and singular-counting perturbation inequalities. The source and target Hilbert norms are normalized by \(1/\pi\). Every leading coefficient and exponent has been checked against the exact factorial and gamma-moment formulas. The strict degree deficit guarantees compactness.
+## correctness
 
-To reproduce the supplementary checks, run `python fock_weyl_check.py` with NumPy and SciPy. The checker passes \(182\) finite assertions on the two-band example, including direct factorial comparisons, nonnegative Gram spectra, and angular-moment identities. Finite-section singular values are not an infinite-dimensional proof; the theorem and the logarithmic critical coefficient follow analytically. No formal proof assistant or independent external audit was used.
+PASS
 
-The principal remaining scientific risk is priority relative to the general compact pseudodifferential Weyl literature or an undiscovered earlier Fock–Sobolev specialization. The theorem concerns only leading spectral behavior and explicitly excludes higher-order asymptotics and arbitrary entire coefficients.
+Verified exact radial monomial moment beta_r(k)=sum_(v<=2r) binomial(2r,v)Gamma(k+1+v/2) and asymptotic Gamma(k+r+1)(1+O(k^-1/2)). A term a_(j,h) z^h f^(j) integrated n times has normalized band shift n+h-j and leading k^{-(n+m-ell-j-h)/2} with coefficient a. The maximal j+h=D layer gives finite Laurent polynomial P(e^{i theta})=e^{i(n+D)theta}Q(e^{-2i theta}) and k^{-delta/2} weight. Lower layers have column O(k^{-delta/2-1/2}); finite-column truncations give singular tail o(t^{-2/delta}). Reconstructed weighted-band Weyl lemma via block-rescaled closed-walk trace moments, Fourier zero mode, polynomial approximation and controlled boundary/low/high tails. Ky Fan counting perturbations, monotone inversion and harmonic sum give s_k~C^{delta/2}k^{-delta/2}, Schatten iff p>2/delta and critical residue C. The I^3(zf+f′) two-band weights and C=4/pi checked independently.
+
+## originality
+
+PASS
+
+The motivating Dong–Hu article establishes identical generalized integral operator compactness and a critical-degree Laurent symbol/essential norm, not singular Weyl coefficient in the strictly compact regime. Abstract finite-band weighted Weyl law is classical in the pseudodifferential/GLT universe and not claimed independently new; exact Fock–Sobolev normalization and complete mixed polynomial angular spectral classification survive checked specializations.
+
+## value
+
+PASS
+
+Natural next invariant after compactness for a physically established integral operator family: exact s_k decay, every Schatten cutoff and leading constant for nonorthogonal derivative bands. Angular polynomial retains interaction/phase effects that largest coefficient cannot encode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
