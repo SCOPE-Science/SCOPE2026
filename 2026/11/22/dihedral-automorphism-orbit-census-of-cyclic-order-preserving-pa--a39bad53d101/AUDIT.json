@@ -1,0 +1,181 @@
+{
+  "correctness": {
+    "rationale": "For each rotation, invariant domain and range have common size divisible by the rotational cycle length; exactly k cyclic shifts commute, giving R. For each reflection, the numbers of fixed selected vertices agree and exactly gcd(2,k) cyclic shifts intertwine the induced reflections, giving H. This covers all 2n automorphisms and proves every coefficient via Burnside. Vandermonde yields the divisor total; identity and reflection-fixed counts imply the next-to-unit formula, and nonidentity fixed-set bounds yield the asymptotic. The packaged Python checker exhaustively compares every rank-wise fixed count with actual partial maps for n=3..7, constructs actual orbits for n=3..6, and confirms arithmetic identities through n=18. The infinite proof is independent of these finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araújo et al. 2011 Theorem 5.5 establishes \\(\\operatorname{Aut}(\\mathcal{POPI}_n)\\cong D_{2n}\\), but does not calculate element-orbit profiles.",
+        "Li–Fernandes 2022 Theorem 2.12 classifies semigroup endomorphisms; its endomorphism counts neither imply the orbit number by themselves nor resolve stabilizers.",
+        "The published parity-reachability note gives only maximum-index nilpotent chains of rank \\(n-1\\), not all rank \\(n-1\\) elements or all ranks.",
+        "The dihedral-restriction inverse monoid comprises restrictions of global dihedral permutations, whereas \\(\\mathcal{POPI}_n\\) contains many cyclic-order partial bijections not extending to dihedral permutations."
+      ],
+      "reasoning": "A statement counting all automorphisms, all semigroup elements, one nilpotent stratum, or elements of the narrower restriction monoid does not imply the complete automorphism-orbit polynomial without fixed-map data. A general Burnside/cycle-index theorem specialized to this action could still dominate this result; no such precise formula was located.",
+      "searches": [
+        "POPI_n dihedral automorphism conjugacy rank orbit polynomial central binomial totient Burnside",
+        "partial orientation-preserving inverse monoid conjugacy automorphism orbit exact rank count",
+        "conjugacy classes POPI_n dihedral partial orientation preserving",
+        "arxiv:2207.12823v1",
+        "doi:10.5486/PMD.2011.4703",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-parity-reachability-and-totient-fibres-of-longest-nilpotent-chai--1cda766d1c6b/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-the-domain-rank-involution-polynomial-of-the-dihedral-inverse-mo--8670f30aedd1/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.12823v1, introduction and Sections 2–3",
+      "Araújo et al., Publ. Math. Debrecen 79 (2011), Theorem 5.5",
+      "A. Umar, Journal of Integer Sequences 14 (2011), Article 11.7.5, Section 4",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-parity-reachability-and-totient-fibres-of-longest-nilpotent-chai--1cda766d1c6b/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-the-domain-rank-involution-polynomial-of-the-dihedral-inverse-mo--8670f30aedd1/RESULT.md",
+      "Fernandes 2000 DOI abstract, not full text",
+      "Li and Fernandes 2024 arxiv:2401.02185 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The monoid automorphism theorem identifies the group to average; no fixed-point formulas are given.",
+        "The 2011 rank enumerator gives \\(k\\binom nk^2\\) labeled rank-k elements, insufficient to determine the number of orbits.",
+        "A result for nilpotent paths at rank \\(n-1\\) does not cover all elements there; the new boundary formula counts all rank \\(n-1\\) orbits.",
+        "The dihedral inverse monoid study counts self-inverse restrictions and corrects overlapping extensions; neither its smaller object nor its invariant is the current quotient."
+      ],
+      "reasoning": "Combining the prior automorphism theorem with Burnside is possible only after proving new fixed-set identities for rotations and reflections. The reflection parity corrections and the \\(k=n-1\\) orbit count do not follow by substitution into published rank-count formulas. The novelty claim is limited to that explicit full-rank-graded orbit census, not to Burnside or the established basic monoid/cardinality facts.",
+      "searches": [
+        "orientation-preserving partial permutations",
+        "The monoid of all injective orientation preserving partial transformations on a finite chain",
+        "Automorphisms of partial endomorphism semigroups",
+        "rank-and-nilpotency-index-enumerators-for-partial-isometries-of-finite-cycles",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-parity-reachability-and-totient-fibres-of-longest-nilpotent-chai--1cda766d1c6b/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-the-domain-rank-involution-polynomial-of-the-dihedral-inverse-mo--8670f30aedd1/RESULT.md",
+        "arxiv:2401.02185v1 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cyclic-order-preserving partial injection object is identified with the standard monoid \\(\\mathcal{POPI}_n\\) by its explicit increasing-domain/cyclic-image definition.",
+        "The 2022 paper characterizes endomorphisms and the action of automorphisms, but its Section 3 counts endomorphisms, not orbits on monoid elements.",
+        "Umar Proposition 33 and Corollaries 34–37 count maps by rank, height and waist, not the simultaneous dihedral conjugation equivalence relation."
+      ],
+      "reasoning": "The alternative wording “oriented partial cyclic permutations up to rotation and reflection of both the domain and codomain” is precisely automorphism conjugation in \\(\\mathcal{POPI}_n\\). It is not equivalent to rank-class counts or to the semigroup Green relations: multiple distinct orbits occur within the same rank. The inspected texts did not present the identified quotient.",
+      "searches": [
+        "dihedral conjugacy orbits orientation preserving partial injections finite chain cyclic necklace Burnside",
+        "automorphism orbits of orientation-preserving partial permutation monoid POPI_n cyclic partial injections",
+        "cyclic-order-preserving partial bijections simultaneous rotation reflection orbit count",
+        "Li and Fernandes, arXiv:2207.12823v1, Theorem 2.12 and Section 3",
+        "Umar, Journal of Integer Sequences 14 (2011), Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Umar Table 4.1 lists rank counts 1,9,18,3 for n=3, compared with orbit counts 1,2,4,2; for n=4 it lists 1,16,72,48,4, compared with 1,3,13,7,3.",
+        "The rank-orbit totals 9,27,74,262,891 for n=3..7 were independently obtained by direct finite map/action enumeration and were not the counts tabulated by Umar.",
+        "Published results returned by the searches concerned element counts, longest nilpotent chains, involution ranks or metric cycle restrictions rather than these orbit vectors."
+      ],
+      "reasoning": "The numerical tables of raw elements (including the known total \\(|\\mathcal{POPI}_n|=1+\\frac n2\\binom{2n}n\\)) are not equivalent to orbit counts; fixed-point corrections distinguish them. No exact matching published table for the rank-orbit vectors was identified, but absence from a search is not a novelty certificate.",
+      "searches": [
+        "enumeration of conjugacy classes oriented partial permutation monoid n 9 27 74 262 891",
+        "conjugacy classes cyclic order preserving partial permutations monoid automorphism dihedral rank 2018 2022",
+        "POPI_n partial orientation preserving injective transformations automorphism orbits counting",
+        "A. Umar 2011 Proposition 33 Corollaries 34-37 Tables 4.1-4.2",
+        "OEIS A289711 A289715 orientation preserving partial transformations rank"
+      ]
+    },
+    "rationale": "The primary 2022 classification supplies the full dihedral automorphism group, while the 2011 enumeration supplies labeled rank counts, not the dihedral automorphism orbit quotient. Inspected adjacent published findings respectively concern maximal nilpotent chains in the same monoid and involutions in a strictly smaller dihedral-restriction inverse monoid; neither covers all conjugation orbits in every rank. Concrete rank-by-rank orbit counts and the next-to-unit orbit law are not direct consequences of the labeled counts. Priority remains qualified by inaccessible original 2000 presentation and possible general cycle-index literature.",
+    "residual_risks": [
+      "No exhaustive global literature-priority guarantee; a general cycle-index theorem applied to cyclic-order partial bijections might give equivalent formulas.",
+      "The full 2000 foundational presentation paper was not read and could conceivably contain an unadvertised orbit count.",
+      "The 2024 restricted-range paper was inspected from its abstract only, not claimed to have been excluded by full-text comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the action and endomorphism census but not a rank-wise orbit quotient of monoid elements.",
+        "evidence": [
+          "Theorem 2.12 identifies automorphisms induced by \\(D_{2n}\\)",
+          "Section 3 explicitly counts endomorphisms, not orbits on \\(\\mathcal{POPI}_n\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.12823",
+        "material_read": "Introduction defining \\(\\mathcal{POPI}_n\\); Section 2 Theorems 2.11, 2.12 and cited Theorem 5.5; Section 3 enumeration of endomorphisms",
+        "method": "Public full-text HTML",
+        "title": "Endomorphisms of semigroups of oriented transformations",
+        "trigger": "Direct source for full automorphism group and endomorphism classification of \\(\\mathcal{POPI}_n\\)"
+      },
+      {
+        "assessment": "Establishes \\(D_{2n}\\) automorphism action on \\(\\mathcal{POPI}_n\\), not orbit enumeration.",
+        "evidence": [
+          "Theorem 5.5 gives Aut(\\(\\mathcal{POPI}_n\\)) isomorphic to dihedral group of order 2n."
+        ],
+        "identifier_or_url": "https://publi.math.unideb.hu/paper/1584/download/10_5486_PMD_2011_4703.pdf",
+        "material_read": "Introduction and Section 5 including Theorem 5.5 and its proof; rendered section page 35",
+        "method": "Lawful publisher-hosted PDF text plus a screenshot of the theorem section",
+        "title": "Automorphisms of partial endomorphism semigroups",
+        "trigger": "Primary theorem identifying the full automorphism group of \\(\\mathcal{POPI}_n\\)"
+      },
+      {
+        "assessment": "Counts labeled partial transformations by rank and waist, no dihedral automorphism quotient.",
+        "evidence": [
+          "Corollary 34 is \\(k\\binom nk^2\\) for labeled rank-k \\(\\mathcal{POPI}_n\\) elements.",
+          "Corollary 37 is monoid size \\(1+\\frac n2\\binom{2n}n\\)."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL14/Umar/umar2.pdf",
+        "material_read": "Abstract, introduction, Section 4 Proposition 33 and Corollaries 34–37, rank tables, rendered PDF pages 1 and 12",
+        "method": "Publisher-hosted full PDF text and page screenshots",
+        "title": "Combinatorial Results for Semigroups of Orientation-Preserving Partial Transformations",
+        "trigger": "Potential dominating rank-by-rank enumeration and exact tables for \\(\\mathcal{POPI}_n\\)"
+      },
+      {
+        "assessment": "Restricts to nilpotent maps of maximal index with omitted-endpoint constraints and does not count all automorphism orbits.",
+        "evidence": [
+          "Only maps of rank \\(n-1\\) with nilpotency index n are considered; endpoint existence and neighboring fibres are enumerated."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-parity-reachability-and-totient-fibres-of-longest-nilpotent-chai--1cda766d1c6b/RESULT.md",
+        "material_read": "The public RESULT.md Finding, Assumptions, Proof, Verification, Relationship and Limitations sections",
+        "method": "Public repository full result text",
+        "title": "Parity reachability and totient fibres of longest nilpotent chains in orientation-preserving partial permutation monoids",
+        "trigger": "Same monoid and rank \\(n-1\\), potentially strong overlap"
+      },
+      {
+        "assessment": "Its monoid comprises global-dihedral restrictions, not all cyclic-order-preserving partial injections; counts involution elements rather than automorphism orbits.",
+        "evidence": [
+          "Definitions explicitly restrict to dihedral-permutation restrictions; its rank polynomial counts self-inverse maps."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-the-domain-rank-involution-polynomial-of-the-dihedral-inverse-mo--8670f30aedd1/RESULT.md",
+        "material_read": "The public RESULT.md Finding, Assumptions, Proof, Verification, Relationship and Limitations sections",
+        "method": "Public repository full result text",
+        "title": "The domain-rank involution polynomial of the dihedral inverse monoid",
+        "trigger": "Common dihedral symmetry and inverse partial-map setting"
+      },
+      {
+        "assessment": "Reported subject matter is ideals, congruences, generators and presentation. Cannot certify absence of orbit enumeration from the full article.",
+        "evidence": [
+          "Abstract states main aim is a presentation and describes structure/ideals/congruences; content beyond abstract unverified."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00927870008827033",
+        "material_read": "Publisher and bibliographic abstracts, full text not accessible through checked public sources",
+        "method": "Publisher abstract and open bibliographic descriptions; full text not obtained",
+        "title": "The monoid of all injective orientation preserving partial transformations on a finite chain",
+        "trigger": "Original monoid article, potentially implicit orbit classification"
+      },
+      {
+        "assessment": "Describes Green relations, regularity, rank and isomorphism types of restricted-range subsemigroups; not the enumerated orbit invariant, but full text not inspected.",
+        "evidence": [
+          "Abstract explicitly identifies restricted-range submonoids and different invariants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.02185",
+        "material_read": "Title and abstract only",
+        "method": "Public abstract",
+        "title": "On semigroups of orientation-preserving partial permutations with restricted range",
+        "trigger": "Same underlying monoid under restricted range"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a39bad53-d101-4087-a699-d7fc98d8c2bb",
+  "value": {
+    "rationale": "The object is a standard inverse monoid with established algebraic automorphism group; the requested invariant is the natural classification of its elements by internal symmetries. The count in every rank is not the known labeled monoid census and detects nontrivial rotational/reflection stabilizers, with distinct even-odd reflection behavior. A sharp \\(\\binom n2+1\\) orbit theorem at next-to-full rank and an exponential generic-freeness limit quantify nontrivial structural aspects for all n, rather than a small table or ad hoc slice.",
+    "status": "PASS"
+  }
+}
