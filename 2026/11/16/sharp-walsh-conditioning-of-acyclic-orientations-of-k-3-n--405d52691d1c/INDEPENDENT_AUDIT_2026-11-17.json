@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:49:37.335223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A directed 4-cycle in K_{3,n} occurs exactly for two incomparable three-bit column supports; any longer directed cycle in a complete bipartite graph admits a chord producing a shorter directed cycle, so acyclic orientation matrices are exactly n-tuples of mutually nested columns. Every column chain is covered by one of six Boolean-lattice maximal chains C_π. Exact inclusion–exclusion of their product sets gives six positive 4-column-character products minus six 3-column {0,v,7} products plus the common 2-column {0,7} product. At u=0 this gives N_n=6·4^n−6·3^n+2^n≡2 (mod 4) for n≥2. Global edge reversal x↦x+1 pairs orientations: odd-weight characters vanish; for even-weight frequencies each reversal-pair contribution is ±2 and there are N_n/2 odd such pairs, so W≡2 (mod 4) and no further zeros. The exact product formula at explicit frequency columns [1]*(n−1)+[7] gives 1+(−1)^n (even n witness 2); [2,3]+[1]*(n−2) gives (−1)^n−1 (odd n≥3 witness −2). Thus min nonzero=2, rank=2^{3n−1}, κ+=(6·4^n−6·3^n+2^n)/2, and the frequency projector is average over global reversal. Independent local exact Walsh butterflies over chain-compatible orientations for n=2,3,4 yielded totals 46,230,1066; zeros 32,256,2048 and sharp gap 2, agreeing with analytic proof. The source checker additionally gives separate topological-sorting acyclicity and all-frequency n=2..5 assertions; those saved logs were not used as proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al Theorems 3.1, 3.3 and 3.5 give the unsigned lonesum and 4-cycle characterization. Gebhard–Sagan count sink-restricted orientations and Khera thesis abstract gives enumeration/asymptotics. None of the inspected primary full Cameron theorem statements gives the full 3×n signed edge-character spectrum."
+        ],
+        "reasoning": "The published primary article supplies the exact combinatorial equivalence and unsigned counts, but its 23-page text concerns enumeration and graph extremal counts rather than Walsh Fourier coefficients. The separate 72-page thesis was not fully read, so do not assert its whole-document absence.",
+        "searches": [
+          "acyclic orientation complete bipartite K3n signed Walsh Fourier transform minimum nonzero eigenvalue",
+          "https://arxiv.org/abs/1412.3685",
+          "https://arxiv.org/abs/math/9907078",
+          "https://digitalcommons.fau.edu/etd_general/768/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1412.3685",
+        "https://arxiv.org/abs/math/9907078",
+        "https://digitalcommons.fau.edu/etd_general/768/",
+        "Resultary query: acyclic orientation complete bipartite K3n signed Walsh Fourier transform minimum nonzero eigenvalue"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "W(0)=6·4^n−6·3^n+2^n from known orientation enumeration, plus global reversal symmetry gives odd-frequency zeros. Even-frequency nonvanishing uses the nontrivial parity N_n/2 odd; sharp gap 2 additionally needs explicit witnesses extracted from the 13-product formula."
+        ],
+        "reasoning": "Distinguishes what follows immediately from prior unsigned counts and symmetry from the additional signed formula and all-n extremizer construction.",
+        "searches": [
+          "acyclic orientation complete bipartite K3n signed Walsh Fourier transform minimum nonzero eigenvalue",
+          "https://arxiv.org/abs/1412.3685",
+          "https://arxiv.org/abs/math/9907078"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under edge encoding, acyclic K_{3,n} orientations are exactly lonesum 0–1 matrices / nested column-support words. The complete signed Walsh function is a multivariate character-weighted lonesum enumeration, not the ordinary unsigned poly-Bernoulli count."
+        ],
+        "reasoning": "Search explicitly used both acyclic-orientation and lonesum/matrix formulations; proved equivalence of underlying combinatorial objects but not prior equality of the stronger signed theorem.",
+        "searches": [
+          "acyclic orientation complete bipartite K3n signed Walsh Fourier transform minimum nonzero eigenvalue",
+          "Acyclic orientation complete bipartite lonesum Walsh signed transform sharp gap",
+          "https://arxiv.org/abs/1412.3685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published K3n matching, six-cycle and sink-free orientation frequency tables concern different incidence subsets; the exact four-width source histogram n=2..5 is corroboration, not a pre-existing external table."
+        ],
+        "reasoning": "A matching table cannot automatically provide a lonesum orientation Walsh function even with the same ambient group. No direct matching external table found, which is not a novelty proof.",
+        "searches": [
+          "acyclic orientation complete bipartite K3n signed Walsh Fourier transform minimum nonzero eigenvalue",
+          "Resultary: K3n acyclic orientations and matchings full Walsh spectrum"
+        ]
+      },
+      "rationale": "Cameron–Glass–Rekvényi–Schumacher Theorem 3.5 already proves that absence of directed 4-cycles is equivalent to acyclicity of complete bipartite orientations, and their Theorem 3.1 counts these lonesum matrices via Stirling/poly-Bernoulli formulas. These known structural and unsigned results do not state the signed coordinatewise 13-product Fourier function, full parity-determined zero set and sharp 2-valued nonzero gap with explicit all-n witnesses. Other indexed Resultary K_{3,n} calculations concern matchings, four/six-cycle supports or sink restrictions—different subsets of the edge cube. The mod-four argument itself is elementary once the unsigned count is known, so value/originality rests on the complete signed formula and constructive sharp all-size conditioning theorem, not an artificial rediscovery of reversal symmetry. Older specialist lonesum matrix Fourier literature remains possible.",
+      "residual_risks": [
+        "Full text of Cameron et al and Khera thesis not materially read; a signed refinement may be present in original results/appendices.",
+        "Known unsigned count plus reversal parity already forces half the zero set; the exact new component is the all-frequency character-product formula and sharp explicit witnesses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_STRUCTURE_AND_COUNTS_NOT_SIGNED_WALSH",
+          "evidence": "Theorem 3.5 states 4-cycle-free lonesum equivalence; Theorem 3.1 is unsigned a(K_{m,n}) Stirling count; no Fourier/Walsh/signed terminology or full character spectrum in inspected manuscript.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.3685",
+          "material_read": "Full arXiv 1412.3685v3 PDF, 23 pages; Introduction, sections 2–5 and notably Theorems 3.1, 3.3, 3.5 with proofs",
+          "method": "read public PDF text with page screenshots for pages 5 and 8; searched full text for Fourier/Walsh/signed",
+          "title": "Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "Canonical lonesum/acyclic complete bipartite enumeration paper"
+        },
+        {
+          "assessment": "UNSIGNED_CONTEXT_LIMITED_MATERIAL",
+          "evidence": "Acyclic orientation counting with sinks differs from simultaneous coordinatewise Walsh character weights.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9907078",
+          "material_read": "Public arXiv abstract / bibliographic record, not full PDF",
+          "method": "arXiv lookup",
+          "title": "Sinks in Acyclic Orientations of Graphs",
+          "trigger": "Classical chromatic polynomial and sink count relationship"
+        },
+        {
+          "assessment": "PRIORITY_RISK_INACCESSIBLE_FULL_TEXT",
+          "evidence": "Thesis concerns lonesum matrix enumeration; possible fuller signed statistic not ruled out by abstract.",
+          "identifier_or_url": "https://digitalcommons.fau.edu/etd_general/768/",
+          "material_read": "University-hosted abstract and thesis metadata only; full PDF not read",
+          "method": "repository abstract lookup",
+          "title": "Lonesum Matrices and Acyclic Orientations: Enumeration and Asymptotics",
+          "trigger": "Potentially close thesis on exactly these orientations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Acyclic orientations on the smallest nontrivial fixed-left-width complete bipartite family naturally encode 3-by-n lonesum matrices. Exact convolution recovery on the reversal-invariant Fourier range asks for the entire signed transform and smallest surviving multiplier, not just counts. The 13-term product formula and parity-dependent exact 2-witness give an all-order sharp condition law and explicit range projector, a useful precise finite-family harmonic invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1412.3685",
+    "https://arxiv.org/abs/math/9907078",
+    "https://digitalcommons.fau.edu/etd_general/768/",
+    "Resultary query: acyclic orientation complete bipartite K3n signed Walsh Fourier transform minimum nonzero eigenvalue"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Precisely K_{3,n} for n≥2, binary edge-direction encoding and unnormalized group convolution; not a statement for K_{m,n} at m≥4.",
+    "The complete Walsh function is explicit but multiplicities by each signed value for arbitrary n are not closed-form tabulated."
+  ],
+  "residual_risks": [
+    "Full text of Cameron et al and Khera thesis not materially read; a signed refinement may be present in original results/appendices.",
+    "Known unsigned count plus reversal parity already forces half the zero set; the exact new component is the all-frequency character-product formula and sharp explicit witnesses."
+  ],
+  "schema_version": 1
+}
