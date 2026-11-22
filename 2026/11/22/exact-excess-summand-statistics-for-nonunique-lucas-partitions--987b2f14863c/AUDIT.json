@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "The unique canonical Lucas sums are proved by disjoint-interval induction, while a strict bound for independent tails makes redundant sums injective. Each redundant expansion has a unique maximal even-index prefix whose telescoping Lucas identity produces its sole canonical partner. The excess j equals the initial prefix length minus 2; remaining independent tails number \\(F_{m-2j-2}\\), including a separately handled empty-tail boundary. The weighted generating function, exact total and geometric limiting moments follow. CHECK.py exhaustively confirms all cutoff histograms for \\(3\\le m\\le24\\), without being used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The two-term fixed-weight Zeckendorf result concerns a single Fibonacci normal form under a digit-weight constraint, not two Lucas normal forms for the same integer.",
+        "The Fibonacci partition-doubling result counts unrestricted distinct Fibonacci representations of scaled integers, not excess cost of duplicate Lucas expansions.",
+        "Chu–Luo–Miller compute the full unweighted collision set but no marked summand-count distribution."
+      ],
+      "reasoning": "The exact unweighted collision set is a projection of the newly classified bivariate distribution; the same projections do not determine the marked counts. Related Fibonacci partition-counting or Lucas-shift semigroups lack the paired Lucas-partition cost parameter. These implications were compared mathematically, not by title.",
+      "searches": [
+        "Lucas nonconsecutive partitions two representations difference number of summands weighted generating function geometric distribution Fibonacci",
+        "A sharp Fibonacci-partition doubling dichotomy across Lucas intervals (2026 public mathematical summary)",
+        "Two-term residue distributions on fixed-weight Zeckendorf slices (2026 public mathematical summary)",
+        "Perfectness of every positive-index Lucas-shift numerical semigroup (2026 public mathematical summary)",
+        "arxiv:2305.02672",
+        "arxiv:2004.08316"
+      ]
+    },
+    "checked_sources": [
+      "https://www.fq.math.ca/Scanned/7-3/brown.pdf",
+      "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/Lucas_ChuLuoMiller10_FQ.pdf",
+      "https://arxiv.org/pdf/2305.02672",
+      "https://oeis.org/A342089",
+      "https://arxiv.org/abs/2004.08316",
+      "https://arxiv.org/abs/2305.02672",
+      "A sharp Fibonacci-partition doubling dichotomy across Lucas intervals (2026 public mathematical summary)",
+      "Two-term residue distributions on fixed-weight Zeckendorf slices (2026 public mathematical summary)",
+      "Perfectness of every positive-index Lucas-shift numerical semigroup (2026 public mathematical summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown supplies the single canonical expansion for every integer.",
+        "Chu–Luo–Miller shows each integer has at most two and provides a Beatty-like enumeration of those with two, without the summand-excess enumeration.",
+        "The present proof analyzes the unique maximal even-prefix length in the noncanonical representation; exactly F_{m-2j-2} tails remain, yielding a new weighted refinement."
+      ],
+      "reasoning": "Prior unweighted statements do not themselves assert the exact cost partition or its geometric distribution. However the cost may be derived from known canonical and redundancy descriptions by additional recurrence analysis; the result is presented as a structural enumerative refinement, not as a new existence theorem. If a source explicitly counts the prefix length or provides a stronger joint digit-sum enumerator, it would dominate this claim; none was identified in material inspected.",
+      "searches": [
+        "https://www.fq.math.ca/Scanned/7-3/brown.pdf",
+        "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/Lucas_ChuLuoMiller10_FQ.pdf",
+        "https://arxiv.org/pdf/2305.02672",
+        "Lucas non-consecutive partitions difference number of summands in two representations",
+        "Lucas representations two representations initial even indices 0 2 4 6 arbitrary tail",
+        "A sharp Fibonacci-partition doubling dichotomy across Lucas intervals (2026 public mathematical summary)",
+        "Two-term residue distributions on fixed-weight Zeckendorf slices (2026 public mathematical summary)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brown (1969), Theorem 1: canonical uniqueness under prohibition of simultaneous indices 0,2.",
+        "Chu–Luo–Miller (2020/2022), Section 5: the double-represented set K and Table 3 of exceptional partitions.",
+        "Shallit (2023), Section 5 Theorem 5.2: the same unweighted collision set is an automaton-recognized digit class."
+      ],
+      "reasoning": "An equivalent claim would count the number of ones in the two distinct nonadjacent Lucas expansion strings and their signed difference, stratified by largest index. The earlier results detect multiplicity or enumerate unweighted values, whereas this theorem gives an exact bivariate weighted histogram and limiting probability law.",
+      "searches": [
+        "Lucas nonconsecutive partitions two representations difference number of summands weighted generating function geometric distribution Fibonacci",
+        "Shallit Lucas representations two-partition digit sum difference weight",
+        "Lucas non-consecutive partitions difference number of summands in two representations",
+        "Lucas decomposition number of summands two different lengths distribution",
+        "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/Lucas_ChuLuoMiller10_FQ.pdf",
+        "https://arxiv.org/pdf/2305.02672"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A342089 enumerates 5,12,16,23,... as integers having two Lucas representations; its description reports an unweighted density.",
+        "Chu–Luo–Miller Table 3 gives the first several redundant partitions, without the distribution of their difference in number of terms versus the canonical partitions."
+      ],
+      "reasoning": "No exact table indexed by both maximal Lucas index and signed summand-count excess was found in the database record or inspected primary Tables 1–4. The database describes the support alone.",
+      "searches": [
+        "https://oeis.org/A342089",
+        "OEIS A342089",
+        "site:oeis.org Lucas two representations number of summands difference",
+        "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/Lucas_ChuLuoMiller10_FQ.pdf"
+      ]
+    },
+    "rationale": "Direct comparison with Brown 1969 (full 10-page scan), Chu–Luo–Miller arXiv:2004.08316 (full 9-page author PDF), Shallit arXiv:2305.02672 (Theorem 5.2, Section 5, and neighboring sections), and OEIS A342089 finds the canonical-uniqueness theorem, at-most-two theorem, the exact unweighted collision set and density, but not the distribution of the difference in numbers of summands between the two representations, nor the bivariate cutoff generating function and geometric limit. Published-result indexed comparisons are different objects. A prior implicit/simple deduction is possible and is a material bibliographic risk.",
+    "residual_risks": [
+      "The weighted formula may be implicit in a prior automaton computation, a later paper, or an unstated corollary of the unweighted partition table; novelty was not independently certified.",
+      "Most indexed related results were compared by published statements or summaries, rather than all full texts; their objects are less closely aligned than the two primary Lucas-partition sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the canonical representation theorem and an alternate uniqueness convention, without two-representation summand-cost histogram",
+        "evidence": [
+          "Theorem 1: unique representation with nonadjacent indices and forbidding simultaneous \\(L_0\\) and \\(L_2\\)",
+          "Theorem 2: a different unique Lucas form; no count of weights of paired redundant forms"
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/7-3/brown.pdf",
+        "material_read": "Complete 10-page 1969 scan, including Lemmas 1–4, Theorems 1–2 and closing references; visually inspected pages 1, 6 and 9",
+        "method": "Primary scanned-PDF text and page image reading",
+        "title": "Unique Representations of Integers as Sums of Distinct Lucas Numbers",
+        "trigger": "Original canonical Lucas digit uniqueness and possible length-related formulas"
+      },
+      {
+        "assessment": "Strong prior source: contains the full unweighted collision set and at-most-two result, but no exact excess-summand histogram or geometric cost law",
+        "evidence": [
+          "Section 5 Table 3 lists first redundant partitions",
+          "Section 5 K={5+4n+3 floor((n+1)/phi):n>=0} and unweighted density 1/(1+3phi)",
+          "Theorems 1.3–1.5 cover multiplicity, fixed-term sets and overall density"
+        ],
+        "identifier_or_url": "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/Lucas_ChuLuoMiller10_FQ.pdf",
+        "material_read": "Complete 9-page 2021 author version: introduction and Theorems 1.3–1.5, Sections 3–5, Tables 1–4, Appendix B, with page images 1, 5 and 7",
+        "method": "Primary full-text scientific comparison of defined partitions, exact set K, maximal-index and weighted claims",
+        "title": "On Zeckendorf Related Partitions Using the Lucas Sequence",
+        "trigger": "Most directly relevant same-object work on two nonconsecutive Lucas representations"
+      },
+      {
+        "assessment": "Theorem 5.2 yields an automaton for unweighted collisions but neither tracks both partition digit sums nor gives the finite-index weighted law",
+        "evidence": [
+          "Theorem 5.2: d_{-1}(n)=1 iff n has exactly two Lucas representations",
+          "Remark 5.3: known density 1/(3phi+1); no cost distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.02672",
+        "material_read": "Full 33-page text searched for Lucas; Section 5 pages 18–19 and relevant Sections 2–5 read, with page images at 18 and 19",
+        "method": "ArXiv primary PDF reading, line matching and visual inspection",
+        "title": "Proving Properties of phi-Representations with the Walnut Theorem-Prover",
+        "trigger": "Theorem 5.2 independently recognizes the unweighted two-Lucas-representation set"
+      },
+      {
+        "assessment": "Only an unweighted collision support and density; no paired-length statistic listed",
+        "evidence": [
+          "OEIS title: numbers with two representations as a sum of distinct non-consecutive Lucas numbers",
+          "Comments attribute unweighted two-representations theorem to Chu et al."
+        ],
+        "identifier_or_url": "https://oeis.org/A342089",
+        "material_read": "Sequence title, terms, comments, formulas, links and references",
+        "method": "Direct database record comparison",
+        "title": "OEIS A342089",
+        "trigger": "Exact public sequence for the same underlying double-represented integers"
+      },
+      {
+        "assessment": "A scaled Fibonacci-partition count ratio is not an all-index Lucas duplicate summand-excess distribution",
+        "evidence": [
+          "Published summary concerns number of distinct-Fibonacci partitions of F_{r(N)+4}N and F_{r(N)+2}N"
+        ],
+        "identifier_or_url": "A sharp Fibonacci-partition doubling dichotomy across Lucas intervals (2026 public mathematical summary)",
+        "material_read": "Indexed published summary only, not the complete manuscript",
+        "method": "Semantic published-finding search, compared the objects and logical implication",
+        "title": "A sharp Fibonacci-partition doubling dichotomy across Lucas intervals",
+        "trigger": "Nearest indexed result on Lucas-interval representation counts"
+      },
+      {
+        "assessment": "Residue statistics of one Zeckendorf representation do not supply length differences between two Lucas representations",
+        "evidence": [
+          "Published summary gives residue proportions conditioned on Zeckendorf weight"
+        ],
+        "identifier_or_url": "Two-term residue distributions on fixed-weight Zeckendorf slices (2026 public mathematical summary)",
+        "material_read": "Indexed published summary only, not the complete manuscript",
+        "method": "Semantic published-finding search and parameter comparison",
+        "title": "Two-term residue distributions on fixed-weight Zeckendorf slices",
+        "trigger": "Nearest published result on fixed digit weight of Fibonacci normal forms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "987b2f14-863c-4eb0-afe1-ae43192a644c",
+  "value": {
+    "rationale": "The number of summands required to normalize an ambiguous Lucas representation is a natural cost invariant, not measured by the known unweighted two-representation and density classifications. Exact Fibonacci counts at every cutoff and every cost, one rational bivariate generating function, and an asymptotic geometric law with exactly unit variance give a complete structured description for an infinite family. The maximum cost grows without bound with index, making the quantitative law meaningful beyond isolated examples; no downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
