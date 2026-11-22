@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The positivity and strictly decreasing geodesic profile are preserved by circular convolution; the exact translation-distance derivative is strictly positive until antipodal separation. Signed-derivative coupling gives the global sharp BV norm and completely characterizes extremizers. Fourier multiplication then proves the exact odd-mode expansion; the non-atomic output of a step gives strict submultiplicativity. The Bessel recurrence and absolute coefficient convergence justify long-iterate asymptotics. The accompanying checker cross-tests special cases numerically; it is not an infinite proof.
+
+**Originality — PASS, qualified.** The closest original articles, arXiv:1210.3214 and arXiv:1306.0517, address von Mises kernel density estimation and exact integrated-square risk, respectively. Their inspected principal results, derivations and appendices do not identify a BV operator norm for all convolution powers, the semicircle equality classification, or the strict multiplicative decay law. Published sharp variation results for circular heat kernels use different Fourier multipliers and do not imply the present von Mises coefficient. Search of the indexed mathematical-results database revealed no implication-equivalent theorem, although generic Markov contraction theory is conceptually related and unindexed older priority remains possible.
+
+**Mathematical value — PASS.** The exact all-power endpoint norm quantifies worst-case preservation of circular signal discontinuities under a practical non-semigroup directional smoother. Its strict submultiplicativity is information unavailable from the usual single-step coefficient, while the Bessel spectral asymptotics determine the true long-iteration variation decay. This supplies an exact stability benchmark independent of statistical MISE.
+
+**Scientific limitations and risks.** The statement covers real periodic BV, positive finite concentration, and integral iteration counts. It does not prove external historical priority, statistical optimality, or formulas for general directional kernels. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
