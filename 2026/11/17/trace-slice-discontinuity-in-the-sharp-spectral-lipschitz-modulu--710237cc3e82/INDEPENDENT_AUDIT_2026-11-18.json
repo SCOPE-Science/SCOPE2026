@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T18:04:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal-trace 2x2 Hermitians A=aI+v·σ and B=aI+w·σ, Pauli operator norm of a difference is |scalar|+|vector|. Spectral calculus gives |A|=(|a|,sgn(a)v) for r=|v|<=|a| and (r,(a/r)v) for r>|a|. On the outer region, derivative restricted to v changes has gain sqrt(1+a²/r²) (radial and tangent directions); inner region gain one. Integration along every chord, splitting at at most two sphere crossings, yields <=sqrt2 globally when a!=0 and strict below sqrt2 for each distinct pair, since equality of outer derivative is possible only on rank-one boundary points of measure zero. A near-boundary radial-plus-transverse directional witness approaches sqrt2; at a=0, |A|=|v|I so reverse triangle proves attained constant 1. Independently calculated 3200 input-pair ratios and three approaching gains 1.4004,1.4128,1.41407. The finite examples are corroboration, not general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published two-level monotone-Lipschitz theorem proves 2L/sqrt3 for f nondecreasing. The scalar function |s| is not nondecreasing, and the audited inputs have a fixed common trace.",
+          "Bhatia 2010 Theorem 4.2 gives a general O(log n) estimate for |A|-|B|."
+        ],
+        "reasoning": "Neither monotone-function theorem nor unrestricted dimension estimate specializes to the nonmonotone absolute-value trace-slice exact sqrt2 and nonattainment.",
+        "searches": [
+          "\"monotone Lipschitz spectral functional calculus two level universal sharp constant\"",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-universal-two-level-spectral-stability-for-monotone-lipsch--9cb1003d5874/RESULT.md",
+          "\"modulus continuity matrix absolute value Bhatia 2010\""
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/226865952_Modulus_of_continuity_of_the_matrix_absolute_value",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-universal-two-level-spectral-stability-for-monotone-lipsch--9cb1003d5874/RESULT.md",
+        "https://arxiv.org/abs/0907.3049",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete inspected Bhatia 2010 text covers general and invertible pairs; published monotone-functional theorem covers nondecreasing f; neither includes the exact nonmonotone fixed-trace dichotomy."
+        ],
+        "reasoning": "No implication from the nearest primary theorems to the full claim (including zero-trace case and never-attained sqrt2) is available; lack of a find is not a novelty proof.",
+        "searches": [
+          "https://www.researchgate.net/publication/226865952_Modulus_of_continuity_of_the_matrix_absolute_value",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-universal-two-level-spectral-stability-for-monotone-lipsch--9cb1003d5874/RESULT.md",
+          "\"2x2 spectral trace slice nonattainment rank one\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pauli parametrization is a fixed-trace restriction of Hermitian spectral calculus, but Bhatia Theorem 4.2 states a generic C log n coefficient, not a fixed-trace exact constant."
+        ],
+        "reasoning": "The exact trace-slice optimization imposes the same a in both matrices and uses the spectral operator norm; no equivalent exact slice theorem was identified in inspected material.",
+        "searches": [
+          "\"fixed trace Hermitian 2x2 absolute value sharp Lipschitz spectral norm\"",
+          "\"2x2 Hermitian matrix absolute value fixed trace spectral norm sharp Lipschitz sqrt2 discontinuity\"",
+          "https://www.researchgate.net/publication/226865952_Modulus_of_continuity_of_the_matrix_absolute_value"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2026 entrywise PSD-projection bounds 3/2 use entrywise norms and A_+=(A+|A|)/2; the current theorem uses operator norm on input/output and unchanged trace."
+        ],
+        "reasoning": "A known numerical constant for positive-part projection cannot be substituted for the spectral-norm sharp modulus without changing map, normalization and permitted perturbations.",
+        "searches": [
+          "\"two by two semidefinite positive part independent entry Lipschitz constants\"",
+          "\"matrix absolute value two levels spectral norm same trace\""
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The exact constant jumps from one on the trace-zero affine slice to sqrt2 on every nonzero trace, and the nonattainment/local spectrum profile are not furnished by the general matrix-absolute-value continuity theorem or the separate monotone scalar functional-calculus theorem.",
+      "residual_risks": [
+        "Other exact two-by-two norm-specific perturbation literature could contain the trace-slice calculation under an alternate name.",
+        "Full Aleksandrov-Peller source not inspected; indexed scope does not supply whole-document negative coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BACKGROUND_NOT_COVERING",
+          "evidence": "C log n general estimate and logarithmic invertibility bounds, no equal-trace two-by-two exact constant.",
+          "identifier_or_url": "https://www.researchgate.net/publication/226865952_Modulus_of_continuity_of_the_matrix_absolute_value",
+          "material_read": "Full openly displayed paper text, introductory continuity estimates, Theorems 4.1–4.2 and normal/invertible extension; searched trace-specific content",
+          "method": "Read full public text and compared hypotheses",
+          "title": "Modulus of continuity of the matrix absolute value",
+          "trigger": "Same nonlinear matrix function and operator norm"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTION_CLASS",
+          "evidence": "Monotone scalar f excludes |s|, which decreases on negative half-line; no trace restriction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-universal-two-level-spectral-stability-for-monotone-lipsch--9cb1003d5874/RESULT.md",
+          "material_read": "Full finding, hypotheses, Schur multiplier mask proof and sharp positive-part family",
+          "method": "Fetched entire published RESULT.md",
+          "title": "Sharp universal two-level spectral stability for monotone Lipschitz functional calculus",
+          "trigger": "Exact same matrix size and operator norm, stronger function-class theorem possible"
+        },
+        {
+          "assessment": "PARTIAL_INSPECTION_NOT_A_WHOLE_PAPER_CLEARANCE",
+          "evidence": "Arbitrary dimension absolute-value obstruction; complete contents not verified.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.3049",
+          "material_read": "Indexed arXiv abstract and source bibliography, not full mathematical text",
+          "method": "Abstract/description only",
+          "title": "Operator Hölder-Zygmund and matrix absolute value",
+          "trigger": "General function/operator Lipschitz continuity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same-trace slice is natural for trace-preserving two-level quantum/perturbation problems; a qualitative universal continuity estimate does not determine why an arbitrarily small nonzero scalar trace raises the sharp spectral sensitivity from one to sqrt2. The rank-one derivative mechanism and finite-pair nonattainment are structurally informative and not a textbook norm-equivalence exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other exact two-by-two norm-specific perturbation literature could contain the trace-slice calculation under an alternate name.",
+    "Full Aleksandrov-Peller source not inspected; indexed scope does not supply whole-document negative coverage.",
+    "Finite numerical/exhaustive tests are not infinite-family proofs; the proof reconstruction and the expressly cited classical results carry those claims.",
+    "Scientific assessment does not assert original priority, independent certification, formal machine-checked proof or publication."
+  ],
+  "schema_version": 1
+}
