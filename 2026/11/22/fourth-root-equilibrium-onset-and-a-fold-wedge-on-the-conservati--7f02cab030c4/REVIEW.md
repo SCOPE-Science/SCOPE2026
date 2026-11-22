@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The invariant-cylinder reduction is exact, and the angular energy is single-valued because its sine-forcing primitive is periodic. The local equilibrium relation reduces to an even analytic scalar equation with strictly positive second derivative in the squared amplitude, giving the root count and fold via the implicit-function theorem. The angular linearization and the positive lower-branch coordinate derivative determine center versus saddle types. The fourth-root coefficient follows from the nonvanishing quartic term. Direct symbolic identities and sample numerical tests were replayed; the proof, not those samples, establishes the claims.
+
+**Originality — PASS within inspected evidence.** The complete originating 2023 article studies the driven/dissipative family, numerical bifurcation plots and synchronization. It does not state the zero-growth/zero-damping/zero-forcing double-first-integral reduction or its specific tricritical local equilibrium diagram. Related indexed studies of other sine-driven flows and generic Hamiltonian bifurcations use different vector fields; they neither contain this invariant-radius equation nor imply the numerical thresholds in the same model. An unindexed equivalent treatment or a general result with a directly applicable specialization remains a priority risk.
+
+**Value — PASS.** The explicit transition from zero or one pair to two symmetric off-axis equilibrium pairs, with exact fold curvature and an anomalous fourth-root onset, is a structural bifurcation of a motivated conservative boundary of a concrete nonlinear flow. It separates the dynamics of invariant cylinders from the qualitatively different dissipative attractor plots of the source. The complete first-integral reduction provides the geometric reason why centers and saddles organize this transition; it is not just an isolated Taylor coefficient.
+
+**Scope and risks.** This is local in parameter and phase space and applies only to the conservative boundary. It does not classify the whole three-dimensional attractor structure or persist under nonzero growth/damping/forcing. Priority is assessed only within inspected literature and database coverage; independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
