@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each integer order, positivity and finite-time moment truncations justify the binomial kinetic identity. Bounded \(M_2(t)\) yields successive Grönwall control when \(\lambda>p a_\lambda\); at and below equality, assuming a finite stationary \(p\)-th moment contradicts the exact positive stationary balance. The threshold equivalence is algebraic and includes equality on the infinite side. A standalone exact-arithmetic checker supports, but does not replace, the infinite-dimensional argument.
+## correctness
 
-**Originality — PASS, provisionally.** The motivating preprint derives second-moment closure and stationary coefficients. A prior third-moment classification is acknowledged and not claimed as new; the new content is the *complete unbounded hierarchy* of thresholds and the recursively exact finite values for every integer order. Searched scientific records on spontaneous monomer shattering, moment thresholds and equivalent fragmentation models produced no stronger matching theorem. Different-source broad coagulation studies do not imply this specific all-order formula. Risk: unindexed or uninspected older fragmentation literature could already derive the same moment recurrence.
+PASS
 
-**Mathematical value — PASS.** The complete infinite hierarchy is a natural structural characterization of the stationary cluster distribution: suppression of gelation does not restore every size moment, and each larger order requires a strictly greater fragmentation rate. The exact fourth, fifth and higher critical rates identify when fluctuation-sensitive observables remain divergent despite finite lower moments. Unlike a single routine numerical increment, this classifies every order at once.
+PASS. For the stipulated mass-conserving non-gelling λ>4 stationary branch, M2(t) increases to aλ=(λ-sqrt(λ(λ-4)))/2. Binomial expansion of product coagulation, retaining the two endpoint terms, gives dM_p/dt=(pM2(t)-λ)M_p+λ+(1/2)∑_{j=2}^{p-2}C(p,j)M_{j+1}M_{p-j+1}. Finite-time truncation/induction and Grönwall justify each order. For λ>p²/(p-1), algebra gives c=λ-p aλ>0, and all lower moments are bounded by induction, so M_p is bounded and converges to its explicit stationary recurrence. For 4<λ≤p²/(p-1), if stationary M_p were finite, all lower moments would be finite, allowing a stationary balance with LHS (λ-paλ)M_p≤0 and strictly positive RHS λ+..., a contradiction, including equality. Independent exact root comparisons p=3,4,5,8 verify the threshold algebra. No finite cutoff used to infer divergence.
 
-**Boundaries.** Assumes mass-one non-gelling dynamics with verified Riccati second-moment closure; no real-order moments, precise critical tail constants, rates below or at \(\lambda=4\), or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Matveev (Nov 6 2026) establishes the stationary recurrence, mass-one non-gelling branch and second moment, and an earlier Resultary theorem proves ONLY p=3 threshold 9/2. The all-integer complete sequence λ_p=p²/(p-1), its sharp equality divergence and exact triangular recursion are not obtained by that single p=3 statement alone. The new result is a natural uniform moment-order classification derived from the known model by a nontrivial induction; unindexed older moment-hierarchy treatments remain a risk.
+
+## value
+
+PASS
+
+PASS. Exact finiteness of every natural integer cluster-size moment is a meaningful stationary phase diagram of a physical coagulation–shattering process: distinct thresholds at every p, including equality, distinguish degrees of tail heaviness after gelation suppression. It is a complete infinite hierarchy rather than a two- or three-moment toy calculation, even though the underlying recursion is a standard tool.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
