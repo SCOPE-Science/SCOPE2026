@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exact factorization LQ; conic point count p-chi_p(-3) and intersection count 1+chi_p(-c/3). A unit Jacobian 6a at every crossing gives a local coordinate bijection; the exact count of pairs uv=0 at each p-adic crossing is p^(k-1)(1+(k-1)(p-1)). The remaining smooth points each contribute p^(k-1) lifts. The p=3 unit-coefficient isometry proves its two cases. All quantifiers and k=1 boundaries are handled. An independent standalone checker passed 474 full histograms and direct ordered-pair spot checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "desJardins and Zieve (2001), arXiv:math/0103046, give cycle-lifting algorithms for a general polynomial map, using local derivative criteria; they do not give this exact preimage collision statistic in the inspected sections.",
+        "Fang et al. (2023), arXiv:2307.06325, discuss the prime-power permutation criterion and reversed Dickson fixed points, which do not determine nonbijective cubic fiber second moments.",
+        "Sun (2003), DOI 10.1016/S0022-314X(03)00067-2, develops root counts of cubic and quartic congruences modulo p (not p^k) in its abstract and introduction."
+      ],
+      "reasoning": "General Hensel lifting and local normal crossing principles can be used in proving the formula, but the inspected more general results do not specify the needed geometry, crossing count and all-precision coefficient-class reversal for the cubic. This is not a claim of logical independence from universal p-adic integration theories.",
+      "searches": [
+        "web: \"Dickson polynomials\" \"second moment\" \"prime powers\" value",
+        "web: \"Dickson\" \"collision\" \"prime powers\" polynomial",
+        "web: \"x^3-3ax\" \"modulo\" \"p^k\" \"solutions\"",
+        "arxiv:math/0103046: sections 1-3 of general polynomial mappings mod odd prime powers"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.06325",
+      "https://doi.org/10.1016/S0022-314X(03)00067-2",
+      "https://arxiv.org/abs/math/0103046",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f",
+      "2026/11/8/SCOPE-universal-three-moment-closure-and-exact-energy-of-the-modular-c--7fe52001e4e6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 preprint studies reversed Dickson PPs and cycle behavior. A PP criterion yields at most whether each fiber has cardinality one; here the cubic is nonbijective for p>=5 and its second moment has two character branches.",
+        "The 2003 finite-field cubic root-count statements can help at k=1 but do not fix the number of lifts at transverse crossing points, which adds (k-1)(p-1) in the proved formula.",
+        "An accessible prior finding for x^4+cx^2 computes quartic collision counts, not the cubic curve L*Q and its conic-character intersection number.",
+        "A previously recorded complete fiber classification for D_3(X,1)=X^3-3X modulo 3^k has coefficient c=-3, which is nonunit at p=3 and therefore disjoint from the present odd-prime unit-coefficient domain; its statement cannot imply this claim by coefficient specialization."
+      ],
+      "reasoning": "No directly inspected published statement implies the full claim merely by changing variables or substituting parameters. The all-k valuation count at the critical transverse crossings and the p=3 case are necessary new steps. Implicit coverage in older local-zeta literature is an unresolved bibliographic risk, not ruled out by partitioning sources. This was additionally tested against the exact earlier cubic Dickson fiber claim, whose nonunit coefficient is outside the current hypotheses.",
+      "searches": [
+        "arxiv:2307.06325: introductory Dickson description, section 2 permutation criterion, sections 3,5,6 and appendices",
+        "DOI 10.1016/S0022-314X(03)00067-2: abstract, introduction and cubic-root statements",
+        "published-finding corpus: x^3+cx value fibers over Z/p^k exact local zeta p-adic",
+        "accessible own prior ledger: claims/IDs for source and parameter overlap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim equals the second moment sum_z N(z)^2 of fiber cardinalities and the number of ordered pairs satisfying f_c(x)=f_c(y).",
+        "The polynomial is the ordinary third Dickson polynomial D_3(x,-c/3) for p>=5; it is not the reversed Dickson function D_3(1,x).",
+        "The retrieved sources centered on permutation properties, pointwise cubic root counts mod p, or distinct cubic-graph sum problems, not this all-depth pair count."
+      ],
+      "reasoning": "The formulations as fiber second moment, diagonal collision count and ordinary cubic Dickson map were tested. The exact all-depth character-dependent formula and first-lift sign reversal were not found in the inspected content. These searches do not establish absolute uniqueness.",
+      "searches": [
+        "published-finding corpus: cubic polynomial x^3+c x equal-value collisions number modulo prime powers all k character -3 -c/3",
+        "published-finding corpus: Dickson D_3(x,a)=x^3-3ax collision second moment residue classes mod p^k",
+        "web: \"x^3+ax\" \"second moment\" \"mod p\"",
+        "web: \"x^3+ax\" \"p-adic\" \"collision\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed 2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f concerns iteration of x^3-3x modulo powers of 3; c=-3 is nonunit at p=3.",
+        "Closest indexed 2026/11/8/SCOPE-universal-three-moment-closure-and-exact-energy-of-the-modular-c--7fe52001e4e6 concerns equal first-three power sums of pairs, a different modular variety.",
+        "No direct x^3+cx all-depth equal-value collision table appeared in the returned ranked records.",
+        "A prior exact cubic Dickson fiber statement at p=3 concerns x^3-3x, which has nonunit coefficient and so does not dominate the present p=3 unit-coefficient assertion."
+      ],
+      "reasoning": "The nearest indexed records have different objects, invariants, or excluded coefficient domains. Absence of an exact-match table among search hits is only a limited database comparison, not a novelty proof.",
+      "searches": [
+        "published-finding corpus: equal values of cubic Dickson polynomial modulo prime powers and collision count all odd primes",
+        "published-finding corpus: first lift reversal coefficient quadratic character cubic Dickson collision",
+        "web: \"x^3+ax\" \"value set\" \"Z/p\" representation count",
+        "web: \"D_3(x,a)\" \"value set\" \"prime power\" count"
+      ]
+    },
+    "rationale": "The inspected literature and semantic record searches did not reveal a theorem for ordered collisions of x^3+cx with c a unit modulo every odd prime power, or the sign reversal across k=1 and k>=2. General prime-field cubic roots, permutation orbits, and different polynomial families do not imply the stated normalized pair-count formula without the new transverse-crossing computation. Unindexed or implicit normal-crossing zeta calculations remain a genuine uncertainty.",
+    "residual_risks": [
+      "A general Igusa/Denef local-zeta calculation or unindexed source may implicitly specialize to the cubic collision formula.",
+      "The direct DOI site could not be fully inspected, and one relevant indexed record was available only as a title and abstract.",
+      "Coverage checks are limited to the actual indexed records and publicly inspectable portions described above."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The examined results concern reversed Dickson functions and permutation/cycle data, not the ordinary cubic map fiber second moment at every prime-power level",
+        "evidence": [
+          "arXiv v1 dated 2023-07-12",
+          "Sections 2 and 3: general permutation criterion and reversed-Dickson fixed-point theorems",
+          "Sections 5-6: finite-field PP classification for primes five and seven"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.06325",
+        "material_read": "Public arXiv full-text HTML introduction lines 15-52, permutation criterion section 2 lines 76-86, reversed-Dickson results sections 3,5,6 and appendices around lines 860-929",
+        "method": "Read the primary text and locate theorems on permutation and cycles; searched collision and prime-power terms",
+        "title": "Reversed Dickson polynomials",
+        "trigger": "Primary 2023 number-theory literature anchor; same Dickson family terminology and modular polynomial permutation behavior"
+      },
+      {
+        "assessment": "Covers root counts of arbitrary cubic congruences modulo prime p, not an explicitly verified all-k equal-value collision formula in the material read",
+        "evidence": [
+          "Journal of Number Theory 102 (2003), pages 41-89",
+          "Abstract states N_p(f) and congruences mod p, with p>3",
+          "Theorem 1.1 concerns cubic root numbers 0,1,3 modulo p"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0022-314X(03)00067-2",
+        "material_read": "Public journal HTML/search rendering of abstract, introduction, Theorem 1.1 and section 4 cubic congruences; direct DOI page open returned 403",
+        "method": "Examined available scientific statements and scope; could not systematically read whole article at publisher page",
+        "title": "Cubic and quartic congruences modulo a prime",
+        "trigger": "Explicit full cubic root count theorem could dominate the prime-field k=1 part"
+      },
+      {
+        "assessment": "General polynomial iteration and cycle-lift results; no direct cubic equal-value second moment in the inspected sections",
+        "evidence": [
+          "Abstract identifies polynomial mapping structure",
+          "Section 3 classifies growth and splitting of iterated cycles"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0103046",
+        "material_read": "Public arXiv full-text HTML introduction and sections 2-4 including cycle-lift classification",
+        "method": "Read cycle lifting and derivative maps; compared cycle structure vs preimage collision moments",
+        "title": "On the Structure of Polynomial Mappings Modulo an Odd Prime Power",
+        "trigger": "Potential stronger general theorem about arbitrary polynomial mappings mod p^k"
+      },
+      {
+        "assessment": "Concerns iterations of x^3-3x at p=3, where c=-3 is excluded by the unit-coefficient hypothesis, not equal-value pair counts",
+        "evidence": [
+          "Indexed record describes first-hit times to 0, 2 and -2, not second-moment fibers"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-first-hit-depth-distribution-for-the-cubic-dickson-map-mod--24093f02440f",
+        "material_read": "Indexed public research-record title and summary only; GitHub full text was unavailable from the web reader",
+        "method": "Compared exact polynomial coefficient and invariant of indexed statement to proposed claim",
+        "title": "Exact first-hit depth distribution for the cubic Dickson map modulo powers of three",
+        "trigger": "Closest indexed same named cubic Dickson family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4719850d-455d-4fb6-aa41-c2361c40acec",
+  "value": {
+    "rationale": "The exact fiber second moment refines permutation classification, measures the extent of residue collisions and gives a sharp k=1 vs k>=2 character-class ordering reversal across all primes p>=5. The critical class grows linearly with lift depth after normalization while the other is constant. This is a coherent infinite-family structural law, not a small-case or arbitrary-index computation.",
+    "status": "PASS"
+  }
+}
