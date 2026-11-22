@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For n>=3,N>=1, cyclic variation equals 2N-2 sum_edge min(X_i,X_(i+1)); the maximum event is equivalent to independent occupied supports. The circular binary gap count A(n,k)=n/(n-k) C(n-k,k) and Stirling surjections yield the exact finite formula. Pair proxy U=sum_{a<b} 1{Z_a~Z_b} has mean N(N-1)/n and dependency coefficients b1=4 C(N,2)(2N-3)/n^2,b2=4 C(N,2)(2N-4)/n^2,b3=0. Arratia–Goldstein–Gordon gives standard TV <=b1+b2. T!=U requires a triple with two at a vertex and a third adjacent, probability <=(N)_3/n^2; the triangle inequality gives the advertised bound N(N-1)(9N-16)/n^2. The Poisson and Gaussian limits and sharp saturation threshold use exactly the stated ranges and monotonicity, not finite simulation. N=1 is trivial. The independent checker passed 1,556,964 counted finite checks across 36 cases; not an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arratia–Goldstein–Gordon (1990), Theorem 1 pp405–406: bound for any locally dependent Bernoulli sum with b1,b2,b3; full theorem inspected including total-variation normalization.",
+        "Banić–Elezović Part 1, arXiv:2610.13366v1, abstract/introduction: expectation and fixed-N sparse regime elsewhere.",
+        "Published result “Conditioning removes a leading variance term from multinomial histogram roughness” (2026-10-18) publicly visible summary: N/n→λ>0, plus iterated λ→0 coefficient."
+      ],
+      "reasoning": "The general Chen–Stein theorem is strictly stronger for the U pair proxy, so we do not treat the Poisson bound for U as novel. It does not directly cover T because T uses min(X_i,X_(i+1)), not Bernoulli pair counts; the transfer bound and exact support enumeration are additional claims. A variance-only positive-load theorem does not imply total-variation Poisson convergence for a vanishing-load triangular array or exact no-loss probabilities. The fixed-N referenced study and inaccessible full text of the published result leave genuine residual priority risk.",
+      "searches": [
+        "Poisson birthday threshold for cyclic adjacent-bin multinomial roughness zero deficit 2N minus sum absolute adjacent differences, non-adjacent occupancy, Stirling numbers independent sets, n bin count N approximately sqrt n",
+        "Multinomial circular total variation rare adjacent cooccupancies Poisson limiting number collision N sqrt n, exact zero-roughness probability",
+        "Random sample on cycle no neighboring occupied vertices occupancy Poisson probability independent set birthday paradox N^2/n",
+        "\"Discrete total variation under the multinomial\" \"sparse\" \"Poisson\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.14735v1",
+      "arxiv:2610.13366v1",
+      "Arratia-Goldstein-Gordon-1990-Statistical-Science-5-403-434",
+      "2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb",
+      "Connett-2023-doi-10.1080/03610926.2023.2184186"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.14735v1, pp1–15: fixed n large N asymptotic dispersion and finite-N covariance transfer; no Poisson or sparse match in document text search.",
+        "arXiv:2610.13366v1: exact first moment for uniform multinomial DTV; knowing first moments does not determine the distribution or the saturation event.",
+        "Arratia–Goldstein–Gordon (1990) gives a pair-count Poisson bound; its implication for T requires an additional nontrivial event comparison with probability at most N(N-1)(N-2)/n².",
+        "The published multinomial roughness-variance synopsis concerns N/n→λ>0; moments do not imply a triangular-array Poisson total-variation approximation at N∼√n."
+      ],
+      "reasoning": "Exact prior implication has been considered: the underlying general theorem subsumes the proxy Poisson bound, but not the full new claim (exact finite saturation count, deficit coupling and sharp all-scale saturation event). The supporting mathematics depends on standard occupancy identities; the claimed increment lies in the specific new combination and explicit uniform error. Full-text historical literature may still include an equivalent specialization.",
+      "searches": [
+        "Uniform multinomial cyclic total variation variance as function of number of bins at fixed sample size. Exact finite N nonmonotonicity at N=2 n=3 vs 4, local peak, counterexample to conjectured monotone decreasing.",
+        "Discrete total variation under multinomial cyclic total variation fixed N n bin nonmonotone exact small sample geometric adjacency of occupied bins.",
+        "Poisson birthday threshold for cyclic adjacent-bin multinomial roughness zero deficit 2N minus sum absolute adjacent differences, non-adjacent occupancy, Stirling numbers independent sets, n bin count N approximately sqrt n",
+        "Multinomial circular total variation rare adjacent cooccupancies Poisson limiting number collision N sqrt n, exact zero-roughness probability",
+        "Uniform random circular histogram support independent set cyclic total variation maximum 2N exact probability Stirling numbers surjections Poisson birthday scale",
+        "Random sample on cycle no neighboring occupied vertices occupancy Poisson probability independent set birthday paradox N^2/n",
+        "Banić Elezović cyclic total variation \"sparse\" Poisson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.14735v1 §2: cyclic statistic d^c=sum|X_i-X_(i+1)|; §§3-4 analyze moment asymptotics rather than distribution of N-d^c/2.",
+        "Arratia–Goldstein–Gordon (1990) §4.1: birthdays and near coincidences are controlled by Poisson approximation of pair-indicator sums, not necessarily cyclic histogram roughness.",
+        "The independent-set saturation count is distinct from the occupancy of all-distinct bins; repeated draws on an isolated support are permitted."
+      ],
+      "reasoning": "The new statement was compared both as a distribution for a histogram roughness deficit, as an adjacent-pair collision count, and as a support-avoids-edges occupancy event. The pair-collision proxy has known Poisson coverage and is expressly credited; the deficit-to-proxy transfer has a nonzero triple-occupancy error and requires the new statistic-specific argument. The exact saturation probability is counted via independent occupied supports plus onto maps, which the general birthday formula does not directly supply.",
+      "searches": [
+        "Poisson birthday threshold for cyclic adjacent-bin multinomial roughness zero deficit 2N minus sum absolute adjacent differences, non-adjacent occupancy, Stirling numbers independent sets, n bin count N approximately sqrt n",
+        "Multinomial circular total variation rare adjacent cooccupancies Poisson limiting number collision N sqrt n, exact zero-roughness probability",
+        "Uniform random circular histogram support independent set cyclic total variation maximum 2N exact probability Stirling numbers surjections Poisson birthday scale",
+        "\"cyclic total variation\" \"Poisson\" \"multinomial\" occupancy",
+        "\"adjacent occupied bins\" Poisson birthday cycle balls bins"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact coefficient A(n,k) = n/(n-k) * binomial(n-k,k) is the classical number of independent k-subsets of an n-cycle; Stirling S(N,k) counts surjections onto k occupied bins.",
+        "published-finding corpus semantic hits “Exact joint law of cyclic and terminal vertices in uniform random mappings” (2026/11/2/...0c1fa0e07cad) concern a different occupancy model; no exact table or matched cyclic histogram saturation formula was exposed."
+      ],
+      "reasoning": "The classical independent-set count itself is neither new nor called new. The checked database and publications did not expose a tabulated quantity matching P(D=2N) with repeated observations and cyclic adjacency. No claim of database completeness is made; matches could be hidden in unindexed tables.",
+      "searches": [
+        "Uniform random circular histogram support independent set cyclic total variation maximum 2N exact probability Stirling numbers surjections Poisson birthday scale",
+        "Random sample on cycle no neighboring occupied vertices occupancy Poisson probability independent set birthday paradox N^2/n",
+        "\"Discrete total variation under the multinomial\" \"Part 3\" sparse"
+      ]
+    },
+    "rationale": "Direct full-text inspection establishes that arXiv:2611.14735v1 studies the cyclic statistic via fixed-bin variance/transfer identities rather than the sparse joint-bin/sample deficit law. The 1990 Arratia–Goldstein–Gordon theorem already supplies the locally dependent birthday Poisson comparison for the PAIR PROXY; it does not give the cyclic variation deficit identity, the triple-occupancy coupling error, or the Stirling/independent-support saturation coefficient. An older published roughness-variance summary concerns N/n approaching a positive constant, not the joint N/√n regime; no exact statement covering the joint conclusion was found across semantic, alias and source comparisons. A separate older sparse fixed-sample paper is mentioned in Part 1 and a historical implicit theorem remains possible; these are expressly retained as risks, not treated as proven absences.",
+    "residual_risks": [
+      "A broadly stated near-birthday or graph-occupancy theorem may already imply the deficit coupling or saturation expression under an unrecognized reduction.",
+      "The Part 1 mention of a separate fixed-sample sparse-limit study is incompletely resolved and requires independent bibliographic checking.",
+      "The 2026-10-18 published multinomial roughness result was comparable only by synopsis; uninspected full text could alter priority assessment.",
+      "An exhaustive mathematical-literature or table search has not been established; independent expert review remains pending."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Moment coefficients, asymptotic regimes and cyclic-linear transfer, not the joint sparse deficit distribution or exact no-loss support law",
+        "evidence": [
+          "arXiv:2611.14735v1 PDF pp1–3, pp14–15; §3 remarks on exact variance monotonicity",
+          "2026-11-10 UTC first public posting from arXiv version history"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.14735",
+        "material_read": "Full 28-page PDF available; introduction, definitions, §§2–3 and §§3.12–3.13 near pages 1–15 examined, plus full-text keyword searches for Poisson and sparse",
+        "method": "Text inspection and page-image inspection of the primary preprint",
+        "title": "Discrete total variation under the multinomial, Part 5: cyclic total variation",
+        "trigger": "Identical cyclic histogram statistic and a recent exact-variance program"
+      },
+      {
+        "assessment": "Covers locally dependent pair-indicator counts U, credited. Does not discuss cyclic histogram deficit T, exact independent support coefficient or triple-collision coupling",
+        "evidence": [
+          "Theorem 1 standard TV norm conversion; b1,b2,b3 definitions",
+          "§4.1 general birthday coincidences, including near birthdays"
+        ],
+        "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/pacs-1.pdf",
+        "material_read": "Theorem 1 and definitions on original pp405–406, page image for p406, §4.1 birthday-collision discussion on pp407–408",
+        "method": "Read full primary theorem and relevant birthday application",
+        "title": "Poisson Approximation and the Chen–Stein Method",
+        "trigger": "General theorem potentially dominating the Poisson component"
+      },
+      {
+        "assessment": "Expectation and fixed-sample sparse asymptotic discussion; references another sparse paper whose scope is not resolved here",
+        "evidence": [
+          "arXiv:2610.13366v1 introductory paragraphs on precise moment scope and the sparse-paper mention"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13366",
+        "material_read": "Accessible full-text introduction and abstract and main program statement",
+        "method": "Read arXiv HTML text; compared statistic and limit regimes",
+        "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+        "trigger": "Companion paper, possible earlier sparse-limit statement"
+      },
+      {
+        "assessment": "Positive-load variance and iterated sparse-load coefficient do not by their stated summaries imply full birthday-scale deficit Poisson law; whole-document negative conclusion not made",
+        "evidence": [
+          "Searchable published summary: N/n→λ>0 and variance-per-bin result; residual access caveat"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb",
+        "material_read": "Published title and searchable summary only; complete underlying primary work not accessible in this check",
+        "method": "Semantic research-record search and attempted public-page access",
+        "title": "Conditioning removes a leading variance term from multinomial histogram roughness",
+        "trigger": "Closest published semantic match to multinomial histogram roughness"
+      },
+      {
+        "assessment": "General collision variants potentially relevant; without full text cannot certify absence of a cyclic-adjacency specialization",
+        "evidence": [
+          "Published online 2023-03-12; 2024 volume; abstract on collision count and occupancy tests"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610926.2023.2184186",
+        "material_read": "Published abstract only, not full paper",
+        "method": "Publication and DOI metadata search",
+        "title": "When are there too many collisions? Variants of the birthday problem",
+        "trigger": "Historical variants of near birthdays and collision occupancy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd1f3a6c-86d1-444b-ac24-a0d7b9216419",
+  "value": {
+    "rationale": "The natural first extreme-event calibration of an order-sensitive cyclic multinomial statistic is the loss from maximum 2N, rather than only its expectation or variance. The theorem gives an exact all-finite-size probability by independent support enumeration, a uniform quantitative Poisson approximation for the entire deficit, an exact sqrt(n) transition probability e^{-c^2} and a Gaussian crossover. This is a motivated statistic-specific distributional classification; general Poisson-approximation technique and the simple independent-set count are acknowledged antecedents, not claimed inventions.",
+    "status": "PASS"
+  }
+}
