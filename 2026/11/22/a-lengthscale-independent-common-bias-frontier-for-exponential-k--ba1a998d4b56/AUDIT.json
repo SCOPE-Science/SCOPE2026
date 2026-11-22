@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For all n>=2, lambda>0, tau>=0, the Gaussian posterior weights are (K+tau 11^T)^{-1}m with SPD covariance. The explicit inverse K^{-1} of the exponential Toeplitz correlation is tridiagonal and gives K^{-1}m=u(1,2,...,2,1) and K^{-1}1=(1,1-r,...,1-r,1)/(1+r). Sherman–Morrison gives all displayed weights. Their only potentially negative factor is 1-(n-2)tau, proving the sharp frontier. The signed weak limit is exact from endpoint limits and interior Riemann sums; the independent-noise positivity comparison follows from inverse positivity of a diagonally dominant M-matrix. Verified computations are 660 exact rational cases and 210 independent numerical solves in the embedded verifier; these support algebra but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karvonen et al. 2019, Section 3 and Section 4.5: sufficient noiseless positivity conditions, discussion of unresolved Matérn-kernel positivity.",
+        "Cai et al. 2023, Sections 1–2 and 4: algorithmic bounds for independent Gaussian errors, not rank-one shared-error posterior weight geometry."
+      ],
+      "reasoning": "A broad theorem implying the final result would need to handle correlated rank-one observation noise, integration of a unit-variance exponential process on full endpoint grids, and strict weight signs, not merely kernel positivity or global quadrature rates. No such implication is present in the inspected source statements.",
+      "searches": [
+        "Bayesian quadrature with correlated observation noise positive weights Ornstein Uhlenbeck exponential covariance",
+        "Gaussian process quadrature shared observation noise common mode negative quadrature weights equispaced",
+        "arxiv:2202.10615"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1812.08509",
+      "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+      "https://arxiv.org/abs/2202.10615",
+      "https://arxiv.org/html/2202.10615v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karvonen et al. 2019, equations for w=K^{-1}m and positive cardinal integrals, do not specify a non-diagonal observation error covariance.",
+        "Cai et al. 2023, Section 2, equations for K+lambda I and stochastic rates, do not derive the shared common-mode endpoint threshold or weak signed atomic limit."
+      ],
+      "reasoning": "The shared Gaussian error is not equivalent to the independent nugget considered in the nearby results. The rank-one update changes only observation covariance and subtracts a nonuniform K^{-1}1 vector from the noiseless weights, yielding an endpoint sign change which the published assumptions exclude.",
+      "searches": [
+        "On the positivity and magnitudes of Bayesian quadrature weights arxiv 1812.08509",
+        "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature arxiv 2202.10615",
+        "Ornstein Uhlenbeck covariance with nugget noisy observations positive integration weights strict M matrix inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karvonen et al., arXiv:1812.08509 / doi:10.1007/s11222-019-09901-0, Sections 2.1 and 3, use noiseless K^{-1}m weights.",
+        "Cai et al., arXiv:2202.10615, Section 2, use an independent-noise diagonal-nugget covariance K+lambda I."
+      ],
+      "reasoning": "The potentially equivalent formulation is posterior integration with covariance K+tau*11^T but unchanged integral cross-covariance m. This is not the same as adding a constant component to the latent process kernel, which would also alter m. The inspected exact formulations do not include the shared-noise sign law.",
+      "searches": [
+        "Bayesian quadrature with correlated observation noise positive weights Ornstein Uhlenbeck exponential covariance",
+        "Gaussian process quadrature shared observation noise common mode negative quadrature weights equispaced",
+        "arxiv:1812.08509"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant literature search results supplied foundational kernel-quadrature and noisy-rate papers but no identified exact table for rank-one shared-offset endpoint weights.",
+        "Closest retrieved semantic record: Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature; it treats noiseless locations and sampling jitter, not a common-offset covariance."
+      ],
+      "reasoning": "No exact database/table was identified for the same normalizations and parameters. Negative search results alone cannot certify that no historical tabulation exists; see residual risks.",
+      "searches": [
+        "\"1/(n-2)\" \"quadrature\" \"noise\" weights",
+        "\"Ornstein Uhlenbeck\" \"quadrature weights\" \"correlated noise\"",
+        "Ornstein Uhlenbeck covariance with nugget noisy observations positive integration weights strict M matrix inverse"
+      ]
+    },
+    "rationale": "The identified contribution is the exact shared-offset covariance frontier and the dense-grid signed-measure limit, not the standard Gaussian-conditioning or rank-one inverse formula. Full accessible relevant portions of Karvonen–Kanagawa–Särkkä (2018/2019) develop noiseless-weight positivity, and Cai–Lam–Scarlett (2022/2023) study i.i.d. noise and error rates. Their statements and hypotheses do not imply the n-dependent, lengthscale-free sign boundary for rank-one shared noise. Related published exponential-kernel design records inspected through mathematical summaries optimize noiseless or independently noisy observation locations, rather than this weight-sign problem. No equivalent published-finding corpus finding was located in concrete semantic searches; this is provisional, not proof of historical uniqueness.",
+    "residual_risks": [
+      "Earlier kriging or time-series literature may contain equivalent formulas for rank-one correlated noise as a special covariance update, even if not indexed with quadrature terminology.",
+      "Prior mathematical sources on Brownian or OU quadrature designs under common offsets may imply special two-site cases, but no inspected source covers the arbitrary-n exact sign boundary or weak limit.",
+      "Search results and sections inspected are not a complete historical bibliography."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the ordinary noiseless weight formula and positivity work but not a common shared measurement-error variance frontier.",
+        "evidence": [
+          "Equation (3) gives K^{-1} kernel means for noiseless evaluations.",
+          "Section 3 sufficient conditions concern totally positive kernels and optimal locations.",
+          "Section 4.5 specifically notes further positivity research for Matérn kernels."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "material_read": "Full open-access HTML was available; examined the introduction, Sections 2.1–2.2 and 3, and Section 4.5 including the Matérn discussion and references.",
+        "method": "Opened and searched the publicly accessible full HTML, read relevant mathematical statements, and compared hypotheses and implications.",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Closest foundation for positivity of Bayesian quadrature weights, and discussion of Matérn kernels."
+      },
+      {
+        "assessment": "Uses i.i.d. Gaussian measurement noise and randomized quadrature error rates; does not contain rank-one common-noise weight signs in inspected material.",
+        "evidence": [
+          "Section 2 takes independent Gaussian errors and GP covariance K+lambda I.",
+          "The upper/lower bounds and Algorithm 1 optimize noise-dependent rates rather than posterior signed-weight behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.10615v2",
+        "material_read": "Accessible full HTML with table of contents; examined Abstract, Sections 1.1–1.2, 2 and 4, including noise model, rate theorems and algorithm structure.",
+        "method": "Opened arXiv HTML and read the relevant statements and assumptions.",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Primary noisy-kernel-quadrature literature that might dominate a specialized noise effect."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba1a998d-4b56-4e01-b10e-5e32c6f8773f",
+  "value": {
+    "rationale": "This is a natural numerical-integration stability question under shared calibration uncertainty. The full n and lambda-uniform positivity classification is not a merely rebranded known independent-noise result: an arbitrarily small fixed common bias eventually forces negative endpoint weights, while any finite independent noise preserves positivity. The exact negative mass bounds worst negative output on bounded nonnegative observations. The nonvanishing negative endpoint atoms in the dense-grid limit demonstrate a genuine structural obstruction with direct relevance to correlated sensing and kernel integration, rather than an arbitrary isolated computation.",
+    "status": "PASS"
+  }
+}
