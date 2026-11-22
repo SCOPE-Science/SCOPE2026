@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The action is free because a prime rotation orbit has \(p\) elements while every subset contains at most \(2q<p\) points. The unquotiented homotopy-sphere and degree-two facts are exactly Theorems 4–5 of Tuffley (2002). Finite CW dimension forces the only possible Cartan–Leray transgression to be nonzero; it is therefore a mod-\(p\) unit. Naturality multiplies that unit by \(2\), and a covering-preserving homotopy equivalence can only change it by an orientation sign and a \(q\)th power of a unit. The exact homology computation and modular arithmetic have been cross-checked. No homeomorphism classification or converse is inferred.
+## correctness
 
-**Originality — PASS within inspected evidence.** Tuffley establishes the sphere types, the degree-two map, and a weighted circle action at the third stage; those inputs are not new. Tuffley's inspected opening and theorem sections do not assert the adjacent finite-cyclic quotient transgression comparison. Kallel–Sjerve concerns connectivity and homology of finite-subset spaces rather than this pair of orbit spaces. Indexed mathematical records were searched under finite-subset, rotation, lens-space, transgression, and equivalent homotopy-invariant terminology; the closest results concern fixed spaces of finite subsets of \(S^2\), lens quotients of different combinatorial complexes, or prime cyclic quotient torsion of different spaces. No inspected statement was found that entails the factor-two quotient comparison. Unindexed work and alternative formulations remain residual risks; failed search alone is not treated as proof of uniqueness.
+PASS
 
-**Value — PASS.** The infinite prime family distinguishes two natural adjacent stages of a well-studied filtration even though their universal covers, fundamental groups, and complete integral homology agree. The obstruction captures an intrinsic higher homotopy invariant that those invariants miss. The numerical criterion is tied to the natural degree-two filtration map, rather than an arbitrary isolated parameter or small computational gain.
+For q>=2 and prime p>2q, any nonidentity p-rotation preserving a nonempty finite subset has all orbits of length p, impossible below p elements; the C_p action on E_(2q-1),E_(2q) is free. Tuffley proves each cover has homotopy type S^(2q-1) and inclusion has degree 2 in top homology. The Cartan–Leray/Serre spectral sequence has rows t=0,2q-1 and only differential d_(2q); its coefficient must be a unit mod p or quotient cohomology remains infinite-dimensional, contradiction. Naturality fixes a_+=2a_-. A homotopy equivalence would induce deck generator s and degree epsilon=+/-1 on covers, forcing 2 in signed qth powers. Explicit independent modular computation checks 2 outside signed quadratic residues for p=5,13,29,37,61 (all 5 mod8); Dirichlet and quadratic reciprocity prove infinitely many. UCT yields same ordinary homology. This arithmetic sample is not a proof of the universal spectral-sequence statement.
 
-**Scope and sources.** C. Tuffley, *Finite subset spaces of \(S^1\)*, arXiv:math/0209077, Theorems 3–5; S. Kallel and D. Sjerve, *Remarks on finite subset spaces* (2009); classical cyclic group cohomology and the Cartan–Leray/Serre spectral sequence. Limitations: the converse is unknown here, the even-stage spaces are not claimed to be actual spheres, and no independent audit or exhaustive originality certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tuffley 2002 supplies spherical homotopy types and the top-degree factor two but does not derive arithmetic inequivalence of their free prime-rotation orbit spaces, with identical homology and fundamental group. Existing Resultary rotational lens-space/mapping-cone findings concern cycle complexes, associahedral boundaries and other spaces. The new obstruction follows from a nontrivial naturality comparison and automorphism action; it is not a mere restatement of the factor-two theorem.
+
+## value
+
+PASS
+
+The family provides an infinite, geometrically natural supply of spaces with equal integral homology and pi_1 but distinct homotopy types, detected by a sharp arithmetic transgression invariant. It exposes a genuinely useful obstruction to equating adjacent finite-subset quotients, without falsely claiming a converse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

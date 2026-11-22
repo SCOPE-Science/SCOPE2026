@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof uses the explicit hypotheses of Tuffley's sphere and degree-two theorems, free finite cyclic rotation, ordinary integral cyclic group cohomology, and a two-row Cartan–Leray cohomology spectral sequence.
+# Independent mathematical audit
 
-The general nonzero-transgression step was checked symbolically: the only differential capable of eliminating infinitely many even-degree classes of \(H^*(BC_p;\mathbb Z)\) is \(d_{2q}\), which must be nonzero for a finite-dimensional quotient; modulo prime \(p\), nonzero is invertible. The degree-two inclusion gives the exact naturality equation; a putative homotopy equivalence multiplies the base generator by a unit and cover orientation by a sign, yielding the displayed signed-power obstruction. Universal coefficients determine the homology.
+## correctness
 
-The accompanying exact arithmetic verifier was executed on its actual packaged source, with stdout compared byte-for-byte to `verification/expected_output.txt`. These finite cases are checks of arithmetic only and do not constitute a proof of any infinite topological claim. No independent external audit, machine-checked proof, or exhaustive literature uniqueness certification is represented.
+PASS
+
+For q>=2 and prime p>2q, any nonidentity p-rotation preserving a nonempty finite subset has all orbits of length p, impossible below p elements; the C_p action on E_(2q-1),E_(2q) is free. Tuffley proves each cover has homotopy type S^(2q-1) and inclusion has degree 2 in top homology. The Cartan–Leray/Serre spectral sequence has rows t=0,2q-1 and only differential d_(2q); its coefficient must be a unit mod p or quotient cohomology remains infinite-dimensional, contradiction. Naturality fixes a_+=2a_-. A homotopy equivalence would induce deck generator s and degree epsilon=+/-1 on covers, forcing 2 in signed qth powers. Explicit independent modular computation checks 2 outside signed quadratic residues for p=5,13,29,37,61 (all 5 mod8); Dirichlet and quadratic reciprocity prove infinitely many. UCT yields same ordinary homology. This arithmetic sample is not a proof of the universal spectral-sequence statement.
+
+## originality
+
+PASS
+
+Tuffley 2002 supplies spherical homotopy types and the top-degree factor two but does not derive arithmetic inequivalence of their free prime-rotation orbit spaces, with identical homology and fundamental group. Existing Resultary rotational lens-space/mapping-cone findings concern cycle complexes, associahedral boundaries and other spaces. The new obstruction follows from a nontrivial naturality comparison and automorphism action; it is not a mere restatement of the factor-two theorem.
+
+## value
+
+PASS
+
+The family provides an infinite, geometrically natural supply of spaces with equal integral homology and pi_1 but distinct homotopy types, detected by a sharp arithmetic transgression invariant. It exposes a genuinely useful obstruction to equating adjacent finite-subset quotients, without falsely claiming a converse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
