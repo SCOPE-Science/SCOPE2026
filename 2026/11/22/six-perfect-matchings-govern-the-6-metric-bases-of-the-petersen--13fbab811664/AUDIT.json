@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Two standalone implementations recompute all 105 size-five distinct bisectors by BFS from the 15 named Petersen edges. Python and C++ fully exhaust all 2^15 vertex subsets, agree on ten minimum sizes and counts; they separately enumerate six perfect matchings and match complements exactly. Python verifies all 1365 11-sets contain a bisector; monotonicity then proves every k>=7 lower bound. The finite proof and quantifiers are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1401.0342 Sections 2–4: general complexity, trees and existence thresholds",
+        "arxiv:1603.04049 Sections 5 and 7: graph examples and general bisectors",
+        "2020 Guo et al. §3: L(prism) fault tolerant metric dimension"
+      ],
+      "reasoning": "General lower bounds and problem complexity do not supply the 105 distinct five-vertex bisectors or the ten optimum counts. No inspected graph family containing L(P) with a stronger exact k-dimensional classification was found.",
+      "searches": [
+        "k-metric dimension full fault-tolerant resolving spectrum line graph of Petersen graph",
+        "fault tolerant k metric dimensional line graph of Petersen minimum generators",
+        "arxiv:1401.0342"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1401.0342",
+      "arxiv:1603.04049",
+      "arxiv:1312.4973",
+      "doi:10.1155/2020/1436872",
+      "2026/11/2/SCOPE-petersen-edge-location-domination-ten-complete-bipartite-obstruc--5291df073dcf",
+      "2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97",
+      "2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718",
+      "2026/10/13/SCOPE-optimal-fractional-k-resolving-functions-of-square-page-book-gra--c59a323df990"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published L(P) zero forcing theorem: 2280 minimum 7-element zero forcing sets; no graph-distance k-metric condition",
+        "Published L(P) locating domination: 246 minimum 5-sets; closed-neighborhood test not geodesic multi-witness test",
+        "Guo et al. studies L(prism), L(necklace) only"
+      ],
+      "reasoning": "There is no inclusion or reduction established from those alternative conditions that fixes the new geodesic bisectors, minima, or perfect-matching complements. The proofs are distinct exact finite all-distance certificates.",
+      "searches": [
+        "2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97",
+        "2026/11/2/SCOPE-petersen-edge-location-domination-ten-complete-bipartite-obstruc--5291df073dcf",
+        "doi:10.1155/2020/1436872"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1603.04049 §2 bisector criterion, Example 5.4 is the Petersen graph, not L(P)",
+        "2020 Guo et al. doi:10.1155/2020/1436872, fault tolerant k=2 line graphs of prism/necklace families"
+      ],
+      "reasoning": "The k-metric generator and bisector formulations are equivalent by complementing equal-distance sets. The examined Petersen-graph dimension sequence does not transfer to its nonisomorphic line graph with 15 vertices; the new k=6 perfect-matching condition is not an instance of a result for necklaces or prisms.",
+      "searches": [
+        "Petersen line graph k-resolving sets distance metric dimension sequence",
+        "fault-tolerant metric basis line Petersen graph k metric",
+        "arxiv:1603.04049"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bailey arxiv:1312.4973 covers ordinary metric dimension in small distance-regular graphs, not exact robust spectra of L(P)",
+        "published-finding corpus 2026/11/2 published results for L(P) cover zero forcing and locating domination with unrelated conditions"
+      ],
+      "reasoning": "The checked nearby tabulations use different graph parameters or different graphs. Neither directly lists or mathematically implies all 10 k-level minimum bases or the perfect-matching bijection.",
+      "searches": [
+        "metric bases Petersen line graph dimension resolving polynomial entire subsets",
+        "line graph of Petersen 105 equidistance bisectors perfect matchings 6 minimum 10 k-metric",
+        "arxiv:1312.4973"
+      ]
+    },
+    "rationale": "The closest full-text general sources define k-metric dimension, bisectors, and other examples (including the ten-vertex Petersen graph), but not the line graph; 2020 line-graph fault tolerance covers necklaces and prisms only. Published exact line-graph calculations concern zero forcing or locating domination, not multi-witness geodesic separation. The new mathematical content is the all-105-distinct size-five bisector classification, the 10-level optimum and count table, and six perfect-matching complement characterization. Priority beyond inspected sources remains uncertain.",
+    "residual_risks": [
+      "Unindexed exact finite computations, theses, or uninspected line-graph k-metric classifications may predate this computation.",
+      "The two published Petersen-line graph result full texts were not inspected; their accessible mathematical summaries concern different operators.",
+      "Independent external audit and priority certification not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes general parameter, NP-completeness and tree algorithms, not this line graph",
+        "evidence": [
+          "§1 definition",
+          "§2 distinctive-set minimum",
+          "§3 NP-completeness"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1401.0342v2",
+        "material_read": "full HTML Sections 1–4 and search for Petersen line graph, icosahedral/dodecahedral examples",
+        "method": "Reading mathematical definitions, complexity and graph-family theorems",
+        "title": "On the complexity of computing the k-metric dimension of graphs",
+        "trigger": "Archived defining result and MSC ownership"
+      },
+      {
+        "assessment": "NOT_COVERING: Petersen graph itself has published sequence; the distinct fifteen-vertex line graph is not treated",
+        "evidence": [
+          "§2 bisector condition",
+          "Example 5.4 Petersen graph dimension sequence (3,4,7,8,9,10)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1603.04049v1",
+        "material_read": "HTML §2 bisectors, §5 examples, §7 graph metrics; checked explicit Petersen example",
+        "method": "Full-text HTML heading and substantive section reading",
+        "title": "On the k-metric Dimension of Metric Spaces",
+        "trigger": "Potential exact dimension sequence for Petersen graph and bisector equivalence"
+      },
+      {
+        "assessment": "NOT_COVERING: only necklace and prism line-graph families",
+        "evidence": [
+          "Theorem 5 L(prism) fault-tolerant dimension four",
+          "Conclusion states necklace/prism scope"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/1436872",
+        "material_read": "Online primary full-text abstract, definitions, §3 prism graph, conclusion and references",
+        "method": "Full-text HTML reading",
+        "title": "Fault-Tolerant Resolvability in Some Classes of Line Graphs",
+        "trigger": "Potential k=2 dominance for line graphs"
+      },
+      {
+        "assessment": "No robust line-Petersen k-level or count classification identified; ordinary k=1 data is distinct",
+        "evidence": [
+          "arXiv abstract and introduction: graph metric dimension enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1312.4973v1",
+        "material_read": "Full HTML introductory scope and search within full text for icosahedral/dodecahedral/line graph themes",
+        "method": "Read introduction and study scope; targeted full-text searches",
+        "title": "The metric dimension of small distance-regular and strongly regular graphs",
+        "trigger": "Possible earlier ordinary resolving dimension data"
+      },
+      {
+        "assessment": "DISTINCT_OPERATOR: zero forcing rather than distance-based k-resolving; full text not inspected",
+        "evidence": [
+          "2280 seven-vertex minimum zero forcing sets and their exchange graph"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97",
+        "material_read": "Public indexed mathematical summary, not full result text",
+        "method": "published-finding corpus indexed summary; compared invariant and parameters",
+        "title": "The minimum zero-forcing exchange graph of the Petersen line graph",
+        "trigger": "Exact graph-match candidate"
+      },
+      {
+        "assessment": "DISTINCT_OPERATOR: locating domination not multi-distance resolving",
+        "evidence": [
+          "246 five-vertex optimal codes and exchange graph"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-petersen-edge-location-domination-ten-complete-bipartite-obstruc--5291df073dcf",
+        "material_read": "Public indexed mathematical summary, not full result text",
+        "method": "published-finding corpus indexed summary and invariant comparison",
+        "title": "Petersen edge-location domination: ten complete bipartite obstructions",
+        "trigger": "Exact graph-match candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13fbab81-1664-4e31-91fa-9c218c614016",
+  "value": {
+    "rationale": "The k-metric spectrum measures resilience of shortest-path identification under up to k-1 selected-sensor losses in a canonical 15-vertex graph. Its two discontinuities, exceptional six-perfect-matching optimum class for k=6, and universal-all-subsets phase at k>=7 offer distinct structural conclusions useful as a benchmark for robust landmark placement. Beyond correctness/novelty, these phenomena motivate the exact finite classification.",
+    "status": "PASS"
+  }
+}
