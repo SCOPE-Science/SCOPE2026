@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The three-state linear Markov system has spectral radius max(|1-kappa*h|,|rho|)<1. Cross-moment equations derive the exact marginal variance; telescoping finite sums and AR1 Green–Kubo identity establish the exact long-run linear mean variance. Strict derivative signs, rho->1 limiting divergence and iff second-order antithetic scaling follow algebraically. Independent exact 3x3 Lyapunov and zero-frequency covariance arithmetic checked 2,567 assertions with a Python Fraction script; the infinite result is proved, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full original preprint introduction and formulas https://ai.vixra.org/abs/2610.0030; arXiv full HTML Sections 3 and 6 https://arxiv.org/html/2610.24781v2.",
+        "Vollmer–Zygalakis–Teh, 2016, https://jmlr.org/papers/volume17/15-494/15-494.pdf, introduction and SGLD Gaussian model.",
+        "2026/11/2/SCOPE-unique-correlation-induced-mean-square-frontier-for-gaussian-pro--20da1a5ec768",
+        "2026/11/2/SCOPE-exact-gaussian-calibration-and-time-average-variance-gap-for-two--2f2752b5d5bf"
+      ],
+      "reasoning": "The primary theorems require step-fresh oracle random variables independent of the past, and general bias bounds do not imply a result for temporally AR(1)-correlated oracles. Earlier iid Euler and different stochastic RK models cannot be specialized to this dependence-sensitive SGLM phase law. Standard Green–Kubo/Lyapunov formulas are the underlying methods, not an already stated parameter-specific classification.",
+      "searches": [
+        "Stochastic Gradient Leimkuhler Matthews integrator AR(1) correlated gradient noise exact invariant variance phase transition bias cancellation scalar Ornstein Uhlenbeck",
+        "Leimkuhler Matthews noise reuse colored minibatch gradient stochastic stationary covariance Langevin",
+        "stochastic gradient Leimkuhler Matthews invariant variance autocorrelated gradient noise threshold",
+        "exact stationary covariance SGLM Leimkuhler-Matthews stochastic-gradient AR1 temporally correlated noise simultaneous marginal variance and long-run sample-mean variance",
+        "OU sampler correlated gradient oracle antithetic sampling autocorrelation 1-step shift sign threshold h lambda 1 opposite stationary and time averaging variance",
+        "scalar Langevin integrator stochastic gradient persistent antithetic AR(1) slope stable invariant measure versus integrated autocorrelation conflict",
+        "Vollmer Zygalakis Teh stochastic gradient Langevin bias variance Gaussian 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://ai.vixra.org/abs/2610.0030",
+      "https://arxiv.org/html/2610.24781v2",
+      "https://jmlr.org/papers/volume17/15-494/15-494.pdf",
+      "https://arxiv.org/abs/2610.24781",
+      "published mathematical records: 2026/10/25/SCOPE-sharp-temporal-noise-color-laws-and-an-injection-side-reversal-f--0e401eb67d48, 2026/11/2/SCOPE-unique-correlation-induced-mean-square-frontier-for-gaussian-pro--20da1a5ec768, 2026/11/2/SCOPE-exact-gaussian-calibration-and-time-average-variance-gap-for-two--2f2752b5d5bf, 2026/11/8/SCOPE-endpoint-optimal-markov-sampling-and-a-sharp-curvature-frontier--185fdcb80ccc, 2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Independent oracle assumption, including xi_k independent of prior filtration, appears in https://arxiv.org/html/2610.24781v2 Section 3.2 and Appendix C.",
+        "Two-gradient stochastic RK result 2026/11/2/SCOPE-exact-gaussian-calibration-and-time-average-variance-gap-for-two--2f2752b5d5bf analyzes a separate method.",
+        "Constrained midpoint noise color law 2026/10/25/SCOPE-sharp-temporal-noise-color-laws-and-an-injection-side-reversal-f--0e401eb67d48 is not the adjacent-Gaussian SGLM update."
+      ],
+      "reasoning": "Primary SGLM results bound first-order bias for independent stochastic gradients; replacing those with stationary AR(1) noise invalidates their martingale hypotheses. Even if a general LTI theorem determines V and L via substitution, the published mathematical statements inspected do not imply the specific simultaneous monotonicity classification as a quoted result. Related results neither dominate this particular recursion nor make the claimed design threshold a special case without additional calculations.",
+      "searches": [
+        "Stochastic Gradient Leimkuhler Matthews integrator AR(1) correlated gradient noise exact invariant variance phase transition bias cancellation scalar Ornstein Uhlenbeck",
+        "Leimkuhler Matthews noise reuse colored minibatch gradient stochastic stationary covariance Langevin",
+        "stochastic gradient Leimkuhler Matthews invariant variance autocorrelated gradient noise threshold",
+        "Stochastic Gradient Leimkuhler–Matthews Integrator with Second Order Discretization Error Ye Wang Lin Kong arxiv:2610.24781 colored noise",
+        "Leimkuhler Matthews AR1 additive gradient-noise correlation stationary Gaussian variance zero-frequency Green Kubo h*kappa=1",
+        "correlation reversal stationary covariance time-average variance SGLM sampler antithetic oracle error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SGLM update, independent oracle premise and bias analysis in https://arxiv.org/html/2610.24781v2, introduction and Sections 3, 6.",
+        "The original preprint https://ai.vixra.org/abs/2610.0030 defines the same adjacent Gaussian scheme.",
+        "Prior mathematical records on correlated midpoint perturbations and Markov-switching SGD have different recursions: 2026/10/25/SCOPE-sharp-temporal-noise-color-laws-and-an-injection-side-reversal-f--0e401eb67d48; 2026/11/8/SCOPE-endpoint-optimal-markov-sampling-and-a-sharp-curvature-frontier--185fdcb80ccc."
+      ],
+      "reasoning": "Centered scalar linear recursion is equivalent to a three-state Gaussian AR(1) filter; a general Lyapunov equation can compute its covariance. But neither inspected SGLM source nor searched equivalent nomenclature yields the joint sharp sign transition for invariant Gaussian W2 versus linear-mean asymptotic variance, nor the iff 1+rho_h=O(h) restoration criterion.",
+      "searches": [
+        "exact stationary covariance SGLM Leimkuhler-Matthews stochastic-gradient AR1 temporally correlated noise simultaneous marginal variance and long-run sample-mean variance",
+        "OU sampler correlated gradient oracle antithetic sampling autocorrelation 1-step shift sign threshold h lambda 1 opposite stationary and time averaging variance",
+        "scalar Langevin integrator stochastic gradient persistent antithetic AR(1) slope stable invariant measure versus integrated autocorrelation conflict",
+        "Stochastic Gradient Leimkuhler–Matthews Integrator with Second Order Discretization Error Ye Wang Lin Kong arxiv:2610.24781 colored noise",
+        "Leimkuhler Matthews AR1 additive gradient-noise correlation stationary Gaussian variance zero-frequency Green Kubo h*kappa=1",
+        "correlation reversal stationary covariance time-average variance SGLM sampler antithetic oracle error",
+        "\"Leimkuhler Matthews\" \"correlated\" \"gradient\" numerical invariant",
+        "\"SGLM\" \"AR(1)\" \"variance\" Langevin",
+        "\"Leimkuhler Matthews\" \"colored gradient noise\" \"variance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nine semantic searches of published mathematical findings were executed, with closest entries explicitly compared by recurrence and objective.",
+        "The source version and first public date are cataloged at https://ai.vixra.org/abs/2610.0030; arXiv v1 is dated 17 October 2026 in https://arxiv.org/abs/2610.24781."
+      ],
+      "reasoning": "No inspected exact formula table or indexed prior finding enumerates the two SGLM marginal/mean variance functions with this h*kappa=1 reversal. Lack of a database hit is not itself a proof of uniqueness.",
+      "searches": [
+        "Leimkuhler Matthews noise reuse colored minibatch gradient stochastic stationary covariance Langevin",
+        "stochastic gradient Leimkuhler Matthews invariant variance autocorrelated gradient noise threshold",
+        "exact stationary covariance SGLM Leimkuhler-Matthews stochastic-gradient AR1 temporally correlated noise simultaneous marginal variance and long-run sample-mean variance",
+        "OU sampler correlated gradient oracle antithetic sampling autocorrelation 1-step shift sign threshold h lambda 1 opposite stationary and time averaging variance",
+        "\"Leimkuhler Matthews\" \"correlated\" \"gradient\" numerical invariant",
+        "\"SGLM\" \"AR(1)\" \"variance\" Langevin",
+        "\"Leimkuhler Matthews\" \"colored gradient noise\" \"variance\"",
+        "\"stochastic gradient Leimkuhler\" \"antithetic\" gradient correlation",
+        "\"Leimkuhler Matthews\" \"time average\" \"correlated gradients\""
+      ]
+    },
+    "rationale": "Source-specific comparison shows the original SGLM paper analyzes independent fresh oracle errors, not a fixed-marginal AR(1) coupling. The new exact simultaneous stationary-versus-averaging phase transition and sharp step-dependent second-order restoration criterion were not found in inspected SGLM/earlier SGLD material or searched published mathematical records; generic covariance and Green–Kubo machinery gives tools but not a previously identified claimed numerical-method design boundary. Residual risk of unindexed or general linear-process prior coverage remains.",
+    "residual_risks": [
+      "General linear-filter stationarity and Green–Kubo identities are standard; an unindexed application may already state the threshold.",
+      "The earlier original preprint was inspected in relevant opening sections; not every appendix was examined for a covert equivalent result.",
+      "No independent external historical-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The identical adjacent-Gaussian SGLM update is present; the results concern independent gradient noise and no AR(1) oracle accuracy/efficiency reversal was identified in material read. Not a whole-document absence certificate.",
+        "evidence": [
+          "https://ai.vixra.org/pdf/2610.0030v1.pdf",
+          "https://ai.vixra.org/abs/2610.0030"
+        ],
+        "identifier_or_url": "https://ai.vixra.org/abs/2610.0030",
+        "material_read": "Original v1 PDF title, abstract, pp. 1–3: stochastic-gradient update, independent fresh minibatches, bias and error objectives. Public posting history v1 2026-10-11.",
+        "method": "Read PDF text and rendered page 2; inspect archival version/date listing",
+        "title": "Stochastic Gradient Leimkuhler–Matthews Integrator with Second Order Discretization Error, original two-author preprint",
+        "trigger": "Earliest public version and whether it already covers colored oracle correlations"
+      },
+      {
+        "assessment": "The step equation agrees with our model when the oracle error is inserted. Its independence assumption excludes the AR(1) gradient oracle from the proved bounds; no matching exact threshold in the inspected sections.",
+        "evidence": [
+          "https://arxiv.org/html/2610.24781v2",
+          "https://arxiv.org/abs/2610.24781"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24781v2",
+        "material_read": "Full HTML introduction and Sections 3.2, 6.1–6.3, plus the independent-error condition in the relevant proof appendices.",
+        "method": "Inspect arXiv full HTML text, equations, hypotheses and term searches",
+        "title": "Stochastic Gradient Leimkuhler–Matthews Integrator with Second Order Discretization Error, expanded four-author version",
+        "trigger": "Main current SGLM source; possible stronger theorem/corollary covering exact scalar colored-noise law"
+      },
+      {
+        "assessment": "Covers Euler-based SGLD with subsampled gradient, not the adjacent-Gaussian SGLM and correlated gradient oracle; no implication of the claimed correlation phase law from inspected parts.",
+        "evidence": [
+          "https://jmlr.org/papers/volume17/15-494/15-494.pdf",
+          "https://jmlr.org/papers/v17/15-494.html"
+        ],
+        "identifier_or_url": "https://jmlr.org/papers/volume17/15-494/15-494.pdf",
+        "material_read": "Full PDF introduction (pp. 1–4), SGLD update and statement of explicit Gaussian model and bias analysis.",
+        "method": "Read extracted PDF equations and inspect rendered page 2",
+        "title": "Exploration of the (Non-)Asymptotic Bias and Variance of Stochastic Gradient Langevin Dynamics",
+        "trigger": "Gaussian-gradient-noise bias and mean-sample variance in closest established numerical sampler"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "45272597-d8ed-45f7-a140-29372cde01e7",
+  "value": {
+    "rationale": "Same Gaussian target and same per-step oracle variance, but tuning the temporal oracle dependence leads to opposite rankings of two essential sampler quality criteria throughout the whole overrelaxed stable regime. The exact h*kappa=1 threshold, divergence of sampling variance despite improving stationary W2, and if-and-only-if antithetic O(h) scaling for second-order invariant covariance directly inform colored-gradient coupling design. This is not an unsupported claim of real minibatch superiority: only state-independent Gaussian AR1 perturbations are covered.",
+    "status": "PASS"
+  }
+}
