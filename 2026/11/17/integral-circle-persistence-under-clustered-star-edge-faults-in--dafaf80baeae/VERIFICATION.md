@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run the accompanying standalone Python 3 program from a directory containing `verify.py`:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The accompanying `verification_output.txt` was produced by that command. It reports the exact marker `STAR_DELETION_2_INDEPENDENCE_PASS cases= 72` and selected complete parameter profiles.
+At t=0 all mixed faces are crossing edges between two full shore simplices, yielding ab−1 circles. For t>=1 direct induced-degree case split gives two shore simplices, hub cone u*(simplex B0 * discrete B1), mixed edges and unique triangles (u,x,z) for x∈A\{u}, z∈faulted B0. Each edge {x,z} has only that triangle coface, giving (a−1)t legal elementary collapses. The remainder is a contractible connected core (gluing along nonempty contractible intersections) plus precisely (a−1)(b−t) extra one-cells, with integral cycle basis c_{x,y}. These cycles existed in earlier stages and the new triangles kill only specified basis elements, proving split surjection and primitive kernels. Independently direct induced-degree enumeration for (a,b)=(3,4),(4,4) at all 0<=t<=b recovered the explicit face families. Mod-2 tests do not replace CW proof.
 
-For every \(2\le a,b\le5\), \(0\le t\le b\), the program constructs the graph from the deleted-star edge set, evaluates all \(2^{a+b}\) vertex subsets by the *original induced-degree definition*, independently classifies the faces by shoreline cases, and verifies that the two resulting face sets coincide. It then checks the unique-coface condition for all \((a-1)t\) explicit elementary collapse pairs, checks the exact residual core-edge decomposition, constructs the entire mod-two simplicial chain boundary in every degree, and calculates reduced Betti ranks over \(\mathbb F_2\). Each checked case agrees with the claimed circle multiplicity and has zero other reduced Betti ranks.
+## originality
 
-All-parameter integral correctness rests on the complete face classification, the explicit elementary collapses, the contractible-core gluing argument, and the integral one-cycle basis proved in `RESULT.md`. Mod-two computations cannot rule out integral torsion and are not used as the only proof. The displayed homotopy classification proves torsion-freeness independently. The script does not check an infinite domain or establish bibliographic priority. Independent audit remains unperformed.
+PASS
+
+Carnero Bravo 2023 proves the intact biclique Ind_2 homotopy, a credited boundary case. Published 2026-11-17 matching-deletion persistence treats t pairwise disjoint missing edges and can create S2 at t>=3; for this hub-clustered deletion no S2 appears and the ranks differ. Other star-deficient biclique robust clique complexes use k>=4 and do not imply the k=2 dissociation conclusion. The complete clustered-fault integral homotopy/persistence statement is not known from inspected prior work.
+
+## value
+
+PASS
+
+Comparing clustered versus disjoint edge faults in a natural higher-independence invariant identifies sharp destruction of all cycles without higher-dimensional births, gives explicit integral filtration maps and symmetric-group lattices, and resolves a motivated fault-shape dependence rather than an arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

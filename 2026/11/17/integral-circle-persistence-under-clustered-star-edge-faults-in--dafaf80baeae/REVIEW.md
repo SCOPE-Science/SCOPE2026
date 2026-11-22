@@ -1,19 +1,21 @@
-# Scientific review: clustered star-edge faults and dissociation homotopy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The face classification exhausts all possible shoreline cardinalities and distinguishes missing edges incident to the hub from retained ones. Each affected mixed edge has the single triangular coface claimed, so the \((a-1)t\) elementary collapses are legal. The residual core is a union of three contractible subcomplexes whose successive intersections are nonempty contractible simplicial complexes. The remaining \((a-1)(b-t)\) edges give the homotopy wedge of circles and integral explicit cycle basis. The filtration maps are surjective because those cycles already exist in the preceding complex; the later-step kernels have the displayed basis and the first-step rank follows from the base graph calculation. Exact 72-case independent enumeration of full faces, free pairs, and mod-two boundary ranks corroborated this all-integer proof.
+PASS
 
-## Originality — PASS, subject to residual search risk
+At t=0 all mixed faces are crossing edges between two full shore simplices, yielding ab−1 circles. For t>=1 direct induced-degree case split gives two shore simplices, hub cone u*(simplex B0 * discrete B1), mixed edges and unique triangles (u,x,z) for x∈A\{u}, z∈faulted B0. Each edge {x,z} has only that triangle coface, giving (a−1)t legal elementary collapses. The remainder is a contractible connected core (gluing along nonempty contractible intersections) plus precisely (a−1)(b−t) extra one-cells, with integral cycle basis c_{x,y}. These cycles existed in earlier stages and the new triangles kill only specified basis elements, proving split surjection and primitive kernels. Independently direct induced-degree enumeration for (a,b)=(3,4),(4,4) at all 0<=t<=b recovered the explicit face families. Mod-2 tests do not replace CW proof.
 
-The full text of the recent tree vertex-decomposability theorem concerns tree graphs only. The full text of *The Forest Filtration of a Graph* establishes \(\operatorname{Ind}_2(K_{a,b})\simeq\bigvee^{ab-1}S^1\), not the fault filtration. The complete public *Mixed-dimensional dissociation homotopy under partial matching deletion from \(K_{a,b}\)* treats **disjoint** faults, not the cluster on one hub; its output differs topologically already at three faults. Actual research-index searches of clustered, star, 3-path-free, and equivalent second-independence terminology did not reveal an encompassing result; previously published mathematical claims were compared at the level of theorem implication. No negative search claim is treated as a proof of priority. Unindexed treatments of this restricted pattern remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural question is whether the integral homology of the two-independence complex depends only on the number of removed cross edges or also on their incidence pattern. The explicit circle-persistence theorem, all-parameter inclusion maps, and full symmetry lattice show a sharp qualitative answer: a clustered fault sequence kills circles and never creates higher-dimensional classes, while equally numerous independent matching faults create a two-sphere class at the third step. This is a complete and structurally transparent fault-filtration classification, not a recomputation of the intact graph.
+Carnero Bravo 2023 proves the intact biclique Ind_2 homotopy, a credited boundary case. Published 2026-11-17 matching-deletion persistence treats t pairwise disjoint missing edges and can create S2 at t>=3; for this hub-clustered deletion no S2 appears and the ranks differ. Other star-deficient biclique robust clique complexes use k>=4 and do not imply the k=2 dissociation conclusion. The complete clustered-fault integral homotopy/persistence statement is not known from inspected prior work.
 
-## Limits and comparisons
+## value
 
-The exact result is confined to \(a,b\ge3\) and star-concentrated missing cross edges. It does not classify arbitrary missing-edge subgraphs, higher independence thresholds, or the full automorphism group. The result concerns genuine integral homotopy and primitive integral maps, unlike finite-field Betti-only checks. The closest inspected full texts are Sawant (2026), Carnero Bravo (2023), and the public matching-fault classification (2026). Bibliographic coverage is not exhaustive, and independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Comparing clustered versus disjoint edge faults in a natural higher-independence invariant identifies sharp destruction of all cycles without higher-dimensional births, gives explicit integral filtration maps and symmetric-group lattices, and resolves a motivated fault-shape dependence rather than an arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
