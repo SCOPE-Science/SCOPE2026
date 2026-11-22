@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The population recurrence has an exactly solvable distinguished coordinate and a permutation-cycle averaging operator on the remaining normalized coordinates. Both reductions are derived directly; together they show that every positive orbit converges to the stated equilibrium. Independent exponential representation of uniform-simplex data gives the exact finite-dimensional normalization relation for the maximum. The permutation cycle-index formula is an equality, not a heuristic independent-cycle approximation. Exponential Gamma upper-tail bounds give an analytic extension of the relevant generating factor for every fixed threshold above one. Lagrange inversion for finite progeny and a derivative identity identify its limit with a Poisson branching survival probability. The small-excess and far-tail expansions follow from the same extinction fixed-point equation. The checker independently compares finite permutation enumeration, exact equilibrium projection, numerical branching identities and seeded simulation. None of those finite checks is asserted to prove the infinite limit.
+PASS
 
-## Originality — PASS within the inspected evidence
+Set z=x_(n+1). Direct calculation gives 2 z_{k+1}-1=(2z_k-1)^2, hence z_k tends to 1/2 for interior data. Normalized peripheral composition evolves by the doubly stochastic matrix alpha I+(1-alpha)P_pi, whose strict contraction off the constant-on-cycle eigenspaces for alpha in (0,1) proves exact cyclewise averaging. The exponential/Dirichlet representation cancels the last simplex coordinate and yields M_n=(n/S_n)U_n in distribution. Conditional disjoint cycle sums are independent Gamma(|C|,1); uniform permutation cycle index yields the exact exponential generating series for Pr(U_n<=t). For t>1 the Chernoff rate I(t)=t-1-log t>0 makes the correction analytic past z=1 and gives exponential convergence to exp(-sum q_k(t)/k). Lagrange inversion for Poisson(t) Galton–Watson finite progeny, plus derivative equality and vanishing constants at infinity, identifies this with 1-rho(t). Continuity at t=1, implicit differentiation and Slutsky establish support, density and threshold/tail expansions. Independently enumerated all n! permutations for n=2,3,4,5 at t=1.8 and matched exact cycle-index coefficients to 12 decimal places. The finite check does not imply the n-to-infinity theorem; the analytic generating-function argument does.
 
-The main source, Jamilov's 2022 preprint (arXiv:2210.05107), proves deterministic fixed points, invariants and convergence for the same family. Those statements do not determine a high-dimensional random-permutation and Dirichlet-initial extreme equilibrium law. Galganov--Ilienko (arXiv:2309.10721) prove general short-cycle point-process results but not the specific exponential cycle-mean maximum or its exact branching-process CDF. Classical cycle-index, exponential--Dirichlet, and branching total-progeny identities are standard and are explicitly reused rather than claimed as novel. The 2024 related Jamilov--Khudoyberdiev article was available only in abstract: its unseen full text remains a priority risk. A more general unindexed probability identity might imply the auxiliary maximum law, and publication novelty is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The largest equilibrium species share is a natural concentration statistic, unlike an arbitrarily selected coordinate or parameter slice. The result states a nondegenerate growing-dimension extreme-value law with a precise support threshold, full closed CDF, near-threshold slope, and large-value tail. Its independence from the deterministic mixing coefficient isolates which aspects of equilibrium diversity are controlled by random cycle structure and initial sampling rather than relaxation speed. The law's unexpected Poisson branching interpretation provides a reusable exact probabilistic description.
+Jamilov original study of the same permutation-indexed non-Volterra quadratic stochastic operators establishes deterministic invariant masses, cycles and equilibria, but not the high-dimensional law of the maximum equilibrium coordinate after both permutation and uniform initial simplex are randomized. Galganov–Ilienko short-cycle point process results handle random permutation cycle structure but not the specific maximum of Gamma(k) cycle averages or its normalized QSO equilibrium meaning. Classical permutation cycle-index and branching total-progeny formulae are credited tools, not original ingredients claimed standalone. The exact coupling/limit is distinct on inspected evidence. The Jamilov–Khudoyberdiev 2024 related full article was inaccessible, and its abstract-only view is a recorded residual priority risk, not grounds alone for O failure.
 
-## Scope and limitations
+## value
 
-The theorem assumes one static uniformly random permutation, independent uniform-simplex initial state, and fixed interior mixing coefficient. It does not prove stability under other laws, an optimal finite-size rate for the denominator-normalized maximum, or independent validation of publication priority. The unpublished/unindexed and inaccessible-full-text risks are substantive, not dismissed by unsuccessful searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximal equilibrium species share is a direct, naturally motivated concentration statistic in an established quadratic population dynamical model. The theorem determines its nondegenerate dimension-asymptotic scaling, full branching-survival CDF, sharp onset at 1, near-critical slope and upper tail, and proves independence from every fixed interior mixing coefficient. This links a concrete random equilibrium question with Poisson branching extinction in a way not supplied by deterministic cycle averaging alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

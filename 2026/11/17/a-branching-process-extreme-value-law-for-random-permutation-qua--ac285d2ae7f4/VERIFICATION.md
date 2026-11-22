@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python verify_cycle_maximum.py` using Python 3 with the standard library only. Successful execution prints `PERMUTATION_QSO_MAXIMUM_BRANCHING_CHECK_OK`. The executable checks both the exact single-orbit equilibrium projection at two mixing coefficients and full permutation enumeration through size six, then compares the limiting branching law against analytic cycle-index approximations and seeded Monte Carlo of the actual normalized extreme. The expected Monte Carlo estimates at size 350 are approximately 0.564 at threshold 1.5 and 0.795 at threshold 2, compared to limiting predictions 0.582812 and 0.796812. Small finite-size deviations are not mathematical contradictions.
+## correctness
 
-The generating-function argument, the analytic Chernoff estimate, and the branching-progeny Lagrange inversion are proved in RESULT.md and are not delegated to numerical computation. The executable is a finite test, not an infinite certificate or independent mathematical audit. The random generator seed is fixed for reproducibility. Complete full-text inspection of a plausible related 2024 article remained unavailable, and that priority risk is recorded.
+PASS
+
+Set z=x_(n+1). Direct calculation gives 2 z_{k+1}-1=(2z_k-1)^2, hence z_k tends to 1/2 for interior data. Normalized peripheral composition evolves by the doubly stochastic matrix alpha I+(1-alpha)P_pi, whose strict contraction off the constant-on-cycle eigenspaces for alpha in (0,1) proves exact cyclewise averaging. The exponential/Dirichlet representation cancels the last simplex coordinate and yields M_n=(n/S_n)U_n in distribution. Conditional disjoint cycle sums are independent Gamma(|C|,1); uniform permutation cycle index yields the exact exponential generating series for Pr(U_n<=t). For t>1 the Chernoff rate I(t)=t-1-log t>0 makes the correction analytic past z=1 and gives exponential convergence to exp(-sum q_k(t)/k). Lagrange inversion for Poisson(t) Galton–Watson finite progeny, plus derivative equality and vanishing constants at infinity, identifies this with 1-rho(t). Continuity at t=1, implicit differentiation and Slutsky establish support, density and threshold/tail expansions. Independently enumerated all n! permutations for n=2,3,4,5 at t=1.8 and matched exact cycle-index coefficients to 12 decimal places. The finite check does not imply the n-to-infinity theorem; the analytic generating-function argument does.
+
+## originality
+
+PASS
+
+Jamilov original study of the same permutation-indexed non-Volterra quadratic stochastic operators establishes deterministic invariant masses, cycles and equilibria, but not the high-dimensional law of the maximum equilibrium coordinate after both permutation and uniform initial simplex are randomized. Galganov–Ilienko short-cycle point process results handle random permutation cycle structure but not the specific maximum of Gamma(k) cycle averages or its normalized QSO equilibrium meaning. Classical permutation cycle-index and branching total-progeny formulae are credited tools, not original ingredients claimed standalone. The exact coupling/limit is distinct on inspected evidence. The Jamilov–Khudoyberdiev 2024 related full article was inaccessible, and its abstract-only view is a recorded residual priority risk, not grounds alone for O failure.
+
+## value
+
+PASS
+
+The maximal equilibrium species share is a direct, naturally motivated concentration statistic in an established quadratic population dynamical model. The theorem determines its nondegenerate dimension-asymptotic scaling, full branching-survival CDF, sharp onset at 1, near-critical slope and upper tail, and proves independence from every fixed interior mixing coefficient. This links a concrete random equilibrium question with Poisson branching extinction in a way not supplied by deterministic cycle averaging alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
