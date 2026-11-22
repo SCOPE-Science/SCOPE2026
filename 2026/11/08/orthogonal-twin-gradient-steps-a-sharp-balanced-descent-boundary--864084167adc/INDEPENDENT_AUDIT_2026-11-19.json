@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T14:55:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/VERIFY.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/VERIFICATION.md",
+        "https://arxiv.org/abs/2607.11575",
+        "/mnt/data/scope_worker02_run_20261119T144355Z/independent_checks.py"
+      ],
+      "rationale": "Independently reconstructed the full planar SPD quadratic proof. In the orthonormal basis of the two nonzero orthogonal positive gradients let B=A^{-1}=[[a,c],[c,d]], Ax=Ue1, Az=Ve2 (a,d,U,V>0; ad>c^2). The constrained two-ray minimizer equals alpha=aU-cV and beta=dV-cU if both positive, and the rays then intersect uniquely. Balanced energies aU^2=dV^2 imply alpha=aU(1+r), beta=dV(1+r)>0, where r=-c/sqrt(ad) in (-1,1). Direct quadratic expansion gives identical energy ratios R=1-2 eta(1+r)+eta^2(1+r)/(1-r), hence R-1=eta(1+r)(eta/(1-r)-2). For eigenvalue condition kappa(A)=kappa(B), determinant/trace and (a+d)^2>=4ad give |r|<=(kappa-1)/(kappa+1), sharp at a=d, c<0. Therefore R<=1 for every balanced admissible pair of condition <=kappa iff kappa<=4/eta-1, including equality and kappa=1. Beyond the boundary the equal-diagonal construction strictly increases both energies. For any fixed kappa>1, r=(kappa-1)/(kappa+1), B=[[1,-r],[-r,1]], Ax=e1, Az=M e2 yield alpha=1+rM, beta=M+r>0, exact meeting, separation factor 1-eta and energy factor 1-2eta(1+rM)+eta^2(1+rM)^2/(1-r^2), diverging as M^2 with positive coefficient. At kappa=1 all orthogonal meeting updates shrink both objectives by (1-eta)^2. Independent SymPy identities plus 372 exact rational evaluations (252 balanced, 72 unbalanced, 27 isotropic, 21 sharp spectral) passed without executing source VERIFY.py. These checks corroborate the universal analytic proof, not substitute for it. All seven actual Git blob identities reconstructed the frozen assigned tree.",
+      "residual_risks": [
+        "Only a single exact common-damping paired step on a real 2D SPD quadratic is covered; no assertion of failure of the safeguarded full Twin-ABB method or any nonquadratic system.",
+        "For arbitrary unbalanced pairs the constrained minimizer can lie on the boundary; the theorem explicitly restricts its nonbalanced construction to interior positive step lengths.",
+        "Finite rational checks are diagnostic; general parameter and divergent-limit statements rest on direct analytic algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed damping cannot uniformly safeguard the Twin-Step objective (November 8, 2026): both quadratic objectives diverge at nearly coincident gradients for fixed kappa>1; it does not quantify equal-energy orthogonal starts or guarantee an orthogonal failure example.",
+          "De Magistris et al. (April 17, 2026): acceleration minimizes an objective over a line or 2D affine subspace, not mutual distance of two coupled rays.",
+          "The classical SPD eigenvalue/determinant bound |r|<=(kappa-1)/(kappa+1) alone gives no per-path objective ratio before the coupled-step expansion."
+        ],
+        "reasoning": "The strongest same-method published sibling is broader in some parameters (it does not require gamma=0), but its existential conclusion is weaker with respect to the stipulated orthogonal angle. There is no published quantified all-balanced-orthogonal iff threshold there. Single-path Polyak/BB/steepest-descent frontiers and objective-minimizing subspace acceleration apply different selection rules and do not dominate the paired distance-minimizer.",
+        "searches": [
+          "Resultary search: orthogonal simultaneous twin gradient descent steps balanced descent boundary",
+          "Resultary search: twin step orthogonal both objective ascent balanced positive definite quadratic fixed damping",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md",
+          "https://link.springer.com/article/10.1007/s10589-026-00778-0",
+          "Resultary 2026/10/12 sharp condition-number frontier for two-step cyclic steepest descent"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.11575",
+        "https://arxiv.cnoctave.top/pdf/2607.11575",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md",
+        "https://link.springer.com/article/10.1007/s10589-026-00778-0",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary preprint proves mutual-distance contraction and in Section 4 gives orthogonal scalar step formulas and the equal-energy positivity case; neither its general geometric theorem nor the existence of objective spikes states a necessary-and-sufficient kappa<=4/eta-1 descent criterion.",
+          "The separate Resultary near-parallel counterexample establishes existence over all angles, which does not imply existence at the prescribed angle gamma=0, nor an if-and-only-if law for balanced energies.",
+          "The Springer acceleration method minimizes the objective itself over a two-dimensional subspace, making its descent guarantees inapplicable to arbitrary twin-distance minimizers."
+        ],
+        "reasoning": "The earlier exact step formulas are necessary input, not a stronger theorem of the same per-path objective statement. A standalone extremal SPD coefficient inequality and the energy-ratio calculation must be combined for the sharp iff boundary. No primary inspected theorem implies the exact balanced objective frontier or the orthogonal fixed-anisotropy one-sided blow-up.",
+        "searches": [
+          "https://arxiv.org/abs/2607.11575",
+          "https://arxiv.cnoctave.top/pdf/2607.11575",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md",
+          "https://link.springer.com/article/10.1007/s10589-026-00778-0",
+          "Resultary 2026/9/20 Polyak objective-monotonicity frontier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Magistris et al. arXiv:2607.11575v2 Sections 2, 4 (eqs. 5, 33) define the coupled ray minimization and the positivity of both steps for equal starting objective, without their objective value ratio R.",
+          "Resultary 2026/11/8 separate fixed-damping result uses gradient cosine gamma->1, not gamma=0; its family is not an equivalent orthogonal specialization.",
+          "The assigned coefficient r=-c/sqrt(ad) is a cross-correlation of inverse-Hessian directions, not the cosine between the two orthogonal gradients (zero by assumption)."
+        ],
+        "reasoning": "Geometric coalescence or decreasing inter-path distance is not a per-objective descent guarantee. Inverse-Hessian correlation controls the new energy ratios even when the two gradient directions are orthogonal; the same-day near-parallel failure cannot be reparameterized to have gamma=0 without changing its construction. The exact threshold is a new optimization of the post-step quadratic energy, not a restatement of source step formulas.",
+        "searches": [
+          "Resultary search: twin gradient orthogonal initial gradients equal objective SPD Hessian condition number 3 damping descent sharp",
+          "Resultary search: mutual distance minimizing two gradient rays orthogonal condition number objective increase equal energy",
+          "Web: \"Twin-Step\" \"condition number\" \"orthogonal\" objectives",
+          "https://arxiv.org/abs/2607.11575",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same assigned record occurs in Resultary under exactly its own record slug; it is not independent prior evidence and was excluded as coverage.",
+          "The nearest distinct ranked result was the 2026/11/8 near-parallel fixed-damping example; no inspected exact table for the orthogonal objective frontier or orthogonal amplification sequence was found.",
+          "The result is a continuous-parameter algebraic threshold for a specific new optimization step, not a familiar finite enumerative database invariant."
+        ],
+        "reasoning": "No separate source-identified exact table or duplicate was located in bounded scientific searches. Absence from search engines is not proof of global priority; the named same-record search hit is not considered an independent prior theorem.",
+        "searches": [
+          "Resultary semantic queries above, 20-35 results each",
+          "Web: \"twin\" \"kappa\" \"4/eta\" gradient orthogonal",
+          "Web: \"balanced\" \"Twin\" \"descent\" \"condition number\" damping",
+          "GitHub original source tree and sibling Resultary RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives as the sharp orthogonal equal-energy condition-number/damping frontier and an unbounded-ascent construction constrained to EXACTLY orthogonal descent directions. The original Twin-gradient preprint contains the exact least-distance step, equal-energy positivity (Section 4), possible objective spikes and damped safeguards, but the inspected mathematical sections do not state a two-endpoint objective-ratio frontier or the fixed-angle unbounded one-sided amplification. A closely related separately published November 8 result proves unbounded amplification at every kappa>1 and fixed damping for NEAR-PARALLEL gradients; its existential near-parallel family does not imply an orthogonal family, and its sharp c* threshold concerns eta scaling with an angular gap rather than balanced energies. Conversely it limits broad claims that the general fixed-damping obstruction is entirely new. A pre-existing objective-minimizing 2D acceleration method selects a different subspace line search. A bounded search is not proof of historical uniqueness; a classical inverse-SPD correlation bound underlies one ingredient and is credited as standard.",
+      "residual_risks": [
+        "The SPD inverse-Hessian correlation bound is standard and parts of the balanced step-length formula are in the originating preprint; the independent contribution is precisely its sharp objective factor and extremal interpretation, not invention of the step or of the underlying linear-algebra inequality.",
+        "The distinct same-date published near-parallel counterexample already establishes an overall fixed-damping impossibility statement; any novelty statement must retain the orthogonality qualifier and must not claim the broad counterexample itself is first.",
+        "An older unindexed coupled-gradient sensitivity argument or appendix could contain this conditional threshold or orthogonal family. Search results do not certify priority.",
+        "Chronological order between different items published November 8, 2026 was not established and is not used to assert discovery priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper gives paired distance minimization and equal-energy positive lengths; its objective spikes and safeguards do not explicitly prove the balanced quadratic energy threshold or the new orthogonal blow-up family.",
+          "evidence": [
+            "https://arxiv.cnoctave.top/pdf/2607.11575",
+            "arXiv v2 PDF Section 2 eq. (5), Section 4 eq. (33) and equal-energy paragraph, Section 5 and Section 6.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.11575",
+          "material_read": "Open PDF arXiv:2607.11575v2, dated October 30, 2026: initial method statement Section 2, orthogonality/step geometry, quadratic sections 3.2-3.3, Section 4 step-length analysis including eq. (33) and its equal-energy paragraph, hybrid method Section 5 and orthogonal-initialization discussion Section 6.1; visually inspected PDF page 5 as well.",
+          "method": "Open-access full PDF textual sections and page screenshot through web PDF viewer",
+          "title": "A Twin gradient method for unconstrained optimization",
+          "trigger": "Originating same-update primary preprint, highest possible coverage risk"
+        },
+        {
+          "assessment": "Proves a strong NEAR-PARALLEL family with both objectives diverging and a distinct angular-gap boundary; does not prove the orthogonal equal-energy frontier or the orthogonal fixed-kappa existence statement.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md",
+            "Its gradients satisfy gamma->1; its L(c) threshold is for eta=c epsilon and kappa=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md",
+          "material_read": "Entire published RESULT.md including assumptions, complete limiting construction and proof, damping coefficient c* and angular cosine calculation, relationship to prior work and limitations.",
+          "method": "Full GitHub published primary result through GitHub fetch",
+          "title": "Fixed damping cannot uniformly safeguard the Twin-Step objective: a sharp angular boundary",
+          "trigger": "Closest distinct Resultary research record; same Twin-Step method and quantitative objective ascent for every fixed curvature/damping"
+        },
+        {
+          "assessment": "This algorithm minimizes objective along individual/composite directions; it is not the mutual-distance twin update and does not imply the asserted two-path objective ratio.",
+          "evidence": [
+            "https://link.springer.com/article/10.1007/s10589-026-00778-0",
+            "Publisher Section 5 equations 12-16 define an objective-based 2D subspace merit."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10589-026-00778-0",
+          "material_read": "Open-access publisher HTML: abstract, Sections 1-2 and 5 discussing objective-minimizing acceleration and exact/approximate subspace steps, with line-search/Wolfe conditions; checked the distinct selection rule.",
+          "method": "Publisher primary full-text HTML",
+          "title": "A speed up strategy for gradient methods",
+          "trigger": "April 17, 2026 primary paper with common authors, possible earlier 2D gradient-step optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md",
+        "https://arxiv.org/abs/2607.11575",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-damping-cannot-uniformly-safeguard-the-twin-step-objective--fc7056f88a09/RESULT.md",
+        "https://link.springer.com/article/10.1007/s10589-026-00778-0"
+      ],
+      "rationale": "This is a motivated sharp reliability boundary for a recently proposed nonstandard paired optimization step. It answers a specific mathematically natural question a method designer needs: when do exact orthogonal normalized-gradient, equal-energy twin endpoints BOTH guarantee objective nonincrease uniformly over every SPD quadratic of condition at most kappa? The answer kappa<=4/eta-1 is exact with equality extremizers and a strict example beyond. It further shows that removing energy balance allows arbitrarily large one-sided objective amplification at any fixed mild anisotropy even while the twin distance contracts, with the angle held exactly 90 degrees. These facts isolate genuine objective-versus-distance mismatch, distinguish balanced and unbalanced regimes, and motivate independent objective safeguards. It is a narrow one-step planar fact and not a theorem about full algorithm convergence, but a sharp analytic classification with a nontrivial unbounded counterfamily rather than an unmotivated numerical test.",
+      "residual_risks": [
+        "The derivation is short once the correct orthogonal basis is chosen and uses a familiar spectral inequality; value is an exact targeted frontier, not a general optimization convergence theorem.",
+        "The practical value is conditional on precisely balanced initial energies and the raw unsafeguarded step; hybrid line searches may prevent increases.",
+        "The adjacent near-parallel obstruction lowers novelty of a general fixed-damping warning but not the exact orthogonal balanced/unbalanced separation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim about full safeguarded algorithm or nonlinear/multidimensional objectives.",
+    "Primary source offers partial derivation (orthogonal balanced step sizes) and related published work demonstrates generic nearparallel fixed-damping failure; originality is limited to the exact orthogonal objective assertions.",
+    "No full historical priority guarantee, no Lean or expert formal attestation, and no claim that numerical checks prove universal assertions.",
+    "Original public metadata contains operational provenance and is not semantically sanitized; publication withheld despite a completed scientific PASS."
+  ],
+  "schema_version": 1
+}
