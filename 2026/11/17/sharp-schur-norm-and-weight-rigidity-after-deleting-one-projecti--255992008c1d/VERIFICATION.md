@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof uses exact incidence counts, a three-eigenspace Gram diagonalization, the trace-dual extremal formula and the strict-concavity critical equation; these arguments, not any test sample, establish all prime-power cases. The finite checker constructs prime-field incidence matrices independently and compares their singular values with the claimed eigenvalue multiplicities. It runs with Python 3, NumPy and SciPy: `python CHECKER.py`.
+## correctness
 
-The finite checks cover orders 2, 3, 5 and 7 (16 weights), plus numerical optimizers at those orders and asymptotic probes at 31, 101 and 503. These checks are not exhaustive for larger finite fields and cannot establish an infinite theorem by themselves. The proof includes its own analytic justification for the full range. Independent validation has not been performed.
+PASS
+
+The trace-class rank-one dual formula and the concavity of the weighted trace norm permit averaging any optimizer over AGL(2,q), preserving its mass p on the deleted-line ideal points. Direct line-incidence counting yields the three Gram eigenvalues alpha=(1-p)/q (multiplicity q^2-1), beta=qp/(q+1) (multiplicity q), gamma=beta+(q+1)(1-p)/q (multiplicity one), after normalization by q(q+1). Hence Fq is an exact global Schur norm objective. Strict concavity and endpoint derivative signs imply a unique interior p and determine the total ideal mass of ALL possibly asymmetric optimal weights. The derivative at uniform p is strictly negative. Perturbative substitution gives p=q^-1-2q^-2+6q^-3+O(q^-7/2) and separate sharp deletion/uniform corrections. I reconstructed normalization and boundary p=0,1. Independently built finite-field masks for q=2,3,5, checked spectra and maximizers; these finite tests do not establish the prime-power theorem.
+
+## originality
+
+PASS
+
+The intact projective-plane incidence theorem gives a uniform optimal weight and exact full norm, but deleting a line changes the rectangle and the optimizer; its full-plane uniqueness does not imply the strict nonuniform ideal mass or loss coefficients. Levene supplies the duality and averaging ingredients without calculating the punctured incidence mask. Best-of-knowledge originality is the exact deletion effect and optimizer rigidity, not the general variational method.
+
+## value
+
+PASS
+
+A natural one-line perturbation of maximally symmetric incidence Schur idempotents has a provable nontrivial norm defect and a rigid nonuniform orbit mass, with exact scale separation between norm loss and symmetry-breaking weight gain. This probes stability of sharp Schur-multiplier extremizers, not a trivial renamed full-design value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

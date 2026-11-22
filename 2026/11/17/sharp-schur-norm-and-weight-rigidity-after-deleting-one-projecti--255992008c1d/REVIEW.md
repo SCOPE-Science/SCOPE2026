@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the complex Schur multiplier of the rectangular incidence matrix obtained by deleting one line row but keeping all point columns in \(\mathrm{PG}(2,q)\), \(q\) a prime power. The proof explicitly checks the weighted trace-dual reduction, affine-collineation orbits, three eigenspace multiplicities, strict concavity, and the sign of the uniform-weight first variation. An expansion of the critical equation produces the exact weight and norm asymptotics, including the two different gap exponents. Finite-field spectral checks support but do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+The trace-class rank-one dual formula and the concavity of the weighted trace norm permit averaging any optimizer over AGL(2,q), preserving its mass p on the deleted-line ideal points. Direct line-incidence counting yields the three Gram eigenvalues alpha=(1-p)/q (multiplicity q^2-1), beta=qp/(q+1) (multiplicity q), gamma=beta+(q+1)(1-p)/q (multiplicity one), after normalization by q(q+1). Hence Fq is an exact global Schur norm objective. Strict concavity and endpoint derivative signs imply a unique interior p and determine the total ideal mass of ALL possibly asymmetric optimal weights. The derivative at uniform p is strictly negative. Perturbative substitution gives p=q^-1-2q^-2+6q^-3+O(q^-7/2) and separate sharp deletion/uniform corrections. I reconstructed normalization and boundary p=0,1. Independently built finite-field masks for q=2,3,5, checked spectra and maximizers; these finite tests do not establish the prime-power theorem.
 
-Levene (arXiv:2611.08419v1) supplies the existing duality and concavity tools, but its inspected main results concern trees on symmetric cores and do not calculate this punctured projective family. Davidson–Donsig (arXiv:math/0506073) gives symmetry-based Schur multiplier computations for other patterns; its inspected material does not imply the exact formula or rigidity here. Earlier full-incidence design results concern a square balanced matrix with a uniform optimizer, unlike the present rectangular, orbit-asymmetric mask. Related published Schur examples based on complete bipartite graphs, stars or Walsh–Hadamard sign defects have different support and do not imply the stated coefficients. Search incompleteness, especially older unindexed graph-specific formulas, remains a live limitation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Deleting just one line destroys the complete-design symmetry and changes the norming distribution. An exact parameter-free characterization over every prime-power order quantifies both the full-mask norm loss and the subtler gain from reoptimizing column weights. The theorem identifies a natural family invariant and a structural rigidity statement, not merely another algebraic expression for a known constant.
+The intact projective-plane incidence theorem gives a uniform optimal weight and exact full norm, but deleting a line changes the rectangle and the optimizer; its full-plane uniqueness does not imply the strict nonuniform ideal mass or loss coefficients. Levene supplies the duality and averaging ingredients without calculating the punctured incidence mask. Best-of-knowledge originality is the exact deletion effect and optimizer rigidity, not the general variational method.
 
-## Limits and evidence
+## value
 
-The claim does not classify every maximizing weight individually, does not assert the result for non-Desarguesian planes, and does not use finite experiments as proof. The standalone numerical checker compares sixteen weighted Gram spectra against direct finite-field matrices, tests the critical equation and probes large-order asymptotic laws. No independent mathematical audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural one-line perturbation of maximally symmetric incidence Schur idempotents has a provable nontrivial norm defect and a rigid nonuniform orbit mass, with exact scale separation between norm loss and symmetry-breaking weight gain. This probes stability of sharp Schur-multiplier extremizers, not a trivial renamed full-design value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
