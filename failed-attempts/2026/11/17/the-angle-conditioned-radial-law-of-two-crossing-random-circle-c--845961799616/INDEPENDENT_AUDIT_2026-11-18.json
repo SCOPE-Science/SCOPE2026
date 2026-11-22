@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T14:56:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given four independent arclength-uniform boundary points conditioned on crossing, the four cyclic gaps are Dirichlet(1,1,1,1), with independent uniform normalized opposite-gap splits at a fixed acute angle t. Explicit signed line offsets and linear intersection equations give 1-R^2=[cos(tU)-cos(t)][cos((pi-t)V)-cos(pi-t)]/sin^2t. The product yields all fixed-angle deficiency moments and the exact CDF. Elliptic quadratic expansion near U=V=0 gives center coefficient pi sin t/[2t(pi-t)]; the positive independent endpoint densities give the boundary eps log(1/eps) coefficient 2/[t(pi-t)]. These hold for fixed interior 0<t<pi/2, not uniformly at t=0. Independent moment checks agree at three nondegenerate angles; this also matches the prior marked joint density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior j(r,t) is for all 0<r<1,0<t<pi and specifies entire joint law, strictly stronger as information than conditioning on any fixed acute t."
+        ],
+        "reasoning": "The earlier joint marked distribution dominates every conditional R|Theta slice and its distributional moments; mere absence of an explicitly written shifted-cosine product cannot avoid implication coverage.",
+        "searches": [
+          "Read full Resultary radial-angular joint-density theorem e11b3119d067",
+          "Bortolotto Souza 2025 unconditional radial distribution",
+          "Resultary cyclic quadrilateral conditional area law"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-radial-angular-law-of-circle-chord-intersections-and-boundar--e11b3119d067/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9/RESULT.md",
+        "https://doi.org/10.1112/mtk.70024",
+        "https://arxiv.org/abs/2504.12866"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior j(r,t)=2r sin t K_r(t)/pi^3 for the supplementary angle before crossing conditioning; f_acute(t)=12t(pi-t)/pi^3 under crossing, P(cross)=1/3.",
+          "As r→0, K_r(t)→pi; as r→1, K_r(t)/[-log(1-r^2)]→2/sin t."
+        ],
+        "reasoning": "The prior formula gives conditional acute density 2j(r,t)/[(1/3)f_acute(t)], yielding center CDF coefficient pi sin t/[2t(pi-t)] and boundary tail 2 eps log(1/eps)/[t(pi-t)] by elementary integration, exactly as submitted.",
+        "searches": [
+          "Complete prior RESULT.md e11b3119d067, Steps 2–5",
+          "Complete proposed RESULT.md 845961799616, Steps 1–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior marked law j(r,t) is a joint density for the same R and supplementary angle Θ; acute folding combines t and π-t.",
+          "New conditional product law determines a factorization of the same conditional law."
+        ],
+        "reasoning": "Equivalent formulations by disintegration of j: P(R∈dr|acute=t)=2j(r,t)dr/[P(cross) f_acute(t)]. A different factorization or CDF integral does not make a new probability distribution.",
+        "searches": [
+          "Resultary: radial angular law circle chord intersections boundary-angle uniformization",
+          "Resultary: angle conditioned radial law two crossing random circle chords"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior source provides analytic kernel K_r(t) and its exact limits at r=0 and r→1, rather than a numerical table."
+        ],
+        "reasoning": "An exact analytic joint-density formula is stronger data than a tabulation: all conditional moments can be integrated from it, and conditional tail coefficients are determined.",
+        "searches": [
+          "Resultary: angle-conditioned radius random chords product law",
+          "2026-11-17 radial-angular joint density K_r(t)"
+        ]
+      },
+      "rationale": "A published marked radial-angular theorem for the identical two independently endpoint-uniform circle chords gives the FULL joint density j(r,t)=2r sin(t) K_r(t)/pi^3 for the supplementary angle. Folding to the acute angle and dividing by its known marginal gives the COMPLETE conditional radial distribution; hence the principal full conditional-law claim is mathematically covered even though the prior paper uses a different integral representation. Its K_r(t) center limit and boundary logarithmic expansion already imply both purported sharp fixed-angle tails, as verified by direct substitution. The independent shifted-cosine representation is an alternative parametrization of a previously determined law, not an unreported conditional invariant.",
+      "residual_risks": [
+        "Both submitted and covering marked-joint record have 2026-11-17 date labels; no unsupported chronological priority order is asserted. Scientific coverage is decisive for this independent audit of unchanged claim.",
+        "Product factorization might be pedagogically elegant; no distinct unproved geometric quantity beyond the already evaluated complete joint law was isolated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "decisively covers the complete conditional law and sharp tails",
+          "evidence": "j(r,t) density on 0<r<1, 0<t<pi; its marginal fTheta and K boundary asymptotics yield both coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-radial-angular-law-of-circle-chord-intersections-and-boundar--e11b3119d067/RESULT.md",
+          "material_read": "Entire RESULT.md: exact j(r,t), kernel K_r(t), derivation, normalization, center and boundary limits",
+          "method": "GitHub published blob b19868e61bb7c3a2f485e1eb99f53d74514c6b1c",
+          "title": "The radial–angular law of circle-chord intersections and boundary-angle uniformization",
+          "trigger": "same endpoint-uniform random chords, joint R and angle"
+        },
+        {
+          "assessment": "same coordinates, different geometric random invariant",
+          "evidence": "Area is independent cosine sum, radius deficiency a product; this source alone would not cover radial law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9/RESULT.md",
+          "material_read": "Entire RESULT.md including split variables and sum-of-cosines area law",
+          "method": "GitHub blob a599a29cdf6e49ab5e97d435fc06223c1e441fcd",
+          "title": "Conditional area law for random cyclic quadrilaterals at fixed diagonal angle",
+          "trigger": "same conditional angle and Dirichlet gaps"
+        },
+        {
+          "assessment": "not needed for coverage because stronger exact joint formula above",
+          "evidence": "Primary focus is extremizing endpoint laws and near-boundary crossing probability rather than marked angle-radius density.",
+          "identifier_or_url": "https://doi.org/10.1112/mtk.70024",
+          "material_read": "Accessible full-text introduction, major theorem statements and relevant sections; mathematics rendering partly incomplete",
+          "method": "publisher open-access web full text, published 2025-09-01",
+          "title": "On extremal problems associated with random chords on a circle",
+          "trigger": "possible prior random-chord location law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditioned crossing radius is a natural object and the formula is correct, but the complete conditional law and sharp tail information are immediate consequences of the already published marked joint-density theorem. New elementary product coordinates and moment integrals do not supply a distinct unknown invariant or motivated structural gap beyond that existing complete determination.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-radial-angular-law-of-circle-chord-intersections-and-boundar--e11b3119d067/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9/RESULT.md",
+    "https://doi.org/10.1112/mtk.70024",
+    "https://arxiv.org/abs/2504.12866"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Primary science compared against actual GitHub record sources at frozen inventory commit; no GitHub write or dispatcher closeout was attempted.",
+    "Exact finite computational verification applies to the defined finite instance, not arbitrary graph sizes or asymptotic extrapolations.",
+    "Originality statements are best-of-knowledge, with material read documented; negative searches do not prove global absence.",
+    "Administrative public files include scope_run_id/operational metadata and antecedent first_public_date inconsistent with this research claim; unsanitized originals withheld from publication.",
+    "Verification channels for Lean and expert attestation remain explicitly not_performed; independent audit does not fabricate external certification."
+  ],
+  "residual_risks": [
+    "Both submitted and covering marked-joint record have 2026-11-17 date labels; no unsupported chronological priority order is asserted. Scientific coverage is decisive for this independent audit of unchanged claim.",
+    "Product factorization might be pedagogically elegant; no distinct unproved geometric quantity beyond the already evaluated complete joint law was isolated."
+  ],
+  "schema_version": 1
+}
