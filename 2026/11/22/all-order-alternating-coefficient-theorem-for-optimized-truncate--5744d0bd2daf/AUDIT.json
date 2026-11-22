@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all integers J>=2, the Ferrari Fejér sine-vector maximizer reconstructs Re(delta) exactly as C|(1-z)^2 Q(-z)|^2. The coefficient correlations of the positive polynomial P(w)=(1+w)^2Q(w) yield each ordinary coefficient with strict alternating sign; uniqueness of the cosine Fourier expansion rules out missing coefficients. The triangle inequality is attained uniquely at z=-r for every radius r>0. The finite sine sum evaluates delta(-1) exactly. Boundaries J=2, r>0 and nonzero end coefficients were checked; the independently recomputed high-precision test returned VERIFY_OK 5394, but universal validity rests on the exact proof in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fejér extremal trigonometric polynomial theory gives a factorization for the real part, not by itself the maximum modulus or all Taylor signs of the analytically optimized symbol.",
+        "Ferrari arxiv:2607.11422 contains the optimized family but calls the all-order disk norm conjectural."
+      ],
+      "reasoning": "Classical Fejér positivity and A-stability each supply weaker or differently-quantified statements. The proof converts the specific known sine-vector factor through a squared (1-z) factor into a positive analytic polynomial, yielding a new global coefficient-sign conclusion. Generic A-stability does not bound the symbol modulus by its negative-axis value.",
+      "searches": [
+        "Carathéodory Fejér extremal polynomial trigonometric factor alternating coefficients maximum at -1",
+        "numerical convolution quadrature TTR sharp symbol norm on arbitrary circles positive-autocorrelation polynomial",
+        "arxiv:2607.11422 Theorem 4.1 Fejer extremal trigonometric polynomials",
+        "arxiv:2203.00986 truncated trapezoidal symbol"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.11422 Sections 3–5, Theorem 3.1, Lemmas 4.2–4.3, Eq (30) and footnote 3",
+      "arxiv:2203.00986 Section 6",
+      "published-finding corpus record 2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferrari proves optimizer and real-part factorization, but isolates the norm as an explicit conjecture at all orders.",
+        "The present coefficient formula reconstructs Re δ from the sine Fejér factor and identifies every monomial coefficient by cosine-coefficient uniqueness, a deduction missing from inspected sources.",
+        "Banjai offers truncated CQ formulation and finite numerical optimization, without global analytic norm."
+      ],
+      "reasoning": "Published optimized coefficients are inputs, not the claimed conclusion. The new implication is positive sine factor -> strictly positive autocorrelations of (1+w)^2Q(w) -> all alternating ordinary coefficients -> triangle-inequality equality at -r. The stronger radius statement is not automatic from previously known endpoint values.",
+      "searches": [
+        "arxiv:2607.11422 Theorem 3.1 Lemma 4.2 Lemma 4.3 Eq 30 Section 5.1 footnote 3",
+        "arxiv:2203.00986 Section 6",
+        "proof Ferrari 2607.11422 footnote conjecture sup |delta_TTR_J(z)| = delta_TTR_J(-1) for every J all-radii",
+        "2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferrari arxiv:2607.11422 Section 5.1 footnote 3 states the disk supremum as a conjecture rather than a theorem and checks J=2,...,6.",
+        "Ferrari arxiv:2607.11422 Theorem 3.1 and Lemma 4.2 provide the optimizer and its real-part trigonometric polynomial, but no all-order strict alternating ordinary coefficient theorem.",
+        "Banjai arxiv:2203.00986 Section 6 introduces and numerically illustrates a truncated trapezoidal family."
+      ],
+      "reasoning": "The novel property is equivalent, via positive autocorrelations, to strict alternation in the monomial coefficients, which implies the conjectured maximum on any disk. The known nonnegative shifted-basis criterion is different, becomes unavailable at J>=7, and does not subsume the all-order theorem.",
+      "searches": [
+        "Ferrari truncated trapezoidal rule conjecture sup maximum modulus delta J at zeta -1 solved coefficients positivity",
+        "optimal truncated trapezoidal rule Fejer polynomial negative alternating Taylor coefficients generating function norm",
+        "All integer J optimal truncated trapezoidal rule TTR Ferrari 2026 polynomial coefficients alternating sign delta(z) maximum absolute value at z=-r positive Fejer spectral factor",
+        "proof Ferrari 2607.11422 footnote conjecture sup |delta_TTR_J(z)| = delta_TTR_J(-1) for every J all-radii",
+        "arxiv:2607.11422 Section 5.1 footnote 3",
+        "arxiv:2203.00986 Section 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published mathematical-record published-finding corpus hit 2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b is about all-lag positivity for the order-two exponential-kernel CQ weights.",
+        "Ferrari explicitly treats J=2 through J=6 as previously accessible cases rather than listing an all-order coefficient-sign table."
+      ],
+      "reasoning": "Different object (kernel CQ lag weights versus coefficients of the optimized generating symbol), different quantifiers (one low order and one exponential kernel versus all J and all radii), and different conclusion. Finite tables cannot certify infinitely many J. No exact covering result surfaced in queried records, without interpreting negative searches as proof of novelty.",
+      "searches": [
+        "Ferrari truncated trapezoidal rule conjecture sup maximum modulus delta J at zeta -1 solved coefficients positivity",
+        "Ferrari TTR J maximal symbol modulus 2026 2025 conjecture",
+        "All integer J optimal truncated trapezoidal rule TTR Ferrari 2026 polynomial coefficients alternating sign delta(z) maximum absolute value at z=-r positive Fejer spectral factor",
+        "2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b"
+      ]
+    },
+    "rationale": "Ferrari arXiv:2607.11422 Section 5.1 footnote 3 explicitly poses the all-order unit-disk maximum as an unproved conjecture, reporting only orders J=2 to 6. His Theorem 3.1 and Lemmas 4.2–4.3 provide the known extremal coefficients and Fourier real-part expression, but do not imply the all-order norm without a new step. A new strictly positive Fejér sine factor gives all ordinary symbol coefficients strict alternating signs, resolving the conjecture and strengthening it to all circular radii. Banjai arXiv:2203.00986 Section 6 gives an original truncated construction and finite-order numerical optimization, not the exact all-order extremal family norm. published-finding corpus and own-ledger comparisons found low-order exponential-kernel quadrature-weight positivity and other finite-order constructions, not a dominating statement. Unindexed or concurrent rediscoveries remain possible.",
+    "residual_risks": [
+      "Novelty cannot be inferred from unsuccessful searches alone; unindexed or simultaneous all-order proofs are possible.",
+      "Some published-finding corpus closest sources were available by record summaries only; no whole-document noncoverage claim is made from those summaries.",
+      "The proof uses the Fejér optimizer representation already established in the cited primary source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Most relevant prior primary source; it establishes input identities and explicitly leaves the all-order norm open",
+        "evidence": [
+          "Theorem 3.1",
+          "Lemmas 4.2 and 4.3",
+          "Equation (30)",
+          "Section 5.1 footnote 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.11422",
+        "material_read": "Full available arXiv primary text, theorem/lemmas and Section 5.1 footnote; Sections 3–5 with Equation (30)",
+        "method": "Compared the explicit optimized symbol, the Fejér extremal coefficients, endpoint formula, and stated conjecture against the proved alternating-coefficient implication",
+        "title": "Convolution quadrature based on a truncated trapezoidal rule",
+        "trigger": "Direct parent paper: exact conjecture and coefficient formulas"
+      },
+      {
+        "assessment": "Gives the precursor method but not this all-order maximum-modulus statement",
+        "evidence": [
+          "Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.00986",
+        "material_read": "Full available primary preprint text, Section 6 relevant to truncated trapezoidal CQ",
+        "method": "Compared finite numerical choices and modified CQ method with the all-order analytic extremal symbol theorem",
+        "title": "Implicit/explicit, BEM/FEM coupled scheme for acoustic waves with the wave equation in the second order formulation",
+        "trigger": "Original construction of truncated-trapezoidal CQ and finite-order optimization"
+      },
+      {
+        "assessment": "Order-two exponential-kernel CQ lag weights, not all-order optimized symbol modulus; uninspected full text remains a residual access limitation",
+        "evidence": [
+          "published-finding corpus summary: all-lag positivity for the optimal TTR2 exponential kernel up to an algebraic step threshold"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b",
+        "material_read": "published-finding corpus record title and summary (not a full primary text); compared claim implications only at available summary granularity",
+        "method": "Compared objects, truncation quantifiers and conclusions",
+        "title": "Sharp all-lag positivity threshold for exponential-kernel truncated-trapezoidal convolution quadrature",
+        "trigger": "Closest semantically matched database result for the same truncated trapezoidal class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5744d0bd-2daf-4aeb-83dd-9c9aa35ebf66",
+  "value": {
+    "rationale": "Ferrari arxiv:2607.11422 explicitly singles out the all-order disk-symbol supremum as a conjecture needed to understand optimized truncated-trapezoidal CQ symbols. Settling it for every order and proving an all-radius extremal principle yields sharp scalar contour bounds and a structural ordinary-coefficient identity even when shifted-basis coefficients change signs. The result resolves a specified open question rather than adding a routine parameter or finite table; it does not assert unproved operator-valued error bounds.",
+    "status": "PASS"
+  }
+}
