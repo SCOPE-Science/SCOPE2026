@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For every n≥0 the two shifts reduce common roots to remainders of degrees one and two. At d=2 Stern adjacent coprimality plus monicity forces s(n+2)=1, hence n+2=2^h; the only candidate rational root has modulus h+1 while all P_{2^h-2} roots have modulus at most h, with n=0 handled separately. At d=3 even n the quadratic remainder factors over R, whereas P_even is everywhere positive by an explicitly proved recurrence identity. Odd n gives an irreducible primitive quadratic with leading coefficient u+v>1, which cannot divide a monic integer P_n by Gauss lemma. The Stern identities and positive-coefficient root bound are proved or explicitly supplied; symbolic computations for n≤81 and standalone modular gcd checks for n<128 validate indexing only, not infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dilcher–Ericksen (2021), Props. 10 and 14 give root bounds and even-index positivity; Prop. 20 gives the d=1 resultant. The article states that further pairwise resultant identities were not identified.",
+        "Indexed 2026 result 2026/11/2/SCOPE-every-positive-integer-occurs-infinitely-often-as-a-consecutive--1aada4c0d6d8 treats B_{2n}(t)=tB_n(t), B_{2n+1}(t)=B_n(t)+B_{n+1}(t), not the monic P_n with Stern coefficients."
+      ],
+      "reasoning": "Published root bounds and positivity are prerequisites, not alone a statement about all common roots of P_n and P_{n+2}, P_{n+3}; the rational-root and Gauss-lemma arguments add the missing implication. The indexed general-looking resultant theorem concerns a provably different polynomial family.",
+      "searches": [
+        "Polynomials P_n(x)=sum_{j=1}^{n+1}s(j)x^{n+1-j} with Stern coefficients: all P_n and P_{n+2} are coprime, nonconsecutive resultant",
+        "Resultants of Dilcher Ericksen coefficient Stern polynomials gaps 2 and 3 general nonvanishing",
+        "Stern polynomial consecutive resultant general pairs all nonadjacent coprimality root sharing"
+      ]
+    },
+    "checked_sources": [
+      "Dilcher–Ericksen 2021 JIS Article 21.10.3, full primary text sections including Propositions 10,14,20 and adjacent remark",
+      "Dilcher–Ericksen 2014, article abstract defining distinct 0–1 Stern polynomials",
+      "OEIS A002487, matching coefficient sequence",
+      "published-finding corpus indexed records 2026/11/2/SCOPE-every-positive-integer-occurs-infinitely-often-as-a-consecutive--1aada4c0d6d8; 2026/11/2/SCOPE-consecutive-coefficient-runs-in-stern-0-1-polynomials--78e96aab5984; 2026/11/2/SCOPE-simple-roots-and-prime-divisor-discriminants-of-generalized-ster--65472d317b2c and their abstracts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary full text, §§3–5 and especially Props. 10, 14 and 20: the adjacent resultant s(n+2)^n is positive; exact offset-two/three nonvanishing is not asserted.",
+        "Indexed result 2026/11/2/SCOPE-consecutive-coefficient-runs-in-stern-0-1-polynomials--78e96aab5984 concerns maximal coefficient-one runs of Dilcher–Stolarsky (0,1)-polynomials; indexed result 2026/11/2/SCOPE-simple-roots-and-prime-divisor-discriminants-of-generalized-ster--65472d317b2c concerns generalized recursively defined Stern polynomials and their discriminants."
+      ],
+      "reasoning": "An exact d=1 resultant is logically insufficient for d=2 or d=3; the new proof addresses those differences. Neither support-run statistics nor discriminant formulas for other polynomial constructions imply this fixed-gap gcd statement.",
+      "searches": [
+        "Dilcher Ericksen coprimality nonconsecutive pairs of Stern coefficient polynomials P_n P_{n+2} P_{n+3}",
+        "Stern-number coefficient polynomials same complex zero distance two three gcd",
+        "Dilcher Ericksen Polynomials Whose Coefficients Are Stern Numbers Proposition 20 resultant 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact target is gcd over Q[X] = 1, equivalent to nonzero Sylvester resultant and no common complex zero. Dilcher–Ericksen 2021, Prop. 20, proves only d=1 for these P_n.",
+        "The 2014 Stern (0,1)-polynomial paper defines a distinct recursively generated polynomial sequence."
+      ],
+      "reasoning": "Searches and indexed scientific claims were compared by polynomial definition and implication. A theorem asserting all distinct P_n are coprime would cover the target, but no such statement was encountered. The shared term Stern polynomial is insufficient to identify the same object.",
+      "searches": [
+        "Coefficient Stern polynomials P_n(z)=sum_{j=1}^{n+1} s(j) z^{n+1-j} are coprime for gaps two and three Res(P_n,P_{n+2}) Res(P_n,P_{n+3}) nonzero",
+        "Dilcher Ericksen coprimality nonconsecutive pairs of Stern coefficient polynomials P_n P_{n+2} P_{n+3}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002487 records the Stern sequence, not an all-index polynomial coprimality table.",
+        "Exact symbolic polynomial gcd calculations for 0≤n≤81 support both shifts, but are finite and are not presented as a preexisting published table."
+      ],
+      "reasoning": "A numerical table of resultants cannot imply the universally quantified theorem; no exact database entry providing the same all-index assertion was found in the targeted comparison.",
+      "searches": [
+        "Coefficient Stern polynomials P_n(z)=sum_{j=1}^{n+1} s(j) z^{n+1-j} are coprime for gaps two and three Res(P_n,P_{n+2}) Res(P_n,P_{n+3}) nonzero",
+        "OEIS Stern diatomic polynomials coefficients resultants gcd pair P_n P_n+2"
+      ]
+    },
+    "rationale": "Direct full-text comparison with the exact matching 2021 primary source finds known d=1 resultant but not d=2 or d=3 nonvanishing. Targeted published-finding corpus searches  did not locate a theorem implying both fixed gaps. A close indexed resultant concerns a different recursively generated B_n polynomial; 0–1 polynomial and discriminant findings also concern distinct families. Priority is best-knowledge, not certified.",
+    "residual_risks": [
+      "A seemingly related indexed result had an unavailable direct repository page; its recoverable statement and definition distinguish the polynomial family, but complete document context was not read.",
+      "An unindexed or later theorem on all coefficient-Stern polynomial pairs may exist; no uniqueness or priority certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MATCHING OBJECT, PARTIAL ANTECEDENT: adjacent resultants and root bounds are known; candidate two-shift coprimality not stated in inspected material",
+        "evidence": "Definition P_n=sum s(j)X^{n+1-j}; Proposition 10 upper root bound; Proposition 14 positive even P_{2r}; Proposition 20 adjacent resultant and comment that other general resultant identities were not found",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Dilcher/dilcher51.pdf",
+        "material_read": "Full-text sections defining P_n and proving Propositions 10, 14, 20; relevant resultants and factorization sections; publication metadata on accompanying article page",
+        "method": "Read searchable PDF and visually inspected the pages carrying Propositions 14 and 20, including displayed identities and the explicit remark on other pairs",
+        "title": "Polynomials Whose Coefficients Are Stern Numbers",
+        "trigger": "Exact matching object and candidate neighboring-resultant overlap"
+      },
+      {
+        "assessment": "DIFFERENT OBJECT: recursively defined Dilcher–Stolarsky 0–1 polynomials, not the family proved here",
+        "evidence": "a(2n;x)=a(n;x²), a(2n+1;x)=x a(n;x²)+a(n+1;x²); all coefficients 0 or 1",
+        "identifier_or_url": "https://dml.cz/handle/10338.dmlcz/143908",
+        "material_read": "Abstract and precise defining recurrence on publisher repository page, not complete article body",
+        "method": "Compared displayed recursive definition with coefficient-defined P_n",
+        "title": "Reducibility and irreducibility of Stern (0,1)-polynomials",
+        "trigger": "Same authors and overlapping title/terminology"
+      },
+      {
+        "assessment": "DIFFERENT OBJECT; also exclusively consecutive resultant, so its quantitative statement does not cover the present two-gap coprimality",
+        "evidence": "Its definition is the recursive B_n(t), not coefficient-constructed P_n; primary 2021 paper gives exact adjacent resultants s(n+2)^n for our family",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-every-positive-integer-occurs-infinitely-often-as-a-consecutive--1aada4c0d6d8",
+        "material_read": "Indexed summary and defining recurrence of the published result; direct repository page fetch unavailable, so the complete article was not inspected",
+        "method": "Compared the recorded defining recurrence for B_n with the coefficient definition of P_n; used only the accessible summary for the other resultant claim",
+        "title": "Every positive integer occurs infinitely often as a consecutive Stern-polynomial resultant",
+        "trigger": "Apparently close resultant title in indexed published records"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35afd301-098e-4375-af80-6910cb7f7ed2",
+  "value": {
+    "rationale": "The 2021 introduction of coefficient-Stern polynomials singles out resultant and factor questions and proves precisely the adjacent case. The first two nonadjacent separations are natural structural tests of whether the family has common complex roots, rather than arbitrary finite parameters or a table recomputation. The combined all-index theorem identifies two different mechanisms—arithmetic size of a forced rational root and integral primitivity of an irreducible quadratic—that apply uniformly despite wild Stern coefficients. It is a meaningful partial resolution of the explicit adjacent-to-general-pairs gap, without claiming a general all-offset theorem or a closed resultant formula.",
+    "status": "PASS"
+  }
+}

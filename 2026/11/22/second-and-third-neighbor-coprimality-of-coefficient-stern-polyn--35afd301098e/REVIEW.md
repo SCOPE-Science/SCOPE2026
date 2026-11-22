@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim quantifies over every integer \(n\ge0\) and precisely offsets \(d=2,3\). The coefficient shift produces degree-one and degree-two remainders exactly. For offset two, adjacent Stern coprimality, the rational-root theorem and the binary-length root bound exclude the only possible root. For offset three, the even-degree polynomial is strictly positive on the real line, and the odd-degree remainder is a primitive irreducible quadratic with nonunit leading coefficient, so cannot divide a monic integer polynomial. The boundary \(P_0=1\) is addressed. The exact symbolic and finite-field checks confirm index formulas but do not substitute for the universal proof.
+
+**Originality — PASS (best-knowledge, not independent certification).** The exact matching 2021 primary text establishes the adjacent resultant \(\operatorname{Res}(P_n,P_{n+1})=s(n+2)^n\) but not coprimality at offsets two or three; it identifies other resultant relationships as unresolved. Indexed close results on recursively defined Stern polynomials use different objects. Targeted implication searches showed no broader theorem covering the two offsets. Risks include unindexed literature, a partially inaccessible close source. Searches are evidence, not proof of uniqueness.
+
+**Value — PASS.** The offsets two and three are the first natural nonadjacent cases following the explicitly known neighboring resultant; the result is an all-index zero-set separation theorem, not a finite sample. Both cases require distinct mechanisms and give structural information about the original coefficient-Stern family. The proof does not compute exact nonadjacent resultant values, settle all gaps, or assert nonvanishing modulo primes.
+
+Closest literature: Dilcher–Ericksen, *Polynomials Whose Coefficients Are Stern Numbers*, *Journal of Integer Sequences* 24 (2021), Article 21.10.3, Propositions 10, 14 and 20, https://cs.uwaterloo.ca/journals/JIS/VOL24/Dilcher/dilcher51.pdf. The same authors' 2014 *Stern (0,1)-polynomials* work concerns another polynomial construction. See AUDIT.json for precise implication comparisons and source-inspection limitations.
+
+Self-review: passed. Independent audit: not yet performed.
