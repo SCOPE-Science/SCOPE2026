@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The full result is proved by the four-sector harmonic decomposition, elementary Beta-moment normalization, and exact factored integral identities. Reproduce the independently assembled Gram-matrix comparison with `python check_exact.py` using Python 3 with SymPy, NumPy, SciPy, and mpmath installed.
+# Independent mathematical audit
 
-Actual execution output:
+## correctness
 
-```text
-EXACT_SYMBOLIC_FIVE_PAIRWISE_BETA_GAPS_PASS
-INDEPENDENT_CONDITIONAL_FOURTH_MOMENT_GRAM_PASS 18 cases max_abs_error= 8.881784197001252e-16
-EXTREMAL_TRANSITIONS_AND_SHARP_THIN_CAP_PASS
-```
+PASS
 
-The first check is symbolic in arbitrary positive Beta shape parameters. The 18 direct Gram comparisons are finite regression checks (including balanced and endpoint-dimension cases for normalization diagnostics), not a proof of all-dimensional validity. The theorem itself only asserts distinct integer block dimensions at least three. No external independent validation is asserted.
+Exact O(p)xO(q) irreducible sectors of pure harmonic quadratics have multiplicities 1,p(p+1)/2-1,pq,q(q+1)/2-1. T=|u|^2 has Beta(p/2,q/2) law, and the four conditional quadratic energy profiles give the stated incomplete-beta tails. An independent symbolic differentiation of the five claimed pairwise gaps verified their full coefficients (not just zero locations); signs yield exactly three thresholds and all four order regimes. The endpoint beta-tail expansion yields q(q+2)(q+4)/(2p(p+q)) times (1-t)^-2, with no infinity proof from finite numerics.
+
+## originality
+
+PASS
+
+A published equal-block Clifford product-HYPERSURFACE quadrupole restriction computes four sector-wise shell eigenvalues, but not an unbalanced p!=q ambient-volume cap and its strict three-threshold phase diagram. A published antipodal-cap theorem has a one-dimensional block and only three sectors. Integrating shifted-beta shell moments supplies technique but neither prior statement directly produces the exact unbalanced four-sector three-crossing all-dimensional final theorem. Bounded Resultary searches found no same conclusion.
+
+## value
+
+PASS
+
+The natural unbalanced-block observation geometry yields a complete sharp four-symmetry-sector spectral classification with three exactly equally spaced mode crossings and a quantitative worst-case inverse-square thin-cap instability. This provides motivated structural information beyond routine normalization or numeric shell enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
