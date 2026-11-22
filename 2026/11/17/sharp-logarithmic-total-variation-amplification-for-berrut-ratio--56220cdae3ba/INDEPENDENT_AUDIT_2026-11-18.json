@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:14:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-logarithmic-total-variation-amplification-for-berrut-ratio--56220cdae3ba/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-logarithmic-total-variation-amplification-for-berrut-ratio--56220cdae3ba/CHECKER.py"
+      ],
+      "rationale": "For all real nodal data, exact step decomposition y=y0 1+sum Δy_k s^(k), constant reproduction and Jordan variation triangle inequality reduce the operator norm to max variation of the n one-step responses; each step is admissible, so this reduction is equality. For x=m+t the alternating denominator S_m=A_{m+1}(t)+A_{n−m}(1−t)>0, and alternating-tail remainder plus reflection A_inf(t)+A_inf(1−t)=π/sin πt give the C1 reciprocal approximation 1/S_m≈sinπt/π with uniform summable end-cell errors. On non-jump cells, derivative variation differs from (2/π)A_q(d) by O(d^−2+δ_m/d); harmonic double-sum bounds make total error O(1), including the one crossing cell. Summing the A_q(d) parity patterns gives a universal leading bound (2/π)H_n+O(1), while jump k=1 has main sum H_{n−1}, attaining the coefficient 2/π. Independently verified exact barycentric denominator and single-jump formulas for all tested integer n=2..15, every cell m and step k using rational t=2/5. This finite check corroborates algebra, not the uniform n→∞ remainder; the analytic tail and reciprocal estimates provide that.",
+      "residual_risks": [
+        "Proposed O(1) bound relies on uniform C1 reciprocal estimates near integer poles; the proof explicitly uses removable analytic continuation on cells.",
+        "No exact finite n maximizer classification, irregular-node or high-order scheme extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-fixed-order Floater–Hormann variation theorem in Resultary explicitly assumes d>=1, n>=2d and says d=0 Berrut is different.",
+          "Bos et al general blending-degree study concerns Lebesgue L∞ conditioning."
+        ],
+        "reasoning": "The d>=1 statement does not mathematically include d=0; its proof uses 2^d interior weights and polynomial reproduction absent in the original alternating Berrut formula.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-logarithmic-variation-amplification-for-fixed-order-fl--4e4f4ccf8d14/RESULT.md",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue.pdf",
+          "Floater Hormann d=0 Berrut TV log coefficient"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-logarithmic-variation-amplification-for-fixed-order-fl--4e4f4ccf8d14/RESULT.md",
+        "https://www.math.unipd.it/~demarchi/papers/lebesgue.pdf",
+        "https://arxiv.org/abs/1211.1069"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded or logarithmic L∞ Lebesgue norms have no implication of sharp Jordan BV growth; a variation-diminishing interpolation operator studied by Nochetto–Salgado is not Berrut.",
+          "The d>=1 Floater–Hormann cousin explicitly excludes Berrut d=0."
+        ],
+        "reasoning": "Distinct output norm and excluded case require the presented new alternating-tail analysis; the prior results do not entail the stated BV coefficient by logical specialization.",
+        "searches": [
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-logarithmic-variation-amplification-for-fixed-order-fl--4e4f4ccf8d14/RESULT.md",
+          "https://arxiv.org/abs/1211.1069"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bos–De Marchi–Hormann Theorems 2.1–2.2 bound Lebesgue sup norm, not integral of absolute derivative or Jordan variation."
+        ],
+        "reasoning": "Equivalent barycentric weights and same log coefficient do not make an L∞ norm equivalent to a total-variation norm; step oscillations may grow in variation while remaining range-bounded.",
+        "searches": [
+          "Resultary semantic search: Berrut equispaced rational interpolation total Jordan variation of step function 2/pi log n; fixed positive degree Floater-Hormann source 4e4f4ccf8d14",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+          "Berrut interpolant variation seminorm induced operator norm one-jump"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite coefficient table for Berrut total variation determines all-n sharp 2/π asymptotic; numerical Lebesgue figures are not integrated variation data."
+        ],
+        "reasoning": "The result is an asymptotic all-grid theorem with exact step-max reduction, not a finite lookup.",
+        "searches": [
+          "Resultary semantic search: Berrut equispaced rational interpolation total Jordan variation of step function 2/pi log n; fixed positive degree Floater-Hormann source 4e4f4ccf8d14",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf"
+        ]
+      },
+      "rationale": "The 2010 Bos–De Marchi–Hormann paper establishes logarithmic Lebesgue (supremum-data-to-supremum-output) growth for the same rational formula, but not the discrete nodal BV-to-continuous Jordan variation norm. A separate all-fixed-positive-degree Floater–Hormann variation theorem has a related 2/π coefficient but explicitly excludes degree d=0 (Berrut) and requires different endpoint weight geometry, so it cannot by specialization supply this result. Bounded monotone overshoot in L∞ does not control accumulated oscillations; the endpoint jump's variation is a distinct derivative integral. No stronger exact Berrut BV theorem was identified in the inspected primary source material; unindexed equivalents remain possible.",
+      "residual_risks": [
+        "A historical proof of BV amplification under another term (Lebesgue-type variation norms) might exist; broad older numerical-analysis literature is not exhausted.",
+        "Some other linked Berrut full manuscripts were not read end-to-end."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: defines Λ=max_x sum_i|b_i(x)| and estimates log n, not Jordan total variation",
+          "evidence": [
+            "Theorem 2.1 Λ<=2+log n, opposite functional from variation of single-jump interpolants."
+          ],
+          "identifier_or_url": "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+          "material_read": "Open 14-page PDF abstract, §§1–2, Theorems 2.1–2.2 and their proofs/definitions of Lebesgue function",
+          "method": "Lawful author PDF text and visual page inspection",
+          "title": "On the Lebesgue constant of Berrut’s rational interpolant at equidistant nodes",
+          "trigger": "Exactly same Berrut nodes/formula, plausible stronger conditioning theorem"
+        },
+        {
+          "assessment": "RELATED, NOT COVERING: polynomial reproduction degree d>=1 exclusively",
+          "evidence": [
+            "Assumptions: d≥1; limitations: theorem does not cover d=0 Berrut; comparison explicitly cites distinct Berrut result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-logarithmic-variation-amplification-for-fixed-order-fl--4e4f4ccf8d14/RESULT.md",
+          "material_read": "Full RESULT.md, its d>=1 assumption, jump profile and d=0 exclusion",
+          "method": "GitHub published full source",
+          "title": "Universal logarithmic variation amplification for fixed-order Floater–Hormann interpolation",
+          "trigger": "Nearest published theorem with same variation coefficient"
+        },
+        {
+          "assessment": "READING-LIMITED: L∞ Lebesgue focus does not establish BV theorem by the material read",
+          "evidence": [
+            "Main studied invariant is sum of absolute interpolation basis values, not variation of their derivatives."
+          ],
+          "identifier_or_url": "https://www.math.unipd.it/~demarchi/papers/lebesgue.pdf",
+          "material_read": "Author PDF introductory sections and main Lebesgue norm problem; not full document",
+          "method": "Lawful author manuscript PDF",
+          "title": "On the Lebesgue constant of barycentric rational interpolation at equidistant nodes",
+          "trigger": "Same rational family, possibly covering all degrees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-logarithmic-variation-amplification-for-fixed-order-fl--4e4f4ccf8d14/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-logarithmic-total-variation-amplification-for-berrut-ratio--56220cdae3ba/RESULT.md"
+      ],
+      "rationale": "Berrut interpolation is widely used for stability; its precise discrepancy between bounded step overshoot and unbounded total oscillatory variation has clear mathematical and approximation implications. The sharp universal coefficient 2/π is not a table recomputation or an obvious consequence of the known Lebesgue coefficient: its proof exploits alternating-tail cancellation and accumulated derivative variation. Exact extremal reduction and an endpoint-adjacent asymptotic witness make this useful to BV stability analysis.",
+      "residual_risks": [
+        "The result is a leading asymptotic with uniform O(1), not an exact finite-n formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The source CHECKER.py uses NumPy for sampled continuous variation; independent exact rational barycentric identities were checked separately, with analytic all-n proof inspected.",
+    "The true finite-n optimizing jump is not classified, and O(1) is absolute not explicit."
+  ],
+  "schema_version": 1
+}
