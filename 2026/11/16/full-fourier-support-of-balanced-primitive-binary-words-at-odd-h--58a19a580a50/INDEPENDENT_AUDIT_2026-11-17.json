@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:52:49.474387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On binary words length 2m (odd m>=3) with Hamming weight exactly m, any proper repetition count r divides m, hence is odd >=3 and its fundamental block has length 2a and weight a where a=m/r<=m/3. Therefore excluded periodic words are at most S_m=sum_(a<=floor(m/3))binom(2a,a). Complement x→x+1 preserves both period and central weight and forces W(s)=0 for every odd-weight s. For the FULL central sphere, Krawtchouk duality gives K_m(2j;2m)=(-1)^j binom(2m,m)binom(m,j)/binom(2m,2j), whose minimum absolute even-weight coefficient is M_m=(m+1)/m binom(m,(m-1)/2); the adjacent ratio A_(j+1)/A_j=(2j+1)/(2m−2j−1) proves the minimum. M_m>S_m by exact m=3,5,7,9,11 base cases and the strict growing exponential bound for m>=13, so removing periodic words cannot introduce even-frequency zeros. Thus rank=nullity=2^(2m−1), and image is precisely complement-invariant. For odd prime m=p the only excluded balanced words are the two alternating ones, giving W_p(s)=K_m(|s|;2m)−2epsilon for even |s|, exact epsilon multiplicities from the coefficient of z^(2j) in (1−z)^p(1+z)^p, sharp gap M_p−2 and maximum binom(2p,p)−2. Since S_m=O(4^(m/3))=o(M_m), Stirling yields κ~2^m/sqrt(2). Independent exhaustive direct period filtering and integer FWHT at m=3,5,7 confirmed exact parity support, prime minima 2,10,38 and rank 32,512,8192. These checks corroborate but the full proof handles all odd m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ruskey–Sawada enumerate fixed-density aperiodic necklaces by combinatorial generation algorithms, not all Walsh coefficients.",
+          "Kopparty–Kumar–Saks index primitive necklace representatives rather than character transforms of labelled fixed-density primitive subsets."
+        ],
+        "reasoning": "The older counting and indexing results supply the family, but no full Fourier support, spectral bound or exact signed prime multiplicity.",
+        "searches": [
+          "Ruskey Sawada efficient generation fixed-density necklaces 1999",
+          "Kopparty Kumar Saks 2015 necklace indexing period Möbius"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cis.uoguelph.ca/~sawada/papers/fix.pdf",
+        "https://arxiv.org/html/1504.00572v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-full-walsh-support-and-exact-dyadic-spectral-gap-for-primitive-b--749dfcc6891c",
+        "Resultary balanced primitive word searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The central-sphere Krawtchouk formula has all even-weight nonzero multipliers and odd-weight complement zeros, but removing up to S_m periodic words may, a priori, cancel a multiplier.",
+          "Strict S_m<M_m compares two independently defined combinatorial quantities at all odd half-lengths, proving the new survival of even frequencies."
+        ],
+        "reasoning": "Neither unrestricted-word theorem nor undeleted-sphere formula yields the conclusion without the new uniform period-deletion inequality. Prime signed spectra require more information than mere rank.",
+        "searches": [
+          "Resultary primitive full-weight binary theorem C_m Fourier support",
+          "Krawtchouk central binomial Fourier transform period deletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published unrestricted primitive word theorem covers ALL weights at a given n, whose Fourier support is generally C_m for n/rad(n), not the spectrum of the balanced-only subfamily.",
+          "Krawtchouk polynomials describe the entire fixed-weight Hamming sphere, not its primitive subset."
+        ],
+        "reasoning": "A subfamily of a set is not a Fourier subrepresentation, and unrestricted support does not imply balanced primitive even-weight noncancellation; the deletion argument is necessary.",
+        "searches": [
+          "Resultary full Walsh support primitive binary words",
+          "Ruskey Sawada necklaces fixed density primitive words",
+          "Krawtchouk central sphere signed Fourier transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For m3,5,7, independent transforms produced 32,512,8192 nonzero even modes, and min positives 2,10,38.",
+          "No pre-existing exact table of signed multipliers indexed jointly by |s| and epsilon for odd prime p found; the matching published Resultary entry is the same target result."
+        ],
+        "reasoning": "A finite fixed-density necklace enumeration table cannot determine the full 2^(2m)-frequency Fourier distribution; prime epsilon multiplicity is an exact combinatorial classification.",
+        "searches": [
+          "Resultary balanced primitive binary words odd half length Walsh Krawtchouk sharp gap",
+          "Ruskey Sawada fixed density necklace exact table"
+        ]
+      },
+      "rationale": "PASS for fixed-weight primitive binary subfamily: unrestricted primitive-word support theorem and full Hamming central-slice Krawtchouk formula are separate facts; neither alone controls Fourier cancellations after deleting exactly the periodic balanced words. The relative deletion gap and sharp prime formula supply the nontrivial connection.",
+      "residual_risks": [
+        "A fixed-content Krawtchouk/Möbius Fourier inversion or folklore estimate may predate the deletion argument.",
+        "No exact finite least positive multiplier claimed for composite odd half-length; prime signed classification is restricted to odd primes.",
+        "Author PDF was inspected in its generating algorithm/definition sections; unavailable or uninspected deeper connections remain a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES NOT PRESENT Fourier transform in inspected generating algorithm and definitions; historical unseen equivalence risk retained",
+          "evidence": "The abstract states efficient CAT generation of fixed-density necklaces and aperiodic necklaces; this is counting/generation rather than character support",
+          "identifier_or_url": "https://www.cis.uoguelph.ca/~sawada/papers/fix.pdf",
+          "material_read": "author/SIAM PDF page 1 abstract and introduction plus available text of generation algorithm and necklace definitions",
+          "method": "Original PDF rendered page 1 and relevant article text inspected; no unsupported full-document noncoverage assertion",
+          "title": "An Efficient Algorithm for Generating Necklaces with Fixed Density",
+          "trigger": "identical fixed-density aperiodic binary word objects"
+        },
+        {
+          "assessment": "SAME word-period structure but no fixed-weight character-sum classification",
+          "evidence": "This source develops primitive orbits/indexing, not Walsh spectra.",
+          "identifier_or_url": "https://arxiv.org/html/1504.00572v1",
+          "material_read": "arXiv HTML introduction and primitive-period indexing methods",
+          "method": "Original complete online text; reviewed relevant introduction, claims and proof sections",
+          "title": "Efficient Indexing of Necklaces and Irreducible Polynomials over Finite Fields",
+          "trigger": "period-Möbius formula might imply the all-weight Fourier claim"
+        },
+        {
+          "assessment": "DIFFERENT unweighted full primitive set, not fixed-weight balanced primitive subset; does not determine this deleted shell",
+          "evidence": "The previous theorem includes every weight and has different Fourier rank/zero support in general",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-full-walsh-support-and-exact-dyadic-spectral-gap-for-primitive-b--749dfcc6891c",
+          "material_read": "entire published RESULT.md, including exact C_m zero-support and 2-adic gap proof",
+          "method": "Original complete online text; reviewed relevant introduction, claims and proof sections",
+          "title": "Full Walsh support and exact dyadic spectral gap for primitive binary words",
+          "trigger": "strongest prior Fourier theorem on primitive sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Half-weight aperiodic binary words are a canonical combinatorial ensemble. The fact that deleting every periodic point preserves ALL parity-allowed Fourier modes is a robust spectral stability result not a routine number count; it gives a complete rank classification at every odd half-length and an exact sharp prime signed-spectrum/conditioning calculation, together with meaningful asymptotic amplification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cis.uoguelph.ca/~sawada/papers/fix.pdf",
+    "https://arxiv.org/html/1504.00572v1",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-full-walsh-support-and-exact-dyadic-spectral-gap-for-primitive-b--749dfcc6891c",
+    "Resultary primitive fixed-weight Fourier query"
+  ],
+  "disposition": "passed",
+  "limitations": "Odd half-length m>=3 only; full signed multipliers and sharp finite condition number only for odd prime half-length. All position-labelled words, not necklace orbit representatives; no even-half-length theorem. Bounded historical priority.",
+  "residual_risks": [
+    "A fixed-content Krawtchouk/Möbius Fourier inversion or folklore estimate may predate the deletion argument.",
+    "No exact finite least positive multiplier claimed for composite odd half-length; prime signed classification is restricted to odd primes.",
+    "Author PDF was inspected in its generating algorithm/definition sections; unavailable or uninspected deeper connections remain a priority risk."
+  ],
+  "schema_version": 1
+}

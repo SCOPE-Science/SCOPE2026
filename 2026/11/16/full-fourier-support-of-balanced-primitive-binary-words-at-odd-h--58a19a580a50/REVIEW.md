@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is all **labelled** binary words of length \(2m\), Hamming weight \(m\), and least positive cyclic period \(2m\), for odd \(m\ge3\). A nonprimitive balanced word repeats a balanced block an odd number \(r\ge3\) of times; hence the deletion size is bounded by \(S_m\). Character orthogonality and binary Krawtchouk duality yield the exact central-layer transform and a minimum absolute even-frequency value \(M_m\). The explicit inequalities \(S_m<M_m\), verified separately at the five small odd cases and proved exponentially thereafter, prohibit extra Fourier zeros. Complement symmetry accounts for all odd-frequency zeros. Diagonalization of unnormalized XOR convolution proves rank and inverse statements. In the prime case, removing exactly the two period-two alternating words gives the signed formula; counting even/odd-position selections produces exact multiplicities, attainment of the minimum, and sharp conditioning. Stirling's formula and a vanishing relative deletion bound give the all-odd asymptotic.
+## correctness
 
-An exact bitmask-period test followed by integer Walsh butterflies verifies all frequencies for \(m=3,5,7,9\); an independently structured integer binomial-multiplicity checker verifies the prime spectral formula for \(p=3,5,7,11,13\). Both passed. The infinite assertions rest on the proof, not finite enumeration.
+PASS
 
-## Originality — PASS under bounded scientific comparison
-Ruskey–Sawada establishes fixed-density primitive necklace enumeration through the Möbius formula, but does not compute the Walsh spectrum on all labelled fixed-weight primitive words. Kopparty–Kumar–Saks establishes indexing of necklaces and period characterizations, not Fourier cancellation or invertibility. Standard Krawtchouk theory covers the undeleted central layer; that calculation alone does not rule out further zeros after all nonprimitive balanced words are removed. Accessible related results on Fourier sampling of Hamming slices address restricted Fourier matrices, not convolution by the primitive fixed-weight indicator. The earlier unrestricted-primitive-word support theorem does not imply the fixed-weight support theorem because restriction to a prescribed Hamming layer changes both the convolution kernel and Fourier cancellations.
+On binary words length 2m (odd m>=3) with Hamming weight exactly m, any proper repetition count r divides m, hence is odd >=3 and its fundamental block has length 2a and weight a where a=m/r<=m/3. Therefore excluded periodic words are at most S_m=sum_(a<=floor(m/3))binom(2a,a). Complement x→x+1 preserves both period and central weight and forces W(s)=0 for every odd-weight s. For the FULL central sphere, Krawtchouk duality gives K_m(2j;2m)=(-1)^j binom(2m,m)binom(m,j)/binom(2m,2j), whose minimum absolute even-weight coefficient is M_m=(m+1)/m binom(m,(m-1)/2); the adjacent ratio A_(j+1)/A_j=(2j+1)/(2m−2j−1) proves the minimum. M_m>S_m by exact m=3,5,7,9,11 base cases and the strict growing exponential bound for m>=13, so removing periodic words cannot introduce even-frequency zeros. Thus rank=nullity=2^(2m−1), and image is precisely complement-invariant. For odd prime m=p the only excluded balanced words are the two alternating ones, giving W_p(s)=K_m(|s|;2m)−2epsilon for even |s|, exact epsilon multiplicities from the coefficient of z^(2j) in (1−z)^p(1+z)^p, sharp gap M_p−2 and maximum binom(2p,p)−2. Since S_m=O(4^(m/3))=o(M_m), Stirling yields κ~2^m/sqrt(2). Independent exhaustive direct period filtering and integer FWHT at m=3,5,7 confirmed exact parity support, prime minima 2,10,38 and rank 32,512,8192. These checks corroborate but the full proof handles all odd m.
 
-A targeted mathematical-results comparison, full relevant archival primary-paper sections, and recorded local prior-claim comparisons did not identify the same inclusion-and-deletion nonvanishing result, prime signed multiplicity law, or condition-number asymptotic. Residual historical risks include uncatalogued equivalent harmonic-analytic treatments and folklore applications of Krawtchouk estimates; no independent priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
-The classical fixed-density necklace problem naturally asks what Fourier information survives restricting to **aperiodic balanced words**. A large structured deletion from the central layer could introduce new multiplier zeros. The result proves this never happens at odd half-length, characterizes the entire recoverable translation-invariant subspace for infinitely many dimensions, and gives sharp prime-order reconstructive stability and an exponential all-odd asymptotic. This is not just necklace enumeration or a mere finite example; it quantifies a meaningful information-recovery boundary between unrestricted periodicity and fixed-content primitivity.
+PASS
 
-## Residual limitations
-The theorem does not classify even half-lengths, general noncentral weights, nonbinary alphabets, or exact finite positive minima for odd composite half-lengths. Source comparisons are bounded, so the priority judgment should not be read as exhaustive.
+PASS for fixed-weight primitive binary subfamily: unrestricted primitive-word support theorem and full Hamming central-slice Krawtchouk formula are separate facts; neither alone controls Fourier cancellations after deleting exactly the periodic balanced words. The relative deletion gap and sharp prime formula supply the nontrivial connection.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Half-weight aperiodic binary words are a canonical combinatorial ensemble. The fact that deleting every periodic point preserves ALL parity-allowed Fourier modes is a robust spectral stability result not a routine number count; it gives a complete rank classification at every odd half-length and an exact sharp prime signed-spectrum/conditioning calculation, together with meaningful asymptotic amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
