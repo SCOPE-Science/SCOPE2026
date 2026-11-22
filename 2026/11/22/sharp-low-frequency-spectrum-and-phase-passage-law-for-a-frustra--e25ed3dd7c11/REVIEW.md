@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The elementary Hamiltonian identity identifies all allowed ground states; the exact mean-zero hypercube Green function gives a two-endpoint variational capacity, and a cube-wise Poincaré estimate controls both the energy and norm reductions. Min–max yields all five nonzero slow spectral constants and excludes other eigenvalues tending to zero. The exact electrical resistance and reversible-chain commute-time identity prove the hitting law. All constants and generator conventions are stated explicitly. Small-size exact generator checks and independent radial spectral computations support, but do not replace, the proofs.
+
+**Originality — PASS with bounded priority risk.** Earlier complete-tripartite stochastic-minority work already proves the six-hypercube ground graph, uniform stationarity, and an exponential mixing lower bound. Those are acknowledged, not credited here. Its results do not contain the capacity-based limiting spectral multiplicities or sharp numerical constants; the general commute formula alone does not yield the spectral theorem. The precise passage time is a transparent supporting corollary rather than a stand-alone priority claim. Other inspected literature addresses static weak minima and differently structured Glauber dynamics. Undiscovered stronger results remain a risk.
+
+**Mathematical value — PASS.** The exact low-frequency spectral classification identifies all collective slow modes and their nontrivial effective six-cycle coefficient, strictly strengthening a qualitative exponential bottleneck bound. The associated exact passage times connect these relaxation scales to physically natural transitions between the six polarized junction states. This structural spectral result is not merely an extra parameter point or standard static enumeration.
+
+Self-review: passed. Independent audit: not yet performed.
