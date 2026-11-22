@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(k\\geq3\\), the total leaf-coverage capacity of \\(k\\) burning rounds is \\((k-1)^2+1\\). Equality forces the time-labelled cyclic tiling of disjoint pendant intervals; a shorter sequence cannot reach this cap. All tilings burn all vertices, including the last pendant parent core, and their sources meet the standard unburned-before-ignition constraint. Replacing a single source fixes its uncovered leaf interval, forcing all sources except the penultimate core/pendant toggle. Unique cyclic orders give \\(2n(k-1)!\\) optima and \\(n(k-1)!\\) components isomorphic to \\(K_2\\). Independent BFS-based exhaustive C++ checks for \\(k=3,4,5\\) and constructive Python checks for \\(k=3,\\ldots,7\\) agree. The universal inference is in the proof, not from finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jenifer and Shanthi 2026 full-text PDF pp. 1352–1353 Theorem 3.4 deals with burning-number thresholds; no enumerator or reconfiguration graph appears in that treatment.",
+        "Published mathematical-result record 2026/10/26/SCOPE-factorial-fragmentation-of-optimal-cycle-burning-schedules-at-on--4e5c0a298726 concerns plain cycle graphs at order k²−1, not pendant coronas.",
+        "Published mathematical-result record 2026/11/2/SCOPE-one-defect-rigidity-and-exact-counts-of-optimal-burning-sequence--e67fc0d8b5fa concerns optimal schedules on paths and cycles, different graph families."
+      ],
+      "reasoning": "A theorem about the minimum rounds on a sunlet is weaker than the schedule-count/replacement classification. The bare-cycle results count and reconfigure histories on graphs without pendant vertices and do not imply the extra leaf-source choice, the saturated pendant-coverage partition, or the \\(K_2\\)-only exchange structure. Full texts of the related public bare-cycle records were not retrievable, so their comparison is limited to their published summaries.",
+      "searches": [
+        "Mathematical-result search: sunlet burning maximum leaf coverage k rounds (k-1)^2+1 count 2n(k-1)!",
+        "web: \"sunlet\" \"burning number\" \"ceil\" \"sqrt\" 2025 2026",
+        "web: \"sunlet\" \"burning\" \"reconfiguration\" sequences"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1507.06524v1 (full HTML 2015)",
+      "doi:10.47974/JDMSC-2582 (full original PDF 2026)",
+      "Published result 2026/11/2/SCOPE-one-defect-rigidity-and-exact-counts-of-optimal-burning-sequence--e67fc0d8b5fa (summary only)",
+      "Published result 2026/10/26/SCOPE-factorial-fragmentation-of-optimal-cycle-burning-schedules-at-on--4e5c0a298726 (summary only)",
+      "OEIS A397743 (different invariant: assembly trees)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonato–Janssen–Roshanbin 2015 defines the burning metric-ball process and sufficient covering bounds, not ordered optimal sunlet configuration enumerators.",
+        "Jenifer–Shanthi 2026 proves or asserts the scalar burning number for sunlets. Neither its text nor its example enumerates all optimal histories or analyzes single-round replacements.",
+        "Two closest published-finding corpus cycle-schedule summaries concern C_{k²-1} and bare paths/cycles; their parameters and objects differ from cycle-leaf coronas."
+      ],
+      "reasoning": "The prior scalar minimum does not mathematically imply the number or geometry of minimizers. The present proof invokes a new equality-case partition of *pendant footprints*, proves all such cyclic tilings legal, counts them with a penultimate source-type doubling, and deduces fragmented replacement connectivity. Related bare-cycle partitions omit that essential pendant constraint and are not a known stronger statement from which the exact sunlet claim follows.",
+      "searches": [
+        "arxiv:1507.06524 full public text, section 2, distance criterion and burning definitions",
+        "DOI:10.47974/JDMSC-2582 full text, Theorem 3.4, page 1352",
+        "Mathematical-result search: burning process sun graphs square plus one optimal source permutations 2026 result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1507.06524 Section 2 characterizes standard burning by distance balls and proper source order, without a sunlet-optimizer count.",
+        "DOI:10.47974/JDMSC-2582 Theorem 3.4 gives only b(S_n), not the number of ordered optimal histories.",
+        "Mathematical-result searches returned unrelated sunlet threshold-contagion and zero-forcing configurations, not deterministic burning-schedule counts."
+      ],
+      "reasoning": "The same property can be phrased as a source-time burning process, coverage by shrinking metric balls, or ordered partitions of pendant positions. The new assertion quantifies complete optimal histories and replacement adjacency, neither of which follows from the known scalar \\(b(S_n)\\). Different propagation rules (zero forcing, contagious subsets, power domination) are inequivalent to one-source-per-round burning.",
+      "searches": [
+        "web: \"sunlet graph\" \"burning sequence\" permutation factorial",
+        "web: \"sunlet\" \"optimal burning sequences\" count",
+        "Mathematical-result search: sunlet cycle corona K1 burning number exact 1 + ceil sqrt n minus 1 factorial optimal burning sequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table of strict optimal labelled burning schedules on sunlets was exposed by these searches.",
+        "A table entry for sunlet assembly-tree counts (OEIS A397743) describes a different graph invariant.",
+        "Direct complete finite enumerations in attached C++ source yield 20,120,816 for saturated sizes 5,10,17."
+      ],
+      "reasoning": "A minimum-round lookup or assembly-tree table cannot determine histories or exchange edges. Failure to find an exact prior table is only a best-knowledge negative result, not proof that none exists.",
+      "searches": [
+        "web: \"sunlet\" \"optimal burning sequences\" count",
+        "web: \"sunlet graph\" \"burning sequence\" permutation factorial",
+        "Mathematical-result search: ordered source burning sequences of sunlet C_n leaf corona saturated square plus one"
+      ]
+    },
+    "rationale": "The original 2015 foundational full text defines the process; the 2026 full text proves the previously known scalar sunlet burning number but does not address source-history counts, tiling equality cases or their one-round replacement graph. Closest published mathematical records about burning-sequence rigidity concern undecorated paths or cycles, not the pendant-constrained graph. The searched exact-count alternatives do not imply the theorem. Unindexed or inaccessible earlier enumerations remain a priority risk.",
+    "residual_risks": [
+      "The public full texts of related bare-cycle schedule-result records could not be fetched; their domain distinction was established only from record statements.",
+      "An unindexed earlier exact enumeration of sunlet burning schedules, or an implicit stronger result not retrieved here, remains possible.",
+      "The result is same-model reviewed; there has been no independent scholarly audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "arXiv v1 submitted 2015-07-23; Section 2 defines d(x_i,x_j)>=j-i and shrinking ball coverage; no sunlet optimizer count or reconfiguration theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/1507.06524",
+        "material_read": "Complete public HTML text, notably Section 1 and Section 2, including burning-sequence condition (1) and Corollary 3",
+        "method": "Read hosted original primary text; searched terms sunlet/corona and checked graph-burning definition and criterion",
+        "title": "How to burn a graph",
+        "trigger": "Earliest date-verified archival source for the burning model, with general covering criterion"
+      },
+      {
+        "assessment": "SCALAR_COVERED_NEW_COUNT_NOT_COVERED",
+        "evidence": "2026-03-02 online publication; Theorem 3.4 gives burning number cases, but no optimizer count, interval classification or replacement-graph result.",
+        "identifier_or_url": "https://tarupublications.com/journals/jdmsc/volume/29/issue/3/burning-number-of-path-and-cycle-related-graphs/pdf",
+        "material_read": "Entire eight-page PDF text; original page 1352 visually inspected, including Theorem 3.4 and proof, plus end references",
+        "method": "Opened publisher full PDF and visually inspected actual PDF page for theorem, as well as parsed whole text",
+        "title": "Burning number of path and cycle related graphs",
+        "trigger": "Directly studies the same sunlet graphs, potentially stronger covering theorem"
+      },
+      {
+        "assessment": "DOMAIN_DISTINCT_FULL_TEXT_UNAVAILABLE",
+        "evidence": "Summary explicitly concerns bare paths and cycles at the square-order coverage boundary; pendant corona graph and its source-type doubling not asserted in summary.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-one-defect-rigidity-and-exact-counts-of-optimal-burning-sequence--e67fc0d8b5fa",
+        "material_read": "Search title and mathematical result summary, not full text; attempted public page fetch failed",
+        "method": "Semantic record search, comparative reading of summary, attempted primary-page fetch",
+        "title": "One-defect rigidity and exact counts of optimal burning sequences on paths and cycles",
+        "trigger": "Related exact configuration count and tiling rigidity in a different graph family"
+      },
+      {
+        "assessment": "DOMAIN_DISTINCT_FULL_TEXT_UNAVAILABLE",
+        "evidence": "Record concerns C_{\\(k^2-1\\)} source relocations without pendant vertices; no sunlet result described.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-factorial-fragmentation-of-optimal-cycle-burning-schedules-at-on--4e5c0a298726",
+        "material_read": "Published mathematical-result title and short summary; public primary-page fetch attempted but unavailable",
+        "method": "Semantic record search and result implication comparison",
+        "title": "Factorial fragmentation of optimal cycle-burning schedules at one-site slack",
+        "trigger": "Potential stronger schedule-reconfiguration statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18c01455-4b08-421d-b553-0dde2f8dfb6e",
+  "value": {
+    "rationale": "Beyond the known scalar burning number, this solves the natural equality-case optimizer classification at every sharp pendant-capacity boundary, with an exact factorial number of ordered histories and maximally fragmented one-source replacement mobility (a matching). The condition \\(n=(k-1)^2+1\\) is forced by a sharp leaf-coverage capacity, not an arbitrary slice. The result quantifies adaptability of optimal ignition schedules rather than merely recomputing the scalar invariant.",
+    "status": "PASS"
+  }
+}
