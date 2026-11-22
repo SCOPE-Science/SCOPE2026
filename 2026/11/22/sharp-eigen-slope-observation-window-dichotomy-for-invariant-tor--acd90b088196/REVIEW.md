@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The observation-to-Haar implication is exact: transpose orbits shift logarithmic eigenslope by twice the Lyapunov exponent, and a closed interval of that length intersects each orbit. The converse constructs a singular invariant measure using a chosen initial Fourier phase in the non-observed residue arc and an even lacunarity step. Signed-digit uniqueness, the slope-error bound, the exact Fourier transform, and Borel–Cantelli are proved in RESULT.md. The finite checker tests only sample cases, not an infinite certificate.
+
+**Originality — PASS, with priority risk.** The closest inspected work is Han (2026), Appendix A; it constructs a single uniform-coordinate marginal and proves a spectral slope-localization lemma. It does not state the full sharp if-and-only-if width classification for continuum-sized families of primitive integer projective directions, nor the closed endpoint rigidity. The result is obtained by a new synthesis of orbit-transversal rigidity and selectable Riesz-frequency localization, not a new method of making Riesz products. Because this synthesis is close to Han's supplied lemmas, an unstated historical corollary is the principal residual priority risk; no absence-of-search-match is treated as novelty proof.
+
+**Value — PASS.** It answers a natural reconstruction/identifiability question completely: how large must an entire band of exact one-dimensional circle-projection laws be to determine an invariant probability? The universal sharp width depends only on the unstable Lyapunov exponent, and narrower bands admit measures maximally singular to Haar while perfectly matching all observed projections. The closed-boundary distinction is mathematically essential. This is not merely a chosen finite-frequency numerical example.
+
+**Closest literature and limits.** Han, arXiv:2611.18817v1, Sections A.1–A.3, is the substantial source of the constructive machinery; Fan–Schmidt–Verbitskiy, arXiv:2103.04767, addresses Riesz products for a different dynamical property. The counterexamples are not proved ergodic; the classification is only for closed windows in the specified logarithmic eigen-coordinate. Full historical priority and independent audit remain open.
+
+Self-review: passed. Independent audit: not yet performed.
