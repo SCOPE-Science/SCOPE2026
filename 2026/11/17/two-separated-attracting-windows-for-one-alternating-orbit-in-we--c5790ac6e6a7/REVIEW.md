@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The colour-constant subsystem is invariant because the two shore degrees are constant; its symmetric period-two equation reduces exactly to the positive analytic function \(K(t)\). The weighted graph's largest Laplacian eigenvalue is \(r+s\) by signless-Laplacian Perron–Frobenius. The inequality \(q-tq'>0\), checked analytically in four sign intervals, gives existence and uniqueness of the specified symmetric branch for every coupling above its sharp onset. The actual full Jacobian is identical at the two orbit points and yields all return multipliers. Its spectrum proves both stable windows and both repelling regimes. The packaged numerical checker verifies 32 network-amplitude configurations and 5,000 scalar monotonicity samples; these tests do not substitute for the proof.
+## correctness
 
-## Originality — PASS within checked evidence
-The original 2026 Huygens network paper treats a general odd interaction but provides small-step Lyapunov and Morse–Smale theory, not a high-step, multiharmonic two-window period-two branch. The closest publicly available related work (titles in RESULT.md References 3–5) was inspected by its complete RESULT text: the first-plus-third-harmonic trichotomy establishes only local flip onset, and both other results concern the pure sine interaction. A search of the accessible current-week ledger claims revealed no same-parameter result. Search of published-finding corpus records using both reentrant-stability phrasing and the exact interaction found no dominating theorem. These distinctions are implications of the actual statements rather than title comparisons. Historical priority beyond inspected records, notably older higher-harmonic circle-map theory, remains unresolved.
+PASS
 
-## Value — PASS
-A positive cubic harmonic changes the long-range stability picture from one attracting interval to two separated attracting intervals for the *same* analytically continued period-two branch. All vertices and positive edge weights are included subject to a natural degree-homogeneity condition; four exact boundaries and full transverse spectra require no graph-specific numerical optimization. This demonstrates a useful structural reentrance in discrete phase network dynamics and answers a sharper question than local flip existence or a scalar example.
+PASS. On the colour-constant invariant two-shore subspace, biregularity makes the phase gap δ alternate between π+t and π-t exactly when h(r+s)q(t)=2t, q(t)=(4/5)sin(t)(1+cos^2 t). The identity q(t)>0 and q(t)-t q′(t)>0 for 0<t<π makes K(t)=2t/q(t) strictly increasing from 5/4 to infinity, so the same primitive symmetric 2-cycle exists uniquely above onset. The positive weighted connected bipartite graph Laplacian has largest simple eigenvalue Λ=r+s via irreducible signless Laplacian/Perron-Frobenius. The one-step Jacobian at both points is J=I-h q′(t)L, and the two-step multipliers are (1-h q′(t)λ_j)^2; common phase λ=0 is neutral and removed. For all other eigenvalues 0<λ_j<=Λ, |1-hq′λ_j|<1 iff 0<h q′<2/Λ. Since q′=(4/5)cos(t)(3cos²t-1), this holds for 0<t<acos(1/sqrt3) and π/2<t<π-acos(1/sqrt3). Else each λ>0 gives >1, yielding the exact two disjoint attracting windows and intervening repelling windows. All four hΛ cutoffs match the formula and numerical diagnostics; boundaries deliberately have no nonlinear attracting verdict.
 
-## Scope and residual risk
-No classification of non-colour-constant or distant periodic orbits, nonlinear boundary behavior, or complete basins is asserted. The interaction coefficient is fixed to \(1/5\). No independent validation has been performed. Reentrant dynamics may have been described under another terminology in older specialized sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Published κ-dependent first-plus-third harmonic theorem treats only the *local* flip near onset; pure-sine biregular and weighted bipartite results treat κ=0 and have a single attracting window, so neither establishes global continuation of this κ=1/5 orbit through two disjoint stable ranges. Broader generic odd-interaction network theory covers small steps but not these exact four thresholds. Reentrance remains a plausible historical-priority risk in older multiharmonic map literature.
+
+## value
+
+PASS
+
+PASS. A physically motivated third-harmonic perturbation creates genuine global reentrant local stability of one explicitly continued 2-cycle, uniform over every connected positively weighted biregular bipartite graph. Four sharp boundaries, full transverse spectral verification and graph universality give substantive dynamical structure beyond the local period-doubling theorem or one numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
