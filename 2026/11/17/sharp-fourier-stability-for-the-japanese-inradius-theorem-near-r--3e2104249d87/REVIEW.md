@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The radial derivative of a triangle inradius is written explicitly in terms of its area and perimeter. An exact SymPy rational reduction verifies its single nontrivial coefficient; three geometric null modes determine all other entries. Discrete Fourier diagonalization gives every singular value and the minimum, and an implicit-function plus normal-bundle argument proves local zero-set equality and the sharp nonlinear modulus. Conditions \(n\ge4\), strict convexity and sufficiently small radial perturbations are explicit. The checker was run on the actual new artifact and supplies only supporting finite checks, not the proof.
+## correctness
 
-**Originality: PASS (best knowledge, not independently certified).** Direct semantic searches of a published mathematical-record index and accessible prior geometry ledgers were compared with the full three-page 2002 Reyes article, the full 2012 Minculete–Barbu–Szöllősy article, and the published full result on separable inradius-functional rigidity. Their known identities, weighted identities and function-classification claims do not imply the local consecutive-flip Jacobian, spectral gap or sharp nonlinear stability. A bibliographic/abstract check of Lambert (1994) indicates a global Delaunay extremal criterion, not the same quantified object. Uninspected Lambert full text and possible folklore local variants remain risks.
+PASS
 
-**Mathematical value: PASS.** It converts the classical exact cocircular inradius identity into a finite, sharp, locally invertible test of departure from cyclicity; shows that only \(n\) consecutive flips are needed rather than comparing every triangulation; identifies the least visible harmonic; and proves its sharp \(n^{-3}\) degradation with polygon size. This is a structural and quantitative converse, not a mere perturbative numerical observation.
+The inradius defect vanishes for each cocircular quadruple by the Japanese theorem. At a regular n-gon, radial differentiation yields the exactly four-tap Jacobian κ[−I+(1+2cos h)S−(1+2cos h)S²+S³], factoring as κ(S−I)(S−e^ih I)(S−e^-ih I). The circle translation/radius tangent modes 0,±1 form its complete 3D kernel. On Fourier k its singular value is 8κ|sin(kx)sin((k−1)x)sin((k+1)x)|. For 2≤k≤floor(n/2) this is increasing by s(s²−sin²x), so k=2,n−2 are least positive; μn=4 sin x sin 2x sin 3x/[cos x(1+cos x)(1+2cos x)]∼4π³/n³. Rank n−3, implicit-function uniqueness, and a tubular nearest circle point yield local F=0 iff cocircular and the sharp distance/error limit. Independently differentiated inradius numerically at n=4,5,7,10,16 and reproduced the Jacobian and gap; exact symbolic identity in supplied verification was inspected, not treated as proof alone.
 
-**Limits.** The sharp constant is local to regular \(n\)-gons under radial coordinates with the Euclidean parameter norm. It is not a global geometric estimate and no independent mathematical or historical-priority validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full 2012 Minculete–Barbu–Szöllősy pages 188–193 derive the cyclic equality and further multiplicative/weighted radius identities, not a transverse Jacobian or local coercivity. Reyes 2002 is a proof of equality. The full 2026 separable-functional Resultary theorem concerns affine functions of inradius for Delaunay flips, not geometric radial perturbation stability. Lambert 1994 gives global Delaunay sum maximality; full proceedings unavailable. The sharp n-dependent local quantitative converse is not implied by the inspected source statements.
+
+## value
+
+PASS
+
+The exact singular gap and attained normal perturbation produce a quantitative near-cyclicity test from only n consecutive flip measurements. The detection of second Fourier mode and n^(−3) condition loss are motivated and potentially useful in polygon rigidity and geometric reconstruction; no global rigidity is overclaimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
