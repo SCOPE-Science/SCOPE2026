@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every m≥3 the exact all-one factorial moments of m marked matching pairs are c_r=(2(m-r)-1)!!/(2m-1)!!. Equality c_{m-1}=c_m forces any length-N exchangeable urn total to lie in {0,...,m-2,N}; the coefficient of total m-3 then gives a sharp obstruction N≤m+4. A degree-m-2 polynomial with coefficients q*binom(m+4,t)*S_{m-t}, plus q times the all-ones atom, matches all m moments. The all-index recurrence S_k=2(k-1)S_{k-1}+2(k+3)S_{k-2}+(-1)^k k(k-1)(k+1)/3 derives from the formal generating-function differential equation; its induction proves all coefficients nonnegative. The triangular moment inversion gives uniqueness. Cases m=1,2 have explicit infinite Bernoulli extensions. checker.py passed 1,258 independent exact assertions including matching enumeration; no finite test stands in for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Konstantopoulos–Yuan (2015), Theorem 1.2 and Corollary 3.12, provide an abstract necessary-and-sufficient extension criterion for broad measures.",
+        "Its urn decomposition under hypergeometric sampling is used here, but the positivity of S_k and the fixed-pair finite horizon are additional evaluations."
+      ],
+      "reasoning": "The general theorem applies, and in principle characterizes this instance, but it does not imply the exact four-coordinate value without the nontrivial explicit positive construction and obstruction calculation; this contribution is not claimed as a general exchangeability criterion.",
+      "searches": [
+        "published-finding corpus: uniform perfect matching prescribed disjoint edges exchangeable indicators finite extendibility exact maximum",
+        "published-finding corpus: finite exchangeable extensions of random permutations fixed point indicators m+4",
+        "Web: fixed perfect matching random perfect matching edge indicators exchangeable extendibility sampling without replacement",
+        "arXiv:1501.06188v4 §§1–3, 6 and appendix"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1410.1777",
+      "https://arxiv.org/abs/1501.06188",
+      "https://arxiv.org/abs/1506.08770",
+      "published-finding corpus semantic matches of finite exchangeability, matching prescribed edges, partner-presence indicators, fixed-point-free involutions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson–Konstantopoulos–Yuan (2014) guarantees a signed mixture representation, which does not guarantee an extension with nonnegative weights.",
+        "Konstantopoulos–Yuan (2015) defines/characterizes finite extendibility, without this instance-specific extremal solution.",
+        "Godsil–Meagher (2015) proves a matching-intersection extremal result, not a binary finite-exchangeability horizon."
+      ],
+      "reasoning": "The new theorem specializes a classical matching law and a general finite-exchangeability framework. It adds a quantitative universal horizon, uniqueness, explicit positive coefficients, and a nonextendibility witness. These are not formally immediate corollaries of the identified prior statements without the specific computation and positivity proof.",
+      "searches": [
+        "published-finding corpus: fixed disjoint pairs of uniform random pairing exchangeable N-extendibility hypergeometric",
+        "published-finding corpus: finite exchangeability horizon prescribed pairs present in uniform random perfect matching, fixed-point-free involution",
+        "Web: finite exchangeability probability measures uniform matchings indicators",
+        "arXiv:1410.1777v1; arXiv:1501.06188v1; arXiv:1506.08770v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A given set of r prescribed disjoint edges survives in a uniform perfect matching with probability (2(m-r)-1)!!/(2m-1)!!; its event vector is exchangeable.",
+        "General finite-exchangeability results use mixtures of urn laws, and the consulted texts provide general representation or criteria, not this matching-specific extremal length."
+      ],
+      "reasoning": "The all-one moments encode exactly the same binary law under matching, partner-presence, and fixed-point-free involution descriptions. Tested those aliases against relevant findings and the primary general texts. No matching-specific m+4 statement was located; a broad general criterion cannot by itself be treated as the computed threshold.",
+      "searches": [
+        "published-finding corpus: finite exchangeability horizon prescribed pairs present in uniform random perfect matching, fixed-point-free involution",
+        "published-finding corpus: fixed disjoint pairs of uniform random pairing exchangeable N-extendibility hypergeometric",
+        "Web: exchangeable Bernoulli sequences fixed-point-free involution matching pairs finite extendibility",
+        "arXiv:1410.1777v1; arXiv:1501.06188v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Godsil–Meagher (2015) enumerate perfect matchings and study intersecting families, not finite extension ceilings.",
+        "Matching derangement numbers determine the original count distribution but do not provide a table of exchangeable extension lengths."
+      ],
+      "reasoning": "No exact table or database entry stating the m+4 horizon or its unique extremal law was found. Existing enumeration formulas alone are insufficient to conclude nonnegative coefficients for all m.",
+      "searches": [
+        "published-finding corpus: m match edge indicator random perfect matching longest exchangeable extension m+4",
+        "published-finding corpus: uniform fixed point free involution pair-matches indicators exchangeable length",
+        "Web: random perfect matching number common edges with a fixed perfect matching matching derangements distribution",
+        "arXiv:1506.08770v1 §§1–3"
+      ]
+    },
+    "rationale": "Actual published-finding corpus searches and three period-appropriate primary texts found general exchangeability representation/extendibility principles and perfect-matching enumerations, not the exact m+4 finite horizon, uniqueness, or nonnegative certificate for designated matching-edge indicators. The closest general theorem in principle applies but does not explicitly evaluate this law. Historical-priority limitations are stated.",
+    "residual_risks": [
+      "Older literature on finite binary exchangeability or random matching derangements might contain an overlooked mathematically equivalent specialization. The inspected general extendibility criterion is broad enough to apply, though the explicit threshold is not stated there.",
+      "This is an original-priority assessment, not an independent literature certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The signed-mixture theorem is more general in representation scope but cannot directly supply the required nonnegative extension or maximum length.",
+        "evidence": [
+          "arXiv:1410.1777v1, first public date 2014-10-07; representation theorem and its signed coefficients"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1410.1777v3",
+        "material_read": "Abstract, introduction, finite-state signed representation and discussion",
+        "method": "Open-access full-text HTML with targeted comparison of the representation statement against positive finite urn extension",
+        "title": "On a representation theorem for finitely exchangeable random vectors",
+        "trigger": "Signed mixture representations might already imply the claimed extension"
+      },
+      {
+        "assessment": "General exact criterion and urn reduction cover the abstract feasibility problem; no specific fixed-perfect-matching indicator calculation, m+4 bound, or positivity recurrence in the inspected material.",
+        "evidence": [
+          "arXiv:1501.06188v1 (2015-01-25), Theorem 1.2, §§2–3, Corollary 3.12"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1501.06188v4",
+        "material_read": "Introduction §§1–2, extension criterion in §3, finite/infinite discussion and examples in §§4–6 and appendix",
+        "method": "Open-access full-text HTML; searched matching, pair, perfect and example concepts and read relevant mathematical statements",
+        "title": "On the extendibility of finitely exchangeable probability measures",
+        "trigger": "The closest known general criterion and urn decomposition"
+      },
+      {
+        "assessment": "Same perfect-matching space and total count, different extremal object and conclusion. Does not state the exchangeability horizon.",
+        "evidence": [
+          "arXiv:1506.08770v1 (2015-06-29), §§1–3, Theorem 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.08770",
+        "material_read": "Full-text exposition of the matching-count setup, main theorem, derangement graph and proof framing",
+        "method": "Open-access arXiv textual full paper; compared precise indicators and maximal-extension question with its intersecting-family theorems",
+        "title": "An algebraic proof of the Erdős-Ko-Rado theorem for intersecting families of perfect matchings",
+        "trigger": "Nearest original matching-derangement results and potential domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e852fe58-266d-4450-a29b-7bf8a0bca428",
+  "value": {
+    "rationale": "A natural m-coordinate indicator family from a uniform perfect matching has positive pairwise correlation but finite exchangeability, with an unexpectedly universal exact four-coordinate reserve at every m≥3, a unique sharp extension and explicit implementable urn law. This sharp boundary gives a structural and quantitative example separating positive correlation from infinite exchangeability, and a reusable technique for support-rigidity and moment inversion. It is neither a reparameterized counting formula nor an arbitrary small test case.",
+    "status": "PASS"
+  }
+}
