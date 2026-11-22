@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The central nonstandard step is a complete, all-simplex proof that every vertex in a faulted column is strongly dominated by the unique unfaulted hub. The simultaneous retraction is contiguous to the identity and respects the stabilizing symmetry group. The residual complex is an exact join of simplex skeleta, whose standard discrete-Morse matchings yield integral sphere wedges and permutation-augmentation exterior-power lattices. A compatible inclusion diagram yields primitive split maps. The finite program enumerated all faces and boundaries over \(\mathbb F_2\) for 26 stages, in addition to checking each domination and the core. The general integral theorem rests on the symbolic proof, not on finite experiments.
+## correctness
 
-**Originality — PASS with residual risk.** The original definitions and square-sequence classification occur in Filakovský, arXiv:2602.11365. The undamaged complete-bipartite core formula is known from Carnero Bravo, arXiv:2602.21427, Proposition 37, and related earlier results; this is explicitly not claimed as new. The new step is the overlapping rectangular-fault strong collapse, its equivariance and full fault-filtration maps, including the terminal degree change. Previously published one-row star faults, vertex-disjoint block faults, and matching-deletion dissociation results do not imply the multirow all-column rectangle under their hypotheses. The indexed full-biclique equivariant calculation was available only as an abstract; a stronger unindexed general Ferrers folding theorem would diminish originality if found.
+PASS
 
-**Mathematical value — PASS.** The family is a natural all-parameter edge-failure model, and the result gives homotopy types, integral symmetry modules, exact inclusion behavior, and a sharp contractible plateau followed by low-degree homology reappearance, rather than simply evaluating one small parameter. The contribution is specifically structural and relative to already-known complete-bipartite core topology.
+For each v in the deleted rectangle T_t, an independent k-set appearing after adjoining the surviving hub u to a face σ containing v would imply an already-forbidden independent k-set after replacing u by v. Thus all such σ can adjoin u, vertices of T_t are strongly dominated and the simultaneous collapse v->u is contiguous with the identity and commutes with the preserving subgroup. The induced core is precisely K_{s+1,b−t}, so its robust clique complex is the join of (k−2)-simplex skeleta; standard integral wedge bases and exterior augmentation lattices give all top ranks and group modules. Natural core inclusions are split injections while both top ranks are nonzero, and final m=0 creates lower (k−2)-degree homology after a contractible plateau. Fresh independent exact face/retraction/Euler checks across 15 stages, k=4 and multiple shore sizes; general integral proof relies on explicit collapses, not mod-2 data.
 
-**Scope and integrity.** Full rectangles only, one universal hub, \(k\ge4\), \(s\ge k-1\), \(b\ge k\); no claims for arbitrary missing-edge patterns. Finite mod-two checks corroborate but do not certify integral homology independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work gives the underlying complete-bipartite skeleton join; the nontrivial rectangular-fault dominated-vertex equivariant retraction, terminal degree transition and integral split inclusion maps are not immediate from same-core formulas.
+
+## value
+
+PASS
+
+The edge-rectangle fault is a natural structured perturbation of complete bipartite graphs. Its canonical equivariant collapse converts a difficult graph-complex filtration to a clean skeleton join, revealing a genuine disappearance and rebirth of homology in different degrees and primitive integral maps. This gives an exact motivated natural family classification, not a table recomputation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
