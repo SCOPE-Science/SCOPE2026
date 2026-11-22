@@ -1,9 +1,21 @@
-# Scientific review: centered discrete primitive in Gini variation
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof checks centering and the constant-annihilating quotient, derives the interval-crossing identity, counts all interval separations and proves an all-dimensional upper bound. A singleton supplies an analytic obstruction in every dimension from six onward. A coarea reduction proves that the exhaustive 52 exact-rational small-order cut checks establish the positive half of the sharp threshold. The claim deliberately does not assert an exact coefficient in dimensions above five.
+## correctness
 
-**Originality — PASS (qualified).** Finite Cesàro/Hardy operator literature and indexed mathematical records were compared using centered summation, unnormalized primitives, Gini pair differences, and contraction-threshold aliases. The closest published treatments use normalized Cesàro matrices in Hardy-type function spaces; an earlier Gini calculation for those matrices is not a logical implication of the centered primitive theorem. An unindexed equivalent derivation remains possible.
+PASS
 
-**Value — PASS.** The exact first failure of pairwise-dispersion contraction at six sites, despite mean-centered increments and output reset, identifies a finite stability boundary for a natural discrete integration operator. The interval-crossing formula also supplies dimension-uniform linear-growth bounds; both distinguish this geometry from Euclidean or adjacent-edge variation. The exact high-dimensional coefficient and weighted generalization are left open.
+For x∈R^n the constant-annihilating centered prefix sum satisfies (T x)_j−(T x)_i=(1/n) sum_{r∈(i,j]} sum_{s∉(i,j]}(x_r−x_s). Counting intervals separating a pair (p,q) gives N_{p,q}=(q−p)(n−q+p), hence upper bound floor(n²/4)/n. The singleton e1 has ratio (n+1)/6, so strict amplification for every n≥6. Coarea/layer-cake over binary cuts is valid for any constant-annihilating linear map and Gini seminorm; exhaustive all 52 proper binary cuts for n=2..5 yields exact maxima 1/2,2/3,5/6,1. Independent exact rational checks reproduced each by subset size and independently verified crossing-count coefficient up through n=14. No claimed sharp n≥6 norm.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary published statements and actual full-text searches support provisional originality for the surviving mathematics; prior related inputs are explicitly credited; priority risks are retained.
+
+## value
+
+PASS
+
+The first dimension at which a centered discrete antiderivative loses contraction in complete-pair Gini variation is a natural stability boundary; the exact n≤5 norm, universal crossing bound and explicit dimension-growing witness distinguish this from an arbitrary finite table or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
