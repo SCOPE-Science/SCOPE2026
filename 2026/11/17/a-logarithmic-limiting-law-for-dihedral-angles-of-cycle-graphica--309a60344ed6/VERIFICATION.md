@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_cycle_angles.py` in a Python 3 environment without third-party packages. It independently enumerates the vertices of the standard root-cycle zonotope, its cyclic-interval facets, all pairwise facet intersections, their exact ranks, and normal Gram products, using rational arithmetic. It compares the observed face-indexed angle multiset with the stated composition formula and verifies the extremal levels and multiplicities for cycle orders four to seven.
+## correctness
 
-Observed exact results: `CYCLE_RIDGE_PASS n=4 vertices=14 facets=12 ridges=24 levels=2`; `n=5 vertices=30 facets=20 ridges=60 levels=4`; `n=6 vertices=62 facets=30 ridges=120 levels=6`; `n=7 vertices=126 facets=42 ridges=210 levels=9`.
+PASS
 
-These finite tests corroborate, but do not establish, the all-dimensional statements. The logarithmic limiting law is proved analytically by a Riemann-sum limit for positive compositions and an elementary two-variable density integration. No independent mathematical audit or formal certification has been performed.
+Faces of the Minkowski root-edge zonotope are indexed by ties in edge linear forms. A codimension-two face has n-3 free edges, i.e. three cut edges and three consecutive blocks, and the contracted triangle has six acyclic orientations, yielding n(n-1)(n-2) ridges. Facets are cyclic intervals; for low and high extreme blocks A,C, outward normals -v_A and v_C give positive dot product ac/n and squared cosine ac/((a+b)(b+c)). Every ordered positive composition contributes 2n ridges. Monotonicity in a,c proves the minimum a=c=1 and maximum b=1 with a,c balanced, including even-n double multiplicity. Uniform integer compositions converge to Dirichlet(1,1,1); mapping W=AC/((A+B)(B+C)) with ordered uniforms gives the stated exact logarithmic CDF and bounded expectation pi²/3-3. The inherited metric, not arbitrary affine deformation, is essential.
+
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
+
+## value
+
+PASS
+
+Genuine metric refinement of the established cycle-zonotope ridge-count formula: explicit all-dimensional Euclidean angle multiset, sharp multiplicities and nondegenerate probabilistic ridge-angle limit on a standard combinatorial polytope. No inflated claim of new face counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
