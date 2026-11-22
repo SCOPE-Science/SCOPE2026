@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact Schur complement and two-column trace formula; complete standard-library Fraction enumeration of every labelled connected simple graph on 2..5 vertices and all pivot ties, with independent explicit rational witness. Checked connected counts 1,4,38,728, failure counts 0,0,0,60 and exact topology and regret.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harbrecht–Peters–Schneider 2012, preprint https://citeseerx.ist.psu.edu/document?doi=7641cdc2bdae865317770d7ce3478e24af0ee087&repid=rep1&type=pdf, §3 describes optimal trace-gain selection as distinct and more expensive than largest diagonal.",
+        "Chen–Epperly–Tropp–Webber 2024, https://doi.org/10.1002/cpa.22234, Appendix C.2 gives generic greedy failure with block examples, not an exact Green-kernel graph-order minimum."
+      ],
+      "reasoning": "Generic suboptimality proves existence for unrestricted PSD matrices, not the first dimension/topology and all-graph lower bound for inverses of unit-shift graph Laplacians. General V-optimality approximation bounds allow strict failures and give neither minimal graph nor its uniqueness.",
+      "searches": [
+        "Greedy Nyström pivoted Cholesky trace error selected vertices on graph Green kernel inverse I+L, minimal connected graph and optimal two-column landmarks",
+        "arxiv:1505.06195",
+        "doi:10.1002/cpa.22234",
+        "doi:10.1016/j.apnum.2011.10.001"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1209.3694",
+      "https://arxiv.org/abs/1505.06195",
+      "https://doi.org/10.1016/j.apnum.2011.10.001",
+      "https://doi.org/10.1002/cpa.22234",
+      "published-finding corpus: published pivoted Cholesky and graph resolvent findings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Garnett–Schneider 2012 gives a 1−1/e bound for **true trace-marginal greedy**; its guarantee neither forces diagonal-greedy optimality on small graphs nor excludes five-node failure.",
+        "Harbrecht–Peters–Schneider 2012 and Liu–Matthies 2015 formalize diagonal pivoting and trace estimates, not an exhaustive small graph classification.",
+        "Chen–Epperly–Tropp–Webber 2024 gives unrestricted-PSD worst cases with different structures."
+      ],
+      "reasoning": "A strict counterexample on an arbitrary PSD input does not imply the unique five-node diamond-with-leaf obstruction for Green kernels; conversely this narrow finite theorem does not generalize the prior worst-case rates. The new contribution is the sharp size cutoff, complete class enumeration and exact pair regret.",
+      "searches": [
+        "Greedy Nyström pivoted Cholesky trace error selected vertices on graph Green kernel inverse I+L, minimal connected graph and optimal two-column landmarks",
+        "minimum dimension worst case greedy pivoted Cholesky on M matrix inverse 5 vertices",
+        "arxiv:1209.3694",
+        "arxiv:1505.06195",
+        "doi:10.1002/cpa.22234"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma–Garnett–Schneider 2012, https://arxiv.org/abs/1209.3694, §§2–3: V-optimality uses marginal trace risk and a submodularity guarantee, not residual diagonal maxima.",
+        "Liu–Matthies 2015, https://arxiv.org/abs/1505.06195, §§2–3 defines the residual-diagonal Cholesky algorithm."
+      ],
+      "reasoning": "One can express two-column Nyström trace as graph Gaussian-field conditional-variance sum and as a Cholesky Schur-complement trace. The true trace-marginal greedy rule is not equivalent to diagonal-greedy: witness post-first-pivot diagonal prefers 3/4 whereas trace gain prefers 2. No inspected equivalent exact minimal-order statement.",
+      "searches": [
+        "Greedy Nyström pivoted Cholesky trace error selected vertices on graph Green kernel inverse I+L, minimal connected graph and optimal two-column landmarks",
+        "five vertex smallest graph counterexample greedy diagonal Cholesky pivoting versus optimal two column trace of shifted Laplacian inverse graph Green kernel",
+        "graph regularized Laplacian kernel active learning maximum conditional variance greedy trace suboptimal",
+        "arxiv:1209.3694"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned neighboring findings on kernel pivots, graph leader placement and graph resolvents, but no same five-vertex exact trace table.",
+        "Complete new exact-rational enumeration of 771 connected labelled graphs of orders 2–5 supplies counts 1,4,38,728 and one failing isomorphism class."
+      ],
+      "reasoning": "The mathematical comparison searched both the graph-specific parametrization and the generic two-column pivot objective; retrieved claims have different matrices or decision rules. The negative search does not prove global novelty, but no inspected table dominates this complete finite classification.",
+      "searches": [
+        "five vertex smallest graph counterexample greedy diagonal Cholesky pivoting versus optimal two column trace of shifted Laplacian inverse graph Green kernel",
+        "diamond graph pendant vertex inverse Laplacian Green function greedy Nyström landmark optimum five vertices",
+        "Greedy Nyström pivoted Cholesky trace error selected vertices on graph Green kernel inverse I+L, minimal connected graph and optimal two-column landmarks",
+        "minimum dimension worst case greedy pivoted Cholesky on M matrix inverse 5 vertices"
+      ]
+    },
+    "rationale": "Inspected literature covers generic diagonal pivoting, graph V-optimality greedy using true marginal trace, and generic PSD counterexamples but does not imply the exact smallest connected unit-shift Green-kernel failure or its sole topology. Full published-index priority is unproved.",
+    "residual_risks": [
+      "Unindexed historical numerical examples might contain the same five-vertex kernel and all-graph cutoff.",
+      "Preprint PDF could not be rendered through the accessible web screenshot endpoint although parsed paper sections were inspected.",
+      "Recent related literature may use V-optimality, uncertainty sampling, or graph landmark terminology rather than Cholesky."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different greedy rule maximizes trace-marginal gain, not diagonal Schur complement",
+        "evidence": [
+          "Defines regularized Laplacian Gaussian field and V-optimality risk; proves submodularity for that risk"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.3694",
+        "material_read": "Full HTML text, sections 1–3 and conclusions, including risk and submodularity criterion",
+        "method": "Read arXiv HTML via search/open/find",
+        "title": "Submodularity in Batch Active Learning and Survey Problems on Gaussian Random Fields",
+        "trigger": "Same Green-kernel conditional variance and greedy graph sensing"
+      },
+      {
+        "assessment": "Describes pivot strategy and generic bounds; no claim about exact five-vertex Green kernel first failure",
+        "evidence": [
+          "Algorithm selects maximal residual diagonal; treats general kernel matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.06195",
+        "material_read": "Full HTML text, introduction, algorithm in sections 2–3, and application discussion",
+        "method": "Read arXiv full HTML",
+        "title": "Pivoted Cholesky decomposition by Cross Approximation for efficient solution of kernel systems",
+        "trigger": "Focal original diagonal-pivoted Cholesky method"
+      },
+      {
+        "assessment": "Text explicitly distinguishes ideal next-step trace minimization from inexpensive largest diagonal pivot; general theorem does not enumerate graph Green counterexamples",
+        "evidence": [
+          "Preprint https://citeseerx.ist.psu.edu/document?doi=7641cdc2bdae865317770d7ce3478e24af0ee087&repid=rep1&type=pdf at section 3 discusses trace Schur complement vs diagonal pivot"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2011.10.001",
+        "material_read": "Public preprint parsed text, sections 1–3 including Algorithm 1, and application overview; PDF visual screenshot unavailable",
+        "method": "Public preprint text extraction through web source (PDF screenshot access was refused)",
+        "title": "On the Low-rank Approximation by the Pivoted Cholesky Decomposition",
+        "trigger": "Foundational trace-error theory potentially dominating the candidate"
+      },
+      {
+        "assessment": "Existing broad PSD greedy counterexamples; different input class and no sharp graph 5-vertex classification",
+        "evidence": [
+          "Appendix C.2 constructs generic block worst-case matrices and analyzes diagonal greedy"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cpa.22234",
+        "material_read": "Open-access full article HTML including sections 1–3 and Appendix C.2",
+        "method": "Read publisher full HTML and Appendix C.2",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Strongest generic modern counterexample and greedy worst-case results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "290479fd-e4af-4521-9be2-a5f0f66ca997",
+  "value": {
+    "rationale": "A complete natural minimal graph-size classification for the canonical unit-shift graph Green kernel and two-column approximation, with tie-independent uniquely minimal obstruction, gives a precise boundary between residual-variance pivoting and V-optimal integrated-risk selection. Useful small exact regression test; the specific regret is small and not overstated.",
+    "status": "PASS"
+  }
+}
