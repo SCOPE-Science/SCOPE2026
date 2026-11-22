@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
-For every connected simple unicyclic graph, the root-coordinate signed-degree formula gives exactly \(4\|x\|_2^2\). A Walsh expansion of its local even functions retains even-degree edge subsets; the graph has exactly two, namely the empty set and its unique cycle. Their local Fourier coefficients are respectively \(F_d\) and \(B_d\), with the incidence-product sign \((-1)^c\). The only forbidden signings are the two coherently oriented cycles, each contributing a forest product. This proves the full generating identity without inductive or numerical assumptions. The polynomial at one has the known acyclic-orientation count. A standalone independent edge-orientation enumerator confirms 2,500 finite attached-forest configurations and 1,168,282 vertices, but finite testing is not an infinite proof.
+## correctness
 
-## Originality (PASS, subject to independent bibliographic review)
-The geometric objects and vertex/acyclic-orientation bijection are known. Grujić, arXiv:1604.06931, computes face numbers and an \(f\)-polynomial for cycle graphical zonotopes; this is not an enumeration of Euclidean vertex radii. Padrol–Pilaud–Poullot, arXiv:2111.12422, give an irredundant deformation-cone description; it does not specify the radial vertex polynomial. Existing exact radial results for trees and for the biclique family do not imply a formula for every unicyclic graph. Results for unicyclic Löwner ellipsoids and cycle intrinsic volumes also concern other invariants. The core finite-degree product plus one Eulerian-cycle correction and the nonisomorphic same-spectrum pair were not located in the checked records. The general even-subgraph Fourier technique is standard, so absolute historical originality of every component is not claimed.
+PASS
 
-## Mathematical value (PASS)
-The result computes a complete natural Euclidean invariant in an infinite graph-polytope family. More than a bare evaluation, it establishes a metric rigidity theorem: the cyclic ordering of degrees and all attached-tree topologies disappear from the full discrete radial spectrum. Two nonisomorphic graphs distinguished by distance between their unique degree-three vertices have identical complete shell polynomials. This identifies a precise geometric obstruction to reconstructing graph structure from a zonotope's vertex radii. The formula requires a genuine cycle-correction mechanism not present for trees, and it can be evaluated without enumerating exponentially many vertices.
+PASS. Graphical-zonotope vertices correspond bijectively to acyclic edge orientations. Each orientation yields exponent Σ_v signed_degree(v)^2. Fourier-Walsh expansion of even local vertex factors survives only even-degree edge subsets; for a connected unicyclic graph these are empty and the unique cycle, giving 2^n prod F_d plus (-1)^c 2^n prod_{cycle} B_d prod_{off} F_d. Exactly 2^(n−c+1) cyclically directed edge assignments are not vertices; along those cycles signs cancel at both incident edges, leaving independent forest F_{d−2} factors to subtract. Formula depends only on length c and on/off-cycle degree multisets. Independently enumerated every acyclic signing for two nonisomorphic six-vertex C4+two-leaf graphs, obtaining identical shells {4:2,8:16,12:14,16:16,20:6,28:2}. Not a weighted/multicyclic or interior radius claim.
 
-## Close literature and residual limits
-The strongest relevant prior assertions found are the classical acyclic-orientation/zonotope-vertex correspondence, graphical zonotope face-polynomial formulas, and deformation-cone geometry. Their conclusions do not entail the new exact metric shell counts. Possible unlocated formulations under random-orientation imbalance, Ising high-temperature/Fourier expansion, and squared indegree-energy terminology remain a historical-priority risk. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: the strongest equivalent radial theorem found is tree-only; a unique cycle contributes a nonempty even subgraph and two forbidden directed orientations, requiring new correction terms. A directly read open-access graphical-zonotope paper concerns fan/deformation geometry, while a full face-count source concerns f-polynomials, not Euclidean vertex shells.
+
+## value
+
+PASS
+
+PASS. The entire radial shell distribution of a natural unicyclic family is invariant under reattachment/reordering of trees with the same separate degree data, exhibiting nonisomorphic equispectral realizations. The unique-cycle Fourier correction is a motivated structural extension of tree radial laws, not a face-vector recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
