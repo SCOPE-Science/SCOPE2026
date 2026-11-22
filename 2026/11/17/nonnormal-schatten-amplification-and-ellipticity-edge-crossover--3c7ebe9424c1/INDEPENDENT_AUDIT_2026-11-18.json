@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b>0 and |kappa|<2sqrt(ab), Q=-(B+B^T)>0 has stationary covariance I. Direct exponential C=e^{tB}=[[u,kappa r],[0,v]] has singular values s_±<1 since I-CC^T=integral_0^t e^{sB}Qe^{sB^T}ds>0. The exact inverse/ordinary OU unitary conjugacy (Bruno et al Lemma 4.2) and symmetric Fock second quantization give singular values e^{-(a+b)t}s_+^j s_-^k, hence S_p^p=e^{-p(a+b)t}/[(1-s_+^p)(1-s_-^p)] for all real p>0 by summing positive geometric series. All eigenvalues depend only on diagonal u,v, while operator norm is vacuum e^{-(a+b)t}. With s_+s_-=uv fixed, larger |kappa| increases s_+/s_- and strictly decreases the product denominator for every p>0. HS denominator det(I-CC^T)=(1-u²)(1-v²)-kappa²r². At endpoint kappa*=2sqrt(ab), Q=qq^T, det[q,Bq]=-2sqrt(ab)(a+b) !=0, so Gramian remains positive for t>0; its determinant has leading det[q,Bq]^2 t^4/12=ab(a+b)^2 t^4/3. Add delta r(t)² with delta=4ab-kappa² and delta/t²->xi to obtain t^4 HS²->1/(xi+ab(a+b)^2/3), versus t² HS²->1/delta for fixed interior. Independent sympy check confirms bracket and signs. Product Schatten formula as general mathematics is known, and rank-one Gramian exponent is not new by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary Kalman-graded theorem in d>=3 establishes general rank-dependent time exponent; it does not specify the exact planar fixed-a,b shear monotonicity for all p>0 or the two-parameter xi crossover. Araki generic product does not optimize within this particular parametric family."
+        ],
+        "reasoning": "Recognize that the isolated rank-one t^4 exponent follows broader Kalman-Gramian theory; the new exact crossover coefficient and full Schatten shear optimization are not mechanically listed by it without the specialized planar calculation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-kalman-graded-schatten-blow-up-and-sharp-rank-bounds-for-inverse--548a8b6ba9a1",
+          "https://ems.press/content/serial-article-files/40585",
+          "inverse Ornstein Uhlenbeck semigroup shear drift Schatten norms ellipticity edge rank one Gramian t fourth power"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2611.06826",
+        "https://ems.press/content/serial-article-files/40585",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-kalman-graded-schatten-blow-up-and-sharp-rank-bounds-for-inverse--548a8b6ba9a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Araki Corollary 3.8 gives a generic product of one-particle singular values; Bruno Lemma 4.2 gives inverse-ordinary conjugacy and spectral claims; Resultary Kalman paper addresses d>=3 rank grading."
+        ],
+        "reasoning": "They imply components (spectral identification, product formula, rank-one determinant exponent), but none alone establishes strict increasing Schatten quasi-norm for every |kappa| with fixed eigenvalues plus the matched ellipticity edge coefficient xi. Distinguish genuine additional result from an elementary recombination.",
+        "searches": [
+          "https://ems.press/content/serial-article-files/40585",
+          "https://arxiv.cnoctave.top/pdf/2611.06826",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-kalman-graded-schatten-blow-up-and-sharp-rank-bounds-for-inverse--548a8b6ba9a1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bruno Lemma 4.2 identifies inverse OU via ordinary OU adjoint; Araki Corollary 3.8 is the general Gamma_s(A) Schatten product for p>=1. The statement explicitly acknowledges these precedents."
+        ],
+        "reasoning": "Changing from Fock Γ_s(C) to Gaussian semigroup does not create a novel abstract product identity. Novelty rests on the computed shear extremal law and the joint t,kappa edge scaling.",
+        "searches": [
+          "inverse Ornstein Uhlenbeck semigroup shear drift Schatten norms ellipticity edge rank one Gramian t fourth power",
+          "https://ems.press/content/serial-article-files/40585",
+          "https://arxiv.cnoctave.top/pdf/2611.06826"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Formula reduces to elementary 2x2 Gramian determinant, but no checked source supplies the combined delta/t² transition with coefficient ab(a+b)²/3."
+        ],
+        "reasoning": "No finite data table at issue; exact rational/analytic determinant expansion checked, and general second-quantization table itself credited as prior, not treated as the new claim.",
+        "searches": [
+          "inverse Ornstein Uhlenbeck semigroup shear drift Schatten norms ellipticity edge rank one Gramian t fourth power",
+          "two-mode inverse OU Schatten determinant shear kappa rank-one small time coefficient"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality restricted to strict shear optimization in fixed-spectrum planar OU and the explicit simultaneous ellipticity/time crossover. The general second quantization Schatten product (Araki et al 1995) and inverse OU intertwining (Bruno et al 2026) are openly preexisting; a separate Resultary Kalman-grading result gives general rank-degenerate exponents in dimension at least 3 and does not directly imply the fixed-spectrum two-parameter extremal family.",
+      "residual_risks": [
+        "The small-time rank-one Gramian exponent is part of broader control theory; no claim of novelty for t^4 mechanism alone.",
+        "Another specialization may previously have computed the same planar parameter crossover under covariance/controllability language; search cannot certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: intertwining and spectra known, no Schatten shear optimization or ellipticity window",
+          "evidence": "Lemma 4.2: H_UO(t)=exp(t tr B) U H_OU(t)^* U^-1; find on complete text for Schatten returns no matches.",
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.06826",
+          "material_read": "Full 17-page arXiv PDF, introduction, Lemma 4.2 and Theorem 4.4; PDF page 6 screenshot",
+          "method": "Lawful OA full PDF read through sections and screenshot",
+          "title": "Bruno, Casarino, Ciatti, Sjogren, Spectral and mapping properties of the inverse OU operator (2026)",
+          "trigger": "Exact same inverse Gaussian generator and Hilbert-space normalization"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: general symmetric second quantization Schatten product p>=1 already proved",
+          "evidence": "Corollary 3.8 states ||Gamma_s(A)||_p^p=prod_n(1-s_n(A)^p)^-1 for 1<=p<infinity; no parameter-specific extremal/crossover law.",
+          "identifier_or_url": "https://ems.press/content/serial-article-files/40585",
+          "material_read": "Full PDF text, Section 3 Lemma 3.6 and Corollary 3.8, screenshot",
+          "method": "Open-access full primary paper read",
+          "title": "Araki, Sinha and Sunder, On boundedness and ||.||_p continuity of second quantisation (1995)",
+          "trigger": "Exact general Schatten product potentially dominates main formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same stable eigenvalues and trace mask arbitrarily enhanced short-time Hilbert-Schmidt growth near degenerating diffusion. Exact fixed-spectrum nonnormality discrimination across all Schatten orders and the t²-to-t⁴ boundary window are meaningful quantitative operator diagnostics, beyond re-stating an old Fock product formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Nonnormal Schatten amplification and ellipticity-edge crossover for planar inverse Ornstein-Uhlenbeck semigroups",
+  "limitations": [
+    "The small-time rank-one Gramian exponent is part of broader control theory; no claim of novelty for t^4 mechanism alone.",
+    "Another specialization may previously have computed the same planar parameter crossover under covariance/controllability language; search cannot certify priority."
+  ],
+  "schema_version": 1
+}
