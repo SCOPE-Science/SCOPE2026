@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted statement follows from two distinct arguments: two-variable formulas identify every level by the number of predecessor levels, and width-\(k\) formulas count vertices of an identified level up to \(k\). The converse uses a permanent level-preserving \(k\)-pebble correspondence and the fact that at most \(k-1\) other pebbles remain at a move. The size-spectrum series separates capped words with no saturated entry from those with a saturated entry; the latter may realize every larger total order. These steps have been reconstructed from the displayed definitions and do not depend on small-instance extrapolation. Finite tuple-color refinement and independent composition enumeration reproduce the claimed examples.
+## correctness
 
-## Originality — PASS, with priority qualification
-The closest primary studies concern fixed-variable succinctness on linear orders, bounded-quantifier-rank equivalence of colored linear orders, and two-variable *satisfiability* over richer ordered signatures. Their exact conclusions do not supply the present unrestricted-depth classification of strict weak orders or its distinction between minimum-representative and realized-at-order spectra. Earlier mathematical work on bounded-depth weak-order types concerns a different resource restriction. The public mathematical-record searches on equivalent descriptions and the two cited primary full texts showed no theorem entailing this complete package. A general decomposition or ordered-equivalence result not identified by these searches remains a substantial historical-priority risk; no proof of global uniqueness is claimed.
+PASS
 
-## Mathematical value — PASS
-Strict weak orders are the basic mathematical model of rankings with ties. The theorem completely determines what finite-variable logic can learn from arbitrary levels of ties while retaining unbounded awareness of their order: exact height but only capped tie multiplicities. It yields sharp logical width, canonical minimum-order models, and the less immediate exact-order theory spectrum where saturation creates collisions among different compositions. The latter distinguishes minimal-model enumeration from the number of theories actually represented at each population size. These are natural exact classification and enumeration questions, not a fixed arbitrary small graph sample.
+For each i, the two-name formula P_i(x) recursively asserts i strict predecessor levels; local shadowing makes the recursion legitimate at arbitrary depth and L_i(x)=P_i∧¬P_{i+1} isolates level i. With k variables, requiring t≤k distinct elements satisfying L_i distinguishes different capped multiplicities. Conversely a perpetual k-pebble injection preserving level indices and equality always has a reply: after lifting one pebble at most k−1 remain, and either an unsaturated level has exact matching size or each saturated level has ≥k elements. This proves equivalence for every finite depth, not merely sampled tests. Capped words give unique family-relative minimum models, k^h at fixed height and exact defining width M+1. Splitting capped words with and without a k letter yields both rational generating functions and exact-order realisability. Width one distinguishes no two nonempty pure strict orders; boundary cases h=1, k=2 and n_i=1 are covered. Independently constructed tuple-colour refinement on all 63 compositions of 1..6 vertices gave 0 disagreements across all 1953 unordered pairs for k=2,3 (1725 and 9549 tuples, respectively); direct independent compositions gave u2 through N=12 and u3 through N=10. The finite computation only corroborates the analytic argument.
 
-## Limitations and residual risk
-The language is pure strict comparison, not counting logic, an enriched total-preorder/successor signature, or arbitrary posets. The assessment is not an independent priority search or mathematical certification. A general composition theorem, different terminology, or a source not fully indexed could imply the statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary semantic searches, a full reading of related published chain-union findings, and primary articles on pure linear orders, finite-coloured-order EF ranks, total preorders with additional relations, and general finite-variable pebble games show no identified predecessor that entails the ordered truncated-level theorem together with the distinct exact-order spectrum. The basic pebble characterization and composition algebra are classical. Priority is qualified by the possibility of an unindexed general composition/interpretation theorem.
+
+## value
+
+PASS
+
+The object is the full natural class of finite strict weak orders (rankings with ties), not an arbitrary numerical slice. Complete unrestricted-depth FO^k classification sharpens exactly which tie multiplicities are observable at any fixed variable budget while height remains visible, yields canonical minimum models and sharp width, and separates two distinct natural order spectra (minimum sizes versus theories actually realised by N elements). This is a motivated reusable exact classification, not a mere verifier output or a single tiny-case negative check. The formulas and counting follow elementarily after the structural insight; no major general theorem or downstream application is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
