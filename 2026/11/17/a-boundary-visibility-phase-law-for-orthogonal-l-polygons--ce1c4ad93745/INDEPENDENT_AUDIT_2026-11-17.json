@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:55:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Decomposed the six boundary edges into right/lower group H, upper/left group V, and left/bottom remainder. Only opposite-group pairs can be blocked; their line segment crosses the excluded northeast notch exactly when ad>bc, as follows by comparing horizontal y=B and vertical x=C crossing times. Direct elementary integration over the four nonconstant edge-pair products plus the automatically blocked baseline 3AD+AC+BD gives the two stated logarithmic branches of J. The ordered pair probability is 2J/[2(A+B+C+D)]^2, strictly in (0,1/2) because the blocked set is a strict subset of opposite-group pairs. Independently expanded both rational-log branches with SymPy, confirming their common first jet at AD=BC and transverse second derivative difference -D(C-D)^2/(BC^2); for A=D=1-t,B=C=t verified J(1/2)=7/4, fourth derivative difference 1024 and visibility jump -128 with matching derivatives through order 3. The symbolic equalities support the all-parameter integral proof; Monte Carlo checker is not relied on as a continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balko et al. Beer index is normalized area-uniform visibility.",
+          "Sharp fixed-area Beer-index L-notch exact theorem explicitly samples interior AREA-uniform points, not boundary arclength."
+        ],
+        "reasoning": "A general algorithm for polygons with area-uniform point distributions does not furnish this singular boundary-supported integral without separate edge-pair computation. In particular the prior fixed-area optimum is not the same endpoint experiment.",
+        "searches": [
+          "https://arxiv.org/abs/1412.1769",
+          "https://arxiv.org/abs/2208.07106",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-area-beer-index-law-for-notched-parallelograms--529f7fcacd94/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-area-beer-index-law-for-notched-parallelograms--529f7fcacd94/RESULT.md",
+        "https://arxiv.org/abs/1412.1769",
+        "https://arxiv.org/abs/1501.00292",
+        "https://arxiv.org/abs/2208.07106"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The area-visibility result uses two independent two-dimensional Lebesgue-uniform endpoints and obtains an affine-invariant notch law.",
+          "The current source integrates over six one-dimensional boundary edges, whose relative weights depend on physical lengths and are not affine invariant."
+        ],
+        "reasoning": "No parameter substitution of the area formula gives the boundary law: singular arclength sampling is not an instance of the area measure. Generic convexity/visibility methods are premises, not the displayed exact cusp classifications.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-area-beer-index-law-for-notched-parallelograms--529f7fcacd94/RESULT.md",
+          "https://arxiv.org/abs/1501.00292",
+          "https://arxiv.org/abs/1402.5681"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current blocked event ad>bc agrees formally with the geometric crossing predicate in the area-paper, but integration uses boundary edges and arclength-product measure, not area-area measure.",
+          "Relevant Resultary hits for boundary sampled polygons concerned hulls and chord area, not loss of mutual visibility on an L polygon."
+        ],
+        "reasoning": "Coincidence of the segment predicate does not imply coincidence of endpoint measures, density, normalization, or cusp order.",
+        "searches": [
+          "Resultary boundary perimeter visibility random arclength two points orthogonal L shaped polygon notch exact C3 C4 derivative jump",
+          "perimeter pair visibility six sided orthogonal L region exact logarithmic integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact perimeter-sampled L-domain formula was found in returned Resultary matches; prior area-based formulas have different expressions and normalizations."
+        ],
+        "reasoning": "The check targets exact boundary-vs-boundary visibility probabilities and the full four-parameter analytic law, not only the shared half-bound or shape family.",
+        "searches": [
+          "Resultary arclength L polygon visibility probability four dimensions exact transition",
+          "polygon visibility probability two independent boundary points exact formula table"
+        ]
+      },
+      "rationale": "The exact related four-parameter notched parallelogram theorem is for two-dimensional AREA-uniform endpoints and derives a different affine-invariant Beer index; the audited measure is one-dimensional arclength on six edges and is singular relative to area, so its exact law and C1/C3 cusps are not specializations. García-Pelayo treats lines sampled by invariant line measures, another non-equivalent boundary endpoint law. Other cited visibility algorithms and Beer-index treatments similarly do not state the perimeter-pair law. Priority remains provisional against older specialized boundary visibility calculations.",
+      "residual_risks": [
+        "Specialized older formula for two independent random boundary points on an L domain may be unindexed.",
+        "Some polygon algorithms could be generalized to boundary sampling with additional calculations, but this is not an existing exact formula in inspected text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: points are area-uniform, not arclength boundary sampled",
+          "evidence": [
+            "Finding and assumptions explicitly say two-dimensional area uniform; proof Step 2 integrates four independent continuous area coordinates"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-area-beer-index-law-for-notched-parallelograms--529f7fcacd94/RESULT.md",
+          "material_read": "Complete published RESULT.md: finding, both branches, exact area-uniform derivation and optimizer, limitations",
+          "method": "Read GitHub public raw original full RESULT.md",
+          "title": "Sharp fixed-area Beer-index law for notched parallelograms",
+          "trigger": "Closest four-parameter one-notch geometry with logarithmic visibility"
+        },
+        {
+          "assessment": "Not proven to cover a boundary singular probability; full-text priority risk noted",
+          "evidence": [
+            "Beer-index distribution is defined by independent points uniform in the body"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.1769",
+          "material_read": "Abstract and methodological description of area-uniform endpoint definition; full scientific PDF not re-read in this run",
+          "method": "Read open-access bibliographic/abstract source",
+          "title": "On the Beer Index of Convexity and Its Variants",
+          "trigger": "Canonical original Beer measure"
+        },
+        {
+          "assessment": "Chord sampling is motion-invariant line based, not independent boundary point samples",
+          "evidence": [
+            "The endpoint measure induced by invariant lines differs from product arclength measure"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.00292",
+          "material_read": "Paper description and the invariant-line sampling setup; not a complete fresh full-text reading",
+          "method": "Read identified primary abstract and cited model definitions",
+          "title": "Computation of the Multi-Chord Distribution of Convex and Concave Polygons",
+          "trigger": "Potential alternative random chord measure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independently arclength-uniform boundary endpoints represent a canonical geometric visibility observable, distinct from the familiar area Beer index. The all-positive-length formula yields a global sharp probability interval and an actual loss-of-smoothness hypersurface, including a measurable fourth-order cancellation in the natural symmetric square-notch one-parameter family. These provide motivated exact geometric benchmarks instead of a random selected numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Orthogonal one-reflex-corner L polygons and independent perimeter-uniform endpoints only.",
+    "Generic C1/not-C2 claim concerns transition points with C != D, and C3/not-C4 claim is specific to the symmetric family."
+  ],
+  "schema_version": 1
+}

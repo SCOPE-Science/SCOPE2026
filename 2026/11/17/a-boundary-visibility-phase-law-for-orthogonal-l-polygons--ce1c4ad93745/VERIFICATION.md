@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Checks and limits
+# Independent mathematical audit
 
-The exact proof partitions the six-edge boundary into three visibility groups, establishes \(ad>bc\) as the necessary and sufficient obstruction condition for opposite groups, and evaluates all four nontrivial edge-pair integrals. The analytic continuation comparison yields the derivative jump along the balance hypersurface. In the square-notch specialization, the difference of the two analytic continuations is \(128h^4/3+O(h^6)\), giving the visibility fourth-derivative jump \(-128\).
+## correctness
 
-Run `python3 checker.py` from the same directory. It uses no third-party dependencies and a fixed pseudorandom seed. It samples both boundary endpoints on all six edges and tests the line's horizontal and vertical crossing times separately from the closed formula. The six tested parameter quadruples are \((1,1,1,1)\), \((0.1,0.9,0.3,0.2)\), \((1,2,3,4)\), \((4,2,3,0.1)\), \((0.7,0.4,0.8,0.3)\), and \((0.9,1.1,1.2,1.3)\). With 130,000 random boundary-pairs each, every empirical obstruction probability was within 1.7 estimated standard deviations of the exact formula. The finite-difference quotient of the two analytic extensions divided by \(h^4\) approached \(128/3\) as predicted. The diagnostic concluded `BOUNDARY_L_VISIBILITY_CUSP_CHECK_OK`.
+PASS
 
-These finite tests do not prove the exact integrals, differentiability or historical novelty; the proof establishes the first two, and historical priority remains provisional. No independent mathematical audit was performed.
+Decomposed the six boundary edges into right/lower group H, upper/left group V, and left/bottom remainder. Only opposite-group pairs can be blocked; their line segment crosses the excluded northeast notch exactly when ad>bc, as follows by comparing horizontal y=B and vertical x=C crossing times. Direct elementary integration over the four nonconstant edge-pair products plus the automatically blocked baseline 3AD+AC+BD gives the two stated logarithmic branches of J. The ordered pair probability is 2J/[2(A+B+C+D)]^2, strictly in (0,1/2) because the blocked set is a strict subset of opposite-group pairs. Independently expanded both rational-log branches with SymPy, confirming their common first jet at AD=BC and transverse second derivative difference -D(C-D)^2/(BC^2); for A=D=1-t,B=C=t verified J(1/2)=7/4, fourth derivative difference 1024 and visibility jump -128 with matching derivatives through order 3. The symbolic equalities support the all-parameter integral proof; Monte Carlo checker is not relied on as a continuum proof.
+
+## originality
+
+PASS
+
+The exact related four-parameter notched parallelogram theorem is for two-dimensional AREA-uniform endpoints and derives a different affine-invariant Beer index; the audited measure is one-dimensional arclength on six edges and is singular relative to area, so its exact law and C1/C3 cusps are not specializations. García-Pelayo treats lines sampled by invariant line measures, another non-equivalent boundary endpoint law. Other cited visibility algorithms and Beer-index treatments similarly do not state the perimeter-pair law. Priority remains provisional against older specialized boundary visibility calculations.
+
+## value
+
+PASS
+
+Independently arclength-uniform boundary endpoints represent a canonical geometric visibility observable, distinct from the familiar area Beer index. The all-positive-length formula yields a global sharp probability interval and an actual loss-of-smoothness hypersurface, including a measurable fourth-order cancellation in the natural symmetric square-notch one-parameter family. These provide motivated exact geometric benchmarks instead of a random selected numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
