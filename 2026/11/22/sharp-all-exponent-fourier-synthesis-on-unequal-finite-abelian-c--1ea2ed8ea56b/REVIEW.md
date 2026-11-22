@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** For all finite abelian factor groups of orders at least two and all real exponents strictly between one and infinity, the Fourier image of a two-axis-supported function is exactly the additive-array subspace. Normalization of any nonzero maximizing Fourier entry is legitimate under modulation. Strict convexity proves the affine minimizer exists uniquely. Independent permutations of nonidentity dual indices force exactly four block values, and conjugation forces them to be real. The derivative equations yield the stated unique global minimizer, while inverse character orthogonality gives every coefficient of the extremizing support function. Differentiating the exponent-dependent powers proves the unique sign transition. The standard-library checker passed 4,768 supplementary evaluations; the universal theorem is analytic and does not rely on those finite samples.
+
+## Originality
+**PASS relative to inspected primary material and indexed results, with explicit residual risk.** The closest general synthesis paper by Iosevich, Li and Yu assumes affine-transitive supports in the exact theorem, whereas a coordinate cross has multiple orbits. The 2025 paper by Bhowmik, Deodhar and Iosevich gives broad estimates, not this exact all-exponent rectangular-cross optimizer. Two publicly indexed sharp fourth-moment results for coordinate crosses instead maximize \(L^4\) Fourier extension from coefficient \(\ell^2\), a distinct operator norm. Existing exact \(r=4\), equal-factor cross and line-pencil synthesis results are covered special cases and are explicitly acknowledged. The new contribution is the simultaneous unequal finite-abelian factor order, full \(1<r<\infty\) sharp formula, complete complex equality class, and unique critical-exponent phase diagram. The possibility of a general older point-evaluation theorem for additive product subspaces is not eliminated.
+
+## Mathematical value
+**PASS.** The two-axis union is a natural minimal nontransitive Fourier support in finite harmonic analysis, and unequal factor orders are not captured by transitive-affine formulas. The exact all-exponent norm and equality family directly identify how the two arms compete in Fourier synthesis. The intersection coefficient changes sign at an explicit dimension-dependent critical exponent, a structural feature absent from a single fourth-power computation. The classification may inform sharp interpolation or nontransitive synthesis bounds but none of those downstream results is claimed here.
+
+## Scope and limitations
+The result covers only finite abelian groups, a union of two coordinate axes meeting at one point, counting-measure Fourier norms, and the strict-convexity range of exponents. No claims are made about endpoints, weighted norms, arbitrary subgroup unions, or near-extremizer stability. Independent mathematical audit is not performed. Literature priority is provisional.
+
+Self-review: passed. Independent audit: not yet performed.
