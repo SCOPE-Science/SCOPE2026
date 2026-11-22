@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every q>=3 and n>=3 the exact legal-swap criterion forces prefix aba. Local inspection of all intervening a-free blocks gives a unique finite block grammar with three complete-block kinds and three terminal-tail kinds. Multiplying their weights gives the full multivariate enumerator. The univariate denominator factors algebraically and yields a weighted-tribonacci recurrence. The maximal length with k initial-symbol occurrences is 4k-3, attained by aba(cbca)^(k-2)cb; this excludes balanced q>=4 and small ternary multiplicities. An explicit balanced ternary family exists for all m>=3 and coefficient extraction yields exactly 6*binomial(2m-3,m). The standalone exact checker compared direct star swaps and grammar composition histograms for 26 alphabet/length cases, confirmed recurrence, six balanced coefficients and 22 constructive multiplicities. Proof does not depend on the finite check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gregor–Merino–Mütze, https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.22915, defines the graph on all multiset permutations; forbidding repeated neighbors removes vertices and edges, so unrestricted Gray-code theorems do not imply the frozen census.",
+        "Fuchs et al., https://arxiv.org/html/2511.06473v1, Sec. 4.1, examines only adjacent-position swaps and derives a different rigidity invariant for ternary proper words."
+      ],
+      "reasoning": "Neither unrestricted star-swap connectivity nor constrained adjacent-swap reachability subsumes the intersection of properness and first-position-to-arbitrary-position swaps. A statement about fewer or different edges cannot bound the new degree-zero counts without an explicit reduction, and examples show the two zero-degree predicates are incomparable.",
+      "searches": [
+        "Star transposition Gray codes for multiset permutations 2021 Gregor Merino Mütze",
+        "Coloring Reconfiguration under Color Swapping paths rigid strings theorem 2025",
+        "star transposition reconfiguration of words with no repeated adjacent letters components degree generating polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.07465",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.22915",
+      "arXiv:2511.06473",
+      "https://arxiv.org/html/2511.06473v1",
+      "MSC2020 68R15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proper word 0102 has no nontrivial legal first-position star swap, but 0102 -> 0120 is a legal adjacent swap.",
+        "The proper word 010121 is frozen under adjacent swaps, whereas exchanging its first and fifth symbols yields proper word 210101.",
+        "Gregor–Merino–Mütze has no proper-word restriction; Fuchs et al. has no nonadjacent star move."
+      ],
+      "reasoning": "The two explicit witnesses prove that the adjacent-swap frozen class and star-swap frozen class do not contain one another. Therefore even a complete adjacent-swap degree enumerator cannot imply this star-frozen count via the identity map. The unrestricted star-swap result does not imply a frozen count for an induced proper-word subgraph.",
+      "searches": [
+        "star swaps of forbidden-adjacent-equal strings exact isolated count proper q colorings",
+        "star transposition Gray codes for multiset permutations unrestricted graph",
+        "Coloring Reconfiguration under Color Swapping adjacent pairs on path"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gregor–Merino–Mütze, arXiv:2108.07465, studies multiset star transpositions without adjacency restrictions.",
+        "Fuchs et al., arXiv:2511.06473, Sec. 2.1 and 4.1, formally restrict their color swaps to edges of the proper-coloring graph; on a path these are neighboring word positions."
+      ],
+      "reasoning": "No inspected equivalent formulation provides the star-swap isolated-vertex grammar or composition census under properness; identical use of words such as star, swap, or coloring alone is not claim coverage.",
+      "searches": [
+        "star transposition graph proper colorings adjacent unequal words isolated vertices homopolymer free Gray code",
+        "star swaps of forbidden-adjacent-equal strings exact isolated count proper q colorings",
+        "\"star transposition\" \"no equal adjacent\" Gray code words",
+        "\"star transposition\" \"frozen\" words Gray codes",
+        "q-ary proper words legal first-position swap graph frozen if three letters multiset equal m at least three no frozen four symbols"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed result on legal adjacent swaps of homopolymer-free words gives a Fibonacci-type isolated-vertex count, not the star-swap tribonacci series.",
+        "The indexed median swap-graph result concerns bounded monochromatic runs in binary words and adjacent swaps, not first-position star swaps under properness."
+      ],
+      "reasoning": "The closest indexed tables involve a different move, a different domain, or different profile observables. None is a table of fixed-composition star-frozen proper words or a theorem yielding the exact balanced ternary binomial number. The search is bounded and is not a uniqueness certificate.",
+      "searches": [
+        "exact number of isolated vertices in the star transposition graph of words with no identical adjacent letters, rational generating function tribonacci frozen states",
+        "proper path coloring permutations star swaps fixed multiset no adjacent identical stars frozen balanced ternary count",
+        "star transposition proper words adjacent distinct isolated vertices reconfiguration Gray code"
+      ]
+    },
+    "rationale": "The closest star-swap monograph/paper considers unrestricted multiset permutations; a nonlocal first-position exchange with an additional adjacent-inequality constraint changes the graph and creates frozen states. The closest proper-coloring reconfiguration paper permits exchanges only along an edge of the original path, i.e. adjacent-position swaps. The present star-frozen composition series and ternary/four-symbol equal-content threshold are not consequences of either. The accessed published index and accessible historical result summaries yielded no equivalent count. Residual literature-priority risk is explicitly retained.",
+    "residual_risks": [
+      "A previous equivalent enumeration of proper-word first-position star-swap isolated vertices under unsearched terminology cannot be excluded.",
+      "Results about unrestricted star-transposition graph connectivity cannot be used to infer connectedness after the proper-word restriction.",
+      "No conclusion about Hamiltonicity for q>=4 equal-composition classes follows solely from the absence of frozen states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNRESTRICTED_SCOPE; no proper-word isolation or full-content enumerator in the inspected sections.",
+        "evidence": [
+          "https://arxiv.org/abs/2108.07465",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.22915"
+        ],
+        "identifier_or_url": "arXiv:2108.07465; https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.22915",
+        "material_read": "Abstract, introduction, graph and Hamiltonicity definitions, results and concluding open questions in the accessible full publisher HTML; original arXiv submission metadata.",
+        "method": "Read accessible full HTML sections and checked properness/forbidden adjacent-equality terminology.",
+        "title": "Star transposition Gray codes for multiset permutations",
+        "trigger": "Exact same star-transposition operation and multiset-permutation objective"
+      },
+      {
+        "assessment": "DIFFERENT_MOVE; exchanges two neighboring vertices of a path rather than position zero with an arbitrary later position.",
+        "evidence": [
+          "https://arxiv.org/html/2511.06473v1"
+        ],
+        "identifier_or_url": "arXiv:2511.06473; https://arxiv.org/html/2511.06473v1",
+        "material_read": "Full HTML introduction and problem definition and Sections 4.1.1–4.1.2 including rigidity, adjacent-position legality, and path reachability theorem.",
+        "method": "Read accessible arXiv HTML sections and compare the precise allowed swap positions.",
+        "title": "Coloring Reconfiguration under Color Swapping",
+        "trigger": "Same proper path-colorings and swaps, with possible rigidity results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e8f1957b-eebe-4d4d-9432-2cf7b8664505",
+  "value": {
+    "rationale": "The question is naturally motivated by generating fixed-composition strings through local legal changes while preserving an adjacent-inequality (homopolymer-free) constraint. A frozen word is an absolute obstruction to a spanning star-transposition Gray code, and exact counts by every content vector quantify that obstruction. The sharp alphabet transition at equal multiplicities and the closed binomial ternary census go beyond a mere finite example; the weighted-tribonacci total law and max-length frequency barrier cover all lengths and alphabets. This does not purport to characterize all nontrivial components or solve the unrestricted Gray-code problem.",
+    "status": "PASS"
+  }
+}
