@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each continuity sector is an affine \(\lambda\)-contraction. The explicit crossing clocks classify almost every orbit, and a simultaneous crossing enters a forever-alternating invariant strip. Independence of the two uniform crossing variables gives the squared-bin basin-area formula; one-sided derivatives prove every strict cusp and a bounded geometric remainder proves the asymptotic coefficient. The packaged checker independently exercises exact rational versions of these relations. Threshold preimages form an area-null set and are not asserted to satisfy the a.e. classification.
+## correctness
 
-**Originality — PASS on inspected evidence.** Gaivão and Pires (arXiv:2405.08444, Theorem 2.2, introduction, and Section 5) establish generic asymptotic periodicity of polyhedral piecewise-affine systems but neither this two-coordinate basin area nor an infinite family of cusp maxima. Calderón and Villar-Sepúlveda (arXiv:2309.09154, Theorem 1.3 and proof) treat one-dimensional attractor dimension and entropy, not a planar basin measure. Distinct nonlinear neuron and threshold-network models appearing in related searches have different maps, hypotheses, and observables and do not imply the formula. Risk: an equivalent calculation could exist in unindexed relay-map literature.
+PASS
 
-**Mathematical value — PASS.** Basin volume is a natural quantitative refinement of attractor existence. Two independently delayed threshold crossings yield a sharp, countably infinite series of parameter-induced changes in attraction probabilities while the attractor roster itself never changes. The precise \(3/4\) weak-contraction coefficient and a visible resurgence from a basin minimum give measurable dynamical content, not a restatement of local contraction.
+For 0<λ<1, same-side quadrants are invariant fixed-point basins; mixed quadrant x<1/2<y has pre-flip x_k=1−λ^k(1−x0), y_k=λ^k y0. Their first half-threshold crossing times agree exactly on the basin of the alternating prime two-cycle; simultaneous flipping enters an alternating invariant strip, with contraction λ² for the two-step return. For uniform initial coordinates, the two crossing clocks are independent with bin widths ℓ_j=(1−λ)/(2λ^j), final ℓ_K=1−1/(2λ^{K−1}), K=ceil(log(1/2)/logλ), so A=2Σℓ_j², other two basin measures (1−A)/2. Differentiation of bins on both sides of λ_m=2^(−1/m), m≥2, gives positive left and negative right derivatives, with maximum 3(1−λ_m)/(2(1+λ_m)); asymptotically A=3(1−λ)/4+O((1−λ)²) as λ↑1. Checked rational-bin algebra and exact λ=2/3 A=1/4; independently compared one-sided derivative signs m=2..13 and numerical weak-contraction ratios 0.753141,0.750056,0.750016 for decreasing deficits. Only algebra/finite parameters were computed; proof covers infinite cusps.
 
-Independent mathematical checking and exhaustive publication-priority verification have not been performed. The conclusion is confined to this specified family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gaivão–Pires establish generic asymptotic periodicity for certain higher-dimensional piecewise contractions with variable partition hyperplanes; this does not compute the exact Lebesgue area of a tuned two-coordinate relay basin or its infinite cusp parameters. Calderón–Villar-Sepúlveda address one-dimensional injective piecewise contractions. Closely named coupled cusp/threshold records in Resultary refer to different maps and observables. No inspected same-model prior provides the crossing-clock squared-bin formula.
+
+## value
+
+PASS
+
+Even a two-node bistable hard-threshold network has a nontrivial phase basin-volume response: infinite nondifferentiable resonances accumulating at λ→1 despite fixed attractor inventory. The all-parameter exact measure and sharp weak-contraction scaling quantify a natural sensitivity invariant unavailable from generic attraction/periodicity statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
