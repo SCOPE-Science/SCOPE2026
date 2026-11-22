@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The fixed-point congruence (K-1)v=j is exhaustive with the nonnegative integer restriction and strict half-open boundary j<K-1. The first-coordinate branch integer m is exactly 0..j. Counting gives ceil(K)(ceil(K)-1)/2 and its jumps. One-sided upper-triangular differential has diagonals -K v_j, K, K(1+(u+v)/64). Exact product coupling of per-row grids and weighted 2v bins proves W1 <= 3/r+3/[2(r-1)] <=6/(r-1) for all integer r>=2, not just sampled values. Rational checker tests all 71115 constructed states for 18 rational K, plus boundary cases; finite samples do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published result Coupling-independent periodic grids and sharp equidistribution in triangular modular maps studies constant integer diagonal gains, with product counts, not variable coefficients K v(1-u).",
+        "The published result Periodic-point lifting and a sharp two-cycle phase diagram for a polynomial modular skew map has constant-gain base/fiber lifting; here the first-coordinate gain depends on second-coordinate state."
+      ],
+      "reasoning": "Neither compared model contains this nonlinear coupled face map as a reported corollary or reduction; in particular their product-grid periodic counts differ from a triangular staircase and their uniform-grid limit differs from density 2v. General fractional-part fixed-point manipulations are elementary tools, not a prior theorem implying the stated named-map classification without additional computation.",
+      "searches": [
+        "coupled modular logistic map invariant boundary face fixed points quadratic proliferation spatial equidistribution",
+        "modulo polynomial map triangular number fixed point count repelling plane",
+        "\"intertwining logistic map\" fixed points bifurcation w=0 equilibrium count 64 mu"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/sym16020169",
+      "https://doi.org/10.1155/2017/6969312",
+      "Coupling-independent periodic grids and sharp equidistribution in triangular modular maps",
+      "Periodic-point lifting and a sharp two-cycle phase diagram for a polynomial modular skew map"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 Tian–Lu et al. gives the earlier logistic family and numerical dynamics/cryptographic S-box design; presence of the same restricted map does not itself state or imply the full triangular census without solving the two fixed-point congruences.",
+        "2024 Zhao–Ma supplies exact Eq. (2) but no analytic periodic-point classification.",
+        "Other indexed triangular modular maps have fixed-point counts from constant-gain branch lifting and thus do not dominate this nonlinear variable-gain result."
+      ],
+      "reasoning": "The new claim follows from two congruences and discrete row arithmetic and is not a restatement of a displayed prior result. Potential broader general theorems of piecewise fractional-part maps could include it, but no dominating precise theorem was found in the inspected sources. Independent priority check remains desirable.",
+      "searches": [
+        "\"Intertwining Logistic\" Ye \"fixed point\" equilibria",
+        "\"Intertwining Logistic\" invariant plane \"w=0\" periodic points",
+        "two dimensional skew modular map (x,y) -> (K y(1-x) mod 1, K y mod 1) fixed-point lattice triangular staircase density 2y"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhao–Ma 2024 Equation (2), exact full map; its Sections 3–5 discuss numerical bifurcation, finite-precision tests and PRNG statistics, not the face fixed-point census.",
+        "Tian–Lu et al. 2017 Section 2.1 formulates earlier intertwining logistic map with sine third coordinate; its zero-third-coordinate face at equal gains is algebraically the same subsystem, but no exact census or limiting distribution is stated."
+      ],
+      "reasoning": "The matching object is the two-dimensional invariant-face restriction (u,v)->({K v(1-u)},{K v}). The prior 2017 map shares this restriction, so identity of the subsystem is explicitly acknowledged. The new statement is a simultaneous exact count for all K, an anomalous fixed curve at K=1, one-sided multipliers, and a quantitative 2v spatial limit. Inspected full-text original papers do not state these consequences.",
+      "searches": [
+        "Simple intertwining logistic Zhao Ma 2024 invariant w=0 face triangular number equilibria K(K-1)/2 modulo",
+        "intertwining logistic map 3D exact count fixed points w=0 invariant plane repelling equilibria",
+        "\"Simple Intertwining Logistic\" \"fixed points\"",
+        "\"intertwining logistic map\" \"equilibrium\" \"fixed point\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Zhao–Ma article presents parameter sweeps and randomness plots, not a tabulation of the 2016 or 32640 boundary-fixed counts.",
+        "Nearest matching indexed repository records are about other maps and do not list this specific face or its staircase."
+      ],
+      "reasoning": "No exact count table for the invariant face was identified in inspected primary literature and searched indexed summaries. This is an evidence-limited absence, not a proof of uniqueness; a private historic ledger was separately checked for duplicate claims.",
+      "searches": [
+        "Zhao Ma 2024 simple intertwining logistic modular map exact equilibria boundary face w=0 stationary points 2016 32640",
+        "two dimensional skew modular map (x,y) -> (K y(1-x) mod 1, K y mod 1) fixed-point lattice triangular staircase density 2y",
+        "discontinuous coupled logistic map stationary grid equidistribution fixed points K(K-1)/2 asymmetric modulo 1",
+        "\"64\" \"intertwining logistic\" \"fixed points\" modulo"
+      ]
+    },
+    "rationale": "Compared the claim, not titles, with full accessible source map Zhao–Ma 2024 and its 2017 intertwining logistic predecessor, additional indexed results and own accessible prior ledger. The underlying boundary restriction is not new, but the all-parameter fixed-point staircase with continuum resonance, expanding spectral census and nonuniform Wasserstein density is not stated or directly covered by inspected sources. Material residual priority risks are disclosed.",
+    "residual_risks": [
+      "The restricted w=0 subsystem already occurs in a related earlier intertwining logistic map; new contribution is the explicit global parameter census and density law, not identification of the subsystem.",
+      "No independent publication-priority examination of all unindexed nonlinear modular skew maps was possible; a broader known classification might imply this particular case.",
+      "The infinite-gain asymptotic lies outside the 2024 paper stated parameter interval, though finite counts up to 32640 occur within it.",
+      "The research concerns a zero-measure boundary face and is not an analysis of typical seeded cryptographic trajectories."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides map and published parameter bounds, numerical dynamics and PRNG tests; no stated invariant-face fixed-point census or distribution.",
+        "evidence": [
+          "Equation (2) has the exact three-coordinate fractional-part system with K=64 mu; publication date January 31, 2024; plotted bifurcation/statistical diagnostics do not give face fixed-point formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym16020169",
+        "material_read": "Accessible full-article text, materially examined at the abstract, introduction, Equation (2) in Section 2.3, numerical Lyapunov/bifurcation analysis, statistical tests and conclusions.",
+        "method": "Publisher HTML and full article text transcription",
+        "title": "Modification of Intertwining Logistic Map and a Novel Pseudo Random Number Generator",
+        "trigger": "Exact source map and likely prior dynamics coverage"
+      },
+      {
+        "assessment": "Earlier map shares a similar invariant face when gains coincide; no fixed-face staircase, stability or limiting density established.",
+        "evidence": [
+          "First published 2017-11-15. Section 2.1 treats intertwining logistic map, subsequent sections study S-box optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2017/6969312",
+        "material_read": "Open-access HTML article: abstract, Sections 1–2 including earlier system definition in Section 2.1, and its application-based experimental results.",
+        "method": "Wiley open-access full HTML article",
+        "title": "Chaotic S-Box: Intertwining Logistic Map and Bacterial Foraging Optimization",
+        "trigger": "Original intertwining logistic-map predecessor might imply face result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9abf457e-989c-46af-9966-65cb2a670e50",
+  "value": {
+    "rationale": "The original 2024 study relies on numerical bifurcation, Lyapunov and finite-precision sequence tests. Exact periodic skeleton data are a natural complementary dynamical invariant. The theorem determines an unusual singular infinite-versus-finite resonance, a precise integer-gain staircase (2016 face fixed points at a canonical gain, up to 32640 in the reported parameter range), which states are one-sided expanding, and a nonuniform continuous limit for their positions. This is a natural complete classification for the invariant boundary and a mathematically motivated asymptotic; it is neither a generic normalization fact nor a cryptographic-security assertion.",
+    "status": "PASS"
+  }
+}
