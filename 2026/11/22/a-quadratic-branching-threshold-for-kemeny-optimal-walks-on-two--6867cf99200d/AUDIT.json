@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "A connected weighted tree satisfies tr(L^+)=(1/N)sum_e s_e(N-s_e)/w_e, giving strict convexity in each individually adjustable positive transition probability. Root/branch row caps reduce the unconstrained global minimizer to strictly convex A/x+B/(1-x), x<=1/k. The unique optimum is x=min(1/k,sqrt(a)/(sqrt(a)+m sqrt(b))) and y=(1-x)/m. Exact polynomial identities F_k(k^2-3k+4)=4 and F_k(k^2-3k+3)=3-k(k^2-3k+4)<0 prove the integer cutoff for all k>=2; positive-root uniqueness follows from a negative constant coefficient and positive leading coefficient. The two asymptotic limits and equal-edge regret follow from explicit leading terms. A standard-library verifier passed 1484 diagnostics, including independent Laplacian inversions, but infinite correctness rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel et al., 2015, Section III, general SDP and convexity without a root-holding classification.",
+        "Durastante, Gnazzo and Meini, BIT Numerical Mathematics 66 (2026), https://doi.org/10.1007/s10543-026-01152-6, general fixed-pattern perturbation algorithms with random test instances and power-grid experiments, not a two-level tree parametric solution.",
+        "Ji Zeng, arXiv:2109.09249, Sections 1-3, studies natural weighted walks and topology optimization with fixed weight multiset rather than arbitrary symmetric stochastic kernels with uniform stationary distribution."
+      ],
+      "reasoning": "The general published numerical/convex frameworks include this support graph as an admissible instance, but their theorems neither entail nor contain the sharp all-parameter root-holding cutoff. Zeng has another stationary measure and constraints. Earlier family-specific broom and spider claims cover different tree structures, so do not imply the k-branch, m-leaf depth-two tree result.",
+      "searches": [
+        "published-finding corpus: optimal Kemeny constant arbitrary symmetric stochastic tree via edge cut flow optimization recursion dual root self loop",
+        "published-finding corpus: optimal Kemeny constant uniform stationary tree edge conductance reciprocal cost budget vertex capacity constraints generalized closed formula",
+        "Web: \"Kemeny\" \"root\" \"holding\" \"children\" minimum tree",
+        "Web: \"Kemeny\" \"double broom\" \"two-level\" \"optimal\" \"Markov\" tree",
+        "published-finding corpus: Kemeny minimization balanced depth-two tree holding probability transition root k branches m leaves exact solution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1208.4716",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://arxiv.org/abs/2109.09249",
+      "https://doi.org/10.1007/s10543-026-01152-6",
+      "published-finding corpus: semantic searches for two-level trees, Kemeny optimum, root holding, reciprocal conductance, fixed stationary walk, related exact formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Patel et al., Theorems 2,4: spectral trace representation and global convexity, but no explicit two-level family and no k^2-3k+4 parameter inequality.",
+        "Durastante et al. (2026), Propositions 3-4 and Examples 1-5: feasible reversible transformations and numerical optimization, no analytical two-level-tree root holding law.",
+        "Zeng (2021), Theorem 1.3: extremizes Kemeny over weighted tree topologies with fixed multiset, a different optimization problem."
+      ],
+      "reasoning": "Existing general formulations could in principle be specialized to calculate the answer, but do not state a stronger covering exact theorem. Different graph-family optima do not imply the two-level active-constraint frontier. The present claim gives the entire unrestricted optimizer, an exact integer threshold and asymptotics, not just generic convex existence.",
+      "searches": [
+        "Web: Patel Agharkar Bullo Kemeny's constant optimal symmetric Markov chain tree edge weights 2015 pdf",
+        "Web: Kemeny’s constant minimization reversible Markov chains structure preserving perturbations 2026",
+        "published-finding corpus: optimal Kemeny constant complete two-level trees branch k m leaves symmetric doubly stochastic root self loop threshold square branching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Patel, Agharkar and Bullo, 2015, https://motion.me.ucsb.edu/pdf/2014b-pab.pdf, Theorem 4 and Problem 1: fixed-stationary Kemeny minimization is convex, with no parameterized two-level-tree formula in relevant portions inspected.",
+        "No matching exact two-level-tree theorem surfaced in the actual published-finding corpus query results; related hits concerned fastest mixing, tree metric exponents or other walk objectives."
+      ],
+      "reasoning": "The tree Kirchhoff identity makes the optimization equivalent to a reciprocal-conductance convex program, but generic convexity does not imply the explicit root holding set or integer cancellation F_k(k^2-3k+4)=4. An equivalent restatement as expected stationary hitting time, Kirchhoff-index minimization under per-vertex probability caps or reversible Markov-chain design was sought; none of the inspected claims supplies this exact solution.",
+      "searches": [
+        "published-finding corpus: optimal Kemeny constant complete two-level trees branch k m leaves symmetric doubly stochastic root self loop threshold square branching",
+        "published-finding corpus: minimal Kemeny Markov chain depth two tree root holding leaf count threshold k squared",
+        "Web: \"Kemeny\" \"depth-two\" \"stochastic\" \"optimal\" graph",
+        "Web: Kemeny constant design doubly stochastic tree optimizing transition weights exact self loops depth two rooted tree",
+        "published-finding corpus: Kemeny optimal two level rooted tree sharp root self-loop threshold m>=k^2-3k+4 symmetric stochastic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantically nearby records include 2026/11/2/SCOPE-a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d and 2026/10/26/SCOPE-exact-nonnegative-fastest-mixing-on-depth-three-spider-trees--4d7800ee60ec, both optimizing spectral mixing rather than Kemeny.",
+        "The exact-formula published-finding corpus searches returned two-level-tree metric and branching papers, including the negative-type threshold record 2026/11/2/SCOPE-exact-negative-type-thresholds-and-one-dimensional-critical-load--0d5dc64dc29b; its objective is Hilbert snowflake embedding, not stochastic Kemeny minimization."
+      ],
+      "reasoning": "No exact table of root-holding thresholds or conductance allocations for this family was located in these actual searches. A missing search hit is not a proof that no table exists elsewhere.",
+      "searches": [
+        "published-finding corpus: Kemeny-minimizing symmetric random walk complete rooted trees exact tree matrix allocation",
+        "published-finding corpus: rooted star of stars Kemeny optimal walk exact hub holding transition"
+      ]
+    },
+    "rationale": "The closest inspected primary sources establish fixed-stationary Kemeny convexity, general numerical minimization, and other weighted-tree models, not the exact two-level root holding frontier. Search results for equivalent terms and neighboring tree families did not yield a result implying the sharp integer threshold. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "Novelty is conditional on accessible indexed sources; another naming convention for the tree may hide equivalent work.",
+      "A general algorithm or unpublished manuscript could entail the same sharp formula upon specialization even if the formula is not stated.",
+      "Hunter (2012) full text was not separately inspected; it served only as the dated archival background anchor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convexity and SDP theorem; no explicit level-two tree root-holding threshold in inspected material",
+        "evidence": [
+          "Theorem 2 gives reversible Kemeny trace formula; Theorem 4 establishes convexity for fixed stationary distribution; Problem 1 is a general feasible transition optimization (PDF pages 3-4)."
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "12-page author manuscript; parsed introduction and framework in pages 1-4, weighted formulation pages 5-6, conclusions/references and appendix; visually inspected pages 1,6,11",
+        "method": "Lawful author-hosted full text via indexed PDF and page screenshots",
+        "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+        "trigger": "The exact fixed-stationary Kemeny-optimization framework for this objective"
+      },
+      {
+        "assessment": "Natural random walk on edge-weighted trees with stationary law proportional to weighted degree; optimizes graph topology with fixed multiset, not symmetric walk with vertex probability caps",
+        "evidence": [
+          "Section 1 lines 6-36 define degree-proportional stationary walks; Theorem 1.3 optimizes tree shape at a prescribed edge-weight multiset."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.09249",
+        "material_read": "Open-access full text including introduction, Theorems 1.1-1.3, weighted-tree setup and edge-transfer comparison",
+        "method": "Web-accessible primary article HTML body",
+        "title": "On average hitting time and Kemeny’s constant for weighted trees",
+        "trigger": "Plausible tree Kemeny formula and possible stronger weighted-tree theorem"
+      },
+      {
+        "assessment": "Provides convex perturbation feasible sets and numerical algorithms, but no fixed tree family closed-form root-holding theorem",
+        "evidence": [
+          "Proposition 4 discusses convex feasible perturbations; Examples 1-5 use block random matrices, generated graphs and power-grid networks."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+        "material_read": "Open-access article Sections 1-3, Proposition 4, and numerical Examples 1-5",
+        "method": "Publisher open-access primary full text HTML",
+        "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+        "trigger": "Plausible newer broad Kemeny-minimization theory which might subsume the claim"
+      },
+      {
+        "assessment": "Foundational Kemeny interpretations, not sufficient to assert absence of a specific tree theorem throughout its full text",
+        "evidence": [
+          "arXiv records first posting 2012-08-23 and discusses spectral/electrical interpretations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.4716",
+        "material_read": "arXiv primary abstract and bibliographic posting date only",
+        "method": "arXiv primary record",
+        "title": "The Role of Kemeny’s Constant in Properties of Markov Chains",
+        "trigger": "Earliest day-verified archival anchor and equivalent spectral interpretations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6867cf99-200d-40ed-9eda-ce2a1faab30f",
+  "value": {
+    "rationale": "The exact active-set transition k^2-3k+4 identifies where a globally Kemeny-optimal uniform-stationary walk should begin spending holding probability at a root, while the branch children remain nonlazy. This is a natural structural design decision on a two-level network, not an arbitrary finite table. The nondegenerate quadratic scaling crossover (1-rho^-1/2)_+ and the limiting equal-edge cost factor 2-1/k quantify why the specific exact threshold matters in large networks; no arbitrary-general-graph theorem is claimed.",
+    "status": "PASS"
+  }
+}
