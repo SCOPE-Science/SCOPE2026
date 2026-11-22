@@ -1,128 +1,136 @@
 {
   "correctness": {
-    "rationale": "Proof independently reconstructed: diagonal nth-root eigenvalues are shifted logarithmic Cesàro averages; all fixed-offset exponents differ by at most 2B(k-1)/n; WOT first diagonal entries recover every log-coordinate limit and boundedness upgrades to SOT. Consecutive vector Cesàro jumps tend to zero, yielding a connected compact cluster. For arbitrary compact connected K, shrinking-chain polygonal tours yield a bounded 1-Lipschitz curve with omega-limit K, including non-path-connected K. Sampling at log n preserves omega-limit; the inverse Cesàro difference b_n=n c_n-(n-1)c_(n-1) is uniformly bounded by R+1 and telescopes exactly. Compact connected C times a simplex gives the complete interval formula for W_a. The independent Python checker run from the actual standalone file passed 8266 finite assertions; those are diagnostic and do not substitute for the analytical proof.",
+    "rationale": "For each summand, |T^n|^(1/n) is diagonal with entries exp(n^(-1) sum of n consecutive logarithmic weights). For every fixed starting coordinate k, its exponent differs from the first-prefix Cesaro logarithmic mean by at most 2B(k-1)/n; uniformly bounded diagonal entries upgrade coordinatewise convergence to strong-operator convergence. Conversely the first diagonal coefficients identify each coordinate of a weak-operator cluster limit. The vector prefix means are bounded and have successive jumps at most 2B/(n+1); their cluster set is a nonempty compact continuum. For any target continuum K in logarithmic coordinates, finite epsilon-chain polygonal tours of shrinking nets yield a bounded 1-Lipschitz curve with omega-limit K, without assuming K is path-connected. The sampled sequence c_n=gamma(log n) has that same cluster set. Its inverse Cesaro weights b_n=n c_n-(n-1)c_(n-1) telescope and have norm at most R+1, producing bounded and bounded-below positive weights. The asymptotic numerical range is the continuous image of the connected compact product K times a simplex and has the stated coordinate extrema. Independent exact rational and finite diagonal checks corroborate these algebraic steps, not the all-continua theorem.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Ji--Yang: bounded below implies connectedness; no target-set realization theorem appears in the inspected introduction, Section 2, or Section 4. Classical summability papers concern connectedness of transformed scalar or vector sequences. Their accessible metadata does not establish a weighted-shift WOT cluster universality theorem.",
-        "Nayak--Shekhawat 2024, full Section 5 Proposition 5.2 addresses norm convergence of root-power sequences for individual unilateral weighted shifts; WOT cluster continua for finite sums are not described."
+        "Ji and Yang Corollary 2.13 and Proposition 2.14 establish necessary connectedness for bounded-below operators, while Proposition 4.1 treats one weighted shift.",
+        "Barone 1939 concerns summability transforms and their limit points; the primary full text was not accessible through arXiv/OA or authorized institutional access.",
+        "Leviatan and Lorch 1971 studies connectedness of quasi-Hausdorff, J,f and Borel integral transforms as identified by its publication abstract."
       ],
-      "reasoning": "Necessary connectedness alone does not imply that every positive continuum occurs as a simultaneous block-scalar operator cluster set. A general theorem about attainable Cesàro-mean cluster sets might supply the sequence lemma, but the theorem still requires uniform positivity of weights, a shift-root representation, strong-limit control, and the exact asymptotic numerical-range formula. The older full-text comparison is incomplete and remains a priority risk.",
+      "reasoning": "The general connectedness theorem does not establish attainability. Earlier vector summability theorems could cover the sequence-realization lemma; because their full content was not obtained, this is explicitly retained as priority risk rather than misreported as a checked noncoverage result.",
       "searches": [
-        "arxiv:2608.21553 Corollary 2.13 Proposition 2.14 and Section 4; 1939 Barone DOI 10.1215/S0012-7094-39-00560-0; 1971 Leviatan--Lorch DOI 10.4153/CMB-1971-032-0",
-        "cluster sets of Cesaro averages vector bounded sequences arbitrary nonempty compact connected subset R2 and shifts",
-        "\"cluster sets\" \"Cesàro means\" compact connected vectors",
-        "\"cluster sets\" \"averages\" \"any continuum\" vector sequences",
-        "arxiv:2410.16318 Section 5 Proposition 5.2 norm convergence of |F_w^n|^{1/n}"
+        "arXiv:2608.21553 Sections 2 and 4 complete relevant theorem and proof reading",
+        "Barone 1939 DOI 10.1215/S0012-7094-39-00560-0 search for arXiv and lawful OA",
+        "Leviatan Lorch 1971 DOI 10.4153/CMB-1971-032-0 indexed full-text and publication queries"
       ]
     },
     "checked_sources": [
-      "Ji and Yang, arXiv:2608.21553 primary HTML inspected sections",
-      "Nayak and Shekhawat, arXiv:2410.16318, full HTML Section 5 Proposition 5.2: norm-convergence criterion for root powers of a single weighted shift",
-      "Barone 1939 DOI metadata and references, full text unavailable",
-      "Leviatan and Lorch 1971 DOI bibliographic record",
-      "Published mathematical research result: Exact norm and essential-norm power profiles for irreducible weighted shifts",
-      "Published mathematical research result: Arbitrary deficit profiles and weak cluster sets for one fixed positive maximizing witness"
+      "Ji and Yang arXiv:2608.21553 full accessible Sections 1–4",
+      "Nayak and Shekhawat arXiv:2410.16318 Section 5 Proposition 5.2 full PDF and screenshots",
+      "Resultary October 26 2026 sparse-shift universality full mathematical result",
+      "Barone 1939 DOI metadata only (full text inaccessible)",
+      "Leviatan and Lorch 1971 publisher abstract only"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The source establishes a scalar interval for each individual bounded-below shift (Proposition 4.1) and a disconnected WOT example with weights not bounded below (Example 4.3). The present theorem stays bounded below and realizes every positive compact continuum using finite direct sums.",
-        "The formula for the asymptotic numerical range is proved by taking scalar expectations against the realized block-scalar cluster set.",
-        "Nayak--Shekhawat 2024 Proposition 5.2 does not imply realization of nonconvergent WOT cluster continua: it gives a uniform criterion for the stronger property of convergence in norm."
+        "Ji and Yang show scalar intervals for bounded-below single shifts and disconnectedness for a different, not-bounded-below example.",
+        "Nayak and Shekhawat Proposition 5.2 gives norm convergence iff all window geometric means converge uniformly in the starting index.",
+        "Sparse-shift universality uses spike weights tending to zero and allows finite-rank-coordinate step components, violating the lower-bound hypothesis."
       ],
-      "reasoning": "Separate scalar intervals constrain coordinate projections of C but do not determine their simultaneous correlations; the possible joint sets can range from a diagonal segment to a Jordan curve or a non-locally-connected continuum. The explicit bounded logarithmic weight construction is a new implication not contained in the inspected source statements.",
+      "reasoning": "The proposed construction solves a synchronization problem across d summands with uniformly positive bounded weights. This is stronger than d independent scalar limit intervals and in a different regime from the sparse non-bounded-below construction; norm convergence criteria do not imply nonconvergent WOT-cluster universality.",
       "searches": [
-        "arxiv:2608.21553 Section 2 Corollary 2.13 and Proposition 2.14; Section 4 Proposition 4.1 and Examples 4.2-4.3",
-        "Ji Yang asymptotic numerical ranges invariant subspaces weighted shifts Proposition 4.1 generalization direct sums cluster sets continuum",
-        "arbitrary planar compact continuum is limit set of vector Cesaro averages bounded sequences with operator weighted shift",
-        "arxiv:2410.16318 Proposition 5.2, full primary HTML"
+        "Ji Yang 2026 arXiv:2608.21553 Proposition 4.1 and Example 4.3",
+        "Nayak Shekhawat arXiv:2410.16318 Proposition 5.2",
+        "Resultary 2026 October 26 sparse weighted-shift modulus-root universality full RESULT"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Ji--Yang Proposition 4.1 says a single bounded-below unilateral weighted shift has only scalar interval WOT cluster points. Its Section 2 gives connectedness for bounded-below operators. The proposed theorem classifies the entire joint block-scalar cluster set for any fixed finite number of summands."
+        "Ji and Yang Proposition 4.1 identifies the single-shift cluster set as {sI:s in J} for an interval J; Proposition 2.14 gives connectedness under vanishing root increments.",
+        "The target statement permits any connected subset C of the positive d-orthant, including nonconvex Jordan curves for d=2; independent interval classifications do not specify simultaneous correlations."
       ],
-      "reasoning": "For d=1, the result agrees with the known scalar interval restriction; for d>=2, an arbitrary compact continuum C in a positive orthant may be nonconvex or non-path-connected, so it is not equivalent to one or more scalar interval descriptions. The inverse-Cesàro synthesis supplies the missing joint correlation.",
+      "reasoning": "Coordinatewise scalar interval information and connectedness are necessary but do not determine arbitrary joint correlations, so they do not imply existence of a single synchronized vector-valued Cesaro profile realizing every C.",
       "searches": [
-        "arxiv:2608.21553 Section 4 Proposition 4.1; WOT limits of roots of powers of weighted shifts; asymptotic numerical range WOT cluster |T^n|^{1/n} direct sum bounded below unilateral weighted shifts arbitrary planar continua connected compact realizations",
-        "topological classification WOT cluster sets asymptotic positive root sequence |T^n|^{1/n} as all compact connected continua for direct sums unilateral weighted shifts"
+        "Ji Yang 2026 arXiv:2608.21553 Section 4 Proposition 4.1",
+        "Resultary semantic query weighted unilateral shifts WOT cluster set |T^n|^(1/n) realize every compact connected continuum positive block scalar limits inverse Cesaro"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The published result \"Exact norm and essential-norm power profiles for irreducible weighted shifts\" specifies scalar norms of operator powers, not WOT limits of positive roots of powers.",
-        "The published result \"Arbitrary deficit profiles and weak cluster sets for one fixed positive maximizing witness\" specifies cluster sets of maximizing vectors, not the operator cluster set of positive roots."
+        "An earlier sparse-weighted-shift result realizes arbitrary compact sets via non-bounded-below weights and non-scalar step operators, not bounded-below block-scalar continuum universality.",
+        "An indexed mirror of this identical result is the same work, not an independent predecessor.",
+        "No exact preexisting table applies because the statement classifies infinite families of compact continua, not a finite parameter table."
       ],
-      "reasoning": "No identified indexed exact-value table or published claim contains the same object, the all-compact-continua quantifier, or a covering implication. Index searches are supporting evidence, not a proof of uniqueness or priority.",
+      "reasoning": "The nearby indexed results concern non-bounded-below shifts, norm/essential-norm profiles or other weak-cluster invariants; the available exact results do not dominate the stated bounded-below finite-direct-sum classification.",
       "searches": [
-        "weak operator limits of positive roots of powers of weighted shifts prescribed compact connected sets of scalar block diagonals",
-        "Ji and Yang 2026 asymptotic numerical range WOT limits |T^n|^{1/n} arbitrary compact connected subset positive orthant via finite orthogonal direct sums of bounded below unilateral weighted shifts, Cesàro logarithmic weights, strong operator cluster classification",
-        "published mathematical research records: irreducible weighted-shift essential-power profiles; arbitrary deficit profiles and weak cluster sets"
+        "Resultary semantic search weighted shift modulus root cluster limits prescribed compact K",
+        "Resultary semantic search asymptotic numerical range finite direct sums bounded below unilateral weighted shifts joint cluster sets"
       ]
     },
-    "rationale": "The accessible full text of Ji and Yang 2026 proves the necessity and the scalar single-shift description, but not the realization of arbitrary joint continua by uniformly bounded-below finite sums. Relevant published records on power norms and other weak clusters concern non-equivalent invariants. Classical summability literature may contain the underlying vector mean realization, and some older full texts remain inaccessible; this priority uncertainty is explicitly retained. Nayak--Shekhawat 2024 proves a norm-convergence criterion for weighted shifts but not the arbitrary nonconvergent joint WOT-cluster realization; this close primary source was inspected in full.",
+    "rationale": "Best-of-knowledge: Ji and Yang establish the bounded-below connectedness necessity and the scalar one-shift interval classification; their full accessible article does not assert simultaneous realization of arbitrary compact positive continua using finite direct sums. Nayak and Shekhawat analyze norm convergence of the same root-power sequence, not its arbitrary nonconvergent joint WOT accumulation sets. A predecessor in classical summability could already establish a general vector inverse-Cesaro realization lemma; it is acknowledged without claiming definitive precedence. The operator-level all-continua statement and exact asymptotic numerical-range collapse are not direct corollaries of the materially inspected primary results.",
     "residual_risks": [
-      "A classical vector summability realization theorem could subsume the inverse-Cesàro lemma, and a broader operator-theoretic statement could then imply the classification under other terminology; inaccessible full texts prevent categorical exclusion.",
-      "Index search and finite diagnostic tests do not establish publication priority or independent certification."
+      "Classical Barone 1939 and related vector-summability sources might imply the inverse-Cesaro lemma more directly; primary Barone full text could not be obtained through the checked access routes.",
+      "The mathematical construction is elementary once the classical shift-root reduction is known; alternative older operator wording could reduce independent priority.",
+      "Neither database searches nor finite checks prove novelty or external certification."
     ],
     "source_inspections": [
       {
-        "assessment": "Scalar shift case and general necessary connectedness covered; arbitrary prescribed multidimensional joint cluster sets and their construction not stated in inspected material",
+        "assessment": "Necessary connectedness and scalar one-shift part already covered; full joint arbitrary-continua realization not established by those statements",
         "evidence": [
-          "Proposition 4.1 restricts one bounded-below unilateral weighted shift to {sI:s in J}; Example 4.3 disconnected only without a lower weight bound; Proposition 2.14 gives necessity of connectedness."
+          "Proposition 4.1 states mathfrak C={sI:s in J}; Section 2 proves bounded-below connectedness; Example 4.3 drops the lower bound."
         ],
-        "identifier_or_url": "https://arxiv.org/html/2608.21553",
-        "material_read": "Full available introduction, Section 2 including Corollary 2.13 and Proposition 2.14, and Section 4 including Proposition 4.1 and Examples 4.2--4.3",
-        "method": "Primary full HTML mathematical statement/proof inspection",
+        "identifier_or_url": "https://arxiv.org/abs/2608.21553",
+        "material_read": "Primary full accessible article, introduction, Sections 2 and 4: asymptotic numerical-range definition, Proposition 2.3, Corollary 2.13, Proposition 2.14, Proposition 4.1 with proof, Examples 4.2 and 4.3",
+        "method": "Read parsed primary mathematical HTML statements and arguments",
         "title": "Asymptotic Numerical Ranges and Invariant Subspaces of Operators",
-        "trigger": "Same positive-root operator cluster invariant and weighted shifts"
+        "trigger": "Identical positive-root WOT cluster invariant and bounded-below unilateral weighted shifts"
       },
       {
-        "assessment": "The result characterizes norm convergence via uniform window geometric means for a single shift, not arbitrary nonconvergent WOT joint cluster-set realization for finite direct sums",
+        "assessment": "Deals with norm convergence and a uniform geometric-window criterion, not prescribed WOT joint continua",
         "evidence": [
-          "Proposition 5.2 states an if-and-only-if condition for norm convergence of the root-power sequence; it imposes uniformity over starting positions and does not assert classification of joint nonconvergent WOT subsequential limits."
+          "Proposition 5.2(i) states norm convergence iff alpha_(k,n) converges uniformly in starting index k."
         ],
-        "identifier_or_url": "https://arxiv.org/html/2410.16318",
-        "material_read": "Full accessible HTML, the main spectral-operator convergence results and Section 5 including Proposition 5.2 and its discussion",
-        "method": "Primary arXiv full-text mathematical statement and proof comparison",
+        "identifier_or_url": "https://arxiv.org/pdf/2410.16318",
+        "material_read": "Primary 21-page PDF, introduction, spectral-operator main theorem, Section 5 and Proposition 5.2 including its proof on pages 19–20",
+        "method": "Read extracted full text and inspected page-image screenshots",
         "title": "On the convergence of the normalized power sequence of spectral operators on Hilbert space",
-        "trigger": "The same positive-root sequence of powers, including a section on unilateral weighted shifts"
+        "trigger": "Positive root-power sequence and weighted forward-shift formulas"
       },
       {
-        "assessment": "Unresolved broader-summability priority risk; not used to assert noncoverage of its entire paper",
+        "assessment": "Requires weights with no uniform positive lower bound and produces non-scalar step-operator families; does not subsume this bounded-below classification",
         "evidence": [
-          "The 1939 article is cited in later literature concerning connectedness of transformed-sequence cluster sets; full text not obtained."
+          "The prescribed spike weight exp(-a_j N_j) tends to zero, and the cluster set contains P_h+e^-a(I-P_h)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-compact-set-universality-for-cluster-limits-of-sparse-weighted-s--4f04fcb284c4/RESULT.md",
+        "material_read": "Complete RESULT.md statement, sparse-spike construction, no-other-limits argument, topology and numerical range",
+        "method": "Read complete published mathematical proof",
+        "title": "Compact-set universality for cluster limits of sparse weighted-shift modulus roots",
+        "trigger": "Nearby published modulus-root cluster universality result"
+      },
+      {
+        "assessment": "Cannot exclude a general sequence-realization predecessor; no claim of full-document noncoverage",
+        "evidence": [
+          "1939 Duke Math. J. volume 5 pages 740–752; full text unavailable on checked channels."
         ],
         "identifier_or_url": "https://doi.org/10.1215/S0012-7094-39-00560-0",
-        "material_read": "Bibliographic metadata and later citing literature, not primary full text",
-        "method": "Search for arXiv and lawful open-access full text, then bibliographic and cited-results comparison",
+        "material_read": "Bibliographic metadata and later citing literature only, NOT its full original mathematical text",
+        "method": "Searched for arXiv and lawful open-access full text; the primary article was not obtained",
         "title": "Limit points of sequences and their transforms by methods of summability",
-        "trigger": "Potential general predecessor for connectedness and realization of Cesàro cluster sets"
+        "trigger": "Potential broader theorem on vector Cesaro cluster-set realization"
       },
       {
-        "assessment": "Connectedness of transforms is related but does not, from accessible evidence, decide weighted-shift operator realization; unresolved priority risk",
+        "assessment": "Abstract treats connectedness for named summability transforms, not enough to decide possible broader realization theorem",
         "evidence": [
-          "Publication record identifies summability connectedness as the object."
+          "Publication abstract names quasi-Hausdorff, J,f, and Borel integral means."
         ],
         "identifier_or_url": "https://doi.org/10.4153/CMB-1971-032-0",
-        "material_read": "Bibliographic record and reference context; primary full-text coverage not established",
-        "method": "Search indexed publication record and later paper references",
+        "material_read": "Publication abstract and bibliographic record, not full primary text",
+        "method": "Indexed OA and publisher searches",
         "title": "On the connectedness of the sets of limit points of certain transforms of bounded sequences",
-        "trigger": "Potential older multivariate summability statement"
+        "trigger": "Classical connectedness and summability comparison"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "a3d8c77e-e9c0-4c29-b63e-07bf7e975c11",
   "value": {
-    "rationale": "Provides a natural complete classification of all possible WOT root-cluster shapes for a finite direct sum of uniformly bounded-below unilateral shifts. It demonstrates a sharp jump from scalar intervals in one summand to every positive planar continuum in two, including nonconvex and non-locally-connected sets, while the associated asymptotic numerical range collapses this geometry to one exact interval. Both directions and all finite d are included; not a one-off example or a table recomputation.",
+    "rationale": "The theorem exactly classifies natural WOT root-cluster geometries of finite orthogonal sums of uniformly bounded-below weighted shifts, showing a sharp change from scalar intervals with one summand to all positive planar continua with two. It addresses a whole family of objects, including non-path-connected continua, and identifies the precise information collapsed by the asymptotic numerical range. This is more informative than an isolated example or a known scalar bound, without claiming an extension to arbitrary operators.",
     "status": "PASS"
   }
 }
