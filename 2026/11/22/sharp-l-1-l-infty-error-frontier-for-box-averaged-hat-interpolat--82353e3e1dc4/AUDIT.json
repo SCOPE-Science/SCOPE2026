@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Distributional derivative represents each BV input as a signed superposition of jumps plus a constant. The exactly integrated single-step hat profile gives C1 and Cinf, and direct derivatives on the three admissible nodal branches prove the two thresholds. Each sharp constant is attained by a step. Node-difference averaging proves TV diminution. Standalone stdlib rational tests verify 36,534 step phases and 2,500 signed multi-jump inputs; tests are corroborative, not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kristensen–Rindler 2012 treat area-strict BV approximation on adaptable simplicial/rectangular partitions and trace control rather than a single fixed uniform linear reconstruction.",
+        "Ern–Guermond 2015 §4.2 uses stitching of discontinuous FE degrees of freedom; §5.16 states approximation estimates with an unspecified c depending on geometry and Sobolev regularity.",
+        "Indexed published comparison: Sharp variation–reproduction tradeoff for quadratic cardinal B-spline quasi-interpolation (published research, 2026-11-17) studies variation gain of a quadratic B-spline with second-difference correction, not the errors of a positive linear hat scheme."
+      ],
+      "reasoning": "The broad BV approximation literature covers qualitative approximation and stability, but the inspected bounds lack sharp constants and the two bandwidth transitions, so neither stronger general approximation statement implies the claimed exact frontier.",
+      "searches": [
+        "arXiv:1211.1792 Theorem 1, Section 2",
+        "arXiv:1505.06931 Sections 4-5",
+        "positive affine-reproducing box-averaged nodal quasi interpolation L1 error and Linfinity jump phase minimax",
+        "Web: box average hat function quasi interpolation sharp total variation L1 approximation constant smoothing parameter"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1211.1069",
+      "https://arxiv.org/abs/1211.1792",
+      "https://arxiv.org/abs/1505.06931",
+      "https://doi.org/10.1016/j.cam.2007.10.029 (abstract and web text only; general box-spline quasi-interpolation, not used for a full-text exclusion)",
+      "Published research entry An exact overlap-optimal three-segment quadratic histopolation rule (published research, 2026-11-02)",
+      "Published research entry Sharp variation–reproduction tradeoff for quadratic cardinal B-spline quasi-interpolation (published research, 2026-11-17)",
+      "Published research entry Sharp bounded-variation sensitivity of the two-choice centered box envelope (published research, 2026-11-17)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 box average paper supplies TV diminution and an estimate ||u-Pi_h u||_1<=c h TV(u); it does not calculate the sharp parameterized c or analyze L-infinity step error.",
+        "The 2012 piecewise-affine approximation theorem is existential with adaptive meshes; it does not identify the same operator.",
+        "The 2015 finite element estimate is of the form <=c h^(r-m)|v|_W^(r,p), not a sharp BV L1 or Linfinity bound."
+      ],
+      "reasoning": "Unlike qualitative/unspecified-constant consequences, the sharp formulas require the exact step-profile calculation and phase optimization. No inspected prior theorem fixes the alpha-specific constants or the constrained \\(\\alpha=3/2\\) choice.",
+      "searches": [
+        "arXiv:1211.1069 §3 Theorem 3.9, §4",
+        "arXiv:1211.1792 Theorem 1 and Theorem 7",
+        "arXiv:1505.06931 Lemma 4.10 and Theorem 5.16",
+        "sharp L1 L-infinity BV approximation error box-averaged piecewise linear hat interpolant varying averaging width 3/2 h phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nochetto–Salgado, arXiv:1211.1069, §3.3 box average construction, Theorem 3.7 TVD and Theorem 3.9 generic L1 approximation bound with unspecified geometric c",
+        "Indexed published comparison: An exact overlap-optimal three-segment quadratic histopolation rule (published research, 2026-11-02): three interval averages identify a polynomial with L-infinity amplification, not BV reconstruction error"
+      ],
+      "reasoning": "The same abstract idea of averaging-before-reconstruction is known. The specific seminorms are norms of \\(I-T\\) on signed unit jumps, not of T as an interpolation projector; their exact alpha-dependent piecewise laws and constrained optimum do not follow from TVD plus an unspecified-order bound.",
+      "searches": [
+        "sharp L1 L-infinity BV approximation error box-averaged piecewise linear hat interpolant varying averaging width 3/2 h phase transition",
+        "Nochetto Salgado total variation diminishing interpolation piecewise multilinear box average exact sharp approximation constant",
+        "Web: \"cell averages\" \"piecewise linear\" \"BV\" \"sharp\" approximation",
+        "arXiv:1211.1069"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact \\(C_1(\\alpha)\\) or \\(C_\\infty(\\alpha)\\) expression was returned by these indexed comparisons.",
+        "Closest published finding, Sharp bounded-variation sensitivity of the two-choice centered box envelope (published research, 2026-11-17) concerns a nonlinear max of two box averages, with output BV perturbation not reconstruction error."
+      ],
+      "reasoning": "The inspected indexed entries concern different input norms, target errors or nonlinear operators. This negative retrieval evidence is not proof of historical novelty; the primary source comparison is the stronger evidence.",
+      "searches": [
+        "cell-averaged piecewise linear BV approximation optimal box width threshold 3/2 sharp constants",
+        "sharp L infinity BV interpolation approximation constant cell averaged linear hat function quasi interpolant",
+        "Web: \"box-average\" \"linear interpolant\" \"bounded variation\" error constants",
+        "Web: \"total variation diminishing\" \"sharp\" \"L infinity\" interpolation error"
+      ]
+    },
+    "rationale": "The closest primary box-average TVD interpolant establishes a generic L1 bound but not the sharp variable-width L1/Linf frontier or unique joint design. Other inspected work has different operators or stronger regularity assumptions and cannot imply the exact step-dependent constants. Remaining risk is unindexed historical equivalent formulas.",
+    "residual_risks": [
+      "Older, unindexed spline/averaging monographs might state an equivalent sharp single-jump interpolation error under another normalization.",
+      "The box-spline projector source was not inspected in full text; its visible summary describes a different projector objective.",
+      "The frontier is only for the specified positive family and must not be presented as global optimal BV approximation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest construction, not exact variable-width two-norm error frontier",
+        "evidence": [
+          "§3.3–3.4 define centered box nodal averages and interpolation; Theorem 3.7 establishes TV diminution; Theorem 3.9 uses a geometric c in L1 approximation; §4 concerns boundary modifications."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+        "material_read": "arXiv HTML §§1,3.3–3.9,4.1–4.3, definitions, theorem statements and relevant arguments",
+        "method": "read accessible primary full text in HTML, focused on constructions, TVD and approximation bounds",
+        "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+        "trigger": "Exact box averages and total-variation diminishing finite element reconstruction"
+      },
+      {
+        "assessment": "Adaptive BV approximation and trace-control theorem; no same operator or sharp bandwidth constants",
+        "evidence": [
+          "Theorem 1 allows countable adaptive partitions and area-strict approximation; §2 Theorem 7 gives W1,1 regularity-driven estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.1792",
+        "material_read": "arXiv HTML introduction, Theorem 1, §2 Theorem 7 and related error proof",
+        "method": "read primary HTML sections relevant to approximation quantifiers and mesh type",
+        "title": "Piecewise affine approximations for functions of bounded variation",
+        "trigger": "Potential broader BV piecewise affine approximation dominance"
+      },
+      {
+        "assessment": "Uses discrete-DOF averaging and unspecified constants for Sobolev approximation, not claimed sharp BV step-error frontier",
+        "evidence": [
+          "§4.2 equation (31) averages discontinuous finite-element degrees of freedom; §5 Theorem 5.16 has a generic c, not sharp constants for \\(I-T\\) on BV."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.06931",
+        "material_read": "arXiv HTML introduction, §4.2 Lemma 4.10/4.12, §5 Theorem 5.16",
+        "method": "read primary HTML construction and displayed local approximation estimates",
+        "title": "Finite element quasi-interpolation and best approximation",
+        "trigger": "More general quasi-interpolation framework with averaging and Lp error"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82353e3e-1dc4-4b77-81cd-192b63f3cf86",
+  "value": {
+    "rationale": "A natural affine-reproducing TVD reconstruction admits two independent sharp jump-error criteria. Full bandwidth classification reveals a concrete nontrivial design tradeoff: increasing averaging width to \\(3\\(h/2\\)\\) decreases worst uniform jump error to \\(49/96\\) without increasing the sharp integrated jump loss \\(h/2\\), while wider boxes worsen integrated loss. Exact phase transitions at \\(2h/3\\) and \\(3\\(h/2\\)\\) expose the migration of extremizing jumps and offer a usable quantitative shock-resolution design benchmark.",
+    "status": "PASS"
+  }
+}
