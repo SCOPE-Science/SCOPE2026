@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The single final claim is the all-order rational dihedral character and its quotient-invariant criterion for \(X_n=\operatorname{Ind}(\mu(C_n))\), \(n\ge4\). The signed simplicial Lefschetz formula is reconstructed with the reduced empty-face term and permutation sign. An exact cancellation of freely selectable clone-orbits yields a general identity for every graph automorphism. Eligible rotation orbits yield a cycle (or degenerate one/two-orbit exception); reflection orbits yield the exact path sizes in the statement. The recurrence values are verified from the path deletion identity. The cited ordinary suspension and cycle sphere-wedge classification imply homology concentrated in the specified degree, so Lefschetz determines the entire rational character. The finite-group rational quotient argument uses barycentric subdivision and averaging, not integral transfer. The package's `check.py` passes 166 independent-orbit trace comparisons, 66 separate signed-face trace comparisons, and 73 dihedral-averaging checks. The infinite proof does not depend on these finite tests. Assumptions, parity types, boundary cases, reduced-chain signs, and character degree agree.
+## correctness
 
-## Originality — PASS with bounded bibliographic uncertainty
-The January 19, 2026 generalized Mycielski source computes nonequivariant sphere types, not the induced dihedral character. Its full accessible text (sections 1–4) has no equivariant statement. The May 16, 2019 suspension theorem is for ordinary homotopy, not an automorphism-equivariant equivalence or rotation/reflection trace formula. Exact semantic searches of the published research index for ordinary cycle Mycielskian dihedral action and modulo-12 quotient results returned no matching all-cycle theorem. Published equivariant calculations of complete-graph Mycielskians include the special \(n=3\) case, and crown Mycielskians include \(n=6\); these known special cases are acknowledged rather than claimed new. The wheel-Mycielskian result treats different input graphs and a deck involution; dihedral characters of other cycle complexes concern non-equivalent functors. A direct signed-orbit calculation gives the complete family character without assuming an equivariant suspension. The 2019 suspension proof might admit an equivariant refinement; even if so, its specialisation to every cycle symmetry and the full mod-twelve quotient criterion require the new explicit computation. The available search and primary-source inspection provide best-knowledge originality; they are not a proof of priority or uniqueness.
+PASS
 
-## Mathematical value — PASS
-The difference between ordinary homotopy type and induced group action is structural: ordinary sphere counts cannot determine which classes descend to geometric quotients. The theorem supplies a complete \(D_n\)-character for every cyclic size, a uniform all-graph fixed-point-trace identity, and a sharp mod-12 quotient criterion. The cyclic/dihedral dichotomy identifies surviving rational homology classes and is not a re-indexing of the known homotopy calculation. No claim of a paper-sized contribution or integral classification is made.
+Reconstructed ordinary Mycielski graph originals, clones, apex, and natural layerwise D_n action. For an invariant independent original union, some clone orbit remains optional and cancels all apex-free terms in the signed sum; apex-present terms negate the original graph sum. Therefore reduced equivariant Lefschetz numbers satisfy Ltilde(Ind(mu(G)),h)=-Ltilde(Ind(G),h) for all h, without assuming equivariant suspension. Combine the ordinary suspension theorem and cycle sphere/wedge types to localize homology degree q and rank, then use orbit quotient C_d and P_t polynomials and rational Reynolds averaging to prove every trace and mod-12 invariant criterion. Independently enumerated full signed oriented-face Lefschetz traces on the actual Mycielski graphs for all D_n elements n=4..7. The finite test verifies signs and boundary cases only; the orbit cancellation and ordinary homotopy input prove all n.
 
-## Prior implications and residual risks
-The ordinary sphere dimensions and ranks are already supplied by arXiv:1905.06926 and arXiv:2601.13432. The complete-graph and crown published computations determine isolated cycle cases, not the parameter-uniform formulas. Complete text could not be obtained from all other potentially relevant papers; an unindexed equivariant formulation could reduce priority. Full mathematical proof is internal to this package, subject to independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original all-n complete character and quotient criterion survive despite a directly relevant stronger SAME-DAY published integral theorem for odd n with 3 not dividing n, which covers that proper subfamily. Even cycle orders and odd multiples of three, including rank-two homology, are not in the hypotheses or conclusions of that theorem. The overlap and temporal uncertainty are material risks, not ignored.
+
+## value
+
+PASS
+
+The all-order dihedral trace classification and mod-twelve quotient homology provide structural information not fixed by the known ordinary Mycielski suspension or sphere-wedge ranks. In particular the even-cycle reflection-axis split and rank-two n divisible by three are natural previously uncovered regimes; the proper overlap with an odd-cycle integral theorem does not trivialize the general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
