@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact slice integrals give A,X,Y with correct uniform-volume covariance normalization. The symbolic derivative is -4 a P(theta)/(9 sin(theta) A^5). Product-to-sum identities, 44th-degree Taylor polynomial and exact rational derivative/remainder inequalities prove P(theta)<0 on all 0<theta<pi/2, hence strict increasing for every 0<a<1. Affine-rescaled lenses converge to full-dimensional parabolic lens and beta moments yield 9/1400. Symbolic and numerical checker executed from the actual package directory and passed 150 assertions, including exact-rational continuum sign certification; finite quadrature is only independent cross-check. Boundary a=0 and unattained a=1 are treated explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bezdek 2019 theorem bounds intrinsic volumes of ball intersections in every dimension, not uniform-volume covariance determinants.",
+        "Kipp arXiv:2407.01353, Introduction and Theorems 1.1–1.4: extremality for polytopes and zonotopes, no two-disk lens monotonicity.",
+        "Published note 2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487 supplies all-dimensional covariance anisotropy ordering, not isotropic-constant ordering.",
+        "Standard ellipsoid minimality implies the lower endpoint bound, but is non-strict for the parametric derivative and does not supply the sharp upper endpoint."
+      ],
+      "reasoning": "The broad intrinsic-volume and covariance-ratio theorems do not dominate the claimed strict normalized determinant ordering. The previously known lens eigenvalue formulas are included as prior ingredients and do not themselves settle the sign of the derivative of XY/A^4. The new theorem is a particular natural family but contains a distinct global inequality not logically implied by those identified broader results.",
+      "searches": [
+        "published-finding corpus: convex body lens intersections of congruent balls moments ratio",
+        "published-finding corpus: Volumetric bounds for intersections of congruent balls Bezdek 2019 isotropic",
+        "Web: 2022 2023 isotropic constant lens intersection of two balls covariance determinant",
+        "Web: isotropic constants intersections of balls"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1912.05118v1",
+      "https://arxiv.org/html/1301.5515v1",
+      "https://arxiv.org/html/2407.01353v2",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-mahler-product-monotonicity-of-symmetric-planar-circular-l--b079d50aa217",
+      "https://raw.org/math/geometry/intersection-area-of-two-circles/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487: strict monotonicity of sigma_perp^2/sigma_parallel^2; exact eigenvalues allow moment reconstruction, but no strict monotonicity theorem for determinant/area^2.",
+        "2026/11/2/SCOPE-sharp-mahler-product-monotonicity-of-symmetric-planar-circular-l--b079d50aa217: strict decrease of area(K_a)area(K_a^o), not det(Cov)/area^2.",
+        "Finch 2013 Section 1 addresses volume, area and mean width of three-dimensional spherical lenses, with general lens volume formula.",
+        "Kipp 2024/2025 Theorems 1.1–1.4 address polytopal and zonotopal maximizers, not this two-disk intersection path.",
+        "Bezdek 2019 Theorems 1, 4, 7 concern intrinsic volumes, inradii and circumradii of ball bodies."
+      ],
+      "reasoning": "The exact X,Y,A ingredients are not claimed novel because prior covariance/area results imply them. The single final claim is strict monotonicity of their normalized product, together with its sharp endpoints. It requires the independently proved sign P(theta)<0; none of the compared statements entails that sign, nor does a generic minimal-ellipsoid bound entail the family-specific upper endpoint.",
+      "searches": [
+        "published-finding corpus returned closest record ID 2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487",
+        "published-finding corpus returned closest record ID 2026/11/2/SCOPE-sharp-mahler-product-monotonicity-of-symmetric-planar-circular-l--b079d50aa217",
+        "Kipp arXiv:2407.01353 first-posted 2024-07-01",
+        "Bezdek arXiv:1912.05118v1 first-posted 2019-12-11",
+        "Finch arXiv:1301.5515v1 first-posted 2013-01-23"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Read published note 2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487 RESULT.md: exact two covariance eigenvalues, gap identity and monotone anisotropy quotient; no isotropic determinant monotonicity statement.",
+        "Read published note 2026/11/2/SCOPE-sharp-mahler-product-monotonicity-of-symmetric-planar-circular-l--b079d50aa217 RESULT.md: exact area and polar-area product decreasing, a different valuation.",
+        "Bezdek arXiv:1912.05118v1, Sections 1–6: lens extremality for intrinsic volumes/inradii, no affine-normalized covariance.",
+        "Finite signed Taylor certificate in RESULT.md and verify.py proves the additional normalized determinant derivative sign."
+      ],
+      "reasoning": "The covariance eigenvalues from the known anisotropy theorem determine the same moments, so the formulas for X and Y are treated as prior coverage. The new quantified claim is that the quotient XY/A^4 has positive derivative for every 0<a<1, proved by a nontrivial global sign inequality. Increasing Y/X does not imply increasing XY/A^4, because X,Y,A all vary; decreasing area times polar area does not imply it either. Searches on inertia, normalized moment determinant and isotropic-constant aliases did not find an equivalent statement.",
+      "searches": [
+        "published-finding corpus: two congruent disks lens intersection isotropic constant covariance strictly monotone separation",
+        "published-finding corpus: circle intersection lens volume normalized determinant of inertia tensor monotonic 9/1400",
+        "Web: \"lens\" \"isotropic constant\" \"convex\" ball intersection 2D",
+        "Web: \"lens\" \"isotropic constant\" intersection disks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or independent published-finding corpus record of the monotonic normalized determinant or endpoint 9/1400 was returned by the actual queries.",
+        "Closest published covariance lens record 2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487 reports thin-lens covariance scalings but not exact normalized determinant limiting value."
+      ],
+      "reasoning": "An exact-value table could contain the endpoint, but the all-separations strict ordering is a continuum statement not established by a finite tabulation. The retrieved nearest claims do not contain a dominating formula with the required sign theorem. Absence in retrieved results is not asserted as proof of novelty.",
+      "searches": [
+        "published-finding corpus: planar ball lens isotropic constant rises from 1/(16pi^2) to 9/1400",
+        "published-finding corpus: circular lens uniform area second moment product divided by area fourth",
+        "published-finding corpus: planar intersection two equal circles inertia determinant shape constant separation"
+      ]
+    },
+    "rationale": "The nearest full-text published covariance note already gives the component moments and anisotropy ratio; these are explicitly credited. Its ratio monotonicity does not imply monotonicity of det(Cov)/area^2, since both eigenvalues and area vary. The nearest planar Mahler note concerns polar area and its reverse monotonicity, not the covariance determinant. Relevant full-text Bezdek (2019) treats intrinsic-volume extremality; Finch (2013) three-dimensional lens geometry; Kipp (2024) polytopal/zonotopal isotope extremality. Actual alias/parameter/equivalence searches and comparisons with accessible published statements found no covering strict determinant theorem. Priority remains provisional due unindexed classical inertia literature.",
+    "residual_risks": [
+      "Exact finite mechanical inertia expressions for planar circular lenses may exist in unindexed engineering sources; the globally signed determinant derivative is not found in checked full-text conclusions.",
+      "A publicly known general theorem not surfaced by semantic search could imply the result; publication priority remains contingent on independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: volume/inradius/mean-width extremality; no uniform-volume second moment derivative sign",
+        "evidence": [
+          "arXiv:1912.05118v1 first public 2019-12-11",
+          "Theorem 1 volume maximization for r-ball bodies, Theorem 4 intrinsic-volume bounds, Theorem 7 spindle volume minimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1912.05118v1",
+        "material_read": "Full text HTML, Sections 1–6 and theorem statements, including Theorems 1, 4, 7 and corollaries",
+        "method": "Read arXiv HTML and compared intrinsic-volume/radius conclusions to normalized covariance-determinant claim",
+        "title": "Volumetric bounds for intersections of congruent balls",
+        "trigger": "Lead literature on extremal geometry of congruent-ball intersections"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: exact covariance moments are known; new normalized determinant monotonicity not stated or implied by the proven ratio inequality alone",
+        "evidence": [
+          "Exact B_j moments and axial/transverse eigenvalues for all dimensions",
+          "Monotone anisotropy ratio and gap identity; no determinant/area^2 derivative inequality"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-covariance-anisotropy-law-for-symmetric-euclidean-ball-len--dbb6d001c487",
+        "material_read": "Entire accessible RESULT.md, including finding, proof, verification, relationship and limitations",
+        "method": "Fetched published full mathematical record; analyzed exact eigenvalues, ratio theorem and thin-lens limits",
+        "title": "Sharp covariance anisotropy law for symmetric Euclidean ball lenses",
+        "trigger": "Nearest indexed same-object and uniform-volume second-moment result"
+      },
+      {
+        "assessment": "NOT_COVERING: Mahler product is a distinct area-polar area functional; its derivative sign does not imply inertia determinant monotonicity",
+        "evidence": [
+          "Exact lens polar area (pi+4a)/(1-a^2)^(3/2)",
+          "Mahler product decreases strictly, unlike newly studied isotropic constant"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-mahler-product-monotonicity-of-symmetric-planar-circular-l--b079d50aa217",
+        "material_read": "Entire accessible RESULT.md, including proof and limitations",
+        "method": "Fetched full published mathematical result; compared polar area integrals and normalized determinant",
+        "title": "Sharp Mahler-product monotonicity of symmetric planar circular lenses",
+        "trigger": "Same planar lens family and another affine-invariant strictly monotone functional"
+      },
+      {
+        "assessment": "NOT_COVERING within inspected material: three-dimensional volume, area and mean width; planar interior normalized covariance not stated",
+        "evidence": [
+          "Section 1 sphere intersections, area/volume/mean-width formulas; 2013-01-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1301.5515v1",
+        "material_read": "Full HTML Section 1 (symmetric lens), title/abstract, other section headings",
+        "method": "Read Section 1 and compared integrands, dimension and invariant",
+        "title": "Mutually Equidistant Spheres that Intersect",
+        "trigger": "Classical independent lens-volume and mean-width calculations, especially possible second-moment priority"
+      },
+      {
+        "assessment": "NOT_COVERING in relevant inspected sections: optimality for polytopes/zonotopes, not equal-disk lenses",
+        "evidence": [
+          "Preprint first posted 2024-07-01",
+          "Theorems 1.1–1.4 study simplicial polytopes, cross-polytopes and zonotopes; no lens mention"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.01353v2",
+        "material_read": "Introduction, Theorems 1.1–1.4, first-order variation discussion in Section 2",
+        "method": "Read available HTML full-text sections and searched terms lens/intersection",
+        "title": "Isotropic constants and regular polytopes",
+        "trigger": "Relevant 2024 lead-era isotropic-constant literature and possible broad monotonic theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f7b7b7c-cd99-4b0e-8b74-1b80743b80d1",
+  "value": {
+    "rationale": "A complete strict ordering on the natural, continuously varying family of intersections of two congruent disks under a canonical affine-invariant second-moment functional, with an exact sharp endpoint and a concrete parabolic limiting body. The key challenge is competing variation of two principal moments and shrinking area; the result is stronger than previously known anisotropy or Mahler monotonicity for this family, and is useful as a sharp benchmark for lens shape interpolation and affine-invariant geometry. No unmotivated slice, routine normalization or claimed general convex-body theorem.",
+    "status": "PASS"
+  }
+}
