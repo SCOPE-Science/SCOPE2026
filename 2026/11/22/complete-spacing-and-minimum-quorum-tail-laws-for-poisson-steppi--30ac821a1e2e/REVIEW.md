@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+For all positive stage amplitudes and exponential attenuation rates, every integer founding quorum, and every nonnegative total length, the proof reduces the product completion probability to a strictly concave separable objective. The nonstandard step is verified directly from the positive-coefficient series identity for Poisson-tail elasticity; it establishes a strictly increasing distance marginal cost and the unique multiplier solution. Endpoint conditions include permanently zero links, tied activations and zero total length. The large-distance proof supplies both the limiting gap distribution and the exact probability prefactor from the small-mean Poisson expansion. The accompanying standard-library script passed 21,494 assertions, including sample checks with two minimum-effective-quorum stages. These finite calculations complement, rather than establish, the quantified theorem.
+
+## Originality — PASS, qualified priority
+
+The closest primary comparisons were Hodgson et al. (2012), who examine range-shift speed in patch networks and empirical/simulation comparisons of stepping-stone spacing, and Saura, Bodin and Fortin (2014), who formulate maximum-product, founder-threshold connectivity through given habitat networks. Both accessible full articles, including Hodgson et al.'s supporting-material captions, were materially compared. Neither states a complete continuous fixed-length solution for the independent conditional Poisson-quorum chain, the permanent zero-gap criterion, nor the exact minimum-rate-times-quorum asymptotic coefficient. Other public indexed claims on Poisson founder-budget allocation and spacing-independent linear dispersal spectra involve different objectives and do not imply the claim through their stated theorems. A 2026 raster-based stepping-stone sequencing study was checked through substantial accessible abstract/methods/conclusions excerpts; its lexicographic path-cost objective differs, but its full publisher text remained inaccessible (403). The general separable-concave multiplier method is known and is not asserted to be new. Residual risk remains that a more general published theorem on convex resource allocation or reliability asymptotics already covers this precise specialization; no exhaustive historical priority certification is claimed.
+
+## Value — PASS
+
+The motivating ecological gap is the design of multi-generation stepping-stone chains where different habitats require different minimum numbers of arriving founders. Common regular-spacing heuristics arise from homogeneous source and colonization models. The complete classification identifies which links can absorb distance, when a new link activates, and which high-quorum stages can remain collocated at the optimum for every distance. The exact long-distance rate \(\min_i\lambda_i m_i\) and leading success constant provide a natural comparison quantity across heterogeneous routes. The three-stage example is an explicit boundary: a three-founder stage never receives any gap while a one-founder stage bears arbitrarily large separation. This is a self-contained structural design theorem for a motivated model, not a claim that the assumptions match real dispersal systems.
+
+## Scientific limitations
+
+The model assumes a prescribed single route, independent sequential Poisson founding events, reset source amplitudes after successful establishment, no patch extinction and no parallel alternative route. Its optimization target is eventual one-attempt chain completion, not expansion speed, persistence or expected population size. Mathematical collocation of successive stages is permitted, although lower bounds on gap length can be accommodated. Historical priority against general-purpose reliability optimization remains a risk; field validation and independent mathematical audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
