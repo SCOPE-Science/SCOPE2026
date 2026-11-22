@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For any invertible real three-by-three generator matrix, the two pedal layers are derived from their actual facet equations. If the eight feet form a parallelepiped, its four antipodal body diagonals admit a signed zero-sum relation. The four prescribed rays have a unique dependence with strictly positive coefficients equal to their squared pre-normalization norms, forcing all four norms equal. A four-row sign expansion then proves that the original generating columns are perpendicular. Conversely perpendicular columns make every second-step denominator equal and give a rectangular box. A standalone exact-rational checker verifies five representative matrices but is not substituted for the universal proof.
+
+**Originality — PASS (best-knowledge, provisional priority).** The motivating 2026 source proves the return formula for orthogonal boxes and the special concentric-sphere case but does not characterize all oblique parallelepipeds. Scientific searches for second-pedal parallelepipeds, facet-foot iteration, polarity, and oblique-box returns found no statement equivalent to the sharp converse, or a stronger theorem implying it. The closest other public comparisons concern polar rectification or different geometric constructions, not this second-iterate question. A possible older result under nonstandard terminology is the residual risk.
+
+**Value — PASS.** This is an exact structural boundary of an active higher-dimensional pedal-return construction. It answers a natural nearest extension of the known box example for the full continuum of spatial parallelepipeds, rules out accidental nonrectangular two-step parallelotope returns, and provides an explicit nonnegative algebraic rigidity certificate. This is not a mere recomputation of the box return, because the obstruction is specific to oblique generators.
+
+**Limits.** The theorem does not address dimension four or higher, geometric similarity after later iterations, or combinatorial cubicality. All foot projections use facet *hyperplanes*. Historical priority is provisional, and independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
