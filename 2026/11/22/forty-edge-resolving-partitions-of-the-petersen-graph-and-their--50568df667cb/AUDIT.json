@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The Petersen graph is generated both as the pair-Kneser graph KG(5,2) and independently as GP(5,2). Two separately implemented exact verifiers exhaustively traverse all Bell(10)=115975 unlabeled vertex partitions, using restricted-growth words and 15 exact edge-to-block minimum-distance signatures. Both return zero for block counts 1-3; 40,11965,14877,5045,720,45,1 for 4-10; the 40 minima have profile (1,3,3,3) and form one orbit under 120 label permutations/automorphisms. The direct four-block witness has 15 distinct signatures. The three-block necessary-condition count is independently reproduced (9330,105,15,15). The checker source and saved output are included; these are exhaustive finite checks, not extrapolations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuziak et al. (2023), Theorem 2.1 and Theorem 3.1: general bounds, no exact Petersen value",
+        "published-finding corpus title \"The 7,040 optimal resolving partitions of the Petersen graph form a diameter-eight relocation network\" and its full RESULT.md: resolves vertices",
+        "Raza et al. (2021), DOI:10.1155/2021/5592476, generalized Petersen vertex-partition problem",
+        "published-finding corpus 2026/11/2/...2b49c41819af complete proper symmetry-breaking colouring RESULT.md: a 40-member orbit of shape (4,2,2,2), with independent color classes; distinct from the present 40-member shape (1,3,3,3), whose three non-singleton blocks each induce P3"
+      ],
+      "reasoning": "The inequality epd(G) <= edim(G)+1 gives only a loose upper bound, while the generic lower bound for non-paths is three. Neither implies the four-block lower bound, polynomial or orbit. Existing generalized Petersen partition papers address vertex partitions; 2026 results on the same graph count the 7040 four-block vertex-resolving partitions, including profile (1,3,3,3) but not the edge-resolving subfamily. A closely matching forty-element proper distinguishing-colouring orbit is also inapplicable: every block must be independent there, and its size profile (4,2,2,2) differs from the present (1,3,3,3); the present triple blocks are induced three-vertex paths.",
+      "searches": [
+        "published-finding corpus: 2023 Kuziak Maritz Vetrik Yero edge resolving partition Petersen graph full cardinality polynomial",
+        "published-finding corpus: Ali Ahmad Jamil Theorem 16 edge partition dimension of Petersen graph six",
+        "web: \"edge partition dimension\" \"edge metric dimension\" counterexample 3 4",
+        "web: \"Petersen graph\" \"resolving partition\" edges partitions four"
+      ]
+    },
+    "checked_sources": [
+      "Kuziak et al. 2023, DOI 10.47443/dml.2023.010",
+      "Ali et al. 2024, DOI 10.30538/psrp-odam2024.0105",
+      "Raza et al. 2021, DOI 10.1155/2021/5592476",
+      "published-finding corpus public record 2026/11/8/...fa2b190525a1",
+      "published-finding corpus semantic retrieval: four alias-specific queries and general related searches",
+      "Public web indexed searches for four-block Petersen edge partitions and reported epd values",
+      "published-finding corpus public record 2026/11/2/...2b49c41819af (proper distinguishing colouring, entire RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 source: no Petersen-specific theorem in its six pages; Proposition 3.1 only for edim(G)=2",
+        "2024 source: Theorem 16 asserts a larger minimum, so cannot imply four",
+        "2026 published vertex partition RESULT.md: min vertex partition four, 7040 count, no global edge partition enumeration",
+        "Present four-block witness plus exhaustive 3-block exclusion and 40-optimum orbit",
+        "Proper distinguishing 4-color-class orbit has shape (4,2,2,2) and cannot contain any present edge-resolving 4-block optimum, whose shape is (1,3,3,3)."
+      ],
+      "reasoning": "Knowing pd(P)=4 and having 7040 vertex-resolving four-block partitions does not force epd(P)=4 or identify the 40 that distinguish edges, because vertex and edge signatures are distinct mathematical predicates. A claimed minimum six is strictly inconsistent with an exhibited four-block edge-resolving partition; it cannot subsume the result. Neither a general upper bound nor a discrepant scalar statement entails the new exact enumerator.",
+      "searches": [
+        "published-finding corpus: edge resolving partitions trees epd three and edim four",
+        "published-finding corpus: Petersen graph edge partition dimension four 40 optimal edge resolving partitions (3,3,3,1)",
+        "web: \"Petersen\" \"edge partition dimension\" 4",
+        "source: https://www.dmlett.com/archive/v12/DML23_v12_pp34-39.pdf",
+        "source: https://pisrt.org/psrpress/j/odam/2024/3/The-novel-resolvability-parameter-local-edge-partition-dimension-of-graphs.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuziak et al. (2023), DOI 10.47443/dml.2023.010, pp. 34-36, definition of edge partition dimension",
+        "Ali et al. (2024), DOI 10.30538/psrp-odam2024.0105, Theorem 16 and Table 10, pp. 68-69",
+        "published-finding corpus 2026/11/8/...fa2b190525a1, RESULT.md, vertex partition definition"
+      ],
+      "reasoning": "Equivalent phrasings include edge resolving partition, vertex partition resolving edges, edge partition basis, global edge partition dimension, and Kneser representation KG(5,2)=GP(5,2). The 2024 theorem explicitly uses the global object but reports six, not the proven four. Vertex-resolving partitions count different signatures and cannot substitute for edge resolution.",
+      "searches": [
+        "published-finding corpus: Petersen graph edge partition dimension four 40 optimal edge resolving partitions (3,3,3,1)",
+        "published-finding corpus: unique edge signatures vertex partition Petersen Kneser KG(5,2) four blocks",
+        "web: \"Petersen graph\" \"edge partition\" \"40\"",
+        "web: \"Petersen\" \"edge partition dimension\" 4",
+        "published-finding corpus: global edge partition dimension Petersen graph exact 4 40 partitions one symmetry orbit, not vertex partition dimension",
+        "published-finding corpus: edge-resolving partition polynomial Petersen graph blocks 1 3 3 3, four classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ali et al. (2024), published 2024-12-22, Theorem 16 and Table 10 report six",
+        "published-finding corpus hit 2026/11/8/SCOPE-the-7-040-optimal-resolving-partitions-of-the-petersen-graph-for--fa2b190525a1 reports 7040 *vertex*-resolving partitions, including 240 of shape (1,3,3,3)",
+        "Present exact verified counts: four blocks 40, all k=4..10 coefficients specified",
+        "Published 2026/11/2/...2b49c41819af has 40 proper distinguishing partitions of a different size profile (4,2,2,2), not global edge-resolution"
+      ],
+      "reasoning": "A table claiming epd(P)=6 is not an exact prior match to epd(P)=4: the new four-block witness disproves that value. The 7040-table counts distinct vertex signatures instead of edge signatures; it does not list the 40 edge-resolving optima. No searched exact edge-partition census matched.",
+      "searches": [
+        "published-finding corpus: Petersen graph edge partition dimension four 40 optimal edge resolving partitions (3,3,3,1)",
+        "web: \"edge partition dimension of Petersen graph\" corrected",
+        "web: \"Petersen graph\" \"edge partition\" \"40\"",
+        "published-finding corpus: corrected edge partition dimension Petersen graph 2024 value 6 versus 4"
+      ]
+    },
+    "rationale": "The 2023 defining article gives bounds and other graph families but no Petersen four-block census. A December 2024 paper asserts the different scalar value six, contradicted by the explicitly checked four-block witness and lower bound. The closely matching 2026 public Petersen record counts 7040 partitions resolving vertices, not edges, and does not entail the new 40-partition edge classification. Searches of aliases and published-finding corpus surfaced no covering edge-partition result; full global publication-priority proof is not claimed.",
+    "residual_risks": [
+      "Historical priority remains provisional: an unindexed edge-partition computation could exist.",
+      "The later 2024 paper includes inconsistent scalar claims and a presentation of partitions; only its explicit published numerical assertion was compared, not its intentions.",
+      "No independent scholarly review of the exact finite theorem has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": [
+          "2023-03-30 publication date in header",
+          "Definition at page 35; list of solved graph families lacks Petersen"
+        ],
+        "identifier_or_url": "https://www.dmlett.com/archive/v12/DML23_v12_pp34-39.pdf",
+        "material_read": "Definitions and all results on pages 34-39, especially Theorem 2.1, Theorem 3.1, Proposition 3.1, Corollary 3.1, Problems 3.1 and 4.3",
+        "method": "Web PDF text extraction plus direct screenshot of page 35",
+        "title": "The edge partition dimension of graphs",
+        "trigger": "Defines the precise global edge-partition invariant in 2023"
+      },
+      {
+        "assessment": "DIRECT_NUMERICAL_CONTRADICTION_NOT_COVERING",
+        "evidence": [
+          "First publication 2024-12-22 (not treated as motivating 2023 date)",
+          "Theorem 16 states edge partition dimension six; present four-block witness gives four"
+        ],
+        "identifier_or_url": "https://pisrt.org/psrpress/j/odam/2024/3/The-novel-resolvability-parameter-local-edge-partition-dimension-of-graphs.pdf",
+        "material_read": "Publication header and theorem statements/proofs for Petersen graph on pp. 66-69, including Theorem 16 and Table 10",
+        "method": "Web PDF text extraction plus direct screenshots of pages 68 and 69",
+        "title": "The novel resolvability parameter, local edge partition dimension of graphs",
+        "trigger": "Directly claims an exact edge partition dimension on the Petersen graph"
+      },
+      {
+        "assessment": "VERTEX_PARTITIONS_DISTINCT_INVARIANT",
+        "evidence": [
+          "Document explicitly defines signatures of vertices and enumerates 7040 vertex-resolving four-block partitions",
+          "Its 240 partitions of shape (1,3,3,3) are not classified by edge resolution"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-7-040-optimal-resolving-partitions-of-the-petersen-graph-for--fa2b190525a1",
+        "material_read": "Entire RESULT.md, including assumptions, 7040 count, shape distribution and proof",
+        "method": "Authorized public GitHub repository file read",
+        "title": "The 7,040 optimal resolving partitions of the Petersen graph form a diameter-eight relocation network",
+        "trigger": "Same Petersen graph and four-block partition language"
+      },
+      {
+        "assessment": "VERTEX_ONLY_NOT_COVERING",
+        "evidence": [
+          "Paper defines representations of vertices by distances to blocks, rather than representations of edges"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2021/5592476",
+        "material_read": "Abstract and introductory definitions available in HTML, plus theorem descriptions for larger generalized Petersen graphs",
+        "method": "Web HTML primary-source inspection",
+        "title": "Partition Dimension of Generalized Petersen Graph",
+        "trigger": "Petersen-name and partition terminology in a primary graph-theory paper"
+      },
+      {
+        "assessment": "INAPPLICABLE_DISTINCT_CLASS_PROPERTY_AND_PROFILE",
+        "evidence": [
+          "Proper distinguishing orbit of forty has profile (4,2,2,2), each block independent",
+          "Present edge-resolving optimum has profile (1,3,3,3), three triples induced paths"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-proper-symmetry-breaking-colouring-polynomial-of-the-peterse--2b49c41819af",
+        "material_read": "Entire RESULT.md, especially four-colour orbit profiles and independent-class definition",
+        "method": "Authorized public GitHub repository file read",
+        "title": "The proper symmetry-breaking colouring polynomial of the Petersen graph",
+        "trigger": "published-finding corpus exact forty-element symmetry orbit on the Petersen graph, potentially implying the new count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "50568df6-67cb-4364-a6db-153dcf4cc63f",
+  "value": {
+    "rationale": "The original 2023 edge-partition invariant had an unresolved canonical ten-vertex test instance, and a later paper explicitly asserted the wrong minimum value. A reproducible counterexample alone would settle that discrepancy, while the new exhaustive classification gives all 40 optima in one symmetry orbit and all cardinalities up to ten. This supplies an exact benchmark for the emerging invariant, beyond trivial bound substitution or a known vertex-partition census. The superficially equal forty-configuration proper-colouring orbit concerns different block sizes and an independent-set condition, strengthening the need for invariant-specific classification.",
+    "status": "PASS"
+  }
+}
