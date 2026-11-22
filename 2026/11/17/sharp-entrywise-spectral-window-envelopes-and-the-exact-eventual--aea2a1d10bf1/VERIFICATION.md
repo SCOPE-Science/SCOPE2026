@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic claim is established in `RESULT.md`: (i) spectral reduction to a positive-contraction interval; (ii) exact signed eigenvalues of the rank-two symmetric coordinate form; (iii) feasible endpoint-generating rank-one projectors; (iv) derivative sign of the onset function; (v) a fixed-generator witness of all earlier negative times. The proof explicitly handles the dimension requirement, strict positivity of the eigenvector, both spectral endpoints, closed versus strict time boundaries, and the diagonal entries.
+## correctness
 
-Run `python3 verify.py` from the extracted package directory. It requires only the Python standard library and reports 14,617 exact rational and floating finite diagnostic assertions, with the explicit three-dimensional onset. The script checks projector identities, two-sided bounds on sampled finite-dimensional rank-one spectral effects, endpoint eigenpair relationships, and the persistent sign switch. Its floating tests use stated tolerances. These finite checks do not certify the theorem for arbitrary dimensions or times; the proof supplies those universal conclusions.
+PASS
 
-A separate independent audit was not performed. The originality check is qualified by possible earlier equivalent matrix-inequality formulations and limitations on access to some primary works. The theorem does not address other spectral configurations, nonnormal generators, or infinite-dimensional coordinate lattices.
+PASS. Read full spectral-window minimax proof and verify.py. Decompose e^(tA)=uu^T+aQ+(b-a)K with 0<=K<=Q. For i!=j, S=(v_i v_j^T+v_j v_i^T)/2 on u-perp has one positive and one negative eigenvalue (c+-alpha beta)/2; choosing its rank-one positive/negative projections saturates both entry envelopes for all t through a fixed three-level A_K. Strict H(t) monotonicity follows F'(t)=(m²-d²)e^(mt)sinh(dt)>0, giving unique sharp onset and persistent negative witness for all earlier positive times. Independent SciPy exponential of the example u=(3,4,12)/13 and delta=1,L=2 confirmed R=sqrt(170), T~1.7949547597 and sign transitions. n>=3 ensures v_i,v_j independent; no Metzler assumption is imposed.
+
+## originality
+
+PASS
+
+Finite attained three-level spectral-window minimax time differs from infinite-dimensional qualitative positivity work.
+
+## value
+
+PASS
+
+PASS. Exact earliest uniform time when every symmetric generator with a fixed positive dominant eigenvector and prescribed spectral window becomes entrywise positive is a naturally motivated finite spectral/positive-semigroup stability question. The sharp entry envelopes, persistent worst-case three-level matrix and coordinate-imbalance onset identify a genuine structural boundary. These do not merely restate qualitative eventual-positivity results or finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

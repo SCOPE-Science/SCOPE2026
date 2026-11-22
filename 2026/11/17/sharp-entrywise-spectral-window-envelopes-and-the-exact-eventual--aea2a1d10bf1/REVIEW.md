@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for every integer dimension at least three, each strictly positive unit Perron vector, every pair of spectral endpoints \(0<\delta<L\), all admissible real symmetric generators, every distinct coordinate pair, and every positive time. Spectral calculus produces an operator interval; maximizing the associated rank-two symmetric form over positive contractions gives exactly the stated endpoint entries. Rank-one spectral projectors give a **single** extremal three-level generator for each pair, valid at every time. The strictly increasing comparison function gives the necessity and sufficiency of the precise all-generators positivity onset. The standalone finite checker tests selected exact and numerical identities, but the universal assertions follow from the proof, not the tests.
+## correctness
 
-## Originality — PASS, qualified
-Dobrick (arXiv:2609.00425v1, 2026) investigates a compact-resolvent, infinite-dimensional self-adjoint semigroup with individual but not uniform eventual positivity, whereas the new statement establishes sharp finite-dimensional matrix-entry envelopes over an entire constrained generator class. Daners and Glück (arXiv:1801.05179v1) give qualitative sufficient conditions for uniform eventual positivity, without the inspected exact minimax threshold or persistent negative-entry witness. Related mathematical research records about infinite-dimensional failures and positivity of a two-step Lanczos *approximation* do not dominate the present claim. The classical spectral-order and rank-two optimization techniques themselves are not asserted to be original. Residual risk: an older matrix-analysis or semigroup result under equivalent terminology may cover part of this claim; some database results were accessible only as summaries, not complete papers.
+PASS
 
-## Mathematical value — PASS
-A natural gap remains between qualitative convergence to a positive spectral projection and an explicit, worst-case threshold guaranteed by partial spectral information. The new result determines the exact time from just the positive eigenvector and a complementary spectral window, with equality for an explicit three-level generator; it also provides all-time pointwise sharp bounds, including the two-sided maximum envelope. Such a necessary-and-sufficient quantitative guarantee can be used to compare finite-dimensional semigroup models without determining the remaining eigendirections. The theorem is limited to real symmetric finite matrices and does not settle general nonnormal or infinite-dimensional eventual positivity.
+PASS. Read full spectral-window minimax proof and verify.py. Decompose e^(tA)=uu^T+aQ+(b-a)K with 0<=K<=Q. For i!=j, S=(v_i v_j^T+v_j v_i^T)/2 on u-perp has one positive and one negative eigenvalue (c+-alpha beta)/2; choosing its rank-one positive/negative projections saturates both entry envelopes for all t through a fixed three-level A_K. Strict H(t) monotonicity follows F'(t)=(m²-d²)e^(mt)sinh(dt)>0, giving unique sharp onset and persistent negative witness for all earlier positive times. Independent SciPy exponential of the example u=(3,4,12)/13 and delta=1,L=2 confirmed R=sqrt(170), T~1.7949547597 and sign transitions. n>=3 ensures v_i,v_j independent; no Metzler assumption is imposed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Finite attained three-level spectral-window minimax time differs from infinite-dimensional qualitative positivity work.
+
+## value
+
+PASS
+
+PASS. Exact earliest uniform time when every symmetric generator with a fixed positive dominant eigenvector and prescribed spectral window becomes entrywise positive is a naturally motivated finite spectral/positive-semigroup stability question. The sharp entry envelopes, persistent worst-case three-level matrix and coordinate-imbalance onset identify a genuine structural boundary. These do not merely restate qualitative eventual-positivity results or finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
