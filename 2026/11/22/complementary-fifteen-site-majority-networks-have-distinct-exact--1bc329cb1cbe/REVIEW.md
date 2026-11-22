@@ -1,0 +1,15 @@
+# Scientific review of the complementary fifteen-site majority basin census
+
+## Correctness
+PASS. The exact domain is a pair of graphs on the same fifteen labelled two-subsets of a six-element set. The simultaneous majority rule uses open-neighbor counts and retains the incumbent bit precisely on a tie. The documented finite claim is established through complete enumeration of all \(2^{15}=32768\) states on each graph. The first checker tests \(F^5=F^3\) pointwise, establishes the least-entry-time histogram, and counts individual attractor basins. The second, implemented with different graph and phase-space representations, reconstructs all eventual cycles and every predecessor path. Both programs have been run successfully. Thus the tabulated result is a full finite proof, not a probabilistic experiment or an extrapolation to larger graphs.
+
+## Originality
+PASS with bounded historical-priority risk. The closest general theorem of Goles and Olivos constrains the eventual least period to one or two but does not count transient entrances or individual attraction basins. A related published line-graph half-factor result classifies recurrent states; it is not a published basin-multiplicity formula for the particular fifteen-site pair. Exact basin work on the Shrikhande–rook pair concerns different graphs and does not supply these populations. Searches for both exact counts and graph aliases found no covering table or equivalent graph-pair theorem. The line-graph work's full text was not accessible, so an unindexed supplementary basin census remains a priority risk. Historical research records were compared for recoverable claims and not reassessed.
+
+## Value
+PASS. The two graphs are complementary, automorphism-rich, canonical configurations on exactly the same fifteen two-subsets. A full basin census measures where *all* opinions flow, information absent from the period-two theorem and from recurrent-state classification alone. Although both reach a periodic attractor after at most three updates, complementing adjacency multiplies the oscillation-basin probability by exactly \(76/15\). The full two-period-versus-fixed and small-versus-giant basin spectra reveal a strong distinction in a natural small, exactly reproducible test pair. The scope is deliberately finite; no general family or physical model is claimed.
+
+## Closest literature and limits
+Goles–Olivos (1981) and Kuhlman–Mortveit–Murrugarra–Kumar (2011) establish background finite-threshold dynamics and permitted recurrent periods. The line-graph half-factor classification is relevant to recurring states; the Shrikhande–rook comparison is relevant to attraction-basin sensitivity but is about different graphs. This review cannot exclude an unidentified earlier exact table or supplementary material in an unavailable primary full text. The complete proof is exact finite-state enumeration rather than a closed-form parameter-uniform theorem.
+
+Self-review: passed. Independent audit: not yet performed.
