@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The 4 edge-orientation states of each length-two arm give 2z for the hub-outward edge and (1+z) for the hub-inward edge. Hub-sink correction yields (1+3z)^m+(z-1)(1+z)^m, with exact coefficients (3^k-1)C(m,k)+C(m,k-1). For negative z=-y, the parity and strict monotonicity of the two rational functions prove exactly one y>1 for every m and exactly one x in (1/2,1) for even m; the derivative at zero is 2m+1, and no positive root occurs. The limits y/3^m ->1 and x->1/2 follow from explicit logarithmic bounds. Executing artifacts/verify.py independently enumerated 21844 individual graph edge orientations (m=1..7), and exact signs/coefficients for m=1..40. Numerical results corroborate, do not substitute for, the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.41502 Theorem 3.1 proves acyclic sink real-rootedness for chordal claw-free graphs; Theorem 4.3 proves all-orientations sink real-rootedness for claw-free graphs.",
+        "T_m has an induced K_{1,3} at its hub for m>=3.",
+        "Published clique-bouquet result concerns K_1 joined to disjoint complete graphs, not subdivided stars."
+      ],
+      "reasoning": "Neither claw-free result applies to the genuinely branching cases, and the clique-bouquet graph family does not contain a subdivided star. The general sink-set formula is not a stronger root classification. The m=1,2 path cases are included solely to locate the exact threshold, not claimed as independent novelty.",
+      "searches": [
+        "published-finding corpus: sink polynomials of trees with two-edge arms, all-orientations sink generating function real root classification",
+        "web: sink polynomial spiders trees acyclic orientations number of sinks real roots",
+        "arxiv:2610.41502 Theorems 3.1, 4.3; 2019 paper Sections 2-5",
+        "2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.41502v1",
+      "arxiv:1910.10920",
+      "published-finding corpus:2026/11/8/SCOPE-real-zero-rigidity-and-a-sharp-two-petal-threshold-for-square-bo--fecde89f20dd",
+      "published-finding corpus:2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75",
+      "published-finding corpus:2026/10/13/SCOPE-exact-sink-set-polynomial-for-crown-graph-acyclic-orientations-a--8c230416a68f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Square bouquets consist of cycles C4 sharing a hub and have 3r+1 vertices, while T_m is a tree with 2m+1 vertices and no cycles.",
+        "Clique bouquets contain each peripheral clique adjacent to the hub, unlike paths of length two.",
+        "The 2026 general sink-set expansion has no root-count conclusion for claw-containing trees."
+      ],
+      "reasoning": "The final claim requires solving a distinct local polynomial and a different negative-root equation. Neither example is a graph specialization; no stated prior theorem entails the exact two-/three-real-root count or 3^m escape asymptotics. Broader computational identities are acknowledged but do not imply the claim without substantive additional analysis.",
+      "searches": [
+        "published-finding corpus: acyclic orientation sink polynomial of subdivided stars or spider trees, root count parity, (1+3z)^m+(z-1)(1+z)^m",
+        "published-finding corpus: sink polynomials of trees with two-edge arms, all-orientations sink generating function real root classification",
+        "2026/11/8/SCOPE-real-zero-rigidity-and-a-sharp-two-petal-threshold-for-square-bo--fecde89f20dd",
+        "2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75",
+        "arxiv:2610.41502 Proposition 2.4 and Section 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1910.10920 introduces the sink-generating function as the specialization of its multivariate acyclic-orientation polynomial.",
+        "arxiv:2610.41502 Proposition 2.4 gives a universal independent-sink-set expansion.",
+        "On a tree all orientations are acyclic, so the all-orientations and acyclic variants coincide; a direct comparison is necessary and has been included."
+      ],
+      "reasoning": "The equivalent orientation polynomial is explicitly recognized. Generic definitions, deletion-contraction and independent-set expansions evaluate any finite graph but do not determine the parity-dependent complete real-root locations or the escaping-root rate for two-edge-arm spiders.",
+      "searches": [
+        "published-finding corpus: acyclic orientation sink polynomial of subdivided stars or spider trees, root count parity, (1+3z)^m+(z-1)(1+z)^m",
+        "published-finding corpus: sink polynomials of trees with two-edge arms, all-orientations sink generating function real root classification",
+        "published-finding corpus: (T_m) obtained by subdividing every edge of K_{1,m} once; acyclic sink polynomial (1+3t)^m+(t-1)(1+t)^m, real zeros 2 for odd m 3 for even m",
+        "published-finding corpus: subdivided star sink polynomial all orientations root counting parity, two-edge spider",
+        "arxiv:1910.10920 Definition 2.1; arxiv:2610.41502 Proposition 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/11/8/SCOPE-real-zero-rigidity-and-a-sharp-two-petal-threshold-for-square-bo--fecde89f20dd gives square-bouquet polynomial (z^2+10z+3)^r+(z-1)(z+3)^r.",
+        "published-finding corpus 2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75 gives clique-bouquet factorization and root transitions.",
+        "The October 2026 arXiv paper treats graph classes and a line-graph counterexample, not the complete proposed tree-family root list."
+      ],
+      "reasoning": "No searched repository result, indexed paper or table explicitly lists the two-edge spider sink polynomial with the even/odd real-root census. The closest records concern distinct graphs; absence from search does not establish global novelty.",
+      "searches": [
+        "published-finding corpus: acyclic orientation sink polynomial of subdivided stars or spider trees, root count parity, (1+3z)^m+(z-1)(1+z)^m",
+        "published-finding corpus: (T_m) obtained by subdividing every edge of K_{1,m} once; acyclic sink polynomial (1+3t)^m+(t-1)(1+t)^m, real zeros 2 for odd m 3 for even m",
+        "published-finding corpus: subdivided star sink polynomial all orientations root counting parity, two-edge spider",
+        "web: \"sink polynomial\" \"spider\" \"acyclic orientations\" roots",
+        "web: \"sink polynomial\" \"subdivided star\"",
+        "2026/11/8/SCOPE-real-zero-rigidity-and-a-sharp-two-petal-threshold-for-square-bo--fecde89f20dd",
+        "2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75"
+      ]
+    },
+    "rationale": "Direct primary-text comparison shows the October 2026 claw-free theorems are inapplicable to T_m for m>=3 and its generic sink-set expansion supplies no root census. The earlier 2019 work supplies general orientation polynomial recurrences. Two closest published hub-gluing results have different graph families and factor polynomials; their root-count conclusions do not transfer to the subdivided star. Database queries specifically mentioning the exact proposed factorization, two-edge spiders, parity and sink roots returned no covering result. Best-knowledge original, historical priority provisional.",
+    "residual_risks": [
+      "Specialized unpublished or unindexed treatment of sink distributions on depth-two spider trees could contain this result.",
+      "Broad sink-set expansions are algorithmically sufficient to calculate each coefficient, but were not found to supply the exact nonreal-root census; historical priority is not independently verified.",
+      "Search ranking cannot prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING specific claim; claw-free root hypotheses do not include branching T_m; generic formula not a root census",
+        "evidence": [
+          "arxiv:2610.41502v1, 2026-10-30, Proposition 2.4 and Theorems 3.1/4.3",
+          "the source treats line graphs, chordal claw-free and claw-free graphs, unicyclic line graphs, and weighted polynomials"
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.41502",
+        "material_read": "Full-text indexed 30-page PDF, introduction, definitions, Proposition 2.4, Theorem 3.1, sections 3.4 and 4, title/abstract and searchable text for spider, star and subdivision",
+        "method": "Open and inspect primary PDF text, screenshot first page; targeted full-text keyword checks",
+        "title": "Sink polynomials of line graphs and weighted matching polynomials",
+        "trigger": "Motivating recent first-public source and possible general root theorem"
+      },
+      {
+        "assessment": "FOUNDATIONAL not a stated two-edge spider real-zero classification",
+        "evidence": [
+          "arxiv:1910.10920, initially submitted 2019-10-24; Definition 2.1 and theorem overview"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1910.10920",
+        "material_read": "21-page primary PDF text, abstract, introduction, definitions, theorem overview and Section 2; keyword checks on spider/star",
+        "method": "Open indexed primary PDF text and screenshot first page",
+        "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+        "trigger": "Foundational equivalent definition and general-scope coverage comparison"
+      },
+      {
+        "assessment": "RELATED_BUT_DIFFERENT_GRAPH; no containment or stated reduction",
+        "evidence": [
+          "square-bouquet polynomial (z^2+10z+3)^r+(z-1)(z+3)^r",
+          "two real roots for odd r, four for even r"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-real-zero-rigidity-and-a-sharp-two-petal-threshold-for-square-bo--fecde89f20dd/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, proof, relationship-to-prior and limitations",
+        "method": "Direct inspection of the complete publicly accessible repository RESULT.md",
+        "title": "Real-zero rigidity and a sharp two-petal threshold for square bouquets",
+        "trigger": "Closest published-finding corpus parity root count"
+      },
+      {
+        "assessment": "RELATED_BUT_DIFFERENT_GRAPH; clique arms are not length-two tree arms",
+        "evidence": [
+          "clique bouquet polynomial C[prod(1+a_i z)+z-1]",
+          "homogeneous parity root count for r>=3"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75/RESULT.md",
+        "material_read": "Complete RESULT.md including factor formula and homogeneous parity proof",
+        "method": "Direct inspection of the complete publicly accessible repository RESULT.md",
+        "title": "Sharp sink-polynomial root transitions in clique bouquets",
+        "trigger": "Closest hub-gluing and root-geometry comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc10569b-3cdd-45a9-9b4e-165f897e0dd8",
+  "value": {
+    "rationale": "For a canonical infinite family of claw-containing chordal trees, the theorem gives both an all-coefficient enumerator and the exact real-root count and intervals at every order. It identifies a sharp real-rootedness cutoff (only path endpoints m=1,2), quantifies the growing nonreal-root population, and proves one negative root escapes at exponential scale 3^m while the even-parity root converges to -1/2. This addresses the boundary of recent claw-free real-rootedness theorems with structural information beyond routine evaluation or a finite table.",
+    "status": "PASS"
+  }
+}
