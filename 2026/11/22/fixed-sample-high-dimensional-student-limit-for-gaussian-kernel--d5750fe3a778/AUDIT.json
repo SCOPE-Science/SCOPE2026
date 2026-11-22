@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For fixed 4s observations, finite fourth moments uniformly control all squared-distance fluctuations at O_p(sqrt d). A common possibly random bandwidth scaled to c*d yields a pairwise RBF Taylor expansion with O_p(1/d) uniform remainder. After first-half evaluation, the random norm difference is exactly common to all scores and cancels in numerator and group-centered variances. The multivariate coordinate CLT makes the 2s projected first-half scores iid Gaussian with variance 2 sigma^4/s, leading to the exact pooled t ratio scaled sqrt(s/(s-1)). Continuous mapping applies because the chi-square denominator is nonzero almost surely. Reproduced numerical implementation tests corroborate the formula but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shekhar--Kim--Ramdas full expanded version Theorem 5 imposes a condition involving 1/n+1/m tending to zero and Remark 3 explicitly takes sample sizes diverging.",
+        "Gao--Shao 2023 abstract and beginning of full text study an unsplit studentized MMD U-statistic as both dimension and sample sizes diverge.",
+        "Kübler et al. 2022 Section 3.1 derives witness asymptotic normality only as test-set n+m increases and recommends permutation calibration for finite sample sizes."
+      ],
+      "reasoning": "The existing Gaussian high-dimensional theorems are not stronger than the fixed-s result: they require sample sizes to grow, so the first-half empirical variance concentrates. Here s remains fixed and its chi-square fluctuation survives. Gao--Shao do not use the same score/denominator, and Kübler et al. use a differently selected witness.",
+      "searches": [
+        "arxiv:2211.14908 Theorem 15 Appendix B changing kernels high dimension",
+        "arxiv:2109.14913 Gao Shao high-dimensional studentized MMD",
+        "Kübler Jitkrittum Schölkopf Muandet witness two-sample test 2022",
+        "high dimensional sample splitting cross MMD Gaussian RBF fixed n dimension infinity 18% nominal five percent"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2211.14908",
+      "https://arxiv.org/pdf/2211.14908",
+      "https://proceedings.nips.cc/paper_files/paper/2022/file/731b952bdc833485eb72f458cdd5c489-Paper-Conference.pdf",
+      "https://arxiv.org/pdf/2109.14913",
+      "https://proceedings.mlr.press/v151/kubler22a/kubler22a.pdf",
+      "published-finding corpus:2026/10/4/SCOPE-a-finite-sample-tail-obstruction-for-gaussian-linear-cross-hsic--8abbab3b5ed1",
+      "published-finding corpus:2026/10/4/SCOPE-exact-calibration-and-strict-local-power-dominance-for-scalar-ga--30125ed2df11"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original xMMD normal CLT assumes sample size diverges; fixed s violates the asymptotic condition.",
+        "The standard two-sample t ratio is classical once the projected scores have an iid Gaussian limit; no examined primary source supplies the high-dimensional RBF first-order cancellation for this fixed-s statistic.",
+        "The closest published-finding corpus record is cross-HSIC with linear kernels and a different null functional."
+      ],
+      "reasoning": "Published normality does not imply an n-fixed nonnormal null, and neither unsplit MMD nor cross-HSIC scores imply this exact constant. This theorem supplies the missing finite-vector radial expansion, shared-norm offset cancellation and full 2s-variate coordinate CLT.",
+      "searches": [
+        "NeurIPS 2022 Shekhar Kim Ramdas equations (2)--(4) Theorems 4, 5",
+        "arxiv:2211.14908 expanded Appendix B Theorem 15",
+        "Gao Shao 2023 JMLR 24 MMD high dimension",
+        "Kübler et al 2022 AISTATS WiTS",
+        "Shekhar Kim Ramdas 2022 permutation-free cross-MMD exact finite sample null t distribution radial basis Gaussian kernel bandwidth proportional dimension",
+        "fixed sample high dimensional RBF cross-MMD studentized Student distribution scaled t null calibration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "NeurIPS 2022 equations (2)--(4) define the same split score and biased variance, but Theorems 4--5 are sample-size asymptotic.",
+        "Expanded arXiv 2211.14908 Section 2.1 and appendix B likewise study n growing, no fixed-s exact t law in the inspected sections.",
+        "published-finding corpus closest cross-HSIC and scalar cross-fit records use different functionals."
+      ],
+      "reasoning": "Alternate formulations include a normal-witness ratio, a pooled two-sample Student statistic after high-dimensional kernel linearization, and data-dependent median bandwidth. The classic Student ratio only applies after proving the new RBF-to-joint-Gaussian projection limit; cited sources do not provide that implication for fixed sample size.",
+      "searches": [
+        "cross MMD Gaussian kernel high-dimensional fixed sample size studentized statistic Student t distribution under Gaussian null normal approximation",
+        "Shekhar Kim Ramdas 2022 permutation-free cross-MMD exact finite sample null t distribution radial basis Gaussian kernel bandwidth proportional dimension",
+        "studentized cross kernel two sample statistic fixed sample increasing dimension Gaussian RBF t distribution",
+        "fixed sample high dimensional RBF cross-MMD studentized Student distribution scaled t null calibration",
+        "cross-MMD t-distribution degrees of freedom (arxiv:2211.14908 full text, 2025 version)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus mathematical search returned generic Student distribution/alternative statistic results, not a table of xMMD finite-size high-d null laws.",
+        "Accessible owned week2 and week3 findings include an MMD known-null one-sample covariance but no xMMD Student null law."
+      ],
+      "reasoning": "The formula is not extracted from a published cross-MMD null table. An absence in searches cannot establish priority; it only supports a best-knowledge, qualified comparison.",
+      "searches": [
+        "cross MMD Gaussian kernel high-dimensional fixed sample size studentized statistic Student t distribution under Gaussian null normal approximation",
+        "fixed sample high dimensional RBF cross-MMD studentized Student distribution scaled t null calibration",
+        "permutation-free kernel two sample Shekhar Kim Ramdas high dimension bandwidth median normal cutoff fixed n anticonservative",
+        "cross-MMD fixed sample t distribution (web public literature search)",
+        "2026-11_week2 own ledger current week3 claim keyword scan"
+      ]
+    },
+    "rationale": "Best-knowledge comparison with the original NeurIPS xMMD and its expanded open-access preprint, separate unsplit high-dimensional MMD, held-out WiTS, targeted public literature, related mathematical records, and accessible owned findings reveals no direct fixed-s, dimension-only Student null theorem for characteristic RBF cross-MMD. Normality theorems with sample sizes increasing do not imply the fixed-s limit; exact classical Student algebra alone does not establish the kernel-to-Gaussian projection step. Priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "Earlier unindexed or non-open-access general fixed-test-sample kernel witness theorem may imply the result.",
+      "Related 2023 high-dimensional unsplit MMD full appendices were not read entirely, but the explicitly different statistic and joint-growth premise make direct coverage unlikely.",
+      "Review is not an independent originality certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the statistic and normal asymptotics as sample size grows; no fixed-s, dimension-only Student law in inspected relevant material",
+        "evidence": "Equations (2)--(4), Section 2.1, and Remark 3 about n,m tending to infinity.",
+        "identifier_or_url": "https://proceedings.nips.cc/paper_files/paper/2022/file/731b952bdc833485eb72f458cdd5c489-Paper-Conference.pdf",
+        "material_read": "Pages 2--6 including definitions (2)--(4), Theorems 4--5 and surrounding sample-size assumptions, directly rendered and parsed",
+        "method": "Full-text PDF page inspection and screenshot for pages 5--6",
+        "title": "A permutation-free kernel two-sample test (NeurIPS 2022)",
+        "trigger": "Exact same xMMD score and variance; strongest possible coverage candidate"
+      },
+      {
+        "assessment": "The fixed-n Student distribution is not stated in inspected treatment; the theorem framework indexes n to infinity",
+        "evidence": "Section 2.1 pages 8--9, Theorem 5, Remark 3, description of Theorem 15 and Appendix B.",
+        "identifier_or_url": "https://arxiv.org/pdf/2211.14908",
+        "material_read": "Relevant Section 2 and Section 2.1 pages 8--9, inspected with page screenshots and searchable full text; Appendix B identified as large-sample proof",
+        "method": "Lawful open-access full-text PDF, relevant-section screenshot plus targeted text searches for Student and degrees of freedom",
+        "title": "A permutation-free kernel two-sample test (expanded arXiv preprint)",
+        "trigger": "Potential updated broad coverage beyond conference paper"
+      },
+      {
+        "assessment": "Different unsplit studentized MMD U-statistic with joint sample-size and dimension growth; relevant but not a decisive exact-claim coverage candidate",
+        "evidence": "Abstract explicitly requires dimensions and both sample sizes to diverge.",
+        "identifier_or_url": "https://arxiv.org/pdf/2109.14913",
+        "material_read": "Abstract and introductory page 1, rendered in a full-page PDF screenshot; methodological synopsis",
+        "method": "Open-access arXiv PDF first-page screenshot and metadata comparison",
+        "title": "Two Sample Testing in High Dimension via Maximum Mean Discrepancy",
+        "trigger": "Potential dominating high-dimensional MMD theory"
+      },
+      {
+        "assessment": "Stage-II fixed witness statistic uses normal approximation as test set grows and recommends permutation calibration at finite size; not this RBF sample-split xMMD fixed-s dimension-only limit",
+        "evidence": "Theorem 1 n+m to infinity and Section 3.2 permutation threshold discussion.",
+        "identifier_or_url": "https://proceedings.mlr.press/v151/kubler22a/kubler22a.pdf",
+        "material_read": "Sections 2 and 3, especially page 3 formula and page 4 Theorem 1; inspected full text and screenshot",
+        "method": "Lawful full-text PMLR PDF with relevant-section page inspection",
+        "title": "A Witness Two-Sample Test",
+        "trigger": "Potential equivalent held-out witness score"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5750fe3-a778-4737-87c4-16fa4746e7c4",
+  "value": {
+    "rationale": "Identifies a substantive, quantitatively large null-size failure of the Gaussian cutoff in the fixed-sample high-dimensional regime for a published permutation-free characteristic-kernel test. At four observations per group, the limiting nominal 5% size is about 18.24%; the exact scaled-Student critical value remedies the identified mismatch. The theorem treats the usual median-bandwidth scale and arbitrary finite-fourth-moment independent coordinate laws, showing structural rather than isolated numerical behavior.",
+    "status": "PASS"
+  }
+}
