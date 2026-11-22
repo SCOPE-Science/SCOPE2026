@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Four exact disjoint rational intervals map strictly into one another uniformly for 0.9978<=c<=0.9982; interval 2 has an exact concavity/completion-of-square bound. The cubic derivative has absolute value <4 on [0,1] and <1/100 on interval 2, so the four-step return is a strict 16/25 contraction on interval 0. The contraction theorem and disjoint intervals establish a primitive attracting four-cycle for each real control; the uncountable claim is analytic. Exact rational fractions in verify.py checked strict inequalities and derivative endpoints, not used in place of infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus record 2026/11/17/SCOPE-a-certified-negative-second-order-mean-response-on-the-stochasti--f45c902d9650 concerns randomly fluctuating growth rates around a constant parameter, not the deterministic state-dependent cubic.",
+        "published-finding corpus 2026/11/8/SCOPE-a-sharp-period-four-gap-and-quadratic-floquet-instability-in-alt--402ba2b74962 concerns an alternating-feedback logistic population system, a different state space and update rule."
+      ],
+      "reasoning": "Existing generic contraction principles imply existence once trapping bounds are given but do not supply these specific bounds or locate this parameter interval. The two most relevant 4-cycle records are about different maps, with no stronger implication for the cubic studied.",
+      "searches": [
+        "self-parameterized logistic cubic map 3.9+.04(x+C) positive width stable 4 cycle robust chaos window counterexample",
+        "Paul self parameterized chaotic map 4-cycle 2023 logistic stable periodic island parameter",
+        "self-parameterization sine tent logistic maps exact topological entropy uniform expansivity derivative bounds chaotic robust 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://confcats-event-sessions.s3.amazonaws.com/icecs21/papers/2160.pdf",
+      "https://doi.org/10.3390/jlpea13010018",
+      "https://www.mdpi.com/2079-9268/16/3/26",
+      "published-finding corpus 2026/11/17/SCOPE-a-certified-negative-second-order-mean-response-on-the-stochasti--f45c902d9650",
+      "published-finding corpus 2026/11/8/SCOPE-a-sharp-period-four-gap-and-quadratic-floquet-instability-in-alt--402ba2b74962",
+      "published-finding corpus 2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ICECS 2021 text: wide-range chaotic behavior assessed via finite numerical iterations; no global mathematical theorem ruling out periodic windows (Section II, Figs. 3–4).",
+        "Paul et al. 2023 explicitly report slopes at fixed-point and period-two intersections and numerical wide chaos (Sections 3.1–3.2; Table 2), but not absence of higher-period attractors."
+      ],
+      "reasoning": "The prior fixed-point/period-two local slope checks do not imply anything that excludes or establishes period-four attraction. A positive-control-width period-four window is a distinct strict claim; it qualifies the broad robustness motivation, without attributing a mathematically proven universal-robustness theorem to prior authors.",
+      "searches": [
+        "Paul Dhungel Sadia Hossain 2021 2023 self-parameterized logistic map 0.04(x+C)+3.9 attracting period 4 window near control 0.998",
+        "Paul self parameterized chaotic map 4-cycle 2023 logistic stable periodic island parameter",
+        "\"Self-Parameterized Chaotic Map\" \"periodic window\" \"logistic\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining real map is (3.9+0.04(x+c))x(1-x); the feedback notation in 2021 is 4[0.975+0.01(x+c)]x(1-x), algebraically identical (ICECS paper Section II, Eq. (1), Table I and Fig. 3 caption).",
+        "2023 journal paper Table 2 explicitly prints the polynomial, so aliases were included."
+      ],
+      "reasoning": "The actual published feedback formulation and polynomial formulation were compared, not merely titles. The new claim imposes a certified uniform 4-cycle attraction for a continuum of controls, absent from both inspected descriptions.",
+      "searches": [
+        "Paul Dhungel Sadia Hossain 2021 2023 self-parameterized logistic map 0.04(x+C)+3.9 attracting period 4 window near control 0.998",
+        "self-parameterized logistic cubic map 3.9+.04(x+C) positive width stable 4 cycle robust chaos window counterexample",
+        "\"0.04\" \"3.9\" \"self-parameterized\" \"periodic\" \"window\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned 2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c (binary16 polynomial arithmetic), not an exact continuum attracting cycle on the published cubic.",
+        "The 2021/2023 authors display numerical bifurcation and Lyapunov plots but no rigorous table of the 0.9978–0.9982 4-cycle."
+      ],
+      "reasoning": "No searched exact-orbit table or database covers the real-state continuum parameters of this specific map. Finite-precision logistic cycle enumerations do not imply real-periodic attraction.",
+      "searches": [
+        "Paul Dhungel Sadia Hossain 2021 2023 self-parameterized logistic map 0.04(x+C)+3.9 attracting period 4 window near control 0.998",
+        "self-parameterized logistic cubic map 3.9+.04(x+C) positive width stable 4 cycle robust chaos window counterexample",
+        "Paul self parameterized chaotic map 4-cycle 2023 logistic stable periodic island parameter"
+      ]
+    },
+    "rationale": "The full accessible 2021 five-page conference manuscript and the 2023 expanded journal article establish and numerically assess the exact cubic family, but do not give the stated attracting period-four parameter interval or uniform cycle-box certificate. Exact-family database and literature searches found no implication from the closest maps (stochastic logistic response, rational logistic superattraction, piecewise coupled logistic, binary16 state graphs). This is best-knowledge original relative to these inspected sources, not a claim of global priority.",
+    "residual_risks": [
+      "Unindexed or differently worded prior discovery of the same 4-cycle window may exist; database search is not novelty proof.",
+      "The 2021 conference date is 2021-11-28 to 2021-12-01; exact initial online upload day of its manuscript was not verified.",
+      "The interval certified is not necessarily the full stable window; there may be other invariant sets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_FAMILY_NOT_COVERING_SPECIFIC_CLAIM",
+        "evidence": "The transform is Vc-prime=C*(Vo+Vc)+Vbias; logistic seed is 4Vc-prime*x(1-x), and Figure 3 caption selects C=.01, Vbias=.975. The paper reports numerical wide chaotic behavior and does not state the certified interval.",
+        "identifier_or_url": "https://confcats-event-sessions.s3.amazonaws.com/icecs21/papers/2160.pdf",
+        "material_read": "Whole five-page accessible primary PDF as parsed text (Sections I–V including equations, seed table, numerical plots, discussion) plus page-image screenshots of first and third pages",
+        "method": "Read accessible PDF source and compare the feedback equation, parameter caption and plotted claims to the exact proposed period-four certificate",
+        "title": "Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range",
+        "trigger": "Earliest same-map precursor with selection of logistic transformation parameters"
+      },
+      {
+        "assessment": "DEFINES_POLYNOMIAL_AND_NUMERICAL_CHAOS_NOT_COVERING_PERIOD4_CERTIFICATE",
+        "evidence": "Table 2 gives x_next=[.04(x+C)+3.9]x(1-x); Fig. 9/10 numerical exploration and discussion of fixed and two-cycle slope tests do not supply uniform trapping proof for a four-cycle.",
+        "identifier_or_url": "https://doi.org/10.3390/jlpea13010018",
+        "material_read": "Accessible full HTML, particularly Abstract, Sections 2–3, explicit Table 2, practical discussion and Conclusion",
+        "method": "Direct section and equation reading; compared numerical conclusions with new strict interval claim",
+        "title": "Self-Parameterized Chaotic Map for Low-Cost Robust Chaos",
+        "trigger": "Expanded journal version prints the literal polynomial and is therefore essential for novelty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92883ace-85ae-49b4-b441-7bbd9345f893",
+  "value": {
+    "rationale": "The originating papers motivate this specific simple map by widened uninterrupted chaotic behavior and employ finite-resolution numerical diagnostics. A rationally certified parameter interval with an attracting primitive period-four orbit is a nontrivial, positive-measure obstruction to uniformly nonperiodic dynamics, and local negative Lyapunov behavior is relevant to map-based signal generation. The claim is confined to a fixed published parameterization, not a fabricated general theorem or a cryptographic claim.",
+    "status": "PASS"
+  }
+}

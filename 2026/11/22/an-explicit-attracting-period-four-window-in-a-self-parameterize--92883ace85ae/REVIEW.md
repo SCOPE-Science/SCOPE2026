@@ -1,0 +1,15 @@
+# Scientific review: an attracting period-four window
+
+## Correctness
+**PASS.** The model is exactly the self-parameterized logistic polynomial obtained by inserting the published transformation gain and bias into the published logistic seed. Four explicitly listed disjoint rational boxes are sent strictly into their successors for every real control in the stated interval. The proof of the delicate critical-box inclusion uses concavity and a completed square, not a numerical plot. An exact rational executable check reproduces those comparisons and the uniform bound \(\sup |(F_c^4)'|<16/25\); Banach contraction proves a primitive attracting four-cycle throughout the entire parameter interval. A negative Lyapunov exponent follows for this cycle and the locally attracted orbits. The mathematical argument does not claim to settle all other invariant sets.
+
+## Originality
+**PASS within inspected evidence.** The publicly available 2021 conference text gives the parameter transformation and selected numerical parameters; the 2023 expanded article explicitly prints the resulting logistic polynomial and uses numerical bifurcation and Lyapunov plots. Neither inspected text states the positive-width attracting four-cycle certified here. Actual mathematical database searches for the exact cubic, four-cycle window, equivalent feedback logistic formulas and neighboring cycle phenomena produced records on other rational, stochastic, finite-precision and coupled maps, none of which implies the result for this specific family. The algebraic trapping technique itself is standard. The earlier 2021 paper is treated as the defining public precursor, not as an independently novel map. Unindexed equivalent results and the precursor's exact online-repository release date are residual priorities for human review.
+
+## Value
+**PASS.** The literature motivates self-parameterization specifically by its ability to remove undesired periodic windows from the control range while maintaining simple hardware realizations. A certified *open basin* of attraction to a period-four orbit for every control in a nonempty interval directly quantifies a limitation of that proposed robustness, which coarse plots or a finite Lyapunov scan may miss. The certified range is not asserted to be maximal, but nonzero width is mathematically decisive for uniform-robustness questions; no claim about practical cryptographic security is made.
+
+## Limitations and related literature
+The certified interval is an inner subwindow. This result neither precludes coexistence with chaotic invariant sets nor proves the global basin size. Closest inspected sources are Paul et al., *Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range* (IEEE ICECS, 2021) and Paul et al., *Self-Parameterized Chaotic Map for Low-Cost Robust Chaos* (2023, DOI 10.3390/jlpea13010018). Related indexed four-cycle research concerns distinct maps, so priority remains qualified pending independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
