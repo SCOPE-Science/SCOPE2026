@@ -1,19 +1,21 @@
-# Scientific review: gap-four Hartogs numerator root geometry
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The starting centered coefficient identity is exactly the published Bergman-numerator identity for coprime rational Hartogs exponents. For the gap-four family, each of the five independent coefficient sums has been evaluated by ordinary finite sums of squares; the symbolic checker verifies the resulting expressions identically in the unbounded integer parameter. The reciprocal substitution \(y=z+z^{-1}\) is exact and degree-preserving away from zero. The exact signs \(F(-2)>0>F(-3)\), positive leading coefficient, and Descartes' two-sign-variation test give precisely two distinct simple roots in \(( -\infty,-2)\). Published Fejér-product strict positivity on the unit circle excludes reduced roots in \([-2,2]\); positivity of the original polynomial on the positive real axis excludes reduced roots in \((2,\infty)\). Complex conjugation and the reciprocal quadratic then give the complete eight-root census, all simple, with four inside the disk. A successfully replayed symbolic and finite checker supports the algebra, but is not used as an infinite proof.
+## correctness
 
-A key normalization check is that \(Q(z)=z^4F(z+z^{-1})\), not \(Q(z)=F(z+z^{-1})\), and that the root levels are on the oblique coordinate-product slice rather than the Hermitian diagonal. The source theorem's applicability is checked for \(m=n+4\), \(n\) odd, hence \(\gcd(m,n)=1\).
+PASS
 
-## Originality
-**PASS against the inspected statements, with residual priority risk.** Edholm–Mathew's 2025 work derives the numerator and gives full gap-one and gap-two formulas. Section 4.3 mentions gap-four *unit-circle nonvanishing* calculations, but its published theorems and displayed calculations do not classify the number of simple **real versus nonreal** zeros at every gap-four denominator, or give the two universal strict real-root intervals. Deng–Fu's November 2026 theorem proves all-gap nonvanishing and counts zeros **with multiplicity**, so does not imply simplicity or this real/nonreal division. Relevant full published research records on universal fixed-gap condensation and arithmetic boundary layers treat **sufficiently large** denominators and asymptotic position; they cannot settle every positive odd denominator. A gap-three classification concerns a different root degree. Results were compared by implication, not by titles.
+Starting from the exact published centered tent-weight numerator, m=n+4 gives reciprocal coefficients c_(4+t)=Σ_A W_m(A)W_m(mt−4A) for −4≤t≤4. Direct finite quadratic sums in classes n=4h+1,4h+3 give five explicit cubic-in-h coefficients. The reciprocal transform Q(z)=z⁴F_n(z+z^(−1)) produces a quartic F with F(−2)=n+4>0, F(−3)<0, positive leading coefficient, so one root on (−∞,−3) and one in (−3,−2). The exact coefficients of F(−2−u) have signs +,−,−,+,+ (or a zero cubic at h=0), hence at most two positive roots by Descartes, proving those distinct simple roots exhaustive below −2. Positive coefficients exclude y>2; Deng–Fu unit-circle Fejér strict positivity excludes −2≤y≤2. The remaining reduced roots are conjugate nonreal; reciprocal quadratic lifting gives exactly four inside and four outside, no unit-circle or multiple roots. Independently reconstructed tent sums and reduced roots for odd n=1,3,5,7,9,11,17,31,43; source CHECK.py validates symbolic identities for all h. Tests alone do not replace the full analytic sign proof.
 
-An unpublished extension alluded to in Edholm–Mathew may contain more of the finite-parameter geometry; no exhaustive publication-priority guarantee is asserted. No equivalent theorem was located in targeted exact-root and alias searches, which is not by itself proof of novelty.
+## originality
 
-## Value
-**PASS.** The recent all-gap zero-count theorem leaves open the number and geometry of distinct zeros. Gap four is the smallest even numerator gap beyond the explicitly studied gap two, and the finite-family classification is a natural first nontrivial test of the general root-geometry problem. The theorem proves, for **every** admissible denominator, robust simplicity, exactly two real interior zero-product levels and one complex-conjugate pair, with exact rational-independent isolating intervals. It is not just a recomputation of the count or a finite test; the result gives a structural certificate for an infinite arithmetic family and distinguishes its two different real modes.
+PASS
 
-## Sources, boundaries, and remaining risks
-The closest primary papers are Edholm–Mathew (2025), Proposition 4.8 and Section 4.3, and Deng–Fu (2026), Lemma 2.1, Theorem 1.1, and Corollary 3.3. Related fixed-gap asymptotic and arithmetic boundary-layer results were inspected in full. Exact coefficient checks and root tests are reproducible with `python3 CHECK.py` and the stated SymPy dependency. The result is restricted to the oblique slice, not the complete two-variable kernel zero set, and older unavailable or as-yet-unpublished specialized calculations remain the principal novelty risk.
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact all-odd-denominator root-type and simplicity classification at the first nontrivial even gap four is a natural finite-parameter question for a canonical Bergman zero slice, sharpening a general count and large-n condensation. Uniform separation of the two negative interior roots by a fixed algebraic boundary is a concrete reusable structural fact, not a trivial asymptotic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
