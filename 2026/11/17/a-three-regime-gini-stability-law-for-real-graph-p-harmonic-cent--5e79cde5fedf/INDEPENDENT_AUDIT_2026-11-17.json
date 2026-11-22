@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:09:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 6b2a733c438ceac8776a88a137729f43d4257a63",
+        "Frozen check_gini_pcenter.py Git blob f9a34b1f2bdf3d2ed566d81069131303e69434af",
+        "Local independent rational cut enumeration /mnt/data/scope05_independent_checks.py"
+      ],
+      "rationale": "Directly reconstructed the first-order force-balance equation, uniqueness from strict convexity, and translation/coordinate monotonicity. For any nonnegative barycentric weights w summing to one, a nested layer-cut decomposition yields an exact Gini norm: 1+max_{nontrivial S} [k+(m-2k)w(S)]/[k(m-k)], k=|S|. At p=2 the uniform weights give 1+2/m. For p>2, implicit differentiation at nonconstant input and the force balance with exponent q=p-1, concavity of t^((p-2)/(p-1)), imply every derivative mass <=1/2; the cut formula then bounds the Jacobian by 1+m/[2(m-1)], integrated along data segments. At (1,-1,0,...), its Jacobian has masses (1/2,1/2,0,...) and a singleton perturbation attains this constant locally. For 1<p<2, monotonicity places centre differences between min/max input differences, giving global factor <=2. Taking a=(0,1,-t,...,-t), t=(m-2)^(-1/(p-1)), centre zero, perturbing the zero leaf by h yields c_h/h->1 and Gini ratio->2. At m=2 the p-centre is the midpoint and ratio equals 2. Independently enumerated exact rational cut norms for m=3,...,8 including uniform and two-extreme masses; these finite checks support, but do not substitute for, the analytic unbounded proof.",
+      "residual_risks": [
+        "Integration along a segment crossing constant-input singular data uses continuity and limiting approximation, which is justified but not a global differentiability assertion.",
+        "The local extremizers for p!=2 give supremal, not necessarily finite attained, pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full RESULT.md of https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-discontinuous-hilbert-exponent-transition-in-weighted-star-p-h--169c7e389bc1: full weighted p-star same p-centre but metric Lipschitz seminorm, L=2 for both nonquadratic regimes; for p=2 weight/edge distance formula.",
+          "Full RESULT.md of https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-complete-pair-gini-norm-of-weighted-star-harmonic-replacem--716352690cc3: weighted p=2 full-signal hub-replacement map (input includes arbitrary old hub) has norm 1+(m-2)*max_i w_i/m; not leaf-to-leaf insertion.",
+          "Kyng et al Theorem 7 is sup-norm stability of lexicographically selected limiting Lipschitz extensions, not sharp finite-p complete-pair dispersion."
+        ],
+        "reasoning": "The all-weight, all-p results have a different operator metric. In particular the p>2 Gini bound <2 for m>=3 contradicts treating the p-star metric-Lipschitz constant 2 as an exact formula here. The p=2 replacement and insertion use different source dimensions and weights. Neither logically implies the claim.",
+        "searches": [
+          "Resultary search: p-harmonic extension minimizing sum |a_i-c|^p Gini complete pair variation sharp stability on stars three exponent regimes",
+          "Resultary search: general graph p-harmonic center Gini complete pair difference operator norm metric pairwise dispersion",
+          "Resultary published weighted star p-harmonic extension Lipschitz transition"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v40/Kyng15.pdf",
+        "https://studylib.net/doc/10709111/j-i-p-a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-discontinuous-hilbert-exponent-transition-in-weighted-star-p-h--169c7e389bc1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-complete-pair-gini-norm-of-weighted-star-harmonic-replacem--716352690cc3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kyng Theorem 7 bound |u(v)-u′(v)|≤max terminal change is coordinatewise, so cannot derive the sharp Gini pair sum.",
+          "Weighted star Lipschitz constants equal 2 at both p<2 and p>2, while present Gini constants are 2 versus 1+m/[2(m-1)] and require a new derivative-mass restriction."
+        ],
+        "reasoning": "Generic nonexpansive centre bounds imply at most Gini factor 2, which is sharp only on the subquadratic side. The stronger superquadratic number needs the force-balance/concavity argument not supplied by the cited metric bounds.",
+        "searches": [
+          "Resultary search: p-harmonic extension minimizing sum |a_i-c|^p Gini complete pair variation sharp stability on stars three exponent regimes",
+          "Resultary search: general graph p-harmonic center Gini complete pair difference operator norm metric pairwise dispersion",
+          "Kyng Rao Sachdeva Spielman 2015 theorem 7 comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete pair Gini = total variation on a complete graph of data differences; the actual extension graph is a star, and the hub is newly inserted, so this is not graph-edge variation or L-infinity stability.",
+          "The same p-centre is the unique scalar root of sum (c-a_i)|c-a_i|^(p-2)=0."
+        ],
+        "reasoning": "Compared p-centre, p-mean, nonlinear barycenter insertion and finite complete-graph pairwise dispersion aliases, keeping track of source m and target m+1 pair norms; none located asserts the three constants.",
+        "searches": [
+          "Resultary search: p-harmonic extension minimizing sum |a_i-c|^p Gini complete pair variation sharp stability on stars three exponent regimes",
+          "Resultary search: general graph p-harmonic center Gini complete pair difference operator norm metric pairwise dispersion",
+          "complete-pair Gini variation variational p-mean star sensitivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved own exact claim, plus Gini harmonic full-input replacement and metric-Lipschitz p-star related records, but no separate exact three-regime insertion table.",
+          "Kyng et al and Marano–Navas–Quesada contain other stability/convergence statements."
+        ],
+        "reasoning": "Negative index searches narrow observed coverage; they do not prove global novelty. Exact equal parameters without equal input/output norm are not coverage.",
+        "searches": [
+          "Resultary search: p-harmonic extension minimizing sum |a_i-c|^p Gini complete pair variation sharp stability on stars three exponent regimes",
+          "Resultary search: general graph p-harmonic center Gini complete pair difference operator norm metric pairwise dispersion",
+          "Gini p harmonic center sharp star coefficient 1+m/(2(m-1))"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority PASS for the exact three-branch metric-specific sharp coefficient. Closely related variational p-star and Gini results were read at statement/proof level, but measure different normed operators; no domination or change of normalization implies these constants. Unindexed barycentre inequalities remain a priority risk.",
+      "residual_risks": [
+        "A general nonlinear-barycentre Gini transfer inequality might be unindexed under different terminology.",
+        "Only targeted full text/sections of Kyng et al were read; this is bounded best knowledge, not global priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different output norm and limiting rather than sharp finite-p Gini stability",
+          "evidence": "Kyng et al 2015 Theorems 7–8, Section 3, Appendix A.2",
+          "identifier_or_url": "https://proceedings.mlr.press/v40/Kyng15.pdf",
+          "material_read": "Theorem 7 and its hypotheses (sup-norm bound); Section 3 finite-p energy setting and Appendix A relevant proof",
+          "method": "Open-access full PDF rendered/inspected targeted theorem and sections",
+          "title": "Algorithms for Lipschitz Learning on Graphs",
+          "trigger": "Same graph p-energy and extension sensitivity"
+        },
+        {
+          "assessment": "Same centre, different Lipschitz metric; cannot imply complete-pair Gini coefficients",
+          "evidence": "Theorem gives L_p=2 for both sides p=2, but target p>2 Gini <2",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-discontinuous-hilbert-exponent-transition-in-weighted-star-p-h--169c7e389bc1",
+          "material_read": "Full RESULT.md, definitions of boundary-to-full metric Lipschitz norm, exact theorem, derivative proof",
+          "method": "Read GitHub frozen RESULT.md",
+          "title": "A discontinuous Hilbert-exponent transition in weighted star p-harmonic extension stability",
+          "trigger": "Same variational centre and sharp perturbation, plausible dominating all-weight result"
+        },
+        {
+          "assessment": "Different source includes old hub and uses linear p=2 map only",
+          "evidence": "Norm 1+(m-2)*max p_i/m vs 1+2/m for target p=2 insertion",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-complete-pair-gini-norm-of-weighted-star-harmonic-replacem--716352690cc3",
+          "material_read": "Full RESULT.md Finding, source full-signal definition, cut proof and constants",
+          "method": "Read GitHub Resultary RESULT.md",
+          "title": "Sharp complete-pair Gini norm of weighted star harmonic replacement",
+          "trigger": "Exact complete-pair Gini metric and weighted star"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://proceedings.mlr.press/v40/Kyng15.pdf",
+        "https://studylib.net/doc/10709111/j-i-p-a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-discontinuous-hilbert-exponent-transition-in-weighted-star-p-h--169c7e389bc1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-complete-pair-gini-norm-of-weighted-star-harmonic-replacem--716352690cc3"
+      ],
+      "rationale": "The exact three-exponent regime discontinuity under the natural complete-pair dispersion metric exposes different nonlinear sensitivity geometry on a one-hub graph; superquadratic derivative mass cap and subquadratic singular concentration are distinct, nontrivial mechanisms, not a renamed extension-operator norm. The coefficient sharpness across all leaf counts and all exponents is a useful stability classification. Exact p=2 and p≠2 transition is not implied by classical coordinatewise Lipschitz bounds.",
+      "residual_risks": [
+        "Only one-hub real unweighted stars; weighted and multi-hub generalizations remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge independent assessment of the frozen mathematical RESULT, not peer review or external publication certification. Source text was treated strictly as evidence, not instructions.",
+    "No changes to original science, files or historical ledger. Source SHA guards not fully recursively verified; publication is withheld, not marked as ready."
+  ],
+  "schema_version": 1
+}
