@@ -1,0 +1,15 @@
+# Scientific review: two fixed-width windows
+
+## Correctness — PASS
+The theorem is defined for integer \(r\ge2\) and \(n\ge2r+1\), and every hypothesis is exactly two nonoverlapping length-\(r\) windows, allowing adjacency. Any five ordered coordinates fail the alternating trace `10101`. Four-point shattering forces the `0101`, `1010`, `1111`, and `0000` inequalities on their three spacings and exterior gaps. The all-negative trace can only place two windows in three large gaps, giving \(n\ge3r+3\). Equality has three candidate geometric cases; the `0110` trace excludes one and reduces the others to a reflected pair. The 16-row affine table gives actual legal windows for all labels for every \(r\ge2\). A dependency-free checker validates the table for 999 values of \(r\), and exhausts 92,099 four-point supports across six values of \(r\) and all chain lengths from \(2r+1\) through the onset. Finite checks do not replace the full proof.
+
+## Originality — PASS, qualified
+The closest fully inspected published results concern *one* exact-width interval and *at most two* arbitrary-width intervals; their theorems neither imply the first possible four-shattering length for **exactly two equal-width windows** nor the identification of the two critical extremal supports. Johnson (2021), Section 2 and Theorem 5, studies substrings of an individual word and a general alternation bound, not this two-parameter family. No matching statement appeared in targeted research-record and literature searches. Possible unindexed work on paired equal-duration events or consecutive-ones matrices remains a priority risk; absence of search hits is not a mathematical novelty proof.
+
+## Value — PASS
+This is a natural restricted multi-interval concept family at the boundary between dimension two and four. The sharp onset \(n=3r+3\) and the exactly two mirror-related extremal supports isolate a structural finite-size boundary invisible in the standard VC bound for arbitrary unions of two intervals. The rigid-support description can inform exact finite sample-design questions; the claim needs no further downstream theorem to have structural content.
+
+## Closest literature and limitations
+Hunter R. Johnson, *Binary strings of finite VC dimension*, 2021, https://arxiv.org/abs/2101.06490; *Exact online ranks and shattering polynomials of fixed-width intervals on finite chains*, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-online-ranks-and-shattering-polynomials-of-fixed-width-int--8f87b8e9beef; *Finite online-shattering thresholds for unions of two intervals*, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-finite-online-shattering-thresholds-for-unions-of-two-intervals--3374b1fb8ebf. Distinguish fixed width and exactly-two from unrestricted interval unions. Neither lower-support polynomials nor online dimension are claimed. Historical unindexed equivalences remain possible.
+
+Self-review: passed. Independent audit: not yet performed.
