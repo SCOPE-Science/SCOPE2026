@@ -1,19 +1,21 @@
-# Scientific assessment of the all-bandwidth spherical ring determinant theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defined complex spherical harmonics, full-area normalization, ring populations, latitude range, and scalar determinant are explicit in `RESULT.md`. A unitary angular DFT makes the evaluation matrix block triangular by harmonic order, and each diagonal block is an associated-Legendre derivative Vandermonde matrix. Its squared determinant produces every constant and exponent in the product. The logarithmic Hessian is a sum of negative endpoint and squared-gap terms, strictly negative in every nonzero direction. Each ordering chamber has an interior maximizer because the log determinant tends to minus infinity on its boundary. The 387 checker assertions are supplementary and were executed on the packaged checker, not substituted for proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+Unitary discrete Fourier transforms on rings with 2j+1 samples create an upper triangular system ordered by absolute azimuth m. Diagonal m-block rows j>=|m| contain associated-Legendre radial values, and derivative polynomials of degrees 0,..,L-|m|-1 give ordinary Vandermonde determinants. Multiplying all signed-m blocks yields C_L times (1-x_j²)^{j(j+1)} and |x_j-x_i|^{2(2i+1)}, independent of ring offsets. Distinct interior heights make every factor nonzero. Taking log, its Hessian quadratic form is the sum of negative pole diagonal curvatures and negative pairwise squared-difference penalties; it is negative definite on each of the (L-1)! convex ordering chambers. Pole or collision boundaries force log determinant to -infinity, hence one interior nondegenerate maximizer per chamber. Independently verified C2=729/(1024*pi^4), C3=5189853515625/(1073741824*pi^9), L3 Hessian curvature, and compared analytical factorization with published nine-node L3 formula. These finite checks support but do not prove all L. No global best permutation, stability or condition number is claimed.
 
-Khalid–Kennedy–McEwen (2014) and Nafees et al. (2017) establish the ring scheme and per-order recovery blocks, and optimize their condition numbers rather than the all-bandwidth determinant. Dell'Accio et al. (May 2026) study constrained interpolation–regression under rank assumptions, not the explicit ring-design landscape. Haines (December 2024) treats spherical-design regression optima under other feasible constraints. The earlier exact nine-node quadratic determinant is a proper special case and is not claimed as a new special case. Actual semantic searches against a mathematical results repository did not identify the all-bandwidth closed determinant plus exact chamber-maxima count. A classical implicit weighted-Fekete or collocation factorization is a residual bibliographic priority risk; database absence is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The statement solves a naturally constrained, minimum-cardinality spherical sampling design problem in all harmonic bandwidths: it gives a closed volume criterion, an exact interpolation/noninterpolation boundary, invariance to all ring phases, and a complete classification of the critical points in the height-ordering cells. Each otherwise nonconvex chamber becomes a strictly concave optimization with a unique solution and an explicit stationarity system. This gives a structural and reproducible design certificate distinct from a routine test of a single determinant or a condition-number bound.
+Earlier ring-sampling literature gives the architecture and associated-Legendre per-order systems; a published nine-node L3 case gives only one finite specialization. The all-L exact weighted Vandermonde with a factorial count of unique chamber maxima is not implied by those finite cases or conditioning heuristics; best-of-knowledge priority with residual risk from older weighted Fekete formulations.
 
-## Scope and remaining risks
+## value
 
-The globally best permutation of ring heights is not identified for arbitrary bandwidth, and D-optimal volume is not condition-number optimality. The derivation builds on known order-by-order factorization; literature on weighted Fekete nodes could contain an equivalent full design theorem. Independently audit the algebraic normalization and bibliographic priority before external reliance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A structural all-bandwidth interpolation determinant and exactly (L-1)! unique D-optimal height placements are useful for designing minimal spherical harmonic sample grids, distinguishing volume design from condition number and making each constrained chamber optimization uniquely solvable. This is a natural infinite family, not simply re-evaluating the nine-node table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

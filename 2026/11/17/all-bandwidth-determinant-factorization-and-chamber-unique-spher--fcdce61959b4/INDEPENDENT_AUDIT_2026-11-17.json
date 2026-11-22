@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:47:29.629974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 3b9da06de8bc9aca0b3bedc58d2e3346ace81efe",
+        "CHECKER.py 2c8d8cb77ce419407228c78712fe3fb033ea73ee",
+        "independent SymPy exact normalization and curvature checks `/mnt/data/scope06_audit_checks_20261117_18UTC.py`",
+        "arXiv:1403.4661",
+        "arXiv:1709.02497"
+      ],
+      "rationale": "Unitary discrete Fourier transforms on rings with 2j+1 samples create an upper triangular system ordered by absolute azimuth m. Diagonal m-block rows j>=|m| contain associated-Legendre radial values, and derivative polynomials of degrees 0,..,L-|m|-1 give ordinary Vandermonde determinants. Multiplying all signed-m blocks yields C_L times (1-x_j²)^{j(j+1)} and |x_j-x_i|^{2(2i+1)}, independent of ring offsets. Distinct interior heights make every factor nonzero. Taking log, its Hessian quadratic form is the sum of negative pole diagonal curvatures and negative pairwise squared-difference penalties; it is negative definite on each of the (L-1)! convex ordering chambers. Pole or collision boundaries force log determinant to -infinity, hence one interior nondegenerate maximizer per chamber. Independently verified C2=729/(1024*pi^4), C3=5189853515625/(1073741824*pi^9), L3 Hessian curvature, and compared analytical factorization with published nine-node L3 formula. These finite checks support but do not prove all L. No global best permutation, stability or condition number is claimed.",
+      "residual_risks": [
+        "All-bandwidth theorem only for 1,3,...,2L-1 equiangular ring architecture with one south pole and independently varying nonpolar heights.",
+        "No uniform stability or globally optimal ring order established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary L3 nine-node calculation factors determinant for 1+3+5; the all-bandwidth statement includes arbitrary L and (L-1)! unique chamber maximizers."
+        ],
+        "reasoning": "Substituting L=3 into an all-L theorem recovers the prior L3 result, not vice versa. General per-m triangularization is a starting point but does not explicitly supply all-L exponents and Hessian conclusions without computation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc",
+          "https://arxiv.org/pdf/1403.4661",
+          "Resultary: spherical harmonics rings 1 3 5 odd points Vandermonde determinant factorization unique maximizing latitude chambers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: spherical harmonics rings 1 3 5 odd points Vandermonde determinant factorization unique maximizing latitude chambers",
+        "https://arxiv.org/pdf/1403.4661",
+        "https://arxiv.org/pdf/1709.02497",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc",
+        "https://arxiv.org/abs/2605.13124"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant factors depend on powers of all pairwise latitude gaps; established per-m interpolation systems do not state one strict local maximum in each of (L-1)! permutation chambers."
+        ],
+        "reasoning": "Deriving the global product by signed-m block multiplicities and then deriving strict Hessian is a substantive mathematical implication not provided by the cited per-order conditioning results or the single finite L3 case.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc",
+          "https://arxiv.org/pdf/1403.4661",
+          "https://arxiv.org/pdf/1709.02497",
+          "Resultary: spherical harmonics rings 1 3 5 odd points Vandermonde determinant factorization unique maximizing latitude chambers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Khalid et al. and Nafees et al. use precisely odd-length equiangular rings and associated-Legendre matrices, but optimize per-order numerical conditioning."
+        ],
+        "reasoning": "Identical architecture is an alias, not an already proven global |det M_L| factorization and chamber landscape.",
+        "searches": [
+          "Resultary: spherical harmonics rings 1 3 5 odd points Vandermonde determinant factorization unique maximizing latitude chambers",
+          "https://arxiv.org/pdf/1403.4661",
+          "https://arxiv.org/pdf/1709.02497"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related L=3 and L=4 exact determinant studies, and current all-L result; no checked earlier all-L factorized table."
+        ],
+        "reasoning": "The finite special-case literature contains exact constants for 9 or 16 nodes, but no verified all-bandwidth chamber count. Negative search not a novelty certificate.",
+        "searches": [
+          "Resultary: spherical harmonics rings 1 3 5 odd points Vandermonde determinant factorization unique maximizing latitude chambers",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-globally-optimal-sixteen-node-spherical-ring-determinant-and--f1d58e4dce9f"
+        ]
+      },
+      "rationale": "Earlier ring-sampling literature gives the architecture and associated-Legendre per-order systems; a published nine-node L3 case gives only one finite specialization. The all-L exact weighted Vandermonde with a factorial count of unique chamber maxima is not implied by those finite cases or conditioning heuristics; best-of-knowledge priority with residual risk from older weighted Fekete formulations.",
+      "residual_risks": [
+        "An older implicit weighted Fekete, Vandermonde or general ring-design argument might already imply the same factorization/concavity despite absent identical title.",
+        "The primary Dell Accio paper was not completely read; no unsupported NOT_COVERING verdict for entire manuscript."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes sampling architecture; no checked all-bandwidth determinant or chamber-count theorem",
+          "evidence": [
+            "They select sampling heights using condition of associated-Legendre subsystems, not a theorem for all-chamber D-optimal determinants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4661",
+          "material_read": "Full accessible arXiv PDF, introduction and per-order associated Legendre transform setup; page 1 and page 5 visually inspected",
+          "method": "Read PDF text and relevant images",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "exact 1,3,... spherical ring architecture and block structure"
+        },
+        {
+          "assessment": "related condition-number optimizations, not the all-L strict-concavity theorem",
+          "evidence": [
+            "The angular Fourier and ring-placement formulas are background, but no explicit global weighted Vandermonde factorization checked in read material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.02497",
+          "material_read": "Full accessible arXiv PDF and pertinent optimization sections; first and third page image inspected",
+          "method": "Read PDF text and relevant images",
+          "title": "Optimal-Dimensionality Sampling on the Sphere: Improvements and Variations",
+          "trigger": "same ring design with improvements and possible determinant coverage"
+        },
+        {
+          "assessment": "L=3 specialization only; not all L",
+          "evidence": [
+            "Its constant 5189853515625/(1073741824*pi^9) agrees with current L=3 product. The earlier two-height special case cannot prove arbitrary L."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc",
+          "material_read": "Entire published RESULT.md, normalization and finite two-chamber optimization",
+          "method": "Read complete GitHub primary result",
+          "title": "Exact determinant-optimal latitudes for nine-sample quadratic spherical harmonics",
+          "trigger": "exact smaller-bandlimit instance with same architecture"
+        },
+        {
+          "assessment": "rank and regression focus; refrain from whole-text noncoverage inference",
+          "evidence": [
+            "Does not provide verified relevant all-L determinant theorem in accessed material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.13124",
+          "material_read": "Accessible metadata/summary and reported scope; no full paper examined",
+          "method": "Abstract-level comparison",
+          "title": "Polynomial interpolation-regression on the sphere",
+          "trigger": "recent interpolation rank theory with sphere sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-determinant-optimal-latitudes-for-nine-sample-quadratic-sp--159f16df7cbc",
+        "arXiv:1403.4661",
+        "RESULT.md 3b9da06de8bc9aca0b3bedc58d2e3346ace81efe"
+      ],
+      "rationale": "A structural all-bandwidth interpolation determinant and exactly (L-1)! unique D-optimal height placements are useful for designing minimal spherical harmonic sample grids, distinguishing volume design from condition number and making each constrained chamber optimization uniquely solvable. This is a natural infinite family, not simply re-evaluating the nine-node table.",
+      "residual_risks": [
+        "No formula for best global permutation or conditioning extremum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No global best ring ordering or conditioning assertion; only each height-ordering chamber.",
+    "Older weighted Fekete-style formula could possibly dominate, targeted source search not exhaustive."
+  ],
+  "schema_version": 1
+}
