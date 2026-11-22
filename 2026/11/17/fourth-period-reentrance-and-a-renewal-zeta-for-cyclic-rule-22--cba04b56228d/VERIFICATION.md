@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedures and actual scope
+# Independent mathematical audit
 
-`certificate.py` reconstructs the local Rule 22 temporal-height graphs from their bit-level truth table, computes complete recurrent components, compares the period-two and period-four recurrent cores, and checks that the two eighteen-vertex components are interchanged by temporal rotation. It calculates their common determinant using integer Newton identities, independently enumerates nine directed simple cycles and their shared vertices, and checks the resulting semigroup/exact-count support through length one hundred. Replay printed `PASS`. Its exact graph/cycle checks are the finite certificates underpinning the universal proof.
+## correctness
 
-`bruteforce.py` instead uses bit-parallel local updating and checks **every** labelled binary initial state on each cyclic ring from three to twenty sites. It explicitly tests second and fourth temporal returns, divides the surviving fourth-period states by four, and matches the generating-function counts. Replay printed `PASS`. The exact outputs are embedded as `certificate_output.txt` and `bruteforce_output.txt`. Both programs require only standard-library Python 3.10 or newer.
+PASS
 
-The exhaustive program alone proves only its tested finite cases; infinite-length statements are consequences of the finite graph's complete component/cycle enumeration and standard determinant and Perron–Frobenius arguments. No independent third-party verification or mathematical audit has been carried out.
+Reconstructed the temporal t-column constraint graph D_t for Rule 22, with edge (a,b)->(b,c) iff for every time j the unique-one rule gives b_(j+1). For t=2, recurrent SCC sizes [4,2,1]; for t=4, [18,18,4,2,1]. Two 18-state components are temporal shifts, while the smaller recurrent components are doubled period-two subgraphs; hence 4C4(n)=2tr(A^n). Independently generated all nine simple cycles of one 18-state SCC with length multiplicities 8:1,9:2,10:3,11:2,12:1, all meeting at the four stated vertices. Thus the determinant expansion has only singleton cycle terms: det(I-zA)=1-z^8-2z^9-3z^10-2z^11-z^12. The log determinant proves the exact generating series, and intersecting cycles prove the exact support semigroup {8..12} ∪ {n>=16}, not just finite enumeration. Independent exhaustive binary state iteration for n=3..16 agrees with 4C4 counts, and symbolic 18x18 determinant yields all displayed coefficients. Perron-Frobenius primitivity (lengths 8,9) gives λ^n/2, not a conjectural numerical fit.
+
+## originality
+
+PASS
+
+The source-specific labelled primitive temporal-four enumeration and its all-n rational zeta, 13–15 gap, and renewal growth are not implied by the inspected finite representative cycles or by other-rule period zeta classifications. The exact transfer determinant, common-cycle structure and semigroup classification supply the missing global statement.
+
+## value
+
+PASS
+
+An all-circumference exact labelled orbit enumeration for a canonical nonlinear elementary CA, including a genuinely missing length window and a sharp exponential rate, is a motivated dynamical invariant not mechanically implied by finite tables. The common-simple-cycle bottleneck turns a finite transfer graph into a usable complete renewal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

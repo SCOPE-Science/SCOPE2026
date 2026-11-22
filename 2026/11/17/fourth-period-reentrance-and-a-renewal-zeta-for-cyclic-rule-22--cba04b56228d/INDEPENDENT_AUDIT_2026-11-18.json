@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:47:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/fourth-period-reentrance-and-a-renewal-zeta-for-cyclic-rule-22--cba04b56228d/RESULT.md",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/fourth-period-reentrance-and-a-renewal-zeta-for-cyclic-rule-22--cba04b56228d/certificate.py",
+        "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton"
+      ],
+      "rationale": "Reconstructed the temporal t-column constraint graph D_t for Rule 22, with edge (a,b)->(b,c) iff for every time j the unique-one rule gives b_(j+1). For t=2, recurrent SCC sizes [4,2,1]; for t=4, [18,18,4,2,1]. Two 18-state components are temporal shifts, while the smaller recurrent components are doubled period-two subgraphs; hence 4C4(n)=2tr(A^n). Independently generated all nine simple cycles of one 18-state SCC with length multiplicities 8:1,9:2,10:3,11:2,12:1, all meeting at the four stated vertices. Thus the determinant expansion has only singleton cycle terms: det(I-zA)=1-z^8-2z^9-3z^10-2z^11-z^12. The log determinant proves the exact generating series, and intersecting cycles prove the exact support semigroup {8..12} ∪ {n>=16}, not just finite enumeration. Independent exhaustive binary state iteration for n=3..16 agrees with 4C4 counts, and symbolic 18x18 determinant yields all displayed coefficients. Perron-Frobenius primitivity (lengths 8,9) gives λ^n/2, not a conjectural numerical fit.",
+      "residual_risks": [
+        "The direct all-configurations cross-check in this execution covered n<=16, not n=17..20 or unbounded n; those follow from the finite graph proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Rule 22 temporal-five renewal uses lengths 11,12,13; 2019 source uses de Bruijn but lacks general four-cycle determinant"
+        ],
+        "reasoning": "The same algorithmic method does not supply this particular determinant without determining the recurrent height-four graph and cycle intersections; no checked broader theorem determines its coefficients.",
+        "searches": [
+          "Resultary semantic query: rule 22 elementary cellular automaton primitive temporal four cycles cyclic ring zeta renewal all lengths",
+          "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton",
+          "https://books.google.com/books/about/One_Dimensional_Cellular_Automata.html?id=qTmxlqElB2YC"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2005.01480",
+        "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-54-site-gap-and-a-renewal-zeta-for-temporal-five-cycles--34a570aa8e2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact rational P(z) and 18-state SCC proof versus n<=20 representative table; other published five-cycle result concerns different temporal period"
+        ],
+        "reasoning": "Neither representative finite cycle tables nor period-five determinant entails the four-cycle denominator or all-n reentrant support.",
+        "searches": [
+          "Resultary semantic query: rule 22 elementary cellular automaton primitive temporal four cycles cyclic ring zeta renewal all lengths",
+          "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton",
+          "https://books.google.com/books/about/One_Dimensional_Cellular_Automata.html?id=qTmxlqElB2YC"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martínez et al., Sections 3.2 and 4, count representative cycles modulo shifts/reflections on n=3..20, not indexed orbit C4(n)"
+        ],
+        "reasoning": "Current result counts labelled temporal orbits without identifying spatial shifts; a finite symmetry-reduced table is a different invariant and cannot mechanically imply all-n series.",
+        "searches": [
+          "Resultary semantic query: rule 22 elementary cellular automaton primitive temporal four cycles cyclic ring zeta renewal all lengths",
+          "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton",
+          "https://books.google.com/books/about/One_Dimensional_Cellular_Automata.html?id=qTmxlqElB2YC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Martínez et al. Table 3: representative n=3..20 cycle data, Table 4 sampled n=25..60, and explicit line that general cycle-distribution formulas remain future work"
+        ],
+        "reasoning": "Known finite tables give selected values, not all-length generating function or sharp semigroup. The inaccessible McIntosh appendix is a residual priority risk.",
+        "searches": [
+          "Resultary semantic query: rule 22 elementary cellular automaton primitive temporal four cycles cyclic ring zeta renewal all lengths",
+          "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton",
+          "https://books.google.com/books/about/One_Dimensional_Cellular_Automata.html?id=qTmxlqElB2YC"
+        ]
+      },
+      "rationale": "The source-specific labelled primitive temporal-four enumeration and its all-n rational zeta, 13–15 gap, and renewal growth are not implied by the inspected finite representative cycles or by other-rule period zeta classifications. The exact transfer determinant, common-cycle structure and semigroup classification supply the missing global statement.",
+      "residual_risks": [
+        "McIntosh 2009 Appendix A complete text was not available; its known n<=34 tables might encode additional regular expressions not inspected.",
+        "An unindexed symbolic Rule 22 height-four transfer computation could predate this publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FINITE TABLES AND GENERAL METHOD, not full all-n four-cycle zeta; Table 3 identifies representative cycles modulo spatial symmetries; authors state general distributions are future work",
+          "evidence": [
+            "Section 3.2 only n=3..20 complete and larger sizes sampled",
+            "Section 4 includes general de Bruijn framework, not P(z) all-n"
+          ],
+          "identifier_or_url": "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton",
+          "material_read": "Web-accessible extracted full article text examined in Sections 3.2 and 4, particularly Tables 3–5 and statements on limits of finite cycle-distribution work",
+          "method": "Section-targeted full-text HTML inspection of article transcription",
+          "title": "On Patterns and Dynamics of Rule 22 Cellular Automaton",
+          "trigger": "Exactly same local map, cyclic rings and possible all-n de Bruijn theory"
+        },
+        {
+          "assessment": "UNRESOLVED historical source risk; no whole-document NOT_COVERING claim",
+          "evidence": [
+            "Martínez Section 3.2 explicitly reports McIntosh computed cycles through n=34"
+          ],
+          "identifier_or_url": "https://books.google.com/books/about/One_Dimensional_Cellular_Automata.html?id=qTmxlqElB2YC",
+          "material_read": "Bibliographic reference and indirect extent n<=34 only; entire appendix unavailable",
+          "method": "Bibliographic cross-reference, not full-text review",
+          "title": "One Dimensional Cellular Automata, Appendix A",
+          "trigger": "Martínez references McIntosh finite Rule 22 cycle tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/fourth-period-reentrance-and-a-renewal-zeta-for-cyclic-rule-22--cba04b56228d/RESULT.md",
+        "https://www.academia.edu/81050095/On_Patterns_and_Dynamics_of_Rule_22_Cellular_Automaton"
+      ],
+      "rationale": "An all-circumference exact labelled orbit enumeration for a canonical nonlinear elementary CA, including a genuinely missing length window and a sharp exponential rate, is a motivated dynamical invariant not mechanically implied by finite tables. The common-simple-cycle bottleneck turns a finite transfer graph into a usable complete renewal classification.",
+      "residual_risks": [
+        "No statement about transient basins, spatial quotient counts, or higher temporal periods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "McIntosh full 2009 Appendix A not read; a specific priority risk, not a failure by access.",
+    "Direct brute-force independent replay n<=16; global theorem rests on exact finite graph and semigroup proof."
+  ],
+  "schema_version": 1
+}
