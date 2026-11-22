@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:57:55.944365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In a rank-k paving matroid (2<=k<n), each (k-1)-set is independent, so every missing k-set S closes to one unique rank-(k-1) hyperplane H. Every replacement (S\\{s}) union {j} with j outside H is a basis. Their uniform average y has deficits exactly 1/k on S, zero on H\\S, and mass 1/(n-h) outside H. For any z in the base polytope, rank(H)<=k-1 forces a=sum_{outside H}z_i>=1, and b=sum_{H\\S}z_i>=0. Disjoint-block Cauchy gives ||1_S-z||²>=(a+b)²/k+a²/(n-h)>=1/k+1/(n-h); y attains it, and equality uniquely specifies y. Tight rank plus coordinate-zero constraints expose a product of (k-1)- and (n-h-1)-simplices; its intrinsic Euclidean volume is sqrt(k(n-h))/((k-1)!(n-h-1)!). Distinct large hyperplanes cannot share k-subsets; hence histogram multiplicities lambda_h*binom(h,k). Convexity of distance maximizes on hypersimplex vertices; variance identity for residuals with pairwise distinct nonbasis residuals strictly excludes nonvertex maximizers. Independently evaluated the n=8,k=3 two-hyperplane non-sparse case with exact rational projection witness averages and 42 zero, 4 at 7/12, and 10 at 2/3 squared distances. No claim of arbitrary-norm or non-paving projection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanely et al. treat arbitrary paving via stressed-hyperplane relaxation and Ehrhart slicing, not the exact Euclidean nearest point of each missing k-subset.",
+          "Ferroni–Schröter analyze valuation-based size parameters, whereas point-to-convex-set projection is not an additive valuation.",
+          "Panhandle metrics are for a separate restricted family, and sparse-paving all-point results do not dominate all paving matroids."
+        ],
+        "reasoning": "Compared every assumption: sparse paving imposes all nonbasis hyperplanes h=k; a non-sparse paving matroid can have h>k and multiple distinct sizes, so stronger metric/probability statements for sparse-only cases do not imply the quantified result. General matroid rank inequalities are a tool, not a precomputed distance formula.",
+        "searches": [
+          "https://arxiv.org/pdf/2201.12442",
+          "https://doi.org/10.1112/jlms.12984",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f",
+          "Resultary: exact Euclidean deep-hole shells panhandle matroid polytope"
+        ]
+      },
+      "checked_sources": [
+        "Hanely et al., arXiv:2201.12442",
+        "Ferroni–Schröter, JLMS 110 (2024) e12984",
+        "Published sparse-paving full projection/beta-law Resultary record",
+        "Resultary exact panhandle distance-shell record (different matroid subfamily)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known stressed-hyperplane cuts identify which vertices are missing, not the exact normal-distance projection barycenter on k(n-h) exchange bases, or the full farthest-point locus.",
+          "General paving includes non-sparse hyperplanes of size h>k, changing the denominator to n-h."
+        ],
+        "reasoning": "The current metric theorem requires a new sharp Euclidean rank-inequality minimization and equality analysis, not merely combinatorial hyperplane enumeration. Known special case is acknowledged.",
+        "searches": [
+          "https://arxiv.org/pdf/2201.12442",
+          "https://doi.org/10.1112/jlms.12984",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sparse-paving metric result projects from all x in hypersimplex when hyperplanes have cardinality exactly k, with vertex residual² n/(k(n-k))=1/k+1/(n-k).",
+          "Current theorem covers all paving matroids with larger hyperplanes h>k, with variable squared distances 1/k+1/(n-h) and a full lambda_h shell histogram."
+        ],
+        "reasoning": "Proved exact subcase inclusion: set h=k in current formula to recover known sparse-paving missing-vertex distance; prior all-point sparse formula has a narrower matroid hypothesis. No claim that subcase is independently novel.",
+        "searches": [
+          "Resultary: paving matroid base polytope Euclidean distance hypersimplex vertex projection hyperplane size profile Hausdorff",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A concrete rank3 n8 example has counts 42 at 0, 4 at squared distance 7/12, and 10 at 2/3, not the single positive shell of a sparse-paving matroid.",
+          "Hyperplane-size counts lambda_h are familiar matroid distribution invariants in Ehrhart theory, but inspected references do not tabulate this Euclidean metric histogram for general paving matroids."
+        ],
+        "reasoning": "The exact metric shell values and multiplicities were checked against all k-subsets of a heterogeneous example; no prior table of arbitrary h>k vertex projections was found. A database search is not an absolute novelty certificate.",
+        "searches": [
+          "Resultary: paving matroid hyperplane size distribution Euclidean distance shell",
+          "https://arxiv.org/pdf/2201.12442",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for non-sparse paving metrics and hyperplane-size tomography; the constant-h sparse-paving subcase is prior covered and excluded as a new standalone finding.",
+      "residual_risks": [
+        "Equivalent general paving formula could be expressed implicitly as a quadratic matroid-base optimization theorem outside targeted indices.",
+        "The sparse-paving case is completely known; only the non-sparse extension and full inverse histogram support novelty.",
+        "Independent numerical optimizer for arbitrary cases was inspected but not executed; independent exact witness and inequalities were checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports prior paving hyperplane cut structure but not a same-statement Euclidean projection formula in examined material",
+          "evidence": "Proposition 3.3 characterizes paving by stressed hyperplanes; introduction describes Ehrhart differences, not projection distances.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12442",
+          "material_read": "Abstract/introduction, hyperplanes and slicing §§2–3, Proposition 3.3, PDF page 6 plus related sections",
+          "method": "Read primary lawful OA arXiv PDF, relevant text and screenshot",
+          "title": "Ehrhart Theory of Paving and Panhandle Matroids, Hanely et al.",
+          "trigger": "Same general paving matroid base polytopes and stressed-hyperplane parameters"
+        },
+        {
+          "assessment": "Strong predecessor for hyperplane-size parameters; no found metric projection identity, not whole-paper exclusion",
+          "evidence": "All paving matroids admit stressed-hyperplane relaxations to uniform; valuation formulas depend on hyperplane-size data.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12984",
+          "material_read": "Online primary full-text section on paving and relaxation, including Proposition 4.2/Corollary 4.3",
+          "method": "Read primary publisher full HTML excerpt and relevant definitions",
+          "title": "Valuative invariants for large classes of matroids, Ferroni–Schröter",
+          "trigger": "General paving hyperplane-size valuations might dominate metric histogram"
+        },
+        {
+          "assessment": "Covers h=k special case only; neither broader h>k nor variable hyperplane-size histogram",
+          "evidence": "It explicitly assumes sparse paving with k-element circuit-hyperplanes and obtains squared missing-vertex gap n/[k(n-k)].",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-projection-and-a-universal-beta-distance-law-for--8d39b121255f",
+          "material_read": "Entire published RESULT.md incl proof of all-point projection and conditional beta law",
+          "method": "Read original complete published text through GitHub",
+          "title": "Exact Euclidean projection and a universal beta distance law for sparse-paving matroid polytopes",
+          "trigger": "Same metric and exact k-sized hyperplane subcase"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Complete non-sparse paving hyperplane-size metric tomography is a mathematically natural inverse invariant, distinguishing same-rank matroids by all missing-vertex distances. The exact nearest face, Hausdorff maximizers and heterogeneous shell histogram are not routine Ehrhart coefficient substitutions; the non-sparse h>k regime and inverse recovery give substantive value beyond the known sparse case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only rank-k paving matroids in unscaled standard Euclidean realization; no arbitrary norm, non-paving result or incidence reconstruction.",
+    "The sparse-paving constant-h subcase is already covered, not a new result; unindexed quadratic projection literature remains a risk."
+  ],
+  "schema_version": 1
+}

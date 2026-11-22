@@ -1,15 +1,21 @@
-# Review: hyperplane-size tomography from Euclidean base-polytope projections
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts with all rank-minus-one subsets independent in a paving matroid; hence a missing rank-sized subset has a unique hyperplane closure. Each proposed nearest point is an average of actual bases obtained by a one-element exchange outside the closure. The hyperplane rank inequality forces at least one unit of mass outside, and two Cauchy--Schwarz bounds give the exact squared-distance lower bound. Equality conditions prove uniqueness. The exposed product-simplex face and its volume follow from explicit vertices and a regular-simplex Gram determinant. Convexity and distinct projection residuals establish both the Hausdorff maximum and the exclusion of all nonvertex maximizers. The complete histogram follows from unique hyperplane ownership. Ten independent finite convex-hull tests corroborate the proof.
+## correctness
 
-## Originality
-**PASS, subject to bibliographic risk.** Published Ehrhart/valuative results describe paving-matroid hyperplane cuts, but not the Euclidean nearest point or exact distance profile. The known sparse-paving projection calculation already covers the special constant-hyperplane-size case and is explicitly not claimed as new here. Its assumption that every missing vertex is itself a circuit-hyperplane does not cover general paving matroids with large hyperplanes, nor does it recover their hyperplane-size histogram. The new statement includes a non-sparse paving example with two different nonzero metric shells, proves the unrestricted large-hyperplane formula, and reconstructs all large-hyperplane cardinality counts. Equivalent work framed as quadratic base-polytope optimization remains a residual priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The hyperplane-size distribution is a natural matroid invariant already used to express paving-matroid Ehrhart and volume data. The theorem recovers this distribution from the complete metric distance spectrum of the ambient hypersimplex vertices, giving an inverse geometric interpretation. It also reduces the entire continuous Euclidean Hausdorff gap to the single largest hyperplane and identifies all worst-case points. These conclusions hold for arbitrary finite paving matroids, not just sparsely deleted hypersimplices.
+PASS. In a rank-k paving matroid (2<=k<n), each (k-1)-set is independent, so every missing k-set S closes to one unique rank-(k-1) hyperplane H. Every replacement (S\{s}) union {j} with j outside H is a basis. Their uniform average y has deficits exactly 1/k on S, zero on H\S, and mass 1/(n-h) outside H. For any z in the base polytope, rank(H)<=k-1 forces a=sum_{outside H}z_i>=1, and b=sum_{H\S}z_i>=0. Disjoint-block Cauchy gives ||1_S-z||²>=(a+b)²/k+a²/(n-h)>=1/k+1/(n-h); y attains it, and equality uniquely specifies y. Tight rank plus coordinate-zero constraints expose a product of (k-1)- and (n-h-1)-simplices; its intrinsic Euclidean volume is sqrt(k(n-h))/((k-1)!(n-h-1)!). Distinct large hyperplanes cannot share k-subsets; hence histogram multiplicities lambda_h*binom(h,k). Convexity of distance maximizes on hypersimplex vertices; variance identity for residuals with pairwise distinct nonbasis residuals strictly excludes nonvertex maximizers. Independently evaluated the n=8,k=3 two-hyperplane non-sparse case with exact rational projection witness averages and 42 zero, 4 at 7/12, and 10 at 2/3 squared distances. No claim of arbitrary-norm or non-paving projection.
 
-## Evidence and limits
-Relevant primary texts include Ferroni's work on sparse-paving Ehrhart polynomials (arXiv:2105.04465), Hanely et al. on general paving-matroid polytope dissections (arXiv:2201.12442), and Ferroni--Schröter on valuative invariants (DOI:10.1112/jlms.12984). Numerical tests covered 444 hypersimplex vertices, 90 nonbases, and 95 independently optimized projections across ten configurations. They are finite corroboration, not an unrestricted certificate. The proof is for the canonical Euclidean embedding only; a complete historical-priority search and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for non-sparse paving metrics and hyperplane-size tomography; the constant-h sparse-paving subcase is prior covered and excluded as a new standalone finding.
+
+## value
+
+PASS
+
+PASS: Complete non-sparse paving hyperplane-size metric tomography is a mathematically natural inverse invariant, distinguishing same-rank matroids by all missing-vertex distances. The exact nearest face, Hausdorff maximizers and heterogeneous shell histogram are not routine Ehrhart coefficient substitutions; the non-sparse h>k regime and inverse recovery give substantive value beyond the known sparse case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
