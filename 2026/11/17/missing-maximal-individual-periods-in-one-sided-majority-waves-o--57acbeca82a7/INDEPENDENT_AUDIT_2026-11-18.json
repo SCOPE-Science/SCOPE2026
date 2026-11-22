@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For F_n x_i=maj(x_{i-1},x_{i-2},x_{i-3}) with n>=5, direct index calculation gives F=S^2 M for centered majority M, and M commutes with S. The wall count under M cannot increase, so periodic words are precisely no-isolated-color words (M-fixed) and, for even n, the two alternating words (M-interchanged). On the first class F is S^2; their fixed states under F^k repeat a word of length gcd(n,2k), counted by the four-state transfer matrix with characteristic polynomial (z^2-z-1)(z^2-z+1). The alternating pair contributes only for even k, and Mobius inversion counts primitive temporal cycles. A two-zero-block word has spatial period n, hence temporal n/gcd(n,2); alternating contributes two. Their LCM yields the stated group order and proves n is absent as an individual period for n=2 mod4. Independent full functional-graph enumeration for n=6,10 reproduced recurrent populations 22,124 and exact actual period sets, supporting but not replacing the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakar–Ron 2022 and Resultary last-entry mass rotating feedback register."
+        ],
+        "reasoning": "Prior centered majority periodicity and rotating sequential register do not state all S^2M fixed time counts and nonattained maximal individual period; possible unindexed CA shift decomposition remains risk.",
+        "searches": [
+          "one-sided synchronous three-predecessor majority cellular automata periodic points shift squared Lucas nonattainment",
+          "one-sided majority shift squared no singleton Lucas maximal temporal period 2k",
+          "Nakar and Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata (2022), arXiv:2205.08972"
+        ]
+      },
+      "checked_sources": [
+        "Nakar and Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata (2022), arXiv:2205.08972",
+        "Fukś, Solution of the Density Classification Problem with Two Cellular Automata Rules, arXiv:comp-gas/9703001",
+        "Resultary/2026: Sharp last-entry mass in a rotating majority-feedback ring, 2026/11/8/SCOPE-sharp-last-entry-mass-in-a-rotating-majority-feedback-ring--08f53e11cf2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shift factor proof, alternating cycle, n=2 mod4 LCM arithmetic."
+        ],
+        "reasoning": "Even given classical no-singleton-word counts, the precise directed rule relation F=S²M, Mobius count and LCM/no-attainment argument are needed; the inspected earlier claims do not directly state this conclusion.",
+        "searches": [
+          "one-sided synchronous three-predecessor majority cellular automata periodic points shift squared Lucas nonattainment",
+          "one-sided majority shift squared no singleton Lucas maximal temporal period 2k",
+          "Nakar and Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata (2022), arXiv:2205.08972"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nakar–Ron centered majority recurrence statements, assigned index-by-index shift calculation."
+        ],
+        "reasoning": "The local rule is F=S^2 M with centered majority M; recurrence of M and F shares stable words, but F-periods are shift orbits not merely M-periods.",
+        "searches": [
+          "one-sided synchronous three-predecessor majority cellular automata periodic points shift squared Lucas nonattainment",
+          "one-sided majority shift squared no singleton Lucas maximal temporal period 2k",
+          "Nakar and Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata (2022), arXiv:2205.08972"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lucas transfer matrix determinant (z²-z-1)(z²-z+1), exact all-n formula."
+        ],
+        "reasoning": "Counts range over all n>=5 and all k>=1, not a fixed finite CA cycle table. Full functional graphs only checked n=6,10 (source checker 5..14), and do not prove the entire census.",
+        "searches": [
+          "one-sided synchronous three-predecessor majority cellular automata periodic points shift squared Lucas nonattainment",
+          "one-sided majority shift squared no singleton Lucas maximal temporal period 2k",
+          "Nakar and Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata (2022), arXiv:2205.08972"
+        ]
+      },
+      "rationale": "Qualified PASS: the full directed one-sided synchronous rule is exactly S^2 M, but earlier centered-majority theorems classify its fixed/alternating recurrence, not the moving-wave orbit lengths and arithmetic counts induced by S^2. The rotating sequential feedback register is a different map. The exact gcd(n,2k) trace count, LCM group order and nonattainment of an individual n-cycle when n=2 mod4 are additional mathematical conclusions not contained in compared titles/statements. The derivation is a short reduction, so alternative earlier shift-CA treatments remain a real priority risk.",
+      "residual_risks": [
+        "Prior shift-commuting cellular automaton treatment might already derive S^2M period enumeration; complete relevant corpus not inspected",
+        "Finite graph checks n=6,10 and source-provided 5..14 do not independently certify all n"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recurrent centered M contains stable and alternating patterns but theorem does not itself count S^2M spatial-shift cycles",
+          "evidence": "Centered-majority stable/alternating classification is prior; temporal orbit of directed rule requires shift factor",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+          "material_read": "PDF introduction, main recurrence statements and initial sections; not the entire article",
+          "method": "retrieved original PDF, screenshot and text of main results",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Exact same centered three-cell majority component M"
+        },
+        {
+          "assessment": "Sequential one-site register differs from synchronous three-predecessor update; do not assert whole-document NOT_COVERING",
+          "evidence": "Indexed result counts last-entry fraction for rotating feedback rather than global-period n or gcd(n,2k) fixed points",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-last-entry-mass-in-a-rotating-majority-feedback-ring--08f53e11cf2e",
+          "material_read": "Resultary indexed statement and matched object description; full RESULT.md not available in this review",
+          "method": "Resultary semantic query and statement comparison",
+          "title": "Sharp last-entry mass in a rotating majority-feedback ring",
+          "trigger": "Same Lucas no-isolated-word language and majority register"
+        },
+        {
+          "assessment": "Prior centered-majority dynamics, not a verified stronger all-time orbit census for F=S^2M",
+          "evidence": "Covers classical majority rule antecedent, not claimed as new here",
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9703001",
+          "material_read": "Bibliographic source/abstract and assigned proof comparison, not whole article",
+          "method": "arXiv/source statement search",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Foundational centered rule 232 majority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mismatch between global recurrent order and every individual orbit length is a mathematically informative LCM phenomenon for a simple directed cellular automaton; full arithmetic cycle census and boundary class n=2 mod4 are natural and falsifiable, not an arbitrary selected small length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Nakar and Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata (2022), arXiv:2205.08972",
+    "Fukś, Solution of the Density Classification Problem with Two Cellular Automata Rules, arXiv:comp-gas/9703001",
+    "Resultary/2026: Sharp last-entry mass in a rotating majority-feedback ring, 2026/11/8/SCOPE-sharp-last-entry-mass-in-a-rotating-majority-feedback-ring--08f53e11cf2e"
+  ],
+  "disposition": "passed",
+  "limitations": "One-sided directed synchronous three-predecessor majority only, n>=5; no first-entry or stochastic classification. Historical novelty limited to accessed claims.",
+  "residual_risks": [
+    "Prior shift-commuting cellular automaton treatment might already derive S^2M period enumeration; complete relevant corpus not inspected",
+    "Finite graph checks n=6,10 and source-provided 5..14 do not independently certify all n"
+  ],
+  "schema_version": 1
+}
