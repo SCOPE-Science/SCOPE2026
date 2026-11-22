@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The 2013 exact lower-cover formula is correctly used as the pointwise starting identity. Conditional Narayana moments justify a mean-O(n) and L2-O(\\(n^3\\)) remainder. Exact sequence-marked Catalan moments of X=Σ_{i<j} f_i f_j have leading square-root singular terms yielding EX~sqrt(pi)/2*\\(n^{3/2}\\) and EX²~sqrt(pi)/16*\\(n^{7/2}\\); the remainder and Cauchy–Schwarz give the sharp variance. A unique-giant-component coefficient limit has unit total limiting mass and reduces typical L to total-peaks²+O_p(n). Hypergeometric/Narayana CLT then yields \\(\\mathcal N(0,1/8)\\) after \\(n^{3/2}\\) scaling. The standalone independent-output enumeration and aggregate moment code pass through semilength ten, with further coefficient checks through thirty-five. Finite code is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernini et al. (2019), Sections 2 and 3, compute cardinalities and some edge counts inside particular *initial intervals* topped by special Dyck paths.",
+        "The 2019 paper, Section 4, lists open directions about interval counts and their growth rather than an all-level probability distribution.",
+        "published-finding corpus Dyck-restricted two-read graph (2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f) considers confusability between paths with at least two shared single-deletion reads, not lower-cover counts by balanced two deletions.",
+        "published-finding corpus 2026/11/8/SCOPE-witness-multiplicities-and-rare-event-moments-for-double-occurre--a30546ec04ae studies multiplicity moments of double-occurrence shuffle squares; it has similar rare-moment flavor but different source and observable."
+      ],
+      "reasoning": "The per-object cover formula is technically stronger for retrieving any specified finite sample, but it neither gives an explicit all-rank aggregate asymptotic nor addresses its stochastic scale separation. The interval papers restrict both the domain (special intervals) and statistic (interval edge counts); there is no implication of the stated global variance/CLT from those interval formulas.",
+      "searches": [
+        "published-finding corpus: Dyck pattern poset total number of cover relations by rank generating function mean degree asymptotics",
+        "published-finding corpus: average lower cover degree of Dyck words deletion pattern containment variance Catalan",
+        "published-finding corpus: Dyck pattern poset lower cover degree asymptotic normal law Gaussian 1/8 n^3 and singular correction mean",
+        "arxiv:1910.00299 §§2-4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1303.3785v1 (full HTML)",
+      "arxiv:1910.00299 (full HTML)",
+      "published-finding corpus record 2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f (summary only)",
+      "Narayana peak distribution (classical; via cited primary papers)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 Proposition 2.1 implies identity L=(K²+Σ p_i²)/2−T for all paths, and is explicitly the first step of the proof.",
+        "New equations for first/second component-size moments as Catalan sequence marking, plus a unique giant irreducible component limit, are required for the constants, variance anomaly and CLT.",
+        "The 2019 interval work gives bounded-peak specialized interval counts and uses the older per-path formula rather than the distribution over all Catalan source paths.",
+        "published-finding corpus 2026/11/2/SCOPE-catalan-composition-law-and-gaussian-universality-index-for-dyck--425e8fe1de91 proves a Gaussian universality-index statistic for Dyck paths, not a balanced-deletion down-degree or its variance anomaly."
+      ],
+      "reasoning": "The historical pointwise theorem covers the definition and exact finite evaluation of L, not these new asymptotic quantified properties. The novelty boundary is strictly the global distributional/second-moment behavior of L under uniform source sampling; no claim of a new pointwise deletion count is made.",
+      "searches": [
+        "arxiv:1303.3785v1 Proposition 2.1 and Section 4",
+        "arxiv:1910.00299 Section 3.2",
+        "published-finding corpus: Dyck pattern poset lower cover degree asymptotic normal law Gaussian 1/8 n^3 and singular correction mean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bernini et al. (2013) Proposition 2.1 is pointwise exact and applies to the identical lower-cover observable; its per-object formula is used explicitly as known.",
+        "The 2013 paper §4 discusses growth of *pattern-avoiding* paths rather than a random-path degree CLT/variance.",
+        "No exact published-finding corpus hit for a distributional limit or rare-event second-moment asymptotic; nearest Dyck-restricted two-read deletion graph is a different adjacency statistic."
+      ],
+      "reasoning": "The observation is exactly the down-degree in the known Dyck pattern poset; this equivalence is acknowledged. The new quantified claims are the uniform-level expectation correction, asymptotic variance coefficient and exponent, and Gaussian CLT with a diverging normalized variance. Proposition 2.1 determines each finite individual value but does not state, or immediately yield without fresh analytic-combinatorial work, the rare-event asymptotic distinction.",
+      "searches": [
+        "published-finding corpus: Dyck pattern poset lower cover degree asymptotic normal law Gaussian 1/8 n^3 and singular correction mean",
+        "published-finding corpus: Dyck word rank one smaller balanced subsequence count CLT deletion degree",
+        "web: Dyck pattern poset average degree",
+        "arxiv:1303.3785v1 §2",
+        "published-finding corpus: The Dyck pattern poset Bernini Ferrari Pinzani West uniform Catalan down degree average variance central limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A 2013 exact per-object formula exists, and Narayana tables give the pre-existing peak-count distribution.",
+        "No identified published table or database gives the claimed aggregate n^(7/2) variance constant together with n^(3/2) Gaussian central fluctuations."
+      ],
+      "reasoning": "This is an infinite asymptotic law, not a finite numeric table. An exact per-object algorithm does not itself provide a recorded asymptotic result, and the finite checks merely test the derivation, not establish originality.",
+      "searches": [
+        "published-finding corpus: Dyck word rank one smaller balanced subsequence count CLT deletion degree",
+        "published-finding corpus: distribution number of Dyck subpatterns of length n minus two average Catalan path",
+        "web: Dyck pattern poset average degree",
+        "published-finding corpus: Dyck pattern poset total number of cover relations by rank generating function mean degree asymptotics",
+        "published-finding corpus: Dyck balanced deletion descendant output count second moment rare large components Gaussian"
+      ]
+    },
+    "rationale": "The new claim is the global probabilistic scale separation and its exact constants; the pre-existing per-object lower-cover count is expressly credited and not called new. Primary 2013 and 2019 full-text comparisons, published-finding corpus mathematical claim searches and accessible own-claim comparisons found no identical asymptotic aggregate. Residual risk: uncatalogued equivalent asymptotics and other later publications not exhaustively searched.",
+    "residual_risks": [
+      "The exact per-word formula predates this result and contains all finite values; priority is asserted only for the analytic asymptotics.",
+      "An unindexed or inaccessible asymptotic treatment might cover the same uniform all-level law.",
+      "published-finding corpus results are semantic retrieval rather than an exhaustive uniqueness certificate; the relevant alternate statistic is compared as a mathematical implication.",
+      "The novelty comparison to some mathematically nearby published index entries uses title/summary only; those entries concern different observable definitions and do not provide a directly applicable implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact per-word cover formula; no all-rank Gaussian/rare-split variance asymptotic observed",
+        "evidence": "arxiv:1303.3785v1, lines 22-40 and 235-258",
+        "identifier_or_url": "https://arxiv.org/abs/1303.3785",
+        "material_read": "Full HTML paper: Introduction, Section 2 Proposition 2.1 and induction proof, Section 4 asymptotics/open questions",
+        "method": "Full HTML primary text inspection with the lower-cover formula reconstructed and used as prior input",
+        "title": "The Dyck pattern poset",
+        "trigger": "Same objects and exact lower cover statistic"
+      },
+      {
+        "assessment": "Restricted initial-interval enumeration, not uniform Catalan-rank lower-cover degree moments or distribution",
+        "evidence": "arxiv:1910.00299, Sections 2,3.2,4",
+        "identifier_or_url": "https://arxiv.org/abs/1910.00299",
+        "material_read": "Full HTML paper: Section 2 initial intervals, Section 3.2 covering relations, Section 4 limits and future research",
+        "method": "Full HTML primary text inspection of hypotheses and enumerated domain",
+        "title": "Enumerative combinatorics of intervals in the Dyck pattern poset",
+        "trigger": "Same Dyck pattern poset and covering relation counts in a later primary study"
+      },
+      {
+        "assessment": "Defines a two-read single-deletion pair-confusability graph on Dyck words, mathematically different from the balanced two-deletion down-degree",
+        "evidence": "published-finding corpus record 2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+        "material_read": "Published title and mathematical summary returned by semantic research index; full body not examined",
+        "method": "Abstract/summary implication comparison",
+        "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree",
+        "trigger": "Strong lexical match to Dyck deletion statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b0d39b90-3b8b-484a-854f-0ee8d46a2ec4",
+  "value": {
+    "rationale": "The source and deletion observable are natural for constrained balanced-word reads and pattern-containment covers. The theorem exposes an unusual rare-event regime: central output-diversity fluctuations converge to a Gaussian at scale \\(n^{3/2}\\), but second moments are dominated by paths with macroscopic component splits and grow as \\(n^{7/2}\\), with a sharp coefficient. This is a substantive statistical distinction not supplied by finite enumerations or a pointwise cover count, and informs average-versus-risk behavior for this exact constrained read channel.",
+    "status": "PASS"
+  }
+}
