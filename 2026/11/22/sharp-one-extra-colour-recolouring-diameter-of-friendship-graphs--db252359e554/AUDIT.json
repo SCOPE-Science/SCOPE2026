@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every integer t>=1, fixed-hub proper four-colour states factor into t independent six-cycles, giving exactly 4*6^t vertices and 4*t*6^t within-layer edges. Between any two hub colours there are exactly 2^t eligible synchronized gateways and hence 6*2^t additional edges. In each of the two six-cycles the two gateway states are antipodal; the sum of the two possible via-gateway per-petal costs equals six, so one gateway incurs at most three leaf recolourings. This gives an all-pairs upper bound 3t+1. A uniform reversed-petal colouring with a different hub colour forces at least three recolourings per petal plus one at the hub and an explicit path attains the bound. Proper three-colour states are all isolated. The standalone independent-adjacency enumeration checks t=1..5 and local gateway identities but is supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy et al., Journal of Combinatorial Optimization 27 (2014), 132–143, DOI 10.1007/s10878-012-9490-y, states quadratic diameter bounds for chordal graphs.",
+        "Biedl–Lubiw–Merkel, arxiv:2003.01818, OAT theorem and operations include adding a complete graph at a vertex; its result gives polynomial diameter bounds, not an exact formula.",
+        "Belavadi–Cameron–Merkel, arxiv:2206.09268, states a 4n upper bound for P4-free graph recolouring, not a family-specific exact expression.",
+        "Belavadi–Cameron–Sintiari, arxiv:2405.06446, states general connectivity via modular decomposition."
+      ],
+      "reasoning": "The friendship family is chordal, P4-free and OAT, so existing connectivity is covered; 4n and O(n^2) upper bounds do not imply the precise 3t+1 worst-case distance, the sharp lower-bound witness, or exact hub-edge count.",
+      "searches": [
+        "recoloring diameter block graphs chordal graphs chromatic number +1 2021",
+        "\"Reconfiguration graphs for vertex colourings of chordal and chordal bipartite graphs\"",
+        "\"Building a larger class of graphs for efficient reconfiguration of vertex colouring\" arxiv",
+        "2022 recolouring graph P4-free diameter tight friendship graph 4 colors"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2003.01818",
+      "https://arxiv.org/abs/2206.09268",
+      "https://arxiv.org/abs/2405.06446",
+      "https://doi.org/10.1007/s10878-012-9490-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "F_t has n=2t+1 vertices; the 2022 4n P4-free bound yields 8t+4, strictly weaker than 3t+1 for every t>=1.",
+        "The 2020 OAT connectivity proof does not restrict the distance to 3t+1 or force the synchronized-gateway local lemma.",
+        "The 2024 modular-decomposition statements address the yes/no connectivity question."
+      ],
+      "reasoning": "The overlapping prior implications cover connectivity and broad complexity at palette chi+1. They do not subsume the exact diameter, witness, 3-colour frozen-to-4-colour transition, and hub-eligible edge census. These latter assertions require the new six-cycle and swap obstruction arguments.",
+      "searches": [
+        "arxiv:2003.01818 attach clique at vertex recoloring OAT diameter",
+        "arxiv:2206.09268 Theorem 1 P4-free bound 4n",
+        "arxiv:2405.06446 modular decomposition recoloring connectedness",
+        "exact four colour recoloring diameter windmill 3t+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "F_t is simultaneously called friendship graph, Dutch windmill graph, and a bouquet of t triangles with one common hub; its graph expression is K_1 vee (t K_2).",
+        "The primary source arxiv:2003.01818 contains a general clique-attachment operation but gives only general bounds.",
+        "A publicly indexed proper-conflict-free friendship-colouring result (2026/10/12/SCOPE-proper-conflict-free-colorings-of-friendship-graphs--1ca1707ed5ce) concerns a different colouring condition and no recolouring moves."
+      ],
+      "reasoning": "All alternate names reduce to exactly the same labelled base graph, so matching exact diameters would be decisive. None of the inspected sources or returned search hits states or implies the 3t+1 four-colour recolouring diameter.",
+      "searches": [
+        "friendship graph windmill graph proper vertex recoloring exact diameter four colors t triangles",
+        "proper coloring recolouring of windmill friendship graphs K_1 join disjoint triangles exact reachability",
+        "Reconfiguration of K1 join tK2 graph vertex colorings q=4 graph distance",
+        "\"Dutch windmill\" \"reconfiguration graph\" proper coloring",
+        "\"bouquet of triangles\" \"recoloring\" distance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed four-colour friendship-reconfiguration diameter table was returned in the performed searches.",
+        "Closest public finding 2026/11/2/SCOPE-sharp-first-harmonic-sampling-spectrum-of-friendship-graphs--c7312df52d26 studies the Fourier spectrum of uniform proper colouring measures, not recolouring adjacency.",
+        "Closest exact recolouring metrics indexed for other graphs include 2026/11/2/SCOPE-one-edge-robustness-of-three-colouring-reconfiguration-for-bicli--cea1f744fdb9 and 2026/11/8/SCOPE-exact-petersen-vertex-recolouring-geometry-at-three-and-four-col--83b049512d48."
+      ],
+      "reasoning": "A matching exact metric table, even without a theorem or with different notation, would cover the numerical claim; the actual indexed and targeted literature searches yielded other base graphs or other invariants, not the stated family.",
+      "searches": [
+        "Four-colour recolouring graph of friendship graph F_t = K_1 join t K_2 exact diameter 3t+1 4 6^t state counts",
+        "\"friendship graph\" \"recoloring\" \"diameter\" 4",
+        "\"windmill\" \"recolouring graph\" four colours diameter",
+        "Reconfiguration of K1 join tK2 graph vertex colorings q=4 graph distance",
+        "proper graph coloring recoloring reconfiguration complete bipartite graphs exact diameter"
+      ]
+    },
+    "rationale": "The inspected primary papers give connectivity and general bounds on proper colouring reconfiguration of chordal, P4-free and OAT graphs, but no exact diameter or hub-gateway structure for K_1 joined to t disjoint edges. Public-index and graph-name searches did not locate exact equivalent; no certainty of comprehensive historical priority is claimed.",
+    "residual_risks": [
+      "An earlier unpublished or unindexed exact four-colour friendship recolouring computation could predate this statement.",
+      "The full original 2014 chordal-recolouring paper was not obtained; its general abstract was compared, but paper-wide exclusion cannot be asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existing connectivity and a general O(n^2) diameter bound; does not provide an exact four-colour friendship-graph diameter",
+        "evidence": [
+          "arxiv:2003.01818, Definition 1 and OAT proof section; attachment of cliques to a vertex, general O(n^2) result"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.01818",
+        "material_read": "Abstract, construction operations, introduction and connectivity/diameter results, main canonical-colouring proof discussion and relevant theorem sections",
+        "method": "Public open-access PDF full text with page-image inspection and targeted theorem/diameter section reading",
+        "title": "Building a larger class of graphs for efficient reconfiguration of vertex colouring",
+        "trigger": "Earliest directly guiding full-length recolouring study containing the clique-attachment construction"
+      },
+      {
+        "assessment": "Gives P4-free upper bound 4n and wider H-free classification; not the exact 3t+1 bound",
+        "evidence": [
+          "arxiv:2206.09268, Theorem 1 and Table 2 (4n P4-free bound)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.09268",
+        "material_read": "Abstract, introduction, theorem tables, P4-free bound and statements of principal connectivity theorems",
+        "method": "Public arXiv PDF full text with title-page screenshot and structured text inspection",
+        "title": "Reconfiguration of vertex colouring and forbidden induced subgraphs",
+        "trigger": "Direct later source on P4-free recolouring at one additional colour"
+      },
+      {
+        "assessment": "Proves connectivity for classes via modules, not the exact friendship recolouring metric",
+        "evidence": [
+          "arxiv:2405.06446, introduction and Theorems 3–7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.06446",
+        "material_read": "Abstract, introduction, theorems 1–7, overview of modular-connectivity constructions and stated scope",
+        "method": "Public arXiv PDF main theorem inspection with page-image screenshot",
+        "title": "Recoloring via modular decomposition",
+        "trigger": "Later source with modular graph decomposition potentially subsuming clique-bouquet case"
+      },
+      {
+        "assessment": "Broad connectivity and quadratic bound known; paper-wide exact-family priority not fully ruled out",
+        "evidence": [
+          "DOI 10.1007/s10878-012-9490-y, abstract on k-colour-dense graphs and O(n^2) bounds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-012-9490-y",
+        "material_read": "Published abstract, quoted bound, repository metadata; complete original article not accessible in this check",
+        "method": "Public abstract and university repository record; no full-text noncoverage inference",
+        "title": "Reconfiguration graphs for vertex colourings of chordal and chordal bipartite graphs",
+        "trigger": "Broad predecessor covering the chordal superclass"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db252359-e554-4086-9b2c-c8d57ca26fcc",
+  "value": {
+    "rationale": "The minimum palette chi=3 is entirely frozen, yet the smallest additional palette is connected, so the precise transition matters for dynamic scheduling/recolouring. This natural unbounded chordal family has a sharp linear recolouring budget 3t+1, a matching explicit worst-case obstruction, a canonical product-and-gateway state model, and exact total and hub-edge counts. The information is structural and optimal, not a routine instance count or small constant gain.",
+    "status": "PASS"
+  }
+}
