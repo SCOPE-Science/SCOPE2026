@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim is about numerical label intervals within permutation cycles, and the Ewens paintbox makes these into iid categorical words conditional on the frequencies. A dyadic union-bound/Borel–Cantelli argument proves the random almost-sure logarithmic constant; a marked run-start dependency graph gives a Poisson total-variation approximation, with a strict second-largest-mass gap excluding competing cycle labels. The classical Dickman law identifies the uniform case. Finite enumeration through eight labels checks only the exact reduction, not the infinite proof. The conditioning, integer lattice qualification, and no-uniform-rate limitation are explicit.
+
+**Originality — PASS, qualified.** Primary literature on random-permutation cycle lengths (Arratia–Barbour–Tavaré, 2006), exchangeable partitions (Pitman, 2006), independent-word longest runs (Gordon–Schilling–Waterman, 1986), and fixed-composition multi-letter runs (Kong, 2016) was compared by statement and implication. The generic iid word tools and PD paintbox are known; the stated Ewens co-cycle interval theorem, explicit Dickman-transform scale, and conditional threshold description were not found directly stated in the inspected sources or published result records. Kong's exact distribution method covers finite conditional words and can in principle determine every finite \(L_n\) distribution, but its limit conclusions do not establish the random PD-scale and conditional Poisson onset. Historical priority risk remains for general exchangeable-word extreme results and broader reductions.
+
+**Value — PASS.** A natural new locality statistic on a random permutation's *cycle partition* measures the longest contiguous stretch of labels having common cycle membership. Its nondegenerate random logarithmic coefficient ties local interval geometry to the global largest cycle; the Poisson onset describes fluctuations invisible to the first-order law. It provides an explicit permutation-statistics benchmark, not an arbitrary numerical slice.
+
+Independent mathematical validation was not performed. Conditional Poisson rates can degenerate over atypical mass profiles, and the lattice phase depends on paintbox realization.
+
+Self-review: passed. Independent audit: not yet performed.

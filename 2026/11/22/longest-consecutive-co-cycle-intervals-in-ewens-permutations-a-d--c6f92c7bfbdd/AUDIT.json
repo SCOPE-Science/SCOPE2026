@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The exact reduction from Ewens cycles to conditional iid paintbox labels is justified by Kingman/Pitman. A dyadic Borel–Cantelli proof gives the random logarithmic almost-sure limit. Marked run-start indicators have explicit mean and a local exclusion dependency graph, leading to a Chen–Stein bound O_p(k/n); the second-largest mass kills competitor runs and Dickman largest-cycle law identifies the uniform-case mixture. Independent finite code verifies the finite equivalence; it does not certify the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gordon–Schilling–Waterman 1986 coin-toss run extremes are for deterministic success probability.",
+        "Kong 2016 treats fixed finite alphabet and conditional multiplicities, not random countably infinite PD composition at growing n.",
+        "Arratia–Barbour–Tavaré (2006) establish ranked cycle-length convergence but do not study consecutive labels co-cycle runs."
+      ],
+      "reasoning": "Combining deterministic conditional longest-run theory with the exchangeable paintbox is a serious potential reduction. It gives the ingredients for the proof, but the located broader results do not state the joint Ewens local/global object or its annealed Dickman transform and quenched lattice Poisson threshold. The risk is disclosed rather than falsely claiming these tools are unrelated.",
+      "searches": [
+        "Web: longest run exchangeable Poisson Dirichlet colored words",
+        "Web: Gordon Schilling Waterman 1986 extreme value theory long runs",
+        "published-finding corpus: longest run of consecutive labels in same cycle of uniform random permutation Poisson Dirichlet largest cycle logarithmic run"
+      ]
+    },
+    "checked_sources": [
+      "https://www.stat.berkeley.edu/~aldous/206-Exch/Papers/pitman_CSP.pdf",
+      "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT06.pdf",
+      "https://arxiv.org/pdf/2405.01747",
+      "https://www.ism.ac.jp/editsec/aism/69/0497.pdf",
+      "https://doi.org/10.1007/BF00699107"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pitman: Kingman correspondence and Ewens paintbox, direct input to conditional proof.",
+        "Gordon et al.: one-color iid longest head runs, a direct ancestor of the conditional threshold method.",
+        "Kong: conditional finite-word exact formulas, not a stated PD mixture limit.",
+        "Arratia et al.: longest-cycle PD law, not numerical-label run statistic."
+      ],
+      "reasoning": "The proof explicitly combines two classical theories and an additional quenched uniqueness/competitor argument. The exact asymptotic claim is not given by an inspected theorem without making this conditional construction and proving the random infinite-alphabet reduction; a general unpublished or unexamined exchangeable-run theorem could potentially subsume it.",
+      "searches": [
+        "published-finding corpus: In Ewens permutations, longest interval of consecutive numerical labels in a common cycle, random logarithmic coefficient inverse log of largest Poisson-Dirichlet atom, quenched Poisson onset for runs",
+        "published-finding corpus: Ewens partition longest adjacent block of elements within the same cycle Poisson Dirichlet limit",
+        "Web: \"longest run\" \"exchangeable\" \"Poisson Dirichlet\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman (2006), Kingman paintbox representation, chapter 2: cycle equivalence becomes iid categorical equality given frequencies.",
+        "Kong (2016), section 1 and Theorems 2–3 as available in arXiv manuscript 2405.01747: exact finite-conditional categorical run distributions."
+      ],
+      "reasoning": "The equivalence of co-cyclic numerical label intervals and constant-color word runs was explicitly tested. Generic finite-alphabet run formulas cover finite distributions but do not explicitly supply the PD-driven random almost-sure scale and conditional poisson-onset asymptotics of growing Ewens permutations.",
+      "searches": [
+        "published-finding corpus: In Ewens permutations, longest interval of consecutive numerical labels in a common cycle, random logarithmic coefficient inverse log of largest Poisson-Dirichlet atom, quenched Poisson onset for runs",
+        "Web: \"longest runs\" \"random permutations\" \"cycles\" consecutive",
+        "Web: \"runs\" \"paintbox\" \"Ewens\" longest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published indexed result on parity-separated near-complete cycle-cohesion tails studies small boundary counts rather than longest run growth.",
+        "Own-ledger matching claims include Ewens-pair clustering and independent Ewens partitions but not consecutive cycle-cohesion run extremes.",
+        "Kong 2016 finite word formulas are broad enough to recover finite-size run probabilities."
+      ],
+      "reasoning": "No exact table for this random asymptotic or claimed stronger run limit was located. Finite formulas exist and are not claimed new; neither a missing database hit nor the slot partition is treated as novelty proof.",
+      "searches": [
+        "published-finding corpus: In Ewens permutations, longest interval of consecutive numerical labels in a common cycle, random logarithmic coefficient inverse log of largest Poisson-Dirichlet atom, quenched Poisson onset for runs",
+        "published-finding corpus: maximum consecutive integers belonging to one permutation cycle random permutation longest run",
+        "Web: longest consecutive integer interval in random permutation cycles",
+        "Own ledger claims: consecutive labels; longest run; Ewens"
+      ]
+    },
+    "rationale": "No inspected source or actual semantically closest published-finding corpus result states this natural numerical-label co-cycle extreme asymptotic. Prior general finite multicolor run formulas do cover the finite distributions, and Ewens paintbox plus iid runs supply proof tools, so this is qualified as a new asymptotic synthesis rather than a new general run principle. Generic exchangeable-run theorem coverage remains a residual risk.",
+    "residual_risks": [
+      "General exchangeable-word longest-run literature may imply the full result without specializing to permutations; no independent historical-priority certification.",
+      "The 1986 original longest-head-run article was available only through an abstract in this check.",
+      "The 2016 journal PDF exposed its first page only; the full author manuscript at arxiv was used for scope comparison.",
+      "The quenched Poisson limit is phase/subsequence-dependent at integer thresholds and cannot be strengthened to an all-n nonlattice Gumbel claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical paintbox premises covered; no explicit longest consecutive co-cycle interval theorem in read material",
+        "evidence": [
+          "Kingman paintbox passage around PDF lines 1344–1350",
+          "Theorem 2.2 around lines 1510–1525",
+          "Ewens sampling formula around lines 1595–1599"
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-Exch/Papers/pitman_CSP.pdf",
+        "material_read": "Selected passages in Chapters 2.2 (Kingman paintbox, Theorem 2.2) and 3.1 (Ewens Chinese restaurant), plus source front matter",
+        "method": "Open-access PDF text and page image inspection",
+        "title": "Combinatorial Stochastic Processes",
+        "trigger": "Exact exchangeable partition representation for same-cycle label relation"
+      },
+      {
+        "assessment": "Establishes cycle-length convergence and GEM but does not directly study contiguous numerical-label co-cycle runs",
+        "evidence": [
+          "PDF lines 24–46 on PD convergence",
+          "PDF lines 97–121 and 279–286 on GEM"
+        ],
+        "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT06.pdf",
+        "material_read": "Introduction, main asymptotic equation (1.1), GEM comparison, selected passages in Sections 4–5; full PDF was accessible",
+        "method": "Author OA PDF text, pages and screenshot",
+        "title": "A Tale of Three Couplings: Poisson–Dirichlet and GEM Approximations for Random Permutations",
+        "trigger": "Strongest existing cycle-length asymptotics; possible implication for largest-atom coefficient"
+      },
+      {
+        "assessment": "Finite word exact conditional distributions clearly covered; the specific Ewens mixed infinite-color growing-sample asymptotics not in stated results",
+        "evidence": [
+          "PDF lines 22–134, introduction and definition of models",
+          "Publication record: 1 February 2016 online"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.01747",
+        "material_read": "Author manuscript pages 2–8, especially introduction, methods, scope and statement descriptions",
+        "method": "Lawful arXiv full-text PDF; published 2016 online date verified independently",
+        "title": "The mth longest runs of multivariate random sequences",
+        "trigger": "Plausible stronger theorem for finite alphabet fixed-composition word run counts"
+      },
+      {
+        "assessment": "Known iid Bernoulli extreme theory, plausible general reduction, not used to certify absence of stronger results",
+        "evidence": [
+          "Abstract reports longest iid heads approximately maximum of exponentials"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF00699107",
+        "material_read": "Abstract and metadata only; full original primary text not obtained",
+        "method": "Bibliographic/abstract index",
+        "title": "An extreme value theory for long head runs",
+        "trigger": "Classical sharp iid longest-head-run law and possible direct coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6f92c7b-fbdd-45ec-a9ce-4f5e26ca10c4",
+  "value": {
+    "rationale": "The longest consecutive-label segment trapped inside a single permutation cycle is a natural locality statistic of an exchangeable random partition. The sharp nonconstant log-scale identified with the global PD largest atom and its Dickman CDF are meaningful structural information; quenched Poisson run starts locate the lattice-scale transition and exclude rival cycles.",
+    "status": "PASS"
+  }
+}
