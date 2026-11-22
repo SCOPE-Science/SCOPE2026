@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The discrete rank cut objective is identical to the original balanced OVL-q. Moving cuts to whole-run boundaries is justified by concavity; grouping s alternating complete runs costs at least floor(s/2), giving ceil((R-1-q)_+/2). Each disjoint 1001001 occurrence permits removing two run boundaries for exactly one minority count. Its nonoverlapping-block count has mean n/448+O(1), variance O(n) under the balanced permutation measure. The exact classical run formulas imply a Gaussian centered at n+1 with variance asymptotic to n/2. Thus the positive residual is realized at the lower bound with probability tending to one, and n^(1/2) rho converges to (Z-t)_+/(2 sqrt 2); the zero-event probability converges to Phi(t). The provided check.py independently checks original DP minimization and combinatorics in finite cases; no unproved infinite conclusion is inferred from computational checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original paper has general finite combinatorial enumeration but specializes its efficient theory and simulations to OVL-2.",
+        "The classic runs distribution gives the exact probability that OVL-q is zero once the run-boundary identity is proved, not the positive part limit of its strictly positive values.",
+        "The 2026 finite-algorithm study reports selected q=3,4 sample-size tables, not a joint growing-q asymptotic."
+      ],
+      "reasoning": "The runs CLT alone handles the saturation-event probability, but it does not control how much positive overlap remains on non-saturated words; that requires a separate exact lower bound and a linear-density family of attainable cheap two-cut removals. The exact finite null tables, even for all n,q, imply a computable finite probability but do not explicitly contain this joint asymptotic or cost theorem. No stronger covering result was found.",
+      "searches": [
+        "Wald Wolfowitz run count overlap coefficient q growing cuts null distribution",
+        "optimal partition binary word minority sum bounded cuts run large q Gaussian limit",
+        "arxiv:2206.03166v2 full text sections 2,3,5 and proofs; arxiv:2408.10612 fixed q=2",
+        "critical positive-part Gaussian limit of high q two sample overlap coefficient OVL-q ρ_q around run count under null"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.03166v1/v2",
+      "arxiv:2408.10612",
+      "https://ideosphere.ai/papers/ovl2-pvalues",
+      "https://search.r-project.org/CRAN/refmans/randtests/html/runs.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original OVL-q paper supplies the empirical cutpoint definition and exact finite combinatorial test p-values, and studies q=2.",
+        "The one-sample 2024 paper proves an OVL-2 limit and cannot directly cover a two-sample q increasing with n.",
+        "The distinct 2026 O(qN) finite algorithm is exact, but its published claims concern runtime and specific finite tables."
+      ],
+      "reasoning": "Our theorem implies a new distributional scaling window at q about the per-class sample size. None of the inspected fixed-q limit theorems, Kuiper identity, general finite algorithm, or classical runs formula implies the nonzero cost scaling without the new isolated-pattern argument. The zero atom alone follows from runs; it is explicitly positioned as a precursor, not the principal new contribution.",
+      "searches": [
+        "A novel statistical approach for two-sample testing based on the overlap coefficient arxiv 2206.03166 theorem 2.6 and 3.9",
+        "Extension of the one-sample Kolmogorov-Smirnov test 2408.10612",
+        "Exact null distributions of the OVL-q goodness-of-fit tests linear-time algorithm q>=3 September 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026-09-07 finite OVL study formulates the general statistic as half maximal alternating variation of the empirical CDF difference and recognizes OVL-2 as Kuiper; its page gives an O(qN) dynamic program and only small-q finite tables.",
+        "The 2022/2023 Komaba–Johno–Nakamoto source defines OVL-q and concentrates on q=2."
+      ],
+      "reasoning": "The claimed q=n+O(sqrt n) atom-plus-continuous limit is a property of the original overlap objective, not of an artificially renamed statistic. The known zigzag-variation representation is an exact equivalent formulation but does not by itself imply the sharp asymptotic or the isolated-block attainment identity. Kuiper equivalence for q=2 is entirely excluded from the novelty claim.",
+      "searches": [
+        "OVL q min shared empirical histogram error run boundary partition zero threshold q ~ sample size",
+        "Komaba Johno Nakamoto OVL-2 two sample overlap coefficient statistic exactly Kuiper sup empirical CDF difference range equivalence",
+        "2026-09-07 https://ideosphere.ai/papers/ovl2-pvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 study includes OVL-3 at (4,4),(5,5),(6,6),(4,5),(5,6) and OVL-4 at (6,6); these finite cases have q far below the relevant n-scale window.",
+        "Classical runs tables record exactly the formula for A_{n,r}; the new proof credits and reuses that distribution."
+      ],
+      "reasoning": "No checked table explicitly states the near-saturation cost equality for growing n or the continuum-plus-atom limiting law. Previously known small tables and the classic runs enumerations are recognized, not claimed as new.",
+      "searches": [
+        "2026-09-07 https://ideosphere.ai/papers/ovl2-pvalues claim ledger OV7 OVL-3 OVL-4 exact tables",
+        "2022 Komaba Johno Nakamoto exact p_{2,n,n} fast algorithm q=2",
+        "https://search.r-project.org/CRAN/refmans/randtests/html/runs.html"
+      ]
+    },
+    "rationale": "Mathematical-record and prior-claim searches, arXiv primary full-text comparison, 2024 follow-up and later finite-DP claim ledger revealed no directly covering q=n+O(sqrt n) null scaling law. Existing finite algorithms, q=2 equivalence and classic runs law are credited. The surviving original component is the exact high-probability cut-cost attainment principle and its non-Gaussian positive-part limit; general high-complexity segmentation priority remains uncertain.",
+    "residual_risks": [
+      "Unexamined historical papers may contain more general random binary segmentation scaling limits.",
+      "The later finite algorithm claim-page was inspected; its separate downloadable PDF was not read, so the document-wide absence of a stronger statement has not been certified.",
+      "The old exact runs null event by itself is already classical; novelty depends on the positive overlap-cost equality and its distributional limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines OVL-q and exact finite permutation setup; efficient results emphasize q=2, not growing q=n+O(sqrt n).",
+        "evidence": [
+          "arXiv:2206.03166, first public 2022-06-07, v2 dated 2023-06-28; primary MSC 62G10",
+          "Definitions 2.2 onward, section 3 algorithms, section 5 conclusions, proofs in sections 6-7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.03166v2",
+        "material_read": "Full accessible HTML including definitions, theoretical framework, algorithms, experiments, conclusion and theorem proof sections",
+        "method": "Direct reading of the arXiv full-text HTML, comparing object, assumptions, parameters and proofs",
+        "title": "A novel statistical approach for two-sample testing based on the overlap coefficient",
+        "trigger": "Exact defining statistic, general-q theorems and possible prior asymptotic coverage"
+      },
+      {
+        "assessment": "Concerns one-sample fixed-q=2, not balanced two-sample growing q; no dominating claim identified.",
+        "evidence": [
+          "arXiv:2408.10612 first public 2024-08-20",
+          "One-sample OVL-2 limit and asymptotic p-values"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.10612",
+        "material_read": "Accessible manuscript body and abstract including OVL-2 asymptotics and conclusion",
+        "method": "Read openly available arXiv manuscript HTML and sections on asymptotic distribution",
+        "title": "Extension of the one-sample Kolmogorov-Smirnov test",
+        "trigger": "Overlapping OVL-q family and possible fixed-q limit implications"
+      },
+      {
+        "assessment": "Reports general dynamic program and some finite q=3,4 tables; does not claim growing-q near-saturation limit. Full PDF not inspected, hence residual priority risk.",
+        "evidence": [
+          "Public snapshot date 2026-09-07",
+          "OV1-OV8 claim entries on representation, DP and finite q tables"
+        ],
+        "identifier_or_url": "https://ideosphere.ai/papers/ovl2-pvalues",
+        "material_read": "Full accessible abstract and on-page eleven-entry claim ledger, including identity, dynamic program, and finite tables",
+        "method": "Direct reading of public results/claims page, not the separate PDF; conclusions restricted to materials actually read",
+        "title": "Exact null distributions of the OVL-q goodness-of-fit tests: a linear-time algorithm for D_q, and the cells with q >= 3",
+        "trigger": "Highly relevant later result on general-q finite exact null distribution and equivariant formulations"
+      },
+      {
+        "assessment": "Run counts and CLT are prior art, intentionally treated only as inputs; no overlap-cost lemma or positive-part distribution is included.",
+        "evidence": [
+          "Swed and Eisenhart (1943) classic reference",
+          "Exact even/odd two-sample runs distribution and probability computation"
+        ],
+        "identifier_or_url": "https://search.r-project.org/CRAN/refmans/randtests/html/runs.html",
+        "material_read": "Exact distribution formula and references shown in the probability package manual",
+        "method": "Direct reading of function documentation and its cited exact formulas",
+        "title": "Wald-Wolfowitz runs distribution and classical exact tables",
+        "trigger": "Classical stronger prior coverage of the zero event and Gaussian run fluctuations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b4bdeb3-37ff-4f48-9bbf-820a6e4b7023",
+  "value": {
+    "rationale": "When q increases toward n (the typical run-boundary count), the test loses discrimination by saturating at zero: it develops a sharp sqrt(n) critical window, non-Gaussian positive-part limit and a nonvanishing zero atom. This gives a motivated, quantitative complexity/overfitting calibration boundary for the published two-sample overlap test that fixed-q results cannot diagnose. No claim of alternative power or optimal adaptive calibration is made.",
+    "status": "PASS"
+  }
+}
