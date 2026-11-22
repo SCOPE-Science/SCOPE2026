@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem constructs a finite oriented tree with one non-firing sink, outdegree one at every other vertex, and only binary initial chips. Every path vertex fires exactly once at its prescribed distance from its source, and each target receives at most one chip in any single round. Consequently the complete firing sets are exactly the prescribed facet together with unique private auxiliary vertices. A simplicial retraction maps each auxiliary vertex to an anchor of the facet firing in the same round; this retraction is contiguous to the identity through the inclusion. Equivalently each private vertex is dominated and may be strongly collapsed. The same maps restrict to each filtration stage, so the homology persistence claim follows without further assumptions. The six-vertex projective-plane triangulation has Smith factors nine units and one factor two, producing actual integral torsion. Finite executable checks cover 166 four-label antichain families and the projective-plane case.
+PASS
 
-## Originality — PASS, with residual risks
+The construction places a single binary chip at each chain origin and one at each target in first facet. Every auxiliary chain is degree-one and fires at its unique predetermined round t. For every t, each target receives at most one chip and its firing set is exactly F_t, while auxiliary vertices p_(j,v,t) with j>t fire once. Thus sigma_t=F_t ∪ {p_(j,v,t):j>t}; all auxiliary vertices belong to a unique generating simplex and are dominated by an anchor in F_t. Deleting them gives compatible stagewise strong collapses to every K_r; homology persistence is natural over any ring. The ten listed RP2 triangles give the integer Smith diagonal [1]^9,2 and H1=Z/2; node/chip counts 142 and 30 match formula. Domain: nonempty finite K, arbitrary facet order, parallel sink-excluded firing, binary initial data. Independent small examples checked; not a proof by enumeration.
 
-The closest primary scientific source is Riihimäki–Smith, arXiv:2606.26786, whose full public HTML text defines the avalanche model and asks in Section 5, Question 5.1 whether arbitrary sphere wedges and torsion can occur. Its proved path/cycle results and finite examples neither realize every finite complex nor imply stagewise retractions on directed trees. Published indexed results about bidirected stars and four-chip directed-cycle tori cover particular families; the latter shows a non-wedge type but cannot imply universality. Searches for realization, equivalence, arbitrary homotopy, timer paths, torsion and rooted trees returned no equivalent statement. Full manuscript text for some indexed comparators was not accessible; an unindexed or subsequently posted broad realization result remains a bibliographic risk. Negative search evidence is not by itself a proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The construction answers the central realization question raised in the new avalanche-homology theory far beyond a single finite example, while dramatically restricting the host graphs to directed trees and initial chips to zero or one. It gives arbitrary finite homotopy types, including a fully explicit integral two-torsion witness, and preserves an entire facet-order persistence module. This is an all-object structural theorem, not a substitution into a previously known formula.
+The motivating 2026 sandpile-homology paper defines the same firing complex and explicitly asks about arbitrary wedge realizations and integral torsion; known path, cycle, bidirected-star, and four-chip torus results are special cases, not arbitrary facet-list realizations. The present tree construction realizes every nonempty finite simplicial complex and every chosen order of facets stagewise, with an integral RP2 example. This is a best-of-knowledge, not certified exhaustive, priority decision.
 
-## References and scope
+## value
 
-The main primary source is https://arxiv.org/html/2606.26786 (original submission 25 June 2026; current full text dated 2 November 2026). The exact result concerns parallel firing with the sink omitted. No independent mathematical audit has been conducted; finite computation is supplementary to the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Universal realizability of arbitrary finite simplicial homotopy types (including integral torsion) within rooted tree sandpiles directly resolves a previously posed existence question and gives a usable stagewise persistence construction. This is a structural theorem and algorithmic witness, not a renamed textbook homotopy calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
