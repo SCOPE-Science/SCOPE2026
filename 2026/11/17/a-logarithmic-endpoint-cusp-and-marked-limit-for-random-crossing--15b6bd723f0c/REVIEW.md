@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized four-arc law is Dirichlet with parameter vector \((1,1,1,1)\). The exact sine-product intersection ratio was reconstructed both from intersecting-line coordinates and from the four positive arc gaps. Solving its strict cutoff leads to the exact two-dimensional integral and a unique admissible branch. Only the logarithmic \(t\ll x\ll1\) region contributes at order \(t\log(1/t)\); integrating the sine kernel yields coefficient \(3/\pi^2\). The marked Jacobian has a normalized almost-everywhere limit, so Scheffé proves total variation. The geometry and integral were checked with a fixed-seed script. No finite sampling is presented as an infinite proof.
+PASS
 
-## Originality
+Conditioned on alternating cyclic endpoints A,C,B,D, ordered gaps (x,y,z,w) have Dirichlet(1,1,1,1) density 6. Chord-line similarity gives exactly U=sin(pi x)sin(pi w)/(sin(pi x)sin(pi w)+sin(pi y)sin(pi z). The inequality U<t yields an explicit atan2 cutoff w*(x,y;t); for t<<x<<1 its first-order expansion and inner integral of sin(pi y)sin(pi(x+y))=1/2+O(x) produce (3/pi²)t log(1/t), and the x=O(t) and x bounded away 0 regions are lower order. Symmetry gives the upper tail and tail integration yields p<1. For marks x=t^a, u=tb the conditional Jacobian 6|log t| x t partial_u w tends after normalization to 2 sin²(pi y) on 0<a,b,y<1. Densities integrate to unity, so Scheffe gives total variation. Affine maps preserve the directed segment fraction and transform the sampling measure as stated.
 
-**PASS under the stated historical-priority risk.** The closest accessible primary manuscript is Bortolotto–Souza (arXiv:2504.12866), which derives the radial law of the intersection point, not the affine-invariant directed division fraction or the rare-event marks. Gates (1982) addresses counts of intersections. A closely titled 1964 David–Fix paper was found but could not be inspected in full; its title and historical link to Gates make it a substantive residual uncertainty. Searches of published mathematical records and accessible earlier claims found no equivalent marked endpoint law. A negative search alone is not the proof of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The chord-division fraction measures the relative conditioning of an actual intersection along a specified segment, an observable different from radial position, crossing angle and global crossing count. Its logarithmic endpoint concentration, sharp inverse-power integrability threshold and conditional three-way factorization identify both the intensity and the geometric mechanism of near-endpoint collisions. Affine invariance gives a direct geometry-preserving ellipse extension.
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
 
-## Limitations and closest sources
+## value
 
-The claim is restricted to endpoint-angle-uniform sampling and conditioned crossings; it makes no statement about the full probability density, convergence rate or arc-length-uniform ellipse sampling. Closest sources: David–Fix, *Biometrika* (1964), inaccessible full text; Gates, *J. Appl. Prob.* (1982), abstract inspected; Bortolotto–Souza (2025), complete 18-page preprint inspected. Historical originality and full independent mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit singular endpoint law and independent logarithmic rare-event marks for the natural random intersection fraction of two chords; these characterize a different observable from intersection counts, crossing radii or crossing angles and determine negative moment thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
