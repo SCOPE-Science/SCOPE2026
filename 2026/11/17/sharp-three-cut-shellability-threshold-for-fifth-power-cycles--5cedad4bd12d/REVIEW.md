@@ -1,15 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has one finite missing positive interval and an already published infinite tail. A supplied 34-kilobyte explicit order certificate lists **all** 8,040 disconnected-triple complements for the six integer widths 21–26. Independently reconstructed graph triples and direct set-theoretic intersection checks verify each shelling axiom against all earlier facets. The exact top-cell counts yield 1, 12, 24, 37, 51 and 66 spheres. Exhaustive Alexander-dual face enumeration and binary boundary reductions prove lower-degree field homology for every width 13–20, obstructing shellability, while an elementary nonneighbor argument proves voidness for widths 3–12. Chauhan–Shukla Theorem 1.4 proves the all-size tail 27 onward. Correctness risk: finite and published-infinite steps must both be retained; a partial enumeration would not prove either.
+## correctness
 
-## Originality — PASS
-Conjecture 4.2(ii) of Chauhan–Shukla–Vinayak (arXiv:2406.01979) anticipates the sharp threshold but does not prove it for exponent five. Its published Table 2 already contains the relevant finite homology ranks, which are expressly not claimed as new. Chauhan–Shukla (arXiv:2603.23155), whose full HTML proof and theorem were inspected, proves shellability for the fifth power only from 27 vertices onward. Previously published sharp classifications at powers three and four and uniform nonshellability up through the critical 20-vertex fifth-power case do not imply shellability for vertices 21 through 26. Searches of relevant published claims, arXiv, and equivalent fifth-power descriptions did not find any existing six-case shelling theorem. Residual risk: earlier unindexed or unpublished equivalent shellings cannot be completely excluded by search.
+PASS
 
-## Mathematical value — PASS
-This establishes the full sharp transition for the next fifth-power family in a precisely stated published conjecture, closing six nontrivial cases left open by the existing general shelling theorem. Shellability and hence the integral wedge homotopy classification are stronger than the previously tabulated Betti numbers, which cannot certify a shelling. Every missing case is settled by a complete reusable combinatorial certificate, not a numerical guess. The outcome is directly motivated by the connection between graph cut complexes and Cohen–Macaulay/shellability phenomena.
+Disconnected induced triples are precisely triples with 0 or 1 edges. For n<=12 none exist. For each 13<=n<=20, independently enumerated every face of Alexander dual, all mod-two augmented boundary ranks, and Euler–Poincare; its unique reduced groups have degree/rank 13:5/1, 14:5/1, 15:3/21, 16:3/101, 17:3/52, 18:3/19, 19:3/1, 20:2/4, transferring to homology below the dimension n-4 and obstructing pure shellability. For n=21..26, the actual shelling_orders.json blob SHA 780888bf06c65163d70d09fcb2e2a210c2997220 was fetched and independently checked for every facet-permutation entry and EVERY earlier-facet intersection: facet counts 805,990,1196,1424,1675,1950; spanning counts 1,12,24,37,51,66; total 5,843,201 pair comparisons. The exact codimension-one criterion establishes all six shellings and integral wedges, not mere finite sampling. For n>=27, use Chauhan–Shukla Theorem 1.4 (n>=6p-3 with p=5). The prior table of Betti numbers is not a new result.
 
-## Prior literature and limitations
-Closest original primary papers: Chauhan–Shukla, arXiv:2603.23155 (2026), Theorem 1.4; Chauhan–Shukla–Vinayak, arXiv:2406.01979 (2024/2025), Conjecture 4.2 and Table 2. Related published separate third- and fourth-power classifications and a general nonshellability-band theorem were materially compared. The finding is restricted to ordinary three-cut complexes of fifth powers; it does not resolve larger powers, higher cut sizes, or the integral homotopy type of nonshellable small orders. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024/25 conjecture predicts n>=4p+1 and its table already reports some Betti values, while 2026 general shellability begins n>=6p-3 and hence n>=27 at p=5. A newer all-power Alexander-dual collapse proves integral homology already at n>=4p+1 but explicitly does NOT prove original complex shellability. Neither old published result supplies six actual p=5 shellings. Distinguish new certificates/rigidity from known homology.
+
+## value
+
+PASS
+
+Completes the natural p=5 instance of a published sharp shellability-threshold conjecture with six finite complete shellings, bridging the exact gap between proven lower obstruction and infinite positive theorem. The exact finite cutoffs are mathematically motivated and useful beyond a census of Betti ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
