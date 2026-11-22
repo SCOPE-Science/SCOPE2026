@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:00:59.923671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/a-unique-conditional-independence-angle-for-three-periodic-heat--531f297be609/RESULT.md",
+        "Git blob 40b760a4eef274765526ef0d736b4998172dc5d2",
+        "Independent bounded arithmetic/symbolic tests in /mnt/data/scope05_independent_bounded_checks_20261117.py; run finished SUCCESS for five claims (finite checks only)."
+      ],
+      "rationale": "For distinct three sites, the Fourier spectral positivity and Vandermonde argument establish positive-definite covariance. Inverting its 3x3 Toeplitz Gram matrix gives Q13=(H_t(a)^2-H_t(0)H_t(2a))/det. For q=e^{-t} and r=q^(2j-1), each theta-product factor obeys B_r(c)^2-A_r C_r(c)=4r(1-c)(c(1+r+r²)+r); at c=0 all are positive, at c=-1/3 all negative. The log derivative 4r/B_r-8rc/C_r is strictly positive for c in [-1/3,0], and geometric decay permits termwise differentiation. For c outside this interval the factor signs preclude another zero. The periodic Gaussian Poisson formula yields 4t log R -> -2a²+4(pi-a)², root pi(2-sqrt 2), and the first product factor yields c_t=-exp(-t)+O(exp(-2t)). Independently evaluated theta matrices at t=.03,.3,1,4,10 and checked factor identity and sign/root; that is only corroboration.",
+      "residual_risks": [
+        "Only symmetric triples, exact circle length 2pi, t>0, a in (0,pi); no monotonicity of a_*(t) in t and no higher-site conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borovitskiy et al. Example 3 and Appendix Example 7 give the same theta circle covariance, not three-point inverse sign crossing.",
+          "Resultary checkerboard theorem for exactly equispaced circle points proves all precision entries strictly nonzero in its sampling geometry."
+        ],
+        "reasoning": "The kernel expression and a different design-sign theorem do not contain the variable symmetric-triple zero or endpoint laws.",
+        "searches": [
+          "three symmetric periodic heat-kernel samples circle Gaussian conditional independence inverse covariance theta-product unique angle sign transition",
+          "https://arxiv.org/abs/2006.10160",
+          "cyclic heat covariance three points Gaussian precision inverse sign conditional independence"
+        ]
+      },
+      "checked_sources": [
+        "https://dlmf.nist.gov/20.5.E3",
+        "https://arxiv.org/abs/2006.10160",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-strict-cyclic-checkerboard-precision-for-sampled-circle-heat-ker--f287257b6dc9",
+        "three symmetric periodic heat-kernel samples circle Gaussian conditional independence inverse covariance theta-product unique angle sign transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original kernel source establishes periodic spectral construction; on p.15 Example 7 its theta formula is normalized with a constant factor.",
+          "Published checkerboard precision on equal cyclic samples gives nonvanishing signs, which is not an implication for non-equispaced (-a,0,a)."
+        ],
+        "reasoning": "Neither cited theorem dominates the continuous critical-angle law. Classical Jacobi product enters as a known ingredient; the crossing analysis is additional.",
+        "searches": [
+          "https://arxiv.org/abs/2006.10160",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-strict-cyclic-checkerboard-precision-for-sampled-circle-heat-ker--f287257b6dc9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schur complement: Q13=0 iff H_t(a)^2=H_t(0)H_t(2a), a theta-function Turán equality.",
+          "Resultary complete checkerboard theorem covers equispaced n-site circle configurations, not arbitrary opening angles."
+        ],
+        "reasoning": "Equivalent formulation is a sharp theta ratio threshold at c=cos(a); the found all-n equispaced result cannot imply an off-grid continuum zero.",
+        "searches": [
+          "three symmetric periodic heat-kernel samples circle Gaussian conditional independence inverse covariance theta-product unique angle sign transition",
+          "cyclic heat covariance three points Gaussian precision inverse sign conditional independence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF Jacobi triple product is a standard identity, not a tabulated critical angle.",
+          "No exact table of a_*(t) or all-t classifications was returned; independent five-root numerics are only checks."
+        ],
+        "reasoning": "No discovered database entry determines the full function or universal uniqueness; absence of a match is not priority proof.",
+        "searches": [
+          "three symmetric periodic heat-kernel samples circle Gaussian conditional independence inverse covariance theta-product unique angle sign transition",
+          "https://dlmf.nist.gov/20.5.E3"
+        ]
+      },
+      "rationale": "The specific Schur-complement zero-crossing, strict global uniqueness and heat-scale limit are not statements of covariance-kernel construction or of equispaced precision sign theorems. Best-of-knowledge originality PASS under explicitly qualified classical theta-inequality priority risk.",
+      "residual_risks": [
+        "Possible equivalent cyclic total-positivity/theta Turán inequality under other normalization remains unlocated.",
+        "Small-t asymptotic is pointwise in fixed angles and is applied via bracketing, not a globally uniform logarithmic expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_KERNEL_NO_THREE_SITE_PRECISION_TRANSITION",
+          "evidence": [
+            "Example 3 defines circle covariance with theta3; Example 7 gives theta kernel and Fourier weights (44)-(45), not Q13 critical sign."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10111978/1/2006.10160v1.pdf",
+          "material_read": "Accessible complete article, especially Example 3 p.5 and Appendix B Example 7 p.15 including spectral density and theta variance normalization",
+          "method": "Full 24-page lawful OA PDF text and p.15 rendered screenshot",
+          "title": "Matérn Gaussian Processes on Riemannian Manifolds",
+          "trigger": "Exact periodic heat/squared-exponential covariance"
+        },
+        {
+          "assessment": "EQUISPACED_CASE_NOT_BROADER_IRREGULAR_TRANSITION",
+          "evidence": [
+            "Theorem (-1)^d Q_ij>0 holds only exactly equispaced sites, not variable nonuniform triple."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-strict-cyclic-checkerboard-precision-for-sampled-circle-heat-ker--f287257b6dc9/RESULT.md",
+          "material_read": "Entire RESULT.md theorem, proof, sampling assumptions, limitations",
+          "method": "GitHub full text source blob 4fd8ef9178325a69cdc4a8a30f2cced24c220124",
+          "title": "Strict cyclic checkerboard precision for sampled circle heat kernels",
+          "trigger": "Potential all-sample-size stronger prior sign result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/a-unique-conditional-independence-angle-for-three-periodic-heat--531f297be609/RESULT.md",
+        "https://dlmf.nist.gov/20.5.E3",
+        "https://arxiv.org/abs/2006.10160"
+      ],
+      "rationale": "The smallest nontrivial Gaussian graphical-model conditional-independence geometry is a natural three-site configuration. A complete universal transition between positive and negative partial dependences and sharp heat-time endpoint positions gives a nontrivial, reusable precision-sign classification rather than merely a formula for the covariance.",
+      "residual_risks": [
+        "The mathematical claim is restricted to the explicitly defined object/invariant; no unrelated broader theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric triples, exact circle length 2pi, t>0, a in (0,pi); no monotonicity of a_*(t) in t and no higher-site conclusion.",
+    "Possible equivalent cyclic total-positivity/theta Turán inequality under other normalization remains unlocated.",
+    "Small-t asymptotic is pointwise in fixed angles and is applied via bracketing, not a globally uniform logarithmic expansion."
+  ],
+  "schema_version": 1
+}

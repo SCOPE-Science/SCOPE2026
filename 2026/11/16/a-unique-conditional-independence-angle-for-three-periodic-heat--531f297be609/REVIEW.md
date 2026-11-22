@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The covariance is strictly positive definite at distinct sites, as follows from all-positive Fourier multipliers and Vandermonde independence. The exact inverse cofactor identity reduces the sign to a theta-function multiplicative ratio. Jacobi triple product then produces the explicit polynomial factorization shown in RESULT.md; the sign is strict outside a narrow negative-cosine interval, and its log derivative is strictly positive within it. This proves a unique critical angle for every real heat time. Poisson summation and the leading product factor prove the sharp endpoint limits. The `check.py` calculations passed 85 assertions, but finite experiments are not the infinite-parameter proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For distinct three sites, the Fourier spectral positivity and Vandermonde argument establish positive-definite covariance. Inverting its 3x3 Toeplitz Gram matrix gives Q13=(H_t(a)^2-H_t(0)H_t(2a))/det. For q=e^{-t} and r=q^(2j-1), each theta-product factor obeys B_r(c)^2-A_r C_r(c)=4r(1-c)(c(1+r+r²)+r); at c=0 all are positive, at c=-1/3 all negative. The log derivative 4r/B_r-8rc/C_r is strictly positive for c in [-1/3,0], and geometric decay permits termwise differentiation. For c outside this interval the factor signs preclude another zero. The periodic Gaussian Poisson formula yields 4t log R -> -2a²+4(pi-a)², root pi(2-sqrt 2), and the first product factor yields c_t=-exp(-t)+O(exp(-2t)). Independently evaluated theta matrices at t=.03,.3,1,4,10 and checked factor identity and sign/root; that is only corroboration.
 
-Borovitskiy et al., arXiv:2006.10160 (2020), explicitly develop this periodic Gaussian heat covariance. Their inspected full text does not provide the symmetric three-site precision sign transition. The Karlin–McGregor odd determinant positivity in Cunden–Mezzadri–O'Connell (2018) does not constrain the needed non-principal two-by-two cofactor. Huang–Li's circular Matérn CAR results involve different Fourier multipliers. published-finding corpus searches on conditional independence, theta multiplicative inequalities, 3-site precision and Gaussian circle thresholds found no same claim; closest results concern either intrinsic-distance Gaussian positivity, Gaussian quadrature, or Bergman three-point determinants. An unlocated theta inequality could imply this result, so priority should not be treated as independently verified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Three samples are the minimal setting for a nontrivial conditional-dependence question. Determining a unique theta-kernel opening angle at which the outer sites become independent given the center, separating two strict sign phases, and proving both sharp heat-scale limits is a natural complete geometric classification, relevant to Gaussian graphical modeling and precision sparsity. It is neither a restatement of Fourier covariance construction nor a routine cofactor calculation without sign control.
+The specific Schur-complement zero-crossing, strict global uniqueness and heat-scale limit are not statements of covariance-kernel construction or of equispaced precision sign theorems. Best-of-knowledge originality PASS under explicitly qualified classical theta-inequality priority risk.
 
-## Closest literature and limitations
+## value
 
-The same kernel is classical and explicitly given by arXiv:2006.10160, Example 3. The proof uses classical DLMF 20.5.3 and Poisson summation. The result covers only symmetric three-site configurations and gives no monotonicity in the heat parameter. An earlier specialist theta inequality may cover an equivalent formulation. All underlying independent historical-priority and independent mathematical audits remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest nontrivial Gaussian graphical-model conditional-independence geometry is a natural three-site configuration. A complete universal transition between positive and negative partial dependences and sharp heat-time endpoint positions gives a nontrivial, reusable precision-sign classification rather than merely a formula for the covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
