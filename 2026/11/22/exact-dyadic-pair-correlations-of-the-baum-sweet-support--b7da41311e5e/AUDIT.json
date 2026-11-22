@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "A complete partition of the high quotient a=floor(n/2^r) shows that neither a=U 0^e 1^j with j>0 (consecutive interior zero lengths e and e−1) nor j=0 (incompatible terminal zero parities) can produce two admissible indices. Thus a=2^(2t)−1 and the shared r-bit suffix is tiled by 1 and 00. The cutoff 2t+r<m is exact; |T_r|=F_{r+1}. The derivation explicitly handles r=0, n=0, and end-of-window conditions. Direct complete paired-index sets through m=15 and independent bitwise carry transfer counts through m=60 agree, without being substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mérai–Winterhof discuss pseudorandomness/well-distribution and correlation measures rather than the exact unnormalized Baum–Sweet support pair counts at each dyadic lag.",
+        "The generalized Baum–Sweet gap result is broader in the class of sequences but concerns successive gaps, not arbitrary two-point incidences.",
+        "The full text of R1 and R2 confines its exact combinatorial classification to neighboring support positions."
+      ],
+      "reasoning": "A general correlation-measure bound does not imply this exact finite incidence formula. Generalizing consecutive gaps to other support languages is not a broader statement about nonconsecutive dyadic-shifted support pairs. No inspected source provides a dominating arbitrary-lag exact count.",
+      "searches": [
+        "Baum Sweet sequence joint ones at n and n plus 2 to the k gap pair correlation",
+        "Baum Sweet dyadic two point functions Fibonacci occurrence frequency",
+        "Automatic sequence 2-kernel adjacency pair correlation Baum Sweet dyadic shifts",
+        "2026/11/8/SCOPE-exact-return-gap-spectrum-and-frequencies-of-generalized-baum-sw--15a79d8d43cf",
+        "https://arxiv.org/abs/1710.03026"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A060142",
+      "https://oeis.org/A086747",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+      "https://arxiv.org/abs/1710.03026",
+      "https://adamczewski.perso.math.cnrs.fr/IMAN.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+      "https://doi.org/10.2307/1970953"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "R1 enumerates only adjacent gap values 1,2,3,6,9,18,... and their frequencies.",
+        "R2 determines the exact histogram of each such consecutive gap in dyadic prefixes.",
+        "The formula C_{m,r}=F_{r+1} floor((m-r+1)/2) counts arbitrarily separated support points n and n+2^r; its witnesses include r≥2, which are never consecutive."
+      ],
+      "reasoning": "Knowing a multiset of successive gap sizes does not determine which sums of consecutive gaps equal a prescribed power of two. Neither those published statements nor the inspected source proofs establish the claimed all-lag pair set. The carrying proof supplies the missing localization.",
+      "searches": [
+        "2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+        "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+        "Baum Sweet sequence exact dyadic autocorrelation pair counts at distance powers of two Fibonacci factor floor m r",
+        "Exact count of Baum-Sweet positions n and n+2^r both equal one; dyadic support autocorrelation Fibonacci",
+        "https://adamczewski.perso.math.cnrs.fr/IMAN.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The OEIS closure rules and the language 1(1|00)* are equivalent descriptions of membership, rather than a two-point incidence theorem.",
+        "The two checked full research results characterize adjacent support gaps and dyadic gap frequencies, not all support pairs at separation 2^r.",
+        "The present proof gives the complete paired-index set and Fibonacci-times-floor pair count for every m and r."
+      ],
+      "reasoning": "Equivalent descriptions of Baum–Sweet membership are not equivalent claims about joint membership after prescribed addition. The full pair classification is not stated in the inspected comparable works. For r≥2 no adjacent pair has distance 2^r by the adjacent-gap theorem, yet the current pair count is positive, showing the distinction explicitly.",
+      "searches": [
+        "Baum Sweet sequence exact dyadic autocorrelation pair counts at distance powers of two Fibonacci factor floor m r",
+        "Exact count of Baum-Sweet positions n and n+2^r both equal one; dyadic support autocorrelation Fibonacci",
+        "Baum Sweet binary support paired membership n n plus power of two, full collision start set 1^even",
+        "https://oeis.org/A060142",
+        "2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+        "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A060142 records the ordered support and its closure operations, and OEIS A086747 records its binary indicator; the checked material does not tabulate complete dyadic shift-pair counts.",
+        "Available exact tables in the nearby published-finding corpus records enumerate consecutive gaps rather than all equal-power-of-two differences."
+      ],
+      "reasoning": "An enumeration of support indices alone can be used to compute finite pair counts but does not explicitly record or imply the universal all-m and all-r formula without the added carry-rigidity argument.",
+      "searches": [
+        "https://oeis.org/A060142",
+        "https://oeis.org/A086747",
+        "Baum Sweet sequence positions of ones consecutive gaps exact gap spectrum maximal gaps frequencies counting length dyadic blocks",
+        "Baum Sweet sequence exact dyadic autocorrelation pair counts at distance powers of two Fibonacci factor floor m r",
+        "2026/11/2/SCOPE-exact-fibonacci-gap-spectrum-of-baum-sweet-support--138012f26e30"
+      ]
+    },
+    "rationale": "Qualified best-knowledge assessment: the two most closely relevant full-text publications of the same support supply exact consecutive-return-gap histograms, not the nonconsecutive two-point incidence law. Automatic sequence pseudorandomness papers supply different correlation bounds; historic support records supply membership and its Fibonacci growth, not the sharp pair classification. Exhaustive historical priority is not asserted.",
+    "residual_risks": [
+      "Potential historical equivalent result under ordered self-generating-set or automatic-sequence correlations is not ruled out by indexed sources.",
+      "The 1976 foundational paper is bibliographically verified but its full text was unavailable for inspection.",
+      "The OEIS original-entry date anchors the first day-verified cited source; the original 1976 work predates it but has no verified initial-public calendar day in the consulted evidence.",
+      "Finite computational corroboration does not independently certify unrestricted proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for all support pairs at lag 2^r; enumerates adjacent pairs only",
+        "evidence": "Result theorem defines gaps as differences of adjacent elements of S, explicitly disclaims arbitrary pair distances; gap spectrum excludes powers of two >=4.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+        "material_read": "Full RESULT.md, including definitions, exact gap histogram, proof, comparison, and limits",
+        "method": "Read public complete markdown via GitHub repository file retrieval",
+        "title": "Exact dyadic gap law for the Baum–Sweet support",
+        "trigger": "Same binary support; exact Fibonacci histograms of neighboring indices"
+      },
+      {
+        "assessment": "NOT_COVERING for nonconsecutive incidence; its exact histogram concerns successive elements",
+        "evidence": "N_K(g) counts adjacent pairs (s_j,s_{j+1}) at gap g, and gives no global pair correlation at 2^r.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+        "material_read": "Full RESULT.md, including proof and references",
+        "method": "Read public complete markdown via GitHub repository file retrieval",
+        "title": "The complete return-gap law for the Baum–Sweet sequence",
+        "trigger": "Same support, exact dyadic all-scale gap count"
+      },
+      {
+        "assessment": "Membership equivalence; no verified statement of pair-correlation formula",
+        "evidence": "The recorded closure 0 in S, 2x+1 and 4x in S characterizes support; original entry date March 5, 2001.",
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Indexed entry text, date and defining closure reported in retrieved search material; direct site access was limited",
+        "method": "Targeted public web search and source comparison",
+        "title": "OEIS A060142",
+        "trigger": "Direct identical support construction and earliest day-verified source"
+      },
+      {
+        "assessment": "Different invariant: pseudorandomness and correlation-measure bounds, not exact dyadic finite pair incidences",
+        "evidence": "The article treats bounds on well-distribution and pseudorandomness correlation measures.",
+        "identifier_or_url": "https://arxiv.org/abs/1710.03026",
+        "material_read": "Accessible ar5iv HTML sections 1 through 4",
+        "method": "Read published openly accessible article text and theorem statements",
+        "title": "On the pseudorandomness of automatic sequences",
+        "trigger": "Closest alternate term correlation measures applied to Baum–Sweet sequence"
+      },
+      {
+        "assessment": "Does not supply the present two-point incidence enumeration",
+        "evidence": "Section 2.4 studies generating functions and approximants, not dyadic shift support pairs.",
+        "identifier_or_url": "https://adamczewski.perso.math.cnrs.fr/IMAN.pdf",
+        "material_read": "PDF section 2.4 discussing Baum–Sweet construction and rational approximations",
+        "method": "Read extracted PDF section and inspect page image",
+        "title": "Irrationality measures for some automatic real numbers",
+        "trigger": "Historical technical analysis of Baum–Sweet generating function"
+      },
+      {
+        "assessment": "Different set; does not directly cover the present correlations",
+        "evidence": "Closure operators x↦2x and x↦4x−1 differ from Baum–Sweet support closure.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+        "material_read": "HTML article text concerning a differently defined self-generating set",
+        "method": "Read accessible primary HTML",
+        "title": "A Self-Generating Set and the Golden Mean",
+        "trigger": "Plausibly similar closure-generated support and Fibonacci counting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7da4131-1e5e-46c7-8bc9-ac0b6f9023b3",
+  "value": {
+    "rationale": "This is the full natural two-parameter dyadic autocorrelation family of a classical sparse automatic set: it identifies every pair, computes all finite dyadic correlations, and distinguishes fixed-shift logarithmic growth from macroscopic shifts with Fibonacci mass. The key binary carry rigidity is structural and the invariant is not supplied by adjacent-gap histograms; its usefulness is a sharp benchmark for sparse automatic support self-overlap, not an arbitrary finite slice or unsupported application.",
+    "status": "PASS"
+  }
+}
