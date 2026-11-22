@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:03:00.422398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 71a1971982403f9b314ff91c20c90292afa5ab9e",
+        "check_paley.py blob 2eb7b65aa7a5ec999996d6338a998deafe1262cd",
+        "Independent direct Fourier/Gram eigenspectrum for primes 5,13,17,29,37,41,53,73, all four classes: Paley_4_channel_PASS",
+        "Satake arXiv:2011.02907 Lemma 11-12 sign-normalized quadratic Gauss evaluation"
+      ],
+      "rationale": "Using the + sign Gauss sum for p≡1 mod4, G=I/2+(sqrt(p) S_{chi(2),chi(3)}-J)/(2p), where S off-diagonal is the quadratic character of each gap 1,2,3. Reflection j↔3-j reduces G to two real 2x2 blocks on even/odd modes; the supplied matrices have off-diagonals depending on chi2 and their characteristic quadratic polynomials give all four eigenvalue branches. Quadratic reciprocity determines (chi2,chi3) by p mod24; direct ordering of roots and solving eigenvector equations yield equality subspaces including phi=(1+sqrt5)/2. Vandermonde in four distinct sampling phases gives full column rank when (p-1)/2>=4, i.e. p>=13; p=5 has rank two, nullity two. Exact branches give the stated scaled asymptotic deficits. Independently built Fourier matrices on eight representative primes from all four classes and diagonalized Gram with NumPy; eigenvalues agreed with formulas to well below 2e-13. Classical Gauss sum is a premise, not independently proved by finite testing.",
+      "residual_risks": [
+        "No full matrix-by-matrix symbolic characteristic-polynomial certificate was generated independently; two-by-two block derivation was checked analytically, and numeric tests corroborate.",
+        "These spectra concern only four consecutive columns, not all distinct four-column selections; global extremal spectra can be smaller/larger."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day broader Resultary paper gives H_E=(p I-J+sqrt p S_E)/(p-1) for all four-element E and global extrema attained by Paley graph patterns, but does not tabulate all four eigenvalues for the particular consecutive E or prime-class eigenvectors. Normalization differs by factor p/(p-1), with H_E=p/(p-1) G_E.",
+          "Earlier real Paley harmonic frame result studies I+S/sqrt p (without the noncommuting -J term), so its spectral switching census is insufficient for exact G eigenvalues."
+        ],
+        "reasoning": "The global sharp lower/upper bound theorem is broader in choice of E and contains the full Gram identity; however exact fixed-E eigenvalue multiset is not a consequence of its extremal bound alone, and its source commit is at 2026-11-16T23:41:54Z versus this source at 23:41:45Z. The required additional block eigenvalue calculation is substantive though elementary. This is a genuine close-coverage risk, not a claim that the broader result is unrelated.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-column-paley-sampling-bounds-and-an-arithmetic-isomet--295125f25973",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-four-column-spectra-and-extremal-census-for-real-paley-har--28714709e48e",
+          "four consecutive quadratic residue Paley Fourier sampling Gram spectrum mod 24 exactly"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2011.02907",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-four-column-spectra-and-extremal-census-for-real-paley-har--28714709e48e",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-column-paley-sampling-bounds-and-an-arithmetic-isomet--295125f25973",
+        "Resultary query four consecutive quadratic residue Paley Fourier sampling Gram spectrum mod 24 exactly"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Gauss sum fixes each Gram entry, so the audited eigenvalues are derivable by diagonalizing this fixed four-by-four matrix.",
+          "Broader all-subsets optimal bounds establish worst-case eigenvalues over E but do not imply the entire spectrum and least-eigenvector for a prescribed E; latter requires calculations not stated there."
+        ],
+        "reasoning": "The final result is a narrow explicit derived special-case invariant using known entries. Prior general Gram formulas are a strong premise, but a mere global extremum bound does not logically force exact local spectra. Very close concurrent prior is documented, with no fabricated priority claim.",
+        "searches": [
+          "https://arxiv.org/pdf/2011.02907",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-column-paley-sampling-bounds-and-an-arithmetic-isomet--295125f25973",
+          "four consecutive quadratic residue Paley Fourier sampling Gram spectrum mod 24 exactly"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Consecutive Fourier characters are four columns indexed by arithmetic progression {0,1,2,3}; their Gram is a rank-one negative-J correction to a real Paley Seidel matrix.",
+          "Satake supplies the Gauss-sum entries and treats augmented Paley frames, not the exact four-character correction/eigenvectors."
+        ],
+        "reasoning": "The literal spectrum and two reflection blocks are equivalent to evaluating that four-by-four Gram for the prescribed difference pattern; no searched earlier publication explicitly states the four mod24 branches. It is not enough to match the title or all-four-subset optimum.",
+        "searches": [
+          "four consecutive quadratic residue Paley Fourier sampling Gram spectrum mod 24 exactly",
+          "Paley harmonic frame consecutive four columns quadratic character gaps 2 3 spectrum",
+          "https://arxiv.org/pdf/2011.02907"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A pre-existing (Nov 8) exact switched real-Paley four-column spectral census is a table for I+S/sqrt p, not the unaugmented Fourier G=I/2+(sqrt p S-J)/(2p).",
+          "The same-day all-E paper gives sharp global extreme values, not four eigenvalues by each p mod24."
+        ],
+        "reasoning": "No prior exact four-band table was located after distinguishing normalization and the -J correction. The check leaves the possibility of a straightforward unindexed table from classical Paley conference-matrix theory.",
+        "searches": [
+          "four consecutive quadratic residue Paley Fourier sampling Gram spectrum mod 24 exactly",
+          "quadratic residue Fourier 4 consecutive spectral table p mod 24",
+          "Resultary real Paley harmonic frame 4 columns"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinction from earlier augmented Paley or random-frame works is sound. Highly relevant same-day published result for the SAME unaugmented Paley matrix classifies global sharp extrema over all four-column sets; its universal Gram reduction applies also here, but it does not explicitly provide this fixed consecutive four-band complete multiset or all least-eigenvectors. That general framework makes the novelty narrow, and exact contemporaneous overlap remains a material residual risk. PASS as a specific independently derived exact arithmetic spectral invariant, not as discovery of Paley Gauss sums, Gram entries, or general all-subset extrema.",
+      "residual_risks": [
+        "Exact result may be viewed as a modest explicit corollary of the standard Gauss Gram formula and same-day full all-E matrix analysis; unresolved earlier specialized tabulation risk is real.",
+        "Near-simultaneous same-day overlapping published claim: source timestamps separated by only seconds, so chronology does not guarantee scientific independence.",
+        "Remaining Paley-frame specialist literature was sampled by relevant texts, not comprehensively exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GAUSS_PREMISE_DIFFERENT_AUGMENTED_MATRIX",
+          "evidence": [
+            "Gauss-sum evaluation is a classical premise; no fixed unaugmented 4-band spectral table in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.02907",
+          "material_read": "Definition of augmented Paley matrix, Lemmas 11–12, Theorem 10 and surrounding hypotheses",
+          "method": "Lawful arXiv primary PDF, relevant theorem reading",
+          "title": "On the restricted isometry property of the Paley matrix",
+          "trigger": "Same Fourier/Paley quadratic residue sampling and Gauss identities"
+        },
+        {
+          "assessment": "RELATED_MATRIX_WITHOUT_RANK_ONE_CORRECTION",
+          "evidence": [
+            "Its Gram is I+S/sqrt p, whereas this sampling Gram includes -J term changing eigenvalues by orientation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-four-column-spectra-and-extremal-census-for-real-paley-har--28714709e48e",
+          "material_read": "Entire published RESULT.md (model, full proof, spectral trichotomy, census)",
+          "method": "Primary mathematical text read in full",
+          "title": "Exact four-column spectra and extremal census for real Paley harmonic frames",
+          "trigger": "Prior 4-column exact spectra for a related real frame"
+        },
+        {
+          "assessment": "CLOSE_SAME_DAY_BROADER_EXTREMA_NOT_EXACT_LOCAL_MULTISETS",
+          "evidence": [
+            "G_E and H_E satisfy H_E=p G_E/(p-1); paper optimizes global min/max among all 4-sets but does not list full four eigenvalues/eigenvectors of consecutive E."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-four-column-paley-sampling-bounds-and-an-arithmetic-isomet--295125f25973",
+          "material_read": "Entire published RESULT.md including full normalized Gram proof and global sharp equality classes; SOURCE.json timestamp",
+          "method": "Primary full text and exact source publication metadata",
+          "title": "Sharp four-column Paley sampling bounds and an arithmetic isometry transition",
+          "trigger": "Same unaugmented Fourier matrix and broader all-E sharp extremal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact p mod24 block matrix and eigenvector proof",
+        "Direct independent Fourier matrix eigenvalue checks",
+        "Same-matrix broader all-E extremum comparison"
+      ],
+      "rationale": "This fixed four-character bandwidth is the shortest consecutive band whose differences detect independent quadratic characters of both 2 and 3, yielding four distinct arithmetic classes. Sharp least-sampled directions, p=5 rank transition and golden-ratio eigenvector are exact, naturally motivated four-channel sensing invariants useful for deterministic short-band recovery. No general RIP/paper-sized result is needed; the value claim is appropriately narrow and not the global all-subsets extremum already in a related paper.",
+      "residual_risks": [
+        "This is a small fixed-size four-by-four calculation built on classical Gauss sums; its utility is as a sharp natural four-channel design case, not a major new general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement about other column selections or augmented Paley sampling.",
+    "Earlier closely related general four-column same-day result narrows historical-priority claim."
+  ],
+  "schema_version": 1
+}

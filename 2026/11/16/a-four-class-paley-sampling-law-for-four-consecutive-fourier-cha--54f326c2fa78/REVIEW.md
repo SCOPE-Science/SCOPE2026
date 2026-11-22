@@ -1,19 +1,21 @@
-# Scientific review of the four-class Paley sampling spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies the exact row measure and Fourier normalization, the prime class \(p\equiv1\pmod4\), and the four consecutive frequency indices. Satake's quadratic Gauss-sum evaluation gives the character Gram identity, and the reflection parity decomposition gives two explicit real-symmetric two-by-two blocks. Direct characteristic-polynomial calculations yield the four claimed spectra. The displayed radical comparisons identify both sharp bounds and all least-eigenvalue equality spaces; the exceptional rank-two case \(p=5\) follows by distinct-node Vandermonde rank. The asymptotics are exact consequences of the formulas, with infinitely many primes in each progression. Independently assembled Fourier matrices agree with the claimed eigenvalues across 37 primes. Finite calculations do not prove the general theorem.
+PASS
 
-## Originality — PASS, provisional historical priority
+Using the + sign Gauss sum for p≡1 mod4, G=I/2+(sqrt(p) S_{chi(2),chi(3)}-J)/(2p), where S off-diagonal is the quadratic character of each gap 1,2,3. Reflection j↔3-j reduces G to two real 2x2 blocks on even/odd modes; the supplied matrices have off-diagonals depending on chi2 and their characteristic quadratic polynomials give all four eigenvalue branches. Quadratic reciprocity determines (chi2,chi3) by p mod24; direct ordering of roots and solving eigenvector equations yield equality subspaces including phi=(1+sqrt5)/2. Vandermonde in four distinct sampling phases gives full column rank when (p-1)/2>=4, i.e. p>=13; p=5 has rank two, nullity two. Exact branches give the stated scaled asymptotic deficits. Independently built Fourier matrices on eight representative primes from all four classes and diagonalized Gram with NumPy; eigenvalues agreed with formulas to well below 2e-13. Classical Gauss sum is a premise, not independently proved by finite testing.
 
-The nearest inspected source is Satake (arXiv:2011.02907), whose Lemmas 11–12 supply the essential character-sum Gram ingredient for the **augmented** Paley matrix, but whose main result gives conditional, general sparse RIP estimates rather than an explicit low-band spectrum after deletion of its constant sensing row. Magsino–Mixon–Parshall (arXiv:1905.04360) study random subensemble limits for Paley conference frames rather than the fixed consecutive four-frequency restriction. Waldron (arXiv:1806.06067) gives broad group-frame Fourier/Gramian theory, not this residue-class spectral statement. The strongest nearby research-record finding concerns four-column quadratic-residue sampling for \(p\equiv3\pmod4\), with a skew-character/tournament structure absent here. The present claim is not merely a relabeling of those statements: the four congruence classes, the rank-one removal term, and the least-eigenspace descriptions require an additional explicit calculation. Relevant inaccessible or differently titled specialist results remain a possible priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The four-character band is the first natural consecutive harmonic band in which both quadratic characters \(\chi_p(2)\) and \(\chi_p(3)\) affect a Paley-style sampling Gramian. Its exact four-class spectrum supplies deterministic sharp stability constants and worst-observed waveforms after omitting the constant sensing row, the simplest hardware/data-loss modification of the Paley matrix. The golden-ratio extremizer and the change from a three-dimensional worst space to rigid one-dimensional spaces are spectral structure, rather than a bare finite table. The result is intentionally bounded to this natural low-band regime; it does not establish uniform RIP or arbitrary-band estimates.
+Best-of-knowledge distinction from earlier augmented Paley or random-frame works is sound. Highly relevant same-day published result for the SAME unaugmented Paley matrix classifies global sharp extrema over all four-column sets; its universal Gram reduction applies also here, but it does not explicitly provide this fixed consecutive four-band complete multiset or all least-eigenvectors. That general framework makes the novelty narrow, and exact contemporaneous overlap remains a material residual risk. PASS as a specific independently derived exact arithmetic spectral invariant, not as discovery of Paley Gauss sums, Gram entries, or general all-subset extrema.
 
-## Closest literature and limitations
+## value
 
-The characteristic Gauss-sum step is classical and credited; no claim of a new Gauss-sum evaluation is made. Published general frame constructions, random spectral laws and conditional RIP bounds do not logically determine the displayed special four-band eigenvalues without further calculations. The consulted primary texts were inspected in their relevant theorem/proof sections, not asserted to have undergone complete line-by-line inspection. Residual priority risk concerns other specialized Paley submatrix and discrete harmonic sampling literature. Scientific verification is limited to self-review and a reproducible standalone numerical check; no independent expert audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This fixed four-character bandwidth is the shortest consecutive band whose differences detect independent quadratic characters of both 2 and 3, yielding four distinct arithmetic classes. Sharp least-sampled directions, p=5 rank transition and golden-ratio eigenvector are exact, naturally motivated four-channel sensing invariants useful for deterministic short-band recovery. No general RIP/paper-sized result is needed; the value claim is appropriately narrow and not the global all-subsets extremum already in a related paper.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
