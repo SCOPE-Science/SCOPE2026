@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The Brownian-bridge cross-covariance functions yield exact integrated gains \\(J_m(t)/(\\eta+V_m(t))\\). Differentiating the position gain gives a factored numerator with positive decreasing \\(A\\) and increasing \\(D\\), establishing the unique position optimum and the exact endpoint threshold \\(11/336\\). The velocity gain has a one-crossing first-order condition with strictly increasing time-to-noise function. At both unique optima, observation variance satisfies \\(V_{\\mathrm p}\\le1/12<6/25<V_{\\mathrm v}\\); differentiating the log ratio of optimal gains therefore proves there is exactly one mode crossing. Exact rational comparisons locate it strictly after the position endpoint threshold and before \\(1/25\\). Elimination yields the degree-seven polynomial, whose derivative is strictly negative throughout the bracket by seven exact Bernstein coefficients. A standalone script rederives all symbolic identities and rational comparisons, plus supplementary numerical covariance quadratures. The argument handles all \\(\\eta>0\\) and both endpoints; numerical sampling is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji and Müller give a general risk functional, but no theorem optimizing simultaneously over the derivative and process sensor spaces.",
+        "Lachal provides integrated bridge covariance and conditional laws, not explicit noisy sensor modality optimization.",
+        "The Mukherjee dissertation abstract describes designs for product covariances and examples for Brownian motion/bridge; the once-integrated bridge covariance is not a single product on the triangle, and its observation mode differs."
+      ],
+      "reasoning": "A general covariance reduction subsumes the formula from which the result can be proved, but does not itself state or nontrivially imply the strictly monotone cross-mode envelope ordering, two distinct thresholds, or exact seventh-degree switch location. Broad source applicability is distinguished from prior theorem coverage; the inaccessible dissertation introduces a stated residual risk.",
+      "searches": [
+        "Optimal designs for longitudinal and functional data Ji Muller Gaussian trajectories noisy measurement Section 2 Appendix A.3 arXiv 1604.05375",
+        "Lachal integrated Brownian bridge covariance conditional prediction sections 4 5 arXiv 1108.2132",
+        "Optimal designs for estimating the path of a stochastic process Mukherjee product covariance Brownian bridge"
+      ]
+    },
+    "checked_sources": [
+      "A. Lachal, arXiv:1108.2132v1, full text and Sections 4-5, original public date 2011-08-10.",
+      "H. Ji and H.-G. Müller, arXiv:1604.05375v1, full text Sections 2 and Appendix A.3, original public date 2016-04-18.",
+      "B. Mukherjee, Purdue doctoral thesis public abstract at https://docs.lib.purdue.edu/dissertations/AAI3043760/.",
+      "Relevant published mathematical research index search results on sensor timing, Gaussian path recovery and derivative observation designs."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A pre-existing derivative-only design result characterizes the optimal velocity-observation time, but cannot determine when a displacement observation offers greater integrated-trajectory variance reduction.",
+        "Ji and Müller provide the general conditioning functional, while no comparison theorem or switch root is reported in their inspected full text.",
+        "The exact threshold depends on the newly derived position optimal-time endpoint stage and the strict envelope log-ratio derivative inequality, not only the bridge covariance."
+      ],
+      "reasoning": "The new claim compares the two independently optimized gains for all positive noise and establishes a unique switch. It is not a corollary of derivative-only or displacement-only optimal timing: those establish neither the relative gain nor the comparison of observation variance at the optimized times. A generic posterior-risk formula is a starting tool rather than a previously solved optimization.",
+      "searches": [
+        "arXiv 1108.2132 sections 4 5 integrated Brownian bridge covariance conditional prediction",
+        "arXiv 1604.05375 Section 2 integrated mean squared prediction design",
+        "optimal designs for estimating the path of a stochastic process dissertation Brownian bridge product covariance",
+        "Brownian bridge integrated path noisy derivative single observation time strictly increasing sqrt6 minus 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lachal, arXiv:1108.2132v1, Sections 4-5: covariance and Gaussian bridge prediction, rather than choosing between measurements of the process and derivative.",
+        "Ji and Müller, arXiv:1604.05375v1, Section 2 and Appendix A.3: general integrated Gaussian posterior-risk formula but not the specialized two-mode design.",
+        "The separately known derivative-only placement result assumes the derivative measurement is mandatory; it does not compare its value against a displacement measurement."
+      ],
+      "reasoning": "Integrated bridge is also called integrated pinned Brownian motion; velocity is the time derivative of displacement. Searching these alternative formulations and comparing exact objective/observation assumptions found no equivalent all-noise modality theorem in the accessible material. Lack of a search match is not, by itself, proof of originality.",
+      "searches": [
+        "integrated Brownian bridge joint position versus velocity optimal sensor modality single measurement noise threshold path recovery",
+        "Compare one direct observation of integrated Brownian bridge X(t) and one derivative observation B(t), equal noise, optimal full integrated path reconstruction sensor modality switching",
+        "single point noisy observation integrated Brownian bridge optimal time derivative measurement versus integral measurement",
+        "optimal sampling integrated Brownian bridge observing derivative or process jointly noisy integrated mean squared error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed neighboring mathematical findings include Brownian bridge randomized quadrature, noisy derivative-only placement, and optimal spatial sensor designs for graph diffusion; none supplies the competing displacement/velocity gain or exact crossover table.",
+        "The focal covariance articles contain no numerical or exact table reporting the mixed-mode thresholds \\(11/336\\) and \\(\\eta_*\\)."
+      ],
+      "reasoning": "An exact lookup was compared by objects (once-integrated bridge), criterion (integrated conditional variance), measurement modes (a choice between derivative and integrated displacement), and noise normalization. No exact prior table was identified in the inspected sources; index partitioning is not evidence of uniqueness.",
+      "searches": [
+        "integrated Brownian bridge noisy point observation trajectory recovery integrated posterior variance optimal sampling time threshold noise optimal terminal sensor",
+        "integrated Wiener process one sample trajectory design I-optimal optimal location phase transition noise",
+        "integrated Brownian bridge velocity displacement mixed modality Gaussian optimal sampling 0.03486 0.41547",
+        "single point noisy observation integrated Brownian bridge optimal time derivative measurement versus integral measurement"
+      ]
+    },
+    "rationale": "The claim is the unique all-noise optimum over a calibrated choice of one displacement or one derivative measurement of an integrated Brownian bridge, with an exact endpoint and mode-switch threshold. Lachal provides the integrated bridge object and covariance, Ji and Müller the general Gaussian trajectory-design criterion, and existing derivative-only timing does not compare the two modes. No inspected full text or indexed statement covers the global two-mode switch or implies its exact critical polynomial without the new comparison proof. Priority remains qualified by an unavailable dissertation full text and potentially unindexed equivalents.",
+    "residual_risks": [
+      "The full Mukherjee thesis was inaccessible, so overlapping results beyond its abstract cannot be excluded.",
+      "Equivalent work under unindexed experimental-design or sensor-fusion terminology may exist.",
+      "Physical common-variance calibration is an explicit modeling choice; other unit/noise normalizations can alter the crossover."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides basic covariance and Gaussian process structure; no noisy one-observation competition between derivative and displacement is stated.",
+        "evidence": "Sections 4-5 develop integrated bridges and conditional-prediction formulae, rather than an exact noise-dependent choice of physical observation functional.",
+        "identifier_or_url": "https://arxiv.org/abs/1108.2132",
+        "material_read": "Accessible full text, with substantive reading of model definitions, Sections 4 and 5, bridge covariance and conditional prediction statements.",
+        "method": "Read publicly accessible arXiv full text with attention to the covariance and conditional-prediction theorem statements.",
+        "title": "A class of bridges of iterated integrals of Brownian motion related to various boundary value problems involving the one-dimensional polyharmonic operator",
+        "trigger": "Exact once-integrated Brownian bridge covariance and conditional trajectory prediction, the strongest overlap candidate."
+      },
+      {
+        "assessment": "Gives general integrated covariance-gain objective, not the explicit two-mode switch or optimized-gain monotonicity theorem.",
+        "evidence": "The trajectory-design objective involves an integrated conditional covariance reduction, but optimized modality-specific timing and exact switching thresholds are not supplied.",
+        "identifier_or_url": "https://arxiv.org/abs/1604.05375",
+        "material_read": "Accessible full text including Section 2 and Appendix A.3 and the integrated mean-square prediction criterion.",
+        "method": "Read the public full-text presentation and compared objective, assumptions, and stated optimization theorems.",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "General noisy functional Gaussian prediction design may dominate specialized one-observation integrated-trajectory design."
+      },
+      {
+        "assessment": "Abstract presents optimality conditions for product covariance kernels and examples for Brownian bridge itself; it does not establish or decisively rule out the integrated bridge two-mode problem.",
+        "evidence": "Product-kernel assumption in abstract; the integrated Brownian bridge covariance used here has a non-product polynomial dependence for ordered times.",
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Public abstract and bibliographic record only; dissertation full text not accessible in this run.",
+        "method": "Read abstract; attempted to locate legal full-text availability.",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Historical thesis on Gaussian process path-design and explicit Brownian-bridge examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4112e6f7-c49a-4f79-98f4-5c993110cd62",
+  "value": {
+    "rationale": "With one measurement of an integrated random trajectory, choosing the observable (displacement versus derivative) is as important as choosing its time. The bridge is a natural finite-horizon stochastic benchmark. The proof supplies a complete all-noise decision rule, the sharp \\(11/336\\) terminal-position transition, a later unique seventh-degree modality switch, and a discontinuous move in optimal sampling time. These distinctions are not generic consequences of covariance positivity or a cheap normalization check; they quantify a meaningful resource-limited sensing decision and provide an exact benchmark for Gaussian design algorithms. Scope and model-dependent noise calibration are explicitly disclosed.",
+    "status": "PASS"
+  }
+}
