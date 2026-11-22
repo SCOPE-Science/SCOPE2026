@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The exact Fourier diagonalization of a 2x2 circulant convolution gives F_w(a)=[lB/(a+l)+w log(a+d)]/2 on a=s^2 in [0,1]. The continuously extended secant ratio tau has derivative sign T and T_prime=(1-a)(a+2d-l)/[(1+l)(a+d)^2]; this proves tau has no interior minima. If tau(0)<tau(1), comparing F_w with F_w(1) yields the sharp jump w0. Comparing F_w with F_w0 and F_w0(0) proves strict unique full blur for every w>w0. Differentiating gives a quadratic sign pattern with exactly one interior maximum in the metastable interval. M(d)=(1+d)log(1+1/d) is strictly decreasing, proving existence/uniqueness of d*. The delivered standalone checker passed 4556 finite supplementary assertions, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The arXiv:2611.04846v1 authors state in the abstract and Section 3.1 that they give a sufficient criterion for the no-blur limit not to be a local minimizer. For the two-pixel family, the exact local loss-of-minimum threshold is w_local; Proposition 5 yields the sufficient bound w>max{w_local, l|b_+|^2(1+d)/(1+l)^2}, reducing to w>w_local when b_+=0. The new global switch occurs strictly earlier, at w_jump<w_local.",
+        "Wipf–Zhang arXiv:1305.2362, Sections 2, 3.5–3.6 and 4, treats a variational-Bayesian penalty coupling image sparsity, kernel norm and noise, rather than the specific independent determinant-prior quadratic variable-projection model.",
+        "Levin–Weiss–Durand–Freeman CVPR 2011 repository abstract covers approximate marginal-likelihood optimization; full PDF requested from MIT DSpace was inaccessible (HTTP 429). The abstract does not decide whether a full-text argument could subsume a scalar special case."
+      ],
+      "reasoning": "Proposition 5 is only a sufficient derivative sign criterion and can be more conservative if the constant Fourier component is nonzero. Even in the b_+=0 instance where its bound matches the exact local threshold, it does not classify the global optimum on the strict gap where the identity remains locally minimizing. The other models use distinct posterior/prior structures. The inaccessible plausible source is recorded as a residual risk, not a full-text NOT_COVERING assertion.",
+      "searches": [
+        "Dworaczyk Español marginalization-based regularization log determinant regularizer 2026 no blur proposition 5 global optimal",
+        "blind deconvolution log determinant penalty bimodal blur width local global minima phase transition no blur",
+        "semi blind deconvolution marginal likelihood two pixel toy model sharp phase transition no blur solution",
+        "marginal blind deconvolution log determinant penalty global minima all-or-nothing transition toy 2-pixel"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.04846v1",
+      "https://arxiv.org/abs/1305.2362",
+      "https://dspace.mit.edu/entities/publication/c8a2c704-3a49-413c-b253-83ab3edcfd4e",
+      "https://doi.org/10.1137/23M1584496",
+      "published-finding corpus records 2026/10/26/SCOPE-sharp-proximal-bifurcation-and-cusp-laws-for-logistic-spectral-s--7fbc9df4762d and 2026/10/25/SCOPE-a-logarithmic-data-regularization-crossover-in-rank-one-entropic--2bfbf4916252"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source sufficient local exclusion (which equals w>w_local when b_+=0 and may be stricter otherwise) does not imply global exclusion at the smaller w_jump. The new formula identifies w_jump explicitly, shows exactly two global minimizers at equality, and classifies every weight above and below.",
+        "Source Proposition 4 only establishes that any spectrally attenuating blur lowers the log-determinant term, not the balance against image-fitting cost nor absence of interior global minima.",
+        "The new endpoint secant-ratio lemma has derivative-sign equation T_prime=(1-a)(a+2d-l)/[(1+l)(a+d)^2], determining the global optimization landscape; this step is absent from the inspected primary source."
+      ],
+      "reasoning": "The source supplies ingredients and a local sufficient condition, but a strict inequality w_jump<w_local exhibits a regime in which its local condition does not hold while the new global conclusion does, so the assessed claim is not a corollary of that condition. The source model itself is credited; only the additional full global classification and metastability theorem is assessed as new.",
+      "searches": [
+        "Dworaczyk–Español arXiv:2611.04846v1 Sections 2–3, Proposition 5, formulas (12), (15), (19), (20)",
+        "Wipf–Zhang arXiv:1305.2362 Sections 2, 3.5, 3.6, 4",
+        "published-finding corpus: Separable nonlinear least squares log determinant blur prior first-order phase transition bistability identity zero Fourier mode global minimum local metastability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dworaczyk–Español arXiv:2611.04846v1 Section 3.1 equations (19) and Proposition 5 formulate the Fourier reduced objective and a sufficient local no-blur exclusion condition, but not a sharp global minimum classification for two-pixel kernels.",
+        "published-finding corpus search returned 2026/10/26/SCOPE-sharp-proximal-bifurcation-and-cusp-laws-for-logistic-spectral-s--7fbc9df4762d (logistic-induced proximal shrinker); this is a different functional, not an equivalent Fourier log-determinant model."
+      ],
+      "reasoning": "The new claim compares all admissible nonnegative two-pixel circulant blurs through a rational-plus-logarithmic secant ratio, proving an endpoint-only global jump and a local/global threshold gap. An equivalence would need the same fixed-image-quadratic/logdet objective or a reduction covering its full range; no inspected source supplies that statement.",
+      "searches": [
+        "Marginalization-Based Regularization for Separable Nonlinear Least Squares Dworaczyk Español 2611.04846 no blur log determinant global minima two-pixel circulant blur sharp weight first-order jump",
+        "Separable nonlinear least squares log determinant blur prior first-order phase transition bistability identity zero Fourier mode global minimum local metastability",
+        "Gaussian marginalization variable projection logarithmic determinant two-mode deblurring endpoint-only global minimizers exact phase transition",
+        "Two pixel blind deconvolution log determinant penalty first order jump full blur versus no blur metastability",
+        "Sharp no-blur-to-complete-blur transition for log-determinant variable projection two-pixel periodic convolution exact global w_jump B/((1+ell) log((1+d)/d)) identity metastable",
+        "Rational logarithmic objective ell B/(s^2+ell) + w log(s^2+d) global minimizer 0 or 1 phase transition and one local barrier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus exact-idea searches returned 2026/10/25/SCOPE-a-logarithmic-data-regularization-crossover-in-rank-one-entropic--2bfbf4916252, on entropic rank-one least-squares and a logarithmic datum scale; its objective and threshold are different.",
+        "published-finding corpus exact-idea searches returned 2026/11/8/SCOPE-hard-fourier-pupils-create-a-one-step-gmres-plateau-and-a-zero-l--f37fdb5a84bd, about hard-pupil GMRES, not an optimally selected Fourier blur."
+      ],
+      "reasoning": "Semantic published-record searches were made on the source, aliases, objective, parameters and endpoint-transition claim. No matching exact formula or tabulation was retrieved; search failure is not a universal novelty certificate.",
+      "searches": [
+        "Marginalization-Based Regularization for Separable Nonlinear Least Squares Dworaczyk Español 2611.04846 no blur log determinant global minima two-pixel circulant blur sharp weight first-order jump",
+        "Separable nonlinear least squares log determinant blur prior first-order phase transition bistability identity zero Fourier mode global minimum local metastability",
+        "Gaussian marginalization variable projection logarithmic determinant two-mode deblurring endpoint-only global minimizers exact phase transition",
+        "Two pixel blind deconvolution log determinant penalty first order jump full blur versus no blur metastability",
+        "general theorem rational-log scalar optimization f(t)=a/(t+b)+c log(t+d) global minimizers at endpoints when (b)(1+d)log((1+d)/d)>1+b",
+        "log determinant semi blind deconvolution complete stationary points global minimum 2x2 circulant first order transition aux regularization",
+        "empirical Bayes Gaussian prior image blur parameter phase transition complete spectral attenuation optimum overblur"
+      ]
+    },
+    "rationale": "Compared the exact global endpoint classification (including coexistence, unique barrier and auxiliary-scale transition) against Dworaczyk–Español Proposition 5 (local sufficient exclusion only), the prior general VB and marginal-likelihood methods, published mathematical-record comparisons and semantic published-finding corpus records. The source model and Fourier reduction are credited. No covering published result was identified in the inspected mathematical material; residual risk is explicit and does not amount to an unresolved decisive implication.",
+    "residual_risks": [
+      "Older exact scalar Gaussian-marginal blur optimizations, especially uncatalogued marginal-likelihood literature, could imply the theorem under another parametrization; the searches do not prove absolute novelty.",
+      "The MIT 2011 primary PDF was inaccessible due to HTTP 429, and the 2024 SIAM paper was inspected only through its abstract; neither is falsely described as fully cleared.",
+      "No claim is made for dimensions larger than two or auxiliary scales beyond the strict first-order regime."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same functional and supplies local sufficient exclusion, but does not supply exact global two-pixel endpoint transition, sharp auxiliary-scale boundary or metastable interval",
+        "evidence": [
+          "arxiv:2611.04846v1, equations (12), (15), (19), (20), Proposition 5",
+          "https://arxiv.org/html/2611.04846v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.04846v1",
+        "material_read": "Abstract, Sections 1, 2.1–2.3 and 3 including 3.1 Propositions 4–5, and the relevant Section 5 objective-landscape discussion; theorem formulas and hypotheses checked",
+        "method": "Full-text HTML section-level inspection, including displayed equations (12), (15), (19), (20) and proofs",
+        "title": "Marginalization-Based Regularization for Separable Nonlinear Least Squares Problems with Applications to Semi-Blind Deblurring",
+        "trigger": "Identical regularized variable-projection functional; potential direct coverage"
+      },
+      {
+        "assessment": "Explains kernel-norm dependent and sparsity-coupled VB penalties; not the fixed independent log-determinant prior and exact two-pixel global threshold",
+        "evidence": [
+          "arxiv:1305.2362, Sections 3.5–3.6 and 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1305.2362",
+        "material_read": "Accessible full-text HTML Introduction, Sections 2, 3.5–3.6, relevant Section 4 passages via direct text inspection",
+        "method": "Inspected relevant primary full-text sections, not merely abstract",
+        "title": "Revisiting Bayesian Blind Deconvolution",
+        "trigger": "Potential broader Bayesian blur prior and local-minimum coverage"
+      },
+      {
+        "assessment": "Undecided full-text overlap; the stated abstract concerns approximate marginal likelihood, not the specific determinant-prior global theorem, but that is not a full-text exclusion",
+        "evidence": [
+          "MIT-CSAIL-TR-2011-020 repository abstract, 2011"
+        ],
+        "identifier_or_url": "https://dspace.mit.edu/entities/publication/c8a2c704-3a49-413c-b253-83ab3edcfd4e",
+        "material_read": "Repository abstract and bibliographic metadata only; complete MIT PDF download returned HTTP 429",
+        "method": "Repository HTML abstract plus attempted linked primary PDF; access-limited",
+        "title": "Efficient Marginal Likelihood Optimization in Blind Deconvolution",
+        "trigger": "Plausible stronger marginal-likelihood optimizer discussion in older literature"
+      },
+      {
+        "assessment": "Abstract describes Monte Carlo maximum marginal likelihood rather than the special two-pixel fixed logdet prior; cannot fully rule out a hidden special-case result",
+        "evidence": [
+          "SIAM Journal on Imaging Sciences 17 (2024), 1206–1254, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1584496",
+        "material_read": "Full publisher abstract and bibliographic metadata; paper itself not read",
+        "method": "Publisher landing page and institutional author bibliographic record",
+        "title": "Marginal Likelihood Estimation in Semiblind Image Deconvolution: A Stochastic Approximation Approach",
+        "trigger": "Modern Bayesian semiblind deconvolution, possible model overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92c700a9-7ed5-465e-a543-cc1b2c1df018",
+  "value": {
+    "rationale": "A determinant prior specifically motivated to avoid no-blur degeneration can instead force abrupt complete annihilation of the only nonconstant Fourier component, with a sharp open interval where local optimization still sees the wrong no-blur minimum. The two-site mass-preserving convolution is the smallest natural identifiable blur choice, and the exact global/local parameter thresholds provide a reproducible tuning and failure-mode benchmark.",
+    "status": "PASS"
+  }
+}
