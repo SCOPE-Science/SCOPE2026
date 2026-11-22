@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph labeling and all \(4096\) subsets are checked against the ordinary disconnected-triple definition. The Alexander dual consists of the icosahedral sphere, thirty uniquely paired tetrahedra, and six antipodal chords. Each tetrahedron is removed by two explicitly justified elementary collapses, leaving the invariant two-sphere with six extra edges. The relative homology sequence identifies the integral orientation line and signed axis lattice; equivariant Alexander duality contributes the ambient-vertex permutation sign, verified to be trivial for every one of the \(120\) graph automorphisms. Independent exact boundary elimination and signed Lefschetz traces verify both original and dual actions in every automorphism class. The conclusion does **not** depend on finite computation standing in for an infinite proof.
+## correctness
 
-## Originality — PASS against inspected sources
-The closest prior result is the publicly indexed computation *The icosahedral three-cut complex is a mixed-dimensional sphere wedge* (`fb104995d472`), whose full scientific statement was read and which expressly does not determine equivariant homology. The new claim instead determines two integral \(A_5\times C_2\)-modules, with a rationally irreducible six-dimensional summand. Bayer et al. (arXiv:2304.13675 and arXiv:2407.08158) calculate equivariant homology for other graph families. The analogous *cube* three-cut result (`7e5f41a11a8d`) is graph- and group-specific; the icosahedral neighborhood result (`5d7e0af98d39`) is about a different simplicial complex and cannot imply this integral lattice. Exact-claim, alias, symmetry, graph-family and Alexander-dual comparisons found no covering theorem. The residual risk is an unindexed or uninspected equivalent representation calculation; absence of hits is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The icosahedron has the full nonabelian rotational symmetry \(A_5\), and the six antipodal axes form a canonical orbit. The ordinary Betti numbers \(1\) and \(6\) do not distinguish a trivial six-dimensional action from an irreducible one. Determining the **integral** signed-permutation lattice and its rational irreducibility supplies a concrete equivariant topological invariant, with a geometric explanation through an invariant subcomplex rather than a disconnected character table. No generalized family theorem is needed for this natural, complete exact classification; no equivariant wedge splitting is claimed.
+Reconstructed the ordinary-cut/Alexander-dual definitions for all 12 vertices. A triple is disconnected iff it spans ≤1 graph edge, so K (no disconnected triples) has simplex counts (12,66,80,30). Every one of the 30 distance-2 pairs has exactly two adjacent common neighbors giving one tetrahedron, with two P3 triangles and a free distance-2 edge; 60 valid elementary simplicial collapses leave L=S(original icosahedral sphere) ∪ 6 antipodal edges. Since L⊂K is G-invariant and an ordinary homotopy equivalence, its integral homology is equivariantly isomorphic despite non-equivariant collapse order. Relative chains C1(L,S)=Z[six oriented axes] and H2(S)=Z_epsilon prove integral H1/H2 of K with no torsion. Combinatorial Alexander duality on 12 vertices gives degrees H7 and H8 of the cut, with permutation-sign twist trivial because all 120 automorphisms are even; the dual module is self-dual as signed permutation lattice. Independent fresh Python enumeration from the source adjacency produced 140 disconnected triples, dual counts (12,66,80,30), 60 valid collapses, exactly 120 automorphisms all even and orientation/axis character distribution {(+,6):1,(+,-2):15,(+,0):20,(+,1):24,(-,-6):1,(-,2):15,(-,0):20,(-,-1):24}. This exact finite-graph validation corroborates, but does not replace, the integral simplicial collapse+LES+duality argument. Normalization, characteristic, and degree boundary cases are explicit.
 
-## Closest literature and limitations
-The nonequivariant homotopy type is prior, not new. The result is limited to the twelve-vertex icosahedral graph and ordinary three-cut homology under its full graph automorphism group. The reviewed evidence is not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS restricted to the NEW INTEGRAL H7/H8 G-lattice classification for the ordinary icosahedral three-cut complex. The Nov 2 same-object result decisively covers both rational A5xC2 characters, so those are NOT original, and October 11 covers nonequivariant integral ranks. Oct 25/Nov 1 independence-complex papers already compute the very same signed six-axis abstract ZG-lattice for a different complex. However neither those nor the rational character assert or imply by themselves that the cut-complex Alexander dual collapses through thirty specific tetrahedra to an invariant original-icosahedron sphere plus six chord edges; this verified cut-specific cellular reduction identifies the previously undetermined integral lattice, which is not determined by rational character data. The novel structural step and cross-functor integral conclusion are modest and substantially foreshadowed; historical-priority risk is significant.
+
+## value
+
+PASS
+
+The icosahedral ordinary 3-cut is a natural previously studied non-shellable pure complex with two integral homology degrees and a canonical full A5×C2 action. Determining its exact integral action, not merely Betti ranks or rational characters, is a motivated complete invariant that distinguishes inequivalent integral forms of the same rational representation and gives a reusable geometric cut-dual collapse. The precise structural identification is short and substantially suggested by older independence-complex work, but it is not an arbitrary computation or a textbook restatement of a prior same-object integral theorem. No larger family theorem or equivariant homotopy splitting is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
