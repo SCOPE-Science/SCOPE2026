@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cyclic-word/marked closed-walk equivalence handles every ring length, including repeated neighborhoods for lengths one and two. Shortest-path minimization therefore yields genuine all-length minimal witnesses and nonexistence statements. Independent seven-bit and three-time-row graph implementations agree entry-by-entry for all 256 rules, with direct orbit verification of the selected witnesses. The Rule 105 all-length orbit count follows from an explicit finite-field polynomial gcd proof; computations merely test it on finite lengths.
+PASS
 
-## Originality — PASS, qualified
+Every n-cycle word corresponds bijectively to a closed walk in the exact 64-vertex 7-bit third-update overlap graph; marked edges select F(x)≠x. For a marked edge, shortest head-to-tail return path proves existence on a ring of length ≤64; exhaustive BFS over all 256 local maps gives minimal n, with a second independently implemented temporal-column graph reproducing the same full distribution and unique 20 witness at Rule105. Independently reconstructed both 64-state graph encodings and obtained {none:106,3:112,5:3,6:18,7:4,9:8,12:4,20:1}. Over GF2, Rule105 L=S⁻¹+1+S, fixed congruence (s+1)^2x=sJ and third-return congruence (s+1)^2Φ5 x=s³J imply fixed count four iff 4|n and third count 64 iff 20|n, proving 60 primitive temporal-three states / 20 labelled 3-orbits for all such n, not just tested n≤240. Short ring n=1,2 use repeated-neighbor cyclic indexing; no spatial-rotation quotient. No inference from finite n tests used for the all-length rule105 claim.
 
-The 1992 Banks–Djirar paper supplies the underlying overlap-graph paradigm, not the stated full 256-rule sharp temporal-three classification in the inspected sections. The full 2013 Schüle–Stoop paper focuses on topological classes, not least finite spatial witnesses. The full 2025 Koller–Hudcová paper supplies general short-trajectory transfer matrices but reports entropy tables for representative parameter choices, not the twenty-cell sharpness or Rule 105's arithmetic formula. The 2015 Epperlein abstract discusses period-point methods and all ECA conjugacy classes; because the full chapter was inaccessible, its exact detailed coverage remains the strongest unresolved originality risk. Published exact Rule 62 temporal-three formulas provide a specific-rule comparison, not an all-rule sharp bound.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a small, optimal universal decision horizon for an entire canonical 256-rule family. The exceptional Rule 105 exhibits a nontrivial interaction between spatial divisibility by four and five, producing the unique twenty-cell first witness and exactly twenty temporal three-orbits whenever the ring length is a multiple of twenty. This is more than an arbitrary computation or routine enumeration: it identifies a sharp, mathematically interpretable boundary to periodic-orbit detection.
+Bounded best-of-knowledge PASS for the evaluated complete 256-rule minimal-ring classification and Rule 105 all-length arithmetic; finite overlap-graph and transfer-matrix methods are prior art, not claimed new. The 2015 Epperlein chapter remains a material historical-priority risk; a public later thesis has related period-point tables, but the inspected passages do not assert this precise sharp first-ring 20 table.
 
-## Limitations
+## value
 
-Historical priority is provisional, particularly against inaccessible detailed tables in Epperlein (2015). No temporal-period-four or higher classification is asserted. The independent finite graph implementations are not an external mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural finite family of all 256 radius-one binary automata receives a complete sharp first-spatial-witness classification, with a genuinely exceptional 20-cell resonance and an all-ring arithmetic orbit count. This is a mathematically meaningful finite cutoff and a reusable exact benchmark for temporal periodicity algorithms, not an arbitrary sample of ring sizes. General transfer algorithms alone do not give the classification numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
