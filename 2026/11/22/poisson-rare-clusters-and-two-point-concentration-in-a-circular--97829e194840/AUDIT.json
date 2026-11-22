@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "The Dirichlet spacing representation gives iid exponential rankings, with cut edges exactly at strict local gap maxima. The known peak-gap mass integrates to p_j=(j-1)(j+2)2^j/(j+3)! and telescopes to the exact tail q_k=k2^k/(k+2)!. The indicator for a length-at-least-k component uses k+2 independent variables. Neighboring starts within k-1 are exclusive; compatible overlap offsets k and k+1 require two disjoint peak-free blocks, each with probability v_k=2^(k-2)/(k-1)!. Thus the standard dependency-neighborhood bound yields the claimed total variation error. With k^4/n tending to zero and n q_k bounded it vanishes. A second-moment bound plus q_(k+1)/q_k=2(k+1)/(k(k+3)) proves two-point concentration. The actual packaged checker passed 368786 exact/controlled finite assertions; these are not an infinite proof. n>=2k+4 and unique nearest neighbors are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eppstein–Paterson–Yao author PDF studies nearest-neighbor components, mostly in planar geometry, with component-size questions; not the circular rare-gap extreme formula.",
+        "Khil 2014 abstract develops hidden Markov structure of consecutive local-maximum gaps; full article inaccessible. Its general dependence framework may plausibly subsume parts of the argument, priority risk retained.",
+        "Penrose–Wade arXiv:math/0603561 describes an online nearest-neighbor model, not uniform-circle simultaneous one-nearest-neighbor components."
+      ],
+      "reasoning": "Comparison is based on model, quantifiers and implications, not keywords. A finite-state hidden-Markov theorem could sometimes imply extreme gap limits with extra work; absent access its exact coverage is uncertain, but neither inspected abstract states the claimed quantitative TV inequality or the two-point large-component law.",
+      "searches": [
+        "Random geometric graph nearest neighbor connected component size distribution 1-dimensional homogeneous Poisson process",
+        "nearest-neighbor circle clusters all size k density p_k factorial longest component asymptotic log n / log log n",
+        "random one-dimensional nearest-neighbour forest component-size frequencies using Eulerian valley permutation probability",
+        "For n iid uniform circle points, undirected one-nearest-neighbor graph largest connected component size is concentrated on two adjacent integers near log n/log log n; count of components of size at least k has Poisson limit when n*k*2^k/(k+2)! approaches lambda. Equivalently extremes of distances between consecutive local maxima of iid sequence.",
+        "https://www-dev.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf",
+        "doi:10.1137/S0040585X97986631"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0611130",
+      "https://doi.org/10.1137/S0040585X97985649",
+      "https://doi.org/10.1137/S0040585X97986631",
+      "https://www-dev.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf",
+      "https://arxiv.org/abs/math/0603561",
+      "https://projecteuclid.org/euclid.aop/1176991491",
+      "2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8",
+      "2026/10/26/SCOPE-exact-fragmentation-length-covariance-in-an-interval-nearest-nei--c9d68f2da8c6",
+      "2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8",
+      "2026/11/8/SCOPE-joint-gaussian-poisson-decoupling-at-the-circular-isolation-thre--8fa3d61abeab",
+      "2026/10/18/SCOPE-sharp-poisson-window-for-universal-exact-greedy-routing-on-the-r--f89b8d8a73ea"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Circular nearest-neighbor published-finding corpus motif-length covariance controls a total edge-length statistic, not a family of component-size exceedances.",
+        "Interval nearest-neighbor published-finding corpus count-length covariance does not determine the maximum component size.",
+        "Fixed-radius circle graph isolation asymptotics and directed routing are different adjacency models; they cannot provide a direct bound for the one-nearest-neighbor component maximum.",
+        "Kuketayev 2006 single-gap probabilities alone do not constrain strong dependence between successive gaps; quantitative Poisson convergence is established here by a separate local dependency bound."
+      ],
+      "reasoning": "The new assertion requires controlling simultaneous rare cluster events, explicitly provided by disjoint peak-free block bounds, then deriving a factorial-tail extremal window and two-point concentration. These extra premises are not consequences of the cited mean, table, Gaussian fixed-size frequency law, or alternate graph models.",
+      "searches": [
+        "For n iid uniform circle points, undirected one-nearest-neighbor graph largest connected component size is concentrated on two adjacent integers near log n/log log n; count of components of size at least k has Poisson limit when n*k*2^k/(k+2)! approaches lambda. Equivalently extremes of distances between consecutive local maxima of iid sequence.",
+        "Exact size distribution of components of the undirected one nearest-neighbor graph on random uniform points on a circle, gaps local maxima, cluster size k probability (k-1)(k+2) 2^k/(k+3)!",
+        "2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8",
+        "2026/10/26/SCOPE-exact-fragmentation-length-covariance-in-an-interval-nearest-nei--c9d68f2da8c6",
+        "2026/11/8/SCOPE-joint-gaussian-poisson-decoupling-at-the-circular-isolation-thre--8fa3d61abeab",
+        "2026/10/18/SCOPE-sharp-poisson-window-for-universal-exact-greedy-routing-on-the-r--f89b8d8a73ea"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuketayev 2006 gives the pairwise peak-gap probability; a large component is the event that the next gap maximum occurs at least k indices later.",
+        "2012 Zubkov–Kharitonova–Khil abstract advertises multidimensional central limit theorems for fixed gap frequencies, not an explicit growing-threshold extreme Poisson regime."
+      ],
+      "reasoning": "Translates the new statement to rare long runs between local maxima in i.i.d. gaps, conditional-independent geometry and longest such run. The 2006 one-gap law gives the first moment, but not joint rare-run independence, its TV bound, or two-point largest-run concentration. Fixed-gap Gaussian frequency limits do not imply these rare growing-window conclusions.",
+      "searches": [
+        "Distribution of distances between consecutive local maxima in an iid continuous sequence, valley-shaped permutation, nearest-neighbor graph component counts",
+        "stationary iid sequence gaps between successive strict local maxima exact distribution 2^k (k-1)(k+2)/(k+3)!",
+        "For n iid uniform circle points, undirected one-nearest-neighbor graph largest connected component size is concentrated on two adjacent integers near log n/log log n; count of components of size at least k has Poisson limit when n*k*2^k/(k+2)! approaches lambda. Equivalently extremes of distances between consecutive local maxima of iid sequence.",
+        "arxiv:math/0611130",
+        "doi:10.1137/S0040585X97985649"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kuketayev has a finite table of the exact one-gap probabilities; that table is prior and expressly excluded from the new claim.",
+        "The named published-finding corpus symmetric random-link result gives component counts for a complete graph with independent edge weights, a different geometric model, and no longest-component threshold."
+      ],
+      "reasoning": "No identified database/table gives the growing-threshold Poisson law or n-dependent two-integer maximum; the finite exact gap values are inputs and not originality evidence.",
+      "searches": [
+        "Exact size distribution of components of the undirected one nearest-neighbor graph on random uniform points on a circle, gaps local maxima, cluster size k probability (k-1)(k+2) 2^k/(k+3)!",
+        "stationary iid sequence gaps between successive strict local maxima exact distribution 2^k (k-1)(k+2)/(k+3)!",
+        "arxiv:math/0611130",
+        "2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8"
+      ]
+    },
+    "rationale": "The previously published single-gap distribution is identified and excluded from the originality claim. The contribution assessed is quantitative Poisson convergence of counts of growing rare components and the two-adjacent-integer largest-component concentration for the circular one-nearest-neighbor graph. Searches of published records and primary sources found no direct or stronger theorem stating these same quantifiers. Full text of two gap-dependence papers was unavailable; this is a genuine remaining priority risk rather than proven novelty.",
+    "residual_risks": [
+      "The 2012 fixed-frequency gap-distribution paper and 2014 hidden-Markov peak-gap paper were accessible only as abstracts, not full text; a more general extreme-gap theorem could cover or imply the claim.",
+      "A generic rare-pattern Chen–Stein result might give a similar limit once its hypotheses are verified; historical priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the fixed gap probability, which is explicitly credited; no quantitative growing-k Poisson or largest-cluster two-point theorem was found in the inspected text",
+        "evidence": [
+          "2006-11-06 original arXiv submission; finite one-gap mass p_j and tables"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611130",
+        "material_read": "Accessible full HTML, especially construction of consecutive peaks, formulae and probability table",
+        "method": "Read substantive full text and compared its indexed one-gap probabilities and conclusions with the rare maximum law",
+        "title": "Probability distribution of distances between local extrema of random number series",
+        "trigger": "Exact local-maximum gap distribution directly underlies the component-size law"
+      },
+      {
+        "assessment": "Not enough full text to exclude generalized coverage; its stated fixed-frequency Gaussian conclusion does not by itself imply the new rare-tail law",
+        "evidence": [
+          "2012 abstract explicitly mentions gap distributions and multidimensional asymptotic normality of gap-frequency counts"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0040585X97985649",
+        "material_read": "Journal abstract and bibliographic description; full text unavailable",
+        "method": "Compared advertised fixed-frequency multidimensional asymptotic normality against new moving-tail Poisson and maximum statements",
+        "title": "Gaps between local maxima in sequences of random variables",
+        "trigger": "Likely general gap frequencies may dominate a special circle model"
+      },
+      {
+        "assessment": "Potential conceptual overlap; exact implication unresolved without full text",
+        "evidence": [
+          "2014 abstract describes a hidden Markov structure of peak-gap sequences"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0040585X97986631",
+        "material_read": "Bibliographic record and abstract only; full text unavailable",
+        "method": "Compared hidden-Markov dependence characterization with explicit geometric growing-threshold and total-variation result",
+        "title": "Markov structure of the sequence of local maxima and the gaps between them",
+        "trigger": "Dependence between consecutive peak spacings could imply a rare-run law"
+      },
+      {
+        "assessment": "Geometric NN model is broader but the studied dimension/components do not state this 1D circular factorial rare-cluster Poisson law",
+        "evidence": [
+          "Component-size questions posed in geometric setting; no matching growing-threshold formula found"
+        ],
+        "identifier_or_url": "https://www-dev.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf",
+        "material_read": "Open author PDF, including introductory model, component discussion and concluding open component-size questions",
+        "method": "Read PDF text and inspected first and last page images",
+        "title": "On nearest-neighbor graphs",
+        "trigger": "Classical nearest-neighbor component sizes and extremes"
+      },
+      {
+        "assessment": "Different random graph process and statistic, not a direct implication",
+        "evidence": [
+          "Online nearest-neighbor construction involves sequential arrival and length limits"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0603561",
+        "material_read": "Accessible arXiv HTML overview and mathematical model",
+        "method": "Compared on-line arrival construction and nearest-neighbor edge lengths with simultaneous circular one-nearest-neighbor connected components",
+        "title": "Limit theory for the random on-line nearest-neighbour graph",
+        "trigger": "Nearest-neighbor terminology and limit theory could be mistaken for exact coverage"
+      },
+      {
+        "assessment": "General method is prior; new work is model-specific rare-block dependency and resulting extremal consequence",
+        "evidence": [
+          "Arratia–Goldstein–Gordon 1989 Poisson approximation inequality"
+        ],
+        "identifier_or_url": "https://projecteuclid.org/euclid.aop/1176991491",
+        "material_read": "Standard theorem statement and bibliographic record",
+        "method": "Applied published local dependency-neighborhood formulation with b1,b2,b3 and conservative factor two",
+        "title": "Two moments suffice for Poisson approximations: the Chen–Stein method",
+        "trigger": "Underlying local-dependency inequality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "97829e19-4840-4769-97a3-6897186b7e68",
+  "value": {
+    "rationale": "Largest connected component size directly quantifies worst-case spurious block size in the undirected one-nearest-neighbor circle forest. The result supplies a natural exact critical intensity, total-variation Poisson calibration for rare oversized components, and a sharp two-integer concentration threshold; unlike a fixed-size frequency identity these solve an extreme-size question and rule out an inappropriate continuously centered Gumbel approximation.",
+    "status": "PASS"
+  }
+}
