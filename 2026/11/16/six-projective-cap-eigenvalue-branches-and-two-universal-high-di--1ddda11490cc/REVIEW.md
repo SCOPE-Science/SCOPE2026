@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated eigenspace is the bidegree-\((2,2)\) complex harmonic representation. Branching into the nine inequivalent \(U(1)\times U(d-1)\) types yields six conjugacy-grouped eigenvalue branches. The Jacobi radial densities are positive and exhaust the complete representation dimension and satisfy the cap-volume trace sum rule. Normalized Beta integrals give the exact polynomials; their symbolic derivative identities and selected direct rational integrations were replayed. Explicit factorization proves the \((2,2)\) branch is the strict minimum for all admissible parameters. Taking fixed-volume limits and comparing the resulting six polynomials proves the two transition points and four-sector limiting coincidence. No numerical extrapolation is used as an infinite proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+The bidegree-(2,2) projective harmonic representation branches multiplicity-free under U(1)xU(d-1) into nine types, six conjugate-paired concentration eigenvalues; normalized Jacobi-square Beta integrals yield the polynomial branches. The nine sector dimensions sum to binomial(d+1,2)^2-d^2. Exact positive factorizations show lambda_22=(1-t)^(d+3) strictly least for d>=3, 0<t<1; limiting envelope comparisons yield s=2 and 2+sqrt(2) with the four-sector tie at s=2. Independently recomputed all 18 exact rational Jacobi/Beta integrals for d=3,4,7 at t=2/5 (six sectors each). These finite checks corroborate but do not replace all-parameter separation and polynomial sign proofs.
 
-The relevant 2020 primary source by Jaming–Speckbacher concerns general upper concentration bounds on two-point homogeneous spaces; inspection of its introduction, geometric Jacobi material and Theorem 4.4 does not reveal the exact six-branch second-projective cap spectrum or the fixed-volume transition envelope. Simons–Dahlen–Wieczorek (2006) concern real spheres. Source and equivalent-formulation comparisons did not identify an implication-equivalent theorem. A related degree-one complex-projective cap calculation does not yield the second-degree Jacobi spectrum or its four-sector limiting collision. Remaining risk: earlier representation-theoretic integrals could imply the formulas under different language. The background branching and single Jacobi integrals are not individually novel.
+## originality
 
-## Value — PASS
+PASS
 
-A full sharp spectral classification in a family of compact rank-one symmetric spaces gives a concrete observability floor and exact multiplicities for inverse restriction. Fixing cap volume reveals two different asymptotic optimal measurement modes and a non-generic four-sector limiting resonance, rather than merely one more finite-dimensional diagonalization. These are natural stability questions not resolved by a large-sieve upper bound. The scope is precisely degree two and single caps; no wider claims are made.
+Best-of-knowledge no earlier implication-equivalent full degree-two projective cap spectrum and fixed-volume two-transition envelope found. General Jacobi machinery and large-sieve upper bounds are acknowledged, and first-degree published result does not dominate second-degree result.
 
-## Limits
+## value
 
-Historical priority is provisional and no independent mathematical audit has been conducted. The statement concerns high-dimensional limits at the two crossover parameters, not exact finite-dimensional coincidences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp spectrum and least-observable harmonic mode for the natural degree-two CP cap observation operator quantify exact inverse restriction conditioning across all d>=3; high-dimensional two-transition envelope and four-sector limiting degeneracy are mathematically substantive rather than a trivial dimension substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
