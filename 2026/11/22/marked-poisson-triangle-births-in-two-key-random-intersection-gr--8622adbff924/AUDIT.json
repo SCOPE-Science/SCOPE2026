@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary n and pool m, triangle classification is exact. At n<=b m^(2/3), noncommon-key 3-cycles, keys with at least four hits, and double witnesses have union bounds O_b(m^-1), O_b(m^-1/3), O_b(m^-2). Pair coupling costs <=n/m. Poisson splitting yields independent Gamma(3,2/m) third key hits, with local intensity 4t^2 dt du. Poisson clock de-Poissonization has vanishing m^(2/3)-scaled time error. Quantitative fixed-time TV: a=2n iid draws to K~Pois(a) alters the triple-hit count with probability at most m^-2 E|K-a| binom(max(K,a),2)=O_b(m^-1/3); independent Poisson key occupancies give binomial(m,q), Le Cam mq^2=O_b(m^-1), and |mq-4t^3/3|=O_b(m^-1/3). All claims proven analytically; exact finite checker validates structural identities, not the infinite convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yağan–Makowski, arXiv:0910.0499v1, Theorems 3.1–3.2: vanishing/diverging triangle-probability regimes for general key-ring sizes; not the nontrivial critical distribution, marked first-key law or uniform time-marginal TV approximation.",
+        "Rybarczyk–Stark arXiv:1609.01699v1: Poisson clique/subgraph counts in G(n,m,p) with independent Bernoulli key inclusion, not fixed K=2 distinct keys."
+      ],
+      "reasoning": "A threshold zero-one result is strictly weaker than a fixed-critical-window full arrival process. The alternative binomial key model has different within-vertex dependencies; its full-model theorem does not by direct specialization furnish this exact uniform K=2 marked process or error.",
+      "searches": [
+        "Research-record text search: In uniform random key intersection graph with exactly two keys per vertex and key pool m, triangle birth time m to power 2/3 has Weibull exponent 3 Poisson process intensity 4 t squared marked by winning key, sharp O(m^-1/3) TV",
+        "Research-record text search: Yağan Makowski zero-one law triangles random key graph at critical threshold refined Poisson marked birth and total variation rate",
+        "Research-record text search: uniform 2-subset random intersection graph triangle counts Poisson at n comparable to m^(2/3), first triangle key locations",
+        "Research-record text search: first triangle arrival time Weibull random uniform two-key intersection graph m^(2/3) Poisson marked triple occupancy",
+        "Web: Makowski Yağan 2009 triangles zero-one random key graph arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0910.0499v1 (2009) Theorems 3.1–3.2 and triangle moment",
+      "arXiv:1310.7055v1 (2013) birthday collisions",
+      "arXiv:1609.01699v1 (2016) independent Bernoulli-key subgraph Poisson count",
+      "arXiv:1303.3388v1 (2013) sparse intersection graph clustering",
+      "DOI:10.1007/s40304-021-00270-7 (later triangle approximations; abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0910.0499v1 proves only zero-one triangle existence at n^3(K^3/P^2+(K^2/P)^3) tending to zero or infinity; its moment identity alone leaves the critical law undetermined.",
+        "arXiv:1310.7055v1 gives birthday coincidences and collision count limits; it contains no statement relating graph triangles to third hits of two distinct keys per vertex.",
+        "arXiv:1609.01699v1 Theorem 1 and discussion of clique covers concern independent Bernoulli object assignments with parameter p, which cannot set exactly K=2 each vertex.",
+        "Dong–Hu, DOI 10.1007/s40304-021-00270-7, abstract: count Poisson approximation for G(n,m,p), without accessible evidence of fixed K=2 key-marked process."
+      ],
+      "reasoning": "The stated theorem is not an immediate corollary of any identified dominating statement: it needs new probability control of two-key pair conditioning and of noncommon-key triangles; combining that control with the independently-known triple-collision law also yields a full marked birth process and an O_b(m^-1/3) quantitative error. Historical-priority risk remains.",
+      "searches": [
+        "Research-record text search: In uniform random key intersection graph with exactly two keys per vertex and key pool m, triangle birth time m to power 2/3 has Weibull exponent 3 Poisson process intensity 4 t squared marked by winning key, sharp O(m^-1/3) TV",
+        "Research-record text search: Yağan Makowski zero-one law triangles random key graph at critical threshold refined Poisson marked birth and total variation rate",
+        "Research-record text search: uniform 2-subset random intersection graph triangle counts Poisson at n comparable to m^(2/3), first triangle key locations",
+        "Research-record text search: first triangle arrival time Weibull random uniform two-key intersection graph m^(2/3) Poisson marked triple occupancy",
+        "Research-record text search: random intersection graph triangle birth process marked key Poisson point process",
+        "Research-record text search: birthday triple collision Poisson process groups of two keys triangle free",
+        "Full text: https://arxiv.org/pdf/0910.0499 (Theorems 3.1, 3.2; sections 5-7)",
+        "Full text: https://arxiv.org/pdf/1310.7055 (birthday collision process)",
+        "Full text: https://arxiv.org/pdf/1609.01699 (Introduction and Theorem 1; binomial object incidences)",
+        "Web: \"uniform random intersection\" \"Poisson\" \"triangles\" K fixed",
+        "Web: \"random key graphs\" \"Poisson\" \"triangles\" number",
+        "Web: \"G(n,m,2)\" \"triangles\" Poisson",
+        "Web: Rybarczyk Stark Poisson Approximation of Number of Cliques 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A graph triangle in the exact K=2 key model is either the third use of a shared key or a 3-cycle of distinct key pairs; the latter has expected count O_b(m^-1) at n=O_b(m^(2/3)).",
+        "Arratia–Garibaldi–Kilian, arXiv:1310.7055, treats birthday collisions and occupancy processes but not the graph-triangle marked birth process under distinct-within-pair sampling."
+      ],
+      "reasoning": "Rewriting the graph process in terms of key occupancies requires the explicit negligible-cycle and unique-witness estimates. The occupancy limit supplies a component, but the graph result and uniform quantitative error are not identical to a prior birthday-process assertion.",
+      "searches": [
+        "Research-record text search: In uniform random key intersection graph with exactly two keys per vertex and key pool m, triangle birth time m to power 2/3 has Weibull exponent 3 Poisson process intensity 4 t squared marked by winning key, sharp O(m^-1/3) TV",
+        "Research-record text search: Yağan Makowski zero-one law triangles random key graph at critical threshold refined Poisson marked birth and total variation rate",
+        "Research-record text search: uniform 2-subset random intersection graph triangle counts Poisson at n comparable to m^(2/3), first triangle key locations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published record on third-order isolation cumulants of uniform random key graphs concerns isolation events and an n/m scaling; its formulas do not include triangle birth times.",
+        "A published record on an optimal Rayleigh first-triangle time concerns a fully adaptive semi-random graph, rather than uniform two-key samples.",
+        "No exact matching marked triangle-birth process or numerical table was identified among the records actually compared."
+      ],
+      "reasoning": "The inspected scientific statements differ in object or regime, so they do not directly imply the present claim. Database retrieval does not establish exhaustive novelty.",
+      "searches": [
+        "Research-record text search: Yağan Makowski zero-one law triangles random key graph at critical threshold refined Poisson marked birth and total variation rate",
+        "Research-record text search: uniform 2-subset random intersection graph triangle counts Poisson at n comparable to m^(2/3), first triangle key locations",
+        "Research-record text search: first triangle arrival time Weibull random uniform two-key intersection graph m^(2/3) Poisson marked triple occupancy",
+        "Research-record text search: random intersection graph triangle birth process marked key Poisson point process",
+        "Research-record text search: birthday triple collision Poisson process groups of two keys triangle free",
+        "Full text: https://arxiv.org/pdf/0910.0499 (Theorems 3.1, 3.2; sections 5-7)",
+        "Full text: https://arxiv.org/pdf/1310.7055 (birthday collision process)",
+        "Full text: https://arxiv.org/pdf/1609.01699 (Introduction and Theorem 1; binomial object incidences)",
+        "Web: \"uniform random intersection\" \"Poisson\" \"triangles\" K fixed",
+        "Web: \"random key graphs\" \"Poisson\" \"triangles\" number",
+        "Web: \"G(n,m,2)\" \"triangles\" Poisson",
+        "Web: triangle appearance uniform random intersection K=2 m^(2/3)"
+      ]
+    },
+    "rationale": "The 2009 Yağan–Makowski exact-model paper settles only the zero-one existence threshold. Arratia–Garibaldi–Kilian give collision limits for ordinary occupancy, not two-key graph triangles; Rybarczyk–Stark establish a Poisson count result for an independent Bernoulli key model. The marked full graph-triangle birth process, unique witness principle at the critical scale and quantified O_b(m^-1/3) fixed-time approximation require nontrivial transfer and are not identified as covered by those statements or published database hits. Theoretical novelty is qualified by remaining historical-priority risk, especially later inaccessible graph-subgraph literature.",
+    "residual_risks": [
+      "Other Poisson limit theorems on triangles in uniform fixed-key models may pre-exist outside the inspected papers and database results.",
+      "The 2021–2023 Dong–Hu triangular subgraph count paper was not read in full; its abstract concerns the binomial-key model and thus does not establish whole-document absence.",
+      "Classical multivariate birthday occupancy literature may have an implicit marked-third-occurrence result; novelty is claimed only for the graph-process transfer and quantitative statement, not bare occupancy limits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the known zero-one threshold and common-key mechanism; does not give the critical-window Poisson birth process or marked key law",
+        "evidence": [
+          "arXiv:0910.0499v1 first public 2009-10-02, Theorems 3.1 and 3.2; Section 5 triangle mean",
+          "Zero/one limits require n^3 tau→0 or infinity, excluding finite positive critical parameter"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0910.0499",
+        "material_read": "Pages 1–6 and sections describing main Theorems 3.1–3.2, first triangle moment and proofs of zero-one laws; source metadata and main results",
+        "method": "Direct preprint full text and PDF page inspection",
+        "title": "A zero-one law for the existence of triangles in random key graphs",
+        "trigger": "Exact model and graph-triangle threshold"
+      },
+      {
+        "assessment": "Classical repeated-collision asymptotics inform the key-hit Poisson limit, but do not contain the fixed-size random-key graph structural reduction or quantitative triangle-process approximation",
+        "evidence": [
+          "arXiv:1310.7055v1 first public 2013-10-26; collision problem has repeated balls and buckets, no intersecting two-key vertex graph"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.7055",
+        "material_read": "Title/abstract, introduction, collision definitions and main asymptotic discussion; mathematical comparison of collision observables",
+        "method": "Direct open-access PDF full text and first page inspection",
+        "title": "Asymptotic Distribution for the Birthday Problem with Multiple Coincidences, via an Embedding of the Collision Process",
+        "trigger": "Third-occupancy Poissonian birth mechanism and possible coverage of marked arrival point process"
+      },
+      {
+        "assessment": "Bernoulli object attachments G(n,m,p) allow random number of objects at a vertex, unlike uniform exactly two keys; no marked arrival process",
+        "evidence": [
+          "arXiv:1609.01699v1, paper lines 13-19 define independent key incidences",
+          "Theorem 1 at paper lines 153-194 gives clique count approximations in its different model"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.01699",
+        "material_read": "Abstract, Section 1 including model definitions and stated Theorem 1; discussion of clique covers and comparison to earlier clique Poisson results",
+        "method": "Direct preprint full text and PDF first page inspection",
+        "title": "Poisson approximation of counts of subgraphs in random intersection graphs",
+        "trigger": "Possible stronger existing Poisson triangle count and quantitative error"
+      },
+      {
+        "assessment": "Cluster/degree observables rather than sequential first-triangle marked law",
+        "evidence": [
+          "arXiv:1303.3388v1 first public 2013-03-14; different degree/clustering limit problem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.3388",
+        "material_read": "Title page, abstract and introduction on uniform random intersection graphs, degrees and clustering",
+        "method": "Direct open-access full-text preview and PDF front page inspection",
+        "title": "Degree and Clustering Coefficient in Sparse Random Intersection Graphs",
+        "trigger": "Uniform fixed-key model and clustering quantities"
+      },
+      {
+        "assessment": "The described model is G(n,m,p), with independent Bernoulli attachments; claim-level abstract comparison cannot rule out all related content",
+        "evidence": [
+          "Dong–Hu abstract gives triangle count Poisson and normal error bounds for binomial key model",
+          "This inspection is abstract only, thus no whole-document NOT_COVERING claim"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40304-021-00270-7",
+        "material_read": "Publisher abstract and bibliographic summary only; full proof not inspected",
+        "method": "Accessible publisher abstract, not whole-document reading",
+        "title": "The Number of Triangles in Random Intersection Graphs",
+        "trigger": "Potential triangle-count Poisson approximation dominating one marginal claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8622adbf-f924-4a9e-918c-476108b785ee",
+  "value": {
+    "rationale": "A zero-one threshold alone does not give the probability of triangle-free status at the natural critical scale, the entire arrival timeline or the common-key label of the first triangle. This natural graph/network clustering observable has a structurally explicit Poisson point process and a uniform quantified finite-time approximation. The result is not a renaming of occupancy: it proves the negligible competing three-key cycles and within-vertex key dependence, and turns birthday statistics into graph triangles with a usable error.",
+    "status": "PASS"
+  }
+}
