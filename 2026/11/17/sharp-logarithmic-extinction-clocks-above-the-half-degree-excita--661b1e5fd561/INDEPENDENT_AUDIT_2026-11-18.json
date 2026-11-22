@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:19:36.984534Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md contraction and layered construction plus verification/verify_geometric_decay.py, Git tree ac13ec7ff08f02f95c8c6016caf1dd30afd54b6c"
+      ],
+      "rationale": "For t>=1 the refractory rule makes E_{t-1} disjoint from E_{t+1}. Every excited vertex at t has at least theta neighbors in E_{t-1} and so at most Delta-theta neighbors in E_{t+1}; counting edges E_t--E_{t+1} gives theta e_{t+1}<=(Delta-theta)e_t. Initially e1<=floor(Delta*n/(Delta+theta)), so the integer excitation count vanishes once the real geometric envelope is <1, with one final refractory-clearance step. For theta=Delta, e2=0 and total rest by time three. Layered bipartite predecessor-successor graphs with sizes |L_h|=1, |L_{h-1}|=theta, |L_j|=ceil(theta |L_{j+1}|/(Delta-theta)) and modular adjacency realize one travelling excited front per step and have maximum degree Delta; total vertices grow as (theta/(Delta-theta))^h, giving sharp logarithmic worst-time coefficient. Independently verified all modular predecessor degree bounds for four parameter pairs, including (3,2),(5,3),(7,4),(8,5).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The density theorem gives an O(n) event budget but no sharp Theta(log n) worst-case bound; other sources have differing threshold or domain assumptions."
+        ],
+        "reasoning": "Resultary 2026-10-25 densest-subgraph excitation budget, Doba finite graph threshold one, Durrett Griffeath 1993 spatial lattice: The density theorem gives an O(n) event budget but no sharp Theta(log n) worst-case bound; other sources have differing threshold or domain assumptions.",
+        "searches": [
+          "Resultary query: Greenberg Hastings threshold greater half degree geometric extinction",
+          "Resultary 2026-10-25 densest-subgraph full RESULT.md",
+          "Doba 2018 primary PDF",
+          "arXiv:patt-sol/9303002"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md contraction and layered construction plus verification/verify_geometric_decay.py, Git tree ac13ec7ff08f02f95c8c6016caf1dd30afd54b6c",
+        "Resultary 2026-10-25 densest-subgraph threshold full RESULT.md",
+        "Doba 2018 Complex Systems primary PDF Sections 1–3",
+        "Durrett–Griffeath 1993 abstract and Duke bibliographic record",
+        "Resultary semantic query Greenberg Hastings excitation threshold greater half max degree sharp logarithmic extinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general qualitative extinction criterion does not imply the exact ratio (Delta-theta)/theta and layered graphs that saturate the logarithmic leading term."
+        ],
+        "reasoning": "Resultary densest-subgraph 2026-10-25 full RESULT; Doba 2018 full rule; Bello Sivakoff 2021 regular trees: A general qualitative extinction criterion does not imply the exact ratio (Delta-theta)/theta and layered graphs that saturate the logarithmic leading term.",
+        "searches": [
+          "Resultary query: Greenberg Hastings threshold greater half degree geometric extinction",
+          "Resultary 2026-10-25 densest-subgraph full RESULT.md",
+          "Doba 2018 primary PDF",
+          "arXiv:patt-sol/9303002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original density event-budget obstruction is an aggregate bound and not equivalent to the stated one-step contraction on e_t."
+        ],
+        "reasoning": "Greenberg–Hastings model, threshold theta, refractory 3-state automata, geometric excitation decay: The original density event-budget obstruction is an aggregate bound and not equivalent to the stated one-step contraction on e_t.",
+        "searches": [
+          "Resultary query: Greenberg Hastings threshold greater half degree geometric extinction",
+          "Resultary 2026-10-25 densest-subgraph full RESULT.md",
+          "Doba 2018 primary PDF",
+          "arXiv:patt-sol/9303002"
+        ]
+      },
+      "evidence": [
+        "The original density event-budget obstruction is an aggregate bound and not equivalent to the stated one-step contraction on e_t.",
+        "The density theorem gives an O(n) event budget but no sharp Theta(log n) worst-case bound; other sources have differing threshold or domain assumptions.",
+        "Resultary returned the assigned theorem and specialized path/wheel/tripartite extinction censuses; no universal sharp coefficient for all graphs and thresholds in the source hits.",
+        "A general qualitative extinction criterion does not imply the exact ratio (Delta-theta)/theta and layered graphs that saturate the logarithmic leading term."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned theorem and specialized path/wheel/tripartite extinction censuses; no universal sharp coefficient for all graphs and thresholds in the source hits."
+        ],
+        "reasoning": "Resultary threshold excitation extinction clocks graph maximum degree half threshold: Resultary returned the assigned theorem and specialized path/wheel/tripartite extinction censuses; no universal sharp coefficient for all graphs and thresholds in the source hits.",
+        "searches": [
+          "Resultary query: Greenberg Hastings threshold greater half degree geometric extinction"
+        ]
+      },
+      "rationale": "Prior maximum-induced-edge-density theorem with rho(G)<=Delta/2<theta already implies qualitative extinction and a linear event budget, not the exact per-step geometric factor or sharp log(n) clock with layered extremizers. Doba 2018 applies only threshold-one excitation on connected graphs; its phase-winding classification does not cover theta>Delta/2. Distinct dynamical statement and best-of-knowledge original.",
+      "residual_risks": [
+        "Full 1993 Durrett–Griffeath paper inaccessible; priority claim qualified.",
+        "Sharp logarithmic clock is worst case over graphs of degree at most Delta, not uniform equality on every graph; finite layered checks do not replace the algebraic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: proves extinction whenever rho(G)<theta, but bound N<=theta*m/(theta-rho) is a cumulative event budget, not logarithmic time with sharp coefficient",
+          "evidence": [
+            "Event-level matching estimate and density threshold read."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91/RESULT.md",
+          "material_read": "Entire RESULT.md including event matching and layer-cake proof, sharp equality example, limitations",
+          "method": "Full published result GitHub source read",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "most relevant stronger qualitative all-graph theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: the paper uses excitation whenever at least one neighbor excited; threshold=1 differs fundamentally from theta>Delta/2",
+          "evidence": [
+            "Page 2 deterministic rule if at least one excited neighbour, and phase-difference framework."
+          ],
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Full PDF available; introduction and Section 2 definition, Section 3 convergence, theorem descriptions and page 2 screenshot read",
+          "method": "Primary PDF text and screenshot",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "same model on finite graphs"
+        },
+        {
+          "assessment": "MATERIAL_INCOMPLETE: 1993 study concentrates lattice spiral-core threshold-range scaling, but no full text comparison",
+          "evidence": [
+            "Full source not read; cannot claim whole-document noncoverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "ArXiv abstract and institutional bibliographic summary only; full PDF inaccessible",
+          "method": "ArXiv abstract; OA search",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "original Greenberg–Hastings phase transition literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "RESULT.md contraction and layered construction plus verification/verify_geometric_decay.py, Git tree ac13ec7ff08f02f95c8c6016caf1dd30afd54b6c",
+        "Prior maximum-induced-edge-density theorem with rho(G)<=Delta/2<theta already implies qualitative extinction and a linear event budget, not the exact per-step geometric factor or sharp log(n) clock with layered extremizers. Doba 2018 applies only threshold-one excitation on connected graphs; its phase-winding classification does not cover theta>Delta/2. Distinct dynamical statement and best-of-knowledge original."
+      ],
+      "rationale": "The half-maximum-degree regime is a natural critical parameter split for excitable systems. A sharp logarithmic time complexity rather than mere eventual extinction, plus matching constructed extremizers, is a meaningful quantitative refinement relevant to deterministic network relaxation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md contraction and layered construction plus verification/verify_geometric_decay.py, Git tree ac13ec7ff08f02f95c8c6016caf1dd30afd54b6c",
+    "Resultary 2026-10-25 densest-subgraph threshold full RESULT.md",
+    "Doba 2018 Complex Systems primary PDF Sections 1–3",
+    "Durrett–Griffeath 1993 abstract and Duke bibliographic record",
+    "Resultary semantic query Greenberg Hastings excitation threshold greater half max degree sharp logarithmic extinction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge literature comparison; inaccessible plausible sources explicitly listed",
+    "Finite checks are corroborative and do not prove infinite quantified theorems",
+    "No GitHub write, dispatcher closeout, publication or outside certification"
+  ],
+  "residual_risks": [
+    "Full 1993 Durrett–Griffeath paper inaccessible; priority claim qualified.",
+    "Sharp logarithmic clock is worst case over graphs of degree at most Delta, not uniform equality on every graph; finite layered checks do not replace the algebraic proof."
+  ],
+  "schema_version": 1
+}
