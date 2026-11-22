@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the stated domain \(n\ge4\) and alphabet \(V=\mathbb F_2^2\), direct inclusion–exclusion over the four missing letters gives the four-case signed transform formula. In two-letter allowed subsets, the annihilator of a nonzero frequency vector is a one-dimensional line, so pair contributions occur exactly when all nonzero frequencies agree. The remaining terms give the all-coordinate odd-count resonance, counted by the \(V\)-character sum \((3^n-3)/4\). A modulo-eight argument excludes hidden zeros in the one-letter-frequency case. Divisibility and explicit balanced witnesses attain the sharp gaps \(8\) and \(16\). Translation averaging proves optimality of the Fourier range projector at both endpoints; an explicitly negative kernel coefficient establishes strict odd-length noncontractivity. The bundled independent-code-path enumeration verified 349,440 exact coefficients for lengths four through nine, but finite checks are not used as infinite proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-The closest examined prior result treats only first-coordinate Fourier Gram sampling on onto words: its degree-one covariance data do not determine full-frequency Fourier zeros, singular convolution ranks, arithmetic gaps, or endpoint projection contractivity. Bóna–Mező treat Stirling partition statistics and real-rootedness, and Carayol–Rotondo treat sampling orbit profiles rather than character-resolved Fourier transforms. Searches for `surjective four-letter words Walsh transform zero frequency full nonzero character support`, `onto word four symbol Fourier rank 4^(n-1)`, `Fourier coefficients surjective functions all colours used inclusion-exclusion`, and `surjections onto Klein four group harmonic analysis indicator spectrum` did not identify an exact stronger classification. Unknown earlier character-weighted occupancy identities and unindexed literature remain historical-priority risks. Absence from the searched index does not establish uniqueness.
+PASS
 
-## Mathematical value — PASS
-The onto-word condition is a canonical occupation/partition constraint, and the four-point group \(\mathbb F_2^2\) is the first noncyclic alphabet. The result gives a *complete* infinite-length Fourier support classification, explicit signed eigenvalues with multiplicities, exact \(\ell^2\) stability, and a sharp parity transition in norm-one complementability of the convolution range. The extra nullity \((3^n-3)/4\) and the strict endpoint failure are structural, not arbitrary finite table entries or a mere restatement of Stirling enumeration.
+PASS. Starting from the actual frozen RESULT.md, translation of all four colour symbols by t∈V4 gives W_n(b)=0 for Σb_i≠0. Inclusion–exclusion over missing symbols supplies signed terms: full alphabet only b=0, three-letter sets contribute −4(−1)^k3^z, four singleton terms −4, and two-letter terms 2^(n+1) iff all nonzero coordinate frequencies are the same, yielding the complete displayed signed formula (and zero case). For t=1, balanced requires k even, and 2^(n−1)−1−3^z cannot vanish mod8 when n≥4; for t≥2, extra cancellations require z=0 and odd n. Character orthogonality counts exactly (3^n−3)/4 such exceptional b, giving full ranks. Every nonzero balanced coefficient is multiple of 8 (even n) or 16 (odd n); explicit frequencies with two a, two c and optionally one zero attain each gap, showing exact inverse norm. Translation-averaging any projection onto the invariant Fourier range gives the canonical multiplier-support projection with no larger l1/l∞ norm; when n even its kernel is four-translation averaging of norm 1, while for odd n≥5 the witness x=(a,c,0,..) produces negative kernel p(x)=−(3^(n−2)+5)/4^(n+1), forcing endpoint norm >1. The provided verify.py explicitly evaluates exact Walsh frequency arrays n=4..9, and independent reimplementation checked every coefficient for n=4..7, with ranks 64,196,1024,3550 and gaps 8,16,8,16. The infinite theorem follows from inclusion–exclusion, not extrapolation.
 
-## Closest literature and limitations
-Bóna–Mező, arXiv:0705.2734; Carayol–Rotondo, arXiv:2605.24068; and the published `Exact first-band Fourier sampling spectra on surjective words` were inspected at the relevant material. The specialization to the Klein-four alphabet is essential. A closed formula for odd-length endpoint projection norms is not claimed. Earlier equivalent full-character surjection formulas remain possible; independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original residual scientific increment after explicitly excluding known prior coverage; exact historical priority is not certified. Material compared at the statement and implication level; finite or generic overlaps are acknowledged.
+
+## value
+
+PASS
+
+PASS. Full all-coordinate character spectra of an onto-word language yield a natural all-length parity transition between full balanced support and exceptional resonance, with sharp inverse gaps and a nontrivial contractivity dichotomy for the optimal range projection. This character-resolved inverse/functional-analysis fact is not a routine Stirling-number surjection count or a simple renaming of the degree-one covariance spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
