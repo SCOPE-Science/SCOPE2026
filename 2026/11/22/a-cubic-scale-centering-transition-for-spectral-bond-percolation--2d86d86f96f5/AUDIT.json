@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The Perron spectral-radius formula is exact. Write C=1+A+B, where A is binomial and B counts indirect peripheral vertices. The directed two-step path count Z has exact mean ns(s-1)p^2(1-p), with E|B-Z| bounded by open paths of length at least three and duplicate two-step paths. Sharing-edge covariance analysis gives Var Z=O(s+\\(s^{3/2}\\)/\\(\\sqrt n\\)) at p=c/rho. Hence B/s converges in probability to \\(c^{2}\\) for \\(s\\to\\infty\\) and \\(s=o(n)\\); E B=O(s) also covers bounded s. The CLT for A and Slutsky prove the finite cubic-scale Gaussian shift and its above-scale divergence. The standalone exhaustive exact-rational checker passed 203236 assertions; asymptotic proof is independent of finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allard et al., arXiv:1509.01207, Section II, gives general finite-size percolation recursions for clustered motifs.",
+        "Christoph et al., arXiv:2608.19145, Theorems 1.3–1.4, establish order-level spectral bounds.",
+        "The published mixed-Gaussian bipartite outbreak result has finitely many hubs with independent rare shared neighbors."
+      ],
+      "reasoning": "Generic finite-component recursions can in principle be specialized and asymptotically analyzed, but neither inspected source states or directly entails the sharp cubic window without additional analysis. Broad bounds O(sqrt(|G|)) cannot resolve a centered O((ns)^(1/4)) correction. The fixed-hub bipartite regime lacks intra-clique two-step paths.",
+      "searches": [
+        "Web: bond percolation windmill friendship clique bouquet hub cluster size limit distribution critical Poisson Gaussian",
+        "Web: percolation windmill graph n cliques varying size cluster hub phase shift limit theorem",
+        "published-finding corpus semantic: percolated windmill graph rooted cluster second generation mean c squared s Poisson central limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.19145 (arXiv accessible HTML, Theorems 1.3-1.4 and Section 3)",
+      "arxiv:1509.01207 (arXiv accessible HTML, introduction and finite-cluster Section II)",
+      "published-finding corpus public finite-hub Poisson multigraph result, full RESULT.md",
+      "published-finding corpus public fixed-hub mixed-Gaussian outbreak result, full RESULT.md",
+      "published-finding corpus semantic searches for clique windmill spectral hub-cluster Gaussian crossover"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus: 2026/11/8/SCOPE-poisson-multigraph-coalescence-and-cycle-surplus-at-the-finite-h--df9adda72dcf, full RESULT.md inspected: m fixed bipartite hubs, Poisson multigraph, macroscopic component mass.",
+        "published-finding corpus: 2026/11/8/SCOPE-poisson-hub-connectivity-and-mixed-gaussian-outbreak-fluctuation--1b8b0b0e5eb8, full RESULT.md inspected: m fixed, second-scale mixed Gaussian.",
+        "Christoph–Morawski–Wigderson, arXiv:2608.19145, Section 3: fixed-root exploration yields large/small component bounds, not the claimed centered limit."
+      ],
+      "reasoning": "The prior finite-hub models have random mergers among distinct hub vertices and no growing dense peripheral modules, so their Poisson graph skeleton and Gaussian noise limits do not determine the windmill two-step correction. General spectral criteria and classical binomial CLT provide ingredients only; the growing-clique concentration estimates and sharp scaling comparison are additional work.",
+      "searches": [
+        "published-finding corpus semantic: percolation clique bouquet n communities s size Gaussian fluctuation indirect connections spectral scale",
+        "published-finding corpus semantic: percolation windmill friendship graphs hub component Poisson correction triangles",
+        "Web: bond percolation windmill friendship clique bouquet hub cluster size limit distribution critical Poisson Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.19145 studies spectral threshold inequalities, not centered single-hub component fluctuations.",
+        "The inspected full text of the fixed-hub Poisson multigraph result treats K_{m,n} with fixed m, not growing internal cliques."
+      ],
+      "reasoning": "Equivalent descriptions could call the same limit a second-generation or two-hop correction to a star outbreak. The present domain has one permanent hub, n complete blocks of growing size s, and a deterministic \\(n^{1/3}\\) threshold for the Gaussian centering. No inspected work gives this statement under a reparametrization.",
+      "searches": [
+        "published-finding corpus semantic: bond percolation windmill graph growing cliques hub component asymptotic Gaussian shifted n one-third crossover",
+        "published-finding corpus semantic: percolation clique bouquet n communities s size Gaussian fluctuation indirect connections spectral scale",
+        "Web: percolation windmill graph n cliques varying size cluster hub phase shift limit theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published-finding corpus items concern fixed-hub K_{m,n} Poisson connectivity, percolated recursive trees, and windmill polytopes, not the hub-component law on growing complete blocks.",
+        "No exact limit formula or numerical table for the centered windmill hub-component crossover appeared in inspected searches."
+      ],
+      "reasoning": "The claim is an infinite-sequence probability limit, not a finite graph census. Exact finite graph percolation tables do not themselves supply the \\(n^{1/3}\\) limit; no identical tabulation was located. Search absence is not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus semantic: triangular windmill clique clusters percolation center n^{1/3} scaling",
+        "published-finding corpus semantic: bond percolation windmill graph growing cliques hub component asymptotic Gaussian shifted n one-third crossover",
+        "Web: rooted clique bouquets percolation two step effects \\(n^{1/3}\\) Gaussian mean correction"
+      ]
+    },
+    "rationale": "The cited general spectral percolation bounds, general finite clustered-graph exact recursions, and inspected fixed-hub bipartite Poisson/Gaussian limits do not state or directly imply the explicit \\(n^{1/3}\\) Gaussian centering transition of a single hub with growing complete peripheral blocks. This is a best-knowledge literature comparison, not independent historical-priority certification.",
+    "residual_risks": [
+      "A previously overlooked generic marked Poisson/branching expansion specialized to growing clique windmills could imply the \\(n^{1/3}\\) transition.",
+      "General finite clustered-percolation recursions can encode the model; exhaustive absence of specialized asymptotics cannot be established from searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes spectral-scale general component-order results; does not state a growing-clique windmill rooted-cluster mean shift or centered CLT",
+        "evidence": "Theorem 1.3 compares subcritical and supercritical component sizes; Section 3 gives exploration concentration; the sharp \\(n^{1/3}\\) windmill setting does not appear.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.19145",
+        "material_read": "Full accessible HTML sections: Introduction, Theorems 1.3–1.4, component exploration in Section 3, concluding remarks; first public posting metadata",
+        "method": "arXiv accessible HTML, theorem and section-level textual examination",
+        "title": "The critical probability for percolation on finite graphs",
+        "trigger": "Direct motivating spectral-scale finite-graph percolation source"
+      },
+      {
+        "assessment": "A broad exact finite recursion framework may generate finite windmill distributions, but gives no inspected centered growing-clique critical-scale limit",
+        "evidence": "Section II treats arbitrary finite motifs and component probabilities, whereas this result proves an explicit \\(n^{1/3}\\) asymptotic centering window.",
+        "identifier_or_url": "https://arxiv.org/abs/1509.01207",
+        "material_read": "Full accessible HTML introduction and Section II description of iterative finite-size arbitrary-graph component distributions, with discussion of motifs and cliques",
+        "method": "arXiv accessible HTML read",
+        "title": "General and exact approach to percolation on random graphs",
+        "trigger": "Potentially dominating general clustered-graph finite-component formulas"
+      },
+      {
+        "assessment": "Does not cover a shared-hub windmill with increasing peripheral clique size or its deterministic Gaussian drift",
+        "evidence": "Hypotheses require fixed m hubs in K_{m,n}; the conclusion is Poisson hub multigraph coalescence and \\(\\sqrt n\\) component masses.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-poisson-multigraph-coalescence-and-cycle-surplus-at-the-finite-h--df9adda72dcf",
+        "material_read": "Complete published RESULT.md including statement, proof, scope, limits, references",
+        "method": "Public repository read-only content fetch",
+        "title": "Poisson multigraph coalescence and cycle surplus at the finite-hub percolation threshold",
+        "trigger": "Close indexed Poisson/spectral percolation result for K_{m,n}"
+      },
+      {
+        "assessment": "Finitely many hubs connected through an increasing independent bipartite population, no growing clique block geometry",
+        "evidence": "Its mixed limit is selected by a random fixed-hub connected-component partition, whereas the windmill limiting Gaussian mean is a deterministic two-step reachability correction.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-poisson-hub-connectivity-and-mixed-gaussian-outbreak-fluctuation--1b8b0b0e5eb8",
+        "material_read": "Complete published RESULT.md including all proof, scope, and references",
+        "method": "Public repository read-only content fetch",
+        "title": "Poisson hub connectivity and mixed-Gaussian outbreak fluctuations in bipartite bond percolation",
+        "trigger": "Potentially similar Gaussian fluctuations at spectral percolation scale"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d86d86f-96f5-4e3e-8928-994fc1908f45",
+  "value": {
+    "rationale": "An irregular host family has an exact spectral scale at which direct hub neighbors fluctuate normally; growing peripheral cliques create an indirect, geometry-driven population. Showing exactly when this population is negligible, produces a finite normal-mean shift, or overwhelms direct-neighbor fluctuations is a natural finite-graph percolation resolution with a sharp and non-arbitrary \\(n^{1/3}\\) boundary. The theorem does not overclaim a new giant-component transition.",
+    "status": "PASS"
+  }
+}
