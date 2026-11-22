@@ -1,0 +1,19 @@
+# Scientific assessment: fractional spherical heat affine-covariance boundary
+
+## Correctness — PASS
+
+The claim defines the exact spectral power \(\alpha\), dimension \(d\ge2\), positive time \(t\), all real affine parameters, and finite-site positive semidefiniteness. The harmonic quadratic-form identity is reconstructed directly from the kernel and multiplication operator. Every coordinate multiplication connects only neighboring spherical degrees; after normalization the resulting selfadjoint operator has block weights \((c_\ell+c_{\ell+1})/\sqrt{c_\ell c_{\ell+1}}\). Parity makes its bounded spectrum symmetric. Bounded adjacent ratios give a uniform operator bound, while zonal Gegenbauer recurrence supplies a nonvanishing adjacent-degree matrix element that makes unbounded ratios fail by a negative finite-dimensional compression. The signed integral obstruction implies a finite-site obstruction by continuity and quadrature. Concavity for \(\alpha\le1/2\) and the rigorously divergent adjacent spectral gap for \(\alpha>1/2\) establish the sharp endpoint. No finite experiment is used to prove the all-degree result. Reproducible exact-symbolic and finite-configuration tests are supplied.
+
+## Originality — PASS under inspected comparisons
+
+The 2021 publicly posted work of Buhmann and Jäger, *Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres*, gives the relevant general harmonic-block framework, including a matrix positivity characterization. Its inspected theorem statements and proof do not state the bounded-adjacent-ratio iff criterion or the sharp fractional spectral-order boundary. Guella and Jäger (preprint 2022) characterize a distinct diagonal eigenfunction-coefficient class and strict positivity. Existing explicit Poisson affine-cone calculations specialize to geometric coefficients and do not supply the generic bounded-versus-unbounded ratio equivalence, and no such extension is presumed solely from that case. A 2024 paper by Emery, Jäger and Porcu gives an axial space-time spectral framework; the publicly accessible main article is subscription restricted, so that comparison has a residual priority risk, which is neither hidden nor counted as proof of novelty. Related 2023–24 models construct nonstationary spherical covariances via Euclidean-space methods, a different sufficient-design family.
+
+## Mathematical value — PASS
+
+The natural power \(1/2\) marks the exact divide between strictly positive spherical spectral kernels that tolerate some nonstationary affine modulation and those for which every nonzero such modulation destroys covariance admissibility. In particular, the ordinary heat kernel is rigid despite being strictly positive as an isotropic covariance, while sub-half-Laplacian smoothing is not. The general ratio iff theorem explains the boundary for an entire class of isotropic spectra, and the two-degree negative certificate quantifies the high-harmonic mechanism. This is a structural classification motivated by covariance design, not an arbitrary single-parameter numerical slice; no general downstream application or elementary formula for the finite threshold is claimed.
+
+## Limits and risks
+
+General nonstationary perturbations (including factorizable amplitude modulation) can remain positive definite; only the stated affine sum factor is classified. Equality in the finite-constant cone does not imply an unproved strict-positive-definiteness assertion. The main spectral threshold constant is an exact operator norm rather than a simple closed expression. An older implicit treatment of the same block phenomenon or a specialized result in subscription-only work remains possible. The analytic proof does not assert an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
