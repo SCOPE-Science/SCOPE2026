@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defining random object is an ordered pair of permutations with no common column value. Each row is uniformly distributed, and the other row conditional on it is a uniform derangement of that row. The proof directly computes the three distinct within-row joint probabilities and three between-row joint probabilities, then establishes the block covariance identity on the column-by-symbol double-contrast subspace. Direct diagonalization gives the two eigenvalues and exact nullity, including the exceptional order-two boundary. Two independently structured exact-rational checkers enumerate all rectangles for orders 2–5, verify all pair types and both contrast energies. Finite computations support but do not replace the general proof.
+PASS
 
-## Originality — PASS under bounded comparison
+For every n>=3, the two-row Latin rectangle is a uniform ordered pair of permutations with no column collisions. Within-row incidence pair probabilities are 1/n (identical), 0 (same row/column or symbol exclusively), 1/[n(n-1)] (both different); between rows they are 0 (same column and symbol), 1/[n(n-1)] (exactly one same), (n-2)/[n(n-1)^2] (both different). After subtracting 1/n^2 the covariance blocks equal [[1/(n-1),-1/(n-1)^2],[-1/(n-1)^2,1/(n-1)]] tensor P_n tensor P_n; centered Walsh multiplies by four. Diagonalizing row symmetry gives eigenvalues 4(n-2)/(n-1)^2 and 4n/(n-1)^2 each (n-1)^2, nullity 4n-2 and sharp nonzero condition sqrt[n/(n-2)]. The formula at n=2 has rank 1 and eigenvalue 8; n<2 is outside scope. Independently enumerated all pairs n=2,3,4,5 (2,12,216,5280) and checked eight pair orbits as exact fractions; finite checks corroborate the universal algebra.
 
-The closest established material is Godsil–McKay's 1990 Latin-rectangle enumeration and Section 4 random-entry asymptotics, Doyle's publicly released 2007 enumeration account, and related analysis of the covariance of a *single* derangement permutation. Their stated theorems do not give the exact two-row joint centered Walsh covariance, its two symmetry levels, the full linear kernel or the sharp sample-operator condition number. The exact formula is not a mere change of symbols of a single-derangement covariance: both random permutation rows and their mutual noncollision enter, and both cross-row and within-row blocks are required. This is a bounded no-covering-result determination, not a proof that no earlier presentation exists. Unindexed linear-design and assignment-statistics literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family is the canonical pair of edge-disjoint perfect matchings, rather than an arbitrary finite slice. The theorem settles the complete degree-one Fourier identifiability and stability problem for **all** alphabet sizes, showing that no linear aliases occur beyond line-sum equations and identifying exactly how much the row-antisymmetric contrasts amplify observation noise relative to the row-symmetric contrasts. The sharp ratio \(\sqrt{n/(n-2)}\) and its convergence to one make the sample system quantitatively nearly tight. This is a motivated structural sampling invariant, not an extrapolated table.
+Bounded PASS for a joint two-permutation centered degree-one frame identity, not the classical Latin-rectangle count or generic derangement distribution. Neither inspected primary paper asserts its two complete Gram sectors and sharp sampling quotient condition number.
 
-## Limits and closest background
+## value
 
-Probability-normalized *centered* degree-one Walsh restriction is essential. No claim concerns full convolution invertibility or higher-degree sampling. The scientific priority comparison is bounded by accessible literature and indexed record abstracts; a relevant related derangement-covariance record was available only at summary level. Independent mathematical review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural all-n degree-one observation frame for the canonical pair of disjoint perfect matchings. A complete rank/nullspace classification identifies exactly deterministic line-sum aliases, and the sharp quotient condition sqrt(n/(n-2)) gives identifiable signal stability and its asymptotic tightness. Not an arbitrary table or mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
