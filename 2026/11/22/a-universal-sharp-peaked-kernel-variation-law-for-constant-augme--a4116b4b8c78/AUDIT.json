@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each scale, strict positive definiteness yields a unique constant-augmented interpolant, and the constant part is exactly reproduced. Decomposition by adjacent-data steps makes the induced total-variation norm precisely the maximum of finitely many single-step response variations. The Gram matrix tends to identity; its constrained solution tends uniformly on normalized data to the mean baseline and centered coefficients. A Voronoi-cell decomposition makes each peaked translate contribute one variation unit at an endpoint and two in the interior; all off-cell contributions vanish by monotone tail decay. On a step at position j the limiting gain equals 4j(n-j)/n-1, whose discrete maximum is the stated factor. Uniformity follows by a Neumann-series bound and establishes the error order. Continuous variation, not sampled output differences, is the proved quantity; the standalone checker is corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Platte–Driscoll 2004/2005 addresses flat-kernel polynomial approximation and convergence, not the opposite limit with constant augmentation.",
+        "Yarotsky 2012 gives general-node Gaussian error formulas for smooth analytic f, without a BV operator bound on sampled discontinuities.",
+        "Known generic narrow-Gaussian bed-of-nails localization does not provide the norm sharpness or mean-baseline correction without further calculation."
+      ],
+      "reasoning": "General RBF convergence theorems control other asymptotic regimes or native/smooth spaces. A statement about localized spikes or L-infinity Lebesgue constants cannot directly dominate the precise total-variation operator norm with the obligatory mean baseline. A potential general theorem on constant-augmented kernels remains a residual priority risk.",
+      "searches": [
+        "\"Gaussian RBF flat limit polynomial interpolant\"",
+        "\"Gaussian\" \"RBF\" \"total variation\" \"n-1\" interpolation",
+        "\"radial basis\" \"total variation\" \"kriging\" interpolation oscillations narrow",
+        "strictly positive definite radial kernels gaussian peaked limit ordinary kriging total variation arbitrarily irregular nodes"
+      ]
+    },
+    "checked_sources": [
+      "https://udspace.udel.edu/items/e069ffca-870f-437b-85ca-c0494e4117aa/full",
+      "https://tobydriscoll.net/_docs/platte-polynomials-potential-theory-2005-a.pdf",
+      "https://arxiv.org/pdf/1205.5961",
+      "https://strathprints.strath.ac.uk/36480/",
+      "https://doi.org/10.1137/040610143"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Platte–Driscoll equation (2.9) measures max_x sum of absolute cardinal functions, not variation of reconstructed curves or the constant-augmented saddle-point space.",
+        "Yarotsky Corollary 1 represents Gaussian interpolation error for smooth data via an HCIZ integral; no total-variation norm follows for arbitrary nodal step data.",
+        "The Gaussian lattice RKHS-norm record studies least native-space norm of constant data, whereas here constant data have exactly zero variation and the extremizer is a central data jump."
+      ],
+      "reasoning": "The exact claimed limit requires both the zero-sum constraint enforcing mean-centering and counting one half-peak at each endpoint versus two flanks at interior sites. Neither ingredient is supplied or implied by cited Lebesgue, analytic error, RKHS norm, or condition-number theorems. Classical peak localization supplies motivation but is not alone the displayed operator-norm calculation.",
+      "searches": [
+        "Platte Driscoll 2005 Gaussian radial basis Lebesgue constant stability full text",
+        "Yarotsky arxiv 1205.5961 Gaussian RBFs generic nodes interpolation error full text",
+        "sharp Lipschitz coefficient total variation for ordinary kriging interpolators across many nodes; constant Gaussian baseline, bed of nails"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Platte–Driscoll journal full text §2.2 defines an L-infinity Lebesgue constant; it is not the real-line total-variation norm.",
+        "Yarotsky arXiv:1205.5961 sections 2–3 concern error formulas and analytic-data convergence, not variation of discontinuous step responses.",
+        "The compared published interpolation statements do not supply an equivalent constant-reproducing peaked-kernel BV norm."
+      ],
+      "reasoning": "The operator here includes an affine constant and zero-sum radial coefficients, whereas the Gaussian interpolants in the closest papers are described by unaugmented Gaussian spans. Their uniform-error, conditioning or convergence estimates do not compute variation of a central step. An equivalent description in ordinary-kriging language was searched explicitly; no exact matching theorem was found.",
+      "searches": [
+        "\"ordinary kriging\" \"total variation\" stability interpolation shape parameter",
+        "\"radial basis interpolation\" \"bounded variation\" sharp norm",
+        "Gaussian radial basis interpolation with constant polynomial augmentation, ordinary kriging, sharply growing total variation norm as shape parameter tends to infinity, n minus one, baseline mean",
+        "constant-augmented radial basis interpolant, peaked kernel limit, exact variation factor four j times n-j over n minus one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published Gaussian-lattice interpolation result calculates a least Gaussian native-space norm for constant data, not a BV gain.",
+        "A published exponential-kernel result concerns spectral conditioning as sites separate, not continuous total variation of constant-reproducing interpolation.",
+        "No exact published tabulation of this peaked-kernel variation coefficient was identified in the inspected sources."
+      ],
+      "reasoning": "No exact table or database entry carrying the coefficient 4 floor(n^2/4)/n-1 for a peaked, constant-reproducing radial interpolant was identified. The compared kernel results concern different inputs and quantities, so mere common terminology was not treated as coverage.",
+      "searches": [
+        "sharp bounded variation or total variation norm of Gaussian radial basis function interpolants with polynomial reproduction and arbitrary sampling points",
+        "bed of nails infinitely peaked Gaussian RBF interpolation constant reproduction anchored coefficients variation amplification operator norm"
+      ]
+    },
+    "rationale": "Platte and Driscoll analyze Gaussian RBF interpolation through transformed polynomials, potential theory, Lebesgue constants and stable evaluation, without the present constant-augmented variation seminorm. Yarotsky derives interpolation-error formulas and analytic-function convergence for the unaugmented Gaussian span, which do not imply a sharp node-data BV operator norm in the increasingly peaked scale. Related published mathematical results concern Gaussian lattice RKHS norms, kernel-conditioning thresholds, and finite-site stability, not this kernel-universal limiting BV coefficient. No published stronger/equivalent result was identified in the available material. This is a qualified historical-priority conclusion, not proof of uniqueness.",
+    "residual_risks": [
+      "The full historical literature on ordinary kriging and constant-augmented interpolation is extensive; an unindexed specialized variation-norm theorem could cover this factor.",
+      "The institutional 2004 technical report PDF was not separately inspected byte-for-byte; its corresponding author-hosted 2005 journal full text was inspected instead.",
+      "Full text of the 2011 Gaussian RBF-FD comparison was not inspected, though its abstract suggests a different mathematical quantity.",
+      "The theorem assumes strictly positive definite monotone profiles and takes the peaked limit at fixed n and fixed node gaps. No claim is made for nonmonotone kernels or uniform growing-grid limits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Analyzes Gaussian interpolation, potential theory, Runge phenomena, Lebesgue constants, and stable algorithms. The inspected material does not state a constant-augmented peaked-kernel TV norm.",
+        "evidence": [
+          "Report publicly available 2004-12-21 according to institutional repository.",
+          "Author-hosted journal article §2.2 equation (2.9) introduces a supremum-norm Lebesgue constant; §4 summarizes convergence/algorithmic implications.",
+          "https://tobydriscoll.net/_docs/platte-polynomials-potential-theory-2005-a.pdf"
+        ],
+        "identifier_or_url": "https://udspace.udel.edu/items/e069ffca-870f-437b-85ca-c0494e4117aa/full",
+        "material_read": "Full repository metadata including public availability timestamp 2004-12-21T16:37:10Z; author-hosted later journal full text inspected for introduction, polynomial transformation, Gaussian Lebesgue section 2.2, numerical stabilization section 3, and final remarks section 4.",
+        "method": "Read publicly accessible repository metadata and full-text rendered/extracted journal article.",
+        "title": "Polynomials and their Potential Theory for Gaussian Radial Basis Function Interpolation",
+        "trigger": "Earliest verifiable public Gaussian RBF approximation source and primary MSC 41A30."
+      },
+      {
+        "assessment": "The interpolation is unaugmented and the quantitative claims concern smooth-function errors and analytic convergence, not the constant-augmented high-peaked variation law.",
+        "evidence": [
+          "arXiv:1205.5961, 2012-05-27 first posting (the PDF examined is a later October 2012 revision).",
+          "The manuscript describes Gaussian interpolation in equations of section 2 and smooth-function/analytic convergence in section 3; no total variation analysis found."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1205.5961",
+        "material_read": "Full-text introduction and contents; section 2 defining Gaussian interpolation, interpolation-error formula and Corollary 1; section 3 analytic convergence lemmas and statements; wording searches for variation and total variation.",
+        "method": "Read arXiv open-access full text, including visual first page and selected main theorem passages.",
+        "title": "Univariate interpolation by exponential functions and Gaussian RBFs for generic sets of nodes",
+        "trigger": "Exact one-dimensional Gaussian interpolation at arbitrary nodes is potentially a stronger source."
+      },
+      {
+        "assessment": "Addresses shape choice for PDE finite differences, not directly comparable from the abstract; no whole-document exclusion is asserted.",
+        "evidence": [
+          "2011 archival work on Gaussian RBF-FD approximation of the Poisson equation, shape-parameter-dependent errors."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/36480/",
+        "material_read": "Public institutional abstract and publication metadata only; full text not examined.",
+        "method": "Reviewed open repository abstract and date metadata.",
+        "title": "On the optimal shape parameter for Gaussian radial basis function finite difference approximation of the Poisson equation",
+        "trigger": "Potentially relevant kernel shape-parameter instability comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4116b4b-8c78-4b6e-85d4-79d4166fcba5",
+  "value": {
+    "rationale": "The natural question is the stability of constant-reproducing narrow radial-kernel interpolation on bounded-variation sampled data. The precise answer is not given by Gaussian Gram conditioning, smooth-target convergence, or uniform-norm Lebesgue constants. The theorem computes the exact asymptotic seminorm for every fixed n, every irregular 1D grid, and a broad class of strictly positive definite monotone kernels; it identifies the central jump extremizer and linear-in-n growth, including a quantitative rate from profile tails. This gives a mathematically motivated sharp endpoint stability law, not an arbitrary data slice or mere finite calculation.",
+    "status": "PASS"
+  }
+}
