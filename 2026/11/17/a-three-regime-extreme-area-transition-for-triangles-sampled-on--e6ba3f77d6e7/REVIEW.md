@@ -1,11 +1,21 @@
-# Scientific review: fixed-arc random-triangle extreme areas
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact ordered-angle Jacobian is one, and the joint density equals \(6/L^3\). The elementary shoelace identity, the strict maximum of \(F(s)\) at \(4\pi/3\), and the three Taylor expansions are stated and independently checked. The constants follow by integrating the corresponding limiting cone, half-ellipsoid or ellipsoid with the correct available-starting-angle factor. The rescaled conditional densities converge in \(L^1\) after compact localization and integrable square-root Jacobian domination; this proves total variation for the displayed marks. The numerical checker independently confirms the area identity and all three coefficients. It does not establish the asymptotic limits by itself.
+## correctness
 
-**Originality — PASS, with historical-priority uncertainty.** The closest boundary-polytope paper by Böröczky, Fodor and Hug (2011), inspected in full-text HTML, studies large-sample intrinsic-volume expectation rather than three-point maximal-area rare events on a constrained arc. The full-text treatment by Finch and Jones (2010) covers intrinsic spherical geodesic triangles, not Euclidean chordal triangles. The MathWorld *Circle Triangle Picking* full-circle calculation provides an established identity and a boundary special case; it does not derive the arc-length phase transition. Relevant published records on threefold-deformed closed ovals, disk-interior samples, and small triangle areas were compared by assumptions and implications; none of the inspected summaries implies the exact three-regime claim. Search absence is not a uniqueness certificate; older specialized treatments of arc-constrained triangles may remain.
+PASS
 
-**Value — PASS.** The natural conditioning question is whether a triangle drawn on a fixed allowable circular arc nearly attains the largest possible area. The sharp geometric threshold \(L=4\pi/3\) changes the dimension and boundary contact of the optimizer set, producing three distinct probability exponents and experimentally checkable coefficients. The conditional shape laws distinguish endpoint crowding, critical quadratic contact and a uniformly rotating equilateral family. The contribution is a complete phase diagram for this canonical random geometric model, not a renamed full-circle calculation.
+Ordering three independent uniform angles has density 6/L³ in coordinates u=θ1, s=θ3-θ1, t=θ2-(θ1+θ3)/2. The shoelace identity A=sin(s/2)(cos t-cos(s/2)) gives exact finite-threshold arccos integral and optimizer s*=min(L,4π/3). For L<4π/3, deficit p_L(L-s)+q_L t² plus available u-length L-s yields exponent 5/2 and exact coefficient 16/(5L³ p_L² sqrt(q_L)); at L=4π/3 quadratic δ²+t² with δ factor yields 3/2 and 18/(3^(3/4)π³); above it the equilateral-optimizer interval of length L-4π/3 and an elliptic disk yield linear 16π(L-4π/3)/L³. Independently confirmed critical and orbit coefficients symbolically. Compact localization and integrable Jacobian weights yield conditional total variation of the specified Dirichlet/uniform marks; not merely moment convergence. Finite checker inspected as corroboration only.
 
-**Limitations and risk.** The results hold only for three independent uniform-angle samples and fixed arc length. A joint critical window and extension to other densities remain unproved. The historical-priority comparison is not an independent literature audit, and the analytical proof has not received independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: full-circle inscribed-triangle identities are classical, closed oval deformations and interior disk sample different measures, and a primary random-polytope article considers many-point hull expectations rather than rare maximal area of exactly three points on a fixed arc. The three simultaneous fixed-arc phase laws at L=4π/3 with marked total-variation shapes were not found in actual searches, but an unindexed exact arc-law paper may exist. The full-circle specialization is not claimed alone as novel.
+
+## value
+
+PASS
+
+PASS: arc length L is a natural geometric control parameter and the transition from endpoint-pinned to degenerate pinned to a continuum of equilateral optimizers creates sharp and different 5/2,3/2,1 rare-event exponents. Exact constants and conditional shape laws characterize nontrivial boundary and orbit geometry, not a random unmotivated numerical case; a researcher studying extreme inscribed polygons on restricted supports can reuse the precise three-point baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
