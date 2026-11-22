@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The affine endpoint table implies branch slopes of absolute value either \(n\) or \(n-1\), and each branch image contains all switching intervals. Equal-length full-target Markov cylinders give exact branch transition probabilities. The displayed invariant vector satisfies every Perron balance equation, including the two endpoint deficits, and is strictly positive. Strong lumpability yields the two-state law, whose eigenvalue gives the covariance and central-limit variance. The strict metric-versus-topological entropy gap follows from uniqueness of the Perron entropy-maximizing chain; a uniform expansion establishes the \(n^{-2}\) coefficient. Exact rational checks over all permitted words of lengths three through eleven corroborate, but do not replace, this proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Oliveira's arXiv:2611.03287v1 proves the canonical affine Markov construction, homological rank, and topological entropy (Theorems 7.1--7.2; Corollary 7.3). The new assertion is a physical-statistical universality across all such orientation words with equal final signs: the same projected Markov law and exact entropy gap depend only on \((n,\kappa)\). Classical results on invariant densities, finite Markov chains, and strong lumpability give general machinery but do not expressly identify this factor for the orientation-word realization. Literature and database searches found related finite-state and interval-map statistical calculations but no direct equivalent statement. Unindexed prior special-case computations remain possible.
+PASS
 
-**Mathematical value — PASS.** The source's topological entropy depends on the number of orientation switches; it does not determine how natural initial conditions statistically experience those switches. The result provides the complete physical two-state law, every switching covariance, a Gaussian variance, and a sharp coefficient measuring the gap between natural and maximal-entropy behavior as the alphabet grows. It is structural across arbitrarily many orientation words, not a single parameter table. It does not extend to arbitrary maps sharing an orientation word or establish new general-purpose Markov-chain theory.
+For all n≥3, terminal equal signs imply all κ≤n-2 switching branch indices are interior and every row image contains them. Each branch slope magnitude n−w_j gives exact Markov P_jk=M_jk/(n−w_j); the claimed positive π solves all stationary balance equations including endpoint deficits A and B. Strong lumpability by w∈{0,1} gives Q rows (1−κ/n,κ/n) and (1−κ/(n−1),κ/(n−1)), stationary p=κ(n−1)/[n(n−1)−κ], eigenvalue λ=κ/[n(n−1)], hence exact covariance, finite-state CLT and variance. Physical entropy is weighted log(n−w), while Parry uniqueness strictly separates it from topological entropy for κ>0, and expansion gives θ(1−θ)/2 at n^−2 scale. Independent rational reconstruction verified 252 words n=3..8, not a proof of all n.
 
-Closest sources: H. M. Oliveira, arXiv:2611.03287v1, Sections 7.1--7.2; P. Góra, *Invariant densities for piecewise linear maps of the unit interval* (2009); J. G. Kemeny and J. L. Snell, *Finite Markov Chains* (1978). The latter two methods are acknowledged as existing tools.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
+
+## value
+
+PASS
+
+Complete arrangement-independent stochastic factor under the physical rather than maximal-entropy measure is structurally meaningful for infinitely many discontinuous Markov maps; full correlation/CLT and sharp entropy-gap scaling address natural statistical behavior not obtained from adjacency growth alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
