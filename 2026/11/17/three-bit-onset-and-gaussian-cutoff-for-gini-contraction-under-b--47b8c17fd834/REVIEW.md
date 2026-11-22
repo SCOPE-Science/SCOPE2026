@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has a defined domain, exact normalization, an attained cut formula and separate endpoint cases. The dimension-three calculation reduces every nontrivial binary cut to one of thirteen symmetry/complement orbits, with polynomial expressions and their only interior ordering thresholds specified in the proof. Symbolic orbit enumeration, sign-interval checks and exact rational cut tests pass using the included executable. The all-dimensional implication uses embedding by an unused coordinate; cutoff estimates follow from the symmetric Dobrushin zero-sum bound, a Hellinger lower bound and a chi-square upper bound. The critical single-site formula follows from an exact expectation identity, the central limit theorem and bounded second moments. No exact higher-dimensional Gini maximizer or exact full critical-window limit is asserted. General asymptotic reasoning is independent of finite enumeration.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Mossel–O'Donnell–Oleszkiewicz (arXiv:math/0503503) study Boolean noise stability through Fourier coefficients, low influences and second moments, not the induced complete-pair Gini norm. Gaubert–Qu (arXiv:1307.4649) characterize Hopf oscillation and total-variation contraction, whereas the present three-bit coefficient is a separate Gini seminorm and the displayed high-dimensional bounds use, but do not duplicate, their coefficient. Diaconis–Graham–Morrison (1990) prove a total-variation profile for an asynchronous nearest-neighbor walk on the hypercube, not the independent-bit noise kernel or its induced Gini norm. The related indexed work on adjacent-pair heat-bath dynamics gives distributional total variation, not this cut-to-cut operator norm. Previously accessible general Gini–Dobrushin bounds and a lumped Ehrenfest-state coefficient do not imply the sharp three-bit formula or the precise single-site Gaussian profile, because they use different constants and state spaces. Searches of aliases, hypercube noise, Gini contraction, spectral comparison and numerical formula variants found no statement implying this combination. Global historical uniqueness is unproved; a broader undiscovered result could exist.
+PASS
 
-## Mathematical value — PASS
-The independent-bit noise semigroup is a standard analytical object, and pairwise Gini variation is a well-defined nonlinear dispersion seminorm. The first exact departure from the sharp Hilbert coefficient occurs at three bits, not at two, and is quantified by a nonconstant cubic coefficient. The full induced norm has a dimension-dependent cutoff and a rigorously quantified critical single-vertex profile. These are motivated stability questions for noisy product operators; the 13-orbit certificate, subspace lifting, Hellinger/chi-square mechanism and Gaussian Gini calculation go beyond a renaming or a single routine norm comparison. The exact middle-window global norm and all higher-dimensional extremizers remain open in this work.
+Binary layer-cake reduces the Gini operator norm to nontrivial cut indicators. All dimension-three 254 nontrivial cuts fall into 13 automorphism/complement orbits with explicitly listed polynomial/piecewise ratios; the singleton gives gamma3=rho(15−rho²)/14 and gamma1=gamma2=rho. Lifting cylinder functions multiplies both Gini norms by four and gives gamma_d>=gamma3 for d>=3; Walsh characters give mean-zero L2 norm rho. Product convolution is Gini-nonexpansive and TV Dobrushin bounds gamma_d<=min(1,2(1−2^{-d})delta_d). Hellinger affinity of a column bounds lower ratio by 1−exp(−d rho²/8); its chi² divergence plus TV upper bound proves dichotomy d rho²→0/infinity. For rho sqrt(d)→a, log-likelihood CLT plus bounded second moments gives the *single-vertex* lognormal Gini profile 2Phi(a/sqrt2)−1; antipodal row CLT yields a separate upper bound for full gamma. Independent exhaustive all binary cut computations in d=1..4 for rho=.15,.55,.87 agreed for dimensions <=3; d4 tests are corroboration, not claimed exact all-rho norm.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for sharp d=3 complete-pair Gini norm and explicit single-site lognormal Gaussian witness plus full-norm scale dichotomy. Classical Walsh spectrum, Dobrushin coefficient and product-chain cutoff are credited; unlike total variation and quadratic noise stability, the exact induced complete-pair Gini norm is not supplied by the inspected statements.
+
+## value
+
+PASS
+
+Sharp departure at exactly three Boolean coordinates from the spectral L2 contraction is a natural functional-analytic boundary for complete-pair dispersion. The cutoff and distinguished Gaussian witness quantify a global nonlinear norm of a canonical independent-bit Markov kernel that is not identical to classical TV mixing or quadratic noise stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
