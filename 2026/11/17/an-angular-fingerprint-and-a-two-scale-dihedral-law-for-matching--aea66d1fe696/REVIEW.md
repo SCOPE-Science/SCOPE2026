@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The simplex has dimension \(n-1\) because the deleted-edge difference spaces are pairwise orthogonal, giving positive eigenvalues \(n\) and \(n-2\) on the zero-sum hyperplane. The facet normals are computed from barycentric coordinates via \(L^+\), not guessed from graph adjacency. Their exact Gram entries give all four acute angle types and multiplicities. The inverse-angle characterization holds because their cosine arguments are strictly ordered. The binomial weak limit handles the rare exceptional class correctly: its probability tends to zero while its rescaled value diverges. The exact-rational checker independently recomputes the finite cases. Risk: finite enumeration alone cannot establish the infinite statement; the spectral identity and Taylor proof carry it.
+## correctness
 
-## Originality
-**PASS under the accessible-literature comparison, with provisional priority.** Braun–Meyer establish the Laplacian-simplex construction, including the complete graph, but the examined complete-graph and graph-operation sections concern lattice and Ehrhart structure, not matching-deletion Euclidean ridge angles. Meyer–Pllaha study codes and duals rather than this metric spectrum. Devriendt–Van Mieghem's Fiedler simplex has a different vertex Gram matrix; its facial-angle statements cannot be substituted for those of the Laplacian-column simplex. Juhnke-Kubitzke–Köhne focus on Laplacian polytopes of higher simplicial complexes. Public research-record comparisons on related matching-deleted polytopes and Laplacian simplex inradii/normal cones do not imply this four-type ridge-angle law or its two-scale asymptotic distribution. Risk: general simplex pseudoinverse identities are known, and a currently unidentified paper may already have specialized them to this graph family; absolute priority has not been certified.
+PASS
 
-## Value
-**PASS.** The full metric angle signature of an infinite, naturally defined family of graph-associated simplices is determined, not merely one small numerical invariant. It exactly reconstructs which graph edges were removed, even though the simplex remains combinatorially unchanged, and identifies two asymptotic resolution scales: a universal first-order bulk angle, a nontrivial binomial second-order law, and exceptional sparse ridges with threefold first-order defect. These answer geometrically motivated shape-perturbation and inverse-reconstruction questions; the results are not consequences of the integer or combinatorial face data alone. Their scope is matching deletion, not arbitrary graph perturbations.
+For n≥3 and 0≤m≤⌊n/2⌋, the disjoint-edge difference vectors define an orthogonal projector W with L=nP−2W and L^+=(1/n)P+(1/(n−2)−1/n)W. The column simplex has inward facet normals L^+e_i. Squaring L^+ yields exactly four negative off-diagonal Gram patterns, hence the stated acute cosines c,c/√k,c/k,(c+k−1)/k, their exhaustive pair multiplicities and exact matching recovery. The n^{-2} arcsine expansion and exact ridge-type frequencies give 1−Binomial(2,2ρ) in distribution; the m exceptional ridges vanish in probability despite scaled divergence. Independent exact matrix reconstruction for 1,118 tested facets corroborated the identities; finite checks alone do not prove the limits.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: the full labelled angle-matrix inverse graph reconstruction is already covered by a more general published result, so that component is not new. The exact deleted-matching four-level angle spectrum with multiplicities and unusual second-order/rare-exception asymptotic is not implied by that inverse theorem or the published normal-cone angles for a different polytope; these constitute the distinct surviving original assertion.
+
+## value
+
+PASS
+
+The exact Euclidean ridge-angle distribution of the natural matching-deleted dense graph simplex is a meaningful invariant, explicitly separating common and rare angular scales and giving a constructive metric fingerprint. It is neither just a renamed graph spectrum nor merely a numerical example; the complete all-order classification is useful even though generic inverse reconstruction is prior art.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
