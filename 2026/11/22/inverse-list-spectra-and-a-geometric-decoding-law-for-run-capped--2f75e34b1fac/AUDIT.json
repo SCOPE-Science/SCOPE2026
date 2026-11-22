@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Each run-extension duplicate is counted once, repairing exactly one overlong run is the only way an insertion can remove an over-cap receiver factor, and the two exhaustive run compositions prove the rational generating function. The double-pole argument supplies the conditional law. A fresh standalone checker verifies all 20,470 outputs for h=1..5,m=1..11 against independently enumerated parent sets and run-composition histograms.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovačević–Vukobratović, arXiv:2105.04617, §III-A Theorem 11, bounds deletion-correcting RLL code sizes and growth rates rather than receiver-specific inverse fibers.",
+        "Takemoto–Nozaki, arXiv:2012.13536, studies an efficiently encodable constrained code, not all source words."
+      ],
+      "reasoning": "Unrestricted parent count m+2 is a known ingredient but cannot by itself imply which receivers violate a run cap, the complete repaired-run classification, or the uniform-feasible-output limiting law. Existing prior within the local ledger on forbidden 11 concerns an asymmetric constraint and multiple deletions; it does not imply the general symmetric cap statement.",
+      "searches": [
+        "runlength-limited constrained supersequence one insertion all r exact inverse count m+2 minus maximal length h runs",
+        "homopolymer run length 2 deletion 4 run unique supersequence",
+        "run-capped binary single-deletion receiver inverse lists complete m+2-number max runs formula unique 2h"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1802.00703",
+      "arxiv:2105.04617",
+      "arxiv:2012.13536"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1802.00703 §III considers the whole unrestricted binary source space; its embedding-singleton notion differs from a receiver having exactly one distinct valid source.",
+        "arXiv:2105.04617 §III-A studies optimal *codes* and typical source runs, whereas this claim counts every *receiver inverse fiber* including overlong outputs.",
+        "arXiv:2012.13536 §§IV–V presents an SIDC code construction, not all receiver preimage counts."
+      ],
+      "reasoning": "The new formula is neither a corollary of an optimal-code size bound nor a special case of unrestricted supersequence cardinality: restricting the set of parents removes a receiver-dependent number of options. Prior descriptions with different error channels such as a deleted overlapping read have no implication without a valid reduction. Direct source-constraint comparison and inversion establish a distinct mathematical quantity.",
+      "searches": [
+        "one-deletion inverse fiber complete list spectrum for binary maximum homopolymer run length h source q=2 and exact generating function",
+        "run length limited strings one deletion output singleton fibers forbidden 000 111",
+        "single deletion fibers from bounded constant runs generating function RLL predecessor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Atashpendar et al., arXiv:1802.00703, §§III–V: unrestricted binary supersequence and embedding-weight counts.",
+        "Takemoto–Nozaki, arXiv:2012.13536, §§I,IV–V: run-cap constrained code construction and redundancy."
+      ],
+      "reasoning": "The relevant equivalent language is a complete inverse degree distribution over receivers for the single-deletion channel restricted to a max-run-length code, not the sphere size of a fixed transmitted word, not embedding-weight singletonity, and not an ordered overlapping-read erasure channel. No direct equivalent statement was established by inspected text or queried records.",
+      "searches": [
+        "one-deletion inverse fiber complete list spectrum for binary maximum homopolymer run length h source q=2 and exact generating function",
+        "binary run length at most two one deletion uniquely reconstructible outputs exactly one run length four squared Fibonacci generating function",
+        "single deletion fibers from bounded constant runs generating function RLL predecessor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct indexed formula or table was identified among the queried records of reconstruction, homopolymer constraints, or deletion-channel inverse lists.",
+        "Exhaustive verifier recomputes all small cases independently; finite agreement is not itself originality evidence."
+      ],
+      "reasoning": "No matched all-h table, rational inverse-list series, or limiting conditional list law appeared in the checked sources. Absence from searches cannot rule out unindexed or implicitly covered prior results.",
+      "searches": [
+        "geometric limiting inverse-list law single deletion run-length-limited words",
+        "unique decoding one deletion RLL binary outputs single run length twice bound, rational generating function",
+        "single insertion into binary run bounded word ambiguity supersequence lists 2h-s+1"
+      ]
+    },
+    "rationale": "The new claim concerns exact inverse lists of all receiver words for every binary maximum-run cap and their nondegenerate geometric limiting law. The examined 2018 unrestricted supersequence results, 2020 constrained code construction, and 2021 RLL code asymptotics do not assert or imply the full statement. Historical priority remains provisional.",
+    "residual_risks": [
+      "Unindexed results or implicit all-cap theorems in deletion-channel literature may cover the formulas.",
+      "Inspection of 2018 and 2020 PDFs was targeted to relevant mathematical sections, not a complete line-by-line reading.",
+      "An analogous result for a more general constrained source automaton might specialize to this law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The examined sections count unrestricted parents, weighted embedding counts and singleton embeddings; no run-capped inverse-list distribution identified in material read. This is not a whole-document negative certificate.",
+        "evidence": [
+          "arXiv:1802.00703 introduction pp.1–2, Sections IV–V pp.6,15"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.00703",
+        "material_read": "Abstract, introduction and framework; run-based Section IV discussion; pages 6 and 15 of 25, including formula for unrestricted supersequence counts",
+        "method": "Searchable arXiv PDF and visual page inspection",
+        "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+        "trigger": "Unrestricted one-deletion supersequence cardinality and singleton terminology"
+      },
+      {
+        "assessment": "The examined results concern source growth and code-packing rates; no per-receiver one-deletion inverse-list classification or truncated geometric law in the inspected sections.",
+        "evidence": [
+          "arXiv:2105.04617 §III-A Theorem 11 and surrounding discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.04617",
+        "material_read": "Abstract and introduction; Section II run-composition analysis and Section III-A RLL insertion/deletion channel, Theorem 11 on pages 9–10 of 13",
+        "method": "Searchable arXiv PDF and visual inspection of pages 1 and 9",
+        "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+        "trigger": "Most directly relevant general RLL source and deletion-channel coding results"
+      },
+      {
+        "assessment": "Construction and redundancy, without exact all-receiver inverse-fiber distribution in inspected material.",
+        "evidence": [
+          "arXiv:2012.13536 Introduction and Theorem 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.13536",
+        "material_read": "Abstract and introduction, source definitions, construction outline, Theorem 4 and conclusion on pages 1,2,7 of 8",
+        "method": "Searchable arXiv PDF and visual inspection of pages 1 and 7",
+        "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+        "trigger": "Uses same maximal-run constraint and a single insertion/deletion channel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2f75e34b-1fac-4dda-959f-60bd4dc76124",
+  "value": {
+    "rationale": "Homopolymer constraints are natural in communication/storage codes. The work determines all-length receiver inverse-list spectra, precisely identifies the uniquely recoverable observations, and proves a nontrivial geometric limit law for random distinct feasible receiver observations; it supplies a complete reconstruction invariant beyond code-construction rates.",
+    "status": "PASS"
+  }
+}
