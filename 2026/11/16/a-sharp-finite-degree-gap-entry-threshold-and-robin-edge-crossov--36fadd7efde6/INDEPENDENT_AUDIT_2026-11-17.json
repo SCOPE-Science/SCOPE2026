@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:15:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P_{2k}, eliminating odd sites yields (bc)^{k/2}[U_k(t)+q U_{k-1}(t)] with t=(x²-a²-b-c)/(2√bc), q=√(c/b). This is a real symmetric tridiagonal eigenvalue problem with a single negative rank-one boundary perturbation -q. Its smallest t eigenvalue crosses -1 exactly when F_k(-1)=(-1)^k[(k+1)-kq]=0, i.e. q=1+1/k; all other t-roots remain strictly in (-1,1). For t<-1 the hyperbolic equation sinh((k+1)η)/sinh(kη)=q is strictly increasing with η, and η<log q ensures a²<x²<r², hence exactly the two real symmetric gap zeros. At equality the ±r pair are edge roots. For q_k=1+γ/k the hyperbolic and trigonometric root equations converge under η=z/k, θ=w/k to z coth z=γ or w cot w=γ, yielding the stated k^-2 three-branch continuous crossover. Checked the claimed fixed-degree normalization and boundary cases, including a=0,b=c. Independent exact SymPy recurrence/Chebyshev computations for k=1..6 agree. Finite checks are not the infinite proof; the monotonicity/rank-one argument is.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simon gives periodic-Jacobi bulk and zero counting theorems; Peherstorfer treats gap zeros of multi-interval orthogonal polynomials; the 1991 periodic Bernstein–Szegő source has not been fully obtained."
+        ],
+        "reasoning": "Broad periodic-zero results are stronger in the scope of recurrences but not shown to imply the exact q-dependent finite-n crossing or varying-measure k^-2 crossover. Inaccessible 1991 article is reported, not misclassified NOT_COVERING.",
+        "searches": [
+          "arXiv:math/0412336 Theorems 2.1,2.3",
+          "arXiv:math-ph/0203058",
+          "Peherstorfer 1991 doi:10.1016/0021-9045(91)90071-H"
+        ]
+      },
+      "checked_sources": [
+        "Barry arXiv:2611.05673 Proposition 15",
+        "Simon arXiv:math/0412336 Theorems 2.1 and 2.3",
+        "Peherstorfer arXiv:math-ph/0203058",
+        "Peherstorfer 1991 DOI 10.1016/0021-9045(91)90071-H (bibliographic only)",
+        "Resultary semantic periodic-Jacobi query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barry recurrence and band endpoints plus standard Chebyshev reduction supply the starting point, not directly the finite-q rank-one crossing; Simon periodic counting bounds leave open the finite threshold and scale."
+        ],
+        "reasoning": "The new part requires F_k(-1) threshold and a double-scaling limit, not simply restating the prior fixed-coefficient periodic bands. The possible older finite Jacobi explicit spectral equation is a residual risk.",
+        "searches": [
+          "Barry arXiv:2611.05673 Proposition 15",
+          "Simon arXiv:math/0412336 Theorems 2.1,2.3",
+          "Peherstorfer doi:10.1016/0021-9045(91)90071-H"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_k=U_k+qU_{k-1} is the characteristic polynomial of a finite tridiagonal Jacobi matrix with an endpoint defect; Barry supplies the period-two recurrence and spectral bands; Simon develops general periodic Dirichlet-zero/band analysis."
+        ],
+        "reasoning": "The finite rank-one/Robin-language reformulation was explicitly tested rather than treated as a new definition. The two-periodic recurrence and bands are already covered, but no inspected source supplied this degree-dependent crossing and transition profile.",
+        "searches": [
+          "Resultary: two periodic orthogonal polynomials finite degree gap zeros Robin boundary threshold Chebyshev U_k+q U_(k-1) edge crossover",
+          "arXiv:2611.05673 Proposition 15",
+          "arXiv:math/0412336"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concerned different Jacobi, Hermite, or Gram edge problems; none contained this same recurrence and exact threshold/crossover."
+        ],
+        "reasoning": "An exact table would cover the formula even under another name; searched semantic database records did not exhibit such a table, which is not proof of absence.",
+        "searches": [
+          "Resultary semantic query on two-periodic Chebyshev Robin threshold",
+          "SCOPE cited published periodic/Jacobi related records"
+        ]
+      },
+      "rationale": "Best-of-knowledge original in the joint exact finite-degree zero-pair entry and the degree-varying Robin-type scaling function; the recurrence and periodic band framework are prior. No inspected stronger source was shown to imply the exact 1+1/k threshold jointly with the k^-2 crossover. Historical Bernstein–Szegő boundary-defect literature could contain equivalent calculations and remains a specific priority risk.",
+      "residual_risks": [
+        "Peherstorfer 1991 exact periodic Bernstein–Szegő paper was inaccessible after open-source attempts and VPN-disconnected institutional retrieval; an equivalent finite Jacobi boundary threshold may already be present.",
+        "A classical rank-one finite Jacobi/Robin scaling result under different terminology may dominate the reported special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME recurrence/bulk theory, no located degree-variable Robin edge crossover",
+          "evidence": "Proposition 15 recurrence and two-band formulas",
+          "identifier_or_url": "https://arxiv.org/abs/2611.05673",
+          "material_read": "Proposition 15 and surrounding recurrence/coefficients and spectral-band section",
+          "method": "Read paper text and checked PDF first page",
+          "title": "Orthogonal polynomials on two or more intervals: the Sprugnoli context",
+          "trigger": "Exactly the same two-periodic Jacobi coefficients and bulk band geometry"
+        },
+        {
+          "assessment": "General counts; no explicit stated finite q entry or crossover",
+          "evidence": "Theorem 2.1/2.3 periodic zero-count context",
+          "identifier_or_url": "https://arxiv.org/abs/math/0412336",
+          "material_read": "Theorems 2.1 and 2.3 and nearby periodic-zero statements",
+          "method": "Read accessible full-text mathematical statements",
+          "title": "Fine Structure of the Zeros of Orthogonal Polynomials III. Periodic Recursion Coefficients",
+          "trigger": "General periodic Dirichlet zeros and gap zero bounds"
+        },
+        {
+          "assessment": "Access limitation: coverage cannot be ruled out",
+          "evidence": "Title specifically concerns periodic recurrence coefficients",
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(91)90071-H",
+          "material_read": "Bibliographic/title information only; full text not obtained",
+          "method": "Tried open sources then authorized institutional retrieval; returned VPN disconnected",
+          "title": "On Bernstein–Szegö orthogonal polynomials on several intervals II",
+          "trigger": "Plausible older equivalent finite boundary-defect formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite-degree band-edge crossing with exactly two versus zero central gap zeros is a natural spectral invariant of periodic orthogonal polynomials. The sharp 1/k boundary perturbation and joint trigonometric-to-hyperbolic k^-2 crossover classify a meaningful transition not supplied by the fixed-measure periodic counting theorem. The result is restricted to a motivated period-two family rather than arbitrary polynomial examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Barry arXiv:2611.05673 Proposition 15",
+    "Simon arXiv:math/0412336 Theorems 2.1 and 2.3",
+    "Peherstorfer arXiv:math-ph/0203058",
+    "Peherstorfer 1991 DOI 10.1016/0021-9045(91)90071-H (bibliographic only)",
+    "Resultary semantic periodic-Jacobi query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full historical priority in 1991 Bernstein–Szegő literature remains unconfirmed; no external certification inferred."
+  ],
+  "residual_risks": [
+    "Peherstorfer 1991 exact periodic Bernstein–Szegő paper was inaccessible after open-source attempts and VPN-disconnected institutional retrieval; an equivalent finite Jacobi boundary threshold may already be present.",
+    "A classical rank-one finite Jacobi/Robin scaling result under different terminology may dominate the reported special case."
+  ],
+  "schema_version": 1
+}
