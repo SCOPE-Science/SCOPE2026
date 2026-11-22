@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof does not extrapolate a finite check: at any integer zero state below \(b\), the permitted transition \(10\) lowers the discrepancy by \(b-a\), and zero raises it by \(a\); coprimality makes every integer target reachable, with a finite preliminary reduction from large states. Every admissible factor can therefore be replayed from a reachable zero state and joined to another factor. For nonmixing, the explicit word \(1 0^m 1^r 0\), with \(am=b(r-1)+1\), forces its starting discrepancy to equal \(b-1\), and hence all start-to-start gaps are divisible by \(a+b\). Boundary cases \(a=1\), \(b=a+1\), negative heights, and strictly forced decisions at zero are included. The checker only corroborates finitely many cases.
+## correctness
 
-**Originality: PASS, with historical-priority risk.** Reyes, arXiv:2611.10995v1, Sections 1 and 7, expressly leaves transitivity open beyond parameters \(k/(k+1)\). Those parameters are at least one half, whereas the present result covers every rational parameter strictly below one half. Its general nonsoficity/no-specification theorems do not imply transitivity or mixing. Searches of relevant published research records found no equivalent or stronger treatment for these same objects. Becker--Baraviera (2023) full text was not obtained; its abstract concerns finite-type and entropy properties. That access limitation remains a substantive originality risk.
+PASS
 
-**Mathematical value: PASS.** The theorem solves a natural published classification problem for an infinite dense rational half-interval, and gives a separate arithmetic return-time mechanism showing why transitivity need not imply mixing in these nonsofic shifts.
+For c=a/(a+b), 1<=a<b coprime, the allowed transition after a one is governed by integer height H=aN0−bN1; zeros add a, ones subtract b. Legal zero states have a free zero (+a) and whenever h<b the legal block 10 (−(b−a)); lowering h>=b with a chosen one and finitely many forced ones reaches h<b. Since gcd(a,b−a)=1, any integer zero state connects to any other by blocks 10 followed by zeros, including reachable states from an initial zero. This gives a bridge from any finite language factor u to v via zero-state communication, proving topological transitivity. Construct ω=1 0^m 1^r 0 with am≡1 (mod b), am>b, r=(am−1)/b+1; its initial forced zero and final long 1-run respectively impose h<=b−1 and h>=b−1. Every occurrence therefore starts at exactly h=b−1 and all pairwise returns have zero discrepancy, hence lengths divisible by a+b, excluding mixing. Independent finite transition replay verified unique marker start for six coprime pairs; infinite statement rests on Bezout and height argument.
 
-The theorem is restricted to rational parameters below one half; no independent scientific audit is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reyes, arXiv:2611.10995v1, Definition 2.2, Theorem C and Question 7.1, treats all parameters for nonsoficity and absence of specification but identifies established transitivity only for the c=k/(k+1) family at or above 1/2; the 0<c<1/2 rational family in the claim is distinct. Becker–Baraviera 2023 introduced the same digit-density system but its abstract is insufficient to rule out all unpublished implications; recorded as priority risk. Same-day Resultary results for rational >=2/3 or >1/2 prove nontransitivity in disjoint parameter ranges, while the irrational-frequency transitivity theorem has disjoint parameter type. The new combined transitive/nonmixing classification is not subsumed by these.
+
+## value
+
+PASS
+
+Transitivity and mixing are central dynamical invariants for a non-sofic family with a long-standing parameter classification question. All rational frequencies strictly below 1/2 and an explicit modular return obstruction constitute a natural infinite structural regime, not a finite example or name change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
