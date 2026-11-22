@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact gnomonic reduction, segment-to-disk tangent aperture, finite cotangent-moment domination and unique supporting-edge argument prove the first-order coefficient. The normalized marked Jacobian yields an integrable product density and total-variation limit. The result is fixed-\(n\), with no extrapolation of finite experiments as proof. The standalone checker independently computes labelled near-boundary hull edges in six sampling regimes, with simulations agreeing within finite-threshold effects.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The original sign-specific statement is FALSE: for first azimuth 0, second pi+0.02, third pi/2 and unit gnomonic radii, the origin is strictly inside the triangle with barycentric coefficients (0.49499983,0.49509885,0.00990132), the chord AB is uniquely nearest at distance sin(.01)=0.0099998333, delta=+0.02, but the third azimuth pi/2 is in (0,pi), not the originally asserted (pi,2pi). This is a positive-measure neighborhood and survives the rare-event limit. The complete supplied replacement RESULT.md fixes the orientation and reconstructs the determinant sign; all other scalar and marked conclusions are retained with proof. Gnomonic projection, near-antipodal tangent aperture H_eps=arcsin(tan eps cot r)+arcsin(tan eps cot s), cotangent-moment dominated convergence, probability 2^-(n-2) of support, and o(eps) pair-overlap yield the scalar coefficient. Conditioned marked density has Jacobian eps(cot r+cot s), integrates to one and converges in L1 by tail domination, with the *corrected* sign semicircle. Finite Monte Carlo is supplementary and did not test this sign.
 
-Wendel's origin-inclusion probability is credited. Accessible full relevant literature compares global halfsphere hull averages, the n-asymptotic center-MISS margin, and two-point antipodal cap transitions; none of those statements covers the finite-n INSIDE small-clearance derivative and the cotangent-biased marked edge law. Published source comparisons, aliases and potential reductions are documented in AUDIT.json. The full 1970 paper of Carnal on rotationally symmetric random hulls was not accessible, and alternative terminology in older work remains a risk; absence of a database match does not prove global originality.
+## originality
 
-## Value — PASS
+PASS
 
-The local pole-clearance robustness event is naturally motivated by random convex hulls on hemispheres. The exact coefficient is controlled by one radial cotangent moment, and the marked joint law identifies the supporting-edge geometry conditional on rare near-degeneracy. These are structural facts, not routine reformulations of the known center-containment probability.
+The corrected claim distinguishes fixed-n *inside* pole-to-boundary clearance from classical Wendel containment and large-n center-*miss* models. The first derivative is controlled solely by E[cot R] and the signed conditional geometry includes independent semicircle marks. No inspected primary result subsumes all corrected components; Carnal 1970 full text remained inaccessible after open and authorized access attempts, recorded as risk, not automatic failure.
 
-## Limitations
+## value
 
-The proof covers fixed finite sample size, round two-sphere, axially symmetric independent sampling with an integrable cotangent radial moment. It does not cover higher spherical dimensions, growing sample sizes or arbitrary angular densities. Computations are corroborative; the work has not been independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-pole inside-clearance is a natural random-hull robustness/inradius observable. The dependence on one cotangent moment and explicit labelled, signed and radial conditional geometry are structural, not arbitrary finite slices; the sign correction is essential to make the statement reliable. Full configuration marks explain the rare exposed facet mechanism beyond Wendel containment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
