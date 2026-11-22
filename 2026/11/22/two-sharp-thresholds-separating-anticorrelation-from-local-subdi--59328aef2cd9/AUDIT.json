@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Unique stationary Gaussian OU law follows from stable triangular drift and positive independent diffusion sources. Fourier transfer independently reproduces prior exactly normalized C(t)=Ae^(-γ1 t)+Be^(-γ2 t), C(0)>0, ∫C=D2. When B<0 the exponential bracket decreases strictly once; J′=C gives the single overshoot. H=tM′−M=2∫sC, H′=2tC, and H∞=2D2/γ2(1-d/(1+q)) prove the second sharp threshold and unique root, including equality. The exact slow-tail coefficient gives the critical exponential correction. Analytic proof covers all stated parameters; the standalone checker replayed 847 independent/symbolic assertions, but numerics alone prove no infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 paper gives general autocovariance and MSD expressions for the same two-layer Gaussian model, explicitly explaining possible negative values and illustrating subdiffusive regimes.",
+        "The 2024 paper broadens to an arbitrary number of layers and gives qualitative MSD crossovers, but no claimed global pointwise criterion for the two-layer q,d plane."
+      ],
+      "reasoning": "The source formulas cover numerical values for every admissible parameter tuple; the claim does not pretend to supersede them. The source statements do not contain the needed implication that negative autocorrelation occurs without any ν<1 on a whole open wedge, nor uniqueness/critical law. General n-layer modeling does not by itself give these sign theorems.",
+      "searches": [
+        "multilayered noise model Voulgarakis Wang local log slope anomalous exponent exact threshold unique crossing",
+        "transport in complex environments hierarchically coupled Ornstein Uhlenbeck Voulgarakis exact phase classification",
+        "https://www.mdpi.com/2624-8174/6/2/42 Section 3.2"
+      ]
+    },
+    "checked_sources": [
+      "https://link.aps.org/accepted/10.1103/PhysRevE.108.064105 (Voulgarakis 2023, Sections II–IV, Eq. (15)/(16), Appendix 1 Eq. (A4); full lawful manuscript)",
+      "https://www.mdpi.com/2624-8174/6/2/42 (Wang and Voulgarakis 2024, Sections 2–4, Eqs. (2)–(11), Figures 1/2 and stated qualitative diffusion classification)",
+      "Indexed scientific-claim comparisons: hierarchical OU local exponent, negative velocity correlation, exact dual threshold; related statements compared for logical coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier Eq. (15) yields B<0 exactly at d>1-q^2. The source does not give the comparison with the sign of ∫sC.",
+        "The 2024 qualitative statement D2<D1 for subdiffusive illustrative profiles does not imply the strict finite-q local logarithmic criterion D1/D2>1+q; indeed the gap has D2<D1 but ν(t)>1 for all t.",
+        "Our proof computes ∫0∞sC(s)ds=D2/γ2[1-d/(1+q)] and analyzes H′=2tC to prove the unique zero and both terminal laws."
+      ],
+      "reasoning": "The published exact C(t) and M(t) logically allow the classification to be derived, so this is a global phase-analysis contribution of a known soluble model. The precise all-parameter property is not stated as a source theorem, nor immediate from simply observing the sign of C; the second signed moment and unimodality argument are essential. This remains a genuine prior-implication risk for adjudicating novelty.",
+      "searches": [
+        "https://link.aps.org/accepted/10.1103/PhysRevE.108.064105 Eq. (15), Eq. (16), Appendix (A4)",
+        "https://www.mdpi.com/2624-8174/6/2/42 Sections 3.2–3.3",
+        "two layer OU particle negative velocity autocorrelation versus subdiffusion distinct critical diffusivity ratios"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Voulgarakis (2023), Eq. (15) explicitly equals a sum of two decaying exponentials; Eq. (16) determines M(t).",
+        "Wang–Voulgarakis (2024), Sec. 3.2 defines an approximate transient exponent without a pointwise global sign classification."
+      ],
+      "reasoning": "The new claim can equivalently be phrased as a strict signed-moment condition for H=tM′−M=2∫sC and an independent sign condition for the slow covariance coefficient B. These are not independent dynamical solutions; the unknown assessment is the sharp global separation and one-zero theorem, not the already available exact formulas.",
+      "searches": [
+        "\"hierarchically coupled\" \"threshold\" \"subdiffusion\" \"Ornstein\"",
+        "hierarchical Ornstein Uhlenbeck two noise source exact criterion local MSD exponent less than one ratio D1/D2 1+gamma2/gamma1",
+        "two layer OU particle negative velocity autocorrelation versus subdiffusion distinct critical diffusivity ratios"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed literature comparisons produced closest results about different OU-trapped particles, run–rest dynamics, and two-mode Gaussian process calculations, rather than a table of exact two-layer hierarchy slope criteria.",
+        "The published source charts show sampled MSD curves for selected diffusivity ratios; they are not exhaustive parameter tables or global certificates."
+      ],
+      "reasoning": "No covering exact database entry or table was identified; an absence of indexed matches is not evidence of mathematical uniqueness. The global analytic proof is supplied directly.",
+      "searches": [
+        "sharp threshold stationary Gaussian velocity two OU cascades negative autocorrelation versus MSD log slope below one",
+        "double OU diffusivity hierarchy ballistic superdiffusion subdiffusion transient 1+gamma2/gamma1 threshold"
+      ]
+    },
+    "rationale": "The relevant full primary texts provide the exact stationary velocity covariance and MSD, including qualitative negative-memory/subdiffusion observations, and are expressly credited. They do not state or prove the exact all-parameter joint sign/uniqueness theorem, the distinct boundaries d=1-q^2 and d=1+q, the open interval of velocity anticorrelation without any pointwise subdiffusion, or the critical exponential cancellation. These require an additional global monotonicity analysis of H(t)=2∫_0^t sC(s)ds. The research index searches did not return a dominating equivalent. The strongest residual risk is that these phase properties may be treated as analytic corollaries of the prior closed-form C and M, or appear in unindexed work; no assertion of certified publication priority is made.",
+    "residual_risks": [
+      "The 2023 paper already publishes the exact two-exponential covariance and MSD from which the present classification follows by analysis; separate priority might be judged routine by a specialist despite its sharpness.",
+      "Unindexed studies may prove an equivalent signed-first-moment phase boundary; semantic-index searches and web searches are not exhaustive.",
+      "The 2024 descriptions use fitted finite-regime anomalous exponents rather than the pointwise ν(t); the new theorem applies to the explicitly differentiated logarithmic slope only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exact ACF and MSD and notes possible negative correlation; does not state joint threshold d0,d1, strict local-slope sign/uniqueness, or exponential critical boundary",
+        "evidence": [
+          "Phys. Rev. E 108, 064105 (2023), pp. 4–5, Eq. (15)/(16), model definitions, Appendix 1 Eq. (A4)",
+          "https://doi.org/10.1103/PhysRevE.108.064105"
+        ],
+        "identifier_or_url": "https://link.aps.org/accepted/10.1103/PhysRevE.108.064105",
+        "material_read": "Lawful accepted manuscript: introduction and model, Sec. III.B–C with Eq. (13)–(16), Sec. IV discussion, Appendix 1 Eq. (A4); rendered cover and Eq. (15)/(16) page inspected",
+        "method": "Read primary full-text sections and inspect rendered PDF pages, followed formulas and parameter normalizations",
+        "title": "Multilayered noise model for transport in complex environments",
+        "trigger": "Identical two-noise hierarchical Gaussian model, stationary velocity ACF, exact MSD"
+      },
+      {
+        "assessment": "Supplies qualitative diffusivity ordering and exact same-model MSD. Does not state an if-and-only-if local tM′/M<1 criterion for finite γ1>γ2, two distinct thresholds, or critical cancellation.",
+        "evidence": [
+          "Physics 6 (2024), Sections 3.2–3.3, especially Eq. (8), qualitative ratio d=D2/D1 criterion and Fig. 1",
+          "https://doi.org/10.3390/physics6020042"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2624-8174/6/2/42",
+        "material_read": "Complete accessible article around Sections 2, 3.1–3.4, 4.2–4.4; Eqs. (2)–(15), Figures 1–2, publication metadata",
+        "method": "Read full-text HTML sections and directly compared local exponent definition to its finite-range illustrative scaling laws",
+        "title": "Hierarchically Coupled Ornstein–Uhlenbeck Processes for Transient Anomalous Diffusion",
+        "trigger": "Same hierarchical OU model with transient subdiffusion heuristic and multi-layer comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "59328aef-2cd9-4f59-b883-4799d6009e9d",
+  "value": {
+    "rationale": "A natural experimental question is whether anticorrelated velocity displacements entail any actual instantaneous subdiffusive MSD regime. This fully classifies the answer for the established two-layer OU model, including the sharp open mismatch wedge (1-q²,d≤1+q), the unique ordered crossover times, and a special exponential critical relaxation. The exact threshold corrects a tempting extrapolation from the older qualitative D2<D1 criterion, at finite nonzero relaxation-scale ratio. It is not an arbitrary sliced parameter value or a recomputed tabular moment; it supplies a complete measurable phase diagram with physical interpretability. Its scope is the pointwise local MSD exponent, not new stochastic density formulas.",
+    "status": "PASS"
+  }
+}
