@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:07:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every feasible unit flow on the internally edge-disjoint routes is a convex combination of route-edge incidence vectors with squared edge-coordinate Euclidean norms L and ell and zero mutual inner products. Under the isometry to the orthogonal simplex, the Gaussian projected onto H={sum y_i/sqrt(L_i)=0} has vertex scores (sqrt(L)Z-lambda,sqrt(ell)G_i-lambda)/||g_H||, so the common lambda cancels EXACTLY in width and in extremal order. The conditional probability of maximizing the long leg is integral phi(z)Phi(sqrt(L/ell)z)^m dz, and min gives a second equal disjoint event. Max_i G_i/sqrt(log m)->sqrt2 and min_i G_i/sqrt(log m)->-sqrt2; chi_m radial norm divided by sqrt(m)->1, without assumed independence. Continuous mapping yields the three regimes and critical joint indicator, with exceptional threshold sqrt(2/c) having zero boundary mass. For critical means E R_m^4=O((ell log m)^2) and E (m/||g_H||^2)^2=m^2/((m-2)(m-4)), so Cauchy–Schwarz gives uniform second moments; integration of the half normal yields 2 sqrt2 Phi(t)+2 sqrt(c)phi(t). Checked finite Gaussian exposure integral against its conditioning identity and Gaussian range projection proof from frozen RESULT.md. Exact path tree/blob and code inspected; finite Monte Carlo is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full prior weighted-wheel result has 2m centrally symmetric signed edge generators and a dependent rim Gaussian field, with critical spoke weight a=sqrt2+c/sqrt(2log m), yielding (c+sqrt2|Z|)_+ after centering.",
+          "Here m+1 positive route vertices form a non-centrally symmetric orthogonal simplex with ONE large-variance outlier and threshold length L~ell log m, width limit sqrt2+max(sqrt2,sqrt(c)|Z|)."
+        ],
+        "reasoning": "The prior wheel theorem proves a related but structurally different phase transition with different scores/scalings and does not imply this simplex law. Other angle and Gaussian-extreme theorems are used only as ingredients.",
+        "searches": [
+          "random spherical directional width parallel routes flow polytope one exceptional logarithmic long edge orthogonal simplex Gaussian width exposure",
+          "weighted wheel symmetric edge polytope rim spoke Gaussian exposure phase transition",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rim-spoke-gaussian-exposure-crossover-in-weighted-wheel-symmetri--c886027b47d2/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.01896",
+        "https://arxiv.org/abs/2405.02433",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rim-spoke-gaussian-exposure-crossover-in-weighted-wheel-symmetri--c886027b47d2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-logarithmic-route-exposure-crossover-and-atomic-width-law-for--d3eac7c60133/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior vertex/volume results do not encode uniform-direction widths; normal-cone order and mean width cannot establish the joint indicator.",
+          "The wheel theorem has different Gaussian support max over correlated edge differences rather than independent route scores.",
+          "The new equality uses an exact one-outlier Gaussian score representation plus a three-scale extreme-value argument."
+        ],
+        "reasoning": "None of the inspected stronger/differently parametrized theorems logically covers the present joint one-leg flow-simplex result.",
+        "searches": [
+          "random spherical directional width parallel routes flow polytope one exceptional logarithmic long edge orthogonal simplex Gaussian width exposure",
+          "orthogonal simplex one long vertex Gaussian mean width normal cone one exceptional Gaussian log m",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rim-spoke-gaussian-exposure-crossover-in-weighted-wheel-symmetri--c886027b47d2/RESULT.md",
+          "arxiv:2203.01896 Proposition 2.3",
+          "arxiv:2405.02433 flow polytope volume"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "von Bell et al., arXiv:2203.01896 Proposition 2.3 identifies vertices as route-incidence vectors.",
+          "The edge-coordinate Euclidean metric transforms the polytope to an orthogonal/right simplex with one leg squared length L and m legs squared length ell.",
+          "Resultary right-simplex angle and vertex-angle results concern fixed-dimensional normal cones, not random widths for one logarithmic outlier."
+        ],
+        "reasoning": "Equivalence to orthogonal-simplex/Gaussian-range model is explicit and used. No compared equivalent-formulation theorem contains the joint width-exposure atomic crossover.",
+        "searches": [
+          "random spherical directional width parallel routes flow polytope one exceptional logarithmic long edge orthogonal simplex Gaussian width exposure",
+          "orthogonal simplex one long vertex Gaussian mean width normal cone one exceptional Gaussian log m",
+          "parallel-path unit-flow polytope right simplex long leg Gaussian width normal cone exposure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected flow-polytope primary material gives route incidence geometry, not an exact finite m exceptional-angle probability.",
+          "Resultary closest indexed records on wheel, broom-tree and orthogonal simplex were compared, with no exact table for this parallel-path family."
+        ],
+        "reasoning": "No exact finite m angle/width table covering the target was found; a failed search alone is not proof of novelty.",
+        "searches": [
+          "parallel path unit-flow polytope normal-cone measure Gaussian angle logarithmic length",
+          "random spherical directional width parallel routes flow polytope one exceptional logarithmic long edge orthogonal simplex Gaussian width exposure",
+          "Gaussian one large variance outlier max-min exact distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinction is the three-regime intrinsic Euclidean spherical width law and the exceptional normal-cone exposure indicator for one route whose length scales as ell log m; the orthogonal-simplex identification and ordinary Gaussian extrema are explicitly pre-existing ingredients.",
+      "residual_risks": [
+        "Potential unindexed treatment of anisotropic orthogonal simplices as heterogeneous Gaussian order statistics; full priority cannot be certified.",
+        "Critical asymptotics require fixed ell and disjoint routes in the ORIGINAL edge metric; shared-edge networks are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies the route vertices; does not address spherical widths.",
+          "evidence": "Proposition 2.3 / vertex characterization",
+          "identifier_or_url": "https://arxiv.org/abs/2203.01896",
+          "material_read": "Primary PDF Proposition 2.3 and the route-vertex discussion (not entire unrelated paper).",
+          "method": "PDF text and page inspection",
+          "title": "Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras",
+          "trigger": "Same source-sink unit-flow objects and route incidence vertices"
+        },
+        {
+          "assessment": "Not covering: centrally symmetric weighted wheel, rim 1-dependence and spoke hubs, not orthogonal flow simplex.",
+          "evidence": "Gaussian support max{rim field,spoke field}, critical a=sqrt2+c/sqrt(2log m)",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rim-spoke-gaussian-exposure-crossover-in-weighted-wheel-symmetri--c886027b47d2/RESULT.md",
+          "material_read": "Full RESULT.md Finding, mathematical proof, scope and parameters.",
+          "method": "Resultary GitHub frozen research result direct file read",
+          "title": "Rim–spoke Gaussian exposure crossover in weighted wheel symmetric edge polytopes",
+          "trigger": "Closely related atomic Gaussian width/exposure transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated probabilistic geometry problem: keeping the same simplex face lattice while changing one route length creates a phase transition in a natural spherical width and a nontrivial atom identified with a vertex normal-cone exposure probability. The exact finite-angle integral and critical joint law are useful geometric invariants not implied by a combinatorial vertex list or generic Gaussian-max theorem. The calculation does not claim arbitrary network geometries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-logarithmic-route-exposure-crossover-and-atomic-width-law-for--d3eac7c60133/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-logarithmic-route-exposure-crossover-and-atomic-width-law-for--d3eac7c60133/verify.py",
+    "https://arxiv.org/abs/2203.01896",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rim-spoke-gaussian-exposure-crossover-in-weighted-wheel-symmetri--c886027b47d2/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Published right-simplex or heterogeneous-Gaussian theory not exhaustively searched in all terminology.",
+    "Scientific finding is independent of mechanical publication import; source public metadata requires sanitization.",
+    "No formal Lean or expert attestation is inferred from numerical or exact finite checks."
+  ],
+  "schema_version": 1
+}

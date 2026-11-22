@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projection identity is exact for every finite route network, with the full edge-coordinate metric retained. The Gaussian score shifts cancel, and the intrinsic direction norm is chi-distributed in dimension \(m\). Normal-extreme bounds and continuous mapping prove all three asymptotic regimes and the joint exposure law. The fourth-moment and inverse-chi-square argument independently supports convergence of means. The standalone checker tests original incidence matrices as well as the Gaussian integral; finite tests are not substituted for proof.
+## correctness
 
-**Originality — PASS, provisional priority.** The original unit-flow-polytope route-vertex theorem is cited and is not new; likewise the normal maximum bounds. The 2022 flow paper treats route polytope triangulations, and the 2024 paper treats their volume inequalities. The nearest published right-simplex work orders the solid angles and bounds their anisotropy without an asymptotic one-long-leg width law. The published labeled angular tomography theorem reconstructs leg lengths from fixed-dimensional angle readings, not random widths. The published heterogeneous Gaussian two-group theorem concerns a different sample-size asymptotic and does not imply a unique spiked path's joint width and exposure law. Searches included parallel-flow and orthogonal-simplex aliases, exact normal-cone probability and Gaussian-max winner formulations. Residual bibliographic risk: a prior statement using right-simplex width terminology may be unindexed, and the random-variable limit is deducible from classical Gaussian extreme-value techniques once the geometric reduction is known.
+PASS
 
-**Mathematical value — PASS.** The result identifies a natural metric phase transition that is invisible to the face lattice: all \(P_m\) are simplices, yet the full original-edge metric makes a logarithmically long path create an atomic/non-atomic random-width transition. The exact finite exceptional normal-cone measure, its sharp three-regime limit and the joint correspondence between exceptional exposure and the continuous part of the limiting width determine a concrete, reproducible geometric invariant of network flow polytopes. The result does not claim a new general Gaussian extreme-value theorem.
+Every feasible unit flow on the internally edge-disjoint routes is a convex combination of route-edge incidence vectors with squared edge-coordinate Euclidean norms L and ell and zero mutual inner products. Under the isometry to the orthogonal simplex, the Gaussian projected onto H={sum y_i/sqrt(L_i)=0} has vertex scores (sqrt(L)Z-lambda,sqrt(ell)G_i-lambda)/||g_H||, so the common lambda cancels EXACTLY in width and in extremal order. The conditional probability of maximizing the long leg is integral phi(z)Phi(sqrt(L/ell)z)^m dz, and min gives a second equal disjoint event. Max_i G_i/sqrt(log m)->sqrt2 and min_i G_i/sqrt(log m)->-sqrt2; chi_m radial norm divided by sqrt(m)->1, without assumed independence. Continuous mapping yields the three regimes and critical joint indicator, with exceptional threshold sqrt(2/c) having zero boundary mass. For critical means E R_m^4=O((ell log m)^2) and E (m/||g_H||^2)^2=m^2/((m-2)(m-4)), so Cauchy–Schwarz gives uniform second moments; integration of the half normal yields 2 sqrt2 Phi(t)+2 sqrt(c)phi(t). Checked finite Gaussian exposure integral against its conditioning identity and Gaussian range projection proof from frozen RESULT.md. Exact path tree/blob and code inspected; finite Monte Carlo is not an infinite proof.
 
-**Limitations.** The network is edge-disjoint and the ordinary-path length is fixed. No network with shared edges, alternate norms or arbitrary path lengths is classified. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction is the three-regime intrinsic Euclidean spherical width law and the exceptional normal-cone exposure indicator for one route whose length scales as ell log m; the orthogonal-simplex identification and ordinary Gaussian extrema are explicitly pre-existing ingredients.
+
+## value
+
+PASS
+
+This is a motivated probabilistic geometry problem: keeping the same simplex face lattice while changing one route length creates a phase transition in a natural spherical width and a nontrivial atom identified with a vertex normal-cone exposure probability. The exact finite-angle integral and critical joint law are useful geometric invariants not implied by a combinatorial vertex list or generic Gaussian-max theorem. The calculation does not claim arbitrary network geometries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
