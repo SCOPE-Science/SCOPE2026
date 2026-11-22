@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 and no nonstandard dependencies. It computes unperturbed Lagrange values, the exact one-node-update formula, and the independent nodal-product formula, then verifies partition of unity and finite parameter cases. It also numerically solves the strictly concave one-variable optimization and samples degrees from 100 to 7000. The checker passed 195 finite diagnostic assertions.
+## correctness
 
-These checks cannot establish an infinite-degree asymptotic or historical priority. The mathematical proof is in RESULT.md: exact finite-degree identities (1)–(3), uniform harmonic-tail expansion (7), global localization (9), and a strict-concavity uniqueness argument. Numerical examples illustrate the asymptotic but converge slowly because of the degree-independent additive term. Independent audit remains not performed.
+PASS
+
+Exact one-node replacement identities follow from Lagrange cardinal uniqueness; the Lobatto angular formula has interior derivative weight n(-1)^j and endpoint twice that weight. The perturbed Lebesgue function at bounded angular offset u has harmonic coefficient (2/pi)|sin(pi u)| |1-tau/u|. The O(1) error is uniform on compact offsets by the 1/m^2+1/n estimates, and intact-grid control plus |L_k(z)| <= C/|u| excludes remote maximizers. The negative-offset profile is strictly concave on (0,1/2), has positive derivative at 0 and negative derivative at 1/2, while every competing positive/far offset is smaller. Therefore both asymptotic coefficient and concentration of all maximizing points follow. Independent nodal-product computations at n=500,2000,6000 for tau=.25,.5,.75 and bulk positions .32,.67 corroborated the predicted slow approach (finite-n additive constants persist); these are not proof of the limit.
+
+## originality
+
+PASS
+
+The exact one-defect logarithmic Lebesgue multiplier and universal bulk-offset optimizer are not implied by a worst-case small-perturbation stability condition, by full-grid Lebesgue bounds, or by the linear asymptotics after deleting a node and reducing degree. Best-of-knowledge original with specific residual Wu full-text access risk.
+
+## value
+
+PASS
+
+A single mesh-fraction displacement is the minimal controlled perturbation beyond classical Chebyshev interpolation, relevant to sensitivity of operator norms. The sharp constant, asymmetry of maximizing locations and independence from bulk index supply a substantive boundary between intact and perturbed interpolation, not merely reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
