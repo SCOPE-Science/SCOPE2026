@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the Gaussian conditional mean and exact prior variance, independently integrated all piecewise covariance squares, verified derivative factorizations and sign intervals, proved the low-noise strict inequality and single-crossing monotonicity, and isolated the exact quintic root. The standalone verifier recomputed symbolic and numerical checks; its grid is supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xi–Briol–Girolami (arXiv:1801.04153), Proposition 1 and Section 3, give multi-output linear quadrature and convergence results, not nonlinear one-measurement instrument designs.",
+        "Chai–Garnett (arXiv:1802.04782), Section 3 and appendix, address generic nonnegative integrands and moment matching, not a sharp mixed sensor-type allocation."
+      ],
+      "reasoning": "The general posterior formulas apply as mathematical background, but neither inspected paper optimizes the exact non-Gaussian path-energy risk over the two physical observation families or implies the threshold by a stated specialization.",
+      "searches": [
+        "Bayesian quadrature for quadratic functionals Gaussian process observation value derivative 2019 2023 optimal design",
+        "Bayesian quadrature for quadratic functionals Gaussian process observation value derivative 2019 2023 optimal design",
+        "optimal noisy observation of quadratic Wiener functional integral of square of integrated Brownian process, first and second chaos, optimal sensor"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.04153",
+      "https://arxiv.org/abs/1802.04782",
+      "Related published scientific claim on linear integrated-Wiener one-sample sensing",
+      "Related published scientific claim on two-point Brownian quadratic energy recovery"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Linear integrated-Wiener one-observation design optimizes a linear target with posterior variance proportional to a squared integrated covariance; it cannot imply the quadratic-energy information ratio involving integrated squared covariance.",
+        "Two-observation Brownian quadratic-energy design fixes process and number of observations and does not compare reading an integrated value against reading its derivative.",
+        "Xi–Briol–Girolami (2018), Proposition 1, takes a GP prior directly on an integrand and reports linear target posterior covariance, not the second-chaos risk formula."
+      ],
+      "reasoning": "Object, stochastic-chaos order, observation budget and sensor family determine the exact optimization. Neither a generic Gaussian-process formula nor the closest specifically recoverable statement contains the strict global comparison needed to imply this claim.",
+      "searches": [
+        "Optimal Bayesian design of quadratic Gaussian path functionals observing value or derivative one location, noise threshold",
+        "optimal observation time integrated Wiener process quadratic functional one sample derivative experiment design"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The examined quadratic Gaussian conditioning formulation maximizes the integrated squared cross-covariance divided by sensor variance; the searched published claims closest in formulation address linear integrals or two-observation quadratic recovery.",
+        "Chai–Garnett (arXiv:1802.04782), polynomial-transform moment table and Section 3, establish applicable Gaussian moments but not a location/modality optimum."
+      ],
+      "reasoning": "Reexpressing the proposed energy as an integral of a squared Gaussian field produces second-chaos conditional information, not the linear-Gaussian posterior variance criterion. No located source has an equivalent global value-versus-derivative selection theorem, though an unindexed special-case theorem remains possible.",
+      "searches": [
+        "optimal noisy observation of quadratic Wiener functional integral of square of integrated Brownian process, first and second chaos, optimal sensor",
+        "Gaussian process energy quadratic functional squared integrated Brownian one-shot Bayesian conditional mean optimal measurement location derivative versus function value"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Database results closest to Brownian process quadrature concerned two-node Brownian or Brownian-bridge design, a linear integrated-Wiener integral, and unrelated quadratic functionals; none of their recoverable statements gives the particular two-modality phase diagram.",
+        "The relevant arXiv source full-text sections contain Gaussian integrand and linear-quadrature formulas rather than an explicit single-sensor noise threshold or quintic."
+      ],
+      "reasoning": "No exact benchmark entry or earlier tabulation was identified after searching natural function names, moment-equivalent language, noise parameters and competing observation modalities. This is bounded negative evidence, not a uniqueness certificate.",
+      "searches": [
+        "quadratic energy integrated Wiener X(t)=integral Brownian, Q=integral X(t)^2 dt, observe one noisy X(x) or B(x), exact global optimal mode noise switch",
+        "One-point conditional-mean recovery integrated squared Gaussian Volterra process exact optimal point and observation type"
+      ]
+    },
+    "rationale": "Focused primary full-text and published-claim comparisons found related Gaussian quadratic-moment methods and linear-quadrature designs, but no statement that implies the exact globally optimized one-shot mixed-sensor energy threshold. The limitation is historical coverage, not a mathematical independence proof.",
+    "residual_risks": [
+      "An unindexed earlier work on quadratic-Gaussian optimal recovery may contain an equivalent formula",
+      "Equal numerical sensor-noise variances are a calibrated assumption; differing units or prices alter the comparison",
+      "Broad GP moment results could be specialized by additional derivations, but do not themselves state or immediately imply the full optimizing theorem"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background on GP quadrature and multi-output posterior covariance; does not optimize a single noisy sensor for integrated quadratic Wiener energy",
+        "evidence": [
+          "Proposition 1 computes linear integral posterior mean/covariance with a kernel Gram inverse",
+          "Section 3 develops vector-valued RKHS worst-case rules and convergence, not nonlinear path-energy sensing"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.04153",
+        "material_read": "arXiv PDF pages 1–4 and 7–8, Proposition 1, Section 3 statements and conclusion; linked full-text introduction and methodology",
+        "method": "direct primary PDF text and page images, comparison of object, target and scope",
+        "title": "Bayesian Quadrature for Multiple Related Integrals",
+        "trigger": "multi-output and linear Gaussian quadrature can subsume some sensor choices"
+      },
+      {
+        "assessment": "Generic polynomial warps and positive integrand inference provide relevant moments but no global mixed value/derivative sensor threshold",
+        "evidence": [
+          "Section 3 gives transformation moments for the square function and discusses approximate GP moment matching",
+          "Experiments treat integrand constraints and hyperparameter fitting, not optimal integrated-Wiener observation times"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.04782",
+        "material_read": "arXiv PDF pages 1–3, 7–9, Section 3 polynomial-transform moment table, experiment section, appendix formulas",
+        "method": "direct primary PDF text and page images, comparison of transformed-moment formulas with optimal design claim",
+        "title": "Improving Quadrature for Constrained Integrands",
+        "trigger": "squared-Gaussian integrand may imply the claimed quadratic-energy optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ee779b7-52f0-4fc6-9b17-576bd5d308a6",
+  "value": {
+    "rationale": "The exact one-reading nonlinear path-energy recovery problem is a natural minimal Bayesian numerical-integration and sensing design. State-versus-derivative selection and site placement matter operationally under equal calibrated noise. The unique threshold, site migration and 21/11 high-noise advantage are nontrivial structural facts of the second-chaos objective, not cosmetic parameter changes.",
+    "status": "PASS"
+  }
+}
