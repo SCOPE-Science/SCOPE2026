@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:04:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/cond-mat/9812388",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md"
+      ],
+      "rationale": "Gaussian STFT square completion gives a nowhere-zero prefactor times P(u)=Z0+sqrt(beta) Z1 u+Z2 u^2; omega<balanced mu is |u|<1. For a boundary-root-free quadratic, Rouché applied to conj(C)P-A P* = u[D+du] gives N=1 iff |D|>|d|. Independent complex-Gaussian orthogonalization reduces to |T|<|sqrt(beta)Z1| for T standard real normal, yielding q=E exp(-T^2/beta)=sqrt(beta/(beta+2)). Reversal symmetry gives tails (1-q)/2; two simple nonzero roots almost surely. Valid all beta>0, no finite Monte Carlo used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/cond-mat/9812388",
+          "https://arxiv.org/abs/2609.18689",
+          "Forrester–Honner gives one/two-point functions and general Gaussian polynomial statistics; Escudero et al study expectation/intensity of spectrogram zero locations."
+        ],
+        "reasoning": "General correlation functions could be integrated to yield this case, so older coverage is a residual risk; the inspected statements do not present the exact q_beta three-point disk count. One-point spectrogram intensity cannot determine count variance.",
+        "searches": [
+          "Forrester Honner 1999 exact zeros of complex random polynomials one two point functions",
+          "Escudero Koliander Romero Zeros of the Spectrogram of Colored Noise 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18689",
+        "https://arxiv.org/abs/cond-mat/9812388",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+          "https://arxiv.org/abs/cond-mat/9812388",
+          "Existing three-line cumulative expected number at balance is always E[N]=1; present P(N=1)=sqrt(beta/(beta+2)) is nonconstant."
+        ],
+        "reasoning": "Many different distributions on {0,1,2} share mean 1, so the prior expected-intensity formula does not determine the law or variance. The 1999 two-point function is closer, but requires a nontrivial integration not presented as a solved present formula.",
+        "searches": [
+          "three-line spectrogram zero intensity beta=4 vs count variance",
+          "Gaussian polynomial expected zero count root count distribution independent Gaussian coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/cond-mat/9812388",
+          "https://arxiv.org/abs/2609.18689",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+          "STFT zeros correspond bijectively to roots of Z0+sqrt(beta)Z1*u+Z2*u^2 inside |u|<1."
+        ],
+        "reasoning": "The balanced-frequency half-cylinder problem is exactly an inside-unit-disk count for a quadratic complex Gaussian polynomial. This equivalence is recognized rather than claimed new; the exact probability law requires an additional root-location integration.",
+        "searches": [
+          "Resultary: Half-frequency zero count of three line stationary Gaussian spectrogram balanced random quadratic roots inside unit circle",
+          "quadratic Gaussian polynomial independent complex coefficients radial disk count P(N=1) beta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de",
+          "The existing three-tone result explicitly tabulates frequency intensity and modality at beta=4, not probabilities of N=0,1,2."
+        ],
+        "reasoning": "A known table for a two-root Gaussian polynomial conditioned by the balance radius would cover it, but the inspected primary text supplies densities rather than this beta-indexed 3-cell law. Two-tone N=1 per period is not a three-tone table.",
+        "searches": [
+          "Resultary three line Gaussian spectrogram zeros count law vs modal bifurcation",
+          "Forrester Honner Gaussian quadratic number zeros inside unit disk beta"
+        ]
+      },
+      "rationale": "The fully read prior same-three-tone source computes first intensity; its E[N]=1 does not imply the three-point count variance. General Gaussian-zero correlation literature is credited and may provide an alternative derivation, but no inspected explicit beta law subsumes the claim.",
+      "residual_risks": [
+        "Forrester–Honner 1999 joint density may yield the formula after integration, with uncertain historical priority for this special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General correlation framework, but no explicit parameterized balanced quadratic disk-count law found; integration equivalence risk retained",
+          "evidence": "Full text derives density/correlation expressions rather than q_beta for 0/1/2 roots",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9812388",
+          "material_read": "Accessible full arXiv manuscript, sections covering one- and two-point zero correlations and variance framework",
+          "method": "primary preprint full-text read",
+          "title": "Exact statistical properties of the zeros of complex random polynomials",
+          "trigger": "Potentially general joint zero statistics covering this special quadratic"
+        },
+        {
+          "assessment": "Explicitly only expected density and beta=4 mode split, not root-count law for realizations",
+          "evidence": "It derives rho(omega) and F(u), no count probabilities",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+          "material_read": "Full RESULT.md including quadratic reduction, expected-intensity formula and modality bifurcation proof",
+          "method": "published full result via GitHub read",
+          "title": "Exact modal bifurcation of three-line Gaussian spectrogram zeros",
+          "trigger": "Same three-line object and beta parameter"
+        },
+        {
+          "assessment": "Addresses intensity/spectral density; discrete three-atom balanced-count distribution not stated",
+          "evidence": "Focuses zero expected intensity for colored stationary Gaussian noise",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+          "material_read": "Accessible arXiv full manuscript, introductory statements and zero-intensity analyses",
+          "method": "primary full-text read",
+          "title": "Zeros of the Spectrogram of Colored Noise",
+          "trigger": "Closest external Gaussian spectrogram noise zero statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+        "https://arxiv.org/abs/2609.18689"
+      ],
+      "rationale": "At an intrinsic balance frequency, the count is a complete natural second-order invariant for spectrogram zeros: the mean stays exactly one while variance 1-sqrt(beta/(beta+2)) decreases continuously from 1 to zero with no singularity at the earlier intensity-shape transition beta=4. This distinguishes individual realizations from expected maps.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/RESULT.md (Git blob dc124fae9bbe43021613dea5fa62f46d63aec25b)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/verify.py (Git blob ef94986135e6925402cbaae6592073294802c40d)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/the-exact-centered-half-frequency-zero-count-law-for-three-line--4b2de27ad46b/SLOGAN.txt",
+    "https://arxiv.org/abs/2609.18689",
+    "https://arxiv.org/abs/cond-mat/9812388",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Forrester–Honner 1999 joint density may yield the formula after integration, with uncertain historical priority for this special case.",
+    "Package public metadata remains not_ready pending full sanitization and import guards.",
+    "Historical ledger records not revalidated or altered."
+  ],
+  "schema_version": 1
+}

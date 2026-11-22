@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python verify.py` with Python 3 and no additional packages. The checker directly computes quadratic roots and compares the Schur count, maps sampled polynomial zeros back to Gaussian-STFT cancellations, checks the general unequal-amplitude balance radius, and compares Monte Carlo zero-count frequencies to the exact probabilities. Its deterministic seed and tolerances are documented in the code. Output in the reviewed package was `THREE_LINE_HALF_STRIP_CHECKS_PASSED 451910`.
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` is required for the infinite-parameter assertion: stochastic tests alone cannot establish universal validity, boundary simplicity, or publication originality. No independent external mathematical audit has been performed.
+## correctness
+
+PASS
+
+Gaussian STFT square completion gives a nowhere-zero prefactor times P(u)=Z0+sqrt(beta) Z1 u+Z2 u^2; omega<balanced mu is |u|<1. For a boundary-root-free quadratic, Rouché applied to conj(C)P-A P* = u[D+du] gives N=1 iff |D|>|d|. Independent complex-Gaussian orthogonalization reduces to |T|<|sqrt(beta)Z1| for T standard real normal, yielding q=E exp(-T^2/beta)=sqrt(beta/(beta+2)). Reversal symmetry gives tails (1-q)/2; two simple nonzero roots almost surely. Valid all beta>0, no finite Monte Carlo used as proof.
+
+## originality
+
+PASS
+
+The fully read prior same-three-tone source computes first intensity; its E[N]=1 does not imply the three-point count variance. General Gaussian-zero correlation literature is credited and may provide an alternative derivation, but no inspected explicit beta law subsumes the claim.
+
+## value
+
+PASS
+
+At an intrinsic balance frequency, the count is a complete natural second-order invariant for spectrogram zeros: the mean stays exactly one while variance 1-sqrt(beta/(beta+2)) decreases continuously from 1 to zero with no singularity at the earlier intensity-shape transition beta=4. This distinguishes individual realizations from expected maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
