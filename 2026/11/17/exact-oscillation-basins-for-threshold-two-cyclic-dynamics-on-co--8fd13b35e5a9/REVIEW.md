@@ -1,15 +1,21 @@
-# Scientific assessment: exact oscillation basins on complete split graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The update uses distinct open neighbours and synchronous three-colour successor motion. The six initial colour classes are genuinely homogeneous for all future times; clipping each initial class size to zero, one or at least two exactly preserves every successor-threshold decision. `finite_certificate.py` exhaustively verifies all 729 resulting clipped classes, proving the full-graph identity \(F^7=F^4\) for every pair of positive graph sizes, not merely small tested graphs. The same complete finite calculation identifies 122 primitive-three-cycle classes and verifies the entire polynomial generating-function identity coefficient by coefficient, with 31 nonzero monomials. The nonnegative generating-function support and an explicit \(G_{2,5}\) trajectory establish existence regimes and the sharp four-update entry bound. Independent direct labelled-vertex dynamics checks 752877 initial states on 45 graphs; that is corroboration, not the infinite-family proof. The fixed-clique limits follow by conditioning on every independent-vertex initial colour class having at least two members, with an explicit union bound.
+## correctness
 
-## Originality — PASS, qualified
-For the three-colour threshold-two successor rule, the principal exact split-graph attraction-basin generating function at clique size \(a\ge3\) does not follow from the known star and cone-biclique subfamilies: these correspond only to \(a=1\) and \(a=2\), respectively. The 1993 Durrett–Griffeath paper gives the foundational rule and lattice periodic structures, not the particular labelled split-graph basin formula in the material examined. The inspected 2013 Epperlein–Siegmund article treats phase-locking with different graph dynamics. Highly relevant finite-graph investigations by Goles and Matamala (1995, 1997) are accessible at abstract level, but full text could not be obtained, so their possible stronger specialized statements are an explicit historical-priority risk, rather than claimed not to exist. Search of indexed literature and existing mathematical records revealed no direct statement implying the formula; absence from search results alone is not proof of priority. Existing special cases and the foundational automaton definition are not claimed as new.
+PASS
 
-## Mathematical value — PASS
-The full attracting-period distribution is a natural dynamical invariant distinct from counts of configurations already periodic. The theorem resolves that invariant for the infinite two-parameter family of complete split graphs, gives the uniform sharp transient bound, and shows a nonmonotone limiting oscillation fraction across different clique sizes. Exact case-counting and limiting probabilities distinguish the effect of clique connectivity from independent-site population size. The result is not a renaming or a trivial consequence of the previously covered one- and two-clique cases.
+Reconstructed the synchronous open-neighbor update on K_a join I_b. Monochromaticity of the six original colour classes is exact: while a class remains at its current colour it contributes zero to its own successor count; clipping each original class size at 2 preserves every at-least-two predicate after every transition. The finite quotient has precisely 3^6=729 clipped mass patterns. Independently enumerated all 729 at exact integer arithmetic and obtained F^7=F^4 on every nonempty class, 122 three-cycle-attracted patterns, 31 distinct EGF monomials and sharp first entry 4. Direct labelled small-graph dynamics and exact coefficient calculations corroborate. Symbolic coefficient weights 1,z,U and 1,w,V give Phi=U^3 exp(3w)+3U^2 exp(2w)[V+z(V+w)]+3V^3(z+z^2)+z^3(V+w)^3; coefficient extraction yields all labelled basins. The fixed-a Dirichlet-style occupancy union bound for three large independent-class occupancies gives the claimed p_a and uniform error. Boundaries a,b>=1 and explicit G_(2,5) sharpness respected; all-a,b proof relies on quotient exactness, not extrapolation from 752877 labelled finite states. RESULT.md blob 6f65013775aab7121f9816c4e3353ecfa7b5e076 and finite_certificate.py blob 367aba932fada56d23bf97eae6b4e6a4d244bd61 actually inspected.
 
-## Closest sources and limitations
-Durrett–Griffeath (1993), arXiv:patt-sol/9303002; Goles–Matamala (1995), DOI 10.1007/3-540-59175-3_105; Goles–Matamala (1997), DOI 10.1016/S0166-218X(97)84104-2; Epperlein–Siegmund (2013), DOI 10.3934/dcdsb.2013.18.1827. Full-text priority comparison with the two Goles–Matamala articles is incomplete. The proof is executable exhaustive finite-class verification with an exact reduction, not a manually tabulated 729-case analysis. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent exact attraction basin count and fixed-clique oscillation law for the 3-color, threshold-2 complete SPLIT graph; retain meaningful archival priority risk.
+
+## value
+
+PASS
+
+The exact universal four-step sharp first-entry bound, complete labelled transient attraction-basin generating function for two independent graph-size parameters, and nonmonotone fixed-clique-size limiting oscillation fractions are mathematically structural, not an arbitrary sample or standard textbook deduction. The natural system is a complete split network, and the exact basin census can be reused for parameter comparison and probabilistic initialization. Its value does not rest only on the small finite certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
