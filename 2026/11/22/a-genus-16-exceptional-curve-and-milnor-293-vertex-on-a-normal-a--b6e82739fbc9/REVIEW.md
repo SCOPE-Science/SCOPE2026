@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS (self-review)
+The explicit cyclic triple cover resolves the vertex by eighteen basepoint blowups, while the twelve simple elliptic points are resolved separately. Its smooth inverse image of the conic is a connected degree-three cover of \(\mathbb P^1\) with eighteen total ramification points, so Riemann--Hurwitz yields genus \(16\). The source divisor square \(12\), combined with eighteen simple blowups, gives square \(-6\); the normal line-bundle identity is obtained from the divisor of the cyclic coordinate. The proper transform is the sole exceptional curve over the vertex. Independently, a stratified Euler calculation gives \(e(S)=70\), and the hypersurface smoothing formula with twelve cubic cones gives vertex Milnor number \(293\). All exact arithmetic and an explicit generic-open witness passed the standalone checker. The local geometric genus is not conflated with the Milnor number.
+
+## Originality — PASS (qualified)
+The source proves existence and normality of the degree-nine projective model, and earlier singularity work already computes the thirteen-point basket and the vertex local geometric genus \(45\). The present claim is not a repetition of that singularity basket: it determines the full **minimal exceptional resolution support**, its normal bundle and the distinct local Milnor invariant. Those quantities are not fixed merely by the source's normality or by the earlier vertex multiplicity, tangent cone and geometric genus; actual comparison of the closest statements supports noncoverage. Searches of mathematical records and targeted literature produced no equivalent explicit computation. The prior dual-Hesse geometry is acknowledged; unindexed or inaccessible accounts remain a publication-priority risk.
+
+## Value — PASS
+The minimal resolution of the highly singular vertex was previously left undetermined, although this model has a natural role in realizing a product of elliptic curves as a normal surface in projective three-space. Its genus-\(16\), degree-three covering exceptional curve and negative normal bundle determine concrete birational and local geometry, while \(\mu=293\) and the global Euler characteristic quantify topological smoothing behavior. These are motivated invariants of a distinguished singularity, not arbitrary numerical slices. No broader classification is asserted.
+
+## Closest literature and limits
+Chen--Lazarsfeld--Moretti (2026), Proposition A, Proposition 1.6 and Remark 1.10, supply the model and the cyclic-map mechanism. Roulleau--Urzúa (2015) supply earlier dual-Hesse arrangement geometry, but not the named nonic's vertex resolution or Milnor number in the inspected material. An earlier mathematical claim for this exact model identifies the singularity basket and geometric genus, not its full vertex resolution. The work does not determine the vertex's analytic normal form or exceptional-conic specializations. One secondary full text could not be read completely; absolute historical priority and independent certification are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
