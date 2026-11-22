@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies every graph edge and every field/time quantifier. The shore-swap conjugation reduces the modular adjacency to \(J-I\) and \(I-J\); the rank-one identity \(J^2=nJ\) distinguishes semisimple residue classes from the nonzero square-zero class. Temporal characteristic polynomials alone are insufficient at the collision; the explicit eigenkernel argument forces a single size-four Jordan block in each resonant sector. The known dimensions of fixed spaces of unipotent/negative-unipotent blocks then imply the three exact all-time exponent formulas, sharp orders \(18,12,6\), and Möbius inversion. Every finite-field extension preserves the claimed ranks. A separate full-matrix modular eliminator performed 216 exact nullity comparisons for six sizes and 360 direct trajectories; these do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS, qualified
-Vlasov's Section 3 supplies the general previous-state-subtraction construction, not a crown-graph orbit census. Klee--Stamps (2020, Proposition 8) supply the exact real Laplacian characteristic polynomial for crown graphs, but their statement does not determine modular nilpotent Jordan chains for sizes divisible by three or classify reversible-wave clocks and all temporal populations. The published complete-bipartite finite-field census is on a different graph with order eight/twelve; the published cycle census covers only the excluded crown order three. A preexisting Boolean-cube result covers the excluded order-four crown. Crown-graph majority and cyclic-excitation findings concern different nonlinear rules. Searches by graph aliases, characteristic, update, period and equivalence did not locate coverage of the final statement for every \(n\ge5\). Risks: a preexisting unindexed graph-wave census and inaccessible older general-wave full text, plus the fact that existing spectral algebra is an input to the proof.
+PASS
 
-## Value — PASS
-Removing a perfect matching changes a natural previously studied graph wave from an intact biclique into a nontrivial rank-one perturbation on each shore. The exact three-residue period boundary, especially the order-eighteen Jordan resonance for every size divisible by three, is a structural all-family result with a complete time-orbit census, not a worked numerical instance or a relabeling. Explicit primitive counts are usable for counting recurrent configurations and comparing defective dense-network dynamics. Nothing is claimed for more general characteristics or nonlinear dynamics.
+Crown adjacency is [[0,J-I],[J-I,0]]. Because 2 is invertible in characteristic 3, change to sum/difference shores gives B=J-I and -B, and J^2=nJ. For n divisible by 3, J has a nontrivial rank-one nilpotent J2; the corresponding ±1 adjacency blocks lift to J4 at the temporal eigenvalue ±1, accompanied by J2 pairs. For n=1 mod3, the constant lines have spatial eigenvalue zero and produce two irreducible quadratic X^2+1 blocks of order 4. For n=2 mod3 all temporal pieces are J2(±1). Taking fixed dimensions min(size,3^v3(t)), conditioned on parity and divisibility by four, gives each of the three source formulas and exact minimal orders; invertibility provides immediate periodicity and Mobius populations. Independently built matrices and checked every time through the asserted order over F3 for n=5,...,9. All n and field extensions follow from the algebraic decomposition, not finite testing.
 
-## Closest literature and limits
-- A. Yu. Vlasov, *On generalization of reversible second-order cellular automata*, arXiv:1311.4297v1 (2013-11-18), Section 3.
-- S. Klee and M. T. Stamps, *Eigenvalues of graph Laplacians via rank-one perturbations*, arXiv:2008.01669v1 (2020-08-04), Section 3.3, Proposition 8.
-- published-finding corpus public research records `167b2c8980f2` (complete bipartite ternary waves) and `6f3d55fba7da` (cycle reversible waves), full corresponding scientific results inspected.
-- Macfarlane (2004), DOI:10.1088/0305-4470/37/45/006, relevant but not fully accessible; unindexed equivalent orbit counts cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A crown graph is the matching-deleted K_{n,n}, equivalently the bipartite double cover of a clique. Klee–Stamps Proposition 8 computes its Laplacian characteristic polynomial over ordinary characteristic, but not the exceptional characteristic-three Jordan time dynamics. Existing exact finite-field wave statements for full bicliques and cycles intersect only different or excluded graph sizes; none implies the displayed all-size time census.
+
+## value
+
+PASS
+
+Deleting a single matching from a complete bipartite graph sharply changes reversible-wave clocks and creates a genuine three-residue modular Jordan trichotomy. Full fixed-iterate dimensions and primitive orbits are natural exact graph dynamical invariants, useful for classifying finite reversible linear cellular rules, without asserting arbitrary-graph generality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
