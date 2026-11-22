@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:09:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob ce05280d84c33f3fd1c095e8b977ed6f0691807c",
+        "Frozen verify_majority.py Git blob 3d40b0cccda1bfd7381852250e94d60dfd5f7427",
+        "Frozen verify_cpp.txt Git blob eec6fc9aaa02b9af076fb45428661243723e385d",
+        "Independent /mnt/data/scope05_independent_checks.py full 32768-state enumeration and S6 spatial traversal"
+      ],
+      "rationale": "Independently rebuilt KG(6,2) from all fifteen 2-subsets of six points, with six disjoint-neighbor bit masks and the precise strict-majority threshold four/tie old-bit rule. Exhaustively generated all 2^15=32768 state updates anew and verified F^5(x)=F^3(x) for every x. The witness 63→28704→32→0→0 gives F^4(63)≠F^2(63), proving three steps sharp. Independently computed first periodic-entry populations (t,p)=(0,1):502,(0,2):5340,(1,1):4426,(1,2):3780,(2,1):13680,(3,1):5040. Full orbit-basins exactly (period,size,number)=(1,1,360),(1,10,140),(1,10944,2),(2,2,2460),(2,20,210); 502 fixed and 2670 temporal 2-cycle orbits. Six maximum 5-edge intersecting-star sets characterize Aut(KG(6,2))=S6 (pairwise intersecting >3 edges form a star), and independent adjacent-transposition BFS on all recurrent temporal orbit keys yields exactly eight fixed and eighteen 2-cycle spatial classes with sizes matching the published table. These are complete finite proofs, not sampled states; source code was also read at actual frozen paths.",
+      "residual_risks": [
+        "This exact census is for this ONE 15-vertex graph, not a family claim for all KG(n,2).",
+        "The classification depends on retaining the previous state at a 3-3 neighbor vote tie; NOR, three-state excitation or alternating updates are different maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos (1981) proves finite synchronous symmetric threshold systems have eventual fixed or 2-cycles, but does not give KG6,2 sharp transient or orbit basins.",
+          "Benjamini et al 2014/2016 finite background cites this periodicity and develops unimodular/infinite-graph behavior.",
+          "An all-n KG(n,2) NOR theorem has F^3=F and explicit NOR attractors, but is a different map from strict majority."
+        ],
+        "reasoning": "The stronger all-graph theorem only dominates the general period upper bound, not finite transient cutoff or basin enumeration. A broad parameter range n under another update rule is inapplicable.",
+        "searches": [
+          "Resultary search: Kneser KG(6,2) strict majority tie retaining synchronous 3 step 502 fixed 2670 two-cycles",
+          "Resultary KG(n,2) all orders binary NOR vs majority",
+          "Goles Olivos finite symmetric threshold network period two"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1405.2486",
+        "https://doi.org/10.1016/0166-218X(81)90034-2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-excitation-clocks-and-s-6-symmetry-on-the-first-triangular--df4858aabb3d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite Goles–Olivos theorem permits many transient depths and basin partitions; it neither establishes F^5=F^3 nor 502 fixed states.",
+          "Greenberg–Hastings has 3^15 states, primitive periods including 7, different from binary majority 2^15.",
+          "NOR is antitone relation, F^3=F, and has n+binom(n,3) fixed points, unlike binary majority 502 at n=6."
+        ],
+        "reasoning": "Different dynamics on the same graph cannot be substituted; only the eventual period-two qualitative fact transfers from classical threshold theory. The new complete 2^15 census and exact S6 orbits are independent data.",
+        "searches": [
+          "Resultary search: Kneser KG(6,2) strict majority tie retaining synchronous 3 step 502 fixed 2670 two-cycles",
+          "Benjamini 2014 Theorem 1.1 majority finite period two",
+          "Resultary excitation KG6,2 S6 and NOR KG(n,2) rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(6,2) is the complement of the 15-vertex triangular graph T6, a (15,6,1,3) strongly regular graph; all are the same 6-regular disjoint-pair graph.",
+          "Binary open-neighbor threshold with tie retained is defined by 0 if <=2, 1 if >=4, unchanged if exactly3."
+        ],
+        "reasoning": "These graph aliases were searched; strict threshold majority with tie retention must remain distinguished from NOR, self-inclusive majority and Greenberg–Hastings dynamics.",
+        "searches": [
+          "Resultary search: Kneser KG(6,2) strict majority tie retaining synchronous 3 step 502 fixed 2670 two-cycles",
+          "Resultary KG(6,2) complement of triangular graph T6 (15,6,1,3) majority exact basin",
+          "strict majority Kneser graph KG(6,2) retained tie two cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary own precise rule/count record and same-graph three-state excitation record (periods 1,3,4,7), plus all-n NOR attractor table, but no independently indexed exact 502/2670 majority census.",
+          "The old general eventual period result contains no graph-specific table."
+        ],
+        "reasoning": "Exact figures were compared jointly with graph and transition convention; isolated coincidence of 15 vertices or same S6 symmetry is not mathematical implication. Negative database observation is not proof of priority.",
+        "searches": [
+          "Resultary search: Kneser KG(6,2) strict majority tie retaining synchronous 3 step 502 fixed 2670 two-cycles",
+          "Kneser KG(6,2) majority 502 2670 basin 10944 20",
+          "15 vertex triangular graph majority 502 fixed 2670 two-cycles"
+        ]
+      },
+      "rationale": "General symmetric threshold-system theory already proves eventual period at most 2, but it does not imply the exact sharp three-step bound, five orbit-basin sizes or 26 S6 classes for this particular map. Other same-graph published records use NOR or three-state excitation, different local transition rules. Bounded originality PASS for exact natural complete census, with unindexed historical enumeration risk.",
+      "residual_risks": [
+        "Older enumerations of (15,6,1,3) majority under alternate strongly-regular graph nomenclature may be unindexed.",
+        "Goles–Olivos full 1981 paper was not obtained; bibliographic abstract establishes only general eventual period result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact KG(6,2) sharp three-step/basin classification in inspected material",
+          "evidence": "arXiv:1405.2486v1 initial 2014-05-11, finite period-two theorem credited to Goles–Olivos",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+          "material_read": "Accessible open-access primary PDF introduction, definitions and Theorem 1.1 finite-graph periodicity discussion",
+          "method": "Read selected original PDF sections and rendered first page; not a claim of exhaustive whole-document priority exclusion",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Primary majority dynamical systems and relevant known general period bound"
+        },
+        {
+          "assessment": "General eventual period at most two known; exact specialized basin table not established by material read",
+          "evidence": "Goles–Olivos 1981 Discrete Applied Mathematics 3 pp93–105",
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(81)90034-2",
+          "material_read": "Bibliographic entry and theorem abstract, not full original 1981 article",
+          "method": "Accessible DOI metadata/abstract; complete paper inaccessible and not claimed read",
+          "title": "Comportement périodique des fonctions à seuil binaires et applications",
+          "trigger": "Historically decisive finite symmetric binary threshold period-two result"
+        },
+        {
+          "assessment": "Different synchronous open-neighborhood NOR map; no majority implication",
+          "evidence": "NOR F(S)={e: every active edge intersects e}",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3",
+          "material_read": "Complete RESULT.md definition, theorem, exact NOR basins and proof",
+          "method": "Read primary published Resultary RESULT.md",
+          "title": "Complete NOR attractors and basin concentration on two-set Kneser graphs",
+          "trigger": "Same graph family, superficially stronger all n result"
+        },
+        {
+          "assessment": "Three-color Greenberg–Hastings map, not binary majority; periods and state space differ",
+          "evidence": "3^15 excitation states and periods 1,3,4,7 versus 2^15 binary majority and periods <=2",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-excitation-clocks-and-s-6-symmetry-on-the-first-triangular--df4858aabb3d",
+          "material_read": "Full RESULT.md theorem, 3-state map and verification and symmetry discussion",
+          "method": "Read primary Resultary RESULT.md",
+          "title": "Exact excitation clocks and S6-symmetry on the first triangular Kneser graph",
+          "trigger": "Same exact KG(6,2) graph and automorphism group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1405.2486",
+        "https://doi.org/10.1016/0166-218X(81)90034-2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-excitation-clocks-and-s-6-symmetry-on-the-first-triangular--df4858aabb3d"
+      ],
+      "rationale": "KG(6,2) is the first triangle-containing two-set Kneser graph and a natural highly symmetric test object. The exact and sharp three-step relaxation, basin spectrum and 26 complete S6 orbit classes give meaningful dynamics beyond a routine application of eventual period-two theory. The large unanimous basins versus isolated 2-cycles and symmetry splitting are reproducible finite structural invariants a future study of graph majority dynamics can use without repeating the full enumeration.",
+      "residual_risks": [
+        "This self-contained exact finite classification is not claimed to imply a family-wide majority theorem; no artificial paper-sized contribution requirement applied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge independent assessment of the frozen mathematical RESULT, not peer review or external publication certification. Source text was treated strictly as evidence, not instructions.",
+    "No changes to original science, files or historical ledger. Source SHA guards not fully recursively verified; publication is withheld, not marked as ready."
+  ],
+  "schema_version": 1
+}

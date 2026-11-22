@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact domain consists of all \(2^{15}=32768\) binary configurations on \(KG(6,2)\), with open-neighbor majority and incumbent tie retention. The finite proof checks the displayed update and the all-state identity \(F^5=F^3\), verifies a concrete counterexample to \(F^4=F^2\), computes each orbit's first periodic entry and exact basin, and proves that its five transposition generators give the full spatial automorphism group. A separately implemented set-based Python verifier corroborates the complete entry and basin tables and the symmetry classes. The certificate programs and output files were replayed against their package paths.
+PASS
 
-## Originality
+Independently rebuilt KG(6,2) from all fifteen 2-subsets of six points, with six disjoint-neighbor bit masks and the precise strict-majority threshold four/tie old-bit rule. Exhaustively generated all 2^15=32768 state updates anew and verified F^5(x)=F^3(x) for every x. The witness 63→28704→32→0→0 gives F^4(63)≠F^2(63), proving three steps sharp. Independently computed first periodic-entry populations (t,p)=(0,1):502,(0,2):5340,(1,1):4426,(1,2):3780,(2,1):13680,(3,1):5040. Full orbit-basins exactly (period,size,number)=(1,1,360),(1,10,140),(1,10944,2),(2,2,2460),(2,20,210); 502 fixed and 2670 temporal 2-cycle orbits. Six maximum 5-edge intersecting-star sets characterize Aut(KG(6,2))=S6 (pairwise intersecting >3 edges form a star), and independent adjacent-transposition BFS on all recurrent temporal orbit keys yields exactly eight fixed and eighteen 2-cycle spatial classes with sizes matching the published table. These are complete finite proofs, not sampled states; source code was also read at actual frozen paths.
 
-PASS, qualified. The 1981 finite-threshold theorem and the inspected primary 2014 majority-dynamics text yield eventual period at most two but not a three-step uniform cutoff or these specific populations. Two especially close published records were read: three-state Greenberg–Hastings excitation on the identical graph and binary NOR on the entire two-set Kneser family. Their update functions are different, and no reduction of their enumerations to the present majority rule was found. Claim-specific, numerical, alias and spectral-graph searches returned no exact census. Unindexed historical computations and inaccessible portions of the 1981 primary text remain risks.
+## originality
 
-## Value
+PASS
 
-PASS. \(KG(6,2)\), the complement of the triangular graph, is the smallest two-subset Kneser graph following the Petersen graph and the first in that family with even degree, hence tie retention genuinely matters. The sharp short convergence time, the fact that every eventual oscillator is reached within one step, the pronounced five-point basin-size spectrum and the exhaustive \(S_6\) classification describe nontrivial attraction geometry of a canonical regular graph. These are full natural dynamical invariants, not arbitrary state subsets. No claim is made of a general theorem for all graph orders.
+General symmetric threshold-system theory already proves eventual period at most 2, but it does not imply the exact sharp three-step bound, five orbit-basin sizes or 26 S6 classes for this particular map. Other same-graph published records use NOR or three-state excitation, different local transition rules. Bounded originality PASS for exact natural complete census, with unindexed historical enumeration risk.
 
-## Limits
+## value
 
-Results are exact for this single labelled graph and update rule. Computational checks are finite exhaustive proofs for this finite state space, not claims for a graph family. Historical priority and independent external validation remain open. The earlier foundational journal paper is dated only to a month by the accessible bibliographic record; its exact original public posting day was not inferred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+KG(6,2) is the first triangle-containing two-set Kneser graph and a natural highly symmetric test object. The exact and sharp three-step relaxation, basin spectrum and 26 complete S6 orbit classes give meaningful dynamics beyond a routine application of eventual period-two theory. The large unanimous basins versus isolated 2-cycles and symmetry splitting are reproducible finite structural invariants a future study of graph majority dynamics can use without repeating the full enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
