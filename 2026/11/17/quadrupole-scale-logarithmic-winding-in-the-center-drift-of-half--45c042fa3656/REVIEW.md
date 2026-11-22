@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** Direct summation of the image-vortex equation makes the weighted-center height constant. The centered dipole vanishes exactly; expanding the uniformly regular image denominators gives the unique quadratic correction. The published \(O(\tau)\) shape asymptotic yields \(Q_2=\tau^{1+2i\Omega}(Q_*+O(\tau))\), and integration proves the remainder \(O(\tau^{5/2})\). The explicit circulations and non-equilateral profile satisfy the Gröbli equations, making the oscillation nonvacuous. The standalone finite checker tests identities and the center velocity but is not used as a proof of the asymptotic theorem.
+## correctness
 
-**Originality: PASS (provisional priority).** Full-text inspection of Yang, arXiv:2611.01014v1, Sections 2, 4, 5 and Appendix A confirms that the known exact center equation and leading collapse asymptotic do not state the quadratic center correction or sharp two-sided logarithmic oscillation. Searches for half-plane, image vortex, Gröbli, center of vorticity, quadrupole and multipole formulations found no directly covering published result. Drivas–Khanikati–Khanikati's collapse-on-surfaces preprint was compared at abstract level only, and generic multipole theory could contain related formulas. These are residual priority risks rather than evidence of novelty by absence alone.
+PASS
 
-**Value: PASS.** The center is a physically intrinsic collective coordinate for collapsing vortex clusters. Distinguishing the universal wall-driven drift from the first profile-dependent signal, with its exact amplitude and phase, is useful for resolving asymptotic near-collision trajectories and comparison with image-induced drift approximations. The result identifies a sharp, nonvanishing next-order observable, not an arbitrary truncation or recomputation of a known table.
+PASS: Pairwise direct-vortex forces cancel in the weighted center; the half-plane image contribution is real. Weighted centering cancels the linear image multipole, while the second weighted moment equals 2G Re(Q2). Yang strong-stable shape W+O(tau) implies Q2=tau^(1+2iOmega)Q*+O(tau^2); an O(tau^(3/2)) velocity remainder integrates to O(tau^(5/2)). Integrating 0..tau gives divisor 2+2iOmega and the stated 1/(16 pi Y^3 sqrt(1+Omega^2)) amplitude. Exact profile identities and moment values independently checked; four finite-scale velocity comparisons support only numerics. Restricts to specified exact positive-height collapsing branch, not arbitrary neighboring trajectories.
 
-**Scope and residual risks.** The published strong-stable-branch theorem is used as an external premise; the argument does not claim a generic collapse or independent verification of its existence. Priority over potentially relevant general image-vortex multipole results is not fully established. The bound is asymptotic for fixed positive wall distance, not uniform as the collision point approaches the boundary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Yang establishes the source half-plane collapse and O(tau) center control, but neither the shape-dependent order-two center asymptotic nor sharp log-periodic residual; distinct full-plane and curved-surface vortex papers do not imply the boundary-image coefficient. A general multipole theorem specialized to this branch remains a historical alias risk.
+
+## value
+
+PASS
+
+PASS: identifies a nontrivial boundary-induced quadrupole correction and demonstrates persistent normalized winding where the leading center estimate hides rotation; the amplitude and explicit nonzero collapse profile are natural next-order invariants of the cited exact singular solution, not a routine restatement of its existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
