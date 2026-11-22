@@ -1,0 +1,244 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T02:20:45Z",
+  "axes": {
+    "correctness": {
+      "computational_evidence": {
+        "domain": "r=3..5, m=2..4, q=t² in {1/4,1,m/(m-1),3/2,4} plus endpoint m=2..11",
+        "exact_instances": 45,
+        "independent_check_output": "worker10_variance_independent_check_output.txt",
+        "independent_check_script": "worker10_variance_independent_check.py",
+        "limitations": "Finite corroboration only; algebraic proof covers all r>=3,m>=2,0<t<=2. No external formal Lean proof."
+      },
+      "proof_paths": [
+        "2026/11/08/a-sharp-hilbert-valued-variance-transition-on-equal-size-multipa--8a5786a62d5b/RESULT.md: Two exact upper bounds; exact deficit; simplex Gram construction; plateau equality geometry; sharp affine dimensions",
+        "2026/11/08/a-sharp-hilbert-valued-variance-transition-on-equal-size-multipa--8a5786a62d5b/check_hilbert_clusters.py: inspected rational Gram witness and sampled-map checker (not executed as opaque evidence)",
+        "worker10_variance_independent_check.py: independently constructed exact rational matrix checks and 1d/2d endpoint constructions"
+      ],
+      "rationale": "From actual frozen RESULT.md, let A mean within-class variance and B variance of class centroids. The exact averaged cross-distance inequality gives (r-1)A+rB <=(r-1)/2 and internal pair identity gives A <= C=(m-1)t²/(2m). Consequently the upper envelope is min{1/2,(r-1)/(2r)+C/r}. The orthogonal within-class regular-m-simplex and class-center regular-r-simplex Gram model saturates below t_*²=m/(m-1); above it a common-center family of orthogonal centered regular simplices with squared norm 1/2 saturates universal 1/2. The exact nonnegative cross slack proves all cross distances equal 1 at saturation; B=0 and r>=3 force A_i+A_j=1 hence A_i=1/2, equal radii, and all cross inner products zero, with within distances <=t sufficient. At/below boundary, within cap also saturates so every pair distance equals its metric cap; double-centering fixes isometric Gram and rank rm-1 below, r(m-1) at boundary. At t=2 each centered equal-norm class requires dimension>=1 (even m) or >=2 (odd m), realized by balanced antipodes or centered regular m-gon, with orthogonal class spans; dimension minima r/2r. Independently written exact SymPy Gram/rank checker verified 45 sampled r,m,t² witnesses and small-case eigenvalues plus endpoint polygon examples for m=2..11. No finite check is substituted for general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior r>=3 negative-type formula covers subthreshold embeddability, not nonisometric plateau maximizers.",
+          "The two-class published one-sided variance theorem is an exact same-functional special case but does not classify r>=3, where 3+ classes force all norm radii 1/2 and pairwise orthogonal spans.",
+          "General semidefinite embedding formulations indicate computability, not an explicit r>=3 equality/rank/dimension law."
+        ],
+        "reasoning": "The strongest prior negative-type and two-class results collectively cover major prerequisites but do not state or directly imply the entire post-threshold r>=3 optimizer characterization or the t=2 minimum maximizing-dimension parity law. Generic SDP representation alone is not a dominating exact formula.",
+        "searches": [
+          "Resultary semantic search: sharp Hilbert-valued Lipschitz variance equal size complete multipartite graphs threshold sqrt(m/(m-1))",
+          "Resultary semantic search: maximal Hilbert Lipschitz variance nonexpansive maps complete multipartite graph target dimension parity",
+          "Web search: sharp variance nonexpansive Hilbert embedding finite metric maximizers semidefinite metric",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-collective-negative-type-thresholds-for-complete-multipartite-me--97a979077d8c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scalar-hilbert-lipschitz-variance-on-two-distance-bipartit--b0c058dd266d/RESULT.md",
+          "https://link.springer.com/article/10.1007/s40840-024-01736-x"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s40840-024-01736-x",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-collective-negative-type-thresholds-for-complete-multipartite-me--97a979077d8c/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scalar-hilbert-lipschitz-variance-on-two-distance-bipartit--b0c058dd266d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-quarter-part-transition-for-lipschitz-to-variance-embedd--ec6e9a4ec8f9/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3/RESULT.md",
+        "https://arxiv.org/pdf/0902.1156",
+        "https://arxiv.org/pdf/1807.07678",
+        "https://arxiv.org/pdf/2012.04341",
+        "Resultary semantic search: sharp Hilbert-valued Lipschitz variance equal size complete multipartite graphs threshold sqrt(m/(m-1))",
+        "Resultary semantic search: maximal Hilbert Lipschitz variance nonexpansive maps complete multipartite graph target dimension parity",
+        "Resultary semantic search: negative type Euclidean embedding multipartite graph metric simplex variance spread projection",
+        "Web search: Hilbert-valued Lipschitz variance complete multipartite graph metric variance two distance clusters orthogonal simplices",
+        "Web search: sharp variance nonexpansive Hilbert embedding finite metric maximizers semidefinite metric"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neg-type prior + standard pairwise variance identity IMPLIES the low-t isometric-phase branch and affine-rank collapse; this is prior coverage, not a novel contribution.",
+          "For r>=3, the new plateau equality proof combines universal upper bound and equality of all r choose 2 cross-distances, giving A_i+A_j=1 for every pair and forcing A_i=1/2; the r=2 previous linear program allows nonunique splits.",
+          "At t=2, new parity statement is about minimum target dimension for a Hilbert norming map (r when m even, 2r when m odd), not fixed-metric isometric dimension or scalar variance."
+        ],
+        "reasoning": "Explicitly subtract known threshold/rank/isometric-phase implications from novelty. The remaining r>=3 full norming geometry and endpoint minimal dimension are not consequences of Robertson, all-part negative type, fixed-distance spectra, scalar spread or polygon/facet classification without additional post-threshold analysis.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-collective-negative-type-thresholds-for-complete-multipartite-me--97a979077d8c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scalar-hilbert-lipschitz-variance-on-two-distance-bipartit--b0c058dd266d/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-quarter-part-transition-for-lipschitz-to-variance-embedd--ec6e9a4ec8f9/RESULT.md",
+          "https://link.springer.com/article/10.1007/s40840-024-01736-x",
+          "https://arxiv.org/pdf/1807.07678",
+          "https://arxiv.org/pdf/0902.1156"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published all-part negative-type theorem implies same t_* and rank collapse for r>=3 after t=2^{p/2}; pairwise variance then implies isometric-phase optimum.",
+          "Robertson 2024 Theorem 4.3 proves two-class threshold; its variance counterpart, in a separate published two-class finding, has flexible post-threshold radius splits."
+        ],
+        "reasoning": "Do not count the r-independent threshold, isometric-phase sharp variance, or threshold rank collapse as new. For equal sizes, negative-type prior with Lambda=1-1/m and its critical multiplicity r-1 covers them. But an equivalence between negative type and isometric embeddability does not determine the optimum or all norming Hilbert configurations when t>t_*, a regime in which full metric isometry is impossible.",
+        "searches": [
+          "Resultary semantic search: sharp Hilbert-valued Lipschitz variance equal size complete multipartite graphs threshold sqrt(m/(m-1))",
+          "Resultary semantic search: negative type Euclidean embedding multipartite graph metric simplex variance spread projection",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-collective-negative-type-thresholds-for-complete-multipartite-me--97a979077d8c/RESULT.md",
+          "https://link.springer.com/article/10.1007/s40840-024-01736-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary includes the target itself, ignored as self-match, and indexed 2026-11-02 all-part negative-type, 2026-11-08 bipartite Hilbert variance, 2026-11-08 scalar multipartite variance, 2026-10-11 facets/projection; nearest RESULTS compared in full.",
+          "Scalar spread and facet tables apply to scalar maps, negative type to isometric embeddability, not the full r>=3 Hilbert plateau optimizer set."
+        ],
+        "reasoning": "Actual semantic searches and exact full published theorem comparisons found material overlap but no exact table establishing the plateau classification/parity law. Search absence is not novelty proof; results are qualified by unindexed literature risk.",
+        "searches": [
+          "Resultary semantic search: sharp Hilbert-valued Lipschitz variance equal size complete multipartite graphs threshold sqrt(m/(m-1))",
+          "Resultary semantic search: maximal Hilbert Lipschitz variance nonexpansive maps complete multipartite graph target dimension parity",
+          "Resultary semantic search: negative type Euclidean embedding multipartite graph metric simplex variance spread projection",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-quarter-part-transition-for-lipschitz-to-variance-embedd--ec6e9a4ec8f9/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scalar-hilbert-lipschitz-variance-on-two-distance-bipartit--b0c058dd266d/RESULT.md"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the COMPLETE r>=3 Hilbert sharp variance and especially nonisometric plateau equality classification and endpoint minimal-dimension parity. IMPORTANT partial coverage: the November 2 published all-multipartite negative-type theorem ALREADY implies the t_* threshold, rank collapse and (with elementary pairwise identity) the isometric-side variance. The separate r=2 published Hilbert variance theorem is a same-functional precedent. Those parts are not regarded as novel. The complete post-threshold r>=3 equality/dimension classification remains unproved by inspected prior claims. Search absence is not proof of priority.",
+      "residual_risks": [
+        "Unindexed all-part Euclidean-distance SDP or finite metric energy literature may already determine the plateau equality set and parity law.",
+        "The sharp threshold and isometric-phase rank collapse were already published in the all-multipartite negative-type result of 2026-11-02; any novelty description must not attribute these to this theorem.",
+        "Only sections/results relevant to comparison were read for long PDF papers; did not assert whole-document noncoverage.",
+        "The source original relationship-to-prior-work section lacks explicit credit to the strongly overlapping 2026-11-02 all-part theorem; an editorial correction would improve priority attribution before any release."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives balanced TWO-class t_* embeddability/least-distortion threshold, not the r>=3 plateau sharp variance or equality classification",
+          "evidence": [
+            "Theorem 4.3 treats K_{m,n} and c_2(X,d^{p/2}); its displayed distortion formula, proof and r=2 simplex witness do not optimize a Hilbert-variance functional with r>=3."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-024-01736-x",
+          "material_read": "Accessible full-text HTML: Introduction, Section 4.1, Lemma 4.2, Theorem 4.3 and its displayed proof; other sections not exhaustively reread",
+          "method": "Full-text HTML source accessed; targeted sections and theorem/proof inspected",
+          "title": "Negative Type and Bi-lipschitz Embeddings into Hilbert Space",
+          "trigger": "Same two-class metric geometry and sharp Hilbert snowflake threshold"
+        },
+        {
+          "assessment": "Decisive partial prior coverage: equal m implies lambda=1-1/m and the exact same t_*; its rank formula supplies rm-1 to r(m-1) collapse; together with the elementary pairwise variance identity it also yields isometric-phase optimum. It does not give above-threshold max variance, every plateau optimizer, or endpoint dimension parity.",
+          "evidence": [
+            "Set t=2^{p/2}; 2^p(1-1/m)<=1 iff t<=sqrt(m/(m-1)); multiplicity r of top a_i implies kernel dimension r-1 at threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-collective-negative-type-thresholds-for-complete-multipartite-me--97a979077d8c/RESULT.md",
+          "material_read": "Entire published RESULT.md: all-exponent theorem, block decomposition proof, rank formula, collective obstruction, limitations",
+          "method": "Full primary published RESULT.md direct read",
+          "title": "Collective negative-type thresholds for complete multipartite metric graphs",
+          "trigger": "Earlier published r>=3 threshold and rank theorem very directly overlapping with this claim"
+        },
+        {
+          "assessment": "Strong overlapping r=2 special-case including plateau and scalar comparison; the equal-part post-threshold radius split is non-rigid, in contrast with r>=3 forced half-radius and orthogonal classes. Does not imply full r>=3 claim.",
+          "evidence": [
+            "Hilbert formula for two classes uses a+b+c<=1; objective m a/N +n b/N +mn c/N², and for equal parts admits equal coefficient ties."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scalar-hilbert-lipschitz-variance-on-two-distance-bipartit--b0c058dd266d/RESULT.md",
+          "material_read": "Entire published RESULT.md: theorem, linear-program optimization, equality statements, proof and limitations",
+          "method": "Full primary published RESULT.md direct read",
+          "title": "Exact scalar–Hilbert Lipschitz variance on two-distance bipartite metrics",
+          "trigger": "Same one-sided Hilbert variance functional for r=2"
+        },
+        {
+          "assessment": "Determines scalar graph spread N^-2 max(floor(N²/4),Nm-(m mod 2)); does not imply vector-valued 1/2 plateau or orthogonality and minimal dimension.",
+          "evidence": [
+            "Real-valued f:V->R; tight-edge/integer-extremizer argument not valid for Hilbert-vector objective."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-quarter-part-transition-for-lipschitz-to-variance-embedd--ec6e9a4ec8f9/RESULT.md",
+          "material_read": "Entire published RESULT.md with formula, proof and optimizer classification",
+          "method": "Full primary published RESULT.md direct read",
+          "title": "A sharp quarter-part transition for Lipschitz-to-variance embeddings on complete multipartite metrics",
+          "trigger": "Same graph endpoint t=2 and sharp variance but real-valued target"
+        },
+        {
+          "assessment": "Counts vertices/facets of scalar Lipschitz polytopes, not the Hilbert semidefinite variance or full optimizer family.",
+          "evidence": [
+            "Facet formula is 2^N-2+sum_i(2^{m_i}-2)(2^{N-m_i}-2) for 1<t<2; unlike a variance objective."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09/RESULT.md",
+          "material_read": "Entire published RESULT.md including exact three-branch facet formula, proof, relationships and limitations",
+          "method": "Full published primary RESULT.md direct read",
+          "title": "Sharp facet jumps for interpolated complete-multipartite Lipschitz-free balls",
+          "trigger": "Same exact parameterized multi-part metric, plausible table coverage"
+        },
+        {
+          "assessment": "Calculates norm of an intracluster projection in a real Lipschitz-free Banach space for within distance<=1, not largest centered Hilbert-valued variance.",
+          "evidence": [
+            "Theorem lambda=max(1,w_(1)+w_(2)), w_i=r_i(1-1/m_i)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3/RESULT.md",
+          "material_read": "Entire published RESULT.md, projection theorem, proof and limitations",
+          "method": "Full primary published RESULT.md direct read",
+          "title": "Sharp optimal projection constants for clustered finite metric free spaces",
+          "trigger": "Similar equal-cluster metrics and norm optimization"
+        },
+        {
+          "assessment": "Defines real-valued f:V->R; does not determine this Hilbert-valued variance objective; broader full paper not claimed exhaustively checked.",
+          "evidence": [
+            "Equation (1.1) uses real f and pairwise variance, pp.1-2 of arxiv v2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0902.1156",
+          "material_read": "PDF first pages/Introduction and equations (1.1), graph-spread definition, scalar extremizer discussion",
+          "method": "Web PDF text plus direct screenshot page 1",
+          "title": "On the spread of random graphs",
+          "trigger": "Foundational variance spread, possible implied optimization"
+        },
+        {
+          "assessment": "Characterizes scalar facet potentials; no Hilbert target or vector-valued variance optimizer set",
+          "evidence": [
+            "Proposition 3.5 gives three-level ±1/0 and binary scalar facets on K_{a1,...,ak}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "PDF abstract, Section 3 Proposition 3.5 (pages 6-7) and proof, page screenshot",
+          "method": "Web PDF text with page-image screenshot",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Exact complete multipartite facets and scalar potential shapes"
+        },
+        {
+          "assessment": "Fixed graph-metric squared-distance inertia/energy and majorization, not all one-Lipschitz Hilbert contractions; did not read all 23 pages",
+          "evidence": [
+            "Abstract, pp.1-3: energy E_delta=8(n-t) when all parts size>=2; no variance of arbitrary F."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.04341",
+          "material_read": "PDF abstract, sections 1-2 and stated spectral energy/inertia results, page image",
+          "method": "Web PDF text plus page screenshot",
+          "title": "On Squared Distance Matrix of Complete Multipartite Graphs",
+          "trigger": "Fixed squared-distance spectrum potentially covering dimension claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After removing prior-known negative-type threshold, isometry branch, and rank jump, this is still an exact nonexpansive vector-valued variance law for a natural r>=3 family whose nonisometric phase requires an equality classification not furnished by embeddability alone. The all-optimizer decomposition into orthogonal equal-energy class configurations and sharp parity-dependent minimum target dimension at t=2 answer natural precision/dimension questions; the 3+ class rigidity differs materially from the r=2 degenerate LP. Proof is short but structural; the fact is not just a named substitution or known table recomputation. Limitations: no arbitrary weights/unequal sizes, and no minimum dimensions for every intermediate plateau t.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s40840-024-01736-x",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-collective-negative-type-thresholds-for-complete-multipartite-me--97a979077d8c/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-scalar-hilbert-lipschitz-variance-on-two-distance-bipartit--b0c058dd266d/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-quarter-part-transition-for-lipschitz-to-variance-embedd--ec6e9a4ec8f9/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3/RESULT.md",
+    "https://arxiv.org/pdf/0902.1156",
+    "https://arxiv.org/pdf/1807.07678",
+    "https://arxiv.org/pdf/2012.04341",
+    "Resultary semantic search: sharp Hilbert-valued Lipschitz variance equal size complete multipartite graphs threshold sqrt(m/(m-1))",
+    "Resultary semantic search: maximal Hilbert Lipschitz variance nonexpansive maps complete multipartite graph target dimension parity",
+    "Resultary semantic search: negative type Euclidean embedding multipartite graph metric simplex variance spread projection",
+    "Web search: Hilbert-valued Lipschitz variance complete multipartite graph metric variance two distance clusters orthogonal simplices",
+    "Web search: sharp variance nonexpansive Hilbert embedding finite metric maximizers semidefinite metric"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete returned protocol read. No GitHub writes or dispatcher closeout.",
+    "Assigned commit tree fetched via GitHub connector and full file listing; exact Git tree object reconstructed from all seven returned blob SHAs and matches source tree.",
+    "Source texts were read through connector response; no local direct source file materialization. Metadata editing/publication withheld.",
+    "Scientific originality is qualified: Nov 2 published r>=3 negative-type theorem covers the threshold and rank, not full plateau optimizer geometry."
+  ],
+  "residual_risks": [
+    "Unindexed all-part Euclidean-distance SDP or finite metric energy literature may already determine the plateau equality set and parity law.",
+    "The sharp threshold and isometric-phase rank collapse were already published in the all-multipartite negative-type result of 2026-11-02; any novelty description must not attribute these to this theorem.",
+    "Only sections/results relevant to comparison were read for long PDF papers; did not assert whole-document noncoverage.",
+    "The source original relationship-to-prior-work section lacks explicit credit to the strongly overlapping 2026-11-02 all-part theorem; an editorial correction would improve priority attribution before any release."
+  ],
+  "schema_version": 1
+}

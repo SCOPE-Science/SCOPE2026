@@ -1,19 +1,21 @@
-# Mathematical review: sharp Hilbert-valued variance transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full pairwise-variance identity is applied separately to within-class and cross-class constraints. Setting within-class variance \(A\), centroid variance \(B\), and \(C=(m-1)t^2/(2m)\), the proof shows \((r-1)A+rB\le(r-1)/2\) and \(A\le C\). Orthogonal regular simplices attain the two resulting bounds on their respective parameter intervals. The nonnegative exact deficit identity proves all equality statements. Centered Gram ranks and the zero-sum sphere argument establish the sharp target dimensions. Rational Gram checks and random admissible-map inequalities corroborate the universal analytic argument; the latter is not based on finite extrapolation.
+PASS
 
-## Originality — PASS (qualified)
+From actual frozen RESULT.md, let A mean within-class variance and B variance of class centroids. The exact averaged cross-distance inequality gives (r-1)A+rB <=(r-1)/2 and internal pair identity gives A <= C=(m-1)t²/(2m). Consequently the upper envelope is min{1/2,(r-1)/(2r)+C/r}. The orthogonal within-class regular-m-simplex and class-center regular-r-simplex Gram model saturates below t_*²=m/(m-1); above it a common-center family of orthogonal centered regular simplices with squared norm 1/2 saturates universal 1/2. The exact nonnegative cross slack proves all cross distances equal 1 at saturation; B=0 and r>=3 force A_i+A_j=1 hence A_i=1/2, equal radii, and all cross inner products zero, with within distances <=t sufficient. At/below boundary, within cap also saturates so every pair distance equals its metric cap; double-centering fixes isometric Gram and rank rm-1 below, r(m-1) at boundary. At t=2 each centered equal-norm class requires dimension>=1 (even m) or >=2 (odd m), realized by balanced antipodes or centered regular m-gon, with orthogonal class spans; dimension minima r/2r. Independently written exact SymPy Gram/rank checker verified 45 sampled r,m,t² witnesses and small-case eigenvalues plus endpoint polygon examples for m=2..11. No finite check is substituted for general proof.
 
-The equal-size **two-class** Hilbert embeddability transition is already present, in different parametrization, in Robertson (2023), Theorem 4.3. The regular simplex technique is also known. The 2009 spread paper concerns real scalar observables, while the 2018 symmetric-edge results and interpolating multipartite facet results count faces of different finite-dimensional polytopes; the clustered projection work optimizes a linear projection norm. The 2020 squared-distance spectral paper studies fixed graph metrics. Comparison of those statements and full relevant primary texts did not find coverage of the \(r\ge3\) Hilbert-valued maximal variance, every maximizing embedding, sharp rank jump and endpoint parity law. No database search proves uniqueness; equivalent unindexed distance-geometry literature is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Nonexpansive Hilbert embeddings are basic nonlinear metric-to-linear objects. The exact variance envelope and optimizer geometry quantify their largest centered \(L^2\) dispersion, explaining precisely when the original metric can be isometrically realized by a norming configuration and when a plateau permits partial contraction. The sharp rank loss and endpoint parity law reveal dimension-sensitive structure not conveyed by a scalar spread constant or facet count.
+Qualified best-of-knowledge PASS for the COMPLETE r>=3 Hilbert sharp variance and especially nonisometric plateau equality classification and endpoint minimal-dimension parity. IMPORTANT partial coverage: the November 2 published all-multipartite negative-type theorem ALREADY implies the t_* threshold, rank collapse and (with elementary pairwise identity) the isometric-side variance. The separate r=2 published Hilbert variance theorem is a same-functional precedent. Those parts are not regarded as novel. The complete post-threshold r>=3 equality/dimension classification remains unproved by inspected prior claims. Search absence is not proof of priority.
 
-## Limitations
+## value
 
-All classes have equal positive size and equal total probability, with one common intraclass distance and unit cross distances. The minimum embedding dimension is not classified for every intermediate plateau parameter. Related two-class threshold results are prior art. Neither unindexed equivalences nor independent mathematical validation have been ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+After removing prior-known negative-type threshold, isometry branch, and rank jump, this is still an exact nonexpansive vector-valued variance law for a natural r>=3 family whose nonisometric phase requires an equality classification not furnished by embeddability alone. The all-optimizer decomposition into orthogonal equal-energy class configurations and sharp parity-dependent minimum target dimension at t=2 answer natural precision/dimension questions; the 3+ class rigidity differs materially from the r=2 degenerate LP. Proof is short but structural; the fact is not just a named substitution or known table recomputation. Limitations: no arbitrary weights/unequal sizes, and no minimum dimensions for every intermediate plateau t.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
