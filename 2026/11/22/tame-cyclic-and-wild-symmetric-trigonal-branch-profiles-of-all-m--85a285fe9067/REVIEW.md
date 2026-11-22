@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The 20-dimensional bidegree-\((4,3)\) section space has nine independent rational evaluation conditions. A complete enumeration of its \(2048\) filling sections, four affine-chart Gröbner Jacobian tests, and all \(36\) coordinate substitutions returns exactly \(66\) smooth curves in four orbits of sizes \(6,18,36,6\). The independently reconstructed half-discriminants have degree eight and are squarefree. Their exact gcd with the triple-fiber criterion gives two pure tame orbits and two pure wild orbits. Explicit order-three deck transformations, cubic monodromy, and Riemann–Hurwitz establish the full stated types, including different exponent two. The checks were run with the file embedded in this finding.
+
+**Originality: PASS, with residual priority risk.** Homma–Kim's original source establishes minimum bidegree and a smooth witness, not a branch classification. The two most relevant published exact censuses give four ambient orbits and Weil polynomials but not the branch polynomials, cubic ramification indices, geometric monodromy or splitting of the branch divisor. A different census for genus-four trigonal curves concerns rational totally ramified fibers of bidegree-\((3,3)\) curves; the cyclic genus-six septic calculations concern Cartier operators and different covers. The present implication needs the new exact half-discriminant and gcd calculations. A hidden branch census in specialist tables remains possible.
+
+**Mathematical value: PASS.** This gives the full finite natural Hurwitz invariant of the minimal split-quadric filling family, separating tame cyclic and weakly wild symmetric degree-three maps and showing that the branch divisor does not have a uniform Frobenius type even when all curves are filling. It is a geometric and arithmetic refinement of the existing embedded orbit and zeta classifications, not an arbitrary coefficient slice.
+
+The result applies only to the displayed finite field and bidegree. The complete \(S_3\) closure ramification filtration and abstract moduli of all degree-three pencils are not determined. No independent specialist review has been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
