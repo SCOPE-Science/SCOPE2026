@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T04:02:32.711614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a positive length vector h with only h_0=r !=1, direct hat integration gives 6G diagonal 2(h_{j-1}+h_j), offdiagonal h_j. On even cycles, alternating-sign conjugation yields Stieltjes B whose normalized off-diagonal row sums are precisely 1/2; the convergent Neumann series has exponential distance decay uniformly in N for each fixed r. Kernel values alternate and the integral on a cell is 3h(u²+v²)/(u+v). Convexity localizes norm maximization to knot evaluations. Full-line Green recurrence at k=0 yields a=(2r+sqrt3)/((r+sqrt3)(3r+sqrt3)), b=r/((r+sqrt3)(3r+sqrt3)); at k=2 yields t=r/(2r+sqrt3), H=2(r+1)-rt, v=1/((2+sqrt3)H-1). Independent SymPy simplification reproduces E_-, E_+ and limit (10-2sqrt3)/3, while positive factors give strictness for r<1 and r>1. Coercive Neumann bounds plus rank-two resolvent show local Green rows converge and distant rows tend to uniform value 2, establishing existence of Lambda(r). Independent direct cyclic matrix inversions for N=12,30,90,150 and r=0.15,0.5,0.95,1,1.2,2,8 matched both limiting witnesses at N=150 to about 1e-9; finite checks only corroborate, not prove infinite quantifiers. r fixed positive, N even >=6, L∞ real spline norm, and E values are lower witnesses, not exact overall norm.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior 2026/10/18 result proves the same all-tau>0 full-line norm threshold and both rational witnesses, not merely a special numerical case.",
+          "Passenbrunner Theorem 1.4 bounds all periodic knot sequences; Ciesielski–Kamont Eq. (2.12) is only a general kernel identity."
+        ],
+        "reasoning": "Periodic one-defect matrices are finite cyclic approximants of the full-line one-defect Jacobi matrix. Their nonnegative Neumann transition kernels have row sum 1/2; defect interactions are rank two and Green rows converge with exponentially small wraparound errors. Far-from-defect rows converge uniformly to the unit-grid norm 2, making the periodic limiting supremum the max of that 2 and the bi-infinite full-line kernel supremum. Earlier full-line witnesses thereby dominate the exact two-side lower bounds; the older general boundedness theorem alone would not imply strictness.",
+        "searches": [
+          "Resultary search: orthogonal projection linear spline single exceptional interval periodic defect norm Lebesgue constant 2 Green",
+          "Web search: spline orthogonal projector on periodic line single exceptional interval Lebesgue constant defect greater than 2",
+          "https://arxiv.org/pdf/1608.06720",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-stability-reversal-for-orthogonal-linear-spline-projection--d07a5524a720/RESULT.md",
+        "https://www.impan.pl/shop/publication/transaction/download/product/90654",
+        "https://arxiv.org/pdf/1608.06720",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E_-(r) = r(1-r^2)/[3(r+sqrt(3)/3)^2(r+sqrt(3))] = 3r(1-r^2)/[(r+sqrt(3))(sqrt(3)+3r)^2], identical to the prior 2026/10/18 L_0(r)-2.",
+          "E_+(r) has prefactor (4-2sqrt(3))/3 = 2(2-sqrt(3))/3 and exactly the remaining rational factors of the prior 2026/10/18 L_{-1}(r)-2; reflection across the exceptional edge maps this prior knot to source k=2.",
+          "Source proof: diag 2(h_{j-1}+h_j), offdiag -h_j, and offdiag/diag row sum=1/2, giving uniform inverse decay for fixed r; this matches the earlier full-line Jacobi recurrence."
+        ],
+        "reasoning": "Prior Oct18 theorem -> same evaluations L_0 and L_{-1}=L_2 by reflection -> same strictly positive margins for r<1 and r>1. By finite-rank row locality, the even cyclic N->infinity projectors recover these exact Green rows, and at r=1 earlier uniform-periodic result gives norm limit 2. Original result adds no independent structure, theorem family, or motivated unknown numerical invariant beyond this consequence.",
+        "searches": [
+          "Resultary search: orthogonal projection linear spline single exceptional interval periodic defect norm Lebesgue constant 2 Green",
+          "Resultary search: Franklin orthogonal spline projector one knot defect two-scale limiting Lebesgue constants",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4/RESULT.md",
+          "https://www.impan.pl/shop/publication/transaction/download/product/90654",
+          "https://arxiv.org/pdf/1608.06720"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/18 single anomalous-cell full-line theorem (source commit 2026-10-25T19:49:48Z), which gives the same one-short-cell and one-long-cell pointwise Green-kernel witnesses, with identical factored rational expressions after setting tau=r and reflecting index -1 to 2.",
+          "E_-(r) = r(1-r^2)/[3(r+sqrt(3)/3)^2(r+sqrt(3))] = 3r(1-r^2)/[(r+sqrt(3))(sqrt(3)+3r)^2], identical to the prior 2026/10/18 L_0(r)-2.",
+          "E_+(r) has prefactor (4-2sqrt(3))/3 = 2(2-sqrt(3))/3 and exactly the remaining rational factors of the prior 2026/10/18 L_{-1}(r)-2; reflection across the exceptional edge maps this prior knot to source k=2."
+        ],
+        "reasoning": "Replace source defect ratio r with prior tau; bi-infinite Green row 0 is identical and reflection exchanges prior preceding knot -1 with source following knot 2. Symbolic subtraction of E_- and E_+ from the earlier rational formulas gives zero identically for r>0. The operator is the same real L2 piecewise-linear hat projector on the same local mesh, with the finite-period limit as the lone syntactic difference.",
+        "searches": [
+          "Resultary search: orthogonal projection linear spline single exceptional interval periodic defect norm Lebesgue constant 2 Green",
+          "Resultary search: Franklin orthogonal spline projector one knot defect two-scale limiting Lebesgue constants",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md",
+          "2026/10/18 Resultary source GitHub commit 9259a35a934604a0d062febd8b67f58585b1b21f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary record dated 2026/10/18 prints identical exact short-cell and long-cell algebraic margins; file was present in 2026-10-25 Git commit.",
+          "Resultary 2026/11/08 alternating finite-circle exact table concerns a different mesh."
+        ],
+        "reasoning": "This is not merely a generic database failure or table look-up: the exact continuous family of rational witnesses is present in the earlier theorem, and its finite-circle translation is a standard local convergence argument. There is no residual new non-implied exact invariant.",
+        "searches": [
+          "Resultary search: orthogonal projection linear spline single exceptional interval periodic defect norm Lebesgue constant 2 Green",
+          "Resultary search: Franklin orthogonal spline projector one knot defect two-scale limiting Lebesgue constants",
+          "Resultary search: two periodic alternating nonuniform mesh piecewise linear orthogonal projection asymptotic norm lower than two",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4/RESULT.md"
+        ]
+      },
+      "rationale": "Full original theorem is correct but not an original mathematical contribution: an earlier publicly recorded full-line single-defect spline theorem gives EXACTLY the same two local witness functions, both strict sign ranges and the uniform-mesh threshold. Both expressions were independently reduced symbolically and matched identically. The new periodic N-even formulation converges to the corresponding bi-infinite localized Green problem by the familiar row-1/2 Neumann decay and rank-two resolvent comparison; adding this routine finite-circle exhaustion does not leave an unknown strict-threshold law. Earlier uniform-periodic and two-periodic spline results fix the reference and contrast. The 2004 general formula is credited and is not alone the decisive covering work.",
+      "residual_risks": [
+        "The cited October 18 record establishes the exact full-line theorem, not a separately worded finite even-cycle periodic limit. Transfer requires the routine Neumann-resolvent argument, reconstructed in this audit; this distinction does not rescue the same witness discovery.",
+        "Exact global norm for r !=1 is not claimed by either paper; no exact supremum or maximizing-knot classification was silently inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE of two rational witness formulas and all positive defect ratios on bi-infinite grid; periodic-limit transfer is the standard localized inverse-Gram/finite-rank limit, not new strict threshold",
+          "evidence": [
+            "E_-(r) = r(1-r^2)/[3(r+sqrt(3)/3)^2(r+sqrt(3))] = 3r(1-r^2)/[(r+sqrt(3))(sqrt(3)+3r)^2], identical to the prior 2026/10/18 L_0(r)-2.",
+            "E_+(r) has prefactor (4-2sqrt(3))/3 = 2(2-sqrt(3))/3 and exactly the remaining rational factors of the prior 2026/10/18 L_{-1}(r)-2; reflection across the exceptional edge maps this prior knot to source k=2.",
+            "Full-line theorem asserts norm P_tau >2 iff tau !=1, with same short/long witnesses and no global maximizer claim; source file was committed by 2026-10-25T19:49:48Z, before assigned 2026-11-08 record."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md",
+          "material_read": "Entire RESULT.md, including finding, hypotheses, both full Green rows, proof of exact witness formulas, literature comparison and limitations",
+          "method": "Resultary semantic search followed by full GitHub source-blob read; prior file GitHub history checked",
+          "title": "One anomalous cell destroys the sharp uniform-mesh spline projection bound",
+          "trigger": "Exact same one-exception linear-spline mesh and two-sided threshold, published in earlier dated record"
+        },
+        {
+          "assessment": "Different deformation family; yields limit 2-(a-b)^2/((3a+b)(a+3b)) < 2 for alternating contrasts, but does not by itself imply one isolated defect; contrast was already made in earlier single-defect record",
+          "evidence": [
+            "Theorem treats 2m alternating a,b intervals and explicitly obtains sharp limit 2-(a-b)^2/((3a+b)(a+3b)); no single-exception family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4/RESULT.md",
+          "material_read": "Entire RESULT.md including precise finite cyclic Green formulas, knot maximizers, exact limiting rational norm, proof and scope",
+          "method": "Full GitHub primary record inspection",
+          "title": "Exact two-periodic spline projection norms and a quadratic mesh-contrast law",
+          "trigger": "Same periodic spline projectors, but periodic alternating distortion rather than one defect"
+        },
+        {
+          "assessment": "Uniform special case already known: all finite periodic knots have norm <2 and converge exponentially to 2",
+          "evidence": [
+            "Explicit periodization of (-q)^|j| signed Green function and norm <2 for finite uniform circle, tending to 2; this supplies the reference benchmark."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+          "material_read": "Entire RESULT.md, exact periodization proof, finite bound and rational examples",
+          "method": "Full GitHub primary record inspection",
+          "title": "Exact endpoint norms of uniform periodic linear-spline orthoprojectors",
+          "trigger": "Exact baseline r=1 and finite even-cycle convergence used by assigned proof"
+        },
+        {
+          "assessment": "Not a direct proof for a single defect; its October 18 record already acknowledges the isolated-defect result and distinguishes alternating geometry",
+          "evidence": [
+            "Relation-to-prior section states that the isolated-cell perturbation has the opposite strict effect to alternating meshes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-stability-reversal-for-orthogonal-linear-spline-projection--d07a5524a720/RESULT.md",
+          "material_read": "Entire RESULT.md, assumptions, solution, limit formula and prior-work paragraph",
+          "method": "Full GitHub primary record inspection",
+          "title": "Sharp stability reversal for orthogonal linear-spline projection on alternating meshes",
+          "trigger": "Earlier two-periodic contrast and explicit acknowledgment of a single isolated defect"
+        },
+        {
+          "assessment": "General finite-interval identity, sharp two-block Franklin constant and uniform-mesh limit are antecedents, not direct single-defect theorem; decisive duplicate comes instead from 2026/10/18",
+          "evidence": [
+            "Eq. (2.12) expresses knot kernel L1 norm as weighted adjacent inverse-Gram entries; abstract gives sharp value 2+(2-sqrt(3))^2 for Franklin two-block arrangement."
+          ],
+          "identifier_or_url": "doi:10.4064/sm164-1-4; https://www.impan.pl/shop/publication/transaction/download/product/90654",
+          "material_read": "Publisher PDF abstract, introduction, §2 (Gram and kernel equations 2.2, 2.11, 2.12), beginning of §3 and theorem statement; page 4 was visually inspected",
+          "method": "Publisher open-access PDF text and screenshot page 4; checked contextual formula and scope",
+          "title": "The Lebesgue constants for the Franklin orthogonal system",
+          "trigger": "Classical arbitrary-knot inverse-Gram L1 identity and exact Franklin two-block comparison"
+        },
+        {
+          "assessment": "Theorems 1.3 and 1.4 prove a.e. convergence and knot-independent upper boundedness, not a strict r-dependent lower witness",
+          "evidence": [
+            "Theorem 1.4 supplies universal c_k L∞ bound for all periodic knots, without r-specific strictness; Theorem 1.3 gives a.e. convergence."
+          ],
+          "identifier_or_url": "arxiv:1608.06720; https://arxiv.org/pdf/1608.06720",
+          "material_read": "ArXiv PDF abstract, §§1.1–1.2, Theorems 1.1–1.4 and section proof roadmap; page 3 visually inspected",
+          "method": "ArXiv OA PDF text and screenshot",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "General periodic uniform boundedness and arbitrary knots, potential dominating theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Isolated exceptional interval amplification is a motivated structural phenomenon, but the complete claimed sign threshold and both parameter-dependent witnesses already appear in the earlier same-object full-line theorem. The present restriction to finite even periodic approximants followed by N->infinity is an expected local finite-size approximation with no new sharp constant, cutoff, classification or independent mathematical content. The methodological contrast with alternating two-periodic meshes is already explicit in earlier work. A known result plus routine periodization is not an independently unknown exact invariant; therefore independent mathematical value fails despite valid and reproducible computations.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-single-exceptional-cell-forces-endpoint-amplification-in-perio--f16ded869ba9/check_defect.py",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-stability-reversal-for-orthogonal-linear-spline-projection--d07a5524a720/RESULT.md",
+    "https://www.impan.pl/shop/publication/transaction/download/product/90654",
+    "https://arxiv.org/pdf/1608.06720",
+    "https://github.com/Resultary/2026/commit/9259a35a934604a0d062febd8b67f58585b1b21f"
+  ],
+  "disposition": "failed",
+  "final_claim": "Original unedited claim assessed: the limiting periodic one-cell-defect spline projector norm has strict two-sided local witness overshoot relative to 2. Correct but covered by earlier full-line result with exactly the same witnesses and standard finite-cycle convergence.",
+  "limitations": [
+    "The periodic-to-bi-infinite operator-norm comparison is justified by uniform Neumann decay and rank-two resolvent localization; direct finite tests do not prove it.",
+    "The earlier full-line theorem and the later periodic statement use different underlying global domains, but their exact local witnesses and strict-sign results coincide, and the finite-circle limit is an ordinary consequence.",
+    "Source material contains scope_run_id and same_model_review operational provenance in public METADATA.json and AUDIT.json; no confidentiality-safe complete relocation has been established. Failed originals must be preserved and were not altered.",
+    "Older literature beyond full-text inspections is not exhaustively classified; strong coverage from the dated prior published theorem independently decides originality."
+  ],
+  "schema_version": 1
+}
