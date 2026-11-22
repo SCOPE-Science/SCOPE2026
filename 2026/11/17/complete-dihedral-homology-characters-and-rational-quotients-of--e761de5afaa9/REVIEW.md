@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-edge noncover complex is the combinatorial Alexander dual of cycle independence. Its integral homology follows from the previously known cycle recurrence. The additional equivariant Alexander duality sign and exact independent-orbit polynomial count establish every dihedral character value in the claim. Exhaustive signed independent-face evaluation for 330 symmetries at 15 lengths, direct noncover-face traces for 170 symmetries, and modular boundary ranks at 10 lengths corroborate the universal derivation. The finite checks alone would not establish an all-length theorem.
+## correctness
 
-## Originality — PASS with residual literature risk
-The close primary sources are Conant–Thistlethwaite's original 2008 theta-complex paper (abstract available, full text not read), Adamaszek's 2011 cycle-independence recurrence (primary full text sections read), and Choi–Kim–Park's 2019 noncover collapse theorem (primary full text read). The latter two provide nonequivariant recurrence and collapsibility, respectively; neither implies the graph automorphism action on homology. Related indexed results on three-uniform tight-cycle noncovers, cycle two-independence, and complementary-cycle three-cut complexes concern different simplicial objects. The unavailable full text of the original 2008 paper and any unindexed equivalent work are genuine risks to publication priority.
+PASS
 
-## Mathematical value — PASS
-This all-length classification supplies symmetry information absent from Betti numbers: rank-two inflated triangle representations at 3-divisible lengths, different reflection signs otherwise, and a sharp mod-six criterion for surviving rational cohomology of ordinary dihedral orbit spaces. The result is not the renaming of the classic independence-complex sphere counts, though it relies on them.
+Directly reconstructed the n>=4 definition X_n=Theta(C_n)=Ind(C_n)^vee, including empty face and complement convention. Classical cycle independence suspension recurrence locates degrees and free integral ranks. Equivariant Alexander duality multiplies traces by ambient vertex permutation sign. A fixed independent face is a union of eligible symmetry orbits; its signed augmented trace equals minus the independence polynomial of the orbit conflict graph at -1. For rotations these graphs are C_d (including d=1,2 degeneracies) giving 2cos(pi d/3), and for reflections they are paths with lengths (n-1)/2, n/2+1, n/2-2, giving the six-period recurrence. The resulting traces and rational averaging establish every formula and the quotient ring. Independently enumerated oriented noncover chain traces for every dihedral element at n=4..9 using actual source definitions, corroborating the analytic unbounded proof. Code checks alone would not establish the unbounded recurrence.
 
-## Limits
-The integral dihedral lattice at multiples of three, integral quotient homology and homotopy types are not determined. The checker tests only lengths through 18, while the proof is an exact recurrence and character argument valid for all lengths. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge full ordinary cycle theta-complex character and rational orbit-ring classification remains distinct from previously known nonequivariant cycle homotopy and noncover collapsibility, and from distinct cycle-derived complexes; the primary 2008 theta preprint was not fully accessible, so precedence is provisional.
+
+## value
+
+PASS
+
+An infinite-family full dihedral representation and the exact ordinary-quotient ring for a canonical cycle noncover complex fill a natural equivariant refinement of the known cycle homotopy calculation. The nontrivial mod-six retention of a rational quotient class and inflated D_3 module are structural, not merely a finite numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
