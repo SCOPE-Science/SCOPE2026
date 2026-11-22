@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional inclusion-exclusion yields the factorized covariance. For positive weights, w=u+v-1 lies strictly between zero and uv, making the log-derivative of Theta strictly less than -1/t. With Theta(1)=1 and Theta(infinity)=0 there is one real crossing; equality cases, two-read threshold, prevalence asymptotic, and Poissonized comparison follow analytically. Exact enumeration and 271685 assertions check the executable formulas but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fukaya 2021 provides a broader likelihood containing multinomial observations; it reports detection modeling and design",
+        "Kurtz 2015 addresses correlations of compositional abundances using graph inference"
+      ],
+      "reasoning": "Neither inspected work asserts a stronger general theorem that would automatically yield the strict sign order, unique real crossing, two-read prevalence boundary and Poissonization reversal. Their models are premises or different outcomes, not published theorem coverage.",
+      "searches": [
+        "Finite multinomial sequencing depth spurious negative covariance of two perfectly co-occurring species detection indicators, unique sign reversal at depth with background reads",
+        "Negative multinomial dependence of detection indicators for two taxa and sharp threshold where latent presence heterogeneity overcomes fixed library read competition",
+        "Fukaya et al. DOI 10.1111/2041-210X.13732",
+        "Kurtz et al. DOI 10.1371/journal.pcbi.1004226"
+      ]
+    },
+    "checked_sources": [
+      "Courtaillac et al., Environmental DNA (2024), DOI 10.1002/edn3.70023, full HTML methods/results/discussion",
+      "Fukaya et al., Methods in Ecology and Evolution (2021), DOI 10.1111/2041-210X.13732, full HTML model/likelihood/design sections",
+      "Boshuizen and te Beest, Molecular Ecology Resources (2022), DOI 10.1111/1755-0998.13730, full HTML methodological review",
+      "Kurtz et al., PLoS Computational Biology (2015), DOI 10.1371/journal.pcbi.1004226, full HTML article",
+      "published-finding corpus incidence-based co-detection sign switch, full RESULT.md, linked below",
+      "Other published-finding corpus closest records: multinomial absolute contrasts, repeated ecological detections, pairwise richness covariance (summaries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Incidence-based prior: fixed occupancy incidence sets sampled without replacement, with positive-to-negative reversal",
+        "Current model: shared Bernoulli occupancy across sites, categorical reads with replacement at fixed total, negative-to-positive reversal",
+        "Fukaya: general multinomial read likelihood but no theorem for the binary detection covariance"
+      ],
+      "reasoning": "Hypergeometric sampling of distinct sites cannot be reduced to iid within-library reads and vice versa; the reversal directions conflict. Fukaya’s broad model implies the elementary inclusion-exclusion identity as a consequence of its assumptions but does not state or imply as a stated theorem the all-depth strict monotone quotient and Poissonized boundary. The novelty claim is restricted to the combined explicit classification, not the observation likelihood itself.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c/RESULT.md",
+        "Fukaya et al. DOI 10.1111/2041-210X.13732",
+        "Finite multinomial sequencing depth spurious negative covariance of two perfectly co-occurring species detection indicators, unique sign reversal at depth with background reads",
+        "Negative multinomial dependence of detection indicators for two taxa and sharp threshold where latent presence heterogeneity overcomes fixed library read competition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General multinomial library observation is standard, and compositional count correlations can be spurious",
+        "Unlike relative-abundance covariances, the claim concerns detected/non-detected binary indicators with a site-level Bernoulli mixture"
+      ],
+      "reasoning": "The exact shared-latent-state binary detection formula is equivalent to a two-component mixture of a 3-cell multinomial and a background-only state. The published framework does not give the unique crossing equation or fixed-vs-Poissonized contrast; no equivalent theorem found in these readings.",
+      "searches": [
+        "Finite multinomial sequencing depth spurious negative covariance of two perfectly co-occurring species detection indicators, unique sign reversal at depth with background reads",
+        "Environmental DNA metabarcoding compositional sampling covariance species co-occurrence inversion positive association negative observed at low read depth",
+        "Kurtz et al. DOI 10.1371/journal.pcbi.1004226",
+        "Fukaya et al. DOI 10.1111/2041-210X.13732"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record 2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c concerns incidence without-replacement sampling",
+        "Other indexed nearest records 2026/11/2/SCOPE-strict-negative-covariance-of-disjoint-multinomial-absolute-cont--53dd0b106fe8, 2026/10/25/SCOPE-two-sharp-effort-thresholds-for-dependence-between-repeated-ecol--0fdb4baca7b5 concern different count functionals or Poisson abundance"
+      ],
+      "reasoning": "No exact entry/table for this fixed-read-depth Bernoulli-mixture sign crossing in the searched indexed results. A negative search does not certify historical uniqueness; search limitations remain.",
+      "searches": [
+        "Finite multinomial sequencing depth spurious negative covariance of two perfectly co-occurring species detection indicators, unique sign reversal at depth with background reads",
+        "Environmental DNA metabarcoding compositional sampling covariance species co-occurrence inversion positive association negative observed at low read depth",
+        "Negative multinomial dependence of detection indicators for two taxa and sharp threshold where latent presence heterogeneity overcomes fixed library read competition"
+      ]
+    },
+    "rationale": "Full text of the directly relevant 2021 multinomial occupancy model and 2024 sampling paper, compositional-network literature and the closest indexed incidence co-detection theorem were inspected. These establish mechanisms or distinct functionals; no inspected result states the complete fixed-read-depth negative-to-positive co-detection law with its unique threshold and Poissonization boundary. This is best-knowledge originality, not a guarantee of priority.",
+    "residual_risks": [
+      "The general multinomial likelihood in Fukaya 2021 could make parts of the formula recognizable to specialists; the new content is the global sign theorem and counting-law boundary.",
+      "Further older probability and microbiome references might contain an equivalent unlocated one-crossing inequality.",
+      "No independent validation or empirical field calibration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIELD_CONTEXT_ONLY, no paired indicator covariance sign classification or sequencing-depth threshold",
+        "evidence": [
+          "First published 14 October 2024; 113 OTUs, 32 families, compares biological replication/pooling and detection fractions",
+          "Model motivation is experimental sampling decisions, not the stated analytical claim"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.70023",
+        "material_read": "Full open-access HTML abstract, introduction, study design, results and discussion",
+        "method": "Read full HTML and search for covariance/sign reversal",
+        "title": "The Effect of Spatio-Temporal Sampling and Biological Replication on the Detection of Kelp Forest Fish Communities Using eDNA Metabarcoding",
+        "trigger": "2024 eDNA replication and pooling source; verifies middle-cohort research motivation and publication date"
+      },
+      {
+        "assessment": "FRAMEWORK_BROADER_BUT_NOT_THEOREM: its multinomial read model is a general premise of this special case; not a pairwise sign-theorem or unique threshold",
+        "evidence": [
+          "Section 2.1 explicitly assumes multinomial sequence counts conditional on sequencing depth",
+          "Study design objective is individual detectability with hierarchical occupancy, not exact two-taxon cross-site detection covariance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.13732",
+        "material_read": "Full open-access HTML Sections 1-5 including model formulation, reading equations (1)-(3), results/discussion",
+        "method": "Read model assumptions and detectability results; searched covariance references",
+        "title": "Multispecies site occupancy modelling and study design for spatially replicated environmental DNA metabarcoding",
+        "trigger": "Directly relevant general multinomial fixed-depth observation model"
+      },
+      {
+        "assessment": "GENERAL_CAUTION, no exact Bernoulli-multinomial indicator covariance or monotone depth threshold",
+        "evidence": [
+          "Highlights compositional and zero-heavy microbiome data and inappropriate analyses, without all-depth co-detection theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1755-0998.13730",
+        "material_read": "Full open-access article through pitfalls and discussion",
+        "method": "Read abstract, motivating argument and statistical-method critiques",
+        "title": "Pitfalls in the statistical analysis of microbiome amplicon sequencing data",
+        "trigger": "Compositional artifacts may already subsume detected covariance sign changes"
+      },
+      {
+        "assessment": "GENERAL_SPUROUS_CORRELATION, but no unique negative-to-positive indicator covariance crossing in fixed-depth occupancy mixture",
+        "evidence": [
+          "Focus is ecological network inference using log-ratio transforms and sparse inverse covariance, rather than fixed-depth binarized incidence"
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1004226",
+        "material_read": "Full open-access PLOS HTML article introduction, methodology and discussion",
+        "method": "Read objective and sampling/model assumptions; compare their network inference output to binary detection indicators",
+        "title": "Sparse and Compositionally Robust Inference of Microbial Ecological Networks",
+        "trigger": "Classical spurious ecological-network association due to compositional sequencing"
+      },
+      {
+        "assessment": "NOT_COVERING: samples distinct incidence units without replacement, has positive-to-negative order; current fixed-depth within-site multinomial with random occupancy has opposite negative-to-positive order",
+        "evidence": [
+          "Formula there: covariance q_union(m)-q_A(m)q_B(m) for fixed incidence sets with hypergeometric miss probabilities",
+          "Its strict reversal direction positive then negative and five-unit onset cannot directly imply our multinomial depth curve and two-read prevalence threshold"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c/RESULT.md",
+        "material_read": "Complete primary RESULT.md including finding, proof, scope, limitations and references",
+        "method": "Direct GitHub repository file fetch, statement-to-statement comparison",
+        "title": "An irreversible co-detection sign switch under incidence-based rarefaction",
+        "trigger": "Closest indexed title explicitly claims one-way co-detection covariance sign reversal"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8807c993-acca-4f4a-8846-6d4e0d8caeb1",
+  "value": {
+    "rationale": "The model gives a motivated detection-design warning: even perfectly coupled occupancy can appear negatively associated at shallow fixed library depth. A unique, computable threshold, explicit two-read decision rule, slow logarithmic recovery at high prevalence and Poissonization counterfactual distinguish biological positive association from sampling competition. The result is a useful exact benchmark for occupancy models and correlation interpretation rather than a routine substitution into a published equation.",
+    "status": "PASS"
+  }
+}
