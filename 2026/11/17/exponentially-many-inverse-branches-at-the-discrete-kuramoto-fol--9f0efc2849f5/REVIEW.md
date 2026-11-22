@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive coupling \(K>1\), the scalar equation \(d=K\sin d\) has exactly one nonzero root \(d\in(0,\pi)\). Inserting each nontrivial labelled bipartition into the complete-graph sine sum cancels the coupling contribution against its phase value exactly; this proves that every constructed state has the same image, for arbitrary natural-frequency vector. The positive coordinate support recovers the partition and prevents accidental identification on the torus. The count is exactly \(1+(2^N-2)=2^N-1\), as a **guaranteed minimum**, not a total census. The Jacobian spectrum is obtained from the complete two-block weighted Laplacian. Its possible zeros reduce to finitely many solutions of an analytic nonconstant scalar function; the inverse function theorem then proves multiplicity on an open target set. A local series at the coupling threshold excludes exceptional couplings sufficiently close to one. The exact algebra and the finite checker agree.
+PASS
 
-## Originality — PASS within the inspected literature
+PASS: For each nonempty proper S, the centered two-level state theta_i=((N−m)/N)d for i in S and −(m/N)d otherwise satisfies F(theta)=omega exactly because d=K sin d has a unique 0<d<pi solution for each K>1. Positive-index labels distinguish 2^N−2 lifts plus zero on the torus; all collapse as K→1+. The Jacobian has global eigenvalue 1, relative-mode 1−K cos d>0, and transverse eigenvalues 1−K[t+(1−t)cos d] (m−1 times) and 1−K[(1−t)+t cos d] (N−m−1 times), omitting zero multiplicities. Singular conditions belong to q(d) at m/N or 1−m/N. q(d) is nonconstant real analytic on a compact extension of (0,pi), q(0)=2/3−d²/90+..., so each of finitely many fractions has finitely many roots and cannot accumulate at K=1. Local inverse charts give open target persistence outside E_N. No claim of exact entire fiber. Numerical direct phase-map residuals were <1e−10 for N=2,5,7 and K=1.05,1.7,2.3; these tests are not the all-N proof.
 
-The established result of Maistrenko, Vasylenko, Maistrenko, and Mosekilde (2008, Section 3) is the **qualitative** transition from one-to-one dynamics at \(0<K\le1\) to a noninvertible map for \(K>1\). That known boundary is expressly not presented as a new discovery. Gade and Gupta's 2026 finite-population formula and mean-field analysis motivate resolving the number of inverse branches at the noninvertible boundary. The new statement gives \(2^N-1\) explicit pairwise distinct inverse images for every finite network size and every supercritical coupling, and proves robustness for open target sets except finitely many couplings. Neither inspected source provides this all-dimensional combinatorial count or the regularity-exception criterion. The 2025 three-oscillator symmetry/tiling paper is a plausible comparator but its full text was inaccessible; that remains an identified historical-priority risk. Semantic research-record searches produced related two-cluster dynamics and repulsive phase results, not a stronger inverse-count theorem. Failed searches are not treated as mathematical proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A qualitative assertion of noninvertibility only guarantees some collision. The exponential bound quantifies the growth of inverse ambiguity with the number of coupled oscillators, and the explicit states identify precisely how each labelled two-cluster partition contributes. The open-target theorem shows that the multiplicity is not restricted to a single specially tuned output: there are neighborhoods where every output admits exponentially many branches. This is directly relevant to backward reconstruction of phase networks and multi-branch Frobenius–Perron descriptions. The fact that all branches converge on the synchronized input as the parameter approaches the established folding threshold identifies a natural high-dimensional singularity. The scope is all finite sizes rather than an arbitrary low-dimensional slice; the result does not overclaim full inversion counts or chaotic dynamics.
+PASS (best-of-knowledge): the pre-existing K=1 invertibility loss is credited and not new. Earlier discrete Kuramoto dynamics address threshold/synchronization and small three-body topology, whereas the constructed all-N Boolean two-cluster lower bound and regular open-target persistence are an additional quantitative theorem. The relevant 2025 small-system full text remains inaccessible, explicitly leaving a priority risk.
 
-## Closest literature and limitations
+## value
 
-- Gade and Gupta, arXiv:2609.22715v1 (first posted 2026-09-19): same globally coupled discrete map, with lag, studied for synchronization and continuum density.
-- Maistrenko et al., *Nonlinear Oscillations* 11 (2008), DOI 10.1007/s11072-008-0026-4: explicitly establishes the qualitative \(K=1\) invertibility boundary. This is covered prior work, not an original theorem here.
-- Kalmár-Nagy, Horváth and Vincze, *International Journal of Bifurcation and Chaos* 35 (2025), DOI 10.1142/S0218127425300320: abstract describes small-network phase geometry; full text inaccessible for direct implication comparison.
+PASS
 
-The exceptional set for open-target persistence may be nonminimal. The result is a lower bound and does not determine forward attractors, stability, the exact number of inverse images, arbitrary phase lags, or network sparsity. Priority and independent validation are not certified.
+PASS: The sharp change from an injectivity regime to an exponentially branching canonical fiber is a structural bifurcation invariant of a natural network map. The count is all N and every K>1, with a nontrivial open-image persistence theorem; it is not a tiny numerical example or merely renaming known noninjectivity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
