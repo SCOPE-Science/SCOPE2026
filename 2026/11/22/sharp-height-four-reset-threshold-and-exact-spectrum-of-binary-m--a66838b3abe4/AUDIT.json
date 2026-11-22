@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Every depth-four code corresponds to a full ordered binary tree, enumerated bijectively by the recursion T_h=1+T_(h-1)^2, giving 677 trees through height four and 651 at exact height four. Each decoder has at most 15 proper-prefix states. Full-mask breadth-first search exhausts all reachable nonempty subsets, so first singleton distance is the exact shortest word length, and no singleton proves nonsynchronization. Independently written Python and C++17 programs reproduce identical full histogram (632 synchronizing, 19 nonsynchronizing), sharp maximum 17, and two extremizers; shortest witnesses simulated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chadha: universal upper bound (k-1)(4k-5) and two-consecutive-level sharp bound 2(k-1)^2-1; at k=4 the universal upper bound is 33.",
+        "Ryzhikov and Szykuła: approximation/exact algorithms for individual literal decoders rather than an exact height-four aggregate census."
+      ],
+      "reasoning": "The broad known theorem bounds the full family but leaves a 17-to-33 gap at height four. The sharper 17 bound applies only to trees with leaves at depths 3 and 4. The new census covers codes having arbitrary shorter codewords as well, and counts their thresholds.",
+      "searches": [
+        "Chadha arXiv:2611.05675 Theorems 1.1-1.3 and §§5-6",
+        "Ryzhikov and Szykuła arXiv:1806.06299 §7",
+        "Web: finite maximal prefix codes binary k 4 shortest reset word exact maximal length"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.05675 (original source, sections and theorem comparison)",
+      "arXiv:1806.06299 (primary literal-decoder algorithm study)",
+      "published-finding corpus 2026/10/12/SCOPE-complete-classification-of-binary-kraft-equality-codes-of-length--3ad1e9fd99c6 (related but different invariant)",
+      "published-finding corpus 2026/10/26/SCOPE-sharp-four-state-tree-synchronization-over-two-ranked-symbols--5734bc809a8e (different ranked-tree synchronization model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The established special family realizes 17, so only the full-family 17 upper bound and census are presented as new.",
+        "The published general bound permits thresholds as large as 33 and does not entail the exact 651-code distribution.",
+        "The closest indexed public results concern either Kraft-equality membership or synchronization for different automaton models, not this full literal-decoder census."
+      ],
+      "reasoning": "The new theorem implies a stronger height-four maximum than the general published bound, and is not a corollary of its two-depth theorem because that theorem does not apply to every possible height-four tree. The two extremal constructions are explicitly credited as prior work.",
+      "searches": [
+        "Chadha arXiv:2611.05675 Corollary 1.4 and Theorems 1.2-1.3",
+        "Public mathematical record-index query: Quadratic reset bounds for finite maximal prefix codes Chadha November 2026 short codes height four",
+        "Published research records: claim-level comparison of prior synchronization statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chadha arXiv:2611.05675 Theorems 1.2 and 1.3 give the exact 17 for a special two-depth construction, but its general bound is 33 at height four.",
+        "No returned published-finding corpus summary stated a complete literal-decoder reset spectrum for all 651 height-four binary maximal prefix codes."
+      ],
+      "reasoning": "Equivalent descriptions include full ordered binary prefix trees and complete literal Huffman decoders. The known two-depth construction matches the two extremizers; it does not classify all maximal prefix trees having leaves at depths 1 or 2. Similar formal-language results about synchronization of ranked trees are mathematically different automata.",
+      "searches": [
+        "Public mathematical record-index query: binary maximal prefix code height four all full binary trees 651 exact 17 reset threshold 19 nonsynchronizing trees",
+        "Public mathematical record-index query: prefix code literal decoder maximum codeword length four sharp reset threshold s2(4) 17",
+        "Web: \"maximal prefix\" \"k=4\" \"synchronizing\" reset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus 2026/10/12/SCOPE-complete-classification-of-binary-kraft-equality-codes-of-length--3ad1e9fd99c6 classifies certain length profiles under unique decodability, not literal-decoder reset distances.",
+        "Neither source [1] nor [2] inspected above contains this histogram or the nonsynchronizing count 19."
+      ],
+      "reasoning": "A classification of prefix-code membership or Kraft equality does not automatically determine shortest reset lengths, which require reachable-subset dynamics. The searches returned no exact population table with the stated joint numerical data; unindexed prior tables remain a residual risk.",
+      "searches": [
+        "Public mathematical record-index query: complete distribution of minimal reset word lengths 651 height four binary prefix codes",
+        "Public mathematical record-index query: reset threshold of finite maximal prefix codes four bit maximal tree extremizers single 000 or 111",
+        "Web: prefix code 17 length four synchroniz"
+      ]
+    },
+    "rationale": "The precise full-height-four bound and exact 651-code histogram are not implied by the published two-consecutive-level theorem. The known two extremal reset lengths are explicitly credited. Searches of accessible own claim records and published-finding corpus entries found no equivalent full classification; an unindexed identical census remains a residual risk.",
+    "residual_risks": [
+      "A pre-existing unindexed exact four-depth decoder table could independently state the same numbers; negative searches cannot establish uniqueness.",
+      "Computational proof requires verification of the supplied exhaustive tree and subset-search programs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known two-level sharp examples and 17 lower bound already cover the extremizers, but the published full-family k=4 upper bound is 33; no all-shape histogram supplied.",
+        "evidence": [
+          "Theorems 1.1-1.3 and Corollary 1.4 at arXiv:2611.05675, pp. 1-2; §5 pp. 8-11; §6 pp. 12-15."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.05675",
+        "material_read": "The introduction and Theorems 1.1-1.3, Corollary 1.4, the consecutive-level framework in §5, the extremal argument in §6, and document text checked for a height-four exact census.",
+        "method": "Read lawful open-access original PDF and searchable text, including theorem scope and proof sections.",
+        "title": "Quadratic reset bounds for finite maximal prefix codes",
+        "trigger": "Precisely matching parameter maximum prefix-code length k, literal decoder, and sharp extremal reset threshold."
+      },
+      {
+        "assessment": "Establishes automata framework and algorithms, but not a complete exact numerical height-four census.",
+        "evidence": [
+          "Ryzhikov and Szykuła, §7 Theorems 7.2 and 7.4, arXiv:1806.06299."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.06299",
+        "material_read": "Abstract, introduction, discussion of literal automata, §7 algorithms and concluding remarks.",
+        "method": "Read accessible arXiv HTML content and theorem statements.",
+        "title": "Finding Short Synchronizing Words for Prefix Codes",
+        "trigger": "Primary algorithms/complexity study of shortest reset words in literal Huffman decoders."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a66838b3-abe4-4e7f-8f00-b381cf5df570",
+  "value": {
+    "rationale": "The newly published general bounds only locate the sharp height-four optimum in [17,33], whereas this complete height-four classification closes that natural first unresolved finite cutoff, counts the exact residual unsynchronizing cases, and supplies a full reset-threshold spectrum useful as a benchmark for larger heights. It is an exact finite structural boundary, not a code-only minor numerical perturbation; the known two-depth extremizers are not presented as new.",
+    "status": "PASS"
+  }
+}
