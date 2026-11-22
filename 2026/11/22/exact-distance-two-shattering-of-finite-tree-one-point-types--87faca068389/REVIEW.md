@@ -1,0 +1,15 @@
+# Scientific review: exact distance-two shattering of finite-tree one-point types
+
+## Correctness (C): PASS
+The claim fixes one specific first-order formula, graph class, quantifiers and radius. Every shattered triple admits a full-trace witness; the unique tree midpoint argument forces the three parameters to be neighbors of a single vertex. Exact local trace enumeration then gives the necessary and sufficient extra-neighbor and outward-depth conditions, and counting at unique centers gives the formula without duplication. The same local enumeration forbids size-four shattering. Three outward paths of length two and one additional central neighbor force exactly eleven vertices at minimum, achieved by the included edge list. `verify.py` computes traces directly and checks 18,889 trees; it is corroborative, not a substitute for the infinite proof.
+
+## Originality (O): PASS within inspected evidence
+The 2026 finite-model-theory primary source, arXiv:2611.08143v1, derives polynomial upper bounds for types and discusses zero-quantifier-rank neighborhood traces, but does not formulate or imply this exact two-step tree-sphere characterization. Adler–Benediktsson–Macpherson (2022), inspected in its lawful accepted-version full text, treats one-edge neighborhoods of Johnson and Hamming graphs. Bousquet–Thomassé (2015) studies balls of at most varying radii, not spheres at exactly distance two; its accessible abstract/online excerpts were inspected but its complete paper was not read, and the comparison is correspondingly limited. Searches of published research records for exact-distance-two tree shattering, block graph aliases and eleven-vertex thresholds did not return a dominating exact theorem. An older block-graph neighborhood theorem or other unlocated priority source remains a substantive residual risk; absence of search hits is not proof of global novelty.
+
+## Value (V): PASS
+This is an exact classification of which triples a fixed first-order formula can shatter across finite trees, not just a general finite bound. The explicit local sum counts all shattered triples of any fixed finite tree, permits linear-time computation, yields the sharp VC threshold, and determines the minimum witness size. Exact spheres behave differently from ordinary closed graph balls; the distinction matters for radius-specific definable types and concept learning. The invariant and sharp cutoff are natural, not chosen by arbitrary small-size enumeration.
+
+## Limits and closest literature
+The theorem concerns connected forests (trees), exact graph distance two, and witnesses allowed in the parameter set. It does not assert results for general radii, arbitrary graphs, balls, all shattered pairs, or the number of formula types of higher quantifier rank. The nearest inspected papers are Dreier–Mählmann–Toruńczyk (2026), Adler–Benediktsson–Macpherson (2022), and Bousquet–Thomassé (2015); none is claimed to have been exhaustively compared across all possible prior literature. No independent mathematical or historical-priority audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
