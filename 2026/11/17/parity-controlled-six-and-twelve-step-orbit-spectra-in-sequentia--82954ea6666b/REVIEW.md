@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(k\ge1\), the specified in-place update has an explicitly derived linear map with \(h'=h+s_a+s_b\), \(a_i'=a_i+b_i+h'\), and \(b_i'=a_i\). Each local map is invertible, so every state is immediately periodic. For odd \(k\), the aggregate three-dimensional block has a single size-three unipotent Jordan block and all \(k-1\) deviation pairs have order three. For even \(k\), the quotient has order three and the rank-two square-zero correction \(T_k^3+I\) forces exact order six. The fixed-space dimensions and Möbius inversion prove the full population table for all \(k\). The two included verification programs confirm 43,688 exhaustive state trajectories and 480 matrix-rank comparisons through \(k=40\); their role is corroboration, not substitution for proof. The exceptional single triangle and all parity boundaries are included.
+## correctness
 
-## Originality — PASS (bounded historical qualification)
-The closest classical primary studies of asynchronous Rule 150 are explicitly on one-dimensional cycle graphs, whereas this result treats triangular friendship graphs and a specified hub-first scan. The closest published Rule 150 ring-scan result and the synchronous parity-switching friendship-graph result were inspected in their full published RESULT.md texts, including proofs and scope. Their theorems do not imply this fixed-scan all-petal-period formula: the former concerns simple rings; the latter has synchronous, noninvertible self-inclusive dynamics. The triangle–pentagon windmill summary also concerns a synchronous open-neighbor rule. The comparison is about graph, local rule, temporal semantics, and claimed population distribution, rather than matching vocabulary. Relevant sections of the full 2007 and 2010 foundational papers, and the full 2015 Defant cycle-graph paper, were inspected. The closest two published research full texts were also compared. Historical priority remains qualified by potentially unindexed or unexamined other works.
+PASS
 
-## Mathematical value — PASS
-The friendship graph is a canonical family in which a common hub couples otherwise independent three-cycle petals. The theorem exhibits a genuine parity-controlled extension of the local order-three dynamics: for even petal counts exactly three quarters of all states have primitive period six, while for odd counts the global period becomes twelve and asymptotically one half of states have primitive period twelve. Exact fixed-point and primitive-orbit populations for every graph size expose the coupling mechanism and quantify an atypical global parity resonance rather than an isolated simulation or arbitrary finite slice.
+Each local XOR update is an involution, so the hub-first sweep is invertible and has no transients. The exact petal recurrences h'=h+sum(a_i+b_i), a_i'=a_i+b_i+h', b_i'=a_i follow by in-place order. For odd k, aggregate (h,s_a,s_b) has Q=I+J with J^3=0, one size-three Jordan block; deviations give k-1 irreducible order-three A modules. For even k, the invariant kernel of the three aggregate coordinates evolves by A, while N=T^3+I has image in a two-dimensional constant-petal subspace and rank exactly two from exhibited vectors; hence N^2=0 and T^6=I. The rank/nullity formulas and Möbius inversion recover every primitive-period population including k=1. Independent graph-level enumeration gave P_d for k=1:{1:2,2:2,4:4}; k=2:{1:2,3:6,6:24}; k=3:{1:2,2:2,3:30,4:4,6:30,12:60}; k=4:{1:2,3:126,6:384}; k=5:{1:2,2:2,3:510,4:4,6:510,12:1020}.
 
-## Limitations and related work
-The result is restricted to a fixed labelled sweep and does not classify all update schedules. General invertibility of the local maps is already known and is not asserted as novel. The novelty claim concerns the explicit parity bifurcation and exact orbit census on friendship graphs. An unindexed historical result or other unexamined prior publication could still contain a stronger theorem. Independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact sweep-period census and hub-petal parity effect for fixed asynchronous self-inclusive XOR updates on friendship graphs. Previously published graph-family result treats synchronous A/B parity semigroups; prior Rule 150 scan census applies to simple cycles, not a bouquet of triangles. Their statements do not imply this fixed hub-first sweep module decomposition.
+
+## value
+
+PASS
+
+The friendship graph is a natural triangle-bouquet network, and hub-first updates are a reproducible asynchronous policy. Exact all-k primitive-cycle populations and the parity change from maximal period six to twelve resolve a concrete finite-field dynamics classification beyond general invertibility and classical cycle-graph results; the k=1 boundary and fixed-power formula are substantive and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
