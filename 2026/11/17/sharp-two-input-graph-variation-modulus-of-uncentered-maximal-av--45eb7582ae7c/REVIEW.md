@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-ball list on a star is exhaustive. Translating all vertex values by a common baseline preserves the relevant edge coordinates for nonnegative data, allowing the exact piecewise-linear map on all real edge vectors. The three hub branches have explicitly bounded Jacobian column sums in the \(\ell_1\) norm. For three leaves, the only potentially excessive column is controlled by a proved active-set incompatibility; one-leaf case is direct. Explicit nonnegative input pairs yield exact equality for every \(k\ge1\). The standalone rational checker reproduces the direct ball operator, all displayed sharpness witnesses and extensive independent small cases. Finite tests are not used as a universal proof.
+## correctness
 
-**Originality — PASS, qualified.** The inspected relevant primary literature gives either one-input variation estimates on the integer line, centered finite-graph maximal inequalities, or strong \(\ell_p\) bounds. The directly matching published uncentered-star result gives \(\operatorname{TV}(\widetilde Mf)\le C_k\operatorname{TV}(f)\), but not \(\operatorname{TV}(\widetilde Mf-\widetilde Mg)\) versus \(\operatorname{TV}(f-g)\); the latter cannot be inferred through linearity. Searches of mathematical records for star, uncentered, two-input, pairwise stability, maximal averaging and exact \(k/2\) found no equivalent statement. General nonlinear/max-affine formulations remain a residual priority risk; uniqueness or complete bibliographic coverage is not claimed.
+PASS
 
-**Mathematical value — PASS.** Perturbation stability of a nonlinear smoother is a natural quantity independent of smoothing a single signal. The exact formula holds for an unrestricted finite graph family, identifies the strict-instability threshold and the exceptional trivalent star, and exhibits amplification linear in branching. The gap from the known one-input norm is an explicit \((k-1)/(k+1)\) for every \(k\ge4\), a structurally meaningful contrast. This is not merely a recomputation of a one-input table.
+Every ball containing the hub is a singleton, full star, or hub-leaf pair, while balls containing leaf i are its singleton, its hub pair, or the full star. After quotienting constants, the exact edge map is F_i(d)=max(d_i,d_i/2,mean(d))-max(0,max_j d_j/2,mean(d)), with mean(d)=sum(d)/(k+1). Adding a common large baseline realizes every edge vector by nonnegative data. The continuous piecewise-affine map's global l1 norm is bounded by its strict-branch Jacobian column sums. Hub-zero and hub-full-mean branches give respectively <=1/2+(k-1)/(k+1) and <=(2k-1)/(k+1); a hub-pair branch gives <=k/2 in its active leaf column and <=(2k-1)/(k+1) elsewhere. For k=3, its potentially 3/2 column is only 5/4 because both other leaves cannot simultaneously select their direct/half modes; at least one selects the mean. k=1 gives F(d)=d/2. Explicit interior witnesses with all leaves equal 1 for k=2,3, and with hub 3, first leaf 4, remaining leaves 0 for k>=4, attain the proposed constants for a 1/10 perturbation of the first leaf. Independently authored exact-rational checks confirmed equality for k<=15 and inequality for 7500 rational pairs; those tests are corroboration, not the infinite proof.
 
-The nearest public mathematical record is *Sharp total variation amplification for uncentered maximal averages on finite star graphs* (`b063c98cacfd`). Closest analytical sources: Bober et al. (arXiv:1005.3030), Soria–Tradacete (arXiv:1410.6204), Madrid (arXiv:1512.04112), and González-Riquelme–Madrid (arXiv:2005.03146). The theorem excludes weighted stars, arbitrary trees and signed absolute-value maximal maps. Further independent bibliographic and mathematical review remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The concrete external and published-record searches compared mathematical statements, operator domains, norms and implied subcases, not simply titles. Closest strong antecedents were read to their stated scope. No earlier theorem subsuming the final exact result was established. This is a best-of-knowledge conclusion, not priority certification; disclosed archival and nomenclature risks remain.
+
+## value
+
+PASS
+
+The difference-of-two-outputs graph-BV modulus measures the stability of a nonlinear smoothing operator rather than its one-input variation contraction. This natural all-branching-star exact invariant identifies the first strict amplification at k=3, exceptional small k, attained worst perturbations, and linear sensitivity growth k/2, genuinely distinct from the known same-operator one-input C_k. It is a substantive structural family theorem, not a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
