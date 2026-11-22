@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:06:17.051410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed projection D_L from mutually orthogonal signed block contrasts h_t, R=I-2D and R1=1. Every real open-path signal is a constant plus its n-1 weighted unit jumps. The sharp variation operator norm therefore equals the maximum over jump images, not merely an experimental lower bound. A within-block nonmidpoint jump with a=2 min(q,L-q)/L produces 1+(2+c)a variation (c available active-block exterior ends); the exact midpoint yields 1+c. Maximizing q and active block yields C(L,b)=1+c_b at L=2, otherwise 1+(2+c_b)(1-2/L), with c_b=0,1,2 for b=1,2,>=3. One step attains each finite value, the universal supremum 5 is not attained at finite L. Inspected actual RESULT.md 9b2513e8a40e39de7df5e337b89f3651ca0cdcfc and verify.py blob 38d4160749e9d73a490313202cdd8f1dd1509fd0 in audited tree. Independently checked all 532 unit steps at even L=2..14 and b=1..4 with exact rational arithmetic. Those finite tests corroborate the all-L step reduction, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steidl et al., SIAM J Numer Anal 2004, DOI 10.1137/S0036142903422429, studies soft shrinkage and TV diffusion, not the sign-reversing involution.",
+          "Resultary four-child Hadamard Haar endpoint and nine-state soft-thresholding records concern L-infinity or nonlinear soft threshold norm."
+        ],
+        "reasoning": "Neither soft thresholding nor multilevel L-infinity constants dominate the finite, linear one-level open-path BV constant; same word Haar does not establish implication.",
+        "searches": [
+          "Resultary semantic query: one level Haar wavelet sign flip reflection exact bounded variation sharp 5 boundary blocks",
+          "wavelet total variation soft thresholding BV Cohen Daubechies sign reversal"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at frozen commit e445181e127b2110093a44c41a607a46ab3f47e9",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-boundary-dependent-bounded-variation-gain-of-one-level-haa--b74da966563f",
+        "https://doi.org/10.4171/RMI/345",
+        "https://doi.org/10.1137/S0036142903422429"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cohen et al. Rev Mat Iberoam 19 (2003), 235–263, DOI 10.4171/RMI/345: BV wavelet estimates and non-unconditionality, not explicit 1+(2+c_b)(1-2/L).",
+          "Steidl et al. (2004) soft shrinkage acts on magnitudes toward zero, not reflection R=I-2D."
+        ],
+        "reasoning": "Neither known theorem computes the submitted exact norm by a direct corollary; a numerical upper 5 alone would not imply the boundary-dependent equality classification.",
+        "searches": [
+          "Resultary semantic query: one level Haar wavelet sign flip reflection exact bounded variation sharp 5 boundary blocks",
+          "Cohen Dahmen Daubechies DeVore Harmonic Analysis of the space BV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full author-accessible Cohen et al. 2003 text concerns BV coefficient estimates and unconditionality obstruction; it gives no exact open-path R_L step-image formula.",
+          "Resultary query returns this exact submitted record plus other Haar sign-multiplier families."
+        ],
+        "reasoning": "Unconditional Haar estimates address a basis-wide supremum or coefficient membership, whereas R_L is one fixed orthogonal reflection with a finite path boundary; no equivalence of the asserted constants was found.",
+        "searches": [
+          "Resultary semantic query: one level Haar wavelet sign flip reflection exact bounded variation sharp 5 boundary blocks",
+          "Cohen Dahmen Daubechies DeVore 2003 harmonic analysis BV Haar wavelet coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The candidate checks all step images analytically; Resultary hits contain no exact C(L,b) table apart from the same named record."
+        ],
+        "reasoning": "No known exact tabulation covering each even L and b was located; the proof itself supplies the finite formula, not a lookup from the generic BV literature.",
+        "searches": [
+          "Resultary semantic query: one level Haar wavelet sign flip reflection exact bounded variation sharp 5 boundary blocks"
+        ]
+      },
+      "rationale": "Best-of-knowledge no encompassing published theorem found for the exact finite open-path BV norm of the one-level Haar sign involution with end-block distinctions. Broader Haar unconditionality and BV coefficient embedding results employ different norms or all-level transforms. The explicit c_b boundary law and finite sharp one-jump extremizers are not supplied by the checked prior statements. This is a qualified priority assessment, not evidence that all historical literature was indexed.",
+      "residual_risks": [
+        "Some older wavelet/BV literature may contain the exact special involution under an unindexed equivalent formulation.",
+        "Independent exact checks sample L<=14, b<=4; unrestricted result depends on the presented step-image algebra and sharpness argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different BV coefficient characterization, not a finite path block-Haar reflection norm",
+          "evidence": "Theorem 2.5 wavelet coefficients; no quantitative path one-level C(L,b) there",
+          "identifier_or_url": "https://doi.org/10.4171/RMI/345",
+          "material_read": "Author-available full-paper relevant introduction and theorem on wavelet BV estimates; PDF page views inspected",
+          "method": "full PDF opened, searched relevant theorem; rendered pages",
+          "title": "Harmonic Analysis of the space BV",
+          "trigger": "Shares Haar/BV function-space objects"
+        },
+        {
+          "assessment": "Nonlinear soft shrinkage differs in sign and operator from reflection; full-text priority risk persists",
+          "evidence": "Abstract states soft shrinkage/diffusion relationship rather than sharp one-level sign-flip BV norm",
+          "identifier_or_url": "https://doi.org/10.1137/S0036142903422429",
+          "material_read": "Search abstract and article description; full article not retrieved",
+          "method": "abstract/metadata",
+          "title": "On the Equivalence of Soft Wavelet Shrinkage, Total Variation Diffusion, Total Variation Regularization, and SIDEs",
+          "trigger": "Wavelet coefficient operation and TV"
+        },
+        {
+          "assessment": "Different L-infinity all-sign unconditionality and four-child system; not same operator/norm",
+          "evidence": "Summary: 4d/3+5/9+4/(9*4^d) as L-infinity norm",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-endpoint-invariance-for-four-child-hadamard-haar-blocks--557bdf6e9220",
+          "material_read": "Indexed theorem title and mathematical summary; not complete paper",
+          "method": "Resultary indexed result",
+          "title": "Sharp endpoint invariance for four-child Hadamard Haar blocks",
+          "trigger": "Semantic search on Haar sharp norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simple orthogonal Haar sign flip is a natural wavelet perturbation; its exact induced total-variation norm varies with physical open-path boundaries and converges to a sharp unattained 5. The precise b=1,2,>=3 transition, extremizer and finite-vs-asymptotic behavior quantify a nontrivial stability defect that cannot be inferred from Euclidean orthogonality. A reusable exact operator norm for all even block sizes is a motivated structural result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify.py at frozen commit e445181e127b2110093a44c41a607a46ab3f47e9",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-boundary-dependent-bounded-variation-gain-of-one-level-haa--b74da966563f",
+    "https://doi.org/10.4171/RMI/345",
+    "https://doi.org/10.1137/S0036142903422429"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only real finite open paths, uniform even block size, orthogonal complete Haar-level contrast reflection; no multilevel, weighted, periodic path or general wavelet theorem.",
+    "Some older wavelet/BV literature may contain the exact special involution under an unindexed equivalent formulation.",
+    "Independent exact checks sample L<=14, b<=4; unrestricted result depends on the presented step-image algebra and sharpness argument."
+  ],
+  "schema_version": 1
+}
