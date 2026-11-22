@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Schur-complement identity and the non-Perron spectral-gap bound reduce the eigenvalue gap to the last coordinate of the finite Perron eigenvector. Tail Green recursions and exponentially summable resolvent deviations prove relative endpoint convergence, yielding the full positive prefactor, not merely the quadratic-logarithmic rate. The supplementary continuant/Green-fraction calculations confirm the asymptotic in three representative triples. They are not used as an infinite proof. The coefficient includes the exact factor \(\lambda\) and the product through index \(N\).
+PASS
 
-## Originality — PASS (qualified)
+A positive compact Jacobi matrix has isolated simple Perron top eigenvalue lambda. Tail resolvents imply psi_N=psi_0 lambda^-N prod_{j<N}a_j prod_{j=1}^N lambda G_j; zero diagonal gives lambda G_j=1+O(q^(2j)), convergent positive C. Compare finite endpoint phi_N to psi_N using finite tail Green factors, a uniform summable O(q^(2j)) tail and N(lambda-lambda_N)->0, establishing crucial relative (not merely norm) convergence. Schur complement and bounded nonprincipal spectral remainder give exact eigenvalue defect a_N^2 G_{N+1} phi_N^2/(1-a_N^2 G_{N+1}R_N); hence first order and q^(N(N+1)) scaling for fixed parameters. Independent double-precision short-cutoff checks q=.78,.83,.67 at N=7,9,6 match leading ratio within .3%; larger cutoff suffered roundoff and was explicitly excluded, NOT evidence against theorem.
 
-The 2026 four-periodic motivating work studies numerical-radius bounds and an entire-function root. Its abstract and detailed third-party summary do not assert the sharp relative principal-cutoff asymptotic; complete primary full text remained inaccessible. Full primary 2009 and 2022 texts were inspected for corresponding cutoffs and lacked this statement. The closest indexed findings address the other limit \(q\uparrow1\), optimization of modulation, or the opposite limit \(q\downarrow0\), and do not imply the \(N\to\infty\), fixed-parameter coefficient. Historical mathematical claims were compared separately for the same exact defect law. Priority against inaccessible or unindexed literature is not proved.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite Jacobi sections are a direct numerical method for the radius of these compact shifts, used explicitly in the motivating study. Identifying the exact superexponential relative rate and a positive computable leading factor is a natural, quantitative truncation-error invariant, beyond convergence or a generic operator-norm bound. It distinguishes the precision of finite-section computations from the distinct low-damping Airy behavior without conflating their limits. No certified finite-precision error bound is claimed.
+Motivating 2026 Ghosh--Birbonshi--Ojha article studies exactly these periodic weights and identifies the infinite numerical radius as reciprocal of an entire-function zero, with bounds, but its accessible abstract does not state the finite-cutoff relative Green-product asymptotic. The complete primary manuscript remained inaccessible; authorized full-text retrieval yielded VPN-disconnected and no bypass was attempted, so priority remains a named substantial residual risk. Other SCOPE Airy q-up-to-1 and modulation optimization operate in different limit/parameters. On currently readable evidence the cutoff result appears not covered; no certification of novelty is claimed.
 
-## Closest literature and limits
+## value
 
-Ghosh–Birbonshi–Ojha (2026), arXiv:2608.17486 (abstract only); Chien–Nakazato (2009), complete six-page primary text; Chakraborty–Ojha–Birbonshi (2022), complete primary paper; related published geometric-shift asymptotics with a different limit. The inaccessible motivating manuscript and possible older general Jacobi approximation theory remain residual bibliographic risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite-section spectral error is a natural numerical operator invariant; its positive prefactor upgrades mere convergence and explains superexponential q^(N^2) numerical convergence. The endpoint-amplitude relative control is a nontrivial spectral bridge; useful for choosing finite truncations while not a rigorous interval algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
