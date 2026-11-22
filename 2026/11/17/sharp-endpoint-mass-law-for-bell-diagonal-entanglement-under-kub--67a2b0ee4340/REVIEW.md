@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Bell-diagonal PPT/negativity formula is derived from the four partial-transpose eigenvalues. The harmonic-representation estimates \(ca+db\le m(a,b)\le(1-\theta)a+\theta b\) are valid at singular boundary inputs, which are essential to the sharp example. The coordinatewise monotonicity derivatives are explicit and nonnegative; their domain is exactly the two-input separable coefficient square. The case \(c+d=0\) is handled separately, and \(c+d=1\) becomes an arithmetic mean. A rank-two pair attains the bound, while strict interior positivity and continuity prove the claimed interior supremum and nonattainment. The bundled finite checker passed 20,012 supplementary assertions; the analytical argument supplies the universal proof.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+Every Bell-diagonal trace-one state is a four-probability vector, separable iff its largest component≤1/2, and its standard negativity after normalization is max(0,max_i w_i/W−1/2). For scalar Kubo–Ando harmonic mixture m(a,b), the endpoints contribute c a+d b and harmonic–arithmetic inequality yields m(a,b)≤(1−θ)a+θb. For any coordinate i with input weights a_i,b_i≤1/2, output w_i≤L and sum of other outputs≥R=c(1−a_i)+d(1−b_i). Ratio L/(L+R) is nondecreasing in each a_i,b_i, and at (1/2,1/2) equals 1/(1+c+d), giving the exact universal negativity upper bound, with s=0 separately handled. The two rank-two separable inputs with common Bell projection yield nonzero output weights (1,c,d,0)/(1+c+d) and attain it. When s=1 all means are weighted arithmetic and outputs are separable; when s<1 interior harmonic mass forces strictly positive non-common components, so no strictly positive input pair attains the bound, although mixing with maximally mixed states approaches it by continuity. Independent exact rational vertex-pair checks over 6×6 Bell-octahedron boundary vertices for three harmonic representing measures confirmed the bound and sharp witness; these finite tests do not establish the theorem.
 
-The most directly relevant primary source is Kian, arXiv:2605.26272v1, Theorem 3.3, inspected in its accessible full arXiv text, including proof and the later Choi-cone section. Kian provides qualitative rigidity and a local-curvature PPT witness, not the endpoint-atom exact negativity maximum or its optimizing Bell-diagonal pair. Chansangiam (2012) supplies the classical harmonic representation but does not optimize quantum entanglement. Earlier Bell-diagonal entanglement-distribution and fixed-spectrum mixed-state literature concerns different transformations. Targeted scientific-record and public-literature searches were compared by implication, not title only; no stronger directly covering statement was identified. Residual risk: the result could be implicit in older endpoint harmonic-mean estimates or known Bell-state concentration protocols, and not all older full texts were exhaustively accessible. Novelty has no independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating current rigidity theorem leaves a quantitative question: how severely can a mean fail to preserve separability? On the smallest commuting two-qubit family that still has entanglement, the new theorem gives an **exact global maximum** for every nonsymmetric or symmetric Kubo–Ando mean, identifies a universal extremizing pair, distinguishes arithmetic versus nonlinear means, and explains a striking collapse of the answer to just the endpoint atoms of the representing measure. The maximum can reach \(1/2\), the physical two-qubit negativity ceiling, even though both inputs are separable. It is a motivated classification of a natural invariant, not a routine numerical check. Its restriction to Bell-diagonal inputs and normalized output is stated explicitly.
+Kian arXiv:2605.26272v1 Theorem 3.3 gives the qualitative conclusion that only arithmetic Kubo–Ando means preserve separability and constructs a local-curvature non-PPT example. The full primary HTML has no sharp Bell-diagonal trace-normalized negativity bound in its inspected theorem/proof or Choi applications. Harmonic endpoint measures and Bell-diagonal PPT identities are known separately, but together do not automatically yield the sharp global optimum unless one proves ratio monotonicity and equality. The quantitative exact dependence only on c+d survives as qualified novelty; older scalar mean or Bell state optimization formulations remain a risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural quantitative question after separability-preservation rigidity is how large entanglement negativity can be created by a non-arithmetic mean. The smallest commuting two-qubit entangled-capable family permits a complete answer for every Kubo–Ando mean, even nonsymmetric, with one universal maximizer and a sharp endpoint mass classification. This is a motivated exact quantum-information invariant, not a loose counterexample or mere proof that entanglement can occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
