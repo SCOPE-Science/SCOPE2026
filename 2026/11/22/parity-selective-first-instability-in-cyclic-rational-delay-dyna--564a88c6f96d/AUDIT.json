@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact Fourier diagonalization of the full 2k dimensional equilibrium Jacobian yields k quadratic mode factors. Complex Schur-Cohn criterion reduces their simultaneous strict stability to the monotone quartic H_k. The minimum cosine has exact ring parity, enabling a unique crossing and explicit factorization in even dimensions. The odd k^-2 coefficient follows from a simple-root implicit expansion; direct implicit differentiation gives strictly positive outward radial speed. No nonlinear critical stability/bifurcation is asserted; a standalone checker passed finite diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The earlier 2020 Bešo paper proves scalar Neimark–Sacker results at t=2; its equation is one-state, with no cyclic spatial Fourier modes.",
+        "The 2024 Yazlık et al. paper derives a sufficient condition for k=3 (symmetric form 3a<1), not necessary-and-sufficient all-k parity stability.",
+        "The published Gumowski–Mira ring finding concerns a different polynomial-rational map with different linearization and threshold."
+      ],
+      "reasoning": "A theorem for a scalar delay map and a parity theorem for a different coupled ring do not imply the characteristic factors or exact threshold of this rational-delay ring. A future general circulant delayed-map theorem might imply it and remains residual risk; no such decisive full-text source was identified.",
+      "searches": [
+        "published-finding corpus: parity dependent first equilibrium instability even ring flip 3/4 odd Neimark Sacker k^-2 delayed reciprocal quadratic recurrence",
+        "published-finding corpus: cyclic k component rational delayed difference equation x_i(n+1)=1+t x_(i+1)(n)/x_(i+1)(n-1)^2 even odd parity exact linear stability threshold",
+        "published-finding corpus closest: 2026/10/11/SCOPE-parity-selective-equilibrium-stabilization-in-a-coupled-gumowski--a66693793989",
+        "web: \"On the global asymptotic stability of a system of difference equations with quadratic terms\" Tasdemir 2021 Neimark stability local bifurcation"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s12190-024-02057-9",
+      "https://doi.org/10.1186/s13662-019-2490-9",
+      "https://doi.org/10.1007/s12190-020-01442-4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-parity-selective-equilibrium-stabilization-in-a-coupled-gumowski--a66693793989",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-unconditional-stability-and-a-period-four-spectral-bottleneck-in--6b5dbea237d6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The sufficient source criterion 3a<1 yields t<3/4, but k=3 remains a strict linear sink until t=0.820357...; source does not prove a sharp threshold.",
+        "Scalar mode omega=1 is neutral at t=2, while the coupled k=3 ring has transverse oscillatory instability at t=0.820357...; the scalar threshold is not the coupled one.",
+        "The k>3 ring and finite-size parity law are explicitly outside the source theorem and are a proposed extension in its conclusion."
+      ],
+      "reasoning": "The present assertion is stronger than the 2024 sufficient bound for k=3 and gives a full k-dependent classification absent in the source. It is neither a special case of the scalar Neimark–Sacker threshold nor implied by unrelated parity-sensitive maps.",
+      "searches": [
+        "Primary 2024 https://doi.org/10.1007/s12190-024-02057-9 §4 Theorem 4 and conclusion",
+        "Primary 2020 https://doi.org/10.1186/s13662-019-2490-9 equilibrium and §7 conclusions",
+        "published-finding corpus: cyclic three-component reciprocal delayed rational difference equation x(n+1)=1+p y(n)/y(n-1)^2 symmetric p=q=r exact spectral Schur stability threshold Neimark Sacker"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source 2024 §2 Eqs. (8),(20)-(22) defines the 3-component cyclic recurrence and its 6D Jacobian; its concluding open problem gives the k-component extension",
+        "The exact new characteristic factors are Q_omega(lambda)=lambda^2-a omega lambda+2a omega, for every root omega^k=1. The source includes no k-dependent cosine threshold."
+      ],
+      "reasoning": "The k-component ring is a genuine extension of the printed three-component system. In particular, no scalar or uncoupled recurrence has the spatial Fourier phase omega and its even/odd disappearance. Direct formulas were compared rather than simply searching for matching titles.",
+      "searches": [
+        "published-finding corpus: cyclic k component rational delayed difference equation x_i(n+1)=1+t x_(i+1)(n)/x_(i+1)(n-1)^2 even odd parity exact linear stability threshold",
+        "published-finding corpus: Yazlık Fidancı Hassani 2024 k-dimensional cyclic rational system symmetric coupling equilibrium stability",
+        "web: \"Stability analysis of a three-dimensional system of difference equations with quadratic terms\" exact stability symmetric p=q=r oscillatory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed finding contained the source-specific phase equation lambda^2=a omega(lambda-2), the parity threshold t_even=3/4, or the odd-k asymptotic coefficient 3pi^2/50.",
+        "A numerically recomputed root for k=3 is 0.820357195635835..., obtained from the new quartic H_3 rather than copied from a known table."
+      ],
+      "reasoning": "The exact critical values are defined analytically by a universal quartic minimized over the roots of unity; the numerical table in CHECKER.py is a test, not a source of the proof.",
+      "searches": [
+        "published-finding corpus: one plus p y over y previous squared coupled three variable sharp unit multiplier stability",
+        "published-finding corpus: Yazlik Fidanci Hassani 2024 three-dimensional system difference equations quadratic terms sharp symmetric oscillatory threshold eigenvalue",
+        "web: \"pqr\" \"three-dimensional system of difference equations with quadratic terms\" Neimark Sacker"
+      ]
+    },
+    "rationale": "Full primary 2024 source develops the three-component delayed system and sufficient local condition, and explicitly poses arbitrary ring dimension as open. The scalar 2020 source treats only its in-phase spectrum. Direct searches of published mathematical claims and related literature found no full all-k parity threshold or odd k^-2 finite-size law; unindexed general circulant-delay theory could still cover it.",
+    "residual_risks": [
+      "Potentially related broad theorems on cyclic delay circulants not indexed by semantic search",
+      "Full text of the 2020 two-component predecessor was not inspected; its k=2 special case may be covered, but k>=3 and odd-k parity remain unassessed by that source",
+      "A same-model self-review is not independent priority certification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The primary source proves only a sufficient local bound in the 3-component system and explicitly proposes k-component extension; no sharp parity classification is given.",
+        "evidence": [
+          "Equation (8) has the same cyclic delays",
+          "Theorem 4 bound at symmetric parameters reduces to 3a<1",
+          "Conclusion proposes arbitrary k-dimensional quadratic delayed systems"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12190-024-02057-9",
+        "material_read": "Full accessible HTML; Eqs. (8), (20)-(22); Theorems 2-6; convergence section and concluding open problem",
+        "method": "Read mathematical formulas, hypotheses, sufficient stability criterion, conclusion, and compared implications to exact Schur/Fourier claim",
+        "title": "Stability analysis of a three-dimensional system of difference equations with quadratic terms",
+        "trigger": "Same governing family and natural higher-dimensional open extension"
+      },
+      {
+        "assessment": "The scalar threshold t=2 applies only to spatially synchronous perturbations and does not imply earliest ring instability.",
+        "evidence": [
+          "Normalized scalar recurrence x(n+1)=1+p x(n)/x(n-1)^2",
+          "Concluding paper partitions scalar dynamics at p=2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13662-019-2490-9",
+        "material_read": "Accessible full HTML, including model equation, fixed-point stability, Neimark–Sacker result and conclusion",
+        "method": "Compared scalar characteristic polynomial to the k-mode polynomial and parameter thresholds",
+        "title": "Boundedness of solutions and stability of certain second-order difference equation with quadratic term",
+        "trigger": "Scalar ancestor of exactly the same scalar delay nonlinearity"
+      },
+      {
+        "assessment": "Potential partial special-case overlap for k=2; no whole-document noncoverage assertion; even-k uniform result includes k>=4 and all odd k.",
+        "evidence": [
+          "The 2024 source cites a two-component quadratic-denominator system in its Introduction",
+          "OpenAlex dates the earlier article 2020-10-08"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12190-020-01442-4",
+        "material_read": "Bibliographic/abstract evidence and the originating source’s explicit description of the two-component model; full primary document not read",
+        "method": "Compared published two-component symmetric coupling structure and parameters at bibliographic level",
+        "title": "On the global asymptotic stability of a system of difference equations with quadratic terms",
+        "trigger": "Two-component predecessor cited by original authors"
+      },
+      {
+        "assessment": "Different map, different equilibrium modes, no implication of the present thresholds.",
+        "evidence": [
+          "Published summary concerns a Gumowski–Mira ring and odd-ring stabilization window of order k^-2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-parity-selective-equilibrium-stabilization-in-a-coupled-gumowski--a66693793989",
+        "material_read": "Published published-finding corpus title and scientific summary; not full article",
+        "method": "Compared stated model (Gumowski–Mira coupling) and its odd-ring window against rational-delay map and its exact Fourier polynomial",
+        "title": "Parity-selective equilibrium stabilization in a coupled Gumowski–Mira ring",
+        "trigger": "Closest indexed parity-dependent dynamical ring result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "564a88c6-f96d-47f5-af1e-4adcfc471e55",
+  "value": {
+    "rationale": "The source itself motivates the k-dimensional extension. The theorem solves a natural complete sharp local-stability question for every ring size, distinguishes real flip from nonreal oscillatory crossings by parity, gives exact t=3/4 for all even rings and sharp O(k^-2) odd-ring correction, and quantifies why scalar in-phase stability can hide spatially nonuniform instability.",
+    "status": "PASS"
+  }
+}
