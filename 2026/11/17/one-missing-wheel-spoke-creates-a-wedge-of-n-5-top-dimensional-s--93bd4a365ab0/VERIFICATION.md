@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python check_wheel_cut.py` from the folder containing this document and the standalone Python script. Standard-library Python 3 is sufficient. The recorded execution in `check_wheel_cut_output.txt` reports `WHEEL_CUT_FINITE_CHECK_PASS` for eight cases, rim sizes 5 through 12.
+## correctness
 
-For each case the checker constructs the actual graph and the induced graph on each three-set, derives the maximal cut faces, verifies the predicted decomposition into two subcomplexes, checks the exact intersection and the two distinct free-face pairs, and computes reduced mod-two homology by sparse Gaussian elimination. It separately checks intact-wheel and single-rim-edge deletion acyclicity over the same field.
+PASS
 
-These calculations are finite sanity checks only. In particular, mod-two ranks do not prove torsion-freeness or an infinite-family homotopy statement. The unrestricted integral homotopy theorem rests on the explicit two-free-face collapse, the relative cellular exact sequence, connectivity and homotopy-pushout proof in `RESULT.md`. No independent mathematical audit has been performed.
+The exact disconnected-triple partition yields A={h}*Delta_3(C_n) (cone) and B=Delta({1,n−1})*∂Delta({2,...,n−2}) (an m=n−3 dimensional ball). Every submaximal B-face is in A except its two explicitly identified (m−1)-faces; these are distinct free faces paired with different m-facets of B. Their elementary collapses leave contractible B' with m−2 relative m-cells over intersection I; I is (m−2)-connected and has Z^{m−2} top homology. Hurewicz/Whitehead and the cofibration homotopy pushout give A∪B≃ΣI≃∨^{n−5} S^{n−3}. For n=5 there are no surviving top cells and I collapses; a hub dominating all rim vertices makes the intact/rim-edge-deleted complex a cone. Direct independent enumeration of n=5..8 gives expected mod-two Betti and intact/rim-edge comparison; it does not substitute for the all-n integral proof.
+
+## originality
+
+PASS
+
+Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.
+
+## value
+
+PASS
+
+A structural graph-topology perturbation converts a natural cone example into exactly n−5 high-dimensional spheres for every n≥6, while the other edge orbit leaves it contractible. This is an exact infinite-family homotopy classification motivated by robustness of ordinary cut complexes, not an arbitrary small instance or a renamed computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

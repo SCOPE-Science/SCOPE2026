@@ -1,15 +1,21 @@
-# Scientific review: single-spoke wheel three-cut complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof makes the full facet partition explicit. Hub-free disconnected triples give a cone; the remaining triples give a simplicial ball \(\Delta(\{1,n-1\})*\partial\Delta(\{2,\ldots,n-2\})\). The intersection is its codimension-one skeleton minus two specified free faces. Collapsing the two corresponding top-dimensional pairs leaves a contractible complex obtained by attaching \(n-5\) top-dimensional cells to the intersection. Relative homology, connectivity, Hurewicz, Whitehead and the homotopy pushout of two cones establish the stated integral wedge, including the \(n=5\) boundary. Standalone finite enumerations \(5\le n\le12\) corroborate the facet logic and mod-two ranks. No finite experiment is used as the unrestricted proof.
+## correctness
 
-## Originality — PASS, with limitations
-The relevant primary sources cover cycle-power three-cut complexes (Chauhan–Shukla, 2026), graph joins/cycles and other cut families (Bayer et al.), and cut-complex reconstruction (Shen et al.). The intact-wheel cone follows from the graph-join result but does not imply the changed homotopy after removing a spoke. Searches for wheel spoke deletion, near-dominating vertices, and equivalent wedge formulas in published mathematical records and general literature did not identify this theorem. The closest high-girth and special-graph three-cut sphere-wedge classifications do not apply to this triangular, square-rich near-wheel. Novelty remains conditional on the scope of the searched indexed literature, with a residual risk of an unindexed general near-cone theorem.
+PASS
 
-## Value — PASS
-A single spoke fault changes a contractible cut complex into \(n-5\) top-dimensional spheres for every \(n\ge6\), whereas deleting a rim edge retains contractibility. This is a sharp and structurally explained edge-orbit response in the recently studied ordinary three-cut complex of a classical planar graph family, not a cosmetic parameter substitution or a numerical table.
+The exact disconnected-triple partition yields A={h}*Delta_3(C_n) (cone) and B=Delta({1,n−1})*∂Delta({2,...,n−2}) (an m=n−3 dimensional ball). Every submaximal B-face is in A except its two explicitly identified (m−1)-faces; these are distinct free faces paired with different m-facets of B. Their elementary collapses leave contractible B' with m−2 relative m-cells over intersection I; I is (m−2)-connected and has Z^{m−2} top homology. Hurewicz/Whitehead and the cofibration homotopy pushout give A∪B≃ΣI≃∨^{n−5} S^{n−3}. For n=5 there are no surviving top cells and I collapses; a hub dominating all rim vertices makes the intact/rim-edge-deleted complex a cone. Direct independent enumeration of n=5..8 gives expected mod-two Betti and intact/rim-edge comparison; it does not substitute for the all-n integral proof.
 
-## Limitations
-The result is nonequivariant and restricted to one missing spoke in ordinary three-cut complexes. It does not settle shellability or more general edge-fault patterns. Priority against all unindexed literature is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.
+
+## value
+
+PASS
+
+A structural graph-topology perturbation converts a natural cone example into exactly n−5 high-dimensional spheres for every n≥6, while the other edge orbit leaves it contractible. This is an exact infinite-family homotopy classification motivated by robustness of ordinary cut complexes, not an arbitrary small instance or a renamed computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
