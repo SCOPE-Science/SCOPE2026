@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:52:01.001562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md cbc4d463b18c6f15ef4888d1f9f4f6cdd9d25375; CHECK.py 5f910b147186ae0a547be3a0ae6b3821b0950b41"
+      ],
+      "rationale": "Hamiltonian F=x^2+y^2+k x^2 y^2 is conserved; its regular energy ovals are traversed with original-time T(A)=4K(-kA^2). Vertical area integration gives S(A)=4/k((1+kA^2)K(-kA^2)-E(-kA^2)); differentiating independently yields S′(A)=A T(A). Area sampling makes Pr(A_R<=a)=S(a)/S(R), T strictly decreasing gives exact tail; T(A)~4log(sqrt(k)A)/(sqrt(k)A) and S(R)~4Rlog B/sqrt(k) imply A_R/R=>Uniform(0,1) and normalized T=>1/U. The exact moment integral S(R)^(-1)int_0^R aT(a)^2 da gives E[Z_R]~(log B)/3. Independent mpmath direct vertical integrals and derivatives checked at (k,A)=(.6,2.3),(1.5,17), not used to infer the limit. The geometric and integral arguments prove all fixed k>0, A,R>0.",
+      "residual_risks": [
+        "Finite mpmath checks do not prove the limit or universal coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Hamiltonian area-action identity makes S′(A)=A T(A) standard; elliptic asymptotic K(-b^2)~log b/b is tabulated.",
+          "No general area-sampled Pareto theorem inspected with a hypothesis already yielding the explicit coefficient for this particular cubic energy disk."
+        ],
+        "reasoning": "The new result is a specialized explicit application, not a claimed extension of elliptic or Hamiltonian generalities. The primitive period asymptotics by themselves require a further distribution/size-bias moment calculation.",
+        "searches": [
+          "cubic polynomial global center period distribution Euclidean area uniform energy sublevel Pareto logarithmically divergent mean elliptic integrals",
+          "NIST DLMF §19.12",
+          "https://arxiv.org/abs/2310.07454"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md cbc4d463b18c6f15ef4888d1f9f4f6cdd9d25375; CHECK.py 5f910b147186ae0a547be3a0ae6b3821b0950b41",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22",
+        "https://arxiv.org/abs/2310.07454",
+        "https://dlmf.nist.gov/19.12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result explicitly provides T(A) and its asymptotic; the new exact distribution requires S(A)=area(F<A^2), and the coefficient uses the positive moment integral int aT(a)^2 da."
+        ],
+        "reasoning": "Elementary Hamiltonian action and regular variation render this a natural corollary of known ingredients, an originality risk. The published prior conclusion itself does not determine the ensemble under a stated area measure; its formulas do allow a relatively short independent derivation, so novelty is limited to explicit ensemble conclusions.",
+        "searches": [
+          "cubic polynomial global center period distribution Euclidean area uniform energy sublevel Pareto logarithmically divergent mean elliptic integrals",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llibre–Rondón equation (11) identifies the same vector field and global center; prior Resultary gives the original-time elliptic period for that same flow.",
+          "Prior theorem samples phase along one orbit by physical time; present variable samples all invariant ovals by planar area."
+        ],
+        "reasoning": "The prior period formula is an ingredient, not an equal probability law. Time-stationary orbit sampling is not equivalent to Euclidean area sampling across all orbits.",
+        "searches": [
+          "cubic polynomial global center period distribution Euclidean area uniform energy sublevel Pareto logarithmically divergent mean elliptic integrals",
+          "2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed nearest records concern temporal occupation and elliptic period, not finite-area cross-orbit period distributions."
+        ],
+        "reasoning": "A tabulated K/E period is not a tabulation of the induced area-sampled random variable; absence from searches alone is not proof of novelty.",
+        "searches": [
+          "cubic polynomial global center period distribution Euclidean area uniform energy sublevel Pareto logarithmically divergent mean elliptic integrals",
+          "SCOPE logarithmic occupation same cubic global center"
+        ]
+      },
+      "rationale": "The period and elliptic asymptotics were previously derived for the same flow; area-sampled cross-orbit period distribution and its mean growth are the additional bounded claim. The published single-orbit time-occupation theorem has a different sampling space. General Hamiltonian action identities plus regular variation are credited, not claimed new. No inspected published theorem provides the exact uniform-area ensemble or its divergent coefficient. Priority remains best knowledge, not established by failed searches.",
+      "residual_risks": [
+        "The Pareto law follows by a short application of standard action and regular variation to an already-known period; an older general ensemble theorem might already imply it.",
+        "Sampling means ordinary Euclidean area in invariant F-sublevels, not a disk in (x,y) Euclidean radius or time sampling.",
+        "Finite mpmath checks do not prove the limit or universal coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers periods and time-occupation along one orbit; not the cross-orbit area ensemble.",
+          "evidence": "Identical T(A) used as known; occupation law conditioned on a single orbit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22",
+          "material_read": "Full published scientific RESULT.md of prior same-flow result",
+          "method": "Full GitHub text read",
+          "title": "Sharp logarithmic phase and time statistics in a cubic global center",
+          "trigger": "Identical cubic Hamiltonian and elliptic period formula"
+        },
+        {
+          "assessment": "Center classification is prior; does not claim these area-sampled statistics.",
+          "evidence": "Case (a) equation (11) identifies vector field; no area ensemble in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.07454",
+          "material_read": "Identical case Theorem 2(a), equation (11) and center statement; full publication not independently reviewed in this execution",
+          "method": "Primary public manuscript and cited theorem comparison",
+          "title": "Global centers of a class of cubic polynomial differential systems",
+          "trigger": "Identical vector field with k=-c1"
+        },
+        {
+          "assessment": "Supports log(B)/B elliptic asymptotic, not new probabilistic theorem.",
+          "evidence": "K(-B^2)~log B/B.",
+          "identifier_or_url": "https://dlmf.nist.gov/19.12",
+          "material_read": "Relevant asymptotic formula and parameter convention",
+          "method": "Reference comparison with reconstructed saddle integral",
+          "title": "NIST DLMF, elliptic integral asymptotics",
+          "trigger": "Asymptotic K(-B^2) needed for scaled limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git RESULT.md cbc4d463b18c6f15ef4888d1f9f4f6cdd9d25375; CHECK.py 5f910b147186ae0a547be3a0ae6b3821b0950b41",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22"
+      ],
+      "rationale": "Area sampling of invariant energy sublevels is a natural canonical measure; a Pareto limiting period with divergent mean is a meaningful distinction between typical orbital time scale and its expectation, sharper than a period calculation or elementary reparameterization. A researcher studying transport/ensemble statistics can use the exact finite-size law and moment coefficient.",
+      "residual_risks": [
+        "The Pareto law follows by a short application of standard action and regular variation to an already-known period; an older general ensemble theorem might already imply it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Pareto law follows by a short application of standard action and regular variation to an already-known period; an older general ensemble theorem might already imply it.",
+    "Sampling means ordinary Euclidean area in invariant F-sublevels, not a disk in (x,y) Euclidean radius or time sampling.",
+    "Finite mpmath checks do not prove the limit or universal coefficient."
+  ],
+  "schema_version": 1
+}

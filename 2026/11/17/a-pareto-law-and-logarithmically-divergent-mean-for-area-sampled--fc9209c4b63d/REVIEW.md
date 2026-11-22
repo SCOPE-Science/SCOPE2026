@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The system's conserved quartic energy and canonical Hamiltonian normalization are checked algebraically, without a time-change. The phase level is a compact regular oval and its four equal quarter-arcs yield the **least physical period**. The vertical-section integral gives exact enclosed Euclidean area and the exact derivative \(S_\kappa'(A)=AT_\kappa(A)\). The displayed formulas for complete elliptic integrals reproduce both integrals. Positivity and monotonicity yield the exact finite-area period-survival law. The large-argument elliptic asymptotic and area integration prove the normalized amplitude is asymptotically uniform, hence the area-sampled period has a Pareto limit. An independent positive-integral moment calculation gives the sharp \(1/3\) logarithmic mean coefficient. No finite experiment is presented as proof of an infinite asymptotic.
+## correctness
 
-## Originality — PASS within inspected materials
-Llibre–Rondón's 2023 full text, Theorem 2(a) and equation (11), establishes precisely the global-center system but not its ensemble law. A publicly available 2026 study of this very same cubic flow **already has the elliptic period formula and its asymptotic**, and these ingredients are unambiguously cited as prior work; its full scientific result instead concerns normalized time along each fixed orbit. A related 2026 record on cubic Kolmogorov centers is a different Hamiltonian. The new statement is the **finite-size Euclidean-area sampled period distribution across the invariant energy disk**, its Pareto asymptotic, and the divergent sample-mean coefficient. Standard action-period and regular-variation methods help derive the theorem but do not by themselves supply the specialized area and distributional statements. The targeted source and semantically related indexed searches found no covering period-ensemble theorem. This is an evidence-bounded priority assessment, not an independent novelty certificate.
+PASS
 
-## Value — PASS
-Sampling an entire energy sublevel by ordinary area gives a canonical invariant probability measure and a natural way to compare the prevalence of orbit periods in a global-center phase portrait. The exact finite-ensemble law, non-Gaussian heavy-tail limit, and sharp failure of first-moment convergence make a substantial distinction between typical and mean measured orbital period; they are not merely a renamed period formula. The model's strongly anisotropic growing energy ovals generate the nontrivial \(R\log R\) area scaling responsible for the Pareto exponent. These are complete intrinsic quantitative results for a natural dynamical statistic, rather than arbitrary finite computations or an unsupported extrapolation.
+Hamiltonian F=x^2+y^2+k x^2 y^2 is conserved; its regular energy ovals are traversed with original-time T(A)=4K(-kA^2). Vertical area integration gives S(A)=4/k((1+kA^2)K(-kA^2)-E(-kA^2)); differentiating independently yields S′(A)=A T(A). Area sampling makes Pr(A_R<=a)=S(a)/S(R), T strictly decreasing gives exact tail; T(A)~4log(sqrt(k)A)/(sqrt(k)A) and S(R)~4Rlog B/sqrt(k) imply A_R/R=>Uniform(0,1) and normalized T=>1/U. The exact moment integral S(R)^(-1)int_0^R aT(a)^2 da gives E[Z_R]~(log B)/3. Independent mpmath direct vertical integrals and derivatives checked at (k,A)=(.6,2.3),(1.5,17), not used to infer the limit. The geometric and integral arguments prove all fixed k>0, A,R>0.
 
-## Scope and residual risks
-The result is one exactly integrable cubic system, not a robustness statement. An equivalent result could exist under alternate Hamiltonian-action or elliptic-integral terminology, especially in material not indexed by the searches. The probability is an across-orbits **spatial** ensemble, not the physical-time occupation measure of a single orbit. The symbolic/numerical checker corroborates identities only. The 2026 same-system study was inspected in full; the different-system public record was identified by its searchable summary, not asserted excluded after full-text comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The period and elliptic asymptotics were previously derived for the same flow; area-sampled cross-orbit period distribution and its mean growth are the additional bounded claim. The published single-orbit time-occupation theorem has a different sampling space. General Hamiltonian action identities plus regular variation are credited, not claimed new. No inspected published theorem provides the exact uniform-area ensemble or its divergent coefficient. Priority remains best knowledge, not established by failed searches.
+
+## value
+
+PASS
+
+Area sampling of invariant energy sublevels is a natural canonical measure; a Pareto limiting period with divergent mean is a meaningful distinction between typical orbital time scale and its expectation, sharper than a period calculation or elementary reparameterization. A researcher studying transport/ensemble statistics can use the exact finite-size law and moment coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
