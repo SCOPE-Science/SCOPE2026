@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-terminal Dirichlet equations yield the affine boundary-contrast representation \((Hf)_i=f_a+(f_b-f_a)h_i\). A sharp triangle-inequality denominator bound proves the exact operator norm and all nonconstant input equality cases; sorted adjacent gaps establish the global envelope and its equality geometry. Boundary and disconnected-interior cases are explicitly included, and path interpolation is checked with a closed summation. Exact-rational tests independently corroborate the formulas on 771 connected unweighted graphs, 390 weighted networks, and extremal families. The finite tests are not the proof.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** Lin and Xi analyze local graph-harmonic Lipschitz regularity; Palacios, Gómez and Del Río develop voltage/hitting-time formulas. Neither of the inspected relevant portions states the exact all-pairs Gini operator norm, its vertex-class conductance characterization or the path amplification constant. Classical oscillation/Gini norm comparison gives a looser general framework and a coincident sharp all-graph envelope, but does not imply the individual graph identity or classification. A separate earlier calculation of rank-two positive projections could reproduce this theorem; a full historical-priority certification is not claimed.
+PASS
 
-## Mathematical value
-**PASS.** The result completely identifies when an energy-minimizing two-terminal interpolation is nonexpansive in a distinct natural metric, supplies a local conductance test, classifies maximal-distortion voltage profiles, and proves an \(n/6\) path amplification law despite the maximum principle. This is a structural stability statement for entire network families, not merely a fixed small example.
+A connected weighted Dirichlet problem has a unique voltage h in [0,1] with terminal values 0 and 1. For every f, Hf=f_a+(f_b-f_a)h, so G(Hf)=|f_b-f_a|G(h). The triangle inequalities over pairs involving a or b give G(f)>=(n-1)|f_b-f_a|, sharply attained when all interior inputs coincide between their two boundary values. Summing h boundary-interior pairs yields G(h)=n-1+sum_{interior unordered pairs}|h_i-h_j|. The sorted interior gap sum has coefficients j(m-j), whose maximum floor(m²/4) proves sharp universal envelope floor(n²/4)/(n-1), including m<=1. Equal interior voltage is equivalent to all equations theta*c_{ia}=(1-theta)*c_{ib}; connectedness suffices even if the interior subgraph is disconnected. The n-node endpoint path has h_j=j/(n-1), giving n(n+1)/(6(n-1)). An independent exact-rational path check n=2..8 corroborates that specialization. The actual Git RESULT.md and source checker were inspected; finite tests do not establish generality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (bounded best-of-knowledge). Graph Dirichlet voltage/hitting probability is the same h; it does not by itself specify the induced complete-pair Gini operator norm. Sharp path amplification and conductance-level nonexpansivity require the specific voltage-gap calculation; the checked earlier results do not logically entail them. Material full texts and relevant primary sections checked; remaining historical-equivalence risks retained.
+
+## value
+
+PASS
+
+Finite harmonic interpolation is a standard mathematical construction, but its precise response in an all-pair dispersion seminorm is not captured by the maximum principle. The exact graph-dependent norm, equality geometry, conductance classification and growing path loss quantify a meaningful discrepancy between harmonic regularity and complete-pair stability. It is an intrinsically motivated sharp functional-analytic result, not a random numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
