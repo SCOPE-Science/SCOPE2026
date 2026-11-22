@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:00:27.432313Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complete-pair Gini of a real vector is exactly reducible to binary cuts for a constant-preserving linear Markov operator. Under K_{m,m} half-lazy transition, a cut with r sites in the first part, s in the second, k=r+s and d=|r-s| has exact output Gini mk-r²-s²+d[rs+(m-r)(m-s)]/(2m), obtained by counting within- and between-class output levels. The normalized expression R=1/2+d[m²+(m-k)²-2md-d²]/[4mk(2m-k)] is maximized by a singleton (or complement), using complement symmetry, d<=k, d>=1 and convex endpoint comparison in t=m-k, yielding 3(m-1)/[2(2m-1)]. At m=1 the walk is uniform averaging and norm zero. Strict equality in the cuts plus nesting of level sets proves only one-exception-coordinate real extremizers for m>=3, and rational comparison proves monotone rise to unattained 3/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-a-sharp-uniform-gini-decay-envelope-for-normalized-heat-on-compl--2ed513aa7e24",
+          "Resultary:2026/11/17/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5",
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas"
+        ],
+        "reasoning": "The heat semigroup varies continuously in t, while the half-lazy walk has distinct discrete eigenvalues 1,1/2,0 on the invariant subspaces and is not an e^{-tL} of the standard Laplacian for finite t. The edge-variation theorem concerns another seminorm.",
+        "searches": [
+          "half lazy random walk balanced complete bipartite Gini contraction sharp coefficient",
+          "sharp Gini norm of lazy random walk on complete bipartite graph for arbitrary holding probabilities part sizes (balanced bicliques)"
+        ]
+      },
+      "checked_sources": [
+        "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+        "Resultary:2026/11/17/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5",
+        "Resultary:2026/11/17/SCOPE-a-sharp-uniform-gini-decay-envelope-for-normalized-heat-on-compl--2ed513aa7e24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+          "Resultary:2026/11/17/SCOPE-a-sharp-uniform-gini-decay-envelope-for-normalized-heat-on-compl--2ed513aa7e24"
+        ],
+        "reasoning": "Dobrushin spectral/TV mixing lacks unweighted complete-pair dispersion, and continuous heat does not realize the discrete half-lazy kernel; a new occupancy-cut maximization and real equality classification are required.",
+        "searches": [
+          "half lazy random walk balanced complete bipartite Gini contraction sharp coefficient",
+          "sharp Gini norm of lazy random walk on complete bipartite graph for arbitrary holding probabilities part sizes (balanced bicliques)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5",
+          "Bipartite two-class symmetry reduces binary cut values to occupancy counts r,s, not an arbitrary graph-edge norm"
+        ],
+        "reasoning": "Under P=(I+K)/2 the complete-pair Gini is not edge total variation because within-class pairs contribute. The edge-norm sharp theorem is a different operator seminorm, despite identical graph and laziness.",
+        "searches": [
+          "half lazy random walk balanced complete bipartite Gini contraction sharp coefficient",
+          "sharp Gini norm of lazy random walk on complete bipartite graph for arbitrary holding probabilities part sizes (balanced bicliques)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+          "Resultary:2026/11/17/SCOPE-sharp-edge-variation-contraction-of-lazy-walks-on-complete-bipar--77f0e7590ff5"
+        ],
+        "reasoning": "A self-matching Resultary entry is the assigned record, not independent coverage; the closest published tabulation gives an edge-variation coefficient. No checked all-pairs Gini discrete coefficient/equality table found, although absence is not a novelty proof.",
+        "searches": [
+          "half lazy random walk balanced complete bipartite Gini contraction sharp coefficient",
+          "sharp Gini norm of lazy random walk on complete bipartite graph for arbitrary holding probabilities part sizes (balanced bicliques)"
+        ]
+      },
+      "rationale": "The related exact lazy biclique edge-variation theorem concerns cross-part graph edges, not all vertex pairs. Continuous-time normalized heat on K_{a,b} has a different spectral family and does not determine this discrete half-lazy one-step coefficient/equality classification. No checked primary or published record implies the exact claimed global constant.",
+      "residual_risks": [
+        "Potential independent old exact all-pair Gini computation on complete bipartite graphs is not excluded by semantic searches",
+        "Technical full text of the indexed heat and edge-variation records was not fetched; only title and reported claims were compared, so no whole-document exclusion is made",
+        "Finite occupancy check m<=31 does not establish all m; the analytic convex endpoint bound does"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_SEMINORM_NOT_COVERING",
+          "evidence": [
+            "The Dobrushin/Hopf oscillation norm is max-min, and dual TV acts on probability measures; neither equals unweighted complete-pair Gini on signal coordinates",
+            "Positive stochastic kernels can be oscillation-contracting but amplify Gini"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649",
+          "material_read": "Introduction and main operator contraction formulas for Hopf oscillation and dual total variation",
+          "method": "Accessible primary author PDF text, relevant theorem passages, page-image inspected",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones",
+          "trigger": "Potential stronger sharp contraction theorem for positive averaging operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural balanced complete-bipartite lazy walk has a fully classified sharp all-pairs dispersion contraction and singleton equality mechanism, with exact finite-size-to-thermodynamic 3/4 gap; useful in stochastic smoothing versus other norms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only balanced unweighted K_{m,m}, exact 1/2 holding and one step",
+    "Equality classification explicitly restricted to m>=3"
+  ],
+  "schema_version": 1
+}

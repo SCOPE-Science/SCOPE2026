@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The binary-cut formula follows by enumerating the four selected/unselected vertex classes. The coarea/layer-cake reduction applies because the operator is linear and constants are fixed. The strict convex endpoint comparison yields the precise all-dimensional bound, and a singleton cut attains it. The equality-classification proof uses strictness of both estimates, followed by nesting of level sets. Independently executed exact-rational checks reproduce every nontrivial cut through seven vertices per class and all cut cardinality orbits through one hundred vertices per class.
+## correctness
 
-## Originality — PASS (qualified)
-The closest indexed published research statement concerns **graph-edge** variation on lazy bicliques, not the all-pairs Gini functional. A prior continuous-time normalized-heat formula on complete bipartite graphs has a different operator; its exact semigroup norm does not state a one-step discrete averaging norm. Full arXiv HTML text of Peres–Sousi (2011, Introduction and theorem statements on mixing and hitting times) and Peres–Sauerwald–Sousi–Stauffer (2014, introduction, principal theorem statements and detailed scope) was inspected. Both concern total-variation distances between probability measures and mixing/intersection times, not the stated norm. Unindexed priority remains a risk; this check is not an independent historical certification.
+PASS
 
-## Mathematical value — PASS
-The sharp complete-pair Gini coefficient measures a natural dispersion metric for one-step mixing on a canonical graph. It distinguishes the ordinary nonconstant spectral multiplier \(1/2\) from a larger Gini operator gain for \(m\ge3\), gives singleton extremizers and an exact optimal uniform contraction constant \(3/4\). The structural dimension dependence is not merely a routine evaluation of a previously established scalar bound.
+Complete-pair Gini of a real vector is exactly reducible to binary cuts for a constant-preserving linear Markov operator. Under K_{m,m} half-lazy transition, a cut with r sites in the first part, s in the second, k=r+s and d=|r-s| has exact output Gini mk-r²-s²+d[rs+(m-r)(m-s)]/(2m), obtained by counting within- and between-class output levels. The normalized expression R=1/2+d[m²+(m-k)²-2md-d²]/[4mk(2m-k)] is maximized by a singleton (or complement), using complement symmetry, d<=k, d>=1 and convex endpoint comparison in t=m-k, yielding 3(m-1)/[2(2m-1)]. At m=1 the walk is uniform averaging and norm zero. Strict equality in the cuts plus nesting of level sets proves only one-exception-coordinate real extremizers for m>=3, and rational comparison proves monotone rise to unattained 3/4.
 
-## Scope and risks
-All graphs are balanced complete bipartite graphs, all weights are uniform, and holding probability is one half. Publication priority may be affected by older sources that use an equivalent mean-absolute-pair-difference norm or its cut dual; this comparison is based on accessible primary texts and indexed records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The related exact lazy biclique edge-variation theorem concerns cross-part graph edges, not all vertex pairs. Continuous-time normalized heat on K_{a,b} has a different spectral family and does not determine this discrete half-lazy one-step coefficient/equality classification. No checked primary or published record implies the exact claimed global constant.
+
+## value
+
+PASS
+
+The natural balanced complete-bipartite lazy walk has a fully classified sharp all-pairs dispersion contraction and singleton equality mechanism, with exact finite-size-to-thermodynamic 3/4 gap; useful in stochastic smoothing versus other norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
