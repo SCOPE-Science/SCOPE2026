@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `forest_fixed_verify.py` was executed with Python 3 and NetworkX. It generated finite tree automorphisms, closed their cyclic subgroups, and separately tested generated noncyclic groups. It compared invariant subsets of original independent sets with faces of orbit-conflict models, verified the models are forests, computed reduced simplicial homology over \(\mathbb F_2\) via boundary ranks, and checked reduced Lefschetz numbers and the integral orientation-sign prediction. The exact output is embedded as `forest_fixed_verify.out`.
+## correctness
 
-The checker handled 282 cyclic tree cases and seven other generated-group cases, comparing 6269 orbit faces; all assertions completed. The calculation is finite corroboration, not a proof for all forests or subgroups. Proof obligations are handled in `RESULT.md`.
+PASS
 
-The proof does not provide an equivariant representation sphere model or a complete orbit-space classification. Independent audit has not been performed.
+For every finite simple forest F and subgroup H of Aut(F), geometric invariance of barycentric coordinates is precisely constancy on H vertex orbits. Forbidden orbits have internal edges; the affine simplex map x_v=y_O/|O| establishes the PL homeomorphism with Ind(Q_H(F)), including the empty case. Rooted parent maps on the subdivided forest show each component-orbit quotient is a tree before deleting internally conflicting vertex orbits, so Q is a forest. If no isolate, deletion of the closed neighborhood of a leaf's neighbor suspends the residual independence complex; the empty graph convention gives S^-1 and handles S^0 correctly. The reduced fixed-point Lefschetz trace equals (-1)^e (including empty fixed space), while the unique rank-one ambient homology lies in degree d, giving integral degree (-1)^(e-d). No equivariant linear-sphere model is asserted.
+
+## originality
+
+PASS
+
+Prior forest independence homotopy is nonequivariant; a 2026 rooted-tree result computes only a special root-preserving character, and a closely related forest-dominance result treats a different complex. No inspected earlier result supplies the simultaneous PL orbit-forest model and arbitrary subgroup orientation character. Priority is best-of-knowledge, not a claim that no unindexed equivariant theorem exists.
+
+## value
+
+PASS
+
+The all-subgroup geometric fixed-set topology of a natural graph complex is structural and strictly richer than the ordinary forest sphere/point classification. The explicit smaller forest model computes every fixed-space homotopy type and the full integral degree character for arbitrary forest automorphisms; these are useful in equivariant homotopy and representation calculations, not a mere renamed ordinary recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

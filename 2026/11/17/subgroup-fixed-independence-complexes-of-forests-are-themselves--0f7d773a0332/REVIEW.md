@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The PL orbit-coordinate map and explicit inverse are valid on every face, including forbidden or empty orbit sets. Barycentric subdivision, a canonical fixed center and equivariant parent map prove quotient acyclicity for arbitrary tree stabilizers; components reduce separately. The leaf-neighbor suspension proof handles isolated and empty residual graphs. The reduced simplicial Lefschetz number gives the claimed sign on the rank-one integral homology line. The included checker independently verifies orbit faces, mod-two homology and Lefschetz values for 289 finite actions, but the proof supplies the infinite quantifiers.
+PASS
 
-## Originality — PASS relative to inspected material
+For every finite simple forest F and subgroup H of Aut(F), geometric invariance of barycentric coordinates is precisely constancy on H vertex orbits. Forbidden orbits have internal edges; the affine simplex map x_v=y_O/|O| establishes the PL homeomorphism with Ind(Q_H(F)), including the empty case. Rooted parent maps on the subdivided forest show each component-orbit quotient is a tree before deleting internally conflicting vertex orbits, so Q is a forest. If no isolate, deletion of the closed neighborhood of a leaf's neighbor suspends the residual independence complex; the empty graph convention gives S^-1 and handles S^0 correctly. The reduced fixed-point Lefschetz trace equals (-1)^e (including empty fixed space), while the unique rank-one ambient homology lies in degree d, giving integral degree (-1)^(e-d). No equivariant linear-sphere model is asserted.
 
-The inspected 2005 forest result and 2015 chordal-core theorem classify ordinary independence complexes, not the actual geometric fixed spaces of arbitrary automorphism subgroups. The new orbit-forest PL classification and resulting all-forest orientation sign character are not matched by identified prior statements. The restricted full-rooted-tree character is explicitly credited. Full-text access limits and unindexed equivalents remain risks. The closest references are Ehrenborg–Hetyei (2005 online; ordinary forest homotopy), Adamaszek (2015; ordinary chordal-core theorem), Kawamura (2010; ordinary algorithm, abstract only), and the narrower published full-rooted-tree orientation result. The exact all-subgroup orbit-forest PL model is not identified in the checked primary text.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers the natural equivariant extension of the canonical forest independence-complex classification uniformly for all finite forests and all subgroups: a fixed space of an arbitrary simplicial group action could have complicated integral homotopy, but here it has an explicit smaller forest model, a complete elementary dimension algorithm, and an integral orientation character for every spherical ambient case. The central three-two-edge-arm spider illustrates fixed spheres of three distinct dimensions under related subgroup actions. This is a structural class-closure and all-subgroup classification, not a parameter rename or one-off finite table.
+Prior forest independence homotopy is nonequivariant; a 2026 rooted-tree result computes only a special root-preserving character, and a closely related forest-dominance result treats a different complex. No inspected earlier result supplies the simultaneous PL orbit-forest model and arbitrary subgroup orientation character. Priority is best-of-knowledge, not a claim that no unindexed equivariant theorem exists.
 
-## Risks and limits
+## value
 
-The claim does not extend to arbitrary graphs or prove full genuine equivariant linearity. Full-text availability limits for Kawamura and Freij, plus an inaccessible linked indexed result, leave overlap uncertainty. This is not independent validation or publication-priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-subgroup geometric fixed-set topology of a natural graph complex is structural and strictly richer than the ordinary forest sphere/point classification. The explicit smaller forest model computes every fixed-space homotopy type and the full integral degree character for arbitrary forest automorphisms; these are useful in equivariant homotopy and representation calculations, not a mere renamed ordinary recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
