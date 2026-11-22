@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-Run `python3 verify_grid4.py` using the Python 3 standard library. The program defines the eight allowed masks, independently regenerates each exact transfer matrix, tests the three nonstandard matrix identities that underpin the infinite theorem, and checks all Boolean frequencies for open four-row grids of lengths one through four.
+## correctness
 
-The verified output is:
+PASS
 
-```
-GRID4_WALSH_PERIOD3_PASS [(1, 8, 5, 2), (2, 41, 0, 1), (3, 227, 0, 1), (4, 1234, 11304, 2)] all_order_transfer_identities=3
-```
+For G_n=P4 square P_n with open boundary, its independent column masks are exactly (0,1,2,4,5,8,9,10). The signed 8x8 matrices M_s(a,b)=(-1)^popcount(a&s) if a&b=0 else 0 give W=1^T M_{s_n}...M_{s_1}e for all 16^n column signings. Mod 2, 8 base scalar differences a_{j+3}-a_j vanish; Cayley-Hamilton propagates period three and oddness exactly for n mod3!=1. Exact recomputation verifies P=M14 M0 M11 has 1^T M11 annihilating P^i e for i=0,1,2,3 and P^4 e=e+2Pe+2P^2e, proving all 3k+1 singular. Q=M3 M15 obeys Q^6 e=e and the twelve successive two-mask multipliers (0,1,-1,2,-1,1,0,1,1,0,1,1), giving unit modulus for n mod3!=1. These identities are integer equalities checked independently from the displayed mask formula and do not rely on extrapolation from n<=4 brute force. Walsh diagonalization then proves the exact inverse norm.
 
-Each tuple gives (column count, independent-set count, zero Walsh multiplier count, smallest nonzero multiplier magnitude). The direct enumerator checks graph edges and does not use the transfer-state recurrence. The Walsh transform is performed with integer butterflies. Every frequency is checked through dimension 16, and the constructed periodic witness values are also compared to transfer calculations.
+## originality
 
-The infinite proof depends on Cayley–Hamilton applied to an eight-dimensional parity transfer, invariance of a four-dimensional exact-integer Krylov span, and an exact sixfold return of a two-column transfer product. These claims are checked directly, so the finite spectra provide corroboration but are not substituted for proof. The code does not classify all higher-dimensional zero frequencies, and no independent external mathematical audit was performed.
+PASS
+
+Bounded search finds no prior covering the final substantive claim as a whole; all identifiable overlapping subresults are disclosed, especially the duplicate two-row parity/gap, and residual historical risks are retained.
+
+## value
+
+PASS
+
+A natural complete all-width classification of Fourier invertibility for independent-set convolution on the nontrivial four-row square-grid strip, including explicit periodic zero and unit-multiplier certificates. Exact signed character testing is far richer than ordinary unsigned hard-square counts, and the all-length inverse norm is useful for finite-group recovery. It is a genuine structural transfer-matrix theorem, not a tiny enumerated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
