@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:45:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed all pattern avoiding permutations by direct triple testing and Walsh sums, independently from uploaded package checker. Reproduced Catalan sizes 1,2,5,14,42, rank tables (1,1),(1,1),(8,8),(49,46),(1024,817), and exact 207 zero coefficients for 132 at n=5. Verified original complete signed histogram, 2048 spectrum rows, 10 n=5 123 inversion marginals and 1024 projection kernel rows; all n=5 123 Walsh coefficients equal 2 modulo 4. Published four-cell contingency 4,6,15,17 for 132 witness (13),(25) gives zero. Projection H has sum |H|=7594, so norm 3797/512; averaging an arbitrary projection over translations proves global unrestricted optimality for the unique Fourier-support projection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Wilf equivalence proves |A_n(123)|=|A_n(132)|=Catalan_n and is strictly weaker than pair-incidence equality or affine equivalence; general Fourier diagonalization gives rank from multiplier zero counts but not their numeric distribution."
+        ],
+        "reasoning": "The independent frequency dimensions and target operator differ; no stronger all-frequency rank conclusion is implied by the inspected results.",
+        "searches": [
+          "https://arxiv.org/abs/math/9903169",
+          "https://doi.org/10.1016/j.ejc.2014.08.031",
+          "Resultary search: Walsh inversion permutation pattern avoiding rank"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/check.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/spectrum5.csv",
+        "https://arxiv.org/abs/math/9903169",
+        "https://arxiv.org/abs/1111.3419",
+        "https://doi.org/10.1016/j.ejc.2014.08.031"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither joint-pattern enumeration nor inversion-set structural decomposition specifies the 10 independent sign variables on inversion comparisons for both avoidance classes. Operator projection constant requires the full nonzero frequency set."
+        ],
+        "reasoning": "The target is not mechanically implied by older scalar counts; existing Fourier transform formulas are general methods and not proof of special cancellation/rank constants.",
+        "searches": [
+          "https://arxiv.org/abs/math/9903169",
+          "https://arxiv.org/abs/1111.3419",
+          "https://doi.org/10.1016/j.ejc.2014.08.031"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Robertson (1999) counts joint pattern occurrences; Katthän (2011) studies decomposition of inversion sets; the cited inv-Wilf results retain single total inversion statistic, not independent edge frequencies."
+        ],
+        "reasoning": "The full Walsh transform is a 2^binom(n,2) point multivariate object; setting one sign variable for all edges is not invertible, so scalar inversion polynomials do not determine this spectrum.",
+        "searches": [
+          "Resultary search: Walsh 123 avoiding 132 avoiding permutations inversion comparison n5 rank 123 132",
+          "https://arxiv.org/abs/math/9903169",
+          "https://arxiv.org/abs/1111.3419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original 2048-row coefficient table and 1024-row 132 projector kernel explicitly determine the target; searches returned related but different permutation-matrix and inversion-sequence counts rather than an earlier exact target table."
+        ],
+        "reasoning": "Finite exact database result is contained in the assigned package. A matching older table was not identified; negative search is not a novelty proof.",
+        "searches": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/spectrum5.csv",
+          "Resultary search: Walsh 123 avoiding 132 avoiding permutations inversion comparison n5 rank 123 132",
+          "https://arxiv.org/abs/1510.05434"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Robertson and inv-Wilf enumerations count patterns or total inversions, while Katthän studies individual inversion sets, not the full multivariate Walsh spectrum of these two fixed avoidance classes. No inspected dominating prior bound/frequency table determines the first rank separation, n5 207 zeros and endpoint projection norm. The known Walsh computation/averaging machinery is credited; multivariate permutation-enumerator priority remains bounded.",
+      "residual_risks": [
+        "An older unindexed multivariate inversion avoidance character table could determine the finite values; full older papers were not read.",
+        "n<=5 only, affine inequivalence does not exclude nonlinear class bijections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts mixed occurrence conditions rather than multivariate Walsh signs",
+          "evidence": "Proves count (n-2)2^(n-3) for precisely one 123 and avoidance 132, not spectral rank.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9903169",
+          "material_read": "Original arXiv abstract and journal publication metadata/abstract",
+          "method": "arXiv and journal indexed reading",
+          "title": "Permutations Containing and Avoiding 123 and 132 Patterns",
+          "trigger": "Same two permutation patterns"
+        },
+        {
+          "assessment": "Studies inversion sets of individual permutations rather than Walsh sums over pattern avoidance families",
+          "evidence": "Structural inversion-set decomposition is compatible with but does not itself enumerate all frequencies.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.3419",
+          "material_read": "Indexed abstract/description; full article not read",
+          "method": "arXiv search and comparison",
+          "title": "Decomposing Sets of Inversions",
+          "trigger": "Same inversion-comparison coordinates"
+        },
+        {
+          "assessment": "Single aggregate inversion statistic is not full signed-edge multivariate transform",
+          "evidence": "Inversion Wilf equivalence controls q-polynomials, not independently selectable inversion-edge characters",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2014.08.031",
+          "material_read": "Bibliographic abstract and result synopsis; full paper not read",
+          "method": "Research search",
+          "title": "An infinite family of inv-Wilf-equivalent permutation pairs",
+          "trigger": "Potential stronger inversion enumerator coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The invariant separates Wilf-equivalent natural avoidance classes at first n=4 rank and gives a qualitative invertible versus singular dichotomy at n=5, with explicit modular certificate, cancellation witness and sharp endpoint reconstruction constant. This is a finite natural spectral boundary, not merely equivalent cardinality reformulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/check.py",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111/spectrum5.csv",
+    "https://arxiv.org/abs/math/9903169",
+    "https://arxiv.org/abs/1111.3419",
+    "https://doi.org/10.1016/j.ejc.2014.08.031"
+  ],
+  "disposition": "passed",
+  "final_claim": "For pair-inversion-vector embeddings of 123- and 132-avoiding permutations on n<=5, convolution ranks first differ at n=4 (49 versus 46); at n=5 ranks are 1024 versus 817, all 123 coefficients are 2 mod 4, and 132 has 207 zeros with sharp unrestricted endpoint projection norm 3797/512.",
+  "limitations": [
+    "Finite classifications only through n=5.",
+    "Full earlier multivariate inversion literature not exhaustively inspected."
+  ],
+  "residual_risks": [
+    "An older unindexed multivariate inversion avoidance character table could determine the finite values; full older papers were not read.",
+    "n<=5 only, affine inequivalence does not exclude nonlinear class bijections."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Counts mixed occurrence conditions rather than multivariate Walsh signs",
+      "evidence": "Proves count (n-2)2^(n-3) for precisely one 123 and avoidance 132, not spectral rank.",
+      "identifier_or_url": "https://arxiv.org/abs/math/9903169",
+      "material_read": "Original arXiv abstract and journal publication metadata/abstract",
+      "method": "arXiv and journal indexed reading",
+      "title": "Permutations Containing and Avoiding 123 and 132 Patterns",
+      "trigger": "Same two permutation patterns"
+    },
+    {
+      "assessment": "Studies inversion sets of individual permutations rather than Walsh sums over pattern avoidance families",
+      "evidence": "Structural inversion-set decomposition is compatible with but does not itself enumerate all frequencies.",
+      "identifier_or_url": "https://arxiv.org/abs/1111.3419",
+      "material_read": "Indexed abstract/description; full article not read",
+      "method": "arXiv search and comparison",
+      "title": "Decomposing Sets of Inversions",
+      "trigger": "Same inversion-comparison coordinates"
+    },
+    {
+      "assessment": "Single aggregate inversion statistic is not full signed-edge multivariate transform",
+      "evidence": "Inversion Wilf equivalence controls q-polynomials, not independently selectable inversion-edge characters",
+      "identifier_or_url": "https://doi.org/10.1016/j.ejc.2014.08.031",
+      "material_read": "Bibliographic abstract and result synopsis; full paper not read",
+      "method": "Research search",
+      "title": "An infinite family of inv-Wilf-equivalent permutation pairs",
+      "trigger": "Potential stronger inversion enumerator coverage"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification instructions
+# Independent mathematical audit
 
-With Python 3 and all included CSV files in one directory, run `python3 check.py --verify .` to regenerate and compare the full certificates. Only Python's standard library is needed.
+## correctness
 
-The checker independently constructs each avoidance family via direct triple testing and the maximum-insertion recursion; checks the two support sets coincide; performs a direct sum over every frequency and a separate integer Walsh–Hadamard transform; verifies Parseval, exact ranks and zero counts for orders one through five; verifies all order-five \(123\) multipliers are \(2\pmod4\) using the ten inversion marginals; verifies the explicit \(132\) zero frequency; and verifies the Fourier-support projection kernel by both a second transform and direct character summation. It computes the sharp endpoint projection norm \(3797/512\).
+PASS
 
-The exact certificates are `signed_histograms.csv`, `spectrum5.csv`, `inversion_marginals_123_n5.csv`, and `projection_kernel_132_n5.csv`. The literal success marker is `CATALAN_PATTERN_WALSH_SEPARATION_PASS`.
+PASS: Reconstructed all pattern avoiding permutations by direct triple testing and Walsh sums, independently from uploaded package checker. Reproduced Catalan sizes 1,2,5,14,42, rank tables (1,1),(1,1),(8,8),(49,46),(1024,817), and exact 207 zero coefficients for 132 at n=5. Verified original complete signed histogram, 2048 spectrum rows, 10 n=5 123 inversion marginals and 1024 projection kernel rows; all n=5 123 Walsh coefficients equal 2 modulo 4. Published four-cell contingency 4,6,15,17 for 132 witness (13),(25) gives zero. Projection H has sum |H|=7594, so norm 3797/512; averaging an arbitrary projection over translations proves global unrestricted optimality for the unique Fourier-support projection.
 
-Checks are exhaustive only for the stated finite orders. The mathematical interpretation of unrestricted projection optimality uses translation averaging, not a finite search over projection matrices. The source comparisons are bounded, and independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Robertson and inv-Wilf enumerations count patterns or total inversions, while Katthän studies individual inversion sets, not the full multivariate Walsh spectrum of these two fixed avoidance classes. No inspected dominating prior bound/frequency table determines the first rank separation, n5 207 zeros and endpoint projection norm. The known Walsh computation/averaging machinery is credited; multivariate permutation-enumerator priority remains bounded.
+
+## value
+
+PASS
+
+PASS: The invariant separates Wilf-equivalent natural avoidance classes at first n=4 rank and gives a qualitative invertible versus singular dichotomy at n=5, with explicit modular certificate, cancellation witness and sharp endpoint reconstruction constant. This is a finite natural spectral boundary, not merely equivalent cardinality reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
