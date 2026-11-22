@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:46:55.104690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md (blob ac516b82) and verify.py (blob 1c016af4)",
+        "Independent NumPy exact-Gram triangular solves in dimensions 2,7,16,24",
+        "Direct Hilbert–Schmidt kernel scaling, exponential-boundary and Gram-square-root reconstruction"
+      ],
+      "rationale": "For fixed c>0 and each m>=2, the atomic Fourier Gram matrix is (1-r)I+r11* with r=c/(m+c), positive eigenvalues 1-r and 1+(m-1)r. One full sequential update is Q=-(I+rL)^(-1)rU; its (i,j) entry is r[(1-r)^(i-j)1_{j<=i}-(1-r)^i]. Independent triangular solves for m=2,7,16,24 and c=.5,1,2,5 matched this exact matrix within 2e-14. Scaling mr->c, logarithm(1-r)=-c/m+O(1/m²) uniformly away from a total diagonal-cell area 1/m proves the O_c(m^-1/2) Hilbert–Schmidt limit. Exact Gram square roots yield physical similarity S_c=I+(sqrt(1+c)-1)P and the same rate in Schatten 2. Nonzero eigenfunctions of T_c solve df/ds=c(1-λ)f/λ, with boundary equation (z+c)e^z=c, z≠0; the principal Lambert root is excluded and all other branches are simple. Compact spectral approximation yields limiting spectral radius in (0,1); every fixed physical singular value converges. TV formula is c(m-1)/(m(m+c)). Bounds depend on c, which is fixed.",
+      "residual_risks": [
+        "Non-normal finite matrices have no uniform spectral perturbation bound at zero; claimed result concerns isolated nonzero eigenvalues and spectral radius, for fixed c.",
+        "The explicit Lambert eigenvalues are not explicit singular values of the nonnormal limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regular-polygon rigidity result gives exact finite-dimensional exponential rate and nilpotence iff uniform regular polygon.",
+          "October 18 rank-one Gauss–Seidel example treats fixed positive Gram coherence and fixed sweep count."
+        ],
+        "reasoning": "The earlier fully general finite-atom polynomial subsumes the finite-dimensional qualitative assertion, and may yield Lambert branch limits by analysis, but does not provide the O(m^-1/2) physical Hilbert–Schmidt singular-spectrum limit. Fixed coherence produces a different dimension scaling.",
+        "searches": [
+          "cyclic Fourier Kaczmarz one distinguished atom weak coherence Volterra Lambert W singular spectrum",
+          "Regular-polygon finite-step rigidity and an explicit spectral rate for Fourier Kaczmarz recovery",
+          "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2611.03358v2",
+        "2026/11/8/SCOPE-regular-polygon-finite-step-rigidity-and-an-explicit-spectral-ra--03f0340e1b7f",
+        "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9",
+        "Czaja–Tanis arxiv:1409.8310 (background)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berner Theorem 4.1 establishes unconditional convergence for every fixed finite atomic measure; it is not a quantitative joint m limit.",
+          "Finite weighted root-derivative polynomial establishes spectral radius at each finite m, not a physical singular-value limit."
+        ],
+        "reasoning": "The claimed O(m^-1/2) Schatten convergence, the physically conjugated limit, and spectral-radial discontinuity from a vanishing TV defect require genuinely distinct joint scaling analysis and are not merely restatements of finite-m effectiveness.",
+        "searches": [
+          "arxiv:2611.03358",
+          "Regular-polygon finite-step rigidity and an explicit spectral rate for Fourier Kaczmarz recovery",
+          "cyclic Fourier Kaczmarz one distinguished atom weak coherence Volterra Lambert W singular spectrum",
+          "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berner–Herr–Jorgensen 2026, Theorem 4.1 and §5: finite atomic unconditional reconstruction and qualitative decay.",
+          "November 8 finite spectral-rate result gives roots of R_mu(t)=sum_j p_j prod_{k≠j}(t-w_k) for each fixed m."
+        ],
+        "reasoning": "The present m-dependent atomic defect is an alias of a small rank-one Gram coherence and a Volterra perturbation limit. A finite-m root formula determines each finite spectral radius, but it does not state or mathematically imply the full physical Schatten convergence or limiting singular-value spectrum without additional analysis.",
+        "searches": [
+          "cyclic Fourier Kaczmarz one distinguished atom weak coherence Volterra Lambert W singular spectrum",
+          "Kaczmarz rank one Gram weak coherence continuum Lambert W Volterra spectrum",
+          "arxiv:2611.03358",
+          "2026/11/8/SCOPE-regular-polygon-finite-step-rigidity-and-an-explicit-spectral-ra--03f0340e1b7f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table of the whole physical singular spectrum or the c/W_k(ce^c) nonzero eigenvalue limit for this one-atom Fourier measure was located in actual Resultary and web searches."
+        ],
+        "reasoning": "A search miss is not proof of novelty; an older rank-one Volterra resolvent or Gauss–Seidel continuum limit under different terminology remains a specific risk.",
+        "searches": [
+          "cyclic Fourier Kaczmarz one distinguished atom weak coherence Volterra Lambert W singular spectrum",
+          "rank one Volterra integral operator Lambert W characteristic equation Kaczmarz cyclic weak coherence"
+        ]
+      },
+      "rationale": "The finite-atomic Kaczmarz effectiveness and exact finite m zero-rate classification are prior work. No inspected source establishes this simultaneous weak-coherence m→∞ Schatten limit, physical singular-value convergence and Lambert-branch radius; originality is restricted to that joint dimension-dependent result and qualified by Volterra rank-one perturbation literature.",
+      "residual_risks": [
+        "A finite-m root-polynomial limit could independently yield the scalar Lambert radius; the novelty must rest on the full physical Schatten law.",
+        "Possible older continuous-limit results for Volterra rank-one or Gauss–Seidel products under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: finite atomic effectiveness/absolute convergence, no physically normalized continuum kernel",
+          "evidence": "Theorem 4.1 gives unconditional convergence for finitely supported measures; no Schatten m→∞ branch formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03358",
+          "material_read": "47-page PDF: abstract, §§1 and 4, Theorem 4.1 (PDF p.11), §5 finite-atom spectral discussion; first-page screenshot checked",
+          "method": "Primary theorem and assumptions compared to fixed-c dimension scaling",
+          "title": "Frame Properties of Effective Stationary Sequences",
+          "trigger": "Same atomic Fourier Kaczmarz system"
+        },
+        {
+          "assessment": "COVERS finite rate; NOT the physical Schatten continuum law",
+          "evidence": "Exact R_mu(t) roots and finite step iff uniform regular polygon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-regular-polygon-finite-step-rigidity-and-an-explicit-spectral-ra--03f0340e1b7f",
+          "material_read": "Full published RESULT.md: theorem, R_mu polynomial proof, rate, limitations",
+          "method": "Directly matched same Kaczmarz atoms, weights and output rate; distinguished finite m and scaling limit",
+          "title": "Regular-polygon finite-step rigidity and an explicit spectral rate for Fourier Kaczmarz recovery",
+          "trigger": "Closest exact finite atomic spectral theorem"
+        },
+        {
+          "assessment": "DISTINCT fixed coherence/fixed sweep residual rather than weak one-atom spectral law",
+          "evidence": "Fixed a>0 as n grows, not r~c/m; no Lambert continuum spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9",
+          "material_read": "Full published RESULT.md, including fixed coherence a>0, recurrence, norms and limitations",
+          "method": "Compared normalized Gram coherence scaling and target quantity",
+          "title": "A fixed-sweep Gauss–Seidel residual illusion for rank-one Gram systems",
+          "trigger": "Closest large-dimension rank-one Gram Gauss–Seidel phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact Hilbert–Schmidt and physical norm arguments",
+        "Finite spectral baseline and fixed-coherence comparison"
+      ],
+      "rationale": "The exact weak-coherence m→∞ scaling reveals a discontinuity: polygon weights differ by O(1/m) in TV yet a complete projection cycle retains a positive asymptotic contraction radius. Distinguishing coefficient and physical Hilbert geometries and obtaining all fixed singular values addresses a nontrivial stability mechanism; it is not merely a finite numerical restatement of Kaczmarz convergence.",
+      "residual_risks": [
+        "Only one overweight atom, fixed parameter c and prescribed cyclic order; no noisy or many-cycle guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Non-normal finite matrices have no uniform spectral perturbation bound at zero; claimed result concerns isolated nonzero eigenvalues and spectral radius, for fixed c.",
+    "The explicit Lambert eigenvalues are not explicit singular values of the nonnormal limit.",
+    "A finite-m root-polynomial limit could independently yield the scalar Lambert radius; the novelty must rest on the full physical Schatten law.",
+    "Possible older continuous-limit results for Volterra rank-one or Gauss–Seidel products under other terminology.",
+    "Only one overweight atom, fixed parameter c and prescribed cyclic order; no noisy or many-cycle guarantee."
+  ],
+  "schema_version": 1
+}
