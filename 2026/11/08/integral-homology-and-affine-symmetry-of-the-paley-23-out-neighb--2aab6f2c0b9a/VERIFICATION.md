@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The source file `verify.py` reconstructs the complex and its exact integral Morse chain matrices without reading `verification_output.txt`. It exhaustively checks the entire augmented face set, directed Hasse acyclicity, exact Smith normal forms, chain identities, and fixed-face patterns for all 253 affine group elements. The stored output is from direct execution in Python with SymPy 1.14. The exact integer computation is finite and exhaustive; no infinite-family classification or integral equivariant homotopy is certified.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Integral ranks are imported transparently from the earlier homotopy theorem. Independent face enumeration, 20,762 Morse pair and 244,421 Hasse cover checks, exact signed Smith forms, chain identities and all 253 fixed-face counts match. The odd-order H4 sign action is trivial; reduced Lefschetz traces give (209,2,0); rational module character and quotient follow by semisimplicity and transfer.
+
+## originality
+
+PASS
+
+Original nonequivariant homology is known from October 25 and removed from the new contribution. The rational affine action, decomposition and quotient are a historically earlier public claim than a later same-day exact affine theorem, with explicit priority uncertainty.
+
+## value
+
+PASS
+
+The order-253 affine action is a natural and previously not specified equivariant invariant of the Paley-23 out-neighborhood complex. The explicit 209-dimensional module structure and two nonzero rational orbit-space groups refine the known nonequivariant wedge type with a precise symmetry-sensitive fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
