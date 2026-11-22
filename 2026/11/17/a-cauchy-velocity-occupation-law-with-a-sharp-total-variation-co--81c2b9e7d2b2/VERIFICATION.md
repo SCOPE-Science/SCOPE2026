@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Analytically proved: the first integral; global compact levels; the exact time-occupation density and independent-sign identity; the exponentially controlled \(L^1\) expansion; the sharp total-variation coefficient; the Clausen identity; and weak convergence of the marked joint law.
+## correctness
 
-Reproducible finite check: `python check_cauchy.py` with Python 3, SymPy, SciPy, and mpmath. It verifies a closed derivative identity, a Clausen integral identity, and direct finite-amplitude quadratures. The checker was executed against the artifact at its packaged relative path, reporting `CAUCHY_VELOCITY_OCCUPATION_CHECK_OK`.
+PASS
 
-Finite quadrature cannot establish a theorem for all amplitudes or a limit as the amplitude diverges. No independent audit or certification is claimed.
+The p(v)>0 quadratic makes H=x^2/2+K(v) a proper first integral, with compact smooth positive-energy ovals. Counting both x signs gives the exact velocity density proportional to p(v)^(-1)*(1-2K/A^2)^(-1/2) on the two turning points, and equal sign-branch weights. Under nu, K(V) has a square-root integrable density at zero and exponentially decaying large-energy tail; splitting the moving endpoint region proves w_A=1+K/A^2+O_L1(A^-4) and yields the displayed sharp total-variation coefficient after normalization. Symmetric alpha=0 angular coordinates give the Clausen identity. The marked position-face variable converges by tightness and local uniformity. Independent direct Clausen integral evaluation recovered 0.3230659472194505 for beta=1.
+
+## originality
+
+PASS
+
+Appis–Llibre identifies exactly the positive-discriminant global-center region and Rousseau–Toni studies local period bifurcations. The closest same-flow published Resultary theorem gives the first integral, high-amplitude period and extrema, not the full physical-time velocity distribution with sharp TV expansion and exact x-sign independence. A Resultary paper with exactly the same Clausen constant and another Cauchy law concerns xdot=(1+kappa x^2)y, ydot=-x and an inverse-log rate, not this cubic flow with an A^-2 rate. Shared kernel and coefficient structure are serious antecedents, not statement coverage.
+
+## value
+
+PASS
+
+A global center can have arbitrarily large speeds while physical time becomes concentrated at position extremes. The exact Cauchy velocity law, a nonzero sharp A^-2 total-variation coefficient, a Clausen-constant specialization and an exact fair-sign independence identity quantify that natural dynamical statistic beyond the period alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
