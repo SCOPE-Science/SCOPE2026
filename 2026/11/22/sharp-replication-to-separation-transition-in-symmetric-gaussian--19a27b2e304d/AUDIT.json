@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The independent two-by-two Gaussian covariance reconstruction yields exact expression (1); strict derivative (2) makes the equal split uniquely optimal at distinct sites. Strict sign-monotone numerator of derivative (4) proves a unique global mirror half-spacing for every parameter and handles exact threshold, collocation, and precision-zero boundary. The sharp square-root onset follows by controlled Taylor expansion. The standalone checker cross-validated direct covariance inversion in 78,817 supplementary numeric checks. These are supporting computations, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1703.06359 Theorem 3.7 reduces linear systems for a *given* symmetric node set",
+        "arXiv:2202.10615 Theorems 1-2 are asymptotic error-rate bounds, not a sharp finite-precision optimizer",
+        "arXiv:1812.08509 local posterior-variance stationary points and noiseless weights are a different hypothesis"
+      ],
+      "reasoning": "A general fixed-node posterior formula or error-rate theorem does not imply which of two collocated vs separated locations minimizes error under freely allocated precision. The exact inequality and threshold are additional to the broad theory. Oettershagen 2017 optimal cubature thesis was signaled in the references but not inspected in full and remains a historical risk.",
+      "searches": [
+        "Gaussian RKHS kernel optimal symmetric two site location phase transition measurement noise",
+        "arxiv:1703.06359 fully symmetric kernel quadrature theorem 3.7",
+        "arxiv:2202.10615 noisy kernel quadrature lower bounds"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1703.06359",
+      "https://arxiv.org/abs/1803.09532",
+      "https://arxiv.org/abs/1812.08509",
+      "https://arxiv.org/abs/2107.09597",
+      "https://arxiv.org/abs/2202.10615"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1803.09532 gives a scaled-Hermite heuristic without noise-dependent collocation",
+        "arXiv:1812.08509 positivity of noiseless BQ weights does not compare sensor precision splits",
+        "arXiv:2107.09597 LP for convex positive weights differs from GP noise precision",
+        "Published rank-three circle kernel two-landmark phase behavior is for a distinct kernel/target and its formula cannot be specialized to the squared-exponential/Gaussian setting"
+      ],
+      "reasoning": "The final claim simultaneously controls physical sensor precision and the unique mirror half-spacing, including the collocated boundary. Prior fixed-node kernel weights, rate inequalities, and unrelated kernel transition thresholds do not imply it by parameter restriction, duality, or reparameterization.",
+      "searches": [
+        "Positive-weight kernel quadrature Brownian bridge with nonuniform integration measure exact optimal weights and node placement, noise or quadrature weights positivity",
+        "Gaussian RKHS kernel optimal symmetric two site location phase transition measurement noise",
+        "arxiv:1812.08509 positivity of Bayesian quadrature weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1803.09532 Theorem 2.2: scaled Gauss-Hermite approximate weights; not precision-allocated mirror-pair optimization",
+        "arXiv:2202.10615 noisy posterior construction and rate theorems, without an exact two-channel threshold"
+      ],
+      "reasoning": "The exact claim is equivalent to optimizing noisy Gaussian Bayes-risk/RKHS projection over mirror half-spacing and two measurement precisions with fixed sum. Equivalent search phrases returned related but non-identical fixed-node/noiseless or many-sample error-rate problems; none provided this explicit joint optimizer.",
+      "searches": [
+        "Gaussian RBF squared exponential Bayesian quadrature Gaussian target normal measure two mirror nodes noise threshold collocated replicate optimal",
+        "Gaussian kernel quadrature Gaussian measure two points optimal coalescence observations with nugget noisy replication",
+        "Bayesian quadrature squared exponential Gaussian target noisy replicated point design",
+        "arxiv:1803.09532"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Matching records concerned OU/Brownian processes, a rank-three circle kernel, or random-node noise tails rather than the Gaussian-measure RBF budget threshold",
+        "Inspected arXiv:1803.09532 numerical tables are about approximate weight quality and node heuristics"
+      ],
+      "reasoning": "No exact existing table/record with the same covariance, Gaussian integration measure, two mirror sites, and fixed divisible precision budget was located. A negative search is not an exhaustive database check; indexed omissions remain a residual risk.",
+      "searches": [
+        "Gaussian RBF squared exponential Bayesian quadrature Gaussian target normal measure two mirror nodes noise threshold collocated replicate optimal",
+        "Gaussian kernel quadrature Gaussian measure two points optimal coalescence observations with nugget noisy replication",
+        "Gaussian kernel quadrature Gaussian measure two points optimal coalescence observations with nugget noisy replication"
+      ]
+    },
+    "rationale": "Specific search/statement comparisons of the shared Gaussian kernel and integration measure, optimal-design symmetry results, noisy quadrature rate results, and published analogous finite-kernel transitions found no covering statement or implication for the exact joint mirror-pair precision budget threshold. The claim is explicitly limited to a mirror-paired family. Historical priority is subject to unindexed literature and the incompletely inspected optimal-cubature thesis.",
+    "residual_risks": [
+      "The 2017 Oettershagen optimal cubature thesis is bibliographically relevant, but its full text was not independently inspected; it could contain a related finite-noise specialization.",
+      "Unindexed optimal design and GP replication literature could contain an equivalent formula.",
+      "Symmetric mirror-pair optimality is not unrestricted optimality over arbitrary two locations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: weights for preselected symmetric nodes and noiseless data, not sensor noise precision and optimal site separation",
+        "evidence": [
+          "Theorem 3.7 is a symmetry-induced reduced linear system for weights; no precision-allocation phase criterion in the inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.06359",
+        "material_read": "arXiv HTML: introduction, kernel weights, Section 3.4, Theorem 3.7 and its reduced symmetry matrix",
+        "method": "Read the rendered full-text mathematical statements and compare objectives and free variables",
+        "title": "Fully symmetric kernel quadrature",
+        "trigger": "Same symmetry-preserving Gaussian-kernel quadrature geometry; possible general design coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: nodal heuristic, approximate weights, and convergence; not a varying total-precision budget with collocation permitted",
+        "evidence": [
+          "Theorem 2.2 derives approximate weights at scaled Gauss-Hermite nodes; no specified noise budget",
+          "Section 5 investigates numerical weight quality and convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.09532",
+        "material_read": "arXiv HTML: introduction, Theorem 2.2 formula for scaled Hermite nodes/weights, Sections 3 and 5 numerical and convergence results",
+        "method": "Read full-text main statements and compare noiseless node construction with noisy two-point allocation",
+        "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+        "trigger": "Identical squared-exponential covariance and Gaussian target measure"
+      },
+      {
+        "assessment": "NOT_COVERING: noiseless distinct-node BQ positivity is not the complete budget-dependent two-site placement theorem",
+        "evidence": [
+          "Kernel-weight formula uses an unregularized kernel Gram matrix; positivity theorems do not determine the replication-to-separation threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+        "material_read": "arXiv HTML: introduction, posterior-variance/weight formulas and main positivity discussion/theorem references",
+        "method": "Compared the actual noiseless weight and local-node optimality hypotheses to precision-allocated noisy posterior risk",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Potential stronger optimal-design positivity result for Gaussian kernels"
+      },
+      {
+        "assessment": "NOT_COVERING: different positive-weights objective and sampling mechanism, without freely divisible precision at a mirror pair",
+        "evidence": [
+          "Meta-Algorithm 1 chooses subsampled nodes and convex weights; measurement-noise allocation is absent"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.09597",
+        "material_read": "arXiv HTML: Sections 1 and 2, stated meta-algorithm and constraints",
+        "method": "Read objective and randomized subsampling/LP constraints, compared with Bayes-risk minimizing precision allocation",
+        "title": "Positively Weighted Kernel Quadrature via Subsampling",
+        "trigger": "Alternative positivity-based kernel quadrature constructions for Gaussian measures"
+      },
+      {
+        "assessment": "NOT_COVERING: derives average-case noisy error rates for increasing sample count under different risk models, not an exact two-channel mirror design threshold",
+        "evidence": [
+          "Theorems 1-2 concern lower bounds as the number of observations increases; no exact mirror-pair budget threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "arXiv HTML: problem setup, Gaussian noise covariance formula, main error-bound theorems and relevant appendices",
+        "method": "Checked finite-sensor conclusions versus asymptotic rates and algorithm-independent bounds",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Same noisy Bayesian-quadrature setting and squared-exponential kernel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19a27b2e-304d-4f97-b819-284cab652b2e",
+  "value": {
+    "rationale": "A natural resource-constrained numerical integration design has a complete exact classification: below a sharp budget threshold location replication is optimal; above it spatial separation with uniquely equal precision is essential. This gives a dimensionless scale-dependent decision rule, an exact finite-budget risk, and a square-root design transition. The restriction to mirror sites is intrinsically motivated by Gaussian target and stationary even kernel, not a post hoc parameter slice. It supplies a reproducible benchmark for noisy Bayesian quadrature.",
+    "status": "PASS"
+  }
+}
