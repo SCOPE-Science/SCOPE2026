@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T22:52:49.744034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the full finite linear language H_n={w in {0,1}^n: neither constant triple 000 nor 111 occurs}, coordinate shattering is forall labelings lambda on S, exists a distinct lambda-dependent completion. Necessity: a support-indicator 111 makes a constant queried triple impossible; for any sequence of two queried 11 pairs without an intervening 00, assign queried bits along forced alternating holes until the last queried pair makes a constant triple. Sufficiency: maximal indicator segments after removing every separator 00 have no 00 and at most one 11; explicit opposite-bit filling of the remaining isolated holes avoids constant triples for every queried labeling, while any pair of consecutive holes bridges arbitrary admissible boundary fragments (first bit opposite left endpoint and last opposite right). The six-state automaton A=00, B=01, C=10 (no 11 since last 00), D=11, E=01, F=10 (11 occurred) has weighted transitions yielding numerator 1+tz-t^2z+t^2z^2 and denominator 1-t-2t^2z+t^3z. The coefficient recurrence follows by formal multiplication, and maximal run counting gives |S| <= floor(n/2)+1 (with witness 11(01)^(k-2)), while a fixed completion for all query assignments requires at most one queried coordinate in every length-3 window, with maximum ceil(n/3). Boundary n=0,1,2 and n>=3 are handled separately. An independent algorithm enumerated every admissible hypothesis and every coordinate support for 0<=n<=15, finding zero discrepancies with forbidden-factor supports, coefficient recurrence and VC dimension; it also checked all 16 two-hole four-boundary cases for bridge lengths 2..9 and all static-background supports for n=3..9. A separate symbolic six-state calculation reproduced the rational generating function. These finite tests corroborate and do not establish the infinite theorem alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chornomaz 2022 §3 Theorem 5 is a criterion for shattering-extremal systems (number of shattered sets equals size of family). H_3 has six 000/111-free words but seven shattered coordinate sets, hence fails its hypothesis.",
+          "Salo–Schabanel 2025 §9 solitaire preservation applies under specific (C,S)-permutive hypotheses; local no-equal-triplets constraint is not permutive: after prefix 01, both 010 and 011 are allowed.",
+          "Johnson 2021 concept traces come from translates/substrings of one binary string, not this finite regular language; exactly-k-transition result has a different sampling family."
+        ],
+        "reasoning": "General Sauer–Shelah or automata rationality and related stronger-sounding theorems do not entail the explicit infinite minimal forbidden support family nor exact numerator/denominator for each n and z. The shattering-extremal equivalence fails in the smallest nontrivial n=3 case.",
+        "searches": [
+          "Resultary: forbidden projection complexes no 000 no 111 binary pattern support exact VC dimension floor n/2",
+          "Chornomaz, What Convex Geometries Tell About Shattering-Extremal Systems, Electronic Journal of Combinatorics 29(3), 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p40/pdf/",
+          "Johnson, Binary strings of finite VC dimension, arXiv:2101.06490, https://www.researchgate.net/publication/348589571_Binary_strings_of_finite_VC_dimension",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-parallel-shattering-matroids-of-exact-transition-binary--0961bfcd9d1b"
+        ]
+      },
+      "checked_sources": [
+        "Salo and Schabanel, Solitaire of independence, Natural Computing 24 (2025), 431–467, DOI:10.1007/s11047-025-10010-3, https://link.springer.com/article/10.1007/s11047-025-10010-3",
+        "Louidor, Marcus and Pavlov, Independence entropy of Z^d-shift spaces, Acta Appl. Math. 126 (2013), DOI:10.1007/s10440-013-9819-2, https://www.researchgate.net/publication/257506874_Independence_entropy_of_Zd-shift_spaces",
+        "Johnson, Binary strings of finite VC dimension, arXiv:2101.06490, https://www.researchgate.net/publication/348589571_Binary_strings_of_finite_VC_dimension",
+        "Chornomaz, What Convex Geometries Tell About Shattering-Extremal Systems, Electronic Journal of Combinatorics 29(3), 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p40/pdf/",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-regular-shattering-complex-for-binary-words-with-no-monochroma--a86c7bc37664",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-parallel-shattering-matroids-of-exact-transition-binary--0961bfcd9d1b",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattering-complexes-of-finite-onto-maps-a-duplicate-color-crite--372d7004c379",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Salo–Schabanel 2025 has the correct independence definition, but does not compute this language-specific forbidden-support criterion or the bivariate polynomial in read introduction and §9 statements.",
+          "Louidor–Marcus–Pavlov multi-choice shift proof concerns a fixed background, with strict example n=3 distinguishing it from existential shattering.",
+          "Chornomaz Theorem 5 applies only to shattering-extremal systems; n=3 instance is nonextremal, 6 != 7.",
+          "Johnson 2021 changes the concept source to sliding substrings of one word."
+        ],
+        "reasoning": "The specific claimed classification is not obtained as a corollary by inserting parameters into the inspected general theorems. It requires language-specific extension and bridge lemmas and a weighted six-state automaton. Prior work does cover vocabulary and key definitions, and those are explicitly credited.",
+        "searches": [
+          "Salo and Schabanel, Solitaire of independence, Natural Computing 24 (2025), 431–467, DOI:10.1007/s11047-025-10010-3, https://link.springer.com/article/10.1007/s11047-025-10010-3",
+          "Louidor, Marcus and Pavlov, Independence entropy of Z^d-shift spaces, Acta Appl. Math. 126 (2013), DOI:10.1007/s10440-013-9819-2, https://www.researchgate.net/publication/257506874_Independence_entropy_of_Zd-shift_spaces",
+          "Johnson, Binary strings of finite VC dimension, arXiv:2101.06490, https://www.researchgate.net/publication/348589571_Binary_strings_of_finite_VC_dimension",
+          "Chornomaz, What Convex Geometries Tell About Shattering-Extremal Systems, Electronic Journal of Combinatorics 29(3), 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p40/pdf/",
+          "VC dimension binary words avoiding 000 111 shattering coordinate projection run length limited constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Salo–Schabanel 2025 §9 gives independent sets by X restricted to T equal to A^T, exactly all possible label traces and hence the same shattering concept; its structural solitaire theorem concerns permutive subshifts and does not provide the particular 000/111 indicator classification.",
+          "Louidor–Marcus–Pavlov 2013 §3 uses multi-choice configurations all of whose coordinatewise fillings lie in the shift, requiring one background; the 3-bit adjacent pair can be shattered but has no fixed third coordinate for both constant pair labelings."
+        ],
+        "reasoning": "The same quantified notion exists under topological independence; novelty is not terminology. Its published closure claims for permutive subshifts are not an exact characterization, rational support enumerator or VC maximum for this nonpermutive 000/111-constrained language. Stronger fixed-background freedom and single-word substrings have different quantifiers or concept domains.",
+        "searches": [
+          "Resultary: VC shattered coordinate sets of binary sequences avoiding monochromatic consecutive triples shattering polynomial generating function",
+          "Resultary: topological independence sets of no three consecutive equal binary subshift run length 2 000 111 exact characterization",
+          "Salo and Schabanel, Solitaire of independence, Natural Computing 24 (2025), 431–467, DOI:10.1007/s11047-025-10010-3, https://link.springer.com/article/10.1007/s11047-025-10010-3",
+          "Louidor, Marcus and Pavlov, Independence entropy of Z^d-shift spaces, Acta Appl. Math. 126 (2013), DOI:10.1007/s10440-013-9819-2, https://www.researchgate.net/publication/257506874_Independence_entropy_of_Zd-shift_spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sole matching Resultary hit is the same present 2026-11-08 research record being independently audited, not a pre-existing independent proof.",
+          "Other surfaced exact coefficientwise results concern onto maps, Hamming-neighborhood concepts, monotone grid paths and exactly-k-transition words; their projection families and polynomials differ."
+        ],
+        "reasoning": "No independent exact 000/111 support table, rational generating function or stronger published entry was identified in the actual semantic/pattern searches. This bounded negative result is not a proof of absolute novelty; other terminology and archived tables remain possible.",
+        "searches": [
+          "Resultary: VC shattered coordinate sets of binary sequences avoiding monochromatic consecutive triples shattering polynomial generating function",
+          "Resultary: forbidden projection complexes no 000 no 111 binary pattern support exact VC dimension floor n/2",
+          "Resultary: topological independence sets of no three consecutive equal binary subshift run length 2 000 111 exact characterization",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-regular-shattering-complex-for-binary-words-with-no-monochroma--a86c7bc37664",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattering-complexes-of-finite-onto-maps-a-duplicate-color-crite--372d7004c379",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2"
+        ]
+      },
+      "rationale": "Best-of-knowledge, the exactly defined n-uniform constrained language has a new explicitly characterized full shattering simplicial complex and coefficientwise bivariate generating series, distinguishable from known general definitions, entropy bounds and different binary concept families. Most importantly, Salo–Schabanel 2025 independently define topological independence by X|_T=A^T, EXACTLY the same existential-extension quantifier as shattering; this is a prior formulation of the concept, not a theorem covering this language-specific forbidden-support classification. Louidor–Marcus–Pavlov 2013 quantify over all fillings of one fixed multi-choice configuration, which is strictly stronger; Johnson 2021 studies substrings of one infinite word, rather than all words admitted by one regular language. Chornomaz 2022 develops extremal set-system projection theory; H_3 has six words and seven shattered supports and therefore is not shattering-extremal, so that theorem does not entail this calculation. Resultary searches returned this same result and different binary shattering families, not an independently earlier stronger theorem. Unindexed constrained-code and symbolic-independence literature remains a real historical priority risk.",
+      "residual_risks": [
+        "The same topological independence notion predates the current result; an unindexed shift-specific computation under independence-set terminology could contain a stronger version.",
+        "Article sections not inspected in full, and general symbolics or constrained-coding monographs may contain equivalent forbidden-factor tables.",
+        "Semantic negative searches and abstract-only code comparisons cannot certify exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same fundamental notion X|_T=A^T, important alias/prior definition; solitaire invariance for permutive shifts does not state or imply this 000/111 full support enumerator. Nonpermutive local rule precludes a direct parameter specialization.",
+          "evidence": [
+            "Article §9 uses projection identity X|_T=A^T; main results are about solitaire orbits and (C,S)-permutive shifts, not exact support indicators for the no-monochromatic-triples language."
+          ],
+          "identifier_or_url": "Salo and Schabanel, Solitaire of independence, Natural Computing 24 (2025), 431–467, DOI:10.1007/s11047-025-10010-3, https://link.springer.com/article/10.1007/s11047-025-10010-3",
+          "material_read": "Lawfully open full HTML article: abstract, introduction, definitions and Section 9 independent-set statements and solitaire theorem; searched the page for related language instances",
+          "method": "Primary article full-text HTML section reading and targeted within-document lookup",
+          "title": "Solitaire of independence",
+          "trigger": "Exactly equivalent topological-independent-set quantifier and potential general domination"
+        },
+        {
+          "assessment": "Constrained-language context relevant, but fixed-background Cartesian-product condition is strictly stronger than shattering; no stated exact coefficientwise existential trace enumerator in inspected material.",
+          "evidence": [
+            "Definition requires Phi(x-hat) subset X for all independent fillings of a single choice set; the n=3 adjacent-pair witness proves differing concept families."
+          ],
+          "identifier_or_url": "Louidor, Marcus and Pavlov, Independence entropy of Z^d-shift spaces, Acta Appl. Math. 126 (2013), DOI:10.1007/s10440-013-9819-2, https://www.researchgate.net/publication/257506874_Independence_entropy_of_Zd-shift_spaces",
+          "material_read": "Full-text author-hosted transcription introduction, §3 multi-choice configuration definitions, its sofic-presentability assertions, and the finite-type examples",
+          "method": "Open-access full text HTML transcription, reading relevant sections and targeted matches",
+          "title": "Independence entropy of Z^d-shift spaces",
+          "trigger": "Potential fixed-background independence and entropy dominance"
+        },
+        {
+          "assessment": "The concept system is generated by substrings of a single binary word, rather than all fixed-length words in this subshift; no exact submitted characterizations found in read material.",
+          "evidence": [
+            "VC dimension defined using a single string and its translated subwords."
+          ],
+          "identifier_or_url": "Johnson, Binary strings of finite VC dimension, arXiv:2101.06490, https://www.researchgate.net/publication/348589571_Binary_strings_of_finite_VC_dimension",
+          "material_read": "Author-posted full-text transcription: introduction, string-derived concept definitions, initial proofs and section on bounded-dimensional shifts",
+          "method": "Author-posted full-text transcription with targeted word and theorem searches",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Same VC and binary words language terminology"
+        },
+        {
+          "assessment": "Theorem for extremal classes does not apply because H_3 has 6 elements but 7 shattered supports; no exact 000/111 support formula in read theorem. Remaining sections not asserted read in full.",
+          "evidence": [
+            "Theorem 5 assumes shattering-extremality; 6 != 7 is a concrete countercheck of this hypothesis."
+          ],
+          "identifier_or_url": "Chornomaz, What Convex Geometries Tell About Shattering-Extremal Systems, Electronic Journal of Combinatorics 29(3), 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p40/pdf/",
+          "material_read": "Lawful open-access 22-page PDF: introduction, central shattering-extremal definition, section 3 and Theorem 5 (paper pages inspected also via PDF screenshots), targeted relevant-string search",
+          "method": "Primary PDF text and visual inspection of pages 1 and 7 and direct theorem quantifier comparison",
+          "title": "What Convex Geometries Tell About Shattering-Extremal Systems",
+          "trigger": "Possible dominating forbidden-projection structural theory"
+        },
+        {
+          "assessment": "Exactly-k-switch binary language and Hamming-neighborhood/onto-map families have different concept classes; this record itself is not an independent prior. Those hits do not establish covering implication at statement level; broader unindexed literature remains risk.",
+          "evidence": [
+            "Exactly-k-switch result imposes global transition count k and a matroid restriction; current class permits a variable number of transitions, imposes a local no-length-three-constant constraint and yields a nonmatroid infinite forbidden-factor language."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-parallel-shattering-matroids-of-exact-transition-binary--0961bfcd9d1b",
+          "material_read": "Published Resultary titles, summaries, and corresponding exact claim identifiers for bounded semantic hits; not full Git scientific packages",
+          "method": "Semantic source search and claim-level comparison; summaries alone not used to certify whole-document noncoverage",
+          "title": "Published related shattering findings in Resultary",
+          "trigger": "Potential exact finite-word constrained-language coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural one-dimensional shift of finite type forbidding the two monochromatic triples, the exact shattered-support complex of ALL n-coordinate query patterns is a mathematically meaningful invariant: a full infinite family of minimal forbidden support factors is nevertheless enumerated coefficientwise by one rational bivariate function. The sharp VC dimension floor(n/2)+1 for all positive n and explicit comparison with fixed-background maximum ceil(n/3) exhibit a linearly growing gap between distinct independence notions; this gap is not a routine enumeration of admissible words or a consequence of general VC upper bounds. These facts could be useful for constrained code puncturing, symbolic independence and trace complexity; they constitute a motivated structural all-length theorem, even without proving a broader shift-space classification. No claim of formal certification or exhaustive historical priority is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Salo and Schabanel, Solitaire of independence, Natural Computing 24 (2025), 431–467, DOI:10.1007/s11047-025-10010-3, https://link.springer.com/article/10.1007/s11047-025-10010-3",
+    "Louidor, Marcus and Pavlov, Independence entropy of Z^d-shift spaces, Acta Appl. Math. 126 (2013), DOI:10.1007/s10440-013-9819-2, https://www.researchgate.net/publication/257506874_Independence_entropy_of_Zd-shift_spaces",
+    "Johnson, Binary strings of finite VC dimension, arXiv:2101.06490, https://www.researchgate.net/publication/348589571_Binary_strings_of_finite_VC_dimension",
+    "Chornomaz, What Convex Geometries Tell About Shattering-Extremal Systems, Electronic Journal of Combinatorics 29(3), 2022, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p40/pdf/",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-regular-shattering-complex-for-binary-words-with-no-monochroma--a86c7bc37664",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-parallel-shattering-matroids-of-exact-transition-binary--0961bfcd9d1b",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattering-complexes-of-finite-onto-maps-a-duplicate-color-crite--372d7004c379",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem addresses finite, linearly indexed words forbidding precisely 000 and 111; it does not cover cyclic words, other run constraints, or adaptive Littlestone dimension.",
+    "Finite exact enumerations n<=15, bridge g<=9 and fixed-background n<=9 corroborate only bounded instances, not an infinite proof.",
+    "Same topological independence notion is known; no exhaustive archival/monograph search or formal machine certification. Public privacy/provenance hazards remain unremediated."
+  ],
+  "residual_risks": [
+    "The same topological independence notion predates the current result; an unindexed shift-specific computation under independence-set terminology could contain a stronger version.",
+    "Article sections not inspected in full, and general symbolics or constrained-coding monographs may contain equivalent forbidden-factor tables.",
+    "Semantic negative searches and abstract-only code comparisons cannot certify exhaustive historical priority."
+  ],
+  "schema_version": 1
+}

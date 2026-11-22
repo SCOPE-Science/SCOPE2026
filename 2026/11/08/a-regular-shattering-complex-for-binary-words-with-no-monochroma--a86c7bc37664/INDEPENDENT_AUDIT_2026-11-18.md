@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For the full finite linear language H_n={w in {0,1}^n: neither constant triple 000 nor 111 occurs}, coordinate shattering is forall labelings lambda on S, exists a distinct lambda-dependent completion. Necessity: a support-indicator 111 makes a constant queried triple impossible; for any sequence of two queried 11 pairs without an intervening 00, assign queried bits along forced alternating holes until the last queried pair makes a constant triple. Sufficiency: maximal indicator segments after removing every separator 00 have no 00 and at most one 11; explicit opposite-bit filling of the remaining isolated holes avoids constant triples for every queried labeling, while any pair of consecutive holes bridges arbitrary admissible boundary fragments (first bit opposite left endpoint and last opposite right). The six-state automaton A=00, B=01, C=10 (no 11 since last 00), D=11, E=01, F=10 (11 occurred) has weighted transitions yielding numerator 1+tz-t^2z+t^2z^2 and denominator 1-t-2t^2z+t^3z. The coefficient recurrence follows by formal multiplication, and maximal run counting gives |S| <= floor(n/2)+1 (with witness 11(01)^(k-2)), while a fixed completion for all query assignments requires at most one queried coordinate in every length-3 window, with maximum ceil(n/3). Boundary n=0,1,2 and n>=3 are handled separately. An independent algorithm enumerated every admissible hypothesis and every coordinate support for 0<=n<=15, finding zero discrepancies with forbidden-factor supports, coefficient recurrence and VC dimension; it also checked all 16 two-hole four-boundary cases for bridge lengths 2..9 and all static-background supports for n=3..9. A separate symbolic six-state calculation reproduced the rational generating function. These finite tests corroborate and do not establish the infinite theorem alone.
+
+## originality
+
+PASS
+
+Best-of-knowledge, the exactly defined n-uniform constrained language has a new explicitly characterized full shattering simplicial complex and coefficientwise bivariate generating series, distinguishable from known general definitions, entropy bounds and different binary concept families. Most importantly, Salo–Schabanel 2025 independently define topological independence by X|_T=A^T, EXACTLY the same existential-extension quantifier as shattering; this is a prior formulation of the concept, not a theorem covering this language-specific forbidden-support classification. Louidor–Marcus–Pavlov 2013 quantify over all fillings of one fixed multi-choice configuration, which is strictly stronger; Johnson 2021 studies substrings of one infinite word, rather than all words admitted by one regular language. Chornomaz 2022 develops extremal set-system projection theory; H_3 has six words and seven shattered supports and therefore is not shattering-extremal, so that theorem does not entail this calculation. Resultary searches returned this same result and different binary shattering families, not an independently earlier stronger theorem. Unindexed constrained-code and symbolic-independence literature remains a real historical priority risk.
+
+## value
+
+PASS
+
+For the natural one-dimensional shift of finite type forbidding the two monochromatic triples, the exact shattered-support complex of ALL n-coordinate query patterns is a mathematically meaningful invariant: a full infinite family of minimal forbidden support factors is nevertheless enumerated coefficientwise by one rational bivariate function. The sharp VC dimension floor(n/2)+1 for all positive n and explicit comparison with fixed-background maximum ceil(n/3) exhibit a linearly growing gap between distinct independence notions; this gap is not a routine enumeration of admissible words or a consequence of general VC upper bounds. These facts could be useful for constrained code puncturing, symbolic independence and trace complexity; they constitute a motivated structural all-length theorem, even without proving a broader shift-space classification. No claim of formal certification or exhaustive historical priority is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
