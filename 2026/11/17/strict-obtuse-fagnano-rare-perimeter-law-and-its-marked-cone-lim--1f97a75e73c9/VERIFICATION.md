@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The result is proved by explicit Euclidean geometry, an absolute positive gap \(p^2+q^2<1\), an anisotropic local scaling, and exact integration of the limiting domain. The constant \(8/15\) is twice \(B(2,3/2)\), not an experimentally inferred normalizer. Total variation follows from \(L^1\) convergence of conditional indicator densities on one bounded scaled support.
+## correctness
 
-Standalone diagnostic: `check_obtuse_fagnano.py`, with dependencies `numpy` and `scipy`. For a parent with \(A=120^\circ\) and \(b=c=1\), the computed coefficient is \(1.3179485337782688\). Direct integration of the exact perimeter under Sobol sampling produced ratios 0.9045102, 0.9592424, 0.9830746, 0.9931334 at thresholds 0.025, 0.01, 0.004, 0.0016. These support consistency, but are neither exhaustive nor independent proof. The checker uses a fixed deterministic pseudorandom seed and one-dimensional adaptive numerical quadrature.
+PASS
 
-No computation is needed for the general infinite limit. Publication priority is provisional; no independent audit has been performed.
+Rebuilt strict-obtuse geometry with A=(0,h), foot H=(0,0), side coordinates u,v and base displacement w; convex/coercive G(u,v)>= (1-sqrt(p^2+q^2))*sqrt(u^2+v^2) holds as p^2+q^2<1, confining u,v=O(t). Exact perimeter expands as G(u,v)+w^2/h+o(t) on u=tU,v=tV,w=sqrt(ht)W. Jacobian sqrt(h)t^(5/2)/(abc), compact cone dominance gives total variation conditional limit. Direct beta integral: 2 Beta(2,3/2)=8/15, k-density proportional to g^-2; exact independent SciPy quadrature for 120-degree isosceles triangle gives 1.3179485337782688. Fixed strictly obtuse only, no uniform right-angle claim; inspected sampling checker and proof.
+
+## originality
+
+PASS
+
+Alkoumi-Schlenk Proposition 4.1(ii) supplies exactly the deterministic two-bounce minimum 2h, but not a rare-event t^(5/2) coefficient or a conditional marked law. Same-sampling published acute/right law explicitly excludes obtuse, so neither formula/limit covers this regime.
+
+## value
+
+PASS
+
+The obtuse geometry is a singular boundary minimum, so exponent 5/2 and nontrivial anisotropic marked limit bridge the established acute t^(3/2) and right t^(7/4) regimes; provides a natural sharp rare-event law rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
