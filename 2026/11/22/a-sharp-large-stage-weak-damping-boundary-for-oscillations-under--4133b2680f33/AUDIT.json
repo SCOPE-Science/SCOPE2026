@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exactly specified triangular RK tableau yields a rational-power stability function, with stage-transfer identity independently checked. Expanding the odd logarithm uniformly on bounded complex domains gives an explicit second-order perturbation. Taking the complex modulus after real damping leads to F(omega)-2 eta; strict positivity follows from |sin t|<|t|, and a nonzero derivative gives the unique local root. A log-product argument proves energy accumulation. verify.py executed 97 finite checks; finite checks do not establish the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weng–Yu–Zhu Theorem 5.2 gives optimal SSP coefficients without a large-stage oscillatory boundary.",
+        "Gottlieb et al. 2611.07981 proves no algebraic stability for nonnegative order-three methods, which is weaker than the present quantitative family-specific asymptotic.",
+        "Published exact real-axis frontier result restricts its scope to negative-real parameters."
+      ],
+      "reasoning": "The general obstruction to algebraic stability does not imply this exact amplitude law. A full complex absolute-stability classification of this family would dominate the finding if it yielded the same large-stage expansion; none was found in relevant inspected primary materials.",
+      "searches": [
+        "Search published-finding corpus: Ferracina Spijker optimal implicit SSP Runge Kutta stability imaginary axis overamplification 1/s^2 oscillatory test",
+        "Search published-finding corpus: strong stability preserving optimal third order implicit RK diagonal gamma stages imaginary axis unstable oscillatory energy drift",
+        "Search published-finding corpus: phase-type SSP Runge Kutta large stage limit oscillatory amplification spectral energy drift"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.37425v1",
+      "https://math.leidenuniv.nl/reports/files/2007-11.pdf",
+      "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf",
+      "https://arxiv.org/html/2611.07981v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-real-axis-stability-frontier-of-ssp-optimal-third-order-im--60906ae1b586"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact transfer formula and the optimizing tableau are prior known.",
+        "No cited paper establishes the uniform \\(s^{-2}\\) wave-damping boundary, its sharp frequency dependence, or the repeated-step energy limit."
+      ],
+      "reasoning": "The present theorem is a derived asymptotic implication of a known rational transfer identity. Prior coverage of that identity is explicitly disclosed. Deriving the new result requires a uniform odd-power logarithmic expansion, strict positivity, root localization and accumulation; it is not a restatement of the prior real-axis theorem. The possibility of an unindexed specialist analysis remains a priority risk.",
+      "searches": [
+        "Search published-finding corpus: SSP order three optimal DIRK small damping real part imaginary Fourier stability layer",
+        "Web search: Ferracina Spijker optimal implicit SSP third order imaginary axis energy instability large stages",
+        "Web search: optimal implicit SSP Runge Kutta linear imaginary axis non contractive s stages stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Analytically equivalent formulation is the leading Fourier-mode squared amplification defect and its \\(s^{-2}\\) leftward stability-boundary displacement; the published-finding corpus real-axis result does not study imaginary frequencies."
+      ],
+      "reasoning": "A near-imaginary rational stability boundary is equivalent to the sharp damping coefficient for each fixed Fourier frequency. The published real-axis formula can serve as a starting point but does not itself state or prove its large-stage complex expansion. Search hits did not reveal an equivalent explicit wave-profile result; non-detection alone is not proof.",
+      "searches": [
+        "Search published-finding corpus: SSP optimal third order SDIRK Fourier imaginary axis amplification large stage number s^2 times |R_s(i omega)|^2-1 equals omega^2/2+cos omega-1",
+        "Search published-finding corpus: 1/2 omega^2 + cos omega -1 asymptotic SSP3 implicit Runge Kutta imaginary",
+        "Search published-finding corpus: SSPIRK(s,3) imaginary axis universal large stage expansion wave energy drift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/11/8/SCOPE-exact-real-axis-stability-frontier-of-ssp-optimal-third-order-im--60906ae1b586 studies real-axis cutoff, not the frequency-profile constant.",
+        "Fekete–Horváth shows finite-stage s=4 plots rather than a table of large-stage local imaginary-axis boundaries."
+      ],
+      "reasoning": "The needed continuum frequency function and long-horizon exponential law are not a previously tabulated exact invariant in the examined materials. Exact arithmetic checks are original calculations, not table recomputation.",
+      "searches": [
+        "Search published-finding corpus: Runge Kutta stage count s growing s squared wave damping boundary layer omega squared divided two plus cos omega minus one SSP",
+        "Search published-finding corpus: 1/2 omega^2 + cos omega -1 asymptotic SSP3 implicit Runge Kutta imaginary"
+      ]
+    },
+    "rationale": "The closest publication provides the exact stability-function transfer and negative-real cutoff, and is credited; the examined primary papers do not state the quantitative large-stage imaginary-axis weak-damping limit or the accumulated energy law. This is an asymptotic implication of existing coefficients, not novelty of the method itself. Unindexed specialist treatments remain a residual priority risk.",
+    "residual_risks": [
+      "An earlier specialist derivation of the same near-imaginary high-stage asymptotic may be unindexed.",
+      "Other unpublished or inaccessible full-complex stability analyses may imply the exact profile."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides unique optimizing tableau and its SSP radius; does not present oscillatory spectral damping profile or the quadratic-stage accumulation limit",
+        "evidence": [
+          "Theorem 5.2, equations (5.5)–(5.6), specifies gamma, delta and b; conclusion concerns optimal radii and unique tableaux"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37425v1",
+        "material_read": "Full HTML introduction, 5.2 theorem, coefficient identities, proof and conclusion; all 793 source lines available",
+        "method": "arXiv HTML original v1, browsed sections 5.1–5.2 and citations",
+        "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+        "trigger": "Exact order-three optimizing tableau used in the theorem"
+      },
+      {
+        "assessment": "Its exact rational-power transfer function is prior coverage and expressly credited. Its theorem is confined to negative-real stability, with no complex-axis or large-stage weak-damping profile",
+        "evidence": [
+          "RESULT.md says it classifies the negative real axis and makes no claim about the complete complex stability region",
+          "R_s(z)=1-c_s+c_s t(z)^s already in its proof"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-real-axis-stability-frontier-of-ssp-optimal-third-order-im--60906ae1b586",
+        "material_read": "Full 7,827-byte RESULT.md, including theorem, five-step proof, verification and limitations",
+        "method": "published-finding corpus search followed by direct public GitHub file read",
+        "title": "Exact real-axis stability frontier of SSP-optimal third-order implicit Runge–Kutta methods",
+        "trigger": "Identical coefficient family and exact transfer formula"
+      },
+      {
+        "assessment": "Section 3.3 derives candidate coefficient formulas and conjectures SSP optimality, but not a weakly damped oscillatory asymptotic",
+        "evidence": [
+          "Section 3.3 equation (3.2) gives the diagonal and subdiagonal coefficients",
+          "Conjecture 3.2 concerns optimality, not spectral boundary layers"
+        ],
+        "identifier_or_url": "https://math.leidenuniv.nl/reports/files/2007-11.pdf",
+        "material_read": "Full PDF text; the 13-page report, especially pages 6–7 (PDF 0-indexed 5–6), directly inspected with screenshots",
+        "method": "Lawful public primary PDF text and page-image reading",
+        "title": "Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods",
+        "trigger": "Origin of the coefficient family and first-public precedent"
+      },
+      {
+        "assessment": "Provides embedded pairs and numerical plots for s=4, but no s→infinity damping threshold or wave energy law",
+        "evidence": [
+          "Figure 2 shows four-stage stable regions",
+          "Section 2.2 proposes embedded third-order pairs"
+        ],
+        "identifier_or_url": "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf",
+        "material_read": "Complete six-page text, section 2.2 and Figure 2 inspected on PDF pages 5–6 (0-indexed 4–5)",
+        "method": "Lawful author-hosted PDF text and screenshots",
+        "title": "Some Embedded Pairs for Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+        "trigger": "Four-stage absolute stability plots for same base method"
+      },
+      {
+        "assessment": "Shows algebraic stability is impossible for nonnegative third-order tableau, a distinct general qualitative condition; does not yield the exact frequency-dependent boundary layer or energy multiplier",
+        "evidence": [
+          "Abstract explicitly lists algebraic-stability order barrier as third result",
+          "The family-specific spectral value is not asserted in the inspected passages"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.07981v1",
+        "material_read": "Full HTML source available; abstract, introduction and table of contents with section 5 statement read",
+        "method": "arXiv HTML full-text search and section inspection",
+        "title": "A stability order barrier and SSP bound for Runge–Kutta methods with non-negative coefficients: AI-assisted proofs",
+        "trigger": "Possible general domination by algebraic-stability obstruction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4133b268-0f33-4860-9db9-b4924d8fe02e",
+  "value": {
+    "rationale": "SSP-optimal stages are used for hyperbolic and advection semidiscretizations with imaginary or weakly damped Fourier spectra. The first nonvanishing oscillatory energy defect has an exact positive continuum profile, defining the minimum O(s^-2) damping to prevent growth; the sharp exp(TF) energy multiplier over O(s²) steps makes the effect observable. It complements but does not merely rename the existing real-axis stability threshold.",
+    "status": "PASS"
+  }
+}
