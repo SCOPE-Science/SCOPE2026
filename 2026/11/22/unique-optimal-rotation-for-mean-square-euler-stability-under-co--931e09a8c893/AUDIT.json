@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact positive covariance recursion and rank-one resolvent give the necessary/sufficient rational inequality. The normalized return-gain derivative is manifestly strictly positive for all positive steps. The frequency derivative has a strictly increasing positive-power-coefficient cubic numerator, proving a unique minimum at fixed step. Compactness and a strict-minimum comparison imply one unique optimal frequency in the specified 2<tau<4 regime. `verify.py` independently confirms four symbolic identities and 104 finite covariance eigenvalue comparisons; finite tests do not stand in for universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lang et al. establish dimension-independent mean-square stability tests and sufficient bounds, but no closed optimal frequency statement.",
+        "Senosiain and Tocino (2023) compute continuous-time moment stability of systems with Jordan nonnormal drifts, not a discretized normal rotation with coordinate noise.",
+        "Buckwar and Sickenberger (2009) explicitly adopt a scalar test equation with multiple noise terms."
+      ],
+      "reasoning": "A general spectral threshold alone does not classify the unique maximizer in the frequency parameter. The most relevant broader papers do not include this extremal statement as a direct corollary, and their specially solved model families have different drift/noise geometry.",
+      "searches": [
+        "unique optimal rotation frequency to maximize Euler Maruyama mean square stable timestep with rank one multiplicative noise damped oscillator noise strength 2 to 4",
+        "https://link.springer.com/article/10.1007/s11075-022-01478-6",
+        "https://arxiv.org/abs/0912.1968",
+        "2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63",
+        "2026/11/2/SCOPE-exact-timestep-invariant-circulation-and-increasing-entropy-prod--a3c5aa1293de"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1702.07700",
+      "https://arxiv.org/abs/2001.05203",
+      "https://link.springer.com/article/10.1007/s11075-022-01478-6",
+      "https://arxiv.org/abs/0912.1968",
+      "2026/10/13/SCOPE-sharp-reentrant-mean-square-stability-of-randomized-damped-shear--b467b674b3e7",
+      "2026/11/8/SCOPE-exact-covariance-aliasing-and-a-sharp-ellipticity-crossover-for--620c3297a160",
+      "2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63",
+      "2026/11/2/SCOPE-exact-timestep-invariant-circulation-and-increasing-entropy-prod--a3c5aa1293de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lang et al. (2017), Proposition 3.1 and Corollary 3.1 give covariance and sufficient stability criteria, not a closed normal-rotation sharp frequency design.",
+        "Song et al. (2020), stability-equivalence theorems guarantee small-step preservation under conditions, not optimal design over angular frequencies.",
+        "Senosiain and Tocino (2023), Sections 2–4, discuss continuous-time nonnormal drift perturbations, not this fully discrete Euler step.",
+        "The published randomized shear stability reentry involves exact random matrix products rather than Euler-Maruyama with linear multiplicative Wiener noise."
+      ],
+      "reasoning": "No checked stronger result implies the claimed sharp optimizer without an additional nontrivial argument. The generic no-reentry part should not be counted as the original contribution; originality attaches to exact scalar feedback simplification and the unique finite rotation optimization in the explicitly stated problem.",
+      "searches": [
+        "https://arxiv.org/abs/1702.07700",
+        "https://arxiv.org/abs/2001.05203",
+        "https://link.springer.com/article/10.1007/s11075-022-01478-6",
+        "https://arxiv.org/abs/0912.1968",
+        "Euler Maruyama mean-square stability damped planar rotation with single-coordinate multiplicative noise rank-one projector exact threshold monotone timestep no reentry",
+        "unique optimal rotation frequency to maximize Euler Maruyama mean square stable timestep with rank one multiplicative noise damped oscillator noise strength 2 to 4",
+        "2026/10/13/SCOPE-sharp-reentrant-mean-square-stability-of-randomized-damped-shear--b467b674b3e7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A general covariance-update spectral-radius characterization for Euler-Maruyama is in Lang et al. (2017), Section 3, but no closed rational return gain or frequency optimizer is stated there.",
+        "Song et al. (2020) concern stability equivalence for sufficiently small steps rather than the exact sharp step and optimal rotation frequency.",
+        "The cited random damped-shear finding uses random switching/splitting, not a single multiplicative projector noise acting on the current state."
+      ],
+      "reasoning": "The claimed formula is a special evaluation of a general spectral framework, but the sharp global frequency optimization requires a nontrivial comparison across all normalized angular frequencies and is not entailed by generic spectral-radius criteria without proving its sign polynomial and uniqueness. Additive-noise covariance and randomized-splitting systems are not equivalent under coordinate change to this multiplicative Itô system.",
+      "searches": [
+        "Euler Maruyama mean-square stability damped planar rotation with single-coordinate multiplicative noise rank-one projector exact threshold monotone timestep no reentry",
+        "exact closed form Euler Maruyama covariance stability damped planar rotation diagonal rank one noise sigma² over damping between 2 and 4",
+        "https://arxiv.org/abs/1702.07700",
+        "https://arxiv.org/abs/2001.05203",
+        "2026/10/13/SCOPE-sharp-reentrant-mean-square-stability-of-randomized-damped-shear--b467b674b3e7",
+        "2026/11/8/SCOPE-exact-covariance-aliasing-and-a-sharp-ellipticity-crossover-for--620c3297a160"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries of the published mathematical-results index identified random shear time splitting, Lyapunov covariance aliasing and stochastic rounding, but no table of the rank-one multiplicative planar frequency optimizer.",
+        "A previously published arbitrary-dimensional nonnormal Jordan-chain covariance stability law has a different drift/noise geometry, not the present normal rotational model."
+      ],
+      "reasoning": "No observed exact table supplies the same threshold pair or the uniqueness of its optimizing angular frequency. The absence of a hit is only negative search evidence, not a uniqueness or historical-priority proof.",
+      "searches": [
+        "unique optimal rotation frequency to maximize Euler Maruyama mean square stable timestep with rank one multiplicative noise damped oscillator noise strength 2 to 4",
+        "exact closed form Euler Maruyama covariance stability damped planar rotation diagonal rank one noise sigma² over damping between 2 and 4",
+        "mean square Euler Maruyama two-dimensional rotation stable noise exact sharp critical h",
+        "2026/10/13/SCOPE-sharp-reentrant-mean-square-stability-of-randomized-damped-shear--b467b674b3e7",
+        "2026/11/8/SCOPE-exact-covariance-aliasing-and-a-sharp-ellipticity-crossover-for--620c3297a160"
+      ]
+    },
+    "rationale": "The exact normal-planar rank-one noise feedback law, and especially unique finite rotation optimizer at dimensionless noise intensity strictly between 2 and 4, are not implied by the general operator spectral test of Lang et al., the small-step equivalence theorem of Song et al., the continuous-time nonnormal survey of Senosiain and Tocino, or the scalar multiple-noise test equation of Buckwar and Sickenberger. Published related mathematical results on random shear splitting, covariance aliasing with additive noise and rounded rotations concern inequivalent updates and stochastic mechanisms. Historical priority cannot be exhaustive.",
+    "residual_risks": [
+      "Older specialist two-dimensional Euler-Maruyama stability literature may contain an equivalent algebraic frequency-optimum calculation not indexed under these search aliases.",
+      "The independent mathematical and historical-priority audits have not been performed.",
+      "The numerical illustrative values are approximations, not separate certified algebraic isolating intervals."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework includes a spectral-radius criterion; no explicit normal-rotation coordinate-noise frequency optimization found in inspected sections.",
+        "evidence": [
+          "Section 3.2 Theorem 3.1 supplies a norm-based sufficient bound for forward Euler; Section 3.1 uses the general covariance spectrum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.07700",
+        "material_read": "ArXiv version history and Springer open full article: Sections 2–3 including Proposition 3.1, Corollary 3.1, Theorem 3.1 and forward Euler case.",
+        "method": "Read HTML full primary article and compared the stated stability operators and test families.",
+        "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+        "trigger": "The primary exact covariance spectral-radius framework might subsume the claim."
+      },
+      {
+        "assessment": "Small-step equivalence is compatible but does not state sharp frequency optimizer.",
+        "evidence": [
+          "The introduction states equivalence for sufficiently small step sizes; the cited theorem compares discrete/continuous stochastic equations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.05203",
+        "material_read": "Available arXiv HTML text: introduction, method definitions, Theorem 4.1 and Section 5 stability equivalence.",
+        "method": "Read searchable full-text HTML and compare quantified conclusions and parameter scopes.",
+        "title": "Stability equivalence among stochastic differential equations and stochastic differential equations with piecewise continuous arguments and corresponding Euler-Maruyama methods",
+        "trigger": "General small-step equivalence may already settle the positive-step existence statement."
+      },
+      {
+        "assessment": "Treats continuous-time nonnormal Jordan-type systems, not a sharp Euler frequency optimizer for a normal rotation.",
+        "evidence": [
+          "Sections 1–2 define the continuous moment evolution; Section 3 specializes to triangular drift matrices."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-022-01478-6",
+        "material_read": "Springer OA full HTML: abstract, Sections 1–3, formulas for Jordan drifts and second moment matrix.",
+        "method": "Read the primary article sections and inspect the matrices and the distinction between continuous and numerical stability.",
+        "title": "A survey of mean-square destabilization of multidimensional linear stochastic differential systems with non-normal drift",
+        "trigger": "Exact two-dimensional stochastic stability criteria with a related rank-one noise matrix."
+      },
+      {
+        "assessment": "Explicitly focuses on scalar linear equation with multiple noise terms; historical-comparison scope limited to accessible abstract.",
+        "evidence": [
+          "Abstract describes a scalar linear test equation with several multiplicative noise terms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0912.1968",
+        "material_read": "ArXiv version page, abstract, and metadata; full article not examined.",
+        "method": "Inspected arXiv abstract and declared test-equation scope.",
+        "title": "A comparative linear mean-square stability analysis of Maruyama- and Milstein-type methods",
+        "trigger": "Potentially broader exact Maruyama stability region."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "931e09a8-c893-4942-a04a-993f96b40e30",
+  "value": {
+    "rationale": "One-coordinate multiplicative noise is a natural minimal noncommuting stochastic oscillator test. The theorem supplies an exact implementable sharp stability boundary, shows that angular coupling can restore Euler mean-square stability even when the zero-frequency model has no stable positive step, and proves a unique best frequency; too-fast rotation is again detrimental. These are structural and parameter-optimal facts beyond the routine general no-reentry argument.",
+    "status": "PASS"
+  }
+}
