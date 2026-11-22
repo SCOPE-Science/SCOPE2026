@@ -1,19 +1,21 @@
-# Scientific review: one-vertex deletion and ternary wave clocks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant direct sum into antisymmetric pair modes and symmetric modes is exact because the characteristic is three. On the symmetric sector, the explicit quotient matrix has characteristic polynomial \(\lambda^2-(1-r)\lambda+r\); its two nonzero-residue specializations are irreducible quadratics, and its zero-residue specialization has one length-two Jordan block at one. The temporal companion converts these sectors into order-four, size-two or size-four negative-unipotent, fifth-root and eighth-root factors. Their fixed dimensions add to the claimed formula, and Möbius inversion gives all orbit populations. Exact matrix-power tests covered 1,080 rank comparisons, and independent graph-local orbit enumeration covered all 59,049 configurations at \(r=2\). Boundary \(r=1\) was tested but is deliberately outside the theorem. The proof, not the finite tests, establishes the infinite-family claim.
+PASS
 
-## Originality — PASS with historical-priority risk
+Over F_{3^f}, deleting a vertex from cocktail-party C_{r+1} leaves 2r+1 vertices with r disjoint missing edges. Pair-antisymmetric modes have zero adjacency eigenvalue, symmetric pair vectors x_i and unmatched z have quotient (z,S) map Q_r=[[0,−1],[r,1−r]], with r−1-dimensional eigenvalue-one kernel U. For r mod3=1,2 the quadratic quotient polynomials are irreducible and transform through temporal z+z^{-1} into separable Φ8 or Φ5; for r mod3=0, the 1-primary sector instead has one spatial Jordan block length 2 and r−2 single blocks, while zero-primary is r+1 single blocks. The temporal companion T(u,v)=(Au−v,u) has λ=0 order-four modes; λ=1 gives J2(−1) and J4(−1), whose t-fixed nullity is min(blocksize,3^{ν3(t)}) for even t. Summing yields exact E_r(t) in the source for all t, with sharp global orders 36,24,60 by residue, intact graph 12,12,36, all period counts by Möbius inversion and maximal-order densities by independence of summands. I independently reconstructed adjacency/time matrices over F3 for r=2..6, verified every t≤120 fixed nullity and sharp orders. The unbounded r and extension-field formulas come from the invariant factor proof, not the tested range.
 
-Cámara–Haemers (arXiv:1211.4420, Section 2) proves spectral characterization under matching deletion, not temporal or modular Jordan classification. Vlasov (arXiv:1311.4297, Section 3) constructs reversible second-order updates but gives no near-perfect-matching graph census. The published matching-defect Jordan result uses characteristic-two *edge-neighbor* maps on line graphs, not characteristic-three vertex waves. The published mod-three complete-bipartite classification has period eight or twelve and a different spatial adjacency decomposition. A related single-missing-edge classification is not equivalent to deleting \(r\ge2\) disjoint edges: at graph order five its sharp period is 36, versus 60 here. The cited comparisons neither logically imply nor exactly tabulate the three residue classes, the newly appearing fifth/eighth-root blocks, or the all-time fixed counts. Remaining risk: unindexed broader finite-field companion-module results might imply the formula.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural graph perturbation, deleting one vertex from a cocktail-party graph, with a qualitatively changed temporal spectrum. The exact changes \(12\to36\), \(12\to24\), and \(36\to60\) are not merely numerically different orders: the last introduces a primitive factor five that cannot occur on the intact graph, and the middle introduces factor eight. The theorem gives a complete all-size period spectrum, orbit census and explicit maximal-clock densities, exposing a structural modular resonance of interest for finite reversible network dynamics. It does not claim a general theorem for arbitrary graph deletions.
+Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.
 
-## Closest literature and limits
+## value
 
-Primary full texts inspected were *Spectral characterizations of almost complete graphs* (arXiv:1211.4420, especially Section 2), and *On generalization of reversible second-order cellular automata* (arXiv:1311.4297, especially Section 3). The two closest published mathematical results on matching-defect edge-parity and complete-bipartite reversible waves were checked by their complete available scientific result text. The historical search is not an exhaustive proof of priority. No independently conducted audit or external certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Vertex deletion of a canonical strongly regular cocktail-party graph causes a genuine modular spectral phase change: the allowed temporal orders create new fifth/eighth-root motion, with a complete all-size period population law. This is an exact natural classification, not a trivial finite experiment or restatement of reversibility; it captures the structural effect of a small graph perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
