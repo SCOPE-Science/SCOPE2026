@@ -1,19 +1,21 @@
-# Scientific review of the triangular fractional-vertex projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive integer \(r\), the candidate is exhibited as a convex combination of actual involution permutation matrices. The exact Frobenius projection inequality is proved against every involution using two integer counts: the number of transpositions inside designated triples and the number across triples. Even and odd index counts give different sharp dual inequalities, and the stated mixtures attain equality. Strict convexity gives uniqueness. The squared-distance formula follows from counting ordered matrix entries, not from a finite extrapolation. The standalone rational checker and independent constrained quadratic programs corroborate the result.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The matrix A_r has half edges on each of r vertex-disjoint triples and zero diagonals. Construct genuine involutions by choosing one inner transposition uniformly per triple, then matching exposed representatives across triples, with a parity-dependent auxiliary fixed-point frequency. This produces a,b,c equal to claimed expectation matrix Y. For any involution Q let I internal transpositions, C cross transpositions and F fixed points, F+2(I+C)=3r. Residual R=A-Y has pairing <R,Q>=-3ra+(2a+1/3)I+2(a-c)C. For even r a=c and maximum I=r; for odd r F>=1 bounds C<=(3r-1)/2-I and maximum at I=r,F=1. Candidate mixture attains that supporting hyperplane, globally proving unique Euclidean projection. Entry-count formula 3r a²+6r(1/6)²+9r(r-1)c² gives exact parity rational squared distances; independent Fraction arithmetic and exhaustive involutions for r=1,2 checked all inequalities and distances, not a universal substitute.
 
-Brualdi and Cao (arXiv:1712.03129v1, relevant Introduction and symmetric-matrix discussion) classify fractional odd-cycle vertices of the symmetric doubly stochastic polytope, but do not calculate their Euclidean distances to the involution hull. Related published matching-polytope results primarily treat vertices, inequalities, normality, diameters or enclosing radii. Available searches for Frobenius approximation of involutions, repeated triangle fractional matchings, and symmetry-averaged projections produced no equivalent formula. No novelty conclusion follows merely from a failed search. A specialist least-squares or matching-polytope treatment not located by the checked sources remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Repeated disjoint triangles are the smallest symmetric fractional doubly stochastic obstructions in arbitrarily large order. Their integral-hull approximation is natural, but simply projecting each obstruction separately is asymptotically suboptimal by a factor of three in squared Frobenius loss. The exact nearest matrix, contact structure and even/odd fixed-point correction quantify a genuine cross-component effect. The finding is a self-contained exact geometric invariant, not a claim about all fractional vertices or the full Hausdorff metric.
+Brualdi–Cao classify fractional odd-cycle supports of symmetric doubly stochastic matrices, not Frobenius projection onto convex hull of involution permutation matrices. A published graph fractional matching Hausdorff theorem has graph edge-coordinates, merely <=1 vertex degrees, a different integral hull permitting unmatched vertices, and per-cycle projections; it cannot force the cross-triple matching/stochastic fixed-point parity correction here. No inspected source implies the distinct Y_r classes and formulas; best-of-knowledge with terminology risk.
 
-## Scope and residual risk
+## value
 
-The result applies to one distinguished fractional vertex family in each order divisible by three. Historical priority is provisional, particularly for terminology involving involution assignment polytopes or least-squares perfect matching with loops. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Disjoint triangles are the canonical minimal fractional obstructions. Exact global matrix Frobenius projection onto integral involution hull demonstrates a factor-three leading improvement over blockwise symmetric projections, a sharp even/odd correction and unique contact class: meaningful nontrivial cross-component interaction in a natural polytope geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

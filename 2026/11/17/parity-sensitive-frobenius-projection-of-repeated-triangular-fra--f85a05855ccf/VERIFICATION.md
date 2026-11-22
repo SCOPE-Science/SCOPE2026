@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the triangular fractional-vertex projection
+# Independent mathematical audit
 
-The accompanying `verify_triangle_projection.py` reconstructs the candidate projection as exact rational entries and checks row stochasticity, symmetry, nonnegativity, the distance identities, and the auxiliary matching mixture's marginals for each integer \(1\le r\le25\). It checks the projection supporting-hyperplane inequality via all count combinations compatible with \(I\le r\) and \(F+2(I+C)=3r\). These include all possible involutions and sometimes additional combinatorially unrealizable counts, so no feasible involution is omitted.
+## correctness
 
-The script separately enumerates every involution on \(3,6,9,12\) vertices, checks the scalar-product certificate for each, and verifies a contact witness. The total enumerated is 142852. Three independent numerical quadratic programs, using symmetric row-sum conditions and all odd-set matching inequalities for orders \(3,6,9\), reproduce the rational projection distances and matrices to numerical tolerances.
+PASS
 
-These experiments are finite. The proof valid for every positive integer \(r\) is the explicit involution mixture and the global supporting-hyperplane inequality in `RESULT.md`. They do not establish historical novelty, a global Hausdorff theorem, or independent verification.
+The matrix A_r has half edges on each of r vertex-disjoint triples and zero diagonals. Construct genuine involutions by choosing one inner transposition uniformly per triple, then matching exposed representatives across triples, with a parity-dependent auxiliary fixed-point frequency. This produces a,b,c equal to claimed expectation matrix Y. For any involution Q let I internal transpositions, C cross transpositions and F fixed points, F+2(I+C)=3r. Residual R=A-Y has pairing <R,Q>=-3ra+(2a+1/3)I+2(a-c)C. For even r a=c and maximum I=r; for odd r F>=1 bounds C<=(3r-1)/2-I and maximum at I=r,F=1. Candidate mixture attains that supporting hyperplane, globally proving unique Euclidean projection. Entry-count formula 3r a²+6r(1/6)²+9r(r-1)c² gives exact parity rational squared distances; independent Fraction arithmetic and exhaustive involutions for r=1,2 checked all inequalities and distances, not a universal substitute.
+
+## originality
+
+PASS
+
+Brualdi–Cao classify fractional odd-cycle supports of symmetric doubly stochastic matrices, not Frobenius projection onto convex hull of involution permutation matrices. A published graph fractional matching Hausdorff theorem has graph edge-coordinates, merely <=1 vertex degrees, a different integral hull permitting unmatched vertices, and per-cycle projections; it cannot force the cross-triple matching/stochastic fixed-point parity correction here. No inspected source implies the distinct Y_r classes and formulas; best-of-knowledge with terminology risk.
+
+## value
+
+PASS
+
+Disjoint triangles are the canonical minimal fractional obstructions. Exact global matrix Frobenius projection onto integral involution hull demonstrates a factor-three leading improvement over blockwise symmetric projections, a sharp even/odd correction and unique contact class: meaningful nontrivial cross-component interaction in a natural polytope geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
