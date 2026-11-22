@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "boundaries": "n>=3, k>=1, independent source-to-target 2-step reachable quasi-kernels only.",
+    "critical_steps": [
+      "Cyclic gap necessity and sufficiency",
+      "Exact cyclic composition multiplicity",
+      "Cubic Newton sum and trig sign changes",
+      "Transformed-factor real root bounds"
+    ],
+    "rationale": "The directed reachability and independence requirements force a nonempty cyclic core with gaps precisely 2 or 3, and pendant states are exactly optional at the first omitted vertex and mandatory at the second omitted vertex of each 3-gap. Double-counted rooted cyclic compositions yield the claimed polynomial. Newton sums of the cubic t^3-t-q, an imaginary substitution and alternating sign phases prove exactly deg(F_n) simple negative roots, avoiding inference from finite checks. Transformed factors give k=1 all real, k>=3 too few real roots, and k=2 a factor with c<=3<27/4. Direct independent brute-force checks cover 14 parameter pairs and 1,767,232 vertex subsets; exact Stirling/Sturm checks separately corroborate sampled cases. No unproved infinite inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spiro, arXiv:2611.22881v1, Section 3 Lemma 3.1 attaches \\(k\\) outward leaves at each vertex of a general digraph but proves a bound-transfer statement rather than a cardinality enumeration.",
+        "Ai, Gutin, Liu and Meng, arXiv:2610.23487, prove general transfer inequalities for small and large quasi-kernels, not polynomial root geometry.",
+        "Spiro, arXiv:2404.07305, considers generalized quasi-kernels and extremal constraints on related directed configurations rather than this exact polynomial."
+      ],
+      "reasoning": "The generality of the blow-up operation does not imply an exact quasi-kernel census or real-zero classification. Checked the actual objects, quantifiers, and published theorem conclusions, not just titles.",
+      "searches": [
+        "\"quasi kernel size enumerator of out-whiskered directed cycle each cycle vertex has k outward leaves real-rootedness threshold k=1\"",
+        "\"quasi kernel directed cactus directed cycle every vertex attached an out-leaf enumerating minimal quasi kernels\"",
+        "arxiv:2611.22881v1; arxiv:2610.23487; arxiv:2404.07305"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.22881v1 (Definition 1, Section 3)",
+      "https://arxiv.org/abs/2610.23487 (general transfer theorem)",
+      "https://arxiv.org/html/2404.07305v2 (generalized quasi-kernels)",
+      "https://www.academia.edu/57881923/On_the_number_of_quasi_kernels_in_digraphs (accessible historical article text)",
+      "published mathematical-record titles: Complete finite-variable theories of leaf-covered unicyclic functional digraphs; Complete core–leaf profile of ordinary P3-convex sets in sunlet graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spiro 2026, Lemma 3.1, identifies leaf amplification and proves only the projection of a quasi-kernel to the original digraph and an extremal lower bound on pendant selections.",
+        "The previous result does not characterize all pendant selections, classify cyclic gaps as 2/3, prove all auxiliary roots negative, or classify real-rootedness of the entire enumerator.",
+        "Gutin, Koh, Tay and Yeo 2004 describe general quasi-kernel counts and small-number cases but supply no family-wide full cardinality polynomial for outward leaf-amplified directed cycles."
+      ],
+      "reasoning": "Neither the cited general blow-up lemma nor the extremal results determine the full cardinality polynomial and root transition as a direct corollary. The novel claim is not that outward-leaf amplification or 2/3 tiling recurrences first exist, but their exact quasi-kernel enumerator and sharp root-geometry consequence.",
+      "searches": [
+        "\"quasi kernel size enumerator of out-whiskered directed cycle each cycle vertex has k outward leaves real-rootedness threshold k=1\"",
+        "\"quasi-kernel polynomial of directed cyclic leaf amplification, necklace of gaps 2 or 3, exact enumerator\"",
+        "\"quasi kernel directed cactus directed cycle every vertex attached an out-leaf enumerating minimal quasi kernels\"",
+        "arxiv:2611.22881v1; arxiv:2610.23487; arxiv:2404.07305"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present size polynomial counts independent directed distance-two out-dominating sets, equivalently quasi-kernels in the source-to-target convention.",
+        "The cubic power-sum \\(T_m(q)\\) generates cyclic 2/3 compositions, but its relation to the pendant-quasi-kernel size polynomial and the precise \\(k\\)-transition is not stated in inspected literature."
+      ],
+      "reasoning": "Searched the enumerator under quasi-kernel, oriented radius-two independent domination, cyclic tilings, and real-zero formulations. No statement implied the full weighted cyclic-gap formula or its sharp real-rootedness boundary. The familiar cubic recurrence alone is not asserted to be novel.",
+      "searches": [
+        "\"quasi kernel size enumerator of out-whiskered directed cycle each cycle vertex has k outward leaves real-rootedness threshold k=1\"",
+        "\"quasi-kernel polynomial of directed cyclic leaf amplification, necklace of gaps 2 or 3, exact enumerator\"",
+        "\"quasi-kernel real zeros of cyclic sunlet digraph, leaf blowup phase transition\"",
+        "\"rooted cyclic tilings by blocks of lengths 2 and 3 generalized Lucas polynomial root location\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical-record entry on leaf-covered unicyclic functional digraphs describes logical equivalence classes of digraphs with inward leaves, not their quasi-kernel generating polynomials.",
+        "The closest sunlet core–leaf polynomial counts undirected \\(P_3\\)-convex sets, a distinct invariant.",
+        "Exact small-case data have been computed independently by directed-edge enumeration rather than copied from a table."
+      ],
+      "reasoning": "Searches of targeted records and papers located no table or database formula for the given parameters. A negative query result is evidence of coverage searched, not a claim of proof of uniqueness; unindexed records remain a priority risk.",
+      "searches": [
+        "\"quasi kernel size enumerator of out-whiskered directed cycle each cycle vertex has k outward leaves real-rootedness threshold k=1\"",
+        "\"quasi-kernel polynomial of directed cyclic leaf amplification, necklace of gaps 2 or 3, exact enumerator\"",
+        "\"quasi-kernel real zeros of cyclic sunlet digraph, leaf blowup phase transition\"",
+        "\"rooted cyclic tilings by blocks of lengths 2 and 3 generalized Lucas polynomial root location\"",
+        "\"quasi-kernel polynomial\" \"directed\" real-rootedness",
+        "\"quasi-kernel\" \"sunlet\" enumeration polynomial"
+      ]
+    },
+    "rationale": "Full primary comparison finds the exact outward-leaf operation in Spiro (2026), but only as a universal extremal transfer tool; neither that statement, the 2026 general transfer theorem, the earlier generalized quasi-kernel manuscript, nor inspected 2004 counting results imply the full cardinality enumerator and sharp root classification. Several semantic-record searches found no directly covering claim. Historical priority remains provisional rather than certified.",
+    "residual_risks": [
+      "Historical priority cannot be guaranteed against unindexed, non-English, or inaccessible sources.",
+      "The cubic power-sum and cyclic composition root structure may be classical; the claimed new contribution is only its exact interpretation and real-rootedness transition for quasi-kernel polynomials.",
+      "Some historical full articles may not have accessible primary full text; no statement is made that all possible literature was checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related construction; no covering enumerator or real-zero classification identified",
+        "evidence": "Section 3 explicitly adjoins k arcs from each original vertex to k new leaves, then bounds the size of a smallest quasi-kernel via its intersection with the base.",
+        "identifier_or_url": "https://arxiv.org/html/2611.22881v1",
+        "material_read": "Definition 1 (directed reachability convention), Sections 1–3 including Lemma 3.1 and its construction/proof, and stated main theorems",
+        "method": "Read accessible open full-text HTML, compared Lemma 3.1 projection and lower-bound argument with the exact all-set enumeration",
+        "title": "Equivalence of Small and Large Quasi-kernels",
+        "trigger": "Exactly the outward-directed leaf amplification used to motivate the family"
+      },
+      {
+        "assessment": "Universal size/neighborhood transfer, not the complete pendant-cycle quasi-kernel distribution or root geometry",
+        "evidence": "Its main statements compare universal small/large quasi-kernel inequalities rather than enumerate each cardinality on a fixed cycle family.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.23487",
+        "material_read": "Accessible open preprint text: main bounds, hypotheses, central constructions and conclusions",
+        "method": "Full accessible HTML text inspected for correspondence of objects and implication strength",
+        "title": "Small and large quasi-kernels: a weighted transfer theorem",
+        "trigger": "Potentially dominating general transfer result for all digraphs"
+      },
+      {
+        "assessment": "No same parameter-2 source-to-target quasi-kernel cardinality polynomial or real-rootedness boundary identified",
+        "evidence": "Generalized distance settings and extremal examples do not provide the asserted full enumerator.",
+        "identifier_or_url": "https://arxiv.org/html/2404.07305v2",
+        "material_read": "Introduction, main definitions, theorem statements, and later examples involving attached leaves",
+        "method": "Open HTML primary text inspected at relevant sections",
+        "title": "Generalized Quasikernels in Digraphs",
+        "trigger": "Earlier enlarged-distance quasi-kernel results with leafy examples"
+      },
+      {
+        "assessment": "Not a published all-cardinality formula for outward-leaf-amplified cycles",
+        "evidence": "Study of global numbers of quasi-kernels and exceptional counts, rather than exact full size polynomial for this amplified cycle.",
+        "identifier_or_url": "https://www.academia.edu/57881923/On_the_number_of_quasi_kernels_in_digraphs",
+        "material_read": "Accessible article text: abstract, principal enumerative theorems and examples",
+        "method": "Read accessible historical article text; compared explicit counting theorems and their parameter domains",
+        "title": "On the number of quasi-kernels in digraphs",
+        "trigger": "Prior enumeration results could subsume a new exact family count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ecfb9abc-4a49-4bb4-9fb7-1987d191b4ad",
+  "value": {
+    "rationale": "Outward pendant amplification is an explicit natural construction in the motivating 2026 extremal quasi-kernel proof. An all-cardinality enumerator answers materially more than the minimum bound, and its unexpected sharp k=1/k>=2 root transition supplies an infinite-family structural obstruction to real-rootedness with a precise list of four exceptions. The result motivates the role of pendant multiplicity in quasi-kernel coefficient geometry, rather than an arbitrary tiny finite computation.",
+    "status": "PASS"
+  }
+}
