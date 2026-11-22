@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact undirected 27-edge Sage graph is reconstructed independently from bitmasks and edge tuples. One standard-library program enumerates all 2048 states by strict-neighbor majority and classifies the entire functional digraph by exact indegree peeling; another independently traces every state with signed-neighbor votes and matches all 49 individual basins and entry depths. A third independently enumerates degree-compatible automorphisms, checks all 2048 dynamics under each and determines seven oscillating spatial classes. Direct witnesses and full tests establish \\(F^{6}=F^{4}\\) and \\(F^{5}\\ne F^{3}\\); the period split 2 fixed plus 47 two-cycles, each consensus basin 935, and exact 2/6/8 oscillator basins are fully enumerated. No infinite statement or partial sample is treated as exhaustive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos finite undirected symmetric threshold dynamics guarantees eventual periods at most two, not graph-specific entry bounds, numbers of cycles, or basin weights.",
+        "Benjamini et al., arXiv:1405.2486v1, study infinite unimodular and random graphs, with no labelled Goldner–Harary 2048-state census in the inspected text.",
+        "Lima et al., arXiv:1205.5297v1, investigate a noise-driven majority-vote phase transition with Monte Carlo methods on Apollonian networks, not this exact deterministic discrete map."
+      ],
+      "reasoning": "General period-two convergence covers only the qualitative periodicity part of the theorem; the sharp maximum entry depth four and exact basin spectrum are not implied by existence of eventual period one/two. Random or stochastic thermodynamic-limit results do not imply exact finite labelled basin counts.",
+      "searches": [
+        "arXiv:1405.2486v1 Section 1 period two Goles Olivos",
+        "arXiv:1205.5297v1 Apollonian majority noise",
+        "published-record semantic search: Goldner Harary graph synchronous majority exact fixed points",
+        "majority rule dynamics Apollonian network fixed points consensus oscillations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1405.2486v1",
+      "https://arxiv.org/abs/1205.5297",
+      "https://sources.debian.org/src/sagemath/10.10-3/src/sage/graphs/generators/smallgraphs.py",
+      "https://mathworld.wolfram.com/Goldner-HararyGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1981 threshold theorem, reviewed in arXiv:1405.2486v1, does not specify vertex-wise majority dynamics on this named graph sufficiently to imply 47 cycles or 935 consensus basins without a new full computation.",
+        "The 2012 Apollonian majority-vote model uses stochastic noisy transitions and large-network observables, so its results do not imply individual deterministic graph-orbit sizes.",
+        "Other exact finite graph censuses are graph-specific and do not dominate this different adjacency matrix or all 3-trees."
+      ],
+      "reasoning": "A graph-specific numerical consequence is only covered if a prior theorem directly yields it for this graph and update rule. Neither the general eventual-period theorem nor other nonisomorphic graph tables imply the 49 individual basins, sharp transient depth, or seven spatial cycle classes. The new proof supplies the full finite computation.",
+      "searches": [
+        "arXiv:1405.2486v1 majority period two finite graphs",
+        "arXiv:1205.5297v1 Apollonian majority vote noise",
+        "Goldner-Harary graph majority synchronous dynamics",
+        "published exact majority basins Heawood graph",
+        "published exact majority basins Folkman graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A Goldner–Harary graph is a particular 11-vertex maximal planar 3-tree; its unique labelled adjacency is fixed in the Sage constructor. arXiv:1205.5297v1 studies stochastic majority-vote flip probabilities and critical noise on larger Apollonian networks, rather than this deterministic finite synchronous transition map.",
+        "Sage smallgraphs.py includes adjacency and basic graph examples, not any majority orbit or basin data.",
+        "published-record semantic search primarily returned exact basin results on different graph families, with no hit explicitly classifying Goldner–Harary majority."
+      ],
+      "reasoning": "Aliases tested include Goldner-Harary, Goldner–Harary, maximal planar 3-tree, Apollonian network, binary threshold/majority dynamics, and attractor/consensus basin. These are related but the published stochastic Apollonian model is not equivalent to tie-retaining synchronous majority on the 2048 Goldner–Harary states. A negative search is not a novelty certificate; the claim is qualified by residual risk.",
+      "searches": [
+        "Goldner Harary graph synchronous majority exact fixed points",
+        "Goldner Harary majority dynamics two fixed points 47 primitive two cycles 935 consensus basin",
+        "Goldner-Harary graph majority two-cycles 47 11 27 edges",
+        "Goldner Harary graph majority dynamics attractor consensus basin synchronous",
+        "Apollonian network deterministic synchronous majority fixed points consensus two cycles",
+        "published-record semantic search: Goldner Harary majority dynamics two fixed points 47 primitive two cycles 935 consensus basin"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Sage source defines the exact 27 graph edges but contains no majority dynamics attractor counts or state tables.",
+        "Closest published research records concerned Heawood, Herschel, Frucht, Clebsch, and other graph-specific majority networks, rather than the Goldner–Harary model.",
+        "No checked exact database was found with the ordered basin-size multiset of 47 primitive cycles or the global 49-attractor catalogue."
+      ],
+      "reasoning": "An exact precomputed table could subsume this finite result even without a matching title, so the search included the specific graph, numbers 935 and 47, and terminology for basin/period-two/attractor. No such table was located; unindexed prior tabulations remain a concrete risk.",
+      "searches": [
+        "Goldner Harary majority dynamics 935 47",
+        "Goldner-Harary 2048 majority attraction basin size 935",
+        "Goldner Harary graph majority two-cycles 47 11 27 edges",
+        "Sage GoldnerHararyGraph source adjacency",
+        "published-record semantic search: Goldner Harary majority dynamics two fixed points 47 primitive two cycles 935 consensus basin"
+      ]
+    },
+    "rationale": "The precise state-space classification, consensus fraction, depth distribution, individual basin spectrum, and seven automorphism classes for the Goldner–Harary graph are not supplied by any inspected previous source. Its object is natural and predefined; the exact result is not an immediate consequence of the general period-two bound, stochastic Apollonian criticality, or finite tables on other graphs. Extensive searches of mathematical literature and published research records found no stronger theorem/table subsuming the numerical claim; residual risk is unindexed or obscure independent computations, not a claimed uniqueness proof.",
+    "residual_risks": [
+      "An unindexed earlier finite enumeration of this precise graph, or a table in a graph automata archive, may exist.",
+      "General theories might permit a short derivation of some quantities; no inspected source gave the whole labelled claim.",
+      "Ranked semantic retrieval is not a proof of exhaustive database coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General period-at-most-two property is relevant but weaker than and does not tabulate the Goldner–Harary full 2048-state dynamics",
+        "evidence": [
+          "arXiv:1405.2486v1 (2014-05-11), Sections 1–4; initial abstract and Section 1 expressly cover synchronous majority and the known finite period-two fact"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+        "material_read": "Entire HTML preprint navigation and material in Sections 1–4, particularly finite period-two discussion and random graph results",
+        "method": "Read web-hosted primary full text and compared assumptions, graph family, outcomes, and implication of eventual period-two",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Very close synchronous binary majority model and cited finite period-two theorem"
+      },
+      {
+        "assessment": "Stochastic spin-flip majority-vote model with noise and a thermodynamic criticality study is not the deterministic synchronous binary basin census; no stronger exact implication found",
+        "evidence": [
+          "arXiv:1205.5297v1, publicly posted 2012-05-23; paper introduction, model equations, and simulation/results sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1205.5297",
+        "material_read": "Entire lawful open-access primary article as extracted on arXiv, especially model definition, noisy spin flip and results on Apollonian network Monte Carlo ensembles",
+        "method": "Read full-text arXiv presentation and contrasted transition kernel, finite object, and claimed observables",
+        "title": "Non-nequilibrium model on Apollonian networks",
+        "trigger": "Potentially covering majority dynamics on planar 3-trees / Apollonian networks, of which Goldner–Harary is a member"
+      },
+      {
+        "assessment": "Defines named graph as used in this claim; source does not compute or imply majority state counts",
+        "evidence": [
+          "smallgraphs.py, GoldnerHararyGraph function; degree multiset \\(3^{6},6^{2},8^{3}\\)"
+        ],
+        "identifier_or_url": "https://sources.debian.org/src/sagemath/10.10-3/src/sage/graphs/generators/smallgraphs.py",
+        "material_read": "The GoldnerHararyGraph function documentation and explicit 27-edge adjacency dictionary",
+        "method": "Read relevant primary source-code function and reconstructed vertex degree multiset independently",
+        "title": "Sage GoldnerHararyGraph generator source",
+        "trigger": "Verify exact named graph, adjacency labels, and graph-model equivalences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d2be4eef-1fc9-4b75-b3d4-d5676f7e9971",
+  "value": {
+    "rationale": "The Goldner–Harary graph is a uniquely natural smallest non-Hamiltonian maximal planar graph and a small planar 3-tree; its deterministic majority dynamics had no located exact basin treatment. The complete 2048-state classification reveals a substantive disparity: 47 persistent oscillatory attractors collectively attract only \\(89/1024\\) states, while just two consensus fixed points attract \\(935/1024\\), with 27 oscillating cycles isolated and a sharp four-round entrance cutoff. These are natural orbit and basin invariants directly measuring deterministic opinion stabilization; they are not implied by general eventual-period theory or random-network dynamics, and the exact symmetry decomposition supports comparison of planar network topologies.",
+    "status": "PASS"
+  }
+}
