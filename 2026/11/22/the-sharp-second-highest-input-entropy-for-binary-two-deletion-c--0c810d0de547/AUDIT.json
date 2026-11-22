@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact posterior normalization follows by counting every two-position deletion pattern and its free bits. The source run identity is inspected and stated explicitly. Strict convexity forces balanced endpoints at one double run; the new derivative bound G_n'(t)>1 for n>=4 excludes every q>=2 run configuration. The remaining n=2,3 cases have q<=1. Equality and asymptotic quantifiers are explicit. Two distinct integer-arithmetic checkers reproduce all levels and equalities over n<=8 and n<=15, without substituting finite enumeration for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Singhvi et al. (arXiv:2407.10026v2), Sections IV, VI and VII: general run multiplicities and the two-deletion entropy minimum, not an exact second-largest entropy.",
+        "Ma--Zhang (2026), Sections 2 and 3: unique alternating global maximum, not the quantified best nonalternating competitor."
+      ],
+      "reasoning": "Neither a general two-deletion entropy representation nor the sharp first extremum covers the more refined value and complete equality case of the second extremum. The new separation uses an explicit q-dependent Jensen lower bound and its strict derivative comparison.",
+      "searches": [
+        "maximal input entropy for binary two deletion and two insertion channels Ma Zhang 2026 stability runner up",
+        "conditional entropies k-deletion insertion second maximum 2025 Singhvi Sabary Bar-Lev Yaakobi"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2611.01064",
+      "https://arxiv.org/src/2611.01064v1/anc/results.json",
+      "https://arxiv.org/abs/2407.10026",
+      "https://doi.org/10.1109/TIT.2025.3581849",
+      "Published indexed results: Exact fluctuations of two-deletion output counts over finite alphabets (2026/11/2)",
+      "Published indexed results: The fixed-two-deletion planted embedding law and its mutual-information constant (2026/11/8)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published bound h_n(r)-r B_n>=c_n (Section 3.2) constrains individual nonsingleton runs but alone does not classify the nearest nonalternating entropy level.",
+        "The new proof compares the q=1 balanced defect against all q>=2 by showing G_n(q)>G_n(1)+1 while the integer rounding loss is less than one."
+      ],
+      "reasoning": "The original maximality theorem follows from positivity relative to the alternating word; positivity alone does not imply which nonalternating word is best or its exact gap. The additional strict comparison and equality analysis derive the new stability layer, not a special case of the source theorem.",
+      "searches": [
+        "strict gap to alternating extremizers posterior conditional entropy for two deletions",
+        "binary two deletion input entropy second best central double run run lengths optimal",
+        "two-deletion conditional entropy runner-up near alternating single doubled run all lengths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma--Zhang (arXiv:2611.01064v1) Theorem 2.2 gives only the first entropy level; Section 3 states a run functional but not a second-level extremum theorem.",
+        "The source ancillary results.json contains strict_runner_up examples for finite lengths, but does not state an all-length uniqueness formula."
+      ],
+      "reasoning": "The claimed result is equivalent to a minimization of the integer embedding-product Q over the nonalternating binary words. In the closest publication only minimizers over all words (alternating) are classified; finite runner-up examples cannot imply the all-integer n formula. No tested search yielded the all-length second-level assertion.",
+      "searches": [
+        "second largest binary two deletion channel input entropy runner up received word single repeated adjacent pair stability bound alternating embedding entropy",
+        "binary two deletion insertion entropy run-length next best maximizer non alternating unique second maximum",
+        "runner up input entropy binary two deletion channel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 paper ancillary results.json has mode D k=2 strict_runner_up records for finite n, including n=2,3,4; these finite examples are expressly excluded from novelty.",
+        "Independent direct and run-functional computations cover n=2..8 and n=2..15 respectively; finite tables are sanity checks only."
+      ],
+      "reasoning": "Existing and newly checked tables address finitely many received lengths. The claimed precise all-length second extremum and the asymptotic gap constant are not an exact database/table lookup. A previously unindexed all-length formula remains a priority risk.",
+      "searches": [
+        "https://arxiv.org/src/2611.01064v1/anc/results.json",
+        "input entropy maximization two deletion channel second best second highest entropy adjacent repeated bit binary words run positions exact gap"
+      ]
+    },
+    "rationale": "The closest 2026 primary manuscript proves the alternating maximum and supplies finite runner-up examples, but not an all-length second-highest entropy formula, central-defect rigidity or asymptotic stability constant. Its source inequalities do not logically imply a specific next entropy level absent the new strict q>=2 comparison. Searches found no all-length covering result; priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "The same paper provides an explicit run functional and source ancillary finite second-level values; historical priority for the all-length refinement is not independently guaranteed.",
+      "An equivalent unindexed proof of the second-level and equality cases might exist.",
+      "The nonstandard source Lemma 3.1 is used with citation, not claimed independently derived."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the essential run identity, first extremum and finite runner-up examples, but no all-length second-extremum theorem or central-defect equality classification",
+        "evidence": [
+          "arXiv:2611.01064v1, Theorem 2.2 and Lemma 3.1",
+          "Section 3.2 inequalities (10)--(11)",
+          "Section 6.1 exact finite comparisons and availability notes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.01064",
+        "material_read": "Full 12-page PDF, especially pp. 2--5 (definitions, Lemma 3.1, proof of strict comparison) and pp. 10--12 (finite comparisons, source data statements, bibliography)",
+        "method": "Read PDF extracted text and screenshot pages 4 and 11; compared exact statements and section implications",
+        "title": "Maximal input entropy for binary two-deletion and two-insertion channels",
+        "trigger": "Same binary two-deletion posterior, same run decomposition, and known global extremizers"
+      },
+      {
+        "assessment": "Finite runner-up information is known and explicitly not claimed as new; no all-length formula located",
+        "evidence": [
+          "results.json mode D k=2 n=2, n=3, n=4, strict_runner_up fields"
+        ],
+        "identifier_or_url": "https://arxiv.org/src/2611.01064v1/anc/results.json",
+        "material_read": "JSON result headings and mode D k=2 entries for received lengths two through four, plus inspection of finite runner-up representation",
+        "method": "Directly inspected arXiv-hosted JSON lines",
+        "title": "Ancillary exact comparison results for maximal input entropy",
+        "trigger": "Potential exact runner-up table in the most relevant primary source"
+      },
+      {
+        "assessment": "Characterizes entropy function and the minimizing input-entropy words for two deletions; not a theorem specifying second-highest entropy under two deletions",
+        "evidence": [
+          "Sections IV, VI-A and VII of arXiv:2407.10026",
+          "2025 journal DOI 10.1109/TIT.2025.3581849"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.10026",
+        "material_read": "Full-text arXiv rendering, Introduction, Sections IV and VI, and Section VII open directions",
+        "method": "Read publicly rendered main text and searched exact relevant section headings",
+        "title": "Conditional Entropies of k-Deletion/Insertion Channels",
+        "trigger": "Prior general channel entropy formula and two-deletion extremality results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c810d0d-e547-494b-ab85-f8b67a3ef986",
+  "value": {
+    "rationale": "A precise stability gap and an exact characterization of the nearest nonalternating competitors are natural quantitative questions not answered by a qualitative unique maximizer. The central doubled-run rigidity and positive n-times-entropy-gap limit distinguish the result from merely repeating the first entropy level or a finite table. It is a nontrivial all-length structural extremum, with channel interpretation and explicit equality cases.",
+    "status": "PASS"
+  }
+}
