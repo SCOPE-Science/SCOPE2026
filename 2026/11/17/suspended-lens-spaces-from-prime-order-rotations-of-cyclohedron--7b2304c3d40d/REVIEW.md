@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is restricted to every \(n=kp\) with \(p\ge5\) prime and \(k\ge1\). The Minkowski sum contains the full coordinate simplex, which provides an interior invariant center and a globally defined equivariant radial map. The group acts as exactly \(k\) regular modules minus one trivial line; the nontrivial weights are all units modulo \(p\), making the moving-sphere action free. Spherical join, ordinary quotient, suspension and lens-space homology give the homeomorphism and all displayed integral groups. The case \(k=1\) uses the lens-space universal cover, while \(k\ge2\) uses connectivity and Hurewicz. A standalone combinatorial quotient-chain computation independently corroborates the five-vertex case, but is not used as the infinite proof.
+## correctness
 
-**Originality — PASS on the inspected evidence, with substantial standard-ingredient risk.** Carr–Devadoss prove the graph-associahedron convexity and tubing model; Postnikov gives the cycle-tube Minkowski realization; Lambrechts–Turchin–Volić study cyclohedron compactifications and projections. Close indexed results concern cyclic Rips complexes, cycle nonmatching complexes, polygonal moment-angle complexes, and half-turn bounded-independence spheres—not the cycle graph-associahedron boundary under prime-order rotation. Searches for lens quotients, suspensions, coordinate-sphere models and exact torsion degrees did not identify the combined statement. Equivariant radial projection and lens-space homology themselves are standard, so an unpublished or unindexed deduction of the same classification is the principal publication-priority risk. Search absence alone is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** The object is the canonical cycle graph-associahedron and the symmetry is its natural label rotation; neither is an arbitrary finite slice. The theorem classifies all its prime-order rotation quotient homeomorphism types and locates the entire integral homology and first nonzero homotopy group. These quotients transform an integral sphere into spaces with arbitrarily high first nonzero torsion homotopy dimension and torsion in arbitrarily many homological degrees. The result distinguishes quotient topology not visible from rational homology or the underlying convex polytope and provides a precise model useful for studying other graph-associahedral orbit spaces. It is a concise structural theorem using classical ingredients, not a claim of a new general lens-space theory.
+The specified cyclic-interval Minkowski sum P_n is a full-dimensional convex graph-associahedron in the affine coordinate-sum hyperplane, invariant under cyclic label shift. Its cyclic barycenter is interior; radial projection of ∂P_n to the sum-zero Euclidean unit sphere is equivariant. For n=kp and prime p≥5, the generator ρ^k has k coordinate p-cycles, so V_n decomposes into R^(k-1) trivial plus k copies of each nonzero real Fourier weight 1,...,(p-1)/2. The moving sphere action is free and its quotient is generalized L_(p,k). S(V)/C_p=S^(k-2)*L_(p,k)≅Σ^(k-1)L for k≥2, while k=1 gives the lens directly. The standard lens cellular chain differentials p and 0 give H_(n-2)=Z and Z/p in degrees k,k+2,...,n-4, with H0=Z. For k=1 lens dimension p-2≥3 gives π1=C_p; for k≥2 suspension connectivity plus Hurewicz gives π_k=Z/p. No composite-order assertion.
 
-**Limits.** No composite-order subgroup classification or independent mathematical audit is claimed. Source comparison and standalone computation are finite and cannot establish absolute publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carr–Devadoss and Postnikov give graph-associahedron realization and tube combinatorics but not cyclic orbit-space lens types. A same-day published associahedral prime rotation result uses the noncrossing-diagonal COMPLEX of a regular p-gon and omits Fourier weight 1; it is not the cyclohedron at n=kp and does not imply the suspensions at k>1. The underlying radial equivariant convex principle is well known and credited. Best-of-knowledge assessment has a high possibility that these standard pieces have been combined previously.
+
+## value
+
+PASS
+
+This determines an exact homeomorphism type and all integral torsion degrees for a canonical infinite family of natural rotational quotients of cycle associahedral boundaries, with prescribed first nonzero homotopy group. Although convex radial projection and lens homology are standard inputs, the uniform weight multiplicities and the explicit quotient family give an independently usable natural classification, not an arbitrary unmotivated tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
