@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The underlying unordered configuration cubical complex has 15 vertices, 36 edges and 18 squares; its barycentric order complex has 69 vertices, 216 edges and 144 triangles. The included exact checker derives the full graph-automorphism group from generators, enumerates all 112 subgroups and 26 conjugacy classes, constructs every orbit triangulation without simplex inversions, checks every quotient vertex link to be a circle/interval and every edge to have one/two triangle incidences, and computes Euler characteristic, boundary circles and orientability. The seven resulting homeomorphism types follow from the complete compact-surface classification. The implementation is finite, auditable and standalone; no finite sample is used as an infinite proof.
+## correctness
 
-**Originality — PASS relative to accessible literature and indexed results.** Crisp–Wiest (2004) explicitly gives the unquotiented nonorientable genus-five configuration surface, which is not a new claim here. Barnett–Farber (2009) studies ordered two-particle deleted products and their algebraic invariants; Prue–Scrimshaw (2009) discusses graph subdivision/deformation-retreat conditions. The closest indexed finite quotient census is for a different three-by-four chessboard torus, while indexed \(K_{3,3}\) graph-configuration results concern three particles. None of the inspected statements or their direct implications supplies a 112-subgroup census for this specific unordered two-particle space. Unindexed equivalent work or unpublished symmetry classifications remain a residual risk.
+PASS
 
-**Value — PASS.** This supplies a complete classification under the **entire subgroup lattice** of the canonical 72-element symmetry group, not a numerical result for a selected subgroup. Seven distinct surface types arise, including the once-punctured torus, once-punctured Klein bottle, disk, Möbius band and three different closed nonorientable surfaces; two natural cyclic order-three actions give different topological quotients. The atlas is useful for studying surface-cover symmetries, orbifold refinements and graph braid group actions. The old identification of the starting surface is not used as a novelty claim.
+Cubical cells are unordered disjoint pairs of vertices/edges, counts (15,36,18). Its barycentric flag triangulation has (69,216,144) cells. Aut(K3,3)=(S3×S3)⋊C2 of order72; subgroup closure exhausts 112 distinct groups and 26 conjugacy classes. Dimension-preserving flags quotient without inversions; finite edge incidence, each vertex link path/circle, boundary components, signed triangle orientability and Euler characteristic classify quotient surfaces. Fresh independent implementation using all graph-class permutations and separate face/link/orientability algorithms reproduced all subgroup-size counts and seven-type histogram exactly. These finite categories are exhaustive because all 72 permutations, all subgroups, and all 144 flags were enumerated, not sampled.
 
-Scientific limitations: topology is underlying surface homeomorphism type only, not full orbifold invariants or quotient mapping-class actions. This assessment relies on the exact included finite certificate and the cited accessible comparison material; priority is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Crisp–Wiest already proved unquotiented N5, but an unquotiented surface and graph-automorphism group do not fix quotient classifications. Related 3×4 chessboard torus 30-subgroup census and other graph spaces are not K3,3 112-subgroup quotients.
+
+## value
+
+PASS
+
+A complete conjugacy/quotient homeomorphism census for the natural full symmetry of a classical graph-configuration surface is a useful finite classification: it distinguishes cyclic actions of the same order and determines boundary/orientability not accessible from nonequivariant homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
