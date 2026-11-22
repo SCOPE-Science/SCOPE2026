@@ -1,0 +1,15 @@
+# Review
+
+## Correctness
+**PASS (self-review).** The exact odds equation follows from the discounted tridiagonal killed-chain resolvent and independent-cycle renewal. The subinterval continuant factors have paired symmetric eigenvalues, establishing their positive monotonicity. For at most six edges this directly classifies all starting sites; at the unique new central case of seven edges the derivative reduces exactly to the quadratic \(N(t)=-1+(3b-A)t-Abt^2\). The decomposition \(N(t)=-(1-bt)^2+(b-A)t(1+bt)\) and monotonic derivative when \(b>A\) give a necessary-and-sufficient sharp threshold. An exact rational witness attains an interior minimum. The packaged standalone checker independently verified 801 exact algebraic/rational assertions. Its finite parameter grids do not substitute for the analytical all-parameter proof.
+
+## Originality
+**PASS against inspected accessible literature; priority not independently certified.** Newton and Vega Coso (arXiv:2611.01756v1) provide the renewal identity and the general stochastic-order framework, and explicitly leave a classification of geometric-reset intensity extrema in inhomogeneous birth–death chains as an open problem (§10.3). Their multiply switching example concerns *exact-time* conditional exit directions, not the critical point of the geometric-reset eventual splitting probability. Vega Coso (arXiv:2603.24803v1) studies spatially homogeneous walks, whose resetting response is monotone/neutral, and supplies no inhomogeneous sharp size cutoff or two-parameter threshold. Published descriptions of related resetting and reset-neutral chain theorems were searched; none inspected covers the eight-vertex minimality with the necessary-and-sufficient \(b,A\) criterion. A potentially unindexed old continuant analysis is the principal historical-priority risk.
+
+## Value
+**PASS.** The motivating paper asks precisely when inhomogeneous chains can admit interior extrema of their boundary-splitting probability as reset intensity varies. Determining the smallest possible path *and* the complete transition inequality there is an interpretable sharp boundary of that open classification, not merely an isolated witness or a numerical example. It shows how local two-edge return products near opposite sides compete to generate a finite optimal reset probability. The general classification for longer paths remains open.
+
+## Limits and closest sources
+The conclusion requires nonzero nearest-neighbour step rates, homogeneous geometric restarting to the initial site and no holding. It does not cover general renewal clocks, alternative restart sites, longer paths or the number of possible extrema in general. Primary sources: arXiv:2611.01756v1 (renewal identities, sections 7 and 10.3) and arXiv:2603.24803v1 (uniform-bias gambler's ruin with resetting). Relevant third literature: arXiv:2208.10220, focused on one-target first-passage statistics. Historical priority beyond inspected accessible sources and external mathematical checking remain unresolved.
+
+Self-review: passed. Independent audit: not yet performed.
