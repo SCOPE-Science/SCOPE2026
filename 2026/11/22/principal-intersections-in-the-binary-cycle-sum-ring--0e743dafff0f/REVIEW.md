@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact finite-divisor zeta isomorphism reduces the cycle-sum ring to products of binary local rings with square-zero radicals. In each such local factor, a principal ideal is zero, the whole factor, or a two-element nilpotent line; the intersection of two of them is again principal. The explicit generator is stable under expanding the divisor cutoff, which is the indispensable step transferring the finite calculation to the infinite finite-support ring. All coefficients and exceptional zero/unit cases are included. The independent product-law checker exhaustively verified 139,536 ordered element pairs in six finite subrings and four cutoff-embedding families, but this does not replace the general proof.
+
+**Originality — PASS, with priority qualification.** The primary March 2026 source explicitly leaves the all-pairs intersection question unresolved in Section 3.7 and proves only the regular-factor and zero-product cases (Propositions 3.23 and 3.24). The constructed generator handles both-nonregular, nonzero-product cases. Published-record, general idealization, and specific-paper searches did not identify a stronger result that already states the cycle-sum conclusion. This is a best-knowledge novelty judgment, not proof of uniqueness or priority. General square-zero idealization results or later updates remain a residual risk.
+
+**Mathematical value — PASS.** A published open structural question about a naturally defined algebra of finite dynamical systems is answered for all elements, not merely on a chosen small finite slice. The divisor-supported generator is algorithmically usable. The accompanying two-generated nonprincipal ideal shows the intersection phenomenon is not a disguised consequence of the whole ring being a principal ideal ring.
+
+**Closest prior work and limitations.** Gadouleau–Johnson, *Semirings of formal sums and injective partial transformations*, arXiv:2603.26508v1, Sections 3.1–3.2 and 3.7. Guerrieri–Loper, arXiv:2002.00950, treats integral domains, hence does not cover this ring with square-zero elements. The result is specific to binary cycle sums, does not cover chains or the original natural-number coefficient semiring, and makes no assertion for infinite intersections.
+
+Self-review: passed. Independent audit: not yet performed.
