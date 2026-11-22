@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The fixed signed-star objective is bounded below for every admissible function by a Gram Cauchy–Schwarz argument using nonnegative leaf–leaf entries. For the upper bound, a constant plus an even central cosine layer has nonnegative Fourier weights and normalized value one. Its nonnegativity on the whole torus follows from a complete multiaffine vertex argument: exact low weights, complement symmetry, and a uniform middle-weight bound using the exact Krawtchouk Parseval identity and central binomial coefficients. The resulting star values give the asserted \(d+1-2\sqrt d+O(1)\) energy. The explicit checker verifies arithmetic in selected dimensions but is not used as the infinite proof.
+
+**Originality — PASS with residual bibliographic risk.** The nearest primary study, Vybíral's 2026 arXiv:2609.21733, supplies the fixed seven-dimensional counterexample and symmetric polynomial linear-programming formulation; it does not prove the global asymptotic of the infimum across all admissible positive-definite functions. The 2011 conjecture states the ultimately disproved lower bound, not this asymptotic; the 2020 theorem concerns squared-positive-definite kernels. published-finding corpus searches using the original conjecture, equivalent Krawtchouk forms and \(\sqrt d\)-scale star gap returned related but logically different claims. No complete universal uniqueness or exhaustive-publication assertion is made.
+
+**Value — PASS.** The sharp dimension-dependent magnitude of a celebrated false lower bound is a natural quantitative refinement of the motivating problem. The proof supplies both a universal inequality and a constructive asymptotic matching mechanism, thus going beyond merely furnishing another isolated counterexample. The exact finite-dimensional optimizer remains open.
+
+**Closest literature and limitations.** The 2026 preprint was read through the complete theorem and its remarks about the symmetric linear-programming class; the 2011 original conjecture and the 2020 square-kernel theorem were checked in author-hosted full-text PDFs. The main residual risk is an unindexed or differently formulated high-dimensional construction/optimization. Finite tests and search misses do not resolve this risk.
+
+Self-review: passed. Independent audit: not yet performed.
