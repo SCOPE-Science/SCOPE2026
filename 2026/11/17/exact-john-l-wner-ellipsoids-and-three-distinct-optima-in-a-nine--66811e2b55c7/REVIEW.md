@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proposed inner and outer ellipsoids are derived using uniqueness and the exact finite symmetry group, whose fixed spheroids must be centered on the origin with two equal transverse semiaxes. Fourteen explicit supporting facet inequalities and the nine specified vertices reduce the optimization to sharp semiaxis bounds. The nonincident sloping-facet inequality has an explicitly factored strictly positive remainder. For the outer ellipsoid, a one-variable volume derivative has the stated unique minimizer and contact transition. The distortion polynomial has a strictly positive derivative, and its root lies in a certified rational bracket before the transition. The inradius crossing likewise follows from two strictly monotone functions. Exact algebra proves every continuum claim; 18,199 executable finite assertions supplement it. The pre-existing polytope-volume optimizer is attributed to Hoehner and Ledford.
+PASS
 
-## Originality
+The fourteen facet halfspaces exhaust the nine-vertex full-dimensional convex hull because every one supports three independent vertices and a 3-polytope with nine vertices has at most 14 facets. Threefold rotation and horizontal reflection force any unique maximal inscribed or minimal enclosing ellipsoid to be a centered rotational spheroid. Horizontal facets impose b≤h, vertical normals impose squared horizontal radius A=3r²/[4(1−r+r²)], and strict slope slack equals r(2−r)²(1−r)/[4(1−r+r²)]>0; hence the John spheroid is feasible and optimal. The Loewner optimization of s^(3/2)/sqrt(s−r²), s≥1, changes optimizer at r²=2/3. Independent SymPy derivative and slack identities plus 5 reconstructed ConvexHull face patterns corroborate. H(r)=r⁴−2r³+3r²+r−2 is strictly increasing, giving unique distortion optimum r_J, while min(h,sqrt A) crosses at unique r_I. Checked the excluded r=1/2 combinatorial endpoint and contact change at sqrt(2/3).
 
-**PASS, provisionally.** Hoehner and Ledford, arXiv:2608.04392 (2026-08-05 initial public release), identify the spherical nine-vertex volume-optimal configuration but do not evaluate its John and Löwner ellipsoids, contact threshold or distortion optimum. The classical John–Löwner result supplies symmetry inheritance without the geometric facet calculations. Existing calculations for twisted polygonal two-ring prismatoids apply to different combinatorial types. Relevant published mathematical searches for tricapped trigonal prisms, nine-vertex ellipsoids, characteristic semiaxes, and the sharp transition identified no covering result. Residual risk: older geometric-design or ellipsoid data may be indexed under unusual names; novelty does not follow merely from negative searches.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Exact best-fitting inner and outer ellipsoids quantify the anisotropy and geometric distortion of a recently proven optimal nine-vertex configuration. The outer ellipsoid switches from nine to six vertex contacts at a sharp analytic threshold, while an exact global distortion optimum and the established spherical-volume extremum differ. The additional inradius extremum demonstrates a third incompatible geometric objective. These are natural, dimensionless geometric invariants of the same continuously deformable combinatorial family rather than a numerical table or arbitrary parameter slice.
+BEST-OF-KNOWLEDGE PASS for the exact John and Löwner semiaxes, 6-to-9 outer contact transition, and unique ratio optimizer. The separate earlier same-family insphere theorem already proves the full inradius function, optimum r_I and center loci; these are NOT independently novel here. Hoehner–Ledford supplies the nine-point family and volume optimizer r_V, not ellipsoids. Existing prismatoid ellipsoid formulae use a different two-ring face geometry.
 
-## Closest literature and limits
+## value
 
-The 2026 source resolves a sphere-inscribed **ordinary volume** problem, not an ellipsoid or inradius problem. The classical ellipsoid theorem is used for uniqueness and symmetry, not historical priority of the new formulas. The statement covers only \(1/2<r<1\) and only the symmetric nine-vertex chamber. Broader global inequalities are not proved. The complete known and inaccessible-source comparison is documented in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp semiaxes and active facet/vertex contacts for both extremal ellipsoids across an entire natural nine-vertex inscribed-polytope family give geometric rounding and distortion invariants. The previously established insphere/volume optima are credited, while a third, distinct ellipsoid-distortion optimum and an outer contact threshold are natural new optimization facts, beyond table lookup or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
