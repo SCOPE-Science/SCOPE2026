@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Polyhedral face projection formula derived for every active-face partition, each of Q and the rank-one correction has cyclic-variation norm at most 1, giving a global upper factor 2. Exact exhaustive rational face-by-arc enumeration, executed from included Python file, certifies all n<=5 exceptions. Explicit full-support facet witnesses give sharp factors 3/2 at n=5 and 2 at n>=6; interior witnesses give 1 at n=3,4. No finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus path projector identified; Couprie et al. 2013 DOI 10.1137/120895068 section 2 supplies convex graph models and primal-dual algorithmic convergence but not an exact graph-TVar seminorm perturbation bound."
+      ],
+      "reasoning": "Generic Hilbert-space nonexpansivity concerns Euclidean distance, not the cyclic adjacent-variation seminorm. The graph optimization framework does not imply the sharp threshold or saturation without a separate face-norm calculation.",
+      "searches": [
+        "published-finding corpus: graph TV ball metric projection exact BV perturbation finite simple cycles critical length",
+        "published-finding corpus: cycle graph variation ball Euclidean projection sharp Lipschitz coefficient n=3 4 5 n>=6 stability",
+        "web: 2013 total variation constrained projection graph signals cyclic signal l2 projection variation ball"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIP.2010.2072512",
+      "doi:10.1137/120895068",
+      "published-finding corpus 2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fadili–Peyré manuscript https://fadili.users.greyc.fr/Pub/bibtex/manuscript/manuscrit504.pdf sections 1–3 proves algorithms and Euclidean convergence for TV projection; Couprie et al. https://files01.core.ac.uk/download/pdf/48332369.pdf sections 1–3 develops graph-TV regularization, while the indexed 2026 path result uses the open-path seminorm."
+      ],
+      "reasoning": "Neither original algorithmic source proves the cyclic seminorm inequality. The path claim does not dominate it, since it has no periodic closing edge and its four-site behavior is different.",
+      "searches": [
+        "published-finding corpus: sharp two input total variation Lipschitz sensitivity projection onto discrete total variation ball cycle four graph",
+        "web: Fadili Peyre Total variation projection with first order schemes pdf 2010",
+        "web: Couprie Grady Najman Pesquet Talbot dual constrained TV regularization graphs 2013 pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published finding on the path variation-ball projector: https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518; Fadili–Peyré (doi:10.1109/TIP.2010.2072512) treats projection algorithms, not a cyclic variation norm."
+      ],
+      "reasoning": "A cycle ball imposes the additional closing-edge constraint and measures perturbations with that same edge; deleting one edge changes both the feasible polyhedron and the seminorm. A path formula cannot be transported merely by parameter substitution.",
+      "searches": [
+        "published-finding corpus: cyclic adjacent total variation ball projection variation Lipschitz norm 1 3/2 2",
+        "web: \"projection\" \"total variation ball\" \"cyclic\" \"nonexpansive\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published path-TV-ball finding 2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518 explicitly confines its theorem to open paths and excludes cyclic variation. No cyclic norm table appeared in the indexed searches."
+      ],
+      "reasoning": "The exact 1/1/3/2/2 cyclic dimension table has no indexed match in the performed searches. Index absence does not establish priority; exhaustive small-face arithmetic is a new mathematical calculation and not a claim of database completeness.",
+      "searches": [
+        "published-finding corpus: TV ball projection graph cycle four exact Lipschitz norm",
+        "published-finding corpus: cyclic adjacent total variation ball projection variation Lipschitz norm 1 3/2 2",
+        "Published path-TV-ball variation projection claim, edge constraints, and cyclic reduction"
+      ]
+    },
+    "rationale": "No directly equivalent or dominating indexed claim was found. The closest published path-TV-ball statement asserts factors 1 for path sizes 2,3 and 2 for sizes >=4 and explicitly excludes cyclic variation; it cannot imply the distinct 5-cycle coefficient 3/2. Fadili–Peyré and Couprie et al. supply algorithms and graph-TV frameworks, not the two-input cyclic-TV variation projector norm. Historical equivalents remain possible.",
+    "residual_risks": [
+      "Unindexed or older literature could contain an equivalent cyclic projector bound; search noncoverage is not proof of priority.",
+      "External full text of closest indexed path result could not be opened, though its indexed and local claim is clearly scoped to paths.",
+      "Some earlier conference-preprint priority dates were not established to day resolution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING cyclic variation-Lipschitz norm in inspected relevant theorem sections",
+        "evidence": [
+          "Fadili–Peyré 2009 manuscript sections 1–3; projection problem (2), dual formula (3), first-order convergence theorems 1–3."
+        ],
+        "identifier_or_url": "https://fadili.users.greyc.fr/Pub/bibtex/manuscript/manuscrit504.pdf",
+        "material_read": "Manuscript sections 1–3 and summary: projection definition and dual formula; first-order and accelerated convergence theorems; projected-gradient applications.",
+        "method": "Full-text manuscript, relevant sections on projector definition, dual formulation, convergence and applications.",
+        "title": "Total Variation Projection with First Order Schemes",
+        "trigger": "Same Euclidean TV-ball projection object"
+      },
+      {
+        "assessment": "NOT_COVERING the same projected TV-ball two-input variation norm in inspected relevant formulations.",
+        "evidence": [
+          "Couprie et al., 2013 manuscript, sections 1.1–1.3 and 2–3, graph-incidence definition and proximal optimization propositions."
+        ],
+        "identifier_or_url": "https://files01.core.ac.uk/download/pdf/48332369.pdf",
+        "material_read": "Sections 1–3, graph-incidence and dual graph regularization, proximal mapping and algorithmic results, discussion and experiments.",
+        "method": "Full-text manuscript, relevant sections on graph incidence, proximal maps, optimization convergence and numerical examples.",
+        "title": "Dual Constrained TV-based Regularization on Graphs",
+        "trigger": "Graph-incidence formulation potentially covers cyclic edge sets"
+      },
+      {
+        "assessment": "Different open-path object; does not directly imply cyclic norm. Residual risk from inaccessible argument explicitly retained.",
+        "evidence": [
+          "published-finding corpus id 2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518",
+        "material_read": "Published indexed abstract stating the path theorem and explicit absence of cyclic scope; complete full text could not be fetched.",
+        "method": "Published indexed abstract of related path theorem; full theorem text could not be accessed.",
+        "title": "Sharp bounded-variation stability transition for projection onto a discrete total-variation ball",
+        "trigger": "Closest indexed precise two-input TV-ball projector norm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c7e8247-1d92-4021-84cd-500f9f9f6e07",
+  "value": {
+    "rationale": "The periodic closing edge changes a natural graph signal projector and reveals the exact and attained small-cycle stability transition n=3,4:1; n=5:3/2; n>=6:2. This supplies quantitative calibration for cyclic constrained denoising and separates Hilbert nonexpansivity from graph variation stability.",
+    "status": "PASS"
+  }
+}
