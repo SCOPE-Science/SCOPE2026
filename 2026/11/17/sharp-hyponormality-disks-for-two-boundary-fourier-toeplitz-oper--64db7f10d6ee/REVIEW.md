@@ -1,15 +1,21 @@
-# Scientific review: two-boundary Fourier hyponormality
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is exactly quantified over all \(0<R<1\), nonzero integer modes, and complex boundary amplitudes. The normalized annular Hardy Laurent basis gives the bilateral shift with weights \(w_n\) recorded in the proof. The self-commutator is diagonal, so hyponormality reduces to nonnegativity of its diagonal at every integer. The displayed rational identity (1) has a strictly positive prefactor and a linear bracket in a parameter whose geometric lattice tends to both zero and infinity, making the two coefficient inequalities necessary and sufficient. Cauchy–Schwarz removes one inequality without dividing by a possibly zero coefficient. Adjoints give the negative mode. Geometric tails imply membership in every Schatten class; finite telescoping proves the exact trace. The normality case is forced to zero by \(q+q^{-1}>2\). All boundaries including equality and zero amplitudes are included. The standalone script checks 41,815 exact rational finite identities and inequalities, supplementary to, not a replacement for, the analytical proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with stated risks)
-The motivating 2026 paper of Adhikari and Das (arXiv:2611.01717) studies algebraic characterizations, multiplicative and zero-product properties of annular Hardy Toeplitz operators. Jain and Sarkar (arXiv:2610.40118) treat operator characterizations and compact perturbations; their published main statements do not calculate hyponormality. Das–Narayanan (NYJM 2025) supply the relevant general annular matrix entries and a zero-product theory, not a sharp hyponormality disk. The earlier annular Bergman hyponormality results live on a different Hilbert space. Published results on annular Hardy analytic coordinate-multiplier self-commutators assume boundary coefficients linked by analytic continuation and thus address only a strict subfamily \(B=R^k A\), not all independent pairs. The theorem's phase-dependent disk and its signed trace therefore have no direct match in the materials examined. Equivalence to a classical bilateral-weighted-shift criterion is acknowledged as a method, not treated as novelty; the **closed-form exact phase-disk classification for annular Toeplitz boundary symbols** is the claim. Search coverage cannot certify priority. The full contents of some older operator literature and published short research-record abstracts were not exhaustively inspected; equivalent prior wording remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
-On the two-boundary Hardy space, an angular Fourier mode is the first natural nonanalytic symbol family in which the outer and inner boundary values are decoupled. Theorem gives the complete **if-and-only-if** region, including arbitrary complex phases and every winding number, rather than a qualitative or merely necessary test. The allowed region is a nontrivial sharp disk; the trace is an exact flux invariant, and normality is rigid. It distinguishes genuinely nonanalytic hyponormal Toeplitz operators from the analytic-multiplier cases covered by previous spectrum studies. The correct object and invariant are motivated by the 2025–2026 annular Toeplitz literature; the claim is not an arbitrary finite slice or a recomputation of a table.
+For equal separately normalized boundary-circle Hardy masses, Laurent basis e_n=z^n/sqrt(1+R^(2n)) is orthonormal. Compression gives the bilateral k-shift weights w_n=(A+B R^(2n+k))/sqrt((1+R^(2n))(1+R^(2n+2k))). For k>0 the selfcommutator diagonal entries are f(q²s)-f(s), with f(t)=(a+2ct+bt²)/(1+(q+q^-1)t+t²). Independent exact symbolic algebra verified the stated factorization as a positive prefactor times a linear polynomial in s. Since s ranges a two-sided geometric tail to zero and infinity, positivity iff da>=2c>=db. Cauchy--Schwarz makes da>=2c redundant whenever 2c>=db, yielding the disk |B-A/d|<=|A|/d; adjoint reverses roles for k<0. Two-sided geometric tail decay proves C in every S_p>0, and telescoping proves tr C=k(a-b). Both tail coefficients zero imply only A=B=0 is normal. No finite diagnostic stands in for these infinite claims.
 
-## Closest sources and limitations
-See Adhikari–Das (arXiv:2611.01717, 2026-11-01); Jain–Sarkar (arXiv:2610.40118, 2026-10-29); Das–Narayanan (New York Journal of Mathematics 31, 2025, pp. 984–1001); the 2020 and 2021 Bergman-annulus papers on hyponormality, and the published annular Hardy coordinate-multiplier commutator studies. The scope is precisely one Fourier mode and equal normalized masses on the boundary circles. Multiple modes, weighted annular spaces, and general Bergman symbols are not addressed. Earlier bilateral-shift formulations and not-fully-inspected older sources present a residual priority risk. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is an exact phase-dependent complex disk classification for a single angular mode with independent two-boundary amplitudes, not only analytic Laurent monomial multipliers. Accessible Adhikari--Das and Adhikari--Das--Jain--Sarkar primary texts characterize algebraic Toeplitz and compact perturbation behavior without this disk statement. The Resultary coordinate multiplier selfcommutator is a one-dimensional constrained subfamily B=R^k A and cannot imply the full disk.
+
+## value
+
+PASS
+
+Sharp complete scalar classification of hyponormality with explicitly nonnormal nonanalytic examples, full Schatten regularity, and exact trace on a natural annular Hardy Toeplitz family; an independently useful operator-theoretic boundary rather than a routine fixed-example check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
