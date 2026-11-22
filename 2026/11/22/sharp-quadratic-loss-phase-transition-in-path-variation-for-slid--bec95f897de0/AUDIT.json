@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For generic input triples, implicit differentiation of the strictly convex p-loss yields nonnegative weights with sum one. When p>2, signed residual stationarity and concavity of the exponent (p-2)/(p-1) prove each Jacobian weight <=1/2. A single-step input response contains at most the transition 0,r,1-ell,1: it is monotone for p>2 and has at most three unit jumps for p<2. In the quadratic case the weights are 1/3 and exact finite-length counts follow. Step-vector decomposition and generic-line integration prove the global bound for every pair. Explicit reflection-symmetric triples and the scalar equation (delta-a)^(p-1)=(1+a)^(p-1)-(1-a)^(p-1) yield limits a/delta ->1,1/3,0, proving sharpness in each range. The standalone checker passed 4,480 random pairs and 24 constructed limits. Non-differentiable triples are handled by generic perturbations and continuity; finite tests do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1301.7570v1 analyzes p-averages in an approximation method for a two-dimensional game p-Laplacian.",
+        "Related published star-center result treats p-harmonic center insertion in complete-pair Gini variation on a star, a different network functional.",
+        "Related published finite-path/cyclic median theorems treat the limiting p=1 order statistic, not finite 1<p<infinity."
+      ],
+      "reasoning": "A result for star-center Gini variation does not dominate adjacent-path variation of overlapping three-point windows. Basic sup-norm nonexpansivity does not imply any sharp two-input BV constant. Finite-window p=1 median stability does not control all finite p>1 without additional argument.",
+      "searches": [
+        "p-averaging finite differences p-laplacian variation contraction nonlinear p median arbitrary sample",
+        "sharp two-input total-variation Lipschitz sensitivity sliding Lp Fréchet mean cubic-loss local average M estimator three point",
+        "p-averaging finite differences p-laplacian variation contraction nonlinear p median arbitrary sample"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.7570v1 (full text with material appendix examination)",
+      "arxiv:1604.00520v1 (full text with material first sections examination)",
+      "Indexed published findings for finite-path medians, cyclic medians, p-harmonic star-center Gini sensitivity, and cyclic trimmed means (claim-level comparison only; not full-text adjudication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Falcone et al. prove the local mean is order-preserving/translation equivariant, allowing a generic Lipschitz argument but not the sharp path variation bounds.",
+        "Ishiwata et al. derive the p-mean Euler equation but do not apply the step-response decomposition.",
+        "Indexed star-center Gini stability has different geometry and seminorm; indexed p=1 medians leave the range p>1 untreated."
+      ],
+      "reasoning": "The primary source premises provide existence and Euler equations, but the new superquadratic one-half derivative-weight lemma plus overlapping-window step response and singular subquadratic sharpness are needed to obtain this exact piecewise result. None of the cited prior statements yields those steps or constants automatically.",
+      "searches": [
+        "arxiv:1301.7570v1 Appendix p-averages",
+        "arxiv:1604.00520v1 p-mean best approximation",
+        "nonlinear moving generalized p mean translation invariant variation bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1301.7570v1, Appendix 7 defines p-averages and their order and translation properties but gives no finite path two-input variation coefficient.",
+        "arXiv:1604.00520v1 Sections 1-2 identify p-means with Lp best constant approximations and establish asymptotic mean-value properties, not sliding-path BV distances."
+      ],
+      "reasoning": "Searches covered p-center, nonlinear averaging, p-median, Lp Fréchet center, and sliding robust smoothing aliases. Neither exact theorem nor an equivalent norm assertion was recovered. A p-mean is not itself a finite-window BV stability statement.",
+      "searches": [
+        "three point sliding p-average from argmin sum absolute loss to exponent p exact BV perturbation Lipschitz nonexpansivity threshold p equals 2",
+        "local Lp best constant approximation nonlinear p means three-sample output path-total-variation discontinuity at quadratic exponent",
+        "\"p-mean\" \"variation diminishing\" filter",
+        "\"Lp Fréchet mean\" \"bounded variation\" sliding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed results returned finite-path median constants and complete-pair p-harmonic-center constants, but no table of exact n-by-p constants for the sliding three-point p-mean.",
+        "The explicit coefficients 0, min(n-3,3), min((n-3)/3,1), 1 were independently derived from gradient bounds and sharpness families."
+      ],
+      "reasoning": "Neither a finite filtering table nor an exact database entry covering this n-by-p phase classification was found. This is an absence-of-found-coverage conclusion, not proof of global uniqueness.",
+      "searches": [
+        "three point p-mean path total variation Lipschitz constant table",
+        "three point sliding p-average from argmin sum absolute loss to exponent p exact BV perturbation Lipschitz nonexpansivity threshold p equals 2",
+        "p mean least squares fourth power moving regression total variation stability"
+      ]
+    },
+    "rationale": "The exact all-exponent sliding-three-point finite-path variation coefficient was not found in the inspected primary sources or published indexed neighboring results. Their assertions concern either foundational definitions and PDE mean-value schemes, cyclic/window medians, or a star graph with complete-pair Gini variation. These do not imply the piecewise sharp coefficient or its simultaneously sharp transition. Priority remains qualified: unindexed equivalent work could exist; search absence alone does not establish novelty.",
+    "residual_risks": [
+      "Unindexed, differently named, or non-digitized prior literature may already state an equivalent BV stability theorem.",
+      "Some highly related published indexed findings were compared at claim-summary level because their complete repository pages were inaccessible; conclusions about these are correspondingly limited.",
+      "The exact finite attainment behavior in some nonquadratic cases is not characterized and is not part of the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the p-mean definition but not the overlapping sliding-path two-input sharp variation classification.",
+        "evidence": [
+          "Appendix 7 discusses p-averaging over a finite set and monotone, translation-equivariant averaging.",
+          "Main results are for a p-Laplacian approximation scheme, rather than a pairwise path BV coefficient."
+        ],
+        "identifier_or_url": "arxiv:1301.7570v1; https://arxiv.org/pdf/1301.7570",
+        "material_read": "Introduction and Appendix 7, especially original PDF pages 29-31, plus full-PDF searches for variation/Lipschitz terminology.",
+        "method": "Lawful open PDF full text and page images; examined Euler stationarity, monotonicity, equivariance, and their application context.",
+        "title": "A Semi-Lagrangian Scheme for the Game p-Laplacian via p-averaging",
+        "trigger": "Defines discrete finite-set p-averages and their elementary properties, the exact underlying nonlinear local functional."
+      },
+      {
+        "assessment": "Its p-mean mean-value and PDE results do not prove an exact two-input variation norm for overlapping real triples.",
+        "evidence": [
+          "Defines the p-mean as best Lp approximation by constants.",
+          "Study is of asymptotic mean-value properties rather than finite adjacent variation of sliding filters."
+        ],
+        "identifier_or_url": "arxiv:1604.00520v1; https://flore.unifi.it/retrieve/e398c380-e2c7-179a-e053-3705fe0a4cff/1604.00520v1.pdf",
+        "material_read": "Original manuscript introduction and Sections 1-2, with full-text checks for variation and discrete filter results.",
+        "method": "Lawful open-access full PDF and relevant page images.",
+        "title": "A Natural Approach to the Asymptotic Mean Value Property for the p-Laplacian",
+        "trigger": "Presents p-means as Lp best constant approximations, potentially a broader operator theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bec95f89-7de0-432d-be47-5f098898764d",
+  "value": {
+    "rationale": "The natural p-mean is used in nonlinear numerical averaging, but sup-norm stability alone cannot quantify input-perturbation variation. The theorem resolves every finite path length for three-point windows, gives a discontinuous factor-three jump from quadratic to subquadratic p-loss, and identifies the structural one-half Jacobian-weight threshold responsible for superquadratic nonexpansivity. It is neither a renaming of a standard median result nor an arbitrary sample computation. The restriction to unweighted windows of width three and absence of an independent audit are explicit.",
+    "status": "PASS"
+  }
+}
