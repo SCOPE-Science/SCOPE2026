@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Gaussian sign covariance and the Brownian occupation covariance yield exact estimator and risk. Direct elementary integration gives F; F is strictly concave for all finite relative noise, its derivative diverges positively at x down to zero and is strictly negative at x=1. Hence the unique critical point is a global maximum. Substitution gives exact optimizer and risk and elementary Taylor expansion gives high-noise laws. Reproducibility checks confirm identities but are not treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altmeyer 2017 arxiv:1706.03418 full-text introduction and Sections 2-4: occupation approximation on deterministic regular full-state grids and minimax rates",
+        "Ivanovs–Podolskij 2020 arxiv:2001.02517 full-text high-frequency full-state process sampling",
+        "Altmeyer–Le Guével 2021 arxiv:2108.11632 section 2.3: n-to-infinity conditional risk for full stable-process sample paths",
+        "Fesl–Koller–Utschick 2022 arxiv:2212.04470 IV-B, IV-E: one-bit Gaussian channel estimation target"
+      ],
+      "reasoning": "A general conditional-expectation risk framework does not give this explicit one-bit occupation risk and global temporal placement. None of the inspected published broader estimation results optimizes one thresholded Brownian state observation for a global nonlinear occupation integral at arbitrary finite relative Gaussian noise.",
+      "searches": [
+        "\"Approximation of occupation time functionals\" optimal sampling Altmeyer",
+        "\"Optimal estimation of some random quantities of a Lévy process\" sign occupation",
+        "\"Optimal L2-approximation of occupation and local times\" sampling times",
+        "\"On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems\" pilot design"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1706.03418",
+      "https://arxiv.org/abs/2001.02517",
+      "https://arxiv.org/abs/2108.11632",
+      "https://arxiv.org/abs/2212.04470"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Altmeyer and stable-Lévy sources assume full process values on high-frequency predetermined grids",
+        "Fesl et al. target linear Gaussian channel coefficients, not the nonlinear integral of Brownian signs",
+        "The observed classical sign-covariance formula implies a computable integral only after choosing the new occupation target and measurement model"
+      ],
+      "reasoning": "These results neither supply the global maximizer x=1/(a^2+k^2) nor imply its uniqueness or information-rate formula merely by specializing their stated claims. Re-derivation from standard orthant calculus is not evidence that the specific optimized theorem was previously stated.",
+      "searches": [
+        "arxiv:1706.03418v4 Sections 1 and 4",
+        "arxiv:2001.02517v1 occupation estimation sections",
+        "arxiv:2108.11632v1 theorem 5",
+        "arxiv:2212.04470v1 section IV-B",
+        "one-bit occupation-related mathematical publication searches"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Altmeyer 2017 arxiv:1706.03418 discusses occupation functional sampling from numerical values, not sign-only data",
+        "Fesl et al. 2022 arxiv:2212.04470 IV-B optimizes Gaussian channel estimation conditional on quantized Gaussian pilots, with no occupation integral target or observation-time design",
+        "Targeted phrase and conceptual searches returned no matching one-bit Brownian occupation optimum"
+      ],
+      "reasoning": "A binary observation of a nonlinear path occupation functional is not equivalent to a continuous-valued path observation, nor to one-bit recovery of a Gaussian channel coordinate. The sign-covariance identity permits deriving the new result but alone gives neither integrated information objective nor optimized sample-time closed form.",
+      "searches": [
+        "\"occupation time\" \"sign observation\" \"optimal\" \"Brownian\"",
+        "\"occupation time\" \"one-bit\" \"Brownian\" estimation",
+        "Brownian occupation time conditional on sign at time t optimal one bit estimation",
+        "Brownian sojourn time conditional mean given signs of Brownian process at one time quantized",
+        "arxiv:2212.04470 sections IV-B and IV-E"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching numeric constant, occupation target, or all-SNR one-bit design appeared in targeted publication/index searches",
+        "The classical arcsine occupation distribution and bivariate Gaussian orthant identity appear as ingredients in standard sources but do not tabulate the claimed design"
+      ],
+      "reasoning": "Search nonappearance cannot prove novelty. No observed exact database row or published table with the same target, observation model, optimizer and closed risk has been identified.",
+      "searches": [
+        "Brownian positive occupation time optimal single binary sign observation Gaussian sign covariance noise quantization minimum mean square error 16/(16+pi^2)",
+        "one bit Brownian occupation time sign measurement optimal time arctan(4/pi)",
+        "arcsine law Brownian occupation conditional on sign at time t optimal one bit estimation",
+        "Brownian occupation conditional expectation one noisy sign observation optimal time arcsine estimator"
+      ]
+    },
+    "rationale": "The exact global one-bit sampling-time law x=1/(a^2+k(a)^2), its Bayes risk, and its all-finite-SNR boundary classification were compared by mathematical implication against primary work on full-valued high-frequency occupation sampling and Gaussian-channel one-bit conditional estimators. The checked theorems do not state or imply this nonlinear occupation-time design. The standard Gaussian arcsine sign identity itself is acknowledged, not proposed as new. Exhaustive historical priority remains open.",
+    "residual_risks": [
+      "A classic or otherwise unindexed result may state the same one-bit occupation design under different language",
+      "Some historical related works were not exhaustively full-text retrieved; source-inspection judgments are limited to their stated content"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed-one-bit all-SNR design; full-valued deterministic high-frequency samples and error bounds",
+        "evidence": "Introduction defines Riemann estimator on observations X(k/n), Section 4 concerns Brownian full-sample sharpness",
+        "identifier_or_url": "https://arxiv.org/html/1706.03418v4",
+        "material_read": "Abstract, Introduction, Section 4 premise/results and proof organization, plus targeted full-text searches for sign/observation designs",
+        "method": "Open-access author manuscript HTML inspected and theorem model compared",
+        "title": "Approximation of occupation time functionals",
+        "trigger": "Directly relevant occupation-integral approximation and sampling-time literature"
+      },
+      {
+        "assessment": "NOT_COVERING a single one-bit observation with tunable time and Gaussian prequantization noise",
+        "evidence": "High-frequency observations of Lévy process values and conditional expectations rather than isolated thresholded data",
+        "identifier_or_url": "https://arxiv.org/html/2001.02517v1",
+        "material_read": "Abstract, introductory model, occupation-estimation results and targeted searches for sign/single-observation schemes",
+        "method": "Open-access full-text HTML sections examined against information model and target",
+        "title": "Optimal estimation of some random quantities of a Lévy process",
+        "trigger": "General optimal conditional estimation of occupation functionals"
+      },
+      {
+        "assessment": "NOT_COVERING finite one-bit time design",
+        "evidence": "Theorem 5 conditions on sigma-field of full observations on a deterministic high-frequency grid",
+        "identifier_or_url": "https://arxiv.org/html/2108.11632v1",
+        "material_read": "Abstract, Introduction, Section 2.3 Theorem 5, proof setup in Section 3.2",
+        "method": "Open-access full-text HTML examined for assumptions, asymptotic regimes and observation type",
+        "title": "Optimal L2-approximation of occupation and local times for symmetric stable processes",
+        "trigger": "Sharp occupation-functional conditional mean-square error results"
+      },
+      {
+        "assessment": "NOT_COVERING nonlinear path occupation quadrature with a free temporal sample position",
+        "evidence": "Scalar Gaussian channel coefficient and pilot-sequence estimation, not integrated Brownian positive sign functional",
+        "identifier_or_url": "https://arxiv.org/abs/2212.04470",
+        "material_read": "Introduction, problem formulation, IV-B single-observation theorem, IV-E scope table, concluding discussion",
+        "method": "Accessible open full text read and compared by exact target and input geometry",
+        "title": "On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems",
+        "trigger": "Strong candidate broader one-bit conditional-mean estimator and arcsine formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ec7f7a8e-fc6a-4795-8643-60c623926261",
+  "value": {
+    "rationale": "A complete closed-form design for an information-constrained natural occupation integral, with one bit per path and all finite relative-noise levels, gives a principled measurement time, exact Bayes risk and large-noise transition, not a mere change of notation or a known-table recomputation. At zero prequantization noise one bit retains 66.39% of occupation variance, a meaningful baseline for low-bandwidth path sensing. This does not claim a general optimal quantizer.",
+    "status": "PASS"
+  }
+}
