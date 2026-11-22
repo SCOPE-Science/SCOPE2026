@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof uses exact definitions of graph-Hom cells as products of simplices and enumerates every cell by an ordinary homomorphism vertex plus all eligible containing coordinate sets. The dedicated finite checker independently derives all graph walks, component adjacencies, and face counts. Forty components each have \(48\) vertices, \(72\) edges, and \(24\) triangles; all 72 triangle boundary edges are distinct, giving an explicit free-edge collapse to a connected rank-one graph. The singleton components are points. The large component has Euler characteristic \(-10\), which distinguishes it from points and circles; the full square-free-codomain theorem identifies it with the connected double cover of the Petersen graph. No assertion that Euler characteristic alone determines homotopy is made.
+
+## Originality — PASS, best knowledge with risk
+The strongest relevant published theorems are the 2024 Fujii–Kimura–Nozaki square-free-codomain classification and Matsushita's independent theorem, both inspected in primary full-text HTML. They already give the allowed component types and precisely one double-cover component, which are credited, but do not explicitly give the forty circles, 240 rigid maps, their 48-vertex triangular cell profiles, or the total component count for this source–target pair. Exact-pair, alias, and homomorphism-reconfiguration searches, as well as a comparison against nearby earlier odd-cycle and edge-source computations, did not reveal a duplicate. Residual risk: general published algorithms can compute the particular instance, and the classification may appear in an unindexed computation or an inaccessible source; independent priority review is needed.
+
+## Mathematical value — PASS
+This is the first simple even source length for the Petersen target (the smaller four- and six-cycle source component profiles are also checked) at which the full Hom complex exhibits all three allowed homotopy kinds simultaneously: a rank-eleven graph component, forty circle components, and 240 rigid isolated mappings. The complete 7,590-map census gives a concrete, motivated test case for the 2024 theorem beyond abstract possible types. The uniform triangulated structure of the circle components and their explicit collapses are substantive information not supplied by the general classification. The isolated-map count alone would be a known cycle enumeration, and is not offered independently as the main contribution.
+
+## Closest literature and limits
+Fujii–Kimura–Nozaki, arXiv:2412.19039, Theorems 1.1–1.2; Matsushita, arXiv:2412.19144, Theorem 1.2 and Proposition 5.10; A. E. Brouwer's Petersen cycle enumeration. No all-even-length conjecture, integral equivariant module, or explicit large-component collapse is asserted. Computational checks are exhaustive only because the domain is finite and every candidate is enumerated. Independent mathematical audit not performed.
+
+Self-review: passed. Independent audit: not yet performed.
