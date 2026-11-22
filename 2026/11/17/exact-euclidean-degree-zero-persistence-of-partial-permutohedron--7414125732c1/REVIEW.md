@@ -1,15 +1,21 @@
-# Scientific review: Euclidean degree-zero persistence of partial permutohedron vertices
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex characterization is established in Heuer–Striker, Proposition 5.6, and Behrend et al., Proposition 5.7/Corollary 5.8. The new proof independently checks all pairwise (not merely skeleton-edge) distances by rearrangement of rank-value multisets and by a disjoint-support lower bound. These inequalities exclude unscheduled metric merges. Explicit one-coordinate extensions and adjacent-label swaps establish connectivity exactly at each asserted scale, and component reductions give the barcode and MST counts for every positive integer parameter. Cases with one row/label and the two branches at the boundary are included. The exact checker independently verifies 55 parameter profiles and 59,105 complete-graph distances.
+PASS
 
-## Originality — PASS, priority provisional
+The rank-k vertices are all injections assigning n,...,n-k+1 to a k-subset of coordinates. Rearrangement bounds cross-rank Euclidean distance below by n-k, while different same-rank supports are separated by at least sqrt(2)(n-k+1); only swaps of consecutive labels create sqrt(2) connections within supports. At n<=m unique distance-one deletion of label 1 links the top two ranks. The explicit component merger filtration proves H_0 multiplicities and hence every complete Euclidean MST edge spectrum. Checked n=1, m=1, n=m and n=m+1 boundary branches, and independent full-pair Kruskal for 24 profiles (m=1..4,n=1..6) matched exact histograms; finite check is not an infinite proof.
 
-The primary partial-permutohedron papers cover the vertices, face lattices, and edge adjacency but not the full Euclidean graph filtration or the component merger times. Cardinal–Steiner study minimum *numbers of skeleton steps*, not Euclidean minimum spanning trees on all vertex pairs. A publicly indexed result about the Laplacian and number of spanning trees of the **unweighted skeleton** of the second partial permutohedron does not imply the metric MST barcode, even at that parameter. A permutation Rips calculation using adjacent-transposition distance is likewise not the same metric or object. Search comparisons uncovered no claim covering the all-parameter Euclidean degree-zero persistence spectrum. Unindexed or differently titled equivalent prior work remains possible; full historical priority is not established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is a natural, intrinsic-to-the-given-realization geometric statistic of a highly structured point cloud. The result compresses the all-pairs Euclidean connectivity of factorially many points into a uniform list of exact scales and closed multiplicities; it determines the Euclidean MST weight and the entire degree-zero barcode for every pair of parameters. The exact suppression of *all nonedge shortcuts* is a structural step beyond counting the previously known skeleton edge lengths. The transition between \(n\le m\) and \(n\ge m+1\) changes both the first merger scale and the multiplicities. The theorem does not claim higher persistence or historical uniqueness.
+Known partial permutohedron theorems identify the vertex/face/skeleton adjacency and its Euclidean edge-length spectrum for n>=m. MST and VR H_0 depend on all vertex pairs, including nonedges, and the proposed all-pairs separation theorem plus n<m transition is not a corollary of skeleton adjacency or its edge-weight totals. Cardinal–Steiner count skeleton steps rather than Euclidean minimum-spanning lengths.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete degree-zero Vietoris–Rips barcode and all Euclidean MST edges for factorial-size canonical vertex clouds are meaningful persistent-metric information. A proof that nonedge shortcuts cannot alter any threshold and the sharp n=m transition are structural, not routine consequences of the known face lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
