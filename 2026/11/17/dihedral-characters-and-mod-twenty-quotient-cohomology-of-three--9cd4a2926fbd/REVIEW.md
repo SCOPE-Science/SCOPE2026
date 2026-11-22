@@ -1,11 +1,21 @@
-# Scientific review: dihedral homology of four-run-free cycles
+# Independent mathematical audit
 
-**Correctness — PASS.** For each integer \(n\ge12\), one nonzero reduced homology degree is supplied by the two cited cycle-complex theorems. The signed-orbit Lefschetz identity, the exact 4-state transfer identity \(T^5=-I\), the reflection fold with its endpoint restrictions, and rational character averaging establish the formulas for every group element. The finite checker independently reconstructs 174 signed simplicial traces for lengths 12–17 and the reflection/quotient recurrences through length 150. Finite evidence supplements, rather than replaces, the infinite argument.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Taylan (arXiv:1501.06754v1, 2015) and Deshpande–Singh (arXiv:2001.05448, 2020) establish the underlying homotopy types, not the dihedral action or quotient classification. The closest indexed equivariant work treats three-run-free complexes, with a different critical period; tight triple-cycle noncover results concern a different Alexander dual. Searches also considered the equivalent three-independence nomenclature and general equivariant families. Unindexed equivalent literature remains a risk.
+PASS
 
-**Mathematical value — PASS.** An exact full dihedral character and rational quotient-cohomology periodicity for every length is a structural topological refinement of a natural graph-complex family. Known nonequivariant ranks alone do not predict which quotient classes survive. The special congruence classes are forced by the polynomial recurrence, not selected arbitrarily.
+The object is exactly the simplicial family of all cyclic 0/1 words without four successive ones, including wrap-around. For r^a each orbit is a congruence class modulo d=gcd(n,a), and a fixed face contributes (-1)^{h-1} when h vertex-orbits are included, since the restricted permutation sign cancels their lengths. The weighted 4x4 transfer matrix has characteristic polynomial (x^5+1)/(x+1), and direct multiplication gives T^5=-I; periodic state paths reproduce the signed admissible word sum even for d=1,2,3 (all-ones periodic loops excluded). Folding reflections yields the 3/2, 3/3 and 2/2 end-run restrictions and the 10-step antiperiodic recurrence. Taylan Theorem 5.2 and Deshpande–Singh Theorem 4.6 supply concentration in degree q(n), rank 4 at multiples of 5 and rank 1 otherwise. Averaging character traces over 2n, with reduced cohomology understood, produces the four congruence classes. Independently enumerated admissible faces for n=12..16 and computed signed simplicial Lefschetz for every element; each matches formula. Finite tests corroborate the uniform matrix/fold proof rather than proving infinity.
 
-**Limits.** No integral quotient torsion, orbit-space homotopy equivalence, or full fixed-point classification is asserted. No independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty-bearing content is the action-by-action rational dihedral representation and its mod-20 geometric quotient invariant dimension, not the preexisting topological wedge classification. Taylan and Deshpande–Singh determine nonequivariant spheres, with no trace under rotations or reflections in the inspected theorems. Published related dihedral cycle 2-independence treats a *three*-consecutive-vertex restriction and a mod-8 character; no simple parameter or Alexander-dual relabeling makes that four-run complex. Tight triple-cycle noncover complexes have different facets and Alexander duals. Searches did not uncover a dominating all-parameter equivariant formula, but an unindexed equivalent construction remains a risk.
+
+## value
+
+PASS
+
+A full symmetry character and exact rational quotient-cohomology survival pattern for every size is a substantive equivariant/topological refinement of a canonical higher independence complex: ordinary sphere ranks cannot tell whether quotient cohomology vanishes. The five-periodic transfer recurrence forces the four mod-twenty exceptions; they are not an ad hoc small parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
