@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For A=I3 the Galerkin projectors are exactly orthogonal. E_U=S² has eigenvalues (0,rho²,rho²). E_V=(Sz)(z^TS) is rank one with nonzero eigenvalue rho²-rho t sin(2 theta). The exact inequality yields the strict boundary and tie cases. The smoother norm is (t+sqrt(t²+4rho²))/2, below one exactly when rho²+t<1. Exact rational checks (4003) and distinct numerical eigenvalue tests corroborate the derivation without substituting for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2604.21815v1, Example 3.26, uses nonorthogonal projectors for enlargement loss, while Theorem 3.28 assumes B-normality for monotonicity",
+        "doi:10.1090/mcom/3460 addresses numerical-range and norm estimates for nonnormal iteration matrices"
+      ],
+      "reasoning": "Prior broader results establish that enlargement need not always help, but do not provide the present orthogonal, strictly contractive, minimal-dimension exact spectral phase boundary. Conversely the positive monotonicity theorem requires a normality hypothesis violated by every positive-shear Jordan block.",
+      "searches": [
+        "published-finding corpus: two-grid multigrid nonsymmetric smoothing nested coarse spaces over-enrichment worsens energy error norm nilpotent smoother",
+        "web: nonsymmetric multigrid adding coarse vectors worsens convergence overenrichment rank deficient coarse spaces",
+        "web: \"Analysis of two-grid methods: the nonnormal case\" 2020"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.05837",
+      "https://arxiv.org/abs/2604.21815",
+      "https://doi.org/10.1090/mcom/3460",
+      "https://doi.org/10.1137/23M1586069"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bao–Cui–Li prove perturbation estimates of error maps but no exact nested rank-change spectral formula",
+        "Nabben–Rooch demonstrate nonmonotonicity when projectors fail orthogonality, and prove norm monotonicity with orthogonality plus normality",
+        "Notay studies norm, numerical radius and field-of-values theory of nonnormal two-grid methods"
+      ],
+      "reasoning": "The published identities define the general error map, but none of the inspected theorems specializes the orthogonal and nonnormal three-coordinate family to a necessary-and-sufficient shear-angle spectral reversal; the claims cannot be inferred from the stated general monotonicity theorem because its normality premise fails. The existing oblique example proves an existential failure in another class and does not yield the exact threshold here.",
+      "searches": [
+        "arxiv:2611.05837v1 §5.1-5.2",
+        "arxiv:2604.21815v1 §3.2 Example 3.26 Theorem 3.28",
+        "doi:10.1090/mcom/3460 introduction and convergence-analysis discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2611.05837v1 §5.1 gives E=L(I-P)R for generic smoothers, not a diagonalization in theta",
+        "arxiv:2604.21815v1 §3.2 discusses monotonicity and a nonorthogonal example"
+      ],
+      "reasoning": "The same operator may be called a one-pre/one-post coarse correction or a nested Galerkin two-grid step. The checked exact formulas concern spectral radii under orthogonal nested projectors; the general projector identity is not itself the sharp threshold or unbounded rate ratio.",
+      "searches": [
+        "published-finding corpus: 3 by 3 Jordan triangular smoother two-grid nested coarse spaces spectral radius reversal t > 2 rho",
+        "published-finding corpus: nonnormal two-grid smoother over-enrichment phase transition rho(t-rho) vs rho squared",
+        "web: \"two-grid\" \"Jordan block\" \"coarse space\" spectral radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted retrieved records concerned GMRES-stagnation and other distinct numerical problems, not the stated two-grid matrix family",
+        "The source is a parameter theorem, not a previously tabulated exact finite constant"
+      ],
+      "reasoning": "No exact Jordan-angle table or algebraically equivalent threshold was identified among searched published-finding corpus or accessible own-ledger claims; absence from a database cannot prove uniqueness.",
+      "searches": [
+        "published-finding corpus: rank one nilpotent smoother positive Galerkin projection sharp amplification t squared / 2",
+        "published-finding corpus: Bao Cui Li two-grid learned coarse space Jordan block exact spectral monotonicity failure",
+        "web: \"Galerkin\" \"nonnormal\" \"enlarging\" \"coarse space\" convergence"
+      ]
+    },
+    "rationale": "The exact strict spectral-radius reversal for nested *orthogonal* Galerkin spaces in the three-coordinate contractive Jordan family, including the full angle-shear classification, is not stated in the inspected primary paper, the distinct oblique-projector counterexample of Nabben–Rooch, or the inspected nonnormal convergence analysis. General nonmonotonicity is acknowledged as prior art; an unindexed exact equivalent is a residual risk.",
+    "residual_risks": [
+      "An earlier specialist paper could contain the exact orthogonal Jordan parameter-angle formula without indexing.",
+      "The Notay preprint was read via accessible extracted text, but its PDF image request failed; a full page-by-page visual review was not completed.",
+      "The narrow algebraic benchmark is not a prevalence result for deployed learned coarse spaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "defines general L(I-P)R and one-sided unequal-rank diagnostics; does not state angle-shear Jordan spectral reversal",
+        "evidence": [
+          "§2.3 Algorithm 1, §5.1 Eq.25, §5.2 Theorem 2, §5.2 Proposition 3, Remark 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.05837",
+        "material_read": "full accessible HTML including sections 2.2–2.3, 3.1–3.2, 5.1–5.3 and stated conclusions",
+        "method": "read HTML paper text and specific exact formulas (25)–(31)",
+        "title": "Learning Coarse Spaces for Two-Grid Methods from Smoothed Errors with Applications to High-Contrast Porous Media Flow",
+        "trigger": "motivating learned-coarse-space problem with nonsymmetric smoothing and rank-sensitive projector comparison"
+      },
+      {
+        "assessment": "the example uses nonorthogonal projections and its positive monotonicity result requires B-normality, which the proposed shear smoother violates",
+        "evidence": [
+          "§3.2 Example 3.26, Theorem 3.28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.21815",
+        "material_read": "accessible HTML introduction, definitions of B-normality, §3.2 Example 3.26, Theorem 3.28 and proof assumptions",
+        "method": "read HTML full sections and contrasted precise projector/normality hypotheses",
+        "title": "Norm-based convergence bounds for nonsymmetric algebraic V-cycle multigrid methods",
+        "trigger": "apparent stronger monotonicity theorem directly relevant to nested coarse spaces"
+      },
+      {
+        "assessment": "addresses field-of-values and convergence-bound effects; no exact nested orthogonal Jordan shear threshold identified in read material",
+        "evidence": [
+          "Y. Notay, Math. Comp. 89 (2020), 807–827; preprint introduction and §2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/mcom/3460",
+        "material_read": "accessible open preprint text with abstract, introduction, convergence-measure definitions and general result statements",
+        "method": "read available publisher and open-preprint text; attempted PDF page visualization but retrieval failed",
+        "title": "Analysis of two-grid methods: The nonnormal case",
+        "trigger": "prior general nonnormal two-grid theory could subsume spectral implications"
+      },
+      {
+        "assessment": "considers compatible transfers and nonorthogonality; no claim of whole-text exclusion",
+        "evidence": [
+          "SIAM J. Matrix Anal. Appl. 45 (2024), 1245–1258, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1586069",
+        "material_read": "abstract and bibliographic content",
+        "method": "read accessible publisher abstract",
+        "title": "On Compatible Transfer Operators in Nonsymmetric Algebraic Multigrid",
+        "trigger": "could cover nonnormal correction sensitivity or oblique-projector amplification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de2c0a06-f4d5-4676-a456-f20a2447bb0c",
+  "value": {
+    "rationale": "The first possible pair of nested nontrivial proper coarse spaces already exhibits an exact sharp phase diagram for worsening asymptotic convergence despite orthogonal Galerkin correction and a strictly contractive smoother. This quantifies a meaningful limitation of blind coarse-space enrichment under nonnormal smoothing, as motivated by learned and rank-adaptive coarse bases. The unbounded deterioration ratio is not merely a change of normalization and does not assert divergent absolute behavior.",
+    "status": "PASS"
+  }
+}
