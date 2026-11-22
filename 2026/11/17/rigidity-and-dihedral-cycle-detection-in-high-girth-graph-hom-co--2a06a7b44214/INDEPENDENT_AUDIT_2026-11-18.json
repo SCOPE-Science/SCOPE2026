@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:01:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hom vertices are indexed length-m closed walks. Cyclic backtrack cancellation contracts any backtracking walk in |H|; under girth>=m−1 any shorter nonbacktracking closed walk cannot have a nontrivial cycle. A cyclic nonbacktracking length-m walk with repeated vertex would contain a forbidden shorter simple cycle; therefore it is an oriented based embedding of a simple m-cycle, exactly 2m for each unoriented cycle. Such an embedding is a zero-cell isolated from every one-coordinate change, because two distinct common neighbors of its adjacent image vertices would form a four-cycle, excluded by girth>=5. Matsushita Theorem 5.8 and Lemma 5.11 provide null-image components and their homotopy equivalent H / connected double-cover types, yielding |H×K2|. Each embedded m-cycle generates a free D_m orbit, while the null components form one component orbit; subtracting trivial H0 gives c_m invariant rank. Independent direct enumeration on C5,C6,C7,C8 as targets verified isolated counts 0,12,0,16 respectively for sources m6,m6,m8,m8; not a proof for all graphs. Sharpness via H=C_{m−2} for even m>=8 holds because length m closed walk with one inserted backtrack carries nontrivial winding not covered by m-simple traversals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsushita 2024 Theorem 5.8 and Lemma 5.11 describe null-image component count and model as H or its double-cover; his general framework covers homotopy components, but does not provide the explicit 2m c_m(H) and permutation representation in the inspected material."
+        ],
+        "reasoning": "Structural prior covers the null-image part and is fully credited. The remaining explicit high-girth rigidity, dihedral regularity and reduced H0 cycle count depend on additional girth arguments, though may be derivable as an application.",
+        "searches": [
+          "Hom(C_m,H) square-free high girth target graph cycle embeddings isolated components dihedral homology",
+          "https://arxiv.org/abs/2412.19144",
+          "https://arxiv.org/abs/2412.19039"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2412.19144",
+        "https://arxiv.org/abs/2412.19039",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-integral-dihedral-homology-module-of-cycle-to-cycle-graph-ho--57b6b00dbd46/RESULT.md",
+        "https://arxiv.org/abs/math/0408015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For H=C_m the formula yields 2m isolated embeddings; for a general H, distinct simple m-cycles give distinct free D_m orbits, and if H bipartite the two null components are swapped by a one-step rotation."
+        ],
+        "reasoning": "Earlier classification of possible Hom-component homotopy types does not alone imply each non-null component is a genuinely isolated vertex or determine D_m invariants as c_m(H); the finite girth bound and walk argument supply the added result. Literature-priority absolute uniqueness not asserted.",
+        "searches": [
+          "Hom(C_m,H) square-free high girth target graph cycle embeddings isolated components dihedral homology",
+          "https://arxiv.org/abs/2412.19144",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-integral-dihedral-homology-module-of-cycle-to-cycle-graph-ho--57b6b00dbd46/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hom(C_m,H) vertices are length-m target closed walks. Nontrivial induced π1 elements correspond to cyclically nonbacktracking walks; under high girth, these are only embedded m-cycles."
+        ],
+        "reasoning": "A generic square-free codomain theorem gives homotopy types but not a count of simple m-cycle embeddings or precise D_m component permutation module without this high-girth walk analysis.",
+        "searches": [
+          "Hom(C_m,H) square-free high girth target graph cycle embeddings isolated components dihedral homology",
+          "https://arxiv.org/abs/2412.19144",
+          "https://arxiv.org/abs/2412.19039"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Čukić–Kozlov cycle-to-cycle Hom family and the published full integral dihedral H1 of cycle-to-cycle Hom complex treat H=C_n rather than arbitrary high-girth H with potentially many m-cycles."
+        ],
+        "reasoning": "The prior exact cycle-to-cycle tables are a single-target-family specialization and cannot list counts c_m(H) for all connected high-girth graphs; no general exact table or theorem with D_m H0 cycle-count invariant identified.",
+        "searches": [
+          "Hom(C_m,H) square-free high girth target graph cycle embeddings isolated components dihedral homology",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-integral-dihedral-homology-module-of-cycle-to-cycle-graph-ho--57b6b00dbd46/RESULT.md",
+          "https://arxiv.org/abs/math/0408015"
+        ]
+      },
+      "rationale": "Matsushita and Fujii–Kimura–Nozaki classify square-free-target Hom connected-component homotopy types, and cycle-to-cycle work gives special winding components. The target-specific high-girth rigidity turns all non-null components into a number of exactly counted isolated traversals, identifies their free dihedral actions and the integral component module, and obtains rational cycle detection for arbitrary high-girth H. These exact combinatorial/equivariant outputs were not already stated by the inspected broader structural theorem; they are a substantive specialization, with a possible derived-corollary priority risk acknowledged.",
+      "residual_risks": [
+        "A stronger implied special case might be stated in an uninspected appendix of the independent square-free codomain paper; originality qualified.",
+        "Only homotopy equivalence, not a D_m-equivariant homotopy equivalence of spaces. Source D_m claims apply to connected components and reduced H0.",
+        "The sharpness construction pertains to even m≥8 and does not assert weakening at m=6."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_NULL_COMPONENT_THEOREM",
+          "evidence": "Two null homotopy component types supplied; no displayed high-girth exact non-null D_m cycle count.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.19144",
+          "material_read": "Accessible full arXiv HTML with Theorem 5.8, Lemma 5.11 and components/null-image analysis; relevant passages read",
+          "method": "Open article text, locate theorem statements and proof material",
+          "title": "Hom complexes of graphs whose codomains are square-free (Matsushita, 2024)",
+          "trigger": "Direct same square-free target and even connected source"
+        },
+        {
+          "assessment": "SPECIAL_TARGET_CASE",
+          "evidence": "Applies to H=C_n only, target arbitrary high-girth multi-cycle graph not included.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-integral-dihedral-homology-module-of-cycle-to-cycle-graph-ho--57b6b00dbd46/RESULT.md",
+          "material_read": "Published full RESULT.md for cycle-to-cycle source/target winding H1, integral action and evaluation index",
+          "method": "Read published Github full mathematical claim and proof",
+          "title": "The integral dihedral homology module of cycle-to-cycle graph Hom complexes",
+          "trigger": "Close dihedral invariant in target cycles"
+        },
+        {
+          "assessment": "PARTIAL_CONTEXT",
+          "evidence": "General component class may have equivalent special corollaries; full independent proof not inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.19039",
+          "material_read": "Accessible paper metadata, original-record references, not a full independently read manuscript",
+          "method": "Published indexed abstract/context only",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free (Fujii–Kimura–Nozaki)",
+          "trigger": "Independent broad target-square-free component classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle detection from equivariant reduced degree-zero homology is a natural exact graph invariant, not merely a component count of one small graph. The all-target high-girth rigidity bound is sharp and promotes a general Hom-component classification to explicit orbit and integral module structure; this is a meaningful structural lemma for graph Hom complexes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every even m>=6 and connected loopless finite graph H with at least one edge and girth at least m-1, Hom(C_m,H) is homotopy equivalent to |H×K_2| plus exactly 2m c_m(H) isolated points, one free regular D_m orbit per unoriented simple m-cycle, and dimension of the D_m-invariant reduced rational H_0 equals c_m(H).",
+  "limitations": [
+    "Girth at least m−1 and even m≥6 necessary to use this exact argument.",
+    "The homotopy equivalence is not claimed equivariant; action is on components/integral H0 lattice only.",
+    "No absolute priority guarantee; independent Fujii et al full manuscript not reread."
+  ],
+  "schema_version": 1
+}

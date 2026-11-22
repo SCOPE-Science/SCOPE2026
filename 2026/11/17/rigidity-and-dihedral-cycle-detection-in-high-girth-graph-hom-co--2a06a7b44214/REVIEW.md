@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every even source length at least six, cyclically reduced closed walks at the stated girth bound must be simple cycles, whereas walks with an immediate backtrack have trivial image in the graph fundamental group. Four-cycle exclusion makes every essential simple-cycle traversal frozen. This yields exactly \(2mc_m(H)\) isolated vertices. The published full-text square-free codomain theorem supplies exactly one or two remaining null components and their homotopy types. The regular dihedral orbits and invariant reduced homology then follow by an exact component-permutation computation. The eight finite graph/source enumerations and five independent Euler computations are corroboration, not a substitute for the universal proof.
+## correctness
 
-## Originality — PASS (qualified)
-Closest primary work: Matsushita, arXiv:2412.19144v1, especially Theorem 5.8 and Lemma 5.11; Fujii–Kimura–Nozaki, arXiv:2412.19039v1; the older cycle-target classification arXiv:math/0408015. These give general component types or special-case targets, but the specific **sharp high-girth exact cycle counts and integral dihedral degree-zero module** are additional assertions proved here. An indexed odd-source high-girth result concerns a different source parity. Relevant indexed comparisons and open literature searches did not identify an exact equivalent, although lack of discovery is not proof of novelty. The independent square-free Hom paper’s main theorem and related discussion were inspected in its full-text HTML; the full text of indexed neighboring research was not read.
+PASS
 
-## Mathematical value — PASS
-The classification transforms a natural high-girth hypothesis into a precise topological cycle-count detector and an integral representation with explicit symmetry orbits. It determines all components for a broad family that includes nonbipartite graphs, bipartite incidence graphs, trees and bouquet graphs, with a sharp lower girth boundary. This is a motivated exact specialization of general machinery rather than a claim to a new general square-free Hom theory.
+Hom vertices are indexed length-m closed walks. Cyclic backtrack cancellation contracts any backtracking walk in |H|; under girth>=m−1 any shorter nonbacktracking closed walk cannot have a nontrivial cycle. A cyclic nonbacktracking length-m walk with repeated vertex would contain a forbidden shorter simple cycle; therefore it is an oriented based embedding of a simple m-cycle, exactly 2m for each unoriented cycle. Such an embedding is a zero-cell isolated from every one-coordinate change, because two distinct common neighbors of its adjacent image vertices would form a four-cycle, excluded by girth>=5. Matsushita Theorem 5.8 and Lemma 5.11 provide null-image components and their homotopy equivalent H / connected double-cover types, yielding |H×K2|. Each embedded m-cycle generates a free D_m orbit, while the null components form one component orbit; subtracting trivial H0 gives c_m invariant rank. Independent direct enumeration on C5,C6,C7,C8 as targets verified isolated counts 0,12,0,16 respectively for sources m6,m6,m8,m8; not a proof for all graphs. Sharpness via H=C_{m−2} for even m>=8 holds because length m closed walk with one inserted backtrack carries nontrivial winding not covered by m-simple traversals.
 
-## Limits and verification
-The splitting is nonequivariant; only the induced component-permutation representation is classified. Computer checks examine eight explicit finite instances, with no claim that this proves the universal theorem. No independent audit or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matsushita and Fujii–Kimura–Nozaki classify square-free-target Hom connected-component homotopy types, and cycle-to-cycle work gives special winding components. The target-specific high-girth rigidity turns all non-null components into a number of exactly counted isolated traversals, identifies their free dihedral actions and the integral component module, and obtains rational cycle detection for arbitrary high-girth H. These exact combinatorial/equivariant outputs were not already stated by the inspected broader structural theorem; they are a substantive specialization, with a possible derived-corollary priority risk acknowledged.
+
+## value
+
+PASS
+
+Cycle detection from equivariant reduced degree-zero homology is a natural exact graph invariant, not merely a component count of one small graph. The all-target high-girth rigidity bound is sharp and promotes a general Hom-component classification to explicit orbit and integral module structure; this is a meaningful structural lemma for graph Hom complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
