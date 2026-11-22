@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The geometric fixed-set triangulation, the 12 vertices/36 edges, connectedness, and the faithful residual affine \(S_4\) action follow from explicit orbit and group calculations. The rank-25 integer cycle kernel is a graph-theoretic consequence. All twenty-four character values are obtained both by signed Lefschetz traces and direct action on a fundamental integral cycle basis, confirming the rational decomposition by exact character orthogonality. The computed case is finite; no generalization to arbitrary vertex counts is claimed.
+## correctness
 
-## Originality (PASS relative to inspected literature)
-Prior complete-graph involution and divisor-rooted fixed-locus theorems already cover the homotopy type, face counts, and rank 25 of this space. These are deliberately treated as previous knowledge. Their full research statements expressly do not determine the induced centralizer action, and relevant directed-forest and equivariant matrix–forest works do not supply the specific residual \(S_4\)-character. The distinctive claim is the character \((25,-1,-3,1,1)\), its five constituent multiplicities, and the one-dimensional invariant line. An older unindexed equivalent equivariant calculation remains a priority risk; a closed-access foundational paper could not be inspected in full.
+PASS
 
-## Mathematical value (PASS)
-This is the first natural positive-dimensional fixed locus of a triple-pair involution in the family, and its full order-24 symmetry action is not determined by a homotopy classification. A concrete residual character records negative traces under two involution types, a sign constituent, and exactly one invariant rational cycle surviving all symmetries. The result therefore gives a complete action-sensitive topological invariant with a natural quotient consequence, without presenting ordinary Betti counts as an advance.
+For the ordinary complete six-vertex directed-forest matching complex with one outgoing arrow per source, simultaneously swapping three vertex pairs yields 15 two-arrow orbits, 12 admissible orbit vertices, and 36 two-orbit compatible edges, with no three-orbit face because every 3-source functional quotient contains a cycle. The resulting connected graph has rank 36-12+1=25. The residual centralizer action (S3 permuting pairs and binary flips modulo diagonal) is AGL(2,2)=S4 and acts simplicially. For each conjugacy class, the signed edge trace identity tr(H1)=1-tr(C0)+tr(C1) gives (25,-1,-3,1,1); pairing with the rational S4 character table yields (1,1,3,4,1), dimension25, with one invariant rational line. Independently enumerated all 30 directed arcs and 15 orbits, all 66 candidate pairs, all 24 group elements and their signed cellular traces, reproducing all five class sizes/values. Inspected complete 5852-byte verify_s4.py, which additionally checks connected spanning tree and direct integral cycle-basis traces. The finite enumeration exhausts this one finite graph and does not assert a general formula.
 
-## Scope and caveats
-The rational representation is classified; a named integral indecomposable lattice decomposition is not. The quotient conclusion is rational and does not determine its fundamental group. The original homotopy theorem belongs to prior literature. Exact finite verification is not independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known 25-circle bouquet and orbit enumeration are excluded from the new contribution. The mathematically extra invariant is the full signed centralizer S4 character and its quotient-invariant line; a nonequivariant homotopy equivalence does not determine this representation. Two highly relevant published full RESULTs explicitly classify only geometric fixed-space topology, leaving centralizer action uncomputed. Best-of-knowledge, no covering S4 module has been found, subject to an equivariant matrix–forest priority risk.
+
+## value
+
+PASS
+
+The residual centralizer action is an intrinsic invariant of a natural fixed-point complex: two graph actions with the same 25-circle topology can have different characters. Its full five-class decomposition, sign-sensitive double-transposition trace −3 and one invariant quotient class give precise equivariant information not mechanically determined by the known nonequivariant wedge count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

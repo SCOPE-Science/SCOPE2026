@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Exact computational checks
-The standalone `verify_s4.py` uses only the Python standard library. Re-run with `python3 verify_s4.py` and compare with `verification_output.txt`. It constructs all thirty directed arcs on six labels, the exact fifteen involution orbits, tests directed-forest admissibility on original arcs (not from a quotient shortcut), enumerates all twelve viable orbit vertices and thirty-six pairwise edges, and verifies that compatibility matches a separate structural criterion. It constructs an eleven-edge graph spanning tree and twenty-five exact integral fundamental cycles, each with zero boundary. It implements the full twenty-four-element residual group, proves faithfulness on a four-point affine set, and computes all first-homology traces by two independent integer methods. It checks every conjugacy-class cardinality, signed edge trace, irreducible multiplicity, and the final dimension.
+# Independent mathematical audit
 
-## What the computations prove and do not prove
-Because the finite domain consists of exactly thirty original arc vertices and twenty-four residual group elements, the direct enumeration and signed integer computations exhaust the scope of the stated six-label theorem. The standard geometric orbit-barycenter identification and rational quotient-invariants argument are given separately in `RESULT.md`. The verification does not establish any claims about other label counts or integral quotient homology. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+For the ordinary complete six-vertex directed-forest matching complex with one outgoing arrow per source, simultaneously swapping three vertex pairs yields 15 two-arrow orbits, 12 admissible orbit vertices, and 36 two-orbit compatible edges, with no three-orbit face because every 3-source functional quotient contains a cycle. The resulting connected graph has rank 36-12+1=25. The residual centralizer action (S3 permuting pairs and binary flips modulo diagonal) is AGL(2,2)=S4 and acts simplicially. For each conjugacy class, the signed edge trace identity tr(H1)=1-tr(C0)+tr(C1) gives (25,-1,-3,1,1); pairing with the rational S4 character table yields (1,1,3,4,1), dimension25, with one invariant rational line. Independently enumerated all 30 directed arcs and 15 orbits, all 66 candidate pairs, all 24 group elements and their signed cellular traces, reproducing all five class sizes/values. Inspected complete 5852-byte verify_s4.py, which additionally checks connected spanning tree and direct integral cycle-basis traces. The finite enumeration exhausts this one finite graph and does not assert a general formula.
+
+## originality
+
+PASS
+
+The known 25-circle bouquet and orbit enumeration are excluded from the new contribution. The mathematically extra invariant is the full signed centralizer S4 character and its quotient-invariant line; a nonequivariant homotopy equivalence does not determine this representation. Two highly relevant published full RESULTs explicitly classify only geometric fixed-space topology, leaving centralizer action uncomputed. Best-of-knowledge, no covering S4 module has been found, subject to an equivariant matrix–forest priority risk.
+
+## value
+
+PASS
+
+The residual centralizer action is an intrinsic invariant of a natural fixed-point complex: two graph actions with the same 25-circle topology can have different characters. Its full five-class decomposition, sign-sensitive double-transposition trace −3 and one invariant quotient class give precise equivariant information not mechanically determined by the known nonequivariant wedge count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
