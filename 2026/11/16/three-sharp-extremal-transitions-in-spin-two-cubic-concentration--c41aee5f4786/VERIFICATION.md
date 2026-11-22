@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 checks/verify_spin2_caps.py` from the package root with Python 3 and no third-party packages. Successful execution emits `SPIN2_DEGREE3_EXACT_CAP_SPECTRUM_AND_GAPS_PASS`. The script constructs seven Wigner-component density polynomials, verifies normalization and the \(\pm m\) symmetry, obtains the eigenvalues by exact antiderivatives, checks the six stated factorizations, evaluates independently the finite factorial Wigner series at sample points, checks rational cutoff probes, and verifies the thin-cap leading coefficients. The proof of the *global* ordering is the sign argument in RESULT.md; finite probes alone cannot certify it.
+## correctness
 
-The theorem's assumptions are strict \(0<c<1\) and one complex spin-two degree-three harmonic space. No independent audit or external verification has been performed. The 2018 doctoral thesis was identified from its abstract but its complete text was not available for comparison.
+PASS
+
+Azimuthal invariance diagonalizes in m=-3,...,3; |d^3_{m,-2}|² gives normalized polynomial densities with cap parity m vs -m. Independently used SymPy to integrate v0=15/8(1-x²)² x², v1=10(2p-q)² q³p, v2=(5p-q)²q^4, v3=6q^5p, with p=(1+x)/2 and q=(1-x)/2; each integral over [-1,1] equals 2/7, and resulting four lambda_j match the displayed degree-seven polynomials exactly. Sum lambda0+2(lambda1+lambda2+lambda3)=7(1-c). Independently factored all six pairwise gaps; roots establish ordering a<d<e<b, where e is the extra intermediate crossing, so the stated max/min multiplet transitions and degenerate dimensions follow for every interior c. At c->1 lambda2~(7/2)(1-c), lambda0~(35/2)(1-c)^3, hence squared-energy ratio asymptotic 1/[5(1-c)^2]. Numeric checks are not substituted for exact polynomial signs.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after separate formulation/implication comparisons, published-result search, and bounded primary-literature inspection; not a certification of absolute historical priority. A finite-dimensional specialization is potentially independently valuable because exact eigenvalue ordering for all c and equality spaces is not a mere re-labeling of a published scalar table. Historical priority limited by uninspected thesis.
+
+## value
+
+PASS
+
+A natural low-degree spin-two Slepian sensing subspace has genuinely sharp observability transitions, including a five-dimensional optimal tie and a different worst-observed-mode switch. It is a self-contained complete spectral classification for a symmetric cap geometry, with concrete conditioning consequences; motivated low-degree exactness does not need an all-spin theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
