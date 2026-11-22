@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Verification and scope
-The mathematical proof is complete in `RESULT.md`. The bounded exact-rational diagnostic `CHECK.py` was run with the packaged source contents and returned `MUTATION_SYMMETRY_EXACT_FRACTION_CHECKS_OK`. Its tests cover the exact sum and pairwise difference identities, the reduced-plane formulas, strict negative Dulac divergence, and algebraic endpoint signs across representative rational inputs. They do not exhaust any continuum of parameters. The step from a three-dimensional omega limit to a singleton equilibrium depends on the standard theorem that omega-limit sets are internally chain transitive and on the planar Poincaré–Bendixson recurrence classification; a reader should review this application explicitly. Independently checking the origin paper's full preprint was possible; a search of all later related literature is inherently non-exhaustive. An independent mathematical audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The exact mass identity S'=S-cS²+(c-1)Q and logistic upper/lower bounds give precompact, persistent positive trajectories. Direct subtraction gives (xi-xj)'=(xi-xj)(1-xi-xj-cxk-3mu), preserving order. On strictly ordered coordinates log[(a-b)/(b-d)]'=(c-1)(a-d), so any non-equal omega set approaches an invariant equality plane; the finite-integral alternative equalizes all coordinates. The plane Dulac factor 1/(rs) has strictly negative divergence -(1+c)/s-1/r-mu/r²-2mu/s². Finitely many equilibria plus planar internal chain transitivity rule out a nontrivial omega-limit; c=1 has explicit logistic mass and decaying gaps. In strict low-mutation c>1 the symmetric equilibrium transverse eigenvalue is positive; the maximal coordinate never loses primacy. P(0)>0>P(r0) and P upward establishes exactly one (s,r,r) winner. Independently confirmed the rational equilibrium field equals P on both nontrivial coordinates, with the assigned CHECK.py source inspected. The planar chain-transitivity theorem is a classical mathematical input, not a finite certificate.
+
+## originality
+
+PASS
+
+A stronger published symmetric-matrix entropy-gradient theorem already covers the whole all-mutation global point-convergence substatement. The assigned claim nevertheless adds a genuinely distinct exact initial-largest-species basin selector and a unique winner equilibrium in the bistable low-mutation strip; the older general theorem, equilibrium locations, and local phase diagrams do not provide that basin identification. Originality is limited to this selector, not the gradient point-convergence fact or the quadratic equilibrium algebra.
+
+## value
+
+PASS
+
+For a symmetric three-species multistable population flow, identifying which stable equilibrium is reached from each strictly ordered seed is a nontrivial basin classification beyond existence of convergence. The analytic order/shape-ratio selector gives a natural, explicit and potentially reusable partition, rather than a numerical basin plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

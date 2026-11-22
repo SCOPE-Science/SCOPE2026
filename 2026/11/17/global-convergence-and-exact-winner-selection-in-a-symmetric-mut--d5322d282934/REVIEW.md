@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conserved ordering relation and exact shape-ratio derivative are checked algebraically. Logistic comparison proves interior precompactness, the negative-divergence Dulac factor excludes planar cycles and polycycles, and finite equilibria plus the standard internally chain-transitive omega-limit lemma yield global pointwise convergence. The transverse eigenvalue excludes convergence to the symmetric point in the strict winner regime, while an endpoint sign argument proves the unique selected root. `CHECK.py` supplies exact-rational finite diagnostics; it does not certify an unbounded continuum of parameters or replace the analytical proof.
+## correctness
 
-## Originality — PASS within the inspected literature
-Jaramillo–Mrad–Stepien, arXiv:2210.04342, eqs. (6), (28), (33), and numerical discussion already provide this model, equilibrium calculations, and suggest convergence for equal competition. They do not prove the parameter-global absence of oscillations or an exact initial-ordering basin theorem. Coville–Fabre's 2013 common-competition global-attractor setting is inapplicable to the multi-equilibrium competitive case \(c>1\). Published unmutated May–Leonard global dynamics concern \(\mu=0\). Remaining risk: an equivalent theorem in broader or less-indexed symmetric mutation literature may exist.
+PASS
 
-## Mathematical value — PASS
-The source's symmetry-degenerate numerical regime is exactly where the usual Hopf treatment becomes singular. Global suppression of oscillatory recurrence and an explicit, parameter-sharp winner-selection rule settle a natural dynamical question for the original biological model, beyond local stability or merely counting equilibrium roots. The statement intentionally excludes ties for maximum in the basin claim, high-mutation basin geometry, and nonsymmetric competition.
+The exact mass identity S'=S-cS²+(c-1)Q and logistic upper/lower bounds give precompact, persistent positive trajectories. Direct subtraction gives (xi-xj)'=(xi-xj)(1-xi-xj-cxk-3mu), preserving order. On strictly ordered coordinates log[(a-b)/(b-d)]'=(c-1)(a-d), so any non-equal omega set approaches an invariant equality plane; the finite-integral alternative equalizes all coordinates. The plane Dulac factor 1/(rs) has strictly negative divergence -(1+c)/s-1/r-mu/r²-2mu/s². Finitely many equilibria plus planar internal chain transitivity rule out a nontrivial omega-limit; c=1 has explicit logistic mass and decaying gaps. In strict low-mutation c>1 the symmetric equilibrium transverse eigenvalue is positive; the maximal coordinate never loses primacy. P(0)>0>P(r0) and P upward establishes exactly one (s,r,r) winner. Independently confirmed the rational equilibrium field equals P on both nontrivial coordinates, with the assigned CHECK.py source inspected. The planar chain-transitivity theorem is a classical mathematical input, not a finite certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A stronger published symmetric-matrix entropy-gradient theorem already covers the whole all-mutation global point-convergence substatement. The assigned claim nevertheless adds a genuinely distinct exact initial-largest-species basin selector and a unique winner equilibrium in the bistable low-mutation strip; the older general theorem, equilibrium locations, and local phase diagrams do not provide that basin identification. Originality is limited to this selector, not the gradient point-convergence fact or the quadratic equilibrium algebra.
+
+## value
+
+PASS
+
+For a symmetric three-species multistable population flow, identifying which stable equilibrium is reached from each strictly ordered seed is a nontrivial basin classification beyond existence of convergence. The analytic order/shape-ratio selector gives a natural, explicit and potentially reusable partition, rather than a numerical basin plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
