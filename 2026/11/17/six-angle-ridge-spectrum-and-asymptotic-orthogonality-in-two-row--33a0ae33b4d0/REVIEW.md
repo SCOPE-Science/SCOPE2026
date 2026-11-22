@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is one complete facet-pair dihedral-angle multiset for the original Euclidean realization \(P_m\), over every integer \(m\ge2\). The source multichain inequalities are rewritten without altering metric coordinates. The facet normals have lengths \(1,\sqrt2,2\). The marked two-chain order diagram shows that precisely \(2m-1\) facet pairs are nonridges, because the two local diamonds force extra equalities and the upper cap excludes one pair; any other two cover-link contractions preserve a compatible strict order and are realizable by a codimension-two face. The normalized Gram products then give the five nonzero cosine classes, the right-angle remainder and the stated asymptotic. The supplied program reconstructs constraints, tests normal counts through \(m=32\), verifies the facet-pair geometry by slack linear programming through \(m=8\), and performs exact-rational vertex/ridge incidence checks for \(m=2,3\). Neither a finite test nor a numerical optimization is taken as a proof for arbitrary \(m\).
+PASS
 
-## Originality — PASS, with residual priority risk
+Inspected full facet and two-chain comparison proof, including precise Euclidean coordinates. Facets A,B_j,C_j,D_j,E,F total 3m+1; nonridge pairs are {B_j,C_j}, {B_{j+1},D_j} for j=1..m-1, plus {B1,F}, total 2m-1. For all other paired covers, the quotient marked-order diagram supports a strict interior realizing precisely those two equalities, so codimension two. Metric normals of lengths 1,sqrt2,2 have dot products furnishing classes: -1/sqrt2:3, -1/2:2m-1, -1/(2sqrt2):2m-4, 0:(9m²-13m+8)/2, 1/2:m-1, 1/sqrt2:m. Counts sum to ridge total. Independently constructed inequalities/normals and solved strict common-slack linear programs for every facet pair for m=2..8, all predicted adjacency and classes matched with no discrepancies; the infinite result additionally relies on the explicit local-cover argument, not finite cases.
 
-Dugan–Hegarty–Morales–Raymond's 2023 conference full text and full arXiv HTML establish the family and study vertices/faces but provide no Euclidean dihedral spectrum; their combinatorial face counts can imply the **total** ridge number, which is not claimed as the novel core. The known inradius result for the generalized Pitman–Stanley staircase concerns a single metric radius, and the two-row Brownian-excursion result concerns volume-uniform points. A distinct generalized **parking-function** polytope result has a dihedral spectrum but not for this multichain flow-polytope family. Search over normal-cosine aliases, dihedral distributions, ridge incidence and the exact \(n=2\) parameterized family found no equivalent six-level statement. Unindexed specialization of marked-order geometry remains a plausible risk, not a mathematical independence claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The entire dihedral-angle spectrum is a natural complete codimension-two metric invariant, and its unexpected orthogonality law (all but \(O(m)\) of \(\Theta(m^2)\) ridges are right-angled) demonstrates a genuine geometric feature inaccessible from face numbers alone. It supplies exact data for every member of a natural infinite family rather than a finite arbitrary sample. The parameter is the original number of multichain columns, not an artificial slice. The result may inform metric curvature/normal-angle questions for other marked-order and flow polytopes, without asserting such unproved extensions.
+Dugan et al. established family and combinatorial face counts (which may already imply ridge totals), but their full accessible proceedings proof is affine/combinatorial and contains no all-ones two-row Euclidean facet-normal cosine spectrum. Previously published inradius, Brownian bulk shape, and other polytopes angle laws are distinct. The contribution lies in the six precise metric classes and asymptotic right-angle concentration, not merely defining the polytope or counting faces.
 
-## Closest sources and limits
+## value
 
-[1] Dugan, Hegarty, Morales, Raymond, arXiv:2307.09925 (2023, current full HTML revision 2025), https://arxiv.org/html/2307.09925v2 ; [2] their full FPSAC 2023 12-page proceedings paper, https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/80.pdf ; [3] published generalized Pitman–Stanley inball result; [4] published Brownian-excursion two-row result. The full arXiv treatment and proceedings text were inspected for definitions, face counts, and angles; priority remains provisional for potentially unindexed metric calculations. The proof concerns only the canonical metric. Finite checker coverage ends at its documented bounds.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Euclidean ridge angles provide a natural intrinsic metric invariant of a canonical all-ones specialization, complementing its combinatorial f-vector. Complete exact all-m classification and sparse nonorthogonal adjacency give useful geometric information for normal-fan/curvature questions; the limiting orthogonality rate is a clean dimension-dependent phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
