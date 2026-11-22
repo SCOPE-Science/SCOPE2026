@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The invariant \(h_v=k_v-x_v\) is derived from the actual mixed adaptive update, with both threshold boundary constraints retained. Every possible leaf and hub class is enumerated, the two-step bound follows directly from the hub recurrence, and the nonstandard orbit-to-basin bijection counts the complete basin rather than only cyclic states. The symbolic multinomial identities prove the all-size formulas. Exhaustive state-space and individual-basin replay over 72,816 states, plus a separate multinomial reconstruction through 30 leaves, matched the formulas; finite checks are not used as infinite proofs.
+
+**Originality — PASS (best-knowledge, with residual uncertainty).** Full primary text of Chang et al. (2013), including the exact rule, Theorem 3.1 and the tree fixed-point algorithm of Theorem 4.7, was inspected. The general one/two-period theorem and fixed-count algorithm are credited rather than reasserted as novel. Searches for synchronous mixed adaptive threshold star periods, flexible leaf basin powers and two-cycle populations found no prior statement implying the individual \(2^c\)-basin spectrum or its \(1/4\) attraction limit. Published records concerning static or sequential bi-threshold updates do not have the same rule. Absence of discovery does not establish global novelty; possible unindexed equivalents remain a documented risk.
+
+**Value — PASS.** Exact basin sizes for individual oscillatory attractors on an unbounded family are a natural extension of the foundational adaptive-threshold limit-set classification. The contrast between exponentially rare immediate oscillation and a limiting quarter probability of eventual oscillation is a nontrivial structural dynamical phenomenon, not a small numerical improvement or arbitrary finite slice. The exact sharp entrance-time census determines when the basin mass arrives.
+
+Limitations: synchronous mixed thresholds, labelled finite stars and uniform full extended-state initialization only; no claim of independent review or priority certainty. The finite executable checks support, but do not replace, the all-size argument.
+
+Self-review: passed. Independent audit: not yet performed.
