@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact finite-sample probability was checked against a second integral over the order-statistic extremes, including the mutually disjoint internal-gap correction; the \(L=2\pi\) specialization was checked against Wendel's formula. The packaged reproducibility script also checks the finite-size critical convergence and independently generates circular-gap inclusion indicators from simulated angular samples. It reports `ARC_CENTER_CLEARANCE_CHECKS_OK` when all checks succeed.
+# Independent mathematical audit
 
-Proof-specific verification: the scaled joint extreme-slack densities are written explicitly, are pointwise convergent, and normalize to strictly positive masses in their conditioning regions, so Scheffé's lemma is applicable. The distance identity \(|\cos(g/2)|\) directly verifies the unique closest-facet step on events where every internal gap is bounded away from \(\pi\). No numerical experiment replaces the analytic limit proof. Total variation for the three-mark vector involving the nonlinearly transformed clearance is not claimed. A general exact scalar coverage/inclusion theorem already exists; only the conditional marked geometry is asserted as new. There is no independent external audit.
+## correctness
+
+PASS
+
+The n+1 uniform spacings are Dirichlet(1,...,1) after scaling by L; origin inclusion means all circular gaps below pi. Exterior gap 2pi-L+u+v<pi iff u+v<delta and an internal long-gap event is an O((delta/L)^n) correction, negligible relative to delta^2 for n>=3. Joint extrema density n(n-1)(L-u-v)^(n-2)/L^n gives conditional uniform triangle via density and Scheffe. In the c/n regime, n/L-scaled endpoint slacks have density (n-1)/n(1-(a+b)/n)^(n-2), tending in L1 to independent Exp(1); restriction a+b<c gives truncated-gamma normalization 1-(1+c)e^-c. Internal max gaps large enough to threaten nearest chord have probability decaying exponentially, whereas extreme-chord clearance vanishes; clearance chord equals sin((delta-u-v)/2) giving beta(1,2) and Z_c=(c-E1-E2)_+/2. The submitted proof correctly restricts total variation to endpoint pairs (not the singularly supported joint distance-mark triples). Computed special p_3(2pi)=1/4, p_4(1.25pi)=.176 match exact formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality based on exact theorem-level comparison, not a negative search as proof. The relevant established input does not imply this complete marked or homotopy assertion in the material inspected.
+
+## value
+
+PASS
+
+The transition from impossible center inclusion at L<=pi to rare center-containing hulls is a canonical geometric-probability boundary. Distinguishing fixed-n Dirichlet overshoot from an n-dependent truncated-exponential critical window, identifying the extreme chord as the nearest facet, and providing clearance laws makes the result a reusable shape theorem beyond classical scalar inclusion probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
