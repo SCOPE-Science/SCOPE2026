@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Compile `verify_exhaustive.cpp` with a C++17 compiler (for example `g++ -O3 -std=c++17 verify_exhaustive.cpp -o verify_exhaustive`) and run the binary; compare `exhaustive_output.txt`. It exhaustively checks a finite collection of wheel states at \(q=4,5,6,7\), including \(q=5,n=8\) with \(1,953,125\) labelled states, against the claimed time-two motif criterion, absence of time-three excitation, sharp clock and two separate terminal channels. Every recorded line ends in `CHECK_OK`.
+## correctness
 
-Run `python3 verify_transfer.py` (standard library only); compare `transfer_output.txt`. This program independently builds a weighted four-symbol de Bruijn transition graph and computes the exact word counts from matrix traces using sparse polynomial truncation. Every overlapping finite parameter agrees with the C++ output and its run ends in `TRANSFER_OK`.
+PASS
 
-These experiments verify checked finite instances and code implementation, not the entire infinite parameter range. The proof in `RESULT.md` proves the all-size assertions by local update rules, case analysis and a cyclic-word bijection. No external or independent audit has been performed.
+Reconstructed synchronous threshold-two Greenberg–Hastings rules for every q>=4 and simple wheel W_n, including n=3,4 cyclic index collisions. By analyzing excited sites at time one and two, the only time-two births are rim five-letter motifs with initial hub color 1 or a hub birth with initial hub q-1 and at least two initial 101 rim triples; these mechanisms cannot generate third-time excitement. The q and q+1 hitting-time cutoffs follow from q-1 refractory steps. The 4-symbol de Bruijn transfer counts labelled cyclic rim words with multiplicity q-3 for collapsed colors, giving exact maximal-shell populations and Bernoulli block argument gives limit 2/q. Independently enumerated the complete 256, 1024, 4096 and 3125 states for (q,n)=(4,3),(4,4),(4,5),(5,4): maximal times 4,5,5,6 and terminal counts 0,10,15,10; no time-three excitation or motif mismatch. This small enumeration corroborates but does not replace the all-q,n symbolic proof.
+
+## originality
+
+PASS
+
+PASS for the q>=4 motif dichotomy, all-n sharp extinction shell and its limiting positive mass; classical threshold-two wheel q=3 and arbitrary-graph threshold-one excitation results do not imply these extensions.
+
+## value
+
+PASS
+
+A complete finite-word characterization and transfer formula make the extinction-tail population computable at arbitrary circumference, while the positive 2/q limiting shell is a nontrivial all-size asymptotic. This is a motivated change of refractory alphabet in a natural graph family, rather than a few arbitrary small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
