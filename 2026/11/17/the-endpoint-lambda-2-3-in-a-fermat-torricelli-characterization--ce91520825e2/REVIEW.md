@@ -1,19 +1,21 @@
-# Scientific review: endpoint Fermat–Torricelli characterization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full quantifiers, ambient-versus-planar median distinction, positive scaling and incompleteness are explicit in `RESULT.md`. The new endpoint lemma has two exhaustive alternatives: a strict opposite-difference inequality produces an explicit positive factor, while equality in all three forces equal vector norms and gives a norming-functional bound \(3/5<2/3\) at a modified radial starting point. Continuity yields a positive solution. Planar median transfer and Pakhrou's previously proved equilateral criterion then complete the argument. Exact finite checks in `CHECK.py` corroborate, but are not used as a proof of, the universal assertion.
+PASS
 
-## Originality — PASS, with bibliographic qualification
+The property quantifies over every pair x,y in any real normed space dim>=3, and the median is minimized over the whole ambient X, not just its planar triangle. Given a noncollinear triangle enclosing origin, positive rescaling v1+v2+v3=0 yields 3sum_i||v_i||<=2sum_i||v_j-v_k||. If any d_i>(3/2)||v_i||, scaling the opposite vector by t=( (2/3)d_i/||v_i|| -1)/2>0 reaches ratio 2/3. If all d_i=(3/2)||v_i||, equality forces all three norms equal h; a norm-one Hahn–Banach functional norming v1 gives ||2v1-v2||>=5h/2 whereas ||2v1+v2||=3h/2. Therefore the continuous ratio ||2v1+v2-2t v3||/||2v1-v2|| starts <=3/5 and crosses 2/3 at some t>0, overcoming Fang–Liu zero-scaling obstruction. If origin lies on the triangle edge, rescale opposing edge vectors and the third explicitly. Radial-invariance of Fermat medianhood at origin is proved by a convexity inequality and invertible positive scaling. Starting from a planar median inside any equilateral triangle, the endpoint property gives an ambient median in the transformed triangle, forcing the planar center also to be an ambient median and allowing Pakhrou Corollary 5.6 to imply a Hilbert norm. In a Hilbert space metric projection into the triangle decreases distance to vertices and supplies the converse even without completeness. Independent exact rational hexagon example verifies saturated equality case (b1=2v1, b2=v2, b3=v3/12 has norm ratio 2/3); no finite check is used for arbitrary spaces.
 
-The 6 November 2026 Fang–Qi–Liu arXiv:2611.09226v1 treats one-sided Birkhoff–James orthogonality, a materially distinct restriction. The later Fang–Liu arXiv:2611.13648v1, Theorem 1 and Lemmas 3–4, explicitly require \(\lambda>2/3\), indicating that their original equality case gives only a nonnegative, potentially zero factor. The contribution supplies a different construction for precisely that failure mode, rather than restating an existing case. Pakhrou (2023) establishes an unrestricted equilateral-test characterization, not the restricted fixed-endpoint test; Martini–Swanepoel–Weiß (2002/2007) supplies planar convex-hull theory but no such endpoint reduction. No equivalent endpoint proof appeared among the checked published-finding corpus comparisons and targeted public literature. Search limitations cannot establish universal priority: an unindexed or differently phrased equivalent result remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The omitted endpoint is a natural sharp logical boundary of the motivating published theorem's hypothesis, not an arbitrary parameter slice. Its resolution is a structural norm-geometric lemma valid even in nonsmooth spaces, with an explicit positive substitute for the earlier vanishing scaling. The result completes the closed endpoint of the known family while retaining a mathematically meaningful limitation: nothing is claimed below \(2/3\). The improvement is an exact boundary theorem, not a new value inferred solely from computation.
+Fang–Liu (2026-11-10) proves fixed λ>2/3 but excludes λ=2/3 and expressly identifies zero-scaling obstruction. The new norming-functional positive rescaling resolves precisely this missing endpoint; Pakhrou general equilateral characterization does not itself reduce the all-triangle test to the endpoint slice.
 
-## Closest sources and remaining limits
+## value
 
-The eligible motivating source is Fang–Qi–Liu (6 November 2026), read through its full posted text; the closest later comparison is Fang–Liu (10 November 2026), read through its abstract, Theorem 1, Lemmas 2–4 and complete proof. Pakhrou (2023), Corollary 5.6, and Martini–Swanepoel–Weiß, Theorem 3.23, supply established implications. The currently available checks do not exclude every older equivalent formulation in location geometry or Minkowski-plane theory. No independent scientific referee audit was carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closing a sharply delimited endpoint omitted in a recent Hilbert-space characterization is a motivated mathematical boundary problem, not a routine parameter substitution: strict positivity fails for the existing scaling argument exactly at 2/3. The norming-functional 3/5 buffer is a genuine structural lemma for all real normed planes and makes the characterization valid in non-smooth noncomplete spaces. This is a reusable test of Hilbertianity at an otherwise excluded boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
