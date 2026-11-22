@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact closed-neighborhood decomposition is a bijection for every Roman dominating function, with the empty two-label support included and no hidden domination restriction. Two standard-library-only programs recompute all \(2^{20}\) supports in two independent graph representations, checking explicit graph isomorphisms, the full two-dimensional support-count tables, all \(41\) weight coefficients, minimum profiles, and the exact positive-factor identity. A direct ternary-label enumeration on the Petersen graph independently validates the support formula. This is an exhaustive finite certificate, not a numerical extrapolation or timeout-based claim.
+
+**Originality — PASS, with residual uncertainty.** The complete 2011 preprint for \(\operatorname{GP}(n,2)\), the relevant theorem and method in the 2014 \(\operatorname{GP}(n,3)\) paper, and the complete previously published Desargues minimum-Roman-function finding were compared at the statement/implication level. They cover the two known minima and the \(340\) Desargues minimizers, not the full coefficientwise difference or Roman-label reliability order. Search of mathematical-result records, archival articles, and aliases found no dominating statement. Older inaccessible/unindexed tables could still contain the enumerators, so this is best-knowledge priority rather than proved uniqueness.
+
+**Value — PASS.** The two graphs have the same order, degree, and Roman optimum. The positive factorization gives a strict comparison for every weight in a full interval and every positive value of an independent random-defense parameter, rather than an isolated count or arbitrary slice. Its exact finite enumerator distinguishes two canonical cubic symmetric graphs in a natural standard domination model. The specific pair and invariant arise from the archival Roman-domination literature.
+
+**Scientific limits.** The theorem is finite, has no claimed general graph-family extension or combinatorial injection, and does not cover arbitrary three-label probability distributions. The 2011/2014 scalar values and the prior count \(340\) are not new. Independent scholarly audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
