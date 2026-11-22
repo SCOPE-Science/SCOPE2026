@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all 10626 vertex quadruples the independent exact Gram and Cauchy--Binet minor determinants agree. The complete table sums correctly; 72 maximizing sets share no triple and form a single orbit under the 1152 verified orthogonal frame maps. Norm convexity of the three-fold exterior product gives the unrestricted maximum, and equality plus no-shared-triple rules out any nonvertex maximizer. The independent minor calculation guards the critical determinant computation; finite enumeration is genuinely exhaustive for the finite configuration, not claimed to prove results over continuously many nonvertex points by itself.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The 2019 24-cell source was inspected in accessible complete text and gives the root coordinates and 600-cell incidence structure, not the tetrahedron three-volume table. The closest fully inspected published calculations maximize five-point *four-volume* in the same 24-cell and its truncation family, which does not imply the present four-point intrinsic three-volume classification. Detailed alias and implication searches found no exact or dominating published table. Residual risk: unindexed older regular-polytope and Weyl-group tetrahedron classifications could contain equivalent data.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete classification of an intrinsic geometric spectrum for the exceptional regular four-polytope. It gives a sharp maximum for arbitrary contained tetrahedra, all equality cases, a single maximal symmetry orbit, a strict next-volume gap, and a nonregular-versus-regular extremal comparison. The no-shared-triple rigidity is structurally stronger than a mere numeric census.
+Double unit 24-cell vertices to integer W=±2e_i and all 16 sign vectors. For four vertices 3-volume squared is det((a,b,c)^T(a,b,c))/2304. Independent exact Gram and Cauchy–Binet minor computations over all C(24,4)=10626 choices produce 11 levels D=0,32,...,512 with exact stated frequencies. The top 72 share no three vertices and have short squared edges 2,2 with opposite short pair, next D=448 gives gap (2sqrt2-sqrt7)/6. Source integer checker verifies 1152 genuine orthogonal 4-frame vertex permutations, their transitive orbit of maxima and 48 regular edge-sqrt2 tetrahedra. Norm of 3-fold wedge is separately convex in every vertex, extending maximum over solid; equality forces any positive barycentric split of an assumed nonvertex max to yield two vertex maxima sharing the other three vertices, contradicting triple uniqueness. All maximizers vertex supported; no numerical extrapolation.
 
-**Limitations.** The table is restricted to vertex-supported tetrahedra; the optimization and equality conclusion include arbitrary contained tetrahedra. Exact finite enumeration is the certificate for spectrum and incidence, and historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier exact 24-cell theorems treat 4-dimensional volume of 5-vertex simplices, projection shadows, or inscribed tetrahedra in other 3-dimensional polytopes. Different simplex dimension and containing polytope mean none implies this 10-positive-level three-volume spectrum and 72 disphenoids. Unindexed Coxeter tables remain plausible risk.
+
+## value
+
+PASS
+
+The regular 24-cell is a canonical D4 root polytope; intrinsic 3-volume spectrum of its 4-vertex tetrahedra and rigid global maximum are natural exact geometric invariants. The striking nonregular maximizing disphenoids, full group orbit and no-nonvertex rigidity are substantive and useful for polytope extremal geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
