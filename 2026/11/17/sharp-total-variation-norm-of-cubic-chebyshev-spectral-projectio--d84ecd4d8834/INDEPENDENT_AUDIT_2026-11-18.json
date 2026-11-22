@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distributional derivative representation of arbitrary BV inputs reduces the norm to the largest single-jump response. Direct differentiation gives (C_3 f_c)prime=(2 sqrt(1-c^2)/pi)Q_c, Q_c=(16c^2-4)x^2+4cx+2-4c^2. The two internal roots for c>=2/3 give explicit H(c)=(4/3)sqrt(1-u)[1+2u+(16u^2-11u+2)^(3/2)/(4u-1)^2]. Differentiation, exact squaring and a Sturm chain isolate exactly one stationary point on (4/9,1) at u*=.692..., with sign changing + to -. On c<=2/3 the finite exact integer/rational midpoint upper certificate M=128, grid c=k/12000 k<=8000, integral error <=24/M^2, |Hprime|<80 and grid allowance 40/12000 show max upper 2.4425881184680684 <49/20. Independent reimplementation of all 8001 integer midpoint enclosures reproduced this strict gap; at c=5/6 the exact radical witness exceeds 49/20. Since 2H/pi is norm, global maximizers ±sqrt(u*) are off-center. The exact discrete certificate plus analytic continuum bound, not finite sampling alone, closes the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary published cubic Legendre RESULT.md computes 15sqrt(21)/28-5/8=1.829951... with center jump for unweighted Legendre projection.",
+          "Resultary exact Jacobi-weighted quadratic projection gain concerns range degree<=2, not cubic first-kind Chebyshev."
+        ],
+        "reasoning": "Neither known theorem covers both the same orthogonality weight and degree; the Chebyshev value is not an immediate specialization.",
+        "searches": [
+          "Chebyshev degree three spectral projection bounded variation operator norm jump extremizer",
+          "Resultary sharp bounded-variation cubic Legendre and symmetric Jacobi projector"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md, full CHECK.py exact integer certificate, metadata/review/verification/slogan (Git blob IDs recorded)",
+        "Benoit–Joldes–Mezzarobba arXiv:1407.2802 Chebyshev projection and error analysis",
+        "Resultary cubic Legendre BV projector (full published RESULT.md)",
+        "Akansha–Subramaniam 2025 bibliographic/abstract comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Benoit proves validated uniform approximation for D-finite functions; Wang studies pointwise convergence/error localization; Akansha–Subramaniam discuss BV approximation errors.",
+          "The sharp norm demands maximizing sign changes of the quadratic derivative of a discontinuous input response."
+        ],
+        "reasoning": "Prior convergence estimates and different norms do not imply this sharp finite-degree BV amplification or optimizer classification.",
+        "searches": [
+          "Chebyshev degree three spectral projection bounded variation operator norm jump extremizer",
+          "Benoit 2014 Wang 2021 Akansha Subramaniam 2025 Chebyshev BV error estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benoit–Joldes–Mezzarobba arXiv:1407.2802 uses Chebyshev orthogonal coefficients for validated approximation, but not the induced BV norm at n=3.",
+          "The operator can be described as the first four cosine modes after x=cos(theta); no previously inspected source supplies its exact jump integral maximum."
+        ],
+        "reasoning": "Cosine reparameterization alone does not transform an L-infinity or coefficient-decay bound into the exact BV-to-BV norm.",
+        "searches": [
+          "Chebyshev degree three spectral projection bounded variation operator norm jump extremizer",
+          "Chebyshev cosine Fourier projection sharp bounded variation step jump response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected and searched accessible Chebyshev numerical approximation results give rates/norm bounds, not a table with the octic stationary equation or off-center jump positions."
+        ],
+        "reasoning": "A named octic constant does not confer novelty by itself; the exact operator norm is separately reconstructed and contrasted.",
+        "searches": [
+          "Chebyshev degree three spectral projection bounded variation operator norm jump extremizer",
+          "octic root Chebyshev BV norm 1.565342822371915"
+        ]
+      },
+      "rationale": "This is a precise fixed-degree exact BV operator norm; known Chebyshev approximation/error-localization bounds do not determine it. The published degree-three Legendre projection has a different weight and midpoint extremizer; Jacobi degree-two findings have different polynomial range. A complete equivalent Chebyshev BV projection formula was not found in the inspected sources, with residual risk for older projection-norm literature.",
+      "residual_risks": [
+        "Older unindexed Chebyshev/Dirichlet-kernel BV norm computations could reproduce the octic or exact constant.",
+        "Independent reimplementation confirms low-parameter exact grid and octic Sturm, while full checker is not an external formal proof; rely on analytic continuum estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the polynomial/spectral setting, not its fixed degree-three BV norm.",
+          "evidence": "Its validated uniform error theory applies to D-finite approximants, with no discontinuous worst-case BV step classification in inspected related sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2802",
+          "material_read": "Full accessible preprint text; inspected §2.1 Chebyshev expansion/projection definitions and approximation-error statements",
+          "method": "Open preprint HTML/text reading",
+          "title": "Benoit, Joldes and Mezzarobba, Rigorous uniform approximation of D-finite functions using Chebyshev expansions (2014)",
+          "trigger": "Same continuous weighted Chebyshev projection basis"
+        },
+        {
+          "assessment": "No implication for Chebyshev weighted projection; extremizer shifts from central to displaced.",
+          "evidence": "Legendre norm 15sqrt(21)/28-5/8≈1.829951, attained at c=0, contradicts any naive identification of two projectors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-norm-of-the-cubic-legendre-projector--9f934dc097f6",
+          "material_read": "Full RESULT.md including jump derivative, analytic and rational certificate, limitations",
+          "method": "GitHub source-file reading",
+          "title": "Sharp bounded-variation norm of the cubic Legendre projector (published 2026-11-17)",
+          "trigger": "Same BV norm at cubic degree but different orthogonality weight"
+        },
+        {
+          "assessment": "Article addresses error estimates for quadrature-based BV approximations, not established as identical continuous orthogonal projection stability norm.",
+          "evidence": "Do not use a snippet or abstract as proof of whole-document noncoverage.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/4/PDF/math-10-04-398.pdf",
+          "material_read": "Bibliographic record, accessible source description and referenced statements in the assigned REVIEW; independent whole-PDF inspection not completed this execution",
+          "method": "Bounded comparison; no claimed complete full-document inspection",
+          "title": "Akansha and Subramaniam, Exploring Chebyshev polynomial approximations: Error estimates for functions of bounded variation (2025)",
+          "trigger": "BV Chebyshev claims might dominate operator bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nontrivial cubic Chebyshev truncation has a natural sharp stability constant and surprising displaced worst-case discontinuities, needed to bound variation amplification under spectral projection. A rigorous algebraic optimizer and continuum certificate make this a substantive exact operator norm rather than an arbitrary numeric instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md, full CHECK.py exact integer certificate, metadata/review/verification/slogan (Git blob IDs recorded)",
+    "Benoit–Joldes–Mezzarobba arXiv:1407.2802 Chebyshev projection and error analysis",
+    "Resultary cubic Legendre BV projector (full published RESULT.md)",
+    "Akansha–Subramaniam 2025 bibliographic/abstract comparison only"
+  ],
+  "disposition": "passed",
+  "final_claim": "The first-kind weighted degree-three Chebyshev orthogonal projector on real BV functions has exact BV seminorm 1.565342822371915..., attained at two symmetric off-center single jumps, where squared jump location is the unique root u* in (0.692,0.693) of a specified octic.",
+  "limitations": [
+    "Best-of-knowledge originality is qualified by specific identified sources and risks; the independent reading is not a universal absence-of-prior-work certificate.",
+    "Exact mathematical source claims and external Lean/expert channels are preserved without fabrication; the indicated publication status is transport/security not mathematical rejection."
+  ],
+  "residual_risks": [
+    "Older unindexed Chebyshev/Dirichlet-kernel BV norm computations could reproduce the octic or exact constant.",
+    "Independent reimplementation confirms low-parameter exact grid and octic Sturm, while full checker is not an external formal proof; rely on analytic continuum estimates."
+  ],
+  "schema_version": 1
+}
