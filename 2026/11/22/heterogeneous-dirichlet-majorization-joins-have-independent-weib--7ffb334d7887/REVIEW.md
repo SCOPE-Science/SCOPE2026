@@ -1,0 +1,19 @@
+# Scientific review: heterogeneous Dirichlet majorization-join extremes
+
+## Correctness — PASS
+The asserted fixed-dimensional limit follows from four independently inspectable steps: Beta aggregation of a Dirichlet coordinate subset; elimination of overlaps between distinct smallest-subset faces; a cross-rank small-ball exponent strictly greater than one; and a deterministic concavity argument using the strictly decreasing sequence of shape sums. Each hypothesis and quantifier appears in `RESULT.md`. The critical nonstandard cross-rank estimate is explicit: for ranks \(k<\ell\), coordinate sets \(K\) and \(J\setminus K\) are disjoint, the latter is nonempty, and their Dirichlet joint small-ball exponent is \(a_K/\gamma_\ell+a_{J\setminus K}/\gamma_k>1\). This proves the needed independence rather than relying on finite simulations. The separately replayed `check.py` verifies finite subset exponents, exact integer-Beta tail constants and controlled simulations, but is not an infinite proof. Boundary cases include \(d=2\), tied minimal shape parameters, and fractional positive parameters.
+
+## Originality — PASS against inspected evidence
+The October 2026 source by Hariharan–Krishnan–Deshpande defines majorization joins and proves Rényi-metric identities, but does not take random Dirichlet sample joins. Bisi–Cunden–Gramegna–Ligabò's November 2026 Theorem 4.12 proves the same type of joint limiting law **only for the uniform simplex**, i.e. all Dirichlet parameters equal to one; their Section 7.3 explicitly identifies more general Dirichlet laws as a different problem. The all-equal case is not claimed here as new. Their theorem cannot be specialized to a nonconstant parameter vector, whose componentwise minimum-face shapes differ. Hashorva (2014) handles weighted aggregate Dirichlet risks and related joint asymptotic independence, but does not construct a majorization join, evaluate the full heterogeneous sequence of lowest-subset shape sums, or prove the least-concave-majorant reduction. Corradini–Strokorb (2024) study stochastic orders of max-stable Dirichlet dependence families, not finite-sample join extrema. Relevant database records concern Dirichlet affine projections, covariance thresholds or other stochastic-majorization models without this statement.
+
+Residual priority risk: another specialized Dirichlet extremal-order result could exist outside the inspected full texts and searchable records. Exhaustive priority certification is not claimed.
+
+## Mathematical value — PASS
+Unequal Dirichlet concentrations are a natural model for heterogeneous compositions and probability vectors. A join of samples probes how much a common majorizing distribution must concentrate; its different prefix coordinates approach the vertex at different rates. The result supplies an exact simultaneous distribution for *all* those rates, displays how repeated minimal concentration parameters affect intensities, and proves that the lattice-specific concavity correction disappears despite dependent coordinates within each observation. This is more than a renamed one-dimensional Beta minimum or an arbitrary finite numerical invariant. The nonuniform case includes distinct powers, tie multiplicities and a cross-scale independence mechanism absent from a simple one-coordinate computation.
+
+## Limitations and literature
+Only fixed positive parameters and fixed finite dimension are covered; no finite-sample error bounds or growing-dimension classification are asserted. One uniform-parameter specialization is published separately, and broader historical priority is not fully certain. The standard-library checks are supporting evidence, not independent validation.
+
+References: https://arxiv.org/abs/2610.16687 ; https://arxiv.org/abs/2611.23612 ; https://doi.org/10.1016/j.jmva.2014.09.018 ; https://doi.org/10.1007/s10687-024-00486-0 .
+
+Self-review: passed. Independent audit: not yet performed.
