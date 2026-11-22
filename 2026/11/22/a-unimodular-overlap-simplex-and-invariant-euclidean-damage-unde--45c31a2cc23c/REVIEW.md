@@ -1,0 +1,15 @@
+# Scientific review of the two-erasure hypersimplex theorem
+
+## Correctness
+**PASS.** The proof identifies each missing vertex with a unit-depth hyperplane truncation, verifies the two-cut halfspace description including the delicate adjacent case, and expresses an adjacent cap intersection as an integer-affine copy of the standard unimodular simplex. The full normalized-volume formula follows from exact inclusion–exclusion and the classical Eulerian hypersimplex volume. The explicit orthogonal foot from either missing vertex satisfies both inequalities for every admissible rank and corank; convexity and strictness of the distinct residual vectors characterize all farthest points. Numerical convex-hull computations for 37 rank/intersection profiles and 28 exact integer determinants corroborate, but do not replace, the general proof.
+
+## Originality
+**PASS, with historical-priority risk.** The motivating isosceles-set classification uses the edge-midpoint/Johnson set but does not analyze vertex-deletion damage. Ferroni–Schröter already provide the sparse-paving, nonadjacent two-deletion volume; a previously published sparse-paving projection theorem already gives the nonadjacent Hausdorff distance. Those cases are explicitly excluded from the novelty claim. Two **adjacent** forbidden bases are not a matroid's only nonbases, and their corner caps share a full-dimensional unimodular simplex. The exact adjacent-versus-nonadjacent structural comparison with pair-insensitive Hausdorff depth is not stated by those earlier results. Lam–Postnikov's general alcoved triangulation supplies broad volume-computation coverage, but does not state the local two-cap overlap geometry or paired metric invariance. This is an originality assessment, not exhaustive bibliographic certification; an equivalent older alcove or matroid-split observation remains a risk.
+
+## Mathematical value
+**PASS.** The result is a complete, nontrivial classification across **all** ranks, coranks and two-erasure incidence types of a canonical family of highly symmetric polytopes. The sharp one-unit correction has a concrete geometric witness (an entire unimodular overlap simplex), separates nonmatroid adjacent erasures from matroidal nonadjacent erasures, and contrasts volume loss with an exactly unchanged metric worst case. It addresses structural robustness motivated by a recently isolated extremal family; it is not an arbitrary numerical slice or a rebranding of the previously known matroid-volume case.
+
+## Scope and residual uncertainty
+The canonical zero-one Euclidean realization and intrinsic lattice normalization are essential. No result for three or more erasures or general affine images is asserted. General alcoved enumeration and sparse-paving nonadjacent cases are prior art. The checker is finite. An equivalent geometric observation may exist in older unindexed literature, and no independent mathematical audit was carried out.
+
+Self-review: passed. Independent audit: not yet performed.
