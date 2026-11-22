@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:45:43.350487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier Parseval turns moments into weighted equal base-b signed-digit sums. Integer carries obey b u_{j+1}=u_j+k_j-l_j with zero endpoints. For r<b no nonzero carry can arise, so sum binomial(r,k)^2=binomial(2r,r) factors. At r=b, reachable integer carries restricted to {-1,0,1}; exact T rows [[a,K,0],[1,C,1],[0,K,a]] by Vandermonde, with central-state symmetric 2x2 characteristic (λ-C)(λ-a)-2K. Cayley-Hamilton yields the recurrence for all b,n; λ-=positive because a C>2K, λ-<C<λ+, both spectral coefficients positive, and explicit 2-step nonzero carry loops give E(n)>C^n for n≥2. Independent direct convolution b=2..6, n≤3 and source checker code verified critical figures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holte and Diaconis–Fulman carry matrices prove general transition frameworks for standard unrestricted base-b digit addition.",
+          "Tang–Wu uses same middle-fourth flat kernel but convergence for Cantor measure, not Haar 2b moments."
+        ],
+        "reasoning": "General finite-state computability yields a procedure, not automatically the explicit first-carry factorization, two spectral roots and all-base sharp rate; however this could be a short specialization of older automata texts, preserved as priority risk.",
+        "searches": [
+          "https://arxiv.org/abs/0806.3583",
+          "https://arxiv.org/abs/2607.27796",
+          "lacunary Dirichlet Riesz product binary digit restricted spectrum first carries critical 2b moment exact transfer eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and check_first_carry.py",
+        "Independent direct polynomial convolution for b2..6",
+        "Tang–Wu arXiv:2607.27796 abstract",
+        "Diaconis–Fulman arXiv:0806.3583 abstract",
+        "Holte 1997 bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diaconis–Fulman eigenvalues are those of probabilistic carries for standard uniform digits; critical weighted Fourier carry matrix has (C,a,K) and characteristic (λ-C)(λ-a)-2K."
+        ],
+        "reasoning": "The existing probabilistic carry theorems have a different weighted endpoint-conditioned transfer; no direct identity obtained from them alone that already states current λ+ or strict C^n transition.",
+        "searches": [
+          "https://arxiv.org/abs/0806.3583",
+          "https://arxiv.org/abs/2607.27796"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "E_{b,r}(n) counts weighted equal sums of r binary-digit numbers; same as additive energy of digit-restricted level-n set and transfer of carries."
+        ],
+        "reasoning": "The change of language to high even moments, additive energy or weighted carry paths is exact; no retrieved equivalent closed universal recurrence was seen outside the assessed report.",
+        "searches": [
+          "lacunary Dirichlet Riesz product binary digit restricted spectrum first carries critical 2b moment exact transfer eigenvalues",
+          "exact critical moment Haar integral product (1+z^(b^j)) 2b eigenvalues C a K carry transfer",
+          "Riesz-product lacunary Fourier moment additive-energy carry automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assessed base-four exact moments 70,5012,359576,25801552 compared against search for explicit indexed moment tables; no independent matching table found."
+        ],
+        "reasoning": "No distinct table providing the specific all-base recurrence was located; an unindexed specialized table remains plausible.",
+        "searches": [
+          "lacunary Dirichlet Riesz product binary digit restricted spectrum first carries critical 2b moment exact transfer eigenvalues",
+          "exact critical moment Haar integral product (1+z^(b^j)) 2b eigenvalues C a K carry transfer",
+          "base four Cantor Dirichlet eighth moment 5012 359576"
+        ]
+      },
+      "rationale": "Lacunary Riesz-product/Dirichlet kernel identities and carry transfer matrices are classical, but the checked Tang–Wu work treats singular Cantor-measure maximal convergence rather than Haar even moments, and Diaconis–Fulman/Holte treat probabilistic unconstrained carries with different transition probabilities. The exact universal first-carry 2-state closed form and λ+ were not identified as direct prior corollaries; classical general carry-automaton technology can generate it, so priority uncertainty is explicit.",
+      "residual_risks": [
+        "Unindexed lacunary/Riesz-product exact moment recurrence could have derived same λ±.",
+        "Relevant recent 2026 Tang–Wu full text not obtained (authorized access disconnected).",
+        "No complete independent listing of frozen directory tree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot exclude an exact Haar eighth moment hidden in uninspected full article",
+          "evidence": "Focus on singular-measure Fourier convergence/maximal bounds",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27796",
+          "material_read": "Accessible abstract and scientific synopsis only; full text not obtained",
+          "method": "arXiv abstract and authorized full-text request (VPN disconnected)",
+          "title": "Almost everywhere convergence of mock Fourier series for the middle-fourth Cantor measure",
+          "trigger": "Same middle-fourth spectrum and product D_{4,n}"
+        },
+        {
+          "assessment": "General probabilistic carries framework; exact present transfer not proven identical",
+          "evidence": "Carries for unrestricted random digits and Markov transition eigenvalues differ",
+          "identifier_or_url": "https://arxiv.org/abs/0806.3583",
+          "material_read": "Abstract and public scientific synopsis; full primary text not verified",
+          "method": "arXiv abstract search",
+          "title": "Carries, Shuffling and An Amazing Matrix",
+          "trigger": "Canonical general theory of carry matrices"
+        },
+        {
+          "assessment": "Inaccessible potential methodological source; priority risk",
+          "evidence": "Holte 1997 establishes carry-matrix formalism",
+          "identifier_or_url": "https://doi.org/10.2307/2974981",
+          "material_read": "Bibliographic citation; no verified full-text reading",
+          "method": "DOI/bibliographic indexing",
+          "title": "Carries, combinatorics, and an amazing matrix",
+          "trigger": "Early carry matrix theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold r=b is the intrinsic first nontrivial arithmetic collision for a binary digit spectral set. Closed all-base critical moment growth is a natural Riesz-product/lacunary energy invariant and quantitatively separates independent and carry-correlated moments; precise law may be used in Fourier norm estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and check_first_carry.py",
+    "Independent direct polynomial convolution for b2..6",
+    "Tang–Wu arXiv:2607.27796 abstract",
+    "Diaconis–Fulman arXiv:0806.3583 abstract",
+    "Holte 1997 bibliographic record"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer b≥2, n≥1 and 1≤r<b, normalized Haar 2r moments of ∏_{j<n}(1+z^{b^j}) equal binom(2r,r)^n. At critical r=b the moments satisfy an exact two-eigenvalue recurrence with C=binom(2b,b), K=binom(2b,b-1), a=2b: E_{n+2}=(C+a)E_{n+1}-(aC-2K)E_n; growth λ+>C.",
+  "limitations": "All integer b≥2 and n≥1 for r≤b only; Haar measure and coefficients 1; not Cantor-measure moments or arbitrary Fourier taps.",
+  "residual_risks": [
+    "Unindexed lacunary/Riesz-product exact moment recurrence could have derived same λ±.",
+    "Relevant recent 2026 Tang–Wu full text not obtained (authorized access disconnected).",
+    "No complete independent listing of frozen directory tree."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Cannot exclude an exact Haar eighth moment hidden in uninspected full article",
+      "evidence": "Focus on singular-measure Fourier convergence/maximal bounds",
+      "identifier_or_url": "https://arxiv.org/abs/2607.27796",
+      "material_read": "Accessible abstract and scientific synopsis only; full text not obtained",
+      "method": "arXiv abstract and authorized full-text request (VPN disconnected)",
+      "title": "Almost everywhere convergence of mock Fourier series for the middle-fourth Cantor measure",
+      "trigger": "Same middle-fourth spectrum and product D_{4,n}"
+    },
+    {
+      "assessment": "General probabilistic carries framework; exact present transfer not proven identical",
+      "evidence": "Carries for unrestricted random digits and Markov transition eigenvalues differ",
+      "identifier_or_url": "https://arxiv.org/abs/0806.3583",
+      "material_read": "Abstract and public scientific synopsis; full primary text not verified",
+      "method": "arXiv abstract search",
+      "title": "Carries, Shuffling and An Amazing Matrix",
+      "trigger": "Canonical general theory of carry matrices"
+    },
+    {
+      "assessment": "Inaccessible potential methodological source; priority risk",
+      "evidence": "Holte 1997 establishes carry-matrix formalism",
+      "identifier_or_url": "https://doi.org/10.2307/2974981",
+      "material_read": "Bibliographic citation; no verified full-text reading",
+      "method": "DOI/bibliographic indexing",
+      "title": "Carries, combinatorics, and an amazing matrix",
+      "trigger": "Early carry matrix theory"
+    }
+  ]
+}

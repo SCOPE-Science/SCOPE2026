@@ -1,19 +1,21 @@
-# Review of the first-carry moment transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns normalized Haar moments of a finite flat polynomial. Fourier orthogonality converts the moment to an exact weighted zero-sum problem. At moment order strictly below twice the base, signed digit differences cannot carry, giving independent Vandermonde factors. At the first critical order the reachable integer carries are precisely a subset of \(\{-1,0,1\}\), producing an explicit three-by-three binomial transfer matrix. The central initial state lies in the symmetric invariant sector; the characteristic polynomial, recurrence, nonnegative spectral coefficients, and strict inequality follow by exact algebra. The critical root is positive and greater than the one-digit moment. The independent integer-convolution checker passed 281 assertions over seven bases and four depths. No empirical test is used to infer the infinite theorem.
+PASS
 
-## Originality — PASS relative to inspected material
+Fourier Parseval turns moments into weighted equal base-b signed-digit sums. Integer carries obey b u_{j+1}=u_j+k_j-l_j with zero endpoints. For r<b no nonzero carry can arise, so sum binomial(r,k)^2=binomial(2r,r) factors. At r=b, reachable integer carries restricted to {-1,0,1}; exact T rows [[a,K,0],[1,C,1],[0,K,a]] by Vandermonde, with central-state symmetric 2x2 characteristic (λ-C)(λ-a)-2K. Cayley-Hamilton yields the recurrence for all b,n; λ-=positive because a C>2K, λ-<C<λ+, both spectral coefficients positive, and explicit 2-step nonzero carry loops give E(n)>C^n for n≥2. Independent direct convolution b=2..6, n≤3 and source checker code verified critical figures.
 
-The motivating Tang–Wu 2026 manuscript, inspected through its complete accessible HTML text, defines and factors the same digit kernel, but its main results concern a singular-measure maximal operator and mismatch bounds rather than Haar even moments, the universal carry threshold, or an exact critical moment recurrence. Diaconis–Fulman's 2008 full HTML text presents the classical unrestricted digit-carry Markov matrix, not the binomially weighted, zero-output-pinned first-carry matrix. The closest indexed research records concern a single three-frequency quartic resonance, the independent coordinate-character eighth-moment problem, binary Cantor Fourier-determinant volume, or a different three-digit additive energy. None of their retrieved claims covers the stated all-base moment transition. An independently indexed digit-restricted carry-computation account supplies a general method to compute higher moments, so derivational overlap is real; it does not state the evaluated two-eigenvalue formula across all bases in the accessible excerpt. Residual risk includes a classical or computationally tabulated exact equivalent not located in indexed results.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by the canonical finite Fourier spectra of even-base Cantor measures and the change from dissociated to arithmetically resonant powers. The result supplies an exact, **uniform-in-depth** boundary between complete even-moment factorization and genuine digit interaction, valid for every integer base. The first nonfactorizing moment has an explicitly evaluable quadratic law and a sharp growth constant, not merely a finite count or an implementation of a generic transfer routine. This determines the depth-asymptotic Lebesgue growth of the canonical middle-fourth eighth moment and provides a general benchmark for lacunary Riesz-product estimates. It does not claim arbitrary-coefficient extremality, Cantor-measure norm bounds, or any consequence for almost-everywhere convergence.
+Lacunary Riesz-product/Dirichlet kernel identities and carry transfer matrices are classical, but the checked Tang–Wu work treats singular Cantor-measure maximal convergence rather than Haar even moments, and Diaconis–Fulman/Holte treat probabilistic unconstrained carries with different transition probabilities. The exact universal first-carry 2-state closed form and λ+ were not identified as direct prior corollaries; classical general carry-automaton technology can generate it, so priority uncertainty is explicit.
 
-## Literature and limitations
+## value
 
-Tang and Wu, arXiv:2607.27796 (first version July 30, 2026); Diaconis and Fulman, arXiv:0806.3583; Jorgensen–Pedersen (1998); Holte (1997). The closest indexed research items and the generic digit-carry computational account are discussed in the structured audit. General carry transfer techniques are prior work, and equivalent old or unindexed evaluated formulas have not been excluded exhaustively. This is a self-review only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The threshold r=b is the intrinsic first nontrivial arithmetic collision for a binary digit spectral set. Closed all-base critical moment growth is a natural Riesz-product/lacunary energy invariant and quantitatively separates independent and carry-correlated moments; precise law may be used in Fourier norm estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
