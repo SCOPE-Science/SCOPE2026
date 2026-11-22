@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact rational update reduces the state to a nonnegative scalar \(y\), and its rational multiplier is uniformly less than one in modulus away from the minimizer for normalized base steps through two. At the critical step, an exact telescoping reciprocal difference gives the asymptotic without treating finite numerical tests as a proof. Above two, the antipodal orbit has an explicitly solved radius and a second-iterate multiplier strictly below one. All statements have explicit parameter ranges; non-antipodal cycles and supercritical global basins are not classified. The standalone code passed 84 exact-rational consistency checks.
+
+**Originality — PASS, qualified.** Full relevant portions of the 2026 stability-index paper and the 2024 NGN origin paper were examined and compared by implication. The older 2024 work observes bounded dynamics for a positive-floor quadratic, but that observation does not imply nonoptimal attracting cycles or the sharp threshold and critical rate. A close published exact NGN quadratic-spectrum theorem concerns a zero-minimum quadratic and explicitly excludes floors and multi-step dynamics. A second close theorem concerns per-step NGN-versus-proximal model indices with zero floor, not iteration orbits. Targeted database and literature queries found no exact covering statement; historical priority is not proven exhaustive.
+
+**Value — PASS.** The positive minimum is a natural condition for nonnegative learning objectives, and an actual objective-value offset changes the NGN algorithm. The result gives a sharp, explicit separation between nondivergence and convergence to an optimizer, including an attracting nonoptimal orbit, exact critical convergence rate and nonvanishing large-step loss gap. This is a substantive warning about interpreting stability-index robustness as large-step asymptotic optimization, rather than a trivial parameter substitution.
+
+The numerical verifier covers finite exact cases, while the proof supplies the infinite-parameter statements. Original source attribution, the absence of stochastic generalization, and residual historical-priority risk are disclosed. No outside independent mathematical validation has taken place.
+
+Self-review: passed. Independent audit: not yet performed.

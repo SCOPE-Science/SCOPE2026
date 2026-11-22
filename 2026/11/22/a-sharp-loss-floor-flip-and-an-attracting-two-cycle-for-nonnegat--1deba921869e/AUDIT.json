@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact positive-floor NGN update reduces to t_alpha(y)=(y+1-alpha)/(1+(1+alpha)y). Algebraic inequalities give global attraction exactly through alpha=2, exact reciprocal increments give n y_n ->1/8, and unique antipodal period-two branch y*=(alpha-2)/(alpha+2) has multiplier (1-8/alpha^2)^2<1 for alpha>2. All necessary cases and exceptional terminal trajectories are stated. The standalone checker passed 84 exact-rational consistency tests; analytical proofs carry the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zero-minimum SPD theorem covers only the one-step envelope and excludes positive floors and multi-step orbits",
+        "Radial index comparison assumes vanishing center loss and compares one-step model envelopes, not the evolution of actual NGN iterates"
+      ],
+      "reasoning": "No stronger inspected result covers this positive-offset dynamical threshold; the closest published mathematical results explicitly omit its assumptions or conclusions. Other optimizer two-cycle results are different algorithms and are not used to assert uniqueness.",
+      "searches": [
+        "non-negative Gauss-Newton step constant floor exact critical step alpha 2 cycling 2026",
+        "nonnegative Gauss Newton positive minimal loss quadratic attracting antipodal two cycle critical alpha lambda equal 2",
+        "2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5/RESULT.md",
+        "2026/10/12/SCOPE-square-root-curvature-orders-proximal-and-gauss-newton-stability--da4742ebe857/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.09842v1",
+      "arXiv:2407.04358v1",
+      "2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5",
+      "2026/10/12/SCOPE-square-root-curvature-orders-proximal-and-gauss-newton-stability--da4742ebe857"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schaipp--Gower--Taylor derive the model stability index delta=gamma ||g||^2/2 and its pointwise ordering relative to SGD",
+        "Orvieto--Xiao show that the positive-floor quadratic does not diverge at large base parameter",
+        "The new exact alpha=3 example cycles between ±sqrt(2/5), with loss gap 1/5 and multiplier 1/81"
+      ],
+      "reasoning": "Neither boundedness nor a small per-step model stability index logically forces convergence to the minimizer. The exact attracting cycle is compatible with both previous theorems and strictly strengthens the dynamical understanding; the earlier zero-floor one-step frontier cannot imply it by setting the loss offset to zero.",
+      "searches": [
+        "arXiv:2602.09842v1 sec. 4.3 and Appendix A",
+        "arXiv:2407.04358v1 sec. 2.2 and Figure 2",
+        "Step-Size Stability in Stochastic Optimization Schaipp Gower Taylor 2026 square root model deterministic loss shift oscillation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2024 paper explicitly describes non-divergence on a positive-floor scalar quadratic, not a two-cycle theorem",
+        "Full relevant source sections contain the NGN formula but no stated sharp flip or critical n^{-1/2} law"
+      ],
+      "reasoning": "An objective-shift or Levenberg--Marquardt reparameterization would cover the claim only if it implies the explicit antipodal cycle and its stability threshold. The inspected statement of boundedness is strictly weaker than asymptotic minimizer convergence or the new cycling classification.",
+      "searches": [
+        "nonnegative Gauss Newton NGN positive loss offset scalar quadratic stable period two bifurcation 2-cycle",
+        "NGN shift-invariant positive additive constant stepsize two cycle scalar quadratic",
+        "Orvieto Xiao NGN deterministic one dimensional positive offset quadratic period doubling root of x map",
+        "arXiv:2407.04358v1 sec. 2.2, Fig. 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top ranked hits contain no exact formula for the antipodal NGN cycle with a positive constant loss floor",
+        "Closest source-specific ID 2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5 explicitly restricts to zero-floor quadratics"
+      ],
+      "reasoning": "A matching constant or an algorithm name in the search list would not suffice. The exact formulas for the radius, threshold, critical rate and multiplier were compared to the actual close claim and not found in that source or the examined motivating papers; no claim of complete database coverage is made.",
+      "searches": [
+        "nonnegative Gauss Newton NGN positive loss offset scalar quadratic stable period two bifurcation 2-cycle",
+        "non-negative Gauss-Newton step constant floor exact critical step alpha 2 cycling 2026",
+        "nonnegative Gauss Newton positive minimal loss quadratic attracting antipodal two cycle critical alpha lambda equal 2",
+        "Orvieto Xiao NGN deterministic one dimensional positive offset quadratic period doubling root of x map"
+      ]
+    },
+    "rationale": "The new claim is a multi-iterate positive-loss-floor bifurcation, unlike the two inspected exact NGN one-step findings or the motivating 2026 per-step stability-index comparison; the 2024 source discusses boundedness but not the exact nonoptimal attracting two-cycle. Broad historical priority remains uncertain.",
+    "residual_risks": [
+      "Broad historical literature on one-dimensional Levenberg--Marquardt, rational iteration and period doubling might contain a mathematically equivalent result under different terminology.",
+      "This is a precise locally attracting antipodal cycle, not a global classification of every supercritical trajectory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact NGN update and index, but does not establish the positive-floor period-two bifurcation",
+        "evidence": [
+          "Eq. (12) gives gamma=alpha/(1+alpha ||g||²/(2f)); NGN stability index delta=gamma ||g||²/2",
+          "The stated comparison is one-step delta_NGN<=delta_SGD, not last-iterate convergence at every base step"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.09842",
+        "material_read": "Primary HTML abstract, introduction, NGN model Sec. 4.3 Lemma 4.2, and proof in Appendix A",
+        "method": "Full-text section reading and explicit equation/implication comparison",
+        "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+        "trigger": "2026 motivating model and stability-index statement"
+      },
+      {
+        "assessment": "States boundedness for positive-floor quadratic, not an explicit attracting nonoptimal two-cycle, its sharp threshold, or critical rate",
+        "evidence": [
+          "Figure 2 uses f(x)=lambda(x-x*)²/2+f* with f*>0",
+          "Sec. 2.2 calls the property non-divergence, not minimizer convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.04358v1",
+        "material_read": "Primary HTML sections 1.2, 2.2 including Figure 2 and equations, 4.1 and relevant convergence discussion",
+        "method": "Full-text relevant-section reading for same object and exact parameter role",
+        "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+        "trigger": "Original algorithm and explicitly matching positive-floor scalar quadratic toy example"
+      },
+      {
+        "assessment": "Zero-minimum quadratic and one-step objective envelope; expressly excludes positive objective floors and trajectories",
+        "evidence": [
+          "f(x)=x^T Hx/2 with f(0)=0",
+          "Limitations expressly do not cover positive objective floors or multi-step trajectories"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, prior comparison and limitations",
+        "method": "Repository full-text read; compare floor, objective, and time horizon",
+        "title": "Two sharp regularization transitions for nonnegative Gauss--Newton steps on SPD quadratics",
+        "trigger": "Closest same-algorithm published claim"
+      },
+      {
+        "assessment": "One-step comparison for f(0)=0; does not address positive floors or multistep two-cycles",
+        "evidence": [
+          "Assumes phi(0)=0 and compares delta_NGN versus delta_SPP",
+          "Limitations explicitly exclude nonzero loss floors and multi-step dynamics"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-square-root-curvature-orders-proximal-and-gauss-newton-stability--da4742ebe857",
+        "material_read": "Complete RESULT.md including theorem, proof and limitations",
+        "method": "Repository full-text read and compare actual-iterate dynamics versus model envelopes",
+        "title": "Square-root curvature orders proximal and Gauss--Newton stability on radial losses",
+        "trigger": "Related one-step NGN stability-index comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1deba921-869e-4620-b65c-c43bf9772f19",
+  "value": {
+    "rationale": "A positive minimal loss is natural in noninterpolating objectives and changes NGN because it uses actual loss values. The result precisely separates boundedness and favorable model stability indices from actual convergence to a minimizer, with a sharp stability threshold, algebraic critical rate and nonzero asymptotic loss gap at attracting cycles. These directly inform interpretation of a 2026 robustness framework, not a routine algebraic restatement.",
+    "status": "PASS"
+  }
+}
