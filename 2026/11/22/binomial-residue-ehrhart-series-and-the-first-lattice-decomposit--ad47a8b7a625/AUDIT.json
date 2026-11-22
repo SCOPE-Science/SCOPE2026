@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every odd n and integer w>=2, the inverse of A=I+wS is an alternating polynomial in S divided by 1+w^n. Its coordinate numerators for b in [1,w]^n have sharp integer bounds 1 and w^n, forcing 0<alpha<1. These w^n vectors plus origin exhaust all det(A) fractional representatives. The affine lattice cuts them by sum(b) mod (w+1), giving the exact complete numerator and normalized index. At q=ceil(n/(w+1))>=2 the degree-one coefficient vanishes; removing integer barycentric parts proves all lower-degree decompositions, and the first positive residue representative yields a nondecomposable integer point at q. Exact standard-library enumeration verified 3686 representatives and independent lattice counts at 32 parameter/dilation pairs, plus symmetry and volume.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biermann–Lin–O’Keefe Proposition 3.10 implies the empty-simplex range w+1<n, and Theorem 4.5 asserts non-IDP of naturally oriented cycles for n>=4.",
+        "Doolittle et al. §4 states a general determinant-to-affine-volume identity for circulant simplices but no all-degree numerator formula for this generator."
+      ],
+      "reasoning": "The new h*-formula implies the known emptiness and nonnormality, not vice versa. The degree-q obstruction sharpens existence of some hole to a full range m<q of no failures. A general fundamental-parallelepiped method exists, but its specific positive-coordinate classification and residue counting are the nontrivial new evaluation.",
+      "searches": [
+        "weighted oriented graph edge polytope integer decomposition Ehrhart normality trees cycles",
+        "first nonnormal dilation first hole degree ceil(n/(w+1)) naturally oriented odd cycle edge polytope",
+        "https://arxiv.org/pdf/2611.17047",
+        "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/empty-simplices-of-large-width/08EB9BD3CDF8AE894DF9B9491623CE28"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2611.17047",
+      "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/empty-simplices-of-large-width/08EB9BD3CDF8AE894DF9B9491623CE28",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ehrhart-polynomials-of-oriented-cycle-root-polytopes--e32575b66377",
+      "https://arxiv.org/abs/2611.17047"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Biermann–Lin–O’Keefe Theorem 4.5 supplies failure of IDP without minimum degree, and Proposition 3.10 supplies degree-one point classification without Ehrhart series.",
+        "Earlier oriented-cycle root-polytope classification depends on directional counts rather than uniform sink weight w; Doolittle et al. §4 gives a broad circulant construction with a different generating vector."
+      ],
+      "reasoning": "The exact all-grade count and threshold q are logically stronger/different conclusions not deduced from the published antecedents alone; the proof explicitly obtains them from sharp bounds for the inverse circulant matrix. No claim is made that the general enumerative technique is new.",
+      "searches": [
+        "first nonnormal dilation first hole degree ceil(n/(w+1)) naturally oriented odd cycle edge polytope",
+        "binomial residue formula exact Ehrhart numerator naturally oriented odd cycle uniform vertex weights w lattice simplex",
+        "https://arxiv.org/pdf/2611.17047",
+        "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/empty-simplices-of-large-width/08EB9BD3CDF8AE894DF9B9491623CE28",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ehrhart-polynomials-of-oriented-cycle-root-polytopes--e32575b66377"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biermann–Lin–O’Keefe Definition 2.5 and Proposition 3.10 describe uniform weighted cycle incidence columns.",
+        "Doolittle–Katthän–Nill–Santos §4.1 defines general circulant simplices; their studied generator (1,m,0,...,0,-m) differs from (1,w,0,...,0)."
+      ],
+      "reasoning": "Searched the aliases edge simplex, circulant simplex, exponent-vector simplex, Ehrhart h* and modular bounded compositions. General cyclic simplex terminology covers the object as a class, but the inspected specific formulas do not state the all-weight coefficient sequence and sharp graded obstruction.",
+      "searches": [
+        "uniform weighted naturally oriented cycle edge polytope Ehrhart h star polynomial determinant circulant simplex",
+        "binomial residue formula exact Ehrhart numerator naturally oriented odd cycle uniform vertex weights w lattice simplex",
+        "circulant simplex convex hull e_i + w e_(i+1) h-star coefficient modular congruence",
+        "https://arxiv.org/pdf/2611.17047",
+        "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/empty-simplices-of-large-width/08EB9BD3CDF8AE894DF9B9491623CE28"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest ranked mathematical record is Exact Ehrhart polynomials of oriented cycle root polytopes, published 2026-10-04. Its summary states oriented root simplex normalized volume |p-q|, unlike (w^n+1)/(w+1).",
+        "Direct literature searches for weighted oriented cycle Ehrhart h* and cyclic simplex binomial-residue counts did not return a matching exact numerical coefficient table."
+      ],
+      "reasoning": "The closest indexed result is not the same family under a lattice/unimodular equivalence: its signed root vectors and determinant behavior differ from these all-positive weighted edge vectors. A negative database search is only an access-limited priority check, not proof of uniqueness.",
+      "searches": [
+        "weighted oriented graph edge polytope integer decomposition Ehrhart normality trees cycles",
+        "uniform weighted naturally oriented cycle edge polytope Ehrhart h star polynomial determinant circulant simplex",
+        "Ehrhart roots h star naturally oriented weighted cycle incidence polytope coefficient formula",
+        "binomial residue formula exact Ehrhart numerator naturally oriented odd cycle uniform vertex weights w lattice simplex",
+        "circulant simplex convex hull e_i + w e_(i+1) h-star coefficient modular congruence",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ehrhart-polynomials-of-oriented-cycle-root-polytopes--e32575b66377"
+      ]
+    },
+    "rationale": "Directly relevant 2026 first public source establishes nonvertex points (Proposition 3.10) and eventual non-IDP (Theorem 4.5), but the inspected mathematical statements and full searchable article did not provide the binomial-residue Ehrhart numerator or the exact first hole degree. The related circulant simplex work studies a differently generated family; a published Ehrhart result for oriented cycle root polytopes uses edge differences and has different volume dependence. Targeted record and literature queries found no equivalent; priority remains provisional.",
+    "residual_risks": [
+      "An unindexed or unpublished enumeration of the same weighted circulant simplex could contain equivalent coefficients.",
+      "The general circulant-simplex literature may encode the formula through an unexplored unimodular change of basis; available relevant sections were compared, not every historic paper.",
+      "A completely general cyclic-simplex formula could imply the result after nontrivial specialization; no direct such implication was found in searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers degree-one lattice points and general IDP failure, does not state the binomial-residue h* polynomial or exact earliest failing degree",
+        "evidence": [
+          "arXiv:2611.17047v1, first posted 2026-11-12, primary MSC 52B20, Proposition 3.10, Theorem 4.5",
+          "https://arxiv.org/abs/2611.17047"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.17047",
+        "material_read": "28-page arXiv v1 PDF accessed with searchable extracted text; title/MSC, definitions and graph exponent matrices, Proposition 3.10 on page 7, Theorem 4.5 on page 10, and surrounding proof were materially read; supporting PDF page images visually checked",
+        "method": "Full-text targeted reading and mathematical implication comparison; search of article for Ehrhart",
+        "title": "Integer Decomposition Property of Edge Polytopes of Weighted Oriented Graphs",
+        "trigger": "Same vertex-weighted naturally oriented cycle and same non-IDP question"
+      },
+      {
+        "assessment": "Relevant broad cyclic/circulant simplex machinery, but main explicit §4 generator is (1,m,0,...,0,-m), not the all-positive weighted cycle generator (1,w,0,...,0). No exact same-family h* or first failure theorem found in material read",
+        "evidence": [
+          "§4.1 Definition 4.1 and equation (1): general cyclic coordinate generators and volume determinant, followed by family S(d,m)",
+          "§3 on cyclotomic simplices"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/empty-simplices-of-large-width/08EB9BD3CDF8AE894DF9B9491623CE28",
+        "material_read": "Open-access full article available in readable HTML; §3 on cyclotomic simplices and §4.1 on circulant simplices, generators and volume were read",
+        "method": "Inspect relevant primary sections and compare defining generators and conclusions",
+        "title": "Empty simplices of large width",
+        "trigger": "Potentially dominating cyclic and circulant lattice simplex formulas"
+      },
+      {
+        "assessment": "Not the same signed-vs-positive edge-vector polytope; full text uninspected limits claims",
+        "evidence": [
+          "Published record summary: oriented cycle root polytopes have Ehrhart data controlled by forward/backward edge counts and normalized volume |p-q|"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ehrhart-polynomials-of-oriented-cycle-root-polytopes--e32575b66377",
+        "material_read": "Published title and record summary read; underlying full proof was not inspected",
+        "method": "Semantic search of published mathematical records, then compare summary claim, generators and normalized-volume dependence",
+        "title": "Exact Ehrhart polynomials of oriented cycle root polytopes",
+        "trigger": "Closest indexed Ehrhart result mentioning oriented cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad47a8b7-a625-4848-9708-49efb047dfd3",
+  "value": {
+    "rationale": "The full h*-polynomial is an intrinsic and motivated invariant of the natural family singled out by a current weighted graph IDP classification. The exact first failure determines all preceding normality degrees, a genuine strengthening of the known binary nonnormality statement, and fixed weight two yields an unbounded delayed failure as dimension grows. The family and grading are natural, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
