@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Motzkin support uses a specified two-bit encoding and an unnormalized Walsh transform on exactly 1,048,576 frequencies. A full recursive excursion enumeration and an independent position-dependent three-step height recurrence agree on every signed character sum. The 302-level multiplier certificate gives exactly 67,312 zeros and 981,264 nonzero modes; the 21-row zero-weight census proves 48 minimal weight-four cancellations and none at smaller weights. The second Walsh transform gives the complete projection-kernel histogram, an absolute sum of 52,163,296 and the stated sharp fraction. Both Parseval identities pass. Translation averaging separately proves that the calculated canonical projection norm is optimal among all projections. The parity argument for lengths four through nine depends only on the explicitly checked scalar Motzkin counts.
+PASS
 
-## Originality: PASS, bounded comparison
+A fresh independent full 2^20 Walsh transform of the explicitly recursively enumerated 2188 length-10 nonnegative Motzkin excursions yielded exactly 67312 zero multipliers, smallest nonzero magnitude 2 and 48 weight-four zeros. A second Walsh transform of the nonzero-support indicator yielded kernel absolute sum 52163296 and square sum 1028929880064, giving projection norm 52163296/1048576 = 1630103/32768. The inspected C++17 code independently implements signed-height transfer recurrence at all 1048576 frequencies and checks three CSV certificates. Odd Motzkin counts M_4..M_9 force no zeros, whereas n=2,3 explicit witnesses give singularity. Translation-averaging arbitrary projection preserves its range and cannot increase endpoint norm, proving unrestricted optimality. All numeric claims are finite n=10; no infinite spectrum claim.
 
-Oste–Van der Jeugt (2015) gives height-weighted Motzkin enumerators and recurrence methods but not an evaluated position-coordinate \(\pm1\)-character census. Krattenthaler–Müller (arXiv first posted 2016) concerns scalar Motzkin numbers modulo powers of two: it implies an easy *nonvanishing* criterion when the number of paths is odd, not the exact 67,312 zeros when the count is even, the 48 degree-four cancellations, or the sharp projection norm. Literature and mathematical-record searches on time-indexed signed Motzkin excursions, Walsh spectra, Jacobi–Rogers functions, and the exact values found no asserted equivalent. Those searches do not establish exhaustive historical priority. No prior special case or general transfer method is misrepresented as new.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The ten-step case is the first potential singularity after a six-length invertible interval, making it a non-arbitrary first reentry. Complete nullity and minimal balanced-character degree are natural Fourier/recoverability invariants not determined by the Motzkin number or its parity. The exact endpoint projection norm quantifies the least possible \(\ell^1\)- and \(\ell^\infty\)-recovery instability even without restricting the projection. The finite scope is explicit and reproducible, without imposing a paper-sized downstream theorem requirement.
+Motzkin counting, Jacobi–Rogers recurrences, and 2-adic scalar parity are classical. The exact full time-coordinate Walsh nullity at length ten, minimum-zero degree, and Fourier range projection constant are additional character-sensitive data not implied by scalar Motzkin count or traditional height-weighted generating polynomials. No equivalent table identified in bounded Resultary and published searches.
 
-## Closest literature and residual limits
+## value
 
-The closest classical papers establish weighted enumeration and scalar modular arithmetic rather than the position-indexed Fourier spectrum. An unrelated mathematical-record result studies complete signed spectra for perfect matchings, not Motzkin excursions. Full historical priority and independent mathematical verification remain unestablished. No higher-length spectral classification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural embedding of Motzkin excursions into Boolean incidence space yields a first singular return after a six-length invertible interval and an exact optimal projection constant on a 1,048,576-dimensional convolution operator. The precise weight-four first obstruction and recoverability norm are meaningful finite harmonic-analytic invariants, even without an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

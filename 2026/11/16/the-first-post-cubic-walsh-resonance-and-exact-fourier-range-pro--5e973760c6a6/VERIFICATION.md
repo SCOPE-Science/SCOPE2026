@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Compile `verify_motzkin10.cpp` with standard C++17 and run `./verify_motzkin10 --verify` in the directory containing its three complete certificates. The program enumerates all ten-step Motzkin excursions using the height boundary, constructs their exact Boolean support, and computes the 20-bit Walsh spectrum by integer butterflies. An independent per-frequency signed-height recurrence gives the same 1,048,576 values. Certificates `spectrum.csv`, `projection_kernel.csv`, and `zeros_by_weight.csv` are regenerated in memory and byte-compared against the packaged originals. The checker confirms 2,188 distinct paths, 67,312 zero coefficients, rank 981,264, 48 minimum-weight-four zeros, first minimum-weight mask 17924, and minimum nonzero multiplier magnitude 2. The two computed Parseval totals are 2,294,284,288 and 1,028,929,880,064. The support-projection kernel has absolute coefficient sum 52,163,296, yielding norm 1,630,103/32,768.
+## correctness
 
-The exact boundary at lengths four through nine follows from the odd Motzkin counts 9, 21, 51, 127, 323, 835. The finite enumeration is exhaustive for the stated domain; no claim about all higher lengths follows from this computation. The unrestricted projection optimum follows separately by translation averaging. This verification is not independent external mathematical validation.
+PASS
+
+A fresh independent full 2^20 Walsh transform of the explicitly recursively enumerated 2188 length-10 nonnegative Motzkin excursions yielded exactly 67312 zero multipliers, smallest nonzero magnitude 2 and 48 weight-four zeros. A second Walsh transform of the nonzero-support indicator yielded kernel absolute sum 52163296 and square sum 1028929880064, giving projection norm 52163296/1048576 = 1630103/32768. The inspected C++17 code independently implements signed-height transfer recurrence at all 1048576 frequencies and checks three CSV certificates. Odd Motzkin counts M_4..M_9 force no zeros, whereas n=2,3 explicit witnesses give singularity. Translation-averaging arbitrary projection preserves its range and cannot increase endpoint norm, proving unrestricted optimality. All numeric claims are finite n=10; no infinite spectrum claim.
+
+## originality
+
+PASS
+
+Motzkin counting, Jacobi–Rogers recurrences, and 2-adic scalar parity are classical. The exact full time-coordinate Walsh nullity at length ten, minimum-zero degree, and Fourier range projection constant are additional character-sensitive data not implied by scalar Motzkin count or traditional height-weighted generating polynomials. No equivalent table identified in bounded Resultary and published searches.
+
+## value
+
+PASS
+
+A natural embedding of Motzkin excursions into Boolean incidence space yields a first singular return after a six-length invertible interval and an exact optimal projection constant on a 1,048,576-dimensional convolution operator. The precise weight-four first obstruction and recoverability norm are meaningful finite harmonic-analytic invariants, even without an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
