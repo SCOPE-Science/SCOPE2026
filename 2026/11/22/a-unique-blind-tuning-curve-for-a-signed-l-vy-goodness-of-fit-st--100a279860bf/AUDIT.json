@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The Gamma Laplace law and inverse-moment scale limit give exactly the stated F_k(a). Its integrand has one sign switch at t=8(k-1); e^{8(k-1)a}F_k(a) has strictly negative derivative. For 2<k<=5/2 the zero-damping integral diverges positively, and high damping yields a negative Watson-lemma asymptotic, forcing one simple root. A bounded-kernel fitted-parameter V-statistic expansion gives an L2 influence function because k>2. At the zero, its fitted-scale derivative is (a/lambda*) F_k'(a), nonzero, and the singular 1/x score prevents cancellation of the bounded first projection; hence a positive finite CLT variance and nonconsistent two-sided testing. Actual verify.py completed 33 numerical assertions, supplementary only. Risks: no independent checking and the CLT uses fixed a, shape, scale.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Original arXiv:2308.00460 Remark 1 on p.4 asserts consistency for supremum J_n,a, not signed R_n,a.",
+        "Kumari–Bhati, doi:10.1080/02664763.2023.2251098, proposes an estimator-ratio statistic, not the integral in Eq. (4)."
+      ],
+      "reasoning": "Supremum consistency is not a stronger result covering signed-integral consistency or blind cancellation. Different estimator-ratio statistics do not entail the exact signed-kernel integral root. Generic V-statistic CLTs are known ingredients, not an implication of a unique Gamma zero.",
+      "searches": [
+        "Stein characterization Levy signed R statistic nonuniform Gamma alternatives zero power fixed tuning parameter",
+        "Lévy distribution goodness fit signed integrated Laplace transform inconsistency gamma"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/02331888.2023.2238236",
+      "arXiv:2308.00460v1",
+      "doi:10.1080/02664763.2023.2251098",
+      "doi:10.1111/stan.12362"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The signed test is defined in primary source Eq. (4); its Theorem 2 is under the Lévy null, and Remark 1 on p.4 treats only the supremum test's fixed-alternative consistency.",
+        "Primary study's fixed Gamma simulation uses shape 3 and parameter values at least 0.2; the new theorem uses 2<k<=5/2 and uniquely determined a_k."
+      ],
+      "reasoning": "Neither a null CLT nor a finite Gamma simulation implies the precise fixed-Gamma zero-population signal, unique tuning curve, or alternative nondegenerate Gaussian law. The conventional V-statistic projection technique is acknowledged as a standard tool, not claimed as a novelty.",
+      "searches": [
+        "Gamma shape k Laplace stability test integrated transform sign crossing t = 8(k-1) unique a root",
+        "Stein characterization Levy signed R statistic nonuniform Gamma alternatives zero power fixed tuning parameter",
+        "Characterization-based approach construction goodness-of-fit test Lévy distribution Theorem 2 Remark 1 Gamma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original arXiv:2308.00460 Eq. (4) defines an integral of Laplace transforms; its Theorem 2 is a null CLT, not a fixed-Gamma zero-discrepancy theorem.",
+        "The root here is equivalent to one sign-balanced weighted Laplace integral vanishing, not equality of the two Laplace transforms pointwise."
+      ],
+      "reasoning": "The original characteristic-law equality requires every Laplace argument; one integrated signed cancellation does not imply it. The Gamma transform difference is nonzero except at a single argument, even when its weighted integral is zero.",
+      "searches": [
+        "Milošević Lukić Levy goodness-of-fit signed integrated Laplace statistic R_n,a Gamma alternative exact zero blind tuning unique weight",
+        "Gamma shape k Laplace stability test integrated transform sign crossing t = 8(k-1) unique a root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary paper arXiv:2308.00460 Table 3 reports finite-n powers at a=0.2,0.5,1,2,5 with Gamma(3,2), while the present root is k=9/4 and a approximately 0.037549.",
+        "Numerical integral root for k=9/4 was computed by an independent SciPy quadrature script with residual <1e-12."
+      ],
+      "reasoning": "The preexisting simulation table does not tabulate this shape/weight, prove the global sign law, or imply the root/CLT statement; no exact covering table was located in the searches.",
+      "searches": [
+        "Milošević Lukić Levy goodness-of-fit signed integrated Laplace statistic R_n,a Gamma alternative exact zero blind tuning unique weight",
+        "site:arxiv.org 2308.00460 Gamma R0.2 R0.5 R1 simulations"
+      ]
+    },
+    "rationale": "The source defines R and proves a null CLT but reports only selected simulation weights and shape-3 Gamma power; consistency under fixed alternatives is established for its different supremum J statistic. The unique Gamma zero-integral tuning, simple-root theorem and nondegenerate fixed-alternative CLT do not follow from the source claims. Other Lévy estimator-ratio tests use different statistics. Searches of database summaries and primary literature did not find direct coverage, with priority uncertainty acknowledged.",
+    "residual_risks": [
+      "Generic signed-integrated Laplace discrepancy cancellation principles may cover some aspects in older uninspected literature.",
+      "Related 2023 and 2024 scale-ratio Lévy test articles were inspected only at abstract level; no full-document noncoverage claim made.",
+      "Search and partial historical discovery do not mathematically certify global originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as to explicit unique Gamma blind tuning and alternative centered CLT; defines the same test and known null CLT",
+        "evidence": [
+          "Eq. (4) has signed integral with t^(3/2)e^-at, Eq. (5) uses inverse-moment scale fit",
+          "Remark 1 identifies consistency of supremum J rather than signed integral R",
+          "Table 3 reports Gamma(3,2) at a=0.2,0.5,1,2,5; Appendix A derives null law"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.00460",
+        "material_read": "Title, abstract, sections 2–5, Eq. (4), Remark 1, Theorem 2, Gamma power table, Appendix A proof of Theorem 2, and supporting appendix references",
+        "method": "Public full-text PDF inspected and equation page visually checked",
+        "title": "Characterization-based approach for construction of goodness-of-fit test for Lévy distribution",
+        "trigger": "Identical published signed Laplace statistic and fitted scale; strongest possible coverage source"
+      },
+      {
+        "assessment": "DIFFERENT_STATISTIC (two-scale-estimator ratio); no explicit implication detected in available material",
+        "evidence": [
+          "Publisher abstract says the test confronts two scale estimators, while the primary statistic is a signed Laplace integral"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/02664763.2023.2251098",
+        "material_read": "Publisher metadata and abstract",
+        "method": "Abstract-level literature comparison; full paper not inspected",
+        "title": "Goodness-of-fit test for the one-sided Lévy distribution",
+        "trigger": "Earlier publication on the same null family and alternative Gamma distributions"
+      },
+      {
+        "assessment": "DIFFERENT_STATISTIC (ratio of newly proposed scale estimators); limited material leaves priority risk",
+        "evidence": [
+          "Abstract explicitly identifies ratio-of-estimators test construction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/stan.12362",
+        "material_read": "Publisher metadata and abstract",
+        "method": "Abstract-level comparison; full paper not inspected",
+        "title": "New classes of goodness-of-fit tests for the one-sided Lévy distribution",
+        "trigger": "2024 later related Lévy fit tests"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "100a2798-60bf-4dec-8abf-ff863d39b7ec",
+  "value": {
+    "rationale": "The location and uniqueness of a complete signed-test inconsistency curve for a natural continuum of Gamma shape alternatives expose a real boundary of using an integrated signed discrepancy; the Gamma shape range is structurally pinned by the heavy-tail integrability of the Laplace integrand and CLT integrability of the inverse-moment fitting score. The result informs safe tuning interpretation, although the blind weights are outside the simulation grid and practical finite-n performance is not claimed.",
+    "status": "PASS"
+  }
+}
