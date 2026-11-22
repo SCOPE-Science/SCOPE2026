@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The explicit map F(i,j)=[pNi+qMj] mod MN has image the multiples of g and fibers of size g. Each chosen interval of length B is invariant under the h and v steps, whose predecessor images partition it into [0,pN) and [pN,B); the complement consists of fixed d cells. This establishes bijection. Exactly sqM=MV vertical choices and spN=NH horizontal choices, with conservation giving the line counts. Separately choosing s of floor(MN/B) disjoint invariant bands and shifting a proper cyclic band establish the binomial and MN/g lower bounds with distinct active sets. The parity spin-sector statement follows from the published reconstruction theorem. All 60438 permissible cases with period pairs 3..25 and 16900 exact determinant coefficients with period pairs 3..15 passed independent finite checks; these tests do not prove the all-size claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kenyon–Okounkov–Sheffield, Annals of Mathematics 163 (2006), Proposition 3.2: every point of the Newton polygon is the slope of a translation-invariant measure, which may be a mixture of finite matchings.",
+        "Bao–He–Zahabi, Communications in Mathematical Physics 394 (2022), Sec. 2.2.1: lattice points of toric-diagram Newton polygons are broadly associated with perfect-matching GLSM fields.",
+        "Mészáros et al., Selecta Mathematica 32 (2026), Sec. 3, study the Newton polytope of a planar graph face polynomial, an edge/face-incidence polytope rather than a two-period toroidal winding polynomial."
+      ],
+      "reasoning": "The 2006 result is about invariant-measure average slope, not a prescribed exact sector on fixed M by N periods, so does not yield the algorithm or finite multiplicity lower bounds. The 2022 article poses the strongest known broad existential coverage risk and is explicitly acknowledged: no originality is claimed for qualitative saturation alone. The 2026 face-polynomial result concerns a different polynomial and retains many edge/face coordinates rather than the two winding coordinates. None of these inspected statements dominates the quantitative constructive package.",
+      "searches": [
+        "\"Dimers and amoebae\" \"Proposition 3.2\" slopes",
+        "\"Mahler Measure for a Quiver Symphony\" \"Every lattice point\"",
+        "honeycomb torus dimer perfect matching all interior winding slope lattice points nonvanishing coefficients characteristic polynomial saturation construction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.00154",
+      "doi:10.4007/annals.2006.163.1019",
+      "doi:10.1007/s00220-022-04404-y",
+      "doi:10.1007/s00029-026-01146-w"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The initiating 2026 paper supplies the local site permutation and exact spin-holonomy rule; these are used, not claimed as new.",
+        "Kenyon–Okounkov–Sheffield, Prop. 3.2, gives invariant measures of all real slopes via convex combinations, not finite integer-sector single configurations.",
+        "Bao–He–Zahabi, Eq. (2.18) and the Sec. 2.2.1 GLSM assertion provide broad prior lattice-point and matching association but not the reported explicit linear-time finite formula or binomial and orbit family counts."
+      ],
+      "reasoning": "The new construction is parameter-specific (all M,N>=3 and all nonnegative feasible H,V), uses an integer residue homomorphism and band predecessors to give an actual matching, and yields quantitatively many *different* matchings. A generic height-polytope statement cannot certify either quantitative bound. Full-scale equivalence from a previously published explicit construction remains a residual priority concern.",
+      "searches": [
+        "\"matching slope\" \"periodic spins\" parity rectangular torus",
+        "\"torus\" \"cyclic bands\" \"perfect matching\" constructive",
+        "triangular lattice Ising zero field ground state feasible orientation densities parity rectangular torus constructive",
+        "phase band residue modulo MN periodic lozenge tiling winding support dimer matching nonvanishing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiang and Hou arXiv:2611.00154, Eq. (51), identifies each slope count with an exact signed determinant coefficient and App. A.3 explicitly distinguishes boundary exact counts from unproved interior nonvanishing.",
+        "The explicit band permutation can be restated as a matching realization for every integer lattice point in the finite toric height polygon."
+      ],
+      "reasoning": "The coefficient positivity, existence of matchings at each finite integer slope, and parity-resolved spin realizability are equivalent after the published no-cancellation sign and reconstruction results. General qualitative realizability may be implicit in toric-dimer literature. The submitted difference is a direct per-cell construction together with provable explicit sector multiplicity bounds; these are not implied merely by convex support of averaged measures.",
+      "searches": [
+        "\"honeycomb torus\" \"perfect matchings\" \"every lattice point\"",
+        "\"periodic lozenge tilings\" \"all slopes\"",
+        "toroidal honeycomb permutation matchings winding homology support exact nonzero all lattice points",
+        "interior nonvanishing slope counts periodic honeycomb dimers toroidal dimer winding every lattice point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jiang and Hou, arXiv:2611.00154, Appendix A.3 Eqs. (49)–(54) provide the exact integer determinant coefficient recurrence, but the source explicitly says there is no proof of universal strictly interior nonvanishing.",
+        "The independent integer recurrence reproduces exact sector counts for 3<=M,N<=15, and the new construction and both lower bounds hold for all admissible M,N by a separate argument."
+      ],
+      "reasoning": "A table or exact recurrence for computing a given coefficient is not a structural finite algorithm for choosing a perfect matching at a prescribed slope nor a closed lower bound for the entire infinite rectangular family. No covering precomputed table of the modular-band selector or guaranteed witnesses was identified.",
+      "searches": [
+        "\"Weak-coupling selection and finite-torus entropy\" \"interior nonvanishing\"",
+        "periodic triangular Ising antiferromagnet honeycomb dimer matching slope support NH+MV MN all interior integer pairs constructive",
+        "Jiang Hou Weak-coupling selection and finite-torus entropy in the triangular Ising antiferromagnet matching slope"
+      ]
+    },
+    "rationale": "The concrete claimed advance is the explicit arbitrary-rectangular-period modular-band construction, its proved sectorwise binomial and translation-orbit multiplicity bounds, and the constructive parity-resolved spin realization. Jiang and Hou provide the conservation rule, determinant enumeration and boundary counts, while identifying strict-interior coefficient nonvanishing as outside their proof. Classical theory gives mean slope polytope and generic toric lattice-point/matching association; bare existential saturation is NOT treated as independently novel. Neither the inspected primary mathematical statements nor nearby result collections present this precise finite-size construction or its two multiplicity lower bounds. Priority risk remains for an implicit older lattice-path construction.",
+    "residual_risks": [
+      "General toric-dimer lattice-point association may imply bare support (which is explicitly not asserted as priority novelty); an earlier direct rational-slope or Christoffel-word construction may implicitly duplicate the band algorithm.",
+      "The two lower bounds are not sharp in general and may follow from a stronger previously published multiplicity theorem that was not identified.",
+      "Independent literature priority and scientific audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies definitions, complete coefficient enumeration and boundary counts; expressly leaves interior nonvanishing as an additional coefficient question; does not state modular construction or both multiplicity bounds.",
+        "evidence": [
+          "arXiv:2611.00154v1, first submitted 2026-10-30; Appendix A.3 ending: no proof every strictly interior lattice point is occupied."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.00154v1",
+        "material_read": "Section II, permutation Eq. (5), linewise occupation conservation and spin holonomy Eq. (7), Proposition 1, determinant Eq. (8), Appendix A.2–A.3, especially Eqs. (48)–(54) and the final two paragraphs",
+        "method": "Read accessible full HTML mathematical sections and the dated arXiv submission record",
+        "title": "Weak-coupling selection and finite-torus entropy in the triangular Ising antiferromagnet",
+        "trigger": "Initiating 2026 finite-torus honeycomb dimer paper with matching-slope coefficient count"
+      },
+      {
+        "assessment": "Classifies possible average slopes of translation-invariant measures and develops spectral theory, but the cited Proposition 3.2 explicitly permits convex combinations of matchings; no fixed-rectangle residue-band construction or sectorwise finite witness bounds.",
+        "evidence": [
+          "Annals of Mathematics 163 (2006), p. 1030, Proposition 3.2 and its proof."
+        ],
+        "identifier_or_url": "https://doi.org/10.4007/annals.2006.163.1019",
+        "material_read": "Sections 2.1–2.2, 3.1.3–3.1.4, Proposition 3.2 and proof, Theorem 3.3; first order definitions and matching/slope distinction",
+        "method": "Read lawful full open-access PDF parsed mathematical text and visually inspected the page containing Proposition 3.2",
+        "title": "Dimers and amoebae",
+        "trigger": "Potential broad theorem of full support for finite torus matching slope"
+      },
+      {
+        "assessment": "Broadly states lattice-point association to toric perfect-matching fields, an explicit priority risk for existential saturation. Does not supply the particular constructive finite-period band rule or quantitative sector bounds claimed here.",
+        "evidence": [
+          "Communications in Mathematical Physics 394 (2022), Sec. 2.2.1: perfect matchings associated to Newton polygon lattice points and Kasteleyn monomials."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00220-022-04404-y",
+        "material_read": "Section 2.2 dimer model, definitions of toric Newton polynomial, Sec. 2.2.1 equations (2.16)–(2.19), and adjacent explanatory paragraphs",
+        "method": "Read open-access publisher full HTML mathematical sections",
+        "title": "Mahler Measure for a Quiver Symphony",
+        "trigger": "Strong possible older coverage of every lattice-point perfect matching"
+      },
+      {
+        "assessment": "Treats planar graph face-height polytopes affinely equivalent to incidence matching polytopes, not the coarse two-winding torus sector projection or its quantitative band witnesses.",
+        "evidence": [
+          "Selecta Mathematica 32 (2026), Sec. 3 and Corollary 6.11."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00029-026-01146-w",
+        "material_read": "Sections 2–3 on connected bipartite plane graphs and face-polynomial Newton polytope, including Definition 3.2, and Corollary 6.11",
+        "method": "Read open-access publisher full HTML sections",
+        "title": "Dimer face polynomials in knot theory and cluster algebras",
+        "trigger": "Possible general stronger saturation of matching Newton polytopes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f2d5d3d2-15a2-4aad-90c3-1df7eff25334",
+  "value": {
+    "rationale": "The exact finite-size sector-support question is explicitly left outside the 2026 triggering paper despite its determinant formula. A constructive O(MN) certificate for any prescribed physical slope, independent of coefficient evaluation, is useful for generating finite torus ground states and testing sector-resolved enumerations; two nontrivial multiplicity bounds guarantee distinct realizations and quantify at least a subfamily of sector degeneracy. The work makes a natural, general classification for all rectangular periods without proposing an arbitrary slice, and explicitly limits its conclusions to the zero-temperature nearest-neighbor model.",
+    "status": "PASS"
+  }
+}
