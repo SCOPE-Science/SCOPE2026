@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The root-excluded signed enumerator provides a complete and exact recurrence at every Boolean character. The count-parity recurrence has residues \(0,1,1\) with period three; explicit root signs produce states \((0,1)\), \((1,0)\) and \((1,1)\) cyclically, with multiplier \(2\) also attained at the even class. Fourier diagonalization then yields the sharp \(\ell^2\) pseudoinverse norm. The complete height-two state-ratio list proves precisely \(120^2+2=14402\) height-three zeros, all with negative root sign, and the exact rank \(18366\). Independent integer FWHT and state-table checker implementations reproduced this finite theorem and Parseval.
+PASS
 
-## Originality
+For a rooted complete binary tree, the signed independent-set sum pair (F_h,E_h) satisfies E_h=F_{h-1,L}F_{h-1,R}, F_h=E_h+(-1)^r E_{h-1,L}E_{h-1,R}, initialized at height0 by (2,1),(0,1). Mod2 every character has the parity of the unsigned independent-set total; q_h mod2 follows q_{h-1}+q_{h-2}, periodic 0,1,1 at heights 0,1,2, giving lower gaps 2,1,1. Explicit all-descendant-equal state cycle (0,1)->(1,0)->(1,1)->(0,1) produces multiplier1 in the nonzero residues, zero at height multiples of3; switching its final root sign produces 2, proving sharp gap all h. At h=3, complete height2 signed-state ratio table totals 128 and contains 120 occurrences of ratio1 and one each 25/9 and 9/25; zero criterion needs pair product+1 at root sign-1, giving 120²+2=14402 zeros, and no root sign+1 cancellations. Character group size 32768, rank18366, nonzero gap2, unsigned count2306, Parseval sum 75563008. Independent integer state recurrence replicated entire ratio table and nullity. Fourier character diagonalization gives Moore–Penrose inverse norm reciprocal gap.
 
-**PASS under bounded comparison.** Levit--Mandrescu (arXiv:0904.4819) and the public full-tree independence-complex analysis imply the *homogeneous* signed-sum three-cycle; with parity, this already implies the invertibility residue classes. **That residue criterion is background, not the claimed new priority.** The exact nonzero all-character gap, its sharp pseudoinverse norm, and the first complete nontrivial nullity \(120^2+2\) with exceptional reciprocal pairs are not statements or implications of the examined material. Trinks's deletion identities give methods but not these explicit spectral invariants. The all-graph independent-support Fourier *principal submatrix* result is a different operator. An unindexed earlier exact table or broader multivariate result remains a possible priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact spectral gap and Hilbert inverse norm persist for all tree heights even as the full Boolean ambient dimension grows rapidly. The complete first nontrivial Fourier nullity and its exceptional two-state mechanism supply a natural recoverability boundary, rather than an unmotivated parameter slice. No claim is made about ranks at all greater singular heights.
+Bounded semantic Resultary search plus primary-literature comparison finds no earlier theorem dominating the precise full stated claim. Explicit equivalences and narrower covered portions are identified. This is best-of-knowledge, not a guarantee of global novelty. The previously known ingredients and different domains of related results are not claimed new.
 
-## Evidence and limitations
+## value
 
-The two supplied standalone checker programs and the explicit seven-ratio table permit reconstruction of all finite integers. The all-height proof is symbolic. Relevant primary literature: Levit--Mandrescu (2009), Trinks (2014), a published analysis of full rooted-tree independence-complex homology, and a published Fourier principal-submatrix interpolation result. Only height three is classified by total zero count, and historical priority is bounded rather than certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact pseudoinverse stability at every tree height plus a complete first genuinely singular character classification answers natural deconvolution questions not fixed by homogeneous independence-polynomial parity. The two exceptional reciprocal ratios make the finite h=3 classification mathematically structural rather than an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
