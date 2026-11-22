@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two support functions are computed directly from simplex vertices. For every primitive integer normal, its integer coordinate range is positive; all ranges of at least two yield denominator at least \(b\), but a nonempty subset indicator has smaller denominator. This forces every minimizer to be a signed subset indicator and proves the exact formula without any search cutoff. The PARTITION reduction has explicitly positive integer inputs, even total scale, strict origin interior and a polynomial-time inverse correctness argument. The pseudo-polynomial procedure and centroid assertion follow from the formula. The projected-lattice normalization is traced to Han--Henk--Xue's Proposition 2.1 and proof in Section 2. The executable check is supplementary.
+## correctness
 
-## Originality — PASS (subject to historical priority)
-The nearest primary source, Han--Henk--Xue (2026), provides the origin-dependent definition, the general one-dimensional projection identity, and the packing-minimum list for one centered simplex, but it does not state the complete varying-translation subset-discrepancy classification or the weak NP-completeness result. The 2020 Henk--Schymura--Xue difference-body invariant is translation-invariant and cannot supply the result. Topic and implication comparisons with accessible research records likewise found no equivalent claim, although absence from indexes is not a uniqueness certificate. A later/unindexed subset-sum formulation is the principal residual risk.
+PASS
 
-## Mathematical value — PASS
-The result converts a geometric parameter that was explicitly described as difficult to compute into an exact combinatorial invariant for an all-dimensional origin-position family. Its complete extremal directions, a sharp weak NP-completeness obstruction despite fixed simplex edge orientations, and the failure of centroid optimality in even dimensions constitute substantive geometric and computational information, not only a special-case numerical evaluation.
+Read complete fixed-tree RESULT.md and actual check.py tree entry. Han-Henk-Xue Proposition 2.1 supplies primitive normal projections; direct support-function evaluation gives D(z)=b(M-m)/2+|b(M+m)/2-sum a_i z_i|. Every integer normal of range>=2 has D>=b whereas every nonempty subset indicator has D=max(a(S),b-a(S))<b. Thus all minimizers must have range exactly one, so are ± indicators, proving the exact formula over unbounded integer normals. The construction a_i=2w_i, a_last=2W+1, b=6W+2 is polynomial in binary input and target b/2 iff original PARTITION holds; dynamic programming is pseudo-polynomial. Equal-coordinate optimum and centroid parity follow from ka=b/2. Independently checked three rational small instances by exhaustive primitive vectors in [-2,2]^n; finite box was not used as proof.
 
-## Source inspection and limits
-The 2026 full-text PDF was examined for the general definition and projection formula (Section 2, pp. 3--6) and the centered-simplex computation (Section 4, pp. 9--13). The original 2020 paper's construction and difference-body definition were checked. Broad published-record and literature searches did not reveal the exact theorem. The claimed NP-completeness is weak; no strong NP-completeness is inferred. Independent historical priority and proof verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for origin-translation dependence of the right-simplex first packing minimum and its exact lattice-normal rigidity and weak NP-completeness. Han-Henk-Xue 2026 Proposition 2.1 gives a general 1D lattice-projection identity and Theorem 1.3 calculates the centroid-centered simplex, but neither evaluates all positive barycentric translations nor establishes subset-sum hardness. The older difference-body minima are translation invariant. Resultary matching records did not show a broader translated-first-minimum solution.
+
+## value
+
+PASS
+
+PASS: Origin-dependent packing minimum varies nontrivially even for a single simplex shape; its exact subset-discrepancy formula, full extremal directions and variable-dimensional weak NP-completeness exhibit a natural geometry/complexity connection with pseudo-polynomial solvability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

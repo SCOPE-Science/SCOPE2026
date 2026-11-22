@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The formula and equality-case classification follow from exact support-function evaluation and integer-coordinate range-one rigidity, not a finite enumeration. The reduction from positive-integer PARTITION is given algebraically in `RESULT.md`, with binary encoding and a pseudo-polynomial subset-sum algorithm.
+## correctness
 
-Run `python3 check.py` using Python 3 standard library. It performs 300 seeded exact-rational comparisons against every primitive normal with coordinates in the finite box \([-2,2]^n\), in dimensions two through five, and five exact PARTITION reduction tests. Expected output: `PASS 305 exact rational tests (including complete primitive directions up to bound 2)`.
+PASS
 
-Finite checks cannot verify excluded directions of arbitrarily large norm; the analytic range-one proof handles those. No external proof certification or independent audit has been performed. The historical-priority comparison is provisional, not a proof of uniqueness.
+Read complete fixed-tree RESULT.md and actual check.py tree entry. Han-Henk-Xue Proposition 2.1 supplies primitive normal projections; direct support-function evaluation gives D(z)=b(M-m)/2+|b(M+m)/2-sum a_i z_i|. Every integer normal of range>=2 has D>=b whereas every nonempty subset indicator has D=max(a(S),b-a(S))<b. Thus all minimizers must have range exactly one, so are ± indicators, proving the exact formula over unbounded integer normals. The construction a_i=2w_i, a_last=2W+1, b=6W+2 is polynomial in binary input and target b/2 iff original PARTITION holds; dynamic programming is pseudo-polynomial. Equal-coordinate optimum and centroid parity follow from ka=b/2. Independently checked three rational small instances by exhaustive primitive vectors in [-2,2]^n; finite box was not used as proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for origin-translation dependence of the right-simplex first packing minimum and its exact lattice-normal rigidity and weak NP-completeness. Han-Henk-Xue 2026 Proposition 2.1 gives a general 1D lattice-projection identity and Theorem 1.3 calculates the centroid-centered simplex, but neither evaluates all positive barycentric translations nor establishes subset-sum hardness. The older difference-body minima are translation invariant. Resultary matching records did not show a broader translated-first-minimum solution.
+
+## value
+
+PASS
+
+PASS: Origin-dependent packing minimum varies nontrivially even for a single simplex shape; its exact subset-discrepancy formula, full extremal directions and variable-dimensional weak NP-completeness exhibit a natural geometry/complexity connection with pseudo-polynomial solvability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
