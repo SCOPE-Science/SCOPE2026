@@ -1,12 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object, codimension convention, and base cases are explicit in `RESULT.md`. The 2024 normal-fan proposition supplies a genuine stellar subdivision of one two-dimensional cone, and its endpoint-ray link lemma makes that link precisely the previous smaller pellytope fan. The cone replacement count \(z(1+2z)-z^2=z(1+z)\) gives the unrestricted face recurrence without extrapolation. Weighted tilings solve it. The simple-polytope \(h\)-transform is computed symbolically. Path adjacency eigenvalues supply an exact product; discriminants, pairwise distinct cosines and the possible root at \(-1\) resolve all zero multiplicities. The supplied finite checker passed 201 exact assertions. Risk: the theorem's application depends on the cited normal-fan and link identities; those were inspected in the source.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The closest predecessor, Bossinger–Telek–Tillmann-Morris (2024), proves the fan subdivision, facet count, and Pell vertex count, which are prerequisites, not the full face polynomial or explicit root spectrum. Bossinger–Gürdoğan (2026) studies the larger Catalan-pellytope interpolation and vertex/combinatorial structures; its pellytope endpoint is the natural object, but the precise all-rank enumerator is not identified in inspected material. He–Li–Raman–Zhang (2020) presents the pellytope as an example with known facet and vertex counts. Volodin (2012) gives general \(\gamma\)-positivity for 2-truncated cubes, but that does not imply this exact path-matching polynomial or real-rootedness, let alone all face numbers. Multiple exact-name, equivalent-expression, and published-finding corpus semantic searches did not find covering claims; the absence of search matches is not uniqueness proof. Risk: an unindexed or alternatively named closed face-enumerator may exist.
+PASS
 
-## Value — PASS
-The entire face lattice's rank sizes, rather than only vertices or facets, are a natural invariant of this flagship interpolation endpoint. The rational generating function determines every intermediate face count and enables asymptotics; the equality of its gamma-vector to path-matching numbers is a structural explanation, not a renaming of existing Pell counts. The exact strict negative real-root spectrum is stronger than general Gal-positivity. This is an all-dimensional nontrivial refinement of the known combinatorics, albeit restricted to one endpoint rather than the general interpolation.
+C PASS: The specified Minkowski-sum pellytope P_n has simplicial normal fan constructed by a stellar subdivision of one 2-cone in Sigma_{n-1} x Sigma_1; crucial endpoint-ray link is Sigma_{n-2}, as in the cited 2024 source. Subdivision removes z^2 C_link and adds z(1+2z)C_link, so F_n=(1+2z)F_{n-1}+z(1+z)F_{n-2}, F0=1,F1=1+2z. Domino placements give closed F_n and simple-polytope h-transform gives gamma_j=binom(n-j,j). The path n-vertex matching polynomial has roots expressed via 2cos(j*pi/(n+1)), yielding the exact h factorization and n pairwise simple negative roots, including -1 once for odd n. The inspected checker independently enumerates chord-compatible cones in n<=7 and asserts recurrence through n=50; direct recurrence coefficient checks corroborate, while the arbitrary-dimensional argument uses the source fan-link theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+O PASS, best-of-knowledge with a material unresolved access risk: Bossinger-Telek-Tillmann-Morris explicitly gave the fan subdivision, local link, Pell vertex count and facet count, but comparison of their geometric results did not identify the all-face polynomial, exact path-matching gamma or simple h-root factorization. Volodin gives general gamma positivity for 2-truncated cubes, not the evaluated matching sequence; generic real-rootedness cannot be inferred from positive gamma alone. Bossinger-Gurdogan 2026 treats a broader Catalan-pellytope interpolation and the exact P_n object, so it is a high-priority plausible source; its full text was not accessible via arXiv/OA or authorized institutional VPN. That uninspected potential coverage is retained as an explicit priority risk, not treated as automatic scientific failure or deemed definitely not covering.
+
+## value
+
+PASS
+
+V PASS: Complete f-, h- and gamma-polynomials for an intrinsically motivated all-dimensional pellytope endpoint extend known vertex/facet information to every face dimension. Path-matching identity and all simple negative h-roots encode new combinatorial structure, stronger than generic gamma positivity. A natural exact classification is independently useful even without a generalized interpolating-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
