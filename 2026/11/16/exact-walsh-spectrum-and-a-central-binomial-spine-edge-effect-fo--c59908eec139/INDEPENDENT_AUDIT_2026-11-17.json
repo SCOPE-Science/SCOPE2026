@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:06:22.041620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The spanning-tree classification is complete: with spine edge uv, independently choose exactly one of two incident leaf edges for each leaf (2^n trees); without spine, exactly one leaf bridges both hubs and all remaining leaves choose one (n 2^{n-1} trees). Every signed coefficient is therefore c∏(a_i+b_i)+∑_j a_jb_j ∏_{i≠j}(a_i+b_i). Inspect number d of discordant sign pairs: d≥2 zero, d=1 gives -2^{n-1} product of other matching a_i, d=0 gives 2^{n-1}∏a_i(2c+∑a_i). Disjoint classes show exact all-n transform; even n has 2*C(n,n/2-1) extra equal-pair zeros, yielding rank formula and sharp nonzero gap 2^{n-1}, upper bound (n+2)2^{n-1}. The Fourier projector onto tree incidence *frequencies* has convolution kernel W/2^{2n+1}; its L1 absolute sum is n/2 + (1/2) E max(|S_n|,2). Exact binomial telescoping gives claimed formula, and removing the spine yields K2n prior norm, hence the central binomial increment 2^{-n}C(n,floor n/2). Independent enumeration of all trees and complete Walsh transforms for n=1..6 reproduced every coefficient, rank, extremes and norm. The symbolic tree classification and binomial identities, not finite trials, prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sokal arXiv:math/0503607 encompasses weighted graph enumerators, and book-network literature counts unsigned spanning trees.",
+          "Gedeon arXiv:1610.05349 Theorem 1.1 concerns Dyck paths and Kazhdan–Lusztig polynomial, not Fourier spectra."
+        ],
+        "reasoning": "These stronger general-purpose generating tools and different matroid invariants do not already evaluate the claimed exact all-sign Walsh rank, sharp min gap or additive sharp norm difference. No direct implication without nontrivial specialization and new evaluation.",
+        "searches": [
+          "thagomizer K_{1,1,n} spanning-tree Walsh transform Fourier projection central binomial spine perturbation K2n",
+          "Sokal multivariate Tutte polynomial book network spanning trees",
+          "Gedeon thagomizer matroids Kazhdan Lusztig"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT 07f6c08b1f7b336fcee5e7b662cd8cecfb8666c2 and check_book.py read; tree eabfe6fc6cc3f898552f39ccf85639e2715bb532.",
+        "Full comparative Resultary K2n RESULT.md, blob 0a73f1f80cac1fd1bbba59a35dc6c35ab43304b8",
+        "https://arxiv.org/pdf/1610.05349",
+        "https://arxiv.org/abs/math/0503607",
+        "Resultary query: thagomizer K_{1,1,n} spanning-tree Walsh transform Fourier projection central binomial spine perturbation K2n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full published comparative K2n result directly proves the no-spine norm; its graph has 2n edges, while the augmented family has 2n+1 edges.",
+          "The additional signed term c∏(a_i+b_i) in augmented W changes d=0 sector and produces E[max(|S_n|,2)] instead of E|S_n|."
+        ],
+        "reasoning": "Prior theorem alone does not imply the signed contribution or norm increment. Under new one-edge perturbation, explicit algebra gives a meaningful new central-binomial difference. Other K2n range projection (on nonzero W) is a different operator and cannot substitute.",
+        "searches": [
+          "thagomizer K_{1,1,n} spanning-tree Walsh transform Fourier projection central binomial spine perturbation K2n",
+          "Resultary complete K2n Walsh spectrum sharp projection full RESULT",
+          "thagomizer K_{1,1,n} spanning-tree Walsh central binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed Walsh formula is equivalent to evaluating the triangular-book spanning-tree polynomial at independent signs.",
+          "Gedeon 2016 calls the same K1,1,n graph the thagomizer and studies matroid Kazhdan–Lusztig polynomials, a distinct invariant."
+        ],
+        "reasoning": "Graph aliases thagomizer/triangular book are accounted for; generic signed-tree polynomial does not by itself supply case-by-case coefficients or evaluated projection norm. K2n is the graph with the spine missing, not a synonym.",
+        "searches": [
+          "thagomizer K_{1,1,n} spanning-tree Walsh transform Fourier projection central binomial spine perturbation K2n",
+          "thagomizer matroid basis generating polynomial Fourier signed trees",
+          "K1,1,n book graph signed weighted matrix-tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Resultary 2026-11-08 K2n theorem has L_n=n/2 + n*C(n-1,floor((n-1)/2))/2^n.",
+          "The new K1,1,n formula adds exactly C(n,floor n/2)/2^n while introducing an extra edge and new Fourier characters."
+        ],
+        "reasoning": "The exact comparative K2n table is covered and acknowledged. It is not an all-spine-augmented table; equality of the first terms does not make the extra central binomial correction a restatement.",
+        "searches": [
+          "thagomizer K_{1,1,n} spanning-tree Walsh transform Fourier projection central binomial spine perturbation K2n",
+          "K_2_n Walsh projection complete spectrum published Resultary",
+          "central binomial spine edge effect projection norm thagomizer"
+        ]
+      },
+      "rationale": "Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.",
+      "residual_risks": [
+        "Historical thagomizer signed basis generating-functions may contain implicit evaluation of this specific norm not identified.",
+        "Sokal general framework and 2015 book-network complexity paper were not both inspected full length; no blanket NOT_COVERING claim.",
+        "All-n theorem is about two distinct operators; future use must not identify tree-frequency projection with nonzero-W range projection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers K2n exactly and supplies subtracted term; no spine-edge term or augmented norm correction.",
+          "evidence": "2026-11-08 published Resultary theorem §Proof exact L_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c/RESULT.md",
+          "material_read": "Entire public RESULT.md read including tree parametrization, three-case Fourier formula, sharp projection norm and proof; Git blob 0a73f1f80cac1fd1bbba59a35dc6c35ab43304b8",
+          "method": "GitHub read-only full file",
+          "title": "Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}",
+          "trigger": "Closest published same-family minus-spine theorem; necessary full mathematical implication test"
+        },
+        {
+          "assessment": "Same thagomizer graph, but theorem is Kazhdan–Lusztig/Dyck path enumeration, not signed basis Fourier coefficients.",
+          "evidence": "Gedeon (2016), arXiv:1610.05349, theorem 1.1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.05349",
+          "material_read": "Full 8-page article opened and relevant introduction, graph definition and Theorem 1.1 inspected, with PDF screenshot first pages",
+          "method": "PDF primary text and page screenshot",
+          "title": "Kazhdan-Lusztig polynomials of thagomizer matroids",
+          "trigger": "Same graphs and matroids; could be stronger specialized theorem"
+        },
+        {
+          "assessment": "Gives general multivariate weighted-enumerator machinery; does not establish numeric thagomizer Walsh norm by statements inspected.",
+          "evidence": "Sokal (2005), arXiv:math/0503607.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "Abstract, source description and identified polynomial framework; relevant full proof not systematically read",
+          "method": "arXiv abstract and scoped comparison (not full-source exclusion)",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Possible general weighted graph polynomial dominating formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "K_{1,1,n} is the standard thagomizer infinite matroid family, with a motivated minimal graph perturbation: add one hub-to-hub edge to the well-studied K2n trees. Full signed spectra/ranks and the precise sharp projection-norm difference exhibit a nonzero asymptotic n^{-1/2} perturbation law; this is not merely a renamed K2n result or a raw tree count. Formula spans all n and cleanly distinguishes two Fourier projections.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical thagomizer signed basis generating-functions may contain implicit evaluation of this specific norm not identified.",
+    "Sokal general framework and 2015 book-network complexity paper were not both inspected full length; no blanket NOT_COVERING claim.",
+    "All-n theorem is about two distinct operators; future use must not identify tree-frequency projection with nonzero-W range projection."
+  ],
+  "schema_version": 1
+}
