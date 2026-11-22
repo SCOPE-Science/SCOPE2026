@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. All-dimensional counting follows from exact integer fibers; shell-by-shell generating functions are formal power-series identities. The parity cancellation is a residue identity at fourth roots of unity. The two reduced cyclotomic denominators are checked with exact rational polynomial arithmetic and have no common factors with their displayed numerators. Ordinary Ehrhart pole theory then gives exact minimal quasiperiods. The volume is independently integrated using an order-chamber Jacobian. The standalone checker adds independently enumerated sample integer counts and exact identities, not an infinite proof.
+## correctness
 
-## Originality
-PASS, provisional on priority. The closest directly relevant geometric antecedent is Black and De Loera's cross-polytope signohedron and sign-poset analysis; that work concerns face structure, not this height-lift Ehrhart counting or cyclotomic cancellation. Li's recent work treats support-size approximation and the cube/cross-polar contrast, not exact Ehrhart periods. Relevant indexed findings on signohedra concern isotropic constants, radial shells and Gaussian widths, not lattice counts of the lifted Cayley polar. Literature/database negative results cannot establish complete uniqueness.
+PASS
 
-## Mathematical value
-PASS. The same natural, standard-coordinate polytope family has a dimension-uniform rational counting solution and a nonmonotone minimal period transition at consecutive dimensions. The cancellation occurs for every odd cross-dimension, a structural parity phenomenon beyond a one-off numerical table. This sharpens the generic assertion that rational polytopes merely have Ehrhart quasipolynomials.
+The height fiber of K_d at x has length 2−||x||_1−||x||∞, and each integer dilation n contributes max(0,2n−||x||_1−||x||∞+1) lattice heights. Max-norm shell summation of F_m(u)=[(1+u−2u^{m+1})/(1−u)]^d produces the claimed rational A_d(u); selecting even powers from A_d(u)/(1−u)^2 proves the full Ehrhart series for every d≥1. For odd d, the potential u=i poles of the j≡3 (mod 4) summands cancel in the even extraction because the relevant ratio is i^{2d−j+1}=1. Independent rational SymPy reduction in d=4,5 reconstructs coprime denominators with cyclotomic factors orders (1,2,3,5) and (1,3,5), yielding exact minimal periods 30 and 15 by partial fractions and the pole-converse. Independent lattice enumeration at n=1 matches each rational-series coefficient. Order/sign chamber volume integration has determinant one and gives 2^{2d+1}/[(d+1)(d+1)!]. Finite checks do not substitute for the arbitrary-d shell and parity proof.
 
-## Limitations
-The general period for every dimension is not determined. The literature check cannot exclude unindexed equivalences. The supporting recent preprint's full text was not available; its abstract was checked for the difference in problem and method. No independent external audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for this specified standard-lattice *Cayley polar* series and the sharp d=4→5 minimal quasiperiod reversal, not for general Ehrhart quasipolynomial theory or the existence of period collapse. McAllister–Woods already gives rational examples of arbitrary denominator/period collapse. The published Resultary dyadic-axis cross-polytope theorem uses Σa_i|x_i|≤1 and a product generating series, not the mixed max-plus-one body K_d. Black–De Loera studies the monotone-path *fiber* polytope of a crosspolytope, whose combinatorics resemble cube-cross sums but it is not the identified Cayley polar with this lattice. No inspected prior gives the exact denominators or consecutive 30→15 reversal for these K_d.
+
+## value
+
+PASS
+
+A geometrically natural polar of a symmetric-height cube/cross-polytope Cayley construction has an all-dimensional rational lattice-count law and a systematic parity cancellation. The sharp reversal of exact quasiperiod at consecutive ambient dimensions supplies a motivated arithmetic counterexample to naive monotonicity, not a numerical curiosity; it extends beyond one finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
