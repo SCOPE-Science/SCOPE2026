@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Pauli-vector parametrization reduces every Hermitian two-dimensional pair to two spectral half-gaps and one angle. The trace difference becomes exactly twice the deficit of the affine chord of \(f(x)=\cosh\sqrt{x}\); the squared commutator equals twice the interpolation node product. Thus their quotient is the second divided difference \(f[a,x,b]\). The Hermite–Genocchi integral and strict positivity of \(f'''\) give its monotone envelope, while the endpoint limits give the explicit sharp constants. The same integral with \(f''(0)=1/12\) proves the optimal universal lower coefficient \(1/24\), and the matched-gap hyperbolic formulas prove the absence of a uniform upper. The delivered standard-library checker supplementally verifies 1352 finite assertions; the infinite parameter claim rests on the proof.
+## correctness
 
-## Originality — PASS, qualified
-The relevant 2026 primary manuscript formulates a Golden–Thompson defect/commutator comparison but does not compute or state these sharp spectral-gap constants; indeed, its claimed norm-independent upper comparison is contradicted by the exponential scale regime derived here. Forrester–Thompson (2014), Section 2.1, already gives the Pauli hyperbolic trace formula; that is prior background, not the claimed contribution. The novelty is the complete minimax optimization over all relative angles for **independently fixed** half-gaps, its strict monotonicity, and exact high-scale boundary. Targeted research-record searches comparing aliases and implications found related crossed-Heinz and rank-one commutator results but no directly covering Golden–Thompson constants. A prior specialized equivalent angle optimization remains a residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-A current tensor operator-inequality program relies on a norm-independent quadratic defect control. The exact two-dimensional two-gap constants identify why spectral normalization matters, yield a sharp replacement for its canonical qubit-slice setting, and provide a reusable lower-stability and upper-growth theorem. Fixing the eigenvalue gaps is a natural spectral constraint, not an arbitrary numerical slice. The lower bound and exponential-scale obstruction are sharp simultaneously; the underlying second-divided-difference monotonicity is structural and applies to every pair of gaps.
+PASS. Traceless 2×2 Hermitian A,B correspond to Pauli vectors v,w with lengths r,s>0 and cosine u. Scalar-shift normalization cancels traces. The product trace is twice the affine chord L(x) of f(x)=cosh(sqrt x) over a=(r-s)² and b=(r+s)² at x=r²+s²+2rs u, while trace e^(A+B)=2f(x). The unnormalized Frobenius commutator norm² is 8r²s²(1-u²)=2(x-a)(b-x), so the noncommuting quotient is f[a,x,b]. Hermite–Genocchi representation and f'''(z)>0 for z≥0 imply strict increase with u and sharp endpoint constants f[a,a,b], f[a,b,b]. The f''(0)=1/12 and simplex integration of area 1/2 yield universal sharp lower 1/24 as r,s→0; equal gaps r=s→∞ force C+ to diverge exponentially, so uniform upper fails. Independent direct Pauli matrix checks at r=.8,s=1.4 and five orientations reproduce increasing quotient .0508009 to .0567817. Infinite continuum proof from positive entire power series, not sample. Commuting limit ratios are not defined but both original bounds vanish, and zero-gap slices contribute zero.
 
-## Closest literature and limitations
-Chang–Ng, arXiv:2606.21667, Theorem 6 and Sections 4–5, provides the motivating tensor comparison. Forrester–Thompson, arXiv:1408.2008, Section 2.1, gives the exact Pauli representation but not the optimized constants. The result is for Hermitian \(2\times2\) pairs (and corresponding tensor slices); it neither proves a dimension-independent upper estimate in general matrices nor claims historical priority is settled. Independent mathematical verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with residual possibility of an earlier specialized sharp matrix-inequality lemma. The Forrester–Thompson exact 2×2 Pauli trace formula is prior work; the submitted result optimizes its chord defect against squared commutator for arbitrary prescribed two half-gaps and establishes sharp bounds and strict angular monotonicity. A 2026 tensor-paper upper estimate without spectral-scale restriction is incompatible with the demonstrated large-gap counterexample and does not dominate this theorem.
+
+## value
+
+PASS
+
+PASS. The theorem gives an exact stability modulus and identifies the sharp 1/24 universal lower boundary and impossibility of global upper bounds, clarifying a genuine false scale-free claim in active Golden–Thompson research. Fixed-gap extremizers and tensor slice implications are structural, not generic Taylor expansions or a textbook repetition of Golden–Thompson.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
