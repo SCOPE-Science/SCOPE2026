@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof Steps 1–6: explicit all-index arguments and boundary cases",
+      "verification/check.py: executed with final output PASS",
+      "Exact witness (R1/R0)^4=(6/5)^5/2>1 and (R2/R1)^4=(50/51)^5/2<1"
+    ],
+    "rationale": "The source-specified positive weights are summable by a geometric envelope. Direct adjacent log-mass ratios prove strict log-concavity and every exact modal cutoff. The two-rate log-likelihood increment equals -alpha(b-a)+(alpha+1)[F(n+1)-F(n)]. The exact sign of F'' changes once because cosh(bx/2)/cosh(ax/2) increases strictly, forcing all positive forward differences of F to decrease and yielding a single crossing of every positive threshold. The first increment thus determines the necessary-and-sufficient all-index MLR condition. Integral averaging of (1+exp(t))^-1 establishes the strictly decreasing critical-shape curve and unique second-rate root. A normalization-free rational witness confirms actual failure on one side. A standalone script was executed and passed; finite checks are supporting evidence, not the proof.",
+    "risks": [
+      "Floating-point experiments do not establish the theorem; the primary certificate is analytic.",
+      "The continuity argument for the one-turn property requires the unique concavity-to-convexity change of F and has been checked for all x>=0."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stochastic Orders by Shaked and Shanthikumar provides background on LR order without this specific discretized family.",
+        "Barbiero–Hitaj 2024 §5 introduces the model rather than an all-rate comparison.",
+        "The distinct survival-preserving type-I law has different adjacent ratios."
+      ],
+      "reasoning": "A generic LR order criterion is necessary background, but does not provide the evaluated alpha-threshold c(a,b), the global positive-difference one-crossing proof, or the unique rate restoration for this density-sampled generalized half-logistic family. No broader inspected covering theorem was found.",
+      "searches": [
+        "\"generalized half-logistic\" \"likelihood ratio\" discretization scale",
+        "generalized half logistic discrete analogue exact mode log concavity parameter estimation stochastic order",
+        "sampling continuous generalized half-logistic PDF at integers likelihood ratio order scale alpha pairwise one-turn likelihood ratios",
+        "general likelihood-ratio stochastic order definitions"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s41096-024-00185-w",
+      "https://link.springer.com/article/10.1007/s10479-023-05807-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 1 §5 states its sampled-density two-parameter PMF and suggests the mode may be positive, but gives no exact modal thresholds or rate-order theorem.",
+        "Source 2 §4 uses the CDF-power survival difference and states changes in its shape move mass right; the present sampled-density shape changes move its mode left as shape increases.",
+        "The target theorem includes single-peaked likelihood-ratio behavior when MLR fails and an implicit unique restoring-rate boundary, neither implied by these published statements."
+      ],
+      "reasoning": "The old qualitative statement that a mode may leave zero is strictly weaker than exact modal cutoffs. The older survival-preserving mass law is not algebraically the same object, so its mode and likelihood-ratio conclusions (where supplied) do not establish the density-mimicking claim. A generic LR definition cannot infer the evaluated threshold without the new one-turn analysis.",
+      "searches": [
+        "https://link.springer.com/article/10.1007/s41096-024-00185-w",
+        "https://link.springer.com/article/10.1007/s10479-023-05807-3",
+        "\"half-logistic\" \"density mimicking\" \"likelihood ratio\" \"two parameter\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Density sampling gives weights exp(-alpha*theta*n)/(1+exp(-theta*n))^(alpha+1).",
+        "The survival-preserving comparator gives differences of exponentiated half-logistic CDF values, not the same kernel.",
+        "The common one-parameter alpha=1 submodel does not carry the alpha<1 restoring-rate transition."
+      ],
+      "reasoning": "Compared density mimicking, sampling continuous PDF, type-I generalized, survival preserving, and exponential-power reparametrizations. The two-parameter formulas are unequal for generic n,theta,alpha, and the earlier work does not imply the sharp MLR chamber.",
+      "searches": [
+        "\"generalized\" \"mimicking\" \"half-logistic\" \"mode\" discrete Barbiero",
+        "\"generalized half-logistic\" \"likelihood ratio\" discretization scale",
+        "Barbiero Hitaj 2024 discrete generalized half-logistic density mimicking mode thresholds shape parameter stochastic likelihood ratio",
+        "https://link.springer.com/article/10.1007/s41096-024-00185-w",
+        "https://link.springer.com/article/10.1007/s10479-023-05807-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The initiating article supplies only qualitative off-zero modality, not a list or exact table of the sharp MLR frontier.",
+        "Search results for adjacent-ratio and modal-staircase terminology primarily concern unrelated count families."
+      ],
+      "reasoning": "This is a continuum of positive rate pairs and shape parameters with an all-index order property, not a finite numerical table. No exact listing or equivalent phase diagram was identified in the checked accessible sources.",
+      "searches": [
+        "Barbiero Hitaj 2024 discrete generalized half-logistic density mimicking mode thresholds shape parameter stochastic likelihood ratio",
+        "two-parameter generalized half-logistic density-sampled discrete distribution scale likelihood-ratio nonmonotone single hump critical rate crossover",
+        "\"half-logistic\" \"density mimicking\" \"likelihood ratio\" \"two parameter\"",
+        "density mimicking generalized half logistic p_n proportional exp(-alpha theta n)/(1+exp(-theta n))^(alpha+1) exact modal staircase likelihood-ratio parameter threshold"
+      ]
+    },
+    "rationale": "Barbiero–Hitaj (2024), full-text §5, defines the density-mimicking two-parameter family but states only qualitatively that its mode can leave zero; its one-parameter analysis cannot imply the two-rate MLR frontier. The same authors' January 2024 paper concerns a different, survival-preserving type-I generalized law with distinct masses and parameter direction. Classical stochastic-order definitions establish background implication, not the family-specific sharp crossover. Neither the inspected primary texts nor targeted scientific searches gave the exact pairwise boundary, unique restoring-rate result, or one-turn ratio law. Priority is best-knowledge, with residual risk of unlocated general or subsequent results.",
+    "residual_risks": [
+      "A more general unlocated monotone likelihood-ratio sampling theorem may entail part of the classification.",
+      "Subsequent publications and non-indexed theses may contain an equivalent sharp two-rate result.",
+      "Independent scholarly priority checking and independent mathematical review are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the object and motivation, but does not state a sharp rate likelihood-ratio order phase diagram, an exactly one-turn ratio classification, the critical restoring second-rate, or all shape-modal cutoff values.",
+        "evidence": [
+          "§5: alpha theta (2 exp(-theta*x))^alpha /(1+exp(-theta*x))^(alpha+1), normalized over integers.",
+          "§5: generalization suggested for a positive mode; no theorem in that section resolving parameters."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s41096-024-00185-w",
+        "material_read": "Full open-access HTML, introduction, one-parameter PMF and properties, §5 Generalization, conclusion, and publication information; especially the complete §5 formula and its qualitative mode discussion.",
+        "method": "Read primary full text and derive the exact normalized weight from the printed generalized density; compare mathematical statements rather than words.",
+        "title": "A Discrete Version of the Half-Logistic Distribution Based on the Mimicking of the Probability Density Function",
+        "trigger": "Originating paper for precisely the density-sampled two-parameter generalized count model."
+      },
+      {
+        "assessment": "Does not cover: source §4 is survival-preserving discretization of an exponentiated CDF, not the density-sampling generalization of the other paper.",
+        "evidence": [
+          "Eq. (11) gives tanh(theta(n+1)/2)^alpha - tanh(theta*n/2)^alpha.",
+          "§4: increasing alpha shifts mass toward higher counts in that different family."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10479-023-05807-3",
+        "material_read": "Full open-access HTML; §§3–4 including exact type-I generalized PMF, mode and log-concavity discussion, and methodological context.",
+        "method": "Compare source Eq. (11) as an explicit function of parameters and support to the target density-sampled weights.",
+        "title": "Discrete half-logistic distributions with applications in reliability and risk analysis",
+        "trigger": "Strongly related same-author generalized discrete half-logistic article with potential overlapping mode claims."
+      },
+      {
+        "assessment": "General framework, not evidence of either novelty or coverage of the specialized phase boundary.",
+        "evidence": [
+          "Likelihood-ratio ordering is prior mathematical terminology; its generic implications are not presented as original."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-0-387-34675-5",
+        "material_read": "Bibliographic and known definitions only; no chapter-level full-text examination claimed.",
+        "method": "Background comparison of the general definition to a family-specific evaluated inequality.",
+        "title": "Stochastic Orders",
+        "trigger": "Standard reference for the monotone likelihood-ratio order framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "faa9d0ca-f98a-40af-9648-7ba182ef63c4",
+  "value": {
+    "evidence": [
+      "Barbiero–Hitaj source motivation for positive-mode generalization, §5.",
+      "All-rate pair MLR threshold c(a,b) and unique restoring-rate b*(a,alpha).",
+      "Exact rational violation and restoration examples; exact modal staircase."
+    ],
+    "rationale": "The very source of the density-sampled generalized half-logistic count law identifies its added shape as a remedy for fixed-mode-zero modeling limitations but leaves the generalization largely unexplored. The exact criterion pinpoints when comparing count samples at different rates supports the strong monotone likelihood-ratio order used in one-sided testing and monotone comparisons, and when it demonstrably fails despite strict log-concavity of each distribution. The unexpected re-entry into the LR-ordered regime after a uniquely determined larger rate makes a natural full classification rather than a numerical improvement or a routine single coefficient check. The exact modal staircase and boundary ties directly support fitting count data with nonzero modes. No specific application has been empirically validated here; the value is mathematical and methodological.",
+    "risks": [
+      "Practical effect sizes and inferential power are not assessed."
+    ],
+    "status": "PASS"
+  }
+}
