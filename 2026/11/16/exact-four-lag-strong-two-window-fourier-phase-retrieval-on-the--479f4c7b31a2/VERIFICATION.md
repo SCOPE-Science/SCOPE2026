@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Invoke `python CHECK.py` with Python 3.8+ and no third-party packages. The checked output is `CHECK_OK prime=1009 order14_root=904 disconnected=560 translation_orbits=42 rank_pairs=1764 lower_minor_checks=8`.
+## correctness
 
-The exhaustive loop enumerates all 16,383 nonempty supports, identifies the 560 disconnected under circular distance four, partitions these into 42 translation orbits, and checks all 1,764 representative Fourier restrictions at the exact prime 1009. Independently shifting the row and column sets preserves complex rank. A nonzero modular minor forces the corresponding cyclotomic determinant to be nonzero over the complex numbers. The lower-witness test checks four 3-by-3 and four 4-by-4 cyclotomic minors over the same field. No random sampling, floating-point rank tolerance, or external data is involved.
+PASS
 
-The analytical step connecting STFT magnitude arrays to recovered pair-products, and the logical completeness of the orbit reduction, are written out in `RESULT.md`. The certificate alone should not be interpreted as a theorem about other lengths, noise stability, or numerical inversion accuracy. Independent audit has not been performed.
+For a geometric window, each lag |a|<=m has a nonzero ambiguity overlap at every modulation (ratio modulus four); every other lag has disjoint support. Fourier inversion therefore recovers exactly edges of the induced support graph; phase retrieval for one window is equivalent to connectivity. I independently enumerated all 16383 nonempty 14-bit support masks at bandwidth four: 560 disconnected, grouped into 42 translation orbits. For all 42x42 pairs of disconnected supports, exact elimination of the (T^c,S) Fourier restriction over F_1009 with primitive 14th root 904 had full column rank. A nonzero reduced minor proves the corresponding cyclotomic minor nonzero over C, so no nonzero signal can have both time and Fourier disconnected supports. At m=3, exact rank checks on a 3x4 seventh-root matrix and four augmented 4x4 matrices yield a nonzero-support kernel with time support {0,2,8,10} and Fourier support {0,1,2,3,7,8,9,10}; both bandwidth-three graphs disconnect. Monotonicity handles all m<=3 and 5,6. This is a finite exhaustive certificate with an all-signal analytic rank reduction, not a mere signal sample.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. The all-C^14 m=4 proof requires the global 42^2 exact rank certificate, and the m=3 witness supplies sharp necessity; these are not corollaries of the cited implications.
+
+## value
+
+PASS
+
+The exact sharp full-space strong STFT threshold in a composite group of order fourteen is a natural obstruction/sufficiency boundary, improving the known general sufficient lag five and distinguishing full-space from already classified prime-period sectors. The 42-orbit exact minor certificate resolves a nontrivial finite dimensional Fourier-restriction question that neither a support-graph lemma nor an earlier sector theorem settles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
