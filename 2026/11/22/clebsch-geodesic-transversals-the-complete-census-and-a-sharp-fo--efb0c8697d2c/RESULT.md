@@ -1,0 +1,58 @@
+# Clebsch geodesic transversals: the complete census and a sharp four-position relocation threshold
+
+## Finding
+Let \(G\) be the five-regular Clebsch graph on the sixteen even-parity binary words of length five, with two words adjacent if their Hamming distance is four. A **geodesic transversal** is a vertex subset meeting every inclusion-maximal shortest path. For a labelled graph, put \(T_G(z)=\sum_{S}z^{|S|}\), where the sum is over all geodesic transversals \(S\subseteq V(G)\). Then
+\[
+T_G(z)=10z^8+80z^9+280z^{10}+576z^{11}+660z^{12}+400z^{13}+120z^{14}+16z^{15}+z^{16}.
+\]
+In particular, there are exactly \(2143\) transversals, and their minimum cardinality is eight. Every inclusion-minimal transversal is the complement of either (i) one of ten coordinate half-cubes of size eight or (ii) one of sixteen open vertex neighborhoods of size five. Thus their inclusion-minimal polynomial is
+\[
+M_G(z)=10z^8+16z^{11}.
+\]
+For an integer budget \(b\), let \(\mathcal R_b\) have all transversals of size at most \(b\) as vertices, with an edge when one vertex is added to or deleted from the selected set. The exact component size multisets are
+\[
+\begin{array}{c|c}
+b&\text{component sizes}\hline
+8&10\text{ copies of }1\\
+9&10\text{ copies of }9\\
+10&10\text{ copies of }37\\
+11&10\text{ copies of }93\text{ and }16\text{ copies of }1\\
+12&1\text{ component of size }1606.
+\end{array}
+\]
+For every \(b\ge12\), \(\mathcal R_b\) is connected. Therefore **four temporary extra vertices are necessary and sufficient to relocate between any two minimum transversals and also to connect the entire feasible state space**. At budget twelve, the shortest distance between two different minimum transversals is eight for the forty pairs arising from distinct coordinate directions, and sixteen for the five opposite-half-cube pairs.
+
+## Assumptions and scope
+All graphs are finite, simple and undirected. The vertex labels are the even-weight words \(x\in\{0,1\}^5\). Let \(H_{i,\epsilon}=\{x:x_i=\epsilon\}\), where \(1\le i\le5\) and \(\epsilon\in\{0,1\}\). Let \(N(v)\) be the **open** neighborhood of vertex \(v\), consisting of its five neighbors, excluding \(v\). Exactly one vertex is added or removed per reconfiguration move, and all intermediate sets must remain geodesic transversals within the same budget. The initial and final minimum sets are both of size eight. The result counts labelled vertex subsets, not orbits under graph automorphisms.
+
+## Proof
+**1. Geodesic–dissociation duality.** There are five edge directions, obtained by flipping all bits except one. At every vertex these give five neighbors. Two different directions sum to a two-coordinate flip, so every nonadjacent pair has common neighbors and the graph has diameter two. No three mutually adjacent vertices exist: the difference of two four-coordinate flips has Hamming weight two. Thus the inclusion-maximal geodesics are precisely the \(16\binom52=160\) three-vertex paths with two neighbors of a common center. Put \(D=V(G)\setminus S\). The set \(S\) meets every maximal geodesic precisely when the graph induced on \(D\) contains no three-vertex path, equivalent to \(\Delta(G[D])\le1\). Such sets \(D\) are called dissociation sets.
+
+**2. The ten maximum dissociation sets.** The Cayley adjacency operator has eigenvalues \(5\) (multiplicity one), \(1\) (multiplicity ten) and \(-3\) (multiplicity five). To see this directly, use the characters of the even-word group: the five coordinate characters \(\chi_i(x)=(-1)^{x_i}\) span the \(-3\)-eigenspace, and the remaining ten nontrivial characters have eigenvalue one. For any vertex set \(D\) of size \(t\), its induced edge count \(e(D)\) therefore satisfies
+\[
+2e(D)\ge \frac{t^2}{2}-3t.
+\]
+For a dissociation set, \(2e(D)\le t\), so \(t\le8\). Each \(H_{i,\epsilon}\) has size eight and induces four independent edges, showing sharpness. Equality for \(t=8\) puts \(f=2\mathbf1_D-\mathbf1\) in the \(-3\)-eigenspace. Write \(f=\sum_{i=1}^5 c_i\chi_i\). Since \(f^2=1\), and the ten distinct pairwise products \(\chi_i\chi_j\) are distinct characters orthogonal to the constant, all \(c_ic_j\) for distinct indices vanish. Consequently \(f=\pm\chi_i\), proving that the ten coordinate half-cubes are all maximum dissociation sets. Their existence and geometric description as induced four-edge matchings were also established in earlier work on minimum octahedral homology carriers; the present contribution does not claim priority for that already-known part.
+
+**3. Exhaustive finite maximality lemma.** Apart from those ten half-cubes, the only inclusion-maximal dissociation sets are the sixteen open neighborhoods \(N(v)\). Each \(N(v)\) is independent: the graph is triangle-free. Adding its center creates degree five; adding any other outside vertex creates two neighbors inside \(N(v)\), because each nonadjacent pair has two common neighbors. The **exhaustiveness** of this classification is a finite lemma, verified by the fully specified enumeration in both embedded standalone programs: enumerate all \(2^{16}=65536\) binary vertex masks; test the induced degree at every included vertex; and for every successful mask test all one-vertex strict supersets. Both programs assert that the exact set of maximal masks is the displayed family of ten half-cubes and sixteen neighborhoods. This is an exhaustive proof for the defined finite graph, not a claim that sampling or a timeout proves a general theorem. One program also constructs the geodesics independently from graph distances; the other constructs the isomorphic Cayley graph on four-bit vectors with generating differences \(\{1,2,4,8,15\}\).
+
+**4. Enumeration.** Write \(d_k\) for the number of dissociation sets of order \(k\). Every dissociation set is contained in one of the twenty-six maximal sets just described. For \(k\ge6\), only the half-cubes contribute and their mutual intersections have at most four vertices: \(d_8=10\), \(d_7=10\binom87=80\) and \(d_6=10\binom86=280\). For \(k=5\), there are also sixteen neighborhoods, so \(d_5=10\binom85+16=576\). Two different-coordinate half-cubes intersect in four vertices, and there are forty such unordered pairs; intersections of three distinct half-cubes have at most two vertices. Every four-subset of \(N(v)\) lies in a coordinate half-cube, so \(d_4=10\binom84-40=660\). Since each forbidden triple is a three-vertex path with a unique center, \(d_3=\binom{16}{3}-160=400\). Finally \(d_2=120\), \(d_1=16\), \(d_0=1\). Substituting \(T_G(z)=\sum_{k=0}^8d_kz^{16-k}\) proves the polynomial. Inclusion-minimal transversals are exactly complements of maximal dissociation sets, proving their two-term polynomial.
+
+**5. Reconfiguration and sharp distances.** Switching a selected vertex toggles membership of that vertex in the complementary dissociation set. At budget \(b\), all such complementary sets must have order at least \(16-b\). At budgets eight through ten, the ten half-cubes form disjoint downward-closed regions, since distinct half-cubes intersect in at most four vertices. The component sizes are \(\sum_{j=16-b}^8\binom8j\), giving \(1,9,37\) per half-cube. At budget eleven they instead contribute \(93\) per half-cube, while the sixteen size-five neighborhoods enter as isolated new states. At budget twelve, distinct-coordinate half-cubes share four-vertex sets, connecting all ten half-cube regions, and every neighborhood has a four-vertex subset inside a half-cube; hence all states become connected. No later budget can disconnect the network because any newly admitted state can be reduced to an inclusion-minimal transversal. For two minimum configurations from different coordinates, their complementary half-cubes intersect in exactly four points; a shortest route deletes four complementary points then adds four, giving eight moves. Opposite half-cubes are disjoint, imposing sixteen changes, and a route through a half-cube in a different coordinate realizes exactly sixteen moves. There are forty pairs of the first kind and five of the second. This proves the thresholds and all pair distances.
+
+## Verification
+Run `python3 verify.py` and separately compile and run `verify_independent.cpp` with `g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_independent.cpp -o check && ./check`. Both work without packages beyond the language standard libraries. The Python checker reconstructs all 160 maximal geodesics from shortest-path distances, checks geodesic hitting against induced degree for all 65536 masks, verifies the twenty-six maximal sets, reconfiguration component-size multisets at budgets eight through twelve, and all forty-five optimum-pair distances. The C++ checker uses a different four-bit Cayley representation and independently enumerates all feasible sets, maximal sets, geodesic triples, budgeted components and optimum distances. Their actual outputs are recorded in `VERIFICATION.md`.
+
+## Relationship to prior work
+Manuel, Brešar and Klavžar introduced geodesic transversals, and their paper explicitly connects three-geodesic transversals in triangle-free graphs with three-path vertex covers. That general equivalence is credited, not new. Dissociation sets and their general extremal bounds are established in work of Tu, Li and Du, and Bock, Pardey, Penso and Rautenbach. Most importantly, an earlier exact mathematical record on the folded five-cube already identified the ten eight-vertex induced four-edge matchings as minimum octahedral homology carriers. Thus the minimum hyperplane geometry is explicitly treated as **previously established**, although an independent spectral proof is given here. The new claim is the complete geodesic-transversal polynomial, the sixteen additional inclusion-minimal eleven-vertex placements, and the exact budgeted reconfiguration component and distance theorem. The prior homology result analyzes inclusion of induced spheres in an independence complex, not geodesic-transversal supersets or feasible-set relocation.
+
+## Limitations
+The classification and reconfiguration theorem concern this single sixteen-vertex five-regular graph and one-vertex addition/removal moves, not arbitrary folded cubes or token slides. The exhaustive finite checks are exact for their finite domain but do not constitute infinite-family claims or independent scholarly certification. The search for equivalent published results was substantive but cannot rule out unindexed literature or inaccessible sources. No independent external audit has been performed.
+
+## References
+1. P. Manuel, B. Brešar and S. Klavžar, *The geodesic-transversal problem*, arXiv:2101.08042v1, first public 2021-01-20, https://arxiv.org/abs/2101.08042.
+2. P. Manuel, B. Brešar and S. Klavžar, *The geodesic transversal problem on some networks*, arXiv:2109.09372v1, first public 2021-09-20, https://arxiv.org/abs/2109.09372.
+3. J. Tu, Y. Li and J. Du, *Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs*, arXiv:2103.01402v1, first public 2021-03-02, https://arxiv.org/abs/2103.01402.
+4. F. Bock, J. Pardey, L. D. Penso and D. Rautenbach, *A bound on the dissociation number*, arXiv:2202.09190v1, first public 2022-02-18, https://arxiv.org/abs/2202.09190.
+5. *Ten minimal octahedral carriers generate the integral homology of the folded five-cube*, published mathematical result dated 2026-10-18; https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-ten-minimal-octahedral-carriers-generate-the-integral-homology-o--a33753cc14ab.
+6. A. E. Brouwer, *Clebsch graph*, graph-description table, https://jaanos.github.io/tables/graphs/Clebsch.html.
