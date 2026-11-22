@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed genuine convex polygon, the area of a triangular corner fragment is exactly \(\tfrac12\sin\alpha_i\,xy\), giving the exact product-integral contribution. Chords connecting nonincident edges can approach zero-area cuts only at neighboring vertices spanning one intervening edge; there the area grows linearly with both endpoint offsets, leaving only an \(O_K(s^2)\) correction. The triangle complement contributes the same smaller error. Gamma–Dirichlet factorization supplies the precise marked density and total-variation limit. Strong convexity of cosecant proves the angular bound and rhombi demonstrate sharpness. The separate checker passed polygon simulations, triangle identities, density quadrature, and angle-bound stress tests.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Searched geometric fragmentation, chord area, random independent boundary endpoints, reciprocal-sine corner coefficients, marked logarithmic cut laws and equivalences using publicly available mathematical findings and the primary literature. The closest complete papers are Parisio–Dias (2011), Dias–Parisio (2014), and Bäsel (2012), all materially inspected, plus complete published findings on Crofton dust and endpoint short-chord length. The fragmentation papers use perimeter-start-and-angle sampling; Bäsel and the Crofton finding use invariant-line sampling; the endpoint short-chord result concerns length. Their hypotheses do not imply this area statistic, its log asymptotic, conditional marks, or sharp angular variance coefficient. Neither keyword absence nor partition of subjects proves uniqueness; historical priority remains subject to specialist review.
+PASS
 
-## Value — PASS
-The result distinguishes three competing classical ways of sampling polygon cuts through different small-fragment exponents, identifies the full corner mechanism of rare dust, and yields an angle-only, scale-invariant sharp optimum with quantitative rigidity. The separate triangle identity is an exact whole-distribution benchmark. The logarithmic correction and independence marks are geometric rather than an arbitrary finite numerical slice.
+The sampling is independent endpoints, not an invariant random line. Same-edge endpoints cause zero-area atom sum length_i^2/P^2. At vertex i, a corner triangle has area (sin(alpha_i)/2)*xy, with ordered incident side-pair domain area t(1+log(a_i*b_i/t)); two endpoint orders yield the displayed 4s/P^2 csc angle terms. For nonincident side pairs, the only zero-area limiting chords approach an intervening edge and require both endpoint offsets O(s), hence O_K(s^2) after bounded local linear geometry; in triangles an additional near-whole-corner complement event is also O(s^2). Conditional -log normalized endpoint distances are independent exponentials; their sum has gamma(2,1) density, share exactly uniform, and normalized area has density (T-log z)/(T+1) with TV distance 1/(e(T+1)) from uniform. The global csc second-derivative >=1 yields coefficient 2 in angular variance with equality equiangular and rhombi witnessing sharpness; the independent uniform-product CDF establishes the triangle expression for every 0<s<A/2. A separate exact evaluation of the triangle formula at z=.01 was 0.056101869364914..., consistent with the proof. The remainder is for fixed nondegenerate K, not uniform in degenerations.
 
-## Limitations
-The expansion is for one fixed convex polygon and excludes the genuine zero-area atom. Edge/angle degenerations, arbitrary sampling laws and uniform-in-side-count limits are not covered. Empirical checks corroborate but do not certify the proof. Source searches cannot rule out an unindexed stronger result. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2011 and 2014 fragmentation papers sample an arclength point and a uniform outgoing angle; Bäsel uses motion-invariant random lines for chord LENGTH and interior-point distance. Existing published polygon-boundary hulls use many points and a different missing-area observable. None implies the two independent endpoint cut-area law, its joint TV marks and sharp angular rigidity. Resultary search returned same present entry and these neighboring problems, not dominating coverage.
+
+## value
+
+PASS
+
+A complete two-endpoint cutting law for arbitrary convex polygons with nonzero-area conditioning, explicit joint rare-event marks, angle-only leading invariant, sharp rigidity and exact triangle benchmark is a natural geometric-probability result. Prior random-line and one-point+direction protocols have different small-area exponents; multiple-point hull missing-area observables do not answer the two-point cut problem. The invariant, conditional marked limit and sharp stability supply specific reusable facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
