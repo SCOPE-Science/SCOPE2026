@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "A colour class is permitted iff it has at most q=r-1 tokens. With no direct target move, a sink strongly connected component of unsettled transfers must be nontrivial, saturated, isolated and balanced: summing incoming<=outgoing degree forces equality. Reverse Euler-tour recolouring through one unused colour settles the component in m+1 legal moves and permanently completes at least 2q vertices. Therefore at most floor(n/(2q)) extra moves. Disjoint full two-colour swaps force this many non-target first moves, giving the exact lower bound. An independent BFS verifier checks 17 small parameter instances; a constructive checker verifies 1028 paths/witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.17022v1, Lemma 15: n <= diameter <= 2n-1 for general loopless hypergraphs with k >= effective-degree+2; Question 18 asks for eventual diameters.",
+        "arXiv:2412.19695v1, Section 2: optimal renaming bound when two graph colourings induce the same partition."
+      ],
+      "reasoning": "The general bound is not an exact formula for this family and its palette hypothesis is different. The renaming lemma is neither an exact uniform-hypergraph diameter theorem nor an all-pairs result. The q=1 complete graph specialization is known, not novel.",
+      "searches": [
+        "Exact diameter of reconfiguration graph for proper vertex colorings of complete r-uniform hypergraphs using many colors, color classes of size at most r-1",
+        "stable reconfiguration diameter of complete uniform hypergraphs K_n^(r) under vertex recolouring: proper colorings equivalently all color classes at most r-1, diameter n+floor(n/(2(r-1))) for k>=n+1",
+        "https://arxiv.org/html/2611.17022v1#S7",
+        "https://arxiv.org/html/2412.19695v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.17022v1#S7",
+      "https://arxiv.org/html/2412.19695v1",
+      "Published graph recolouring claims on biclique and Wagner graph diameters, compared at the level of objects and hypotheses"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new theorem gives the exact n+floor(n/(2(r-1))) for every complete uniform hypergraph and k>=n+1, including r=3 and arbitrary n.",
+        "The 2026 general lemma only states the coarse n..2n-1 interval and defines the open stable-diameter question.",
+        "The 2024 renaming result requires equality of colour-class partitions, which many extremal endpoint pairs in the new theorem do not satisfy."
+      ],
+      "reasoning": "Prior statements do not logically imply the claimed exact formula for r>=3, nor its sharp lower family; the proof supplies a new saturated-Euler-component method. The r=2 specialization is subsumed by existing complete graph results and is not claimed original.",
+      "searches": [
+        "https://arxiv.org/html/2611.17022v1#S7",
+        "https://arxiv.org/html/2412.19695v1",
+        "stable reconfiguration diameter of complete uniform hypergraphs K_n^(r) under vertex recolouring: proper colorings equivalently all color classes at most r-1, diameter n+floor(n/(2(r-1))) for k>=n+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A complete r-uniform weak colouring is exactly a capacity-(r-1) placement of labelled tokens into labelled bins.",
+        "The Optimal Renaming Lemma in arXiv:2412.19695v1, Section 2, uses cycles of entire unchanged colour classes and yields the sharp n+floor(n/2) graph-only renaming bound."
+      ],
+      "reasoning": "The auxiliary occupancy representation was explicitly searched. Although colour permutation is a special case, our extremal problem ranges over two arbitrary partitions and derives n+floor(n/(2q)); the prior renaming statement does not imply this for q>=2.",
+      "searches": [
+        "Coloring reconfiguration capacity constrained occupancy tokens bins stable diameter hypergraph one-vertex recolor",
+        "Complete uniform hypergraph weak proper colorings diameter n plus floor n over two r minus two",
+        "reconfiguration labeled balls bins capacity q number of moves permutation cycles recoloring",
+        "https://arxiv.org/html/2412.19695v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical research-record matches concern ordinary graph recolouring, including biclique and Wagner graph diameter results, not complete uniform hypergraphs.",
+        "No consulted exact table or published formula covered the parameter pairs n>=1,r>=3,k>=n+1."
+      ],
+      "reasoning": "Searches compared reconfiguration object, named palette range and exact parameter dependence; none produced a table or claim implying this formula. Absence of a hit is not proof of world-wide priority.",
+      "searches": [
+        "Exact diameter of reconfiguration graph for proper vertex colorings of complete r-uniform hypergraphs using many colors, color classes of size at most r-1",
+        "Coloring reconfiguration capacity constrained occupancy tokens bins stable diameter hypergraph one-vertex recolor",
+        "Complete uniform hypergraph weak proper colorings diameter n plus floor n over two r minus two",
+        "stable reconfiguration diameter of complete uniform hypergraphs K_n^(r) under vertex recolouring: proper colorings equivalently all color classes at most r-1, diameter n+floor(n/(2(r-1))) for k>=n+1",
+        "complete r uniform hypergraph coloring reconfiguration diameter exact single vertex"
+      ]
+    },
+    "rationale": "Full primary hypergraph section of arXiv:2611.17022v1 establishes n <= diameter <= 2n-1 at a different effective-degree palette condition and asks for stable diameters; it does not establish a complete-uniform-hypergraph exact expression. The full renaming-lemma section in arXiv:2412.19695v1 treats graph colourings with a fixed common colour-class partition, not all pairs of proper capacity-q colourings. Published mathematical record searches and accessible prior titles/claims located no implication covering the hypergraph result at r>=3. The r=2 case is old; unchecked unindexed occupancy-routing literature remains a priority risk.",
+    "residual_risks": [
+      "Earlier unindexed papers may formulate an identical result as capacity-constrained labelled token routing or bounded-bin recolouring without mentioning hypergraphs.",
+      "No independent historical priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives general n to 2n-1 bounds, asks for stable diameter, but no complete uniform hypergraph exact expression",
+        "evidence": [
+          "Section 7, lines 292-310; Question 18, lines 324-327"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.17022v1",
+        "material_read": "Full HTML source: definitions and Section 7 (Lemma 15 and proof), Question 18 at end of Section 7, and context on graph stable diameter",
+        "method": "Open-access arXiv v1 full-text reading and theorem/assumption comparison",
+        "title": "Large diameter for (Delta+2)-colouring reconfiguration",
+        "trigger": "Fresh hypergraph recolouring bounds and explicit stable diameter question"
+      },
+      {
+        "assessment": "Same-partition graph recolouring renaming; does not give the arbitrary capacity-bound hypergraph all-pairs formula",
+        "evidence": [
+          "Section 2, lines 69-82, renaming lemma hypotheses and directed colour-class cycle proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.19695v1",
+        "material_read": "Full HTML source: introduction, Section 2 optimal renaming lemma and proof, Section 3 complete bipartite context",
+        "method": "Open-access arXiv v1 full-text reading and comparison of premises and quantifiers",
+        "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences",
+        "trigger": "Optimal renaming lemma could dominate the colour-cycle rotation argument"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "273b080e-4e42-4542-a842-4f71feb6cb71",
+  "value": {
+    "rationale": "Exact stable diameter is explicitly requested in the motivating 2026 hypergraph reconfiguration problem. The formula solves a natural family of all complete uniform hypergraphs at every size and rank, exhibiting an exact periodic capacity boundary for compulsory temporary moves and sharpening a general interval bound to equality. The minimum stability threshold is an independently meaningful open limit.",
+    "status": "PASS"
+  }
+}
