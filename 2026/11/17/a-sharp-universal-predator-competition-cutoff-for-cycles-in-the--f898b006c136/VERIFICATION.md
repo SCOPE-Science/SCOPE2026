@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The bundled `verify.py` was executed using Python 3 and SymPy. Its exact-arithmetic output was:
+# Independent mathematical audit
 
-```text
-VERIFY_OK symbolic_dulac=1 sharp_maximum=1 general_repeller=2 rational_witness=7
-rational_witness trace=19/30000 determinant=2233/1875000 d=923/3750
-```
+## correctness
 
-The script checks the general Dulac expression, the identity \((x+b)^2-4bx=(x-b)^2\), the Jacobian of the parameterized positive equilibrium, and strict sign conditions for the rational example. The proof of the universal no-cycle assertion relies on the Bendixson–Dulac theorem; the converse existence relies on a bounded trapping region, boundary hyperbolicity and the planar Poincaré–Bendixson classification. Finite or symbolic computations alone do not verify infinitely many trajectories. No independent mathematical audit has been performed.
+PASS
+
+The Dulac factor B=1/(xy) differentiates to −r/(ky)+a/(x+b)²−σ/x, strictly negative for σ≥a/(4b), including equality by (x+b)²≥4bx. Conversely for any σ below cutoff choose k>3b and sufficiently small r with e∈(0,1), then y*=2rb(k−b)/(ak), d=ea/2−σy*>0. The predator nullcline slope strictly exceeds the prey nullcline slope across the rising range, so their only positive intersection is x=b; the Jacobian trace and determinant are positive by the strict k,r choices. Boundedness, positive invasion at (k,0), invariant boundary axes and unstable unique interior equilibrium allow Poincaré–Bendixson to produce a positive periodic orbit. Independently checked the exact rational example: x*=1, y*=29/1500, trace 19/30000, determinant 2233/1875000, and verified the Dulac identity algebraically. No uniqueness or stability of cycles is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. Sharp quantifiers are σ fixed with all other positive parameters arbitrary for exclusion AND existence of some parameter choice for every σ smaller. Local Hopf conditions and mortality thresholds are not equivalent; Lu–Huang remains substantive historical-priority risk.
+
+## value
+
+PASS
+
+An exact global no-periodic-orbit versus cycle-realizability threshold for a biologically standard saturating predator-prey system provides a clear structural boundary, including equality and a constructive converse. A sharp parameter-uniform criterion is more useful than a generic Dulac sufficient condition or one numerical Hopf example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

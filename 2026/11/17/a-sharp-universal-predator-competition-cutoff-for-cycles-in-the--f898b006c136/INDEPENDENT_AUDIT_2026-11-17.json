@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:45:21.191083Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md @57325c14058a70d7a9664dc0f8290aa07941cc15",
+        "frozen verify.py @414bdc1141bb84df90056b47d89b85e24482bd1b",
+        "independent SymPy Dulac and Jacobian calculations for rational witness"
+      ],
+      "rationale": "The Dulac factor B=1/(xy) differentiates to −r/(ky)+a/(x+b)²−σ/x, strictly negative for σ≥a/(4b), including equality by (x+b)²≥4bx. Conversely for any σ below cutoff choose k>3b and sufficiently small r with e∈(0,1), then y*=2rb(k−b)/(ak), d=ea/2−σy*>0. The predator nullcline slope strictly exceeds the prey nullcline slope across the rising range, so their only positive intersection is x=b; the Jacobian trace and determinant are positive by the strict k,r choices. Boundedness, positive invasion at (k,0), invariant boundary axes and unstable unique interior equilibrium allow Poincaré–Bendixson to produce a positive periodic orbit. Independently checked the exact rational example: x*=1, y*=29/1500, trace 19/30000, determinant 2233/1875000, and verified the Dulac identity algebraically. No uniqueness or stability of cycles is claimed.",
+      "residual_risks": [
+        "Existence relies on analytic planar Poincaré–Bendixson, not symbolic diagnostics; result uniform only when other parameters are free."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Yu 2021 Theorems 2.1–2.2 address an extended Bazykin model with additional prey mortality and sufficient stability inequalities.",
+          "Lu–Huang 2021 abstract covers global dynamics and multiple cycles of same model; full theorem structure not verified."
+        ],
+        "reasoning": "Sufficient stability and local Hopf findings do not automatically yield an exact uniform σ boundary. However a plausible broader same-model historical analysis is inaccessible and cannot be declared noncovering.",
+        "searches": [
+          "sharp predator competition sigma a/(4b) Bazykin model absence limit cycles Dulac global Hopf",
+          "https://www.aimspress.com/aimspress-data/mbe/2021/6/PDF/mbe-18-06-391.pdf",
+          "https://doi.org/10.1016/j.jde.2021.01.025"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/mbe/2021/6/PDF/mbe-18-06-391.pdf",
+        "https://arxiv.org/abs/2603.24418",
+        "https://doi.org/10.1016/j.jde.2021.01.025",
+        "Resultary semantic query: sharp predator competition sigma a/(4b) Bazykin model absence limit cycles Dulac global Hopf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From fully accessed Wang–Yu Theorems 2.1 and 2.2, localized global-stability sufficient conditions for a larger-mortality variant do not assert universal sharp σ cutoff.",
+          "For σ≥a/(4b), Dulac excludes even large finite-amplitude cycles without assuming stable equilibrium; for σ<a/(4b), explicit repeller permits cycles."
+        ],
+        "reasoning": "The two-sided sharp universal criterion is stronger than either necessary local Hopf localization or one-sided sufficient stability. Same-model Lu–Huang could dominate but its full text was unavailable, so no confident noncoverage is asserted there.",
+        "searches": [
+          "sharp predator competition sigma a/(4b) Bazykin model absence limit cycles Dulac global Hopf",
+          "https://arxiv.org/abs/2603.24418",
+          "https://www.aimspress.com/aimspress-data/mbe/2021/6/PDF/mbe-18-06-391.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chan-López et al. local rising-nullcline Hopf restriction does not give a global cycle-exclusion cutoff.",
+          "Lu–Huang 2021 studies the precise model, but complete text unavailable via open sources or institution; abstract alone cannot resolve coverage."
+        ],
+        "reasoning": "Sharp quantifiers are σ fixed with all other positive parameters arbitrary for exclusion AND existence of some parameter choice for every σ smaller. Local Hopf conditions and mortality thresholds are not equivalent; Lu–Huang remains substantive historical-priority risk.",
+        "searches": [
+          "sharp predator competition sigma a/(4b) Bazykin model absence limit cycles Dulac global Hopf",
+          "https://arxiv.org/abs/2603.24418",
+          "https://doi.org/10.1016/j.jde.2021.01.025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matching own record; neighboring predator thresholds concern distinct species/models and different parameters, not an exact listed σ=a/(4b) global criterion.",
+          "Lu–Huang 2021 abstract is not a database of cutoff values or a checked theorem table."
+        ],
+        "reasoning": "The exact a/(4b) is tied to sharp maximum x/(x+b)² and the below-cutoff constructive repeller. No known exact table matching both directions was identified; unindexed literature risk retained.",
+        "searches": [
+          "sharp predator competition sigma a/(4b) Bazykin model absence limit cycles Dulac global Hopf",
+          "Resultary: sharp predator competition sigma a/(4b) Bazykin model absence limit cycles Dulac global Hopf",
+          "https://doi.org/10.1016/j.jde.2021.01.025"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. Sharp quantifiers are σ fixed with all other positive parameters arbitrary for exclusion AND existence of some parameter choice for every σ smaller. Local Hopf conditions and mortality thresholds are not equivalent; Lu–Huang remains substantive historical-priority risk.",
+      "residual_risks": [
+        "Lu–Huang JDE 280 (2021) full article on the identical model may contain a dominating global theorem: only abstract read; authorized institutional retrieval failed with VPN disconnected. Best-of-knowledge originality not priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PARAMETER_OVERLAP_NOT_UNIVERSAL_CUTOFF",
+          "evidence": "Additional prey mortality; cited global stability results are sufficient and parameter-restricted, not sharp all-parameter two-sided σ threshold.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2021/6/PDF/mbe-18-06-391.pdf",
+          "material_read": "Full PDF text for model, assumptions, Theorems 2.1–2.2 and reference to Lu–Huang paper; inspected PDF page image and text",
+          "method": "Public PDF full reading and theorem comparison",
+          "title": "Stability and bifurcation analysis of the Bazykin predator-prey ecosystem with Holling type II functional response",
+          "trigger": "same model with an additional mortality parameter"
+        },
+        {
+          "assessment": "MATERIAL_NOT_READ_PRIORITY_RISK",
+          "evidence": "Same model global analysis may contain or imply cutoff; neither coverage nor absence can be asserted from abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jde.2021.01.025",
+          "material_read": "Publisher abstract and bibliographic description only; full text inaccessible",
+          "method": "arXiv/OA lookup followed by authorized institutional request, returned vpn_disconnected",
+          "title": "Global analysis in Bazykin’s model with Holling II functional response and predator competition",
+          "trigger": "exact predator-prey model, potential comprehensive cycle theorem"
+        },
+        {
+          "assessment": "LOCAL_NOT_GLOBAL",
+          "evidence": "Only identifies where a Hopf instability can occur; does not by itself rule out all nonconstant cycles for σ≥a/(4b).",
+          "identifier_or_url": "https://arxiv.org/abs/2603.24418",
+          "material_read": "Theorem 8 description and relevant mathematical statement in inspected record; original full paper not reopened",
+          "method": "arXiv abstract and theorem-level comparison",
+          "title": "Nullcline geometry constrains the location of oscillatory instabilities in planar predator–prey systems",
+          "trigger": "local Hopf necessity for same nullcline geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/mbe/2021/6/PDF/mbe-18-06-391.pdf",
+        "frozen RESULT.md analytical proof"
+      ],
+      "rationale": "An exact global no-periodic-orbit versus cycle-realizability threshold for a biologically standard saturating predator-prey system provides a clear structural boundary, including equality and a constructive converse. A sharp parameter-uniform criterion is more useful than a generic Dulac sufficient condition or one numerical Hopf example.",
+      "residual_risks": [
+        "Does not specify the existence or stability of cycles for every fixed parameter tuple below cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Existence relies on analytic planar Poincaré–Bendixson, not symbolic diagnostics; result uniform only when other parameters are free.",
+    "Lu–Huang JDE 280 (2021) full article on the identical model may contain a dominating global theorem: only abstract read; authorized institutional retrieval failed with VPN disconnected. Best-of-knowledge originality not priority guarantee.",
+    "Does not specify the existence or stability of cycles for every fixed parameter tuple below cutoff."
+  ],
+  "schema_version": 1
+}
