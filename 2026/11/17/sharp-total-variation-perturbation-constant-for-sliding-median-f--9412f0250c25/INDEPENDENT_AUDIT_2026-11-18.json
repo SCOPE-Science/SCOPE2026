@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Median monotonicity and translation equivariance bound output difference delta_i between min and max input perturbation in its local window. Adjacent windows lie in one 2r+2-point interval, hence |delta_(i+1)-delta_i| <= sum of the 2r+1 variations of the perturbation across its edges; each edge is charged exactly 2r+1 times. For attainment, explicit interleaving of ordered labels L_1..L_r,R_1,L_(r+1),...,R_r,L_2r,R_(r+1)..R_2r yields alternating selected sides across 2r boundary centers. Place this rank gadget and its reflection at two separated interfaces of an n-cycle with n>=8r, and let g=f+epsilon*1_(0<=i<4r) for epsilon in (0,1). The input variation is 2epsilon; output variation is 2(2r+1)epsilon; equality is attained. Independent integer sorted-median implementations reproduced exact factors 3,5,7,11 for r=1,2,3,5 at n=8r and 8r+3. Finite checks only test rank witness; combinatorial proof handles all radii.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/11/17 all-radius finite paths theorem gives factor 2r+1 on clamped paths of length >=2r+2, not cyclic filters with two independent interfaces.",
+          "Published 2026/11/17 five-point cyclic theorem improves r=2 dimension threshold from n>=16 to n>=10; prior r=1 cyclic is stronger in its restricted family."
+        ],
+        "reasoning": "Path endpoint conditions and a one-sided jump do not automatically identify the periodic operator; original two-interface cyclic construction handles all r>=3, though reduction to path gadget is a plausible bibliographic risk.",
+        "searches": [
+          "sliding median running order statistic nonlinear two-input bounded variation Lipschitz 2r+1",
+          "Resultary all-radius median clamped finite paths and cyclic five-point ten-site onset"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package RESULT.md and exact CHECK.py, associated source metadata/review/verification files",
+        "Resultary exact three-point cyclic median full RESULT.md",
+        "Resultary ten-site five-point cyclic median full RESULT.md",
+        "Resultary all-radius clamped-path median full RESULT.md",
+        "Little and Jones 2011 PMC full Appendix A",
+        "Restrepo–Chacón 1994 abstract/DOI bibliographic comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The r=1 and r=2 corollaries are already proved; the claimed all-r theorem supplies a uniform median selection pattern and two noninterfering cyclic interfaces.",
+          "The path theorem has no periodic-edge comparison; cyclic wrap changes both domain and variation."
+        ],
+        "reasoning": "The full unbounded-radius cyclic theorem does not follow merely from the statements of known r<=2 cases or from different-boundary path constants; possible derivation from path proof is a residual originality/value risk.",
+        "searches": [
+          "sliding median running order statistic nonlinear two-input bounded variation Lipschitz 2r+1",
+          "Resultary r=1 cyclic, r=2 cyclic, all-radius clamped path proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Restrepo–Chacón 1994 and Little–Jones 2011 discuss one-input variation diminution: TV(Mf)<=TV(f), not TV(Mf-Mg)<=L TV(f-g).",
+          "Resultary 2026/10/26 cyclic three-point (r=1) explicitly gives identical norm=3 for n>=6; Resultary 2026/11/17 five-point onset norm=5 for n>=10."
+        ],
+        "reasoning": "Two-input instability is not equivalent to single-input smoothing. Prior r=1,2 coincidences are true coverage of those subfamilies; current broad r>=3 statement is not implied by restricting to r<=2.",
+        "searches": [
+          "sliding median running order statistic nonlinear two-input bounded variation Lipschitz 2r+1",
+          "running median cycle sliding window length k sharp variation sensitivity all k n sufficient threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact tables/formulas cover r=1 and r=2, which are not new.",
+          "No exact all-r cyclic BV table was found covering n>=8r for unbounded r; previous cyclic Lp amplification work uses a different norm."
+        ],
+        "reasoning": "This is a parameterized theorem, not a previously computed finite list. The known finite-radius values must be credited as overlap.",
+        "searches": [
+          "sliding median running order statistic nonlinear two-input bounded variation Lipschitz 2r+1",
+          "published cyclic median r=1 n=6 three-point exact and r=2 n=10 five-point exact"
+        ]
+      },
+      "rationale": "Previously published cyclic three-point theorem covers the r=1 subfamily (indeed n>=6), and a separate five-point theorem extends r=2 to all n>=10. Those cases must not be claimed as new. The present all-radius cyclic family includes every r>=3; published all-radius result on clamped finite paths uses different boundary and noncyclic seminorm. No published stronger theorem was identified that directly establishes the periodic all-r statement. Originality of the broader-radius cyclic formula is best-of-knowledge with genuine priority risks.",
+      "residual_risks": [
+        "Known r=1 and r=2 specializations are fully covered by stronger older published results; only r>=3 creates new coverage.",
+        "An unindexed stack-filter/all-radius cyclic perturbation theorem, or a nearly automatic cyclic gluing of the published clamped-path witness, may reduce originality; further expert comparison desirable.",
+        "No claim of minimal length n>=8r or exact norms on 2r+1<=n<8r."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fully covers the assigned theorem at radius r=1; cannot be presented as new.",
+          "evidence": "Prior norm 0 for n=3, 2 for n=4,5, 3 for n>=6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb",
+          "material_read": "Full published RESULT.md proof, r=1 n-dependent table, constructions, limitations",
+          "method": "GitHub source-file reading",
+          "title": "Sharp BV perturbation threshold for cyclic three-point medians (2026-10-26)",
+          "trigger": "Exact same r=1 operator and seminorm"
+        },
+        {
+          "assessment": "Strictly stronger r=2 threshold than this n>=16 subcase; no all-r extension.",
+          "evidence": "The theorem gives full factor five from n=10, with explicit bounds n<=9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-ten-site-onset-of-full-variation-sensitivity-for-the-cyclic-five--5df6f4eb15af",
+          "material_read": "Full published RESULT.md including all n>=10 witnesses and short-cycle bounds",
+          "method": "GitHub source-file reading",
+          "title": "Ten-site onset of full variation sensitivity for the cyclic five-point median (2026-11-17)",
+          "trigger": "Exact r=2 operator and potentially stronger coverage"
+        },
+        {
+          "assessment": "All-radius path result supplies a related sharp construction but is not a statement for cyclic windows.",
+          "evidence": "Path norm uses n-1 nonperiodic edges and clamped endpoints; cyclic one uses all n edges and no endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+          "material_read": "Full published RESULT.md proof and strict endpoint-clamped operator definition",
+          "method": "GitHub source-file reading",
+          "title": "Sharp two-input variation instability of all-radius running medians on finite paths (2026-11-17)",
+          "trigger": "Potential dominating unbounded-r theorem"
+        },
+        {
+          "assessment": "Proves a one-signal three-point (iterated) median variation-diminishing fact, not two-input perturbation norm.",
+          "evidence": "Appendix A estimates |median(x1,x2,x3)-median(x2,x3,x4)| <= |x2-x3| for one signal.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+          "material_read": "Full open-access HTML; inspected discussion of running medians and Appendix A adjacent-window argument",
+          "method": "PMC full text",
+          "title": "Little and Jones, Generalized methods and solvers for noise removal from piecewise constant signals I (2011)",
+          "trigger": "Foundational median total-variation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp two-input variation stability of a classical running median is a natural filter robustness invariant; its linear growth in window radius contrasts sharply with the one-input variation-diminishing property. A uniform construction across unbounded radius on periodic data yields a useful worst-case stability benchmark; the known r<=2 subfamilies are credited and the new content is all r>=3.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen package RESULT.md and exact CHECK.py, associated source metadata/review/verification files",
+    "Resultary exact three-point cyclic median full RESULT.md",
+    "Resultary ten-site five-point cyclic median full RESULT.md",
+    "Resultary all-radius clamped-path median full RESULT.md",
+    "Little and Jones 2011 PMC full Appendix A",
+    "Restrepo–Chacón 1994 abstract/DOI bibliographic comparison only"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every radius r>=1 and real n-cycles n>=8r, one-step cyclic median filtering on 2r+1 sites has exact attained two-input total-variation Lipschitz factor 2r+1 (universal upper bound for n>=2r+1).",
+  "limitations": [
+    "Best-of-knowledge originality is qualified by specific identified sources and risks; the independent reading is not a universal absence-of-prior-work certificate.",
+    "Exact mathematical source claims and external Lean/expert channels are preserved without fabrication; the indicated publication status is transport/security not mathematical rejection."
+  ],
+  "residual_risks": [
+    "Known r=1 and r=2 specializations are fully covered by stronger older published results; only r>=3 creates new coverage.",
+    "An unindexed stack-filter/all-radius cyclic perturbation theorem, or a nearly automatic cyclic gluing of the published clamped-path witness, may reduce originality; further expert comparison desirable.",
+    "No claim of minimal length n>=8r or exact norms on 2r+1<=n<8r."
+  ],
+  "schema_version": 1
+}

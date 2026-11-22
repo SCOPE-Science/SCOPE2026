@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monotonicity and translation-equivariance of the order statistic place each output difference between the minimum and maximum input differences on its window. For neighboring centers, the union of windows has exactly \(2r+2\) entries, so its oscillation is bounded by the sum of \(2r+1\) adjacent input differences; summing over centers gives the global upper bound. For the lower bound, the explicit rank interlacing \(L_1,\ldots,L_r,R_1,L_{r+1},\ldots,R_r,L_{2r},R_{r+1},\ldots,R_{2r}\) forces alternate-side median selections at each of the \(2r\) windows across a binary jump. Placing this and its reflection around two separated interfaces on a cycle gives \(2(2r+1)\) output jumps per two input jumps. All parameter ranges are quantified. The rational checker verified 96 sharp witness cases and 2,400 sampled bound instances; the proof, not the experiments, establishes every case.
+PASS
 
-## Originality — PASS, qualified
+Median monotonicity and translation equivariance bound output difference delta_i between min and max input perturbation in its local window. Adjacent windows lie in one 2r+2-point interval, hence |delta_(i+1)-delta_i| <= sum of the 2r+1 variations of the perturbation across its edges; each edge is charged exactly 2r+1 times. For attainment, explicit interleaving of ordered labels L_1..L_r,R_1,L_(r+1),...,R_r,L_2r,R_(r+1)..R_2r yields alternating selected sides across 2r boundary centers. Place this rank gadget and its reflection at two separated interfaces of an n-cycle with n>=8r, and let g=f+epsilon*1_(0<=i<4r) for epsilon in (0,1). The input variation is 2epsilon; output variation is 2(2r+1)epsilon; equality is attained. Independent integer sorted-median implementations reproduced exact factors 3,5,7,11 for r=1,2,3,5 at n=8r and 8r+3. Finite checks only test rank witness; combinatorial proof handles all radii.
 
-Restrepo–Chacón (1994) and Little–Jones (2011) prove *single-signal* total-variation diminution; the present quantity compares *two separately filtered signals*, and no substitution of the difference is legitimate for this nonlinear operator. Arias-Castro–Donoho (2006) analyze denoising and edge risk rather than sharp two-signal BV conditioning. Actual thematic searches of published mathematical findings for running medians, total-variation perturbation bounds and sliding order statistics returned no equivalent implication. The 1994 IEEE source was examined through its available abstract and bibliographic record; its complete paper was not substantively read. Historical nonlinear-filter and stack-filter stability literature could contain an unindexed equivalent formula. This qualified finding does not assert exhaustive publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp two-input total-variation stability modulus of a common nonlinear smoothing operation is a natural signal-condition invariant. Its exact growth equal to window size, rather than nonexpansivity suggested by ordinary one-signal smoothing, has an explicit all-radius attaining mechanism. The theorem covers infinitely many radii and cycle lengths and exposes a structural boundary between variation diminution and variation-distance stability; it is not a fixed small numerical example.
+Previously published cyclic three-point theorem covers the r=1 subfamily (indeed n>=6), and a separate five-point theorem extends r=2 to all n>=10. Those cases must not be claimed as new. The present all-radius cyclic family includes every r>=3; published all-radius result on clamped finite paths uses different boundary and noncyclic seminorm. No published stronger theorem was identified that directly establishes the periodic all-r statement. Originality of the broader-radius cyclic formula is best-of-knowledge with genuine priority risks.
 
-## Scope and limits
+## value
 
-The sharp equality claim concerns \(n\ge8r\) on a real periodic cycle; the upper bound itself holds for \(n\ge2r+1\). Extending sharpness to shorter cycles or to weighted medians and nonperiodic boundary rules is not claimed. Independent literature-priority checking remains useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp two-input variation stability of a classical running median is a natural filter robustness invariant; its linear growth in window radius contrasts sharply with the one-input variation-diminishing property. A uniform construction across unbounded radius on periodic data yields a useful worst-case stability benchmark; the known r<=2 subfamilies are credited and the new content is all r>=3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
