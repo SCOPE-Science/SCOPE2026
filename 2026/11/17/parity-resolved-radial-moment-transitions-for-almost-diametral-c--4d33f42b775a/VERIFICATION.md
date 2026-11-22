@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_equal_diagonals.py` from the directory containing the result and its standalone verification script. The script uses only the Python standard library and reports `PASS: 18660 independent finite assertions` in this package.
+## correctness
 
-It independently reconstructs strict intersections from vertex coordinates by solving two line equations for all allowable spans in regular polygons of sizes \(5\le n<60\), checking the count, the actual Euclidean radii and twofold conditioning multiplicities. It also evaluates moment asymptotics for both polygon parities at finite sizes, including moment orders below and above one, near-critical means, and rare-event cutoff counts. Tolerances in these asymptotic checks accommodate the theoretically slow convergence near the critical exponent; they are numerical consistency tests, not proof of limiting claims.
+PASS
 
-The proof in `RESULT.md` supplies the infinite-parameter arguments: cyclic crossing enumeration, chord support-line geometry, integrable singularity and dominated convergence for the fixed-order moments, a uniform sine-to-linear error estimate for the critical window, and careful treatment of equality at rare-event thresholds. No independent mathematical audit has been performed.
+For k<n/2 two span-k chords have strict interior crossing iff the relative start offset belongs to 1..k-1 or n-k+1..n-1, yielding 2(k−1)/n and L uniform. Their supporting lines have common normal distance cos(πk/n) and angular displacement 2πJ/n; solving gives R=sin(πδ/n)/sin(π(δ+L)/n), δ=n/2-k. Weak convergence of (δ+L)/n to Uniform(0,1/2) yields nR Pareto-type limit. Improper Riemann sum for 0<q<1, harmonic estimate at q=1, dominated fixed-index series for q>1, and uniform q=1+λ/log n expansion give the exact constants and critical window. The rare-event staircase includes equality because sin(x)/x strictly decreases. Fresh Cartesian line-intersection solution matched each atom across 930 admissible (n,k) cases for n=5..64.
+
+## originality
+
+PASS
+
+The exact equal-span chord geometry is elementary and not claimed new alone. A comprehensive comparison found earlier congruent-diagonal area partitions, unconditional random-chord intersection radii, and unrelated interior random-pair near-diameter expansions, but none states this conditioned finite-span atomic radial law together with its near-diameter parity-dependent critical moments, moving exponent and fixed-radius staircase. This is best-of-knowledge with access risks.
+
+## value
+
+PASS
+
+For two congruent diagonals in a regular polygon, the full discrete conditional radial law and its near-diameter bifurcation have a natural geometric meaning. The critical moment q=1, compact crossover and parity-resolved rare-event staircase are exact reusable quantitative invariants; they are not merely a relabeling of the elementary chord intersection trigonometric formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
