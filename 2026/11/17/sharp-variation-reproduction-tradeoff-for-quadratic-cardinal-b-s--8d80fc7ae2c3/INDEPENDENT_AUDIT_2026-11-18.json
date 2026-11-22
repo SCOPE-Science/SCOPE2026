@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:57:10.819280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact centered quadratic cardinal B-spline moments give quadratic-reproduction iff correction a=1/8. The derivative of a unit input step is a signed three-triangle combination with endpoint heights 0,-a,1+2a,-a,0. Integrating each signed linear segment gives 1+2a+2a^2/(1+3a) for all real a>=0, including 14/11 at a=1/8; the step is a true attaining input. Absolute summability of input jumps and the derivative kernel supplies the global upper bound on the bi-infinite grid. We separately integrated six rational correction strengths, including a=0, 1/8, and 7/3. The finite integral checks corroborate rather than establish the all-input theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A C2 cardinal cubic interpolation TV result concerns global degree-three interpolant rather than local quadratic quasi-interpolation.",
+          "Standard positive Schoenberg B-spline sampling is variation-diminishing, corresponding to a=0 only."
+        ],
+        "reasoning": "General B-spline stability and positive-kernel variation theorems do not give the signed correction a>0 or its sharp tradeoff.",
+        "searches": [
+          "quadratic cardinal B spline quasi interpolation discrete total variation sharp 14/11 reproduction 1/8",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-norm-of-whole-line-c-2-cardinal-cubic-sp--12f2cdbed39e",
+          "https://arxiv.org/abs/math/0504022"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0504022",
+        "https://arxiv.org/abs/1009.4389",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-norm-of-whole-line-c-2-cardinal-cubic-sp--12f2cdbed39e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older primary paper shows exact 1/8 stencil, polynomial reproduction and infinity approximation.",
+          "Dũng 2010 describes general quasi-interpolant representation and Besov recovery, not a verified sharp a-family TV norm in consulted material."
+        ],
+        "reasoning": "The existing exact stencil plus generic approximation results do not logically imply the sharp step-response integral; the separately proved TV tradeoff remains the final claim.",
+        "searches": [
+          "https://arxiv.org/pdf/math/0504022",
+          "https://arxiv.org/abs/1009.4389"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sablonniere Section 3.1 contains the same interior stencil with a=1/8, including boundary alterations on a finite interval.",
+          "Its norm 1.4734 is an L-infinity operator norm, not 14/11 in bounded variation."
+        ],
+        "reasoning": "The construction is covered exactly for a=1/8, but covering the construction does not imply a sharp norm under a different space and boundary regime.",
+        "searches": [
+          "quadratic cardinal B spline quasi interpolation discrete total variation sharp 14/11 reproduction 1/8",
+          "https://arxiv.org/pdf/math/0504022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest primary exact table gives ||Q2||_infty=1.4734 rather than the BV norm 14/11.",
+          "Resultary semantic search returned the same audited record and nearby different spline TV computations, but no independently preceding table of the a>=0 formula."
+        ],
+        "reasoning": "The available table values do not dominate the target invariant and failed database hits do not prove absence of other literature.",
+        "searches": [
+          "quadratic cardinal B spline quasi interpolation discrete total variation sharp 14/11 reproduction 1/8",
+          "https://arxiv.org/pdf/math/0504022",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-norm-of-whole-line-c-2-cardinal-cubic-sp--12f2cdbed39e"
+        ]
+      },
+      "rationale": "The exact quadratic-reproducing stencil is classical: Sablonniere (2005) explicitly prints (-f_{j-1}+10f_j-f_{j+1})/8. The novelty that survives is its precise discrete-to-continuous total-variation norm and the full nonnegative-correction tradeoff, not the construction or polynomial reproduction. The primary full text reports a finite-interval infinity norm and approximation rates but no bi-infinite jump-TV operator norm. Nearby cubic interpolatory spline and B-spline projection results use different operators; complete historical priority remains best-of-knowledge only.",
+      "residual_risks": [
+        "Earlier 2003 precursor of the same quadratic quasi-interpolant was not available in full text; its different operator norm calculations might affect priority.",
+        "Full old variation-diminishing spline literature was not exhaustively read.",
+        "Novelty is not claimed for the a=1/8 construction or polynomial reproduction, only the TV norm/tradeoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction covered; TV gain not supplied",
+          "evidence": "Interior Q2 coefficient mu_j=(-f_{j-1}+10f_j-f_{j+1})/8; derived operator norm is the infinity norm 1.4734.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0504022",
+          "material_read": "Complete 12-page manuscript, particularly Section 3.1 and coefficient tables",
+          "method": "OA arXiv PDF text and page-2 screenshot",
+          "title": "Univariate spline quasi-interpolants and applications to numerical analysis",
+          "trigger": "Identical quadratic-reproducing stencil"
+        },
+        {
+          "assessment": "Different degree and interpolatory C2 spline, no direct implication",
+          "evidence": "The result treats a bi-infinite cubic spline interpolant, not a quadratic local quasi-interpolant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-norm-of-whole-line-c-2-cardinal-cubic-sp--12f2cdbed39e",
+          "material_read": "Indexed published finding summary and comparison with its described operator; not primary full text",
+          "method": "Semantic research-result search summary",
+          "title": "Sharp bounded-variation norm of whole-line C2 cardinal cubic-spline interpolation",
+          "trigger": "Potential broader spline TV formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies a concrete cost of achieving quadratic exactness for a canonical low-cost spline rule: stable positive sampling a=0 becomes intrinsically BV amplifying by exactly 14/11 at the unique quadratic reproducer. Entire natural a>=0 parameter family has an exact attained, monotone stability frontier, with a simple worst-case step witness. This is a motivated precise invariant, not just a code validation or known norm recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier 2003 precursor of the same quadratic quasi-interpolant was not available in full text; its different operator norm calculations might affect priority.",
+    "Full old variation-diminishing spline literature was not exhaustively read.",
+    "Novelty is not claimed for the a=1/8 construction or polynomial reproduction, only the TV norm/tradeoff."
+  ],
+  "schema_version": 1
+}

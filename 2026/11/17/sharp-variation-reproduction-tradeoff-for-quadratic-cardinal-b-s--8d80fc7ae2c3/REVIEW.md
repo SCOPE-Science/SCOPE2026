@@ -1,15 +1,21 @@
-# Scientific review of the quadratic B-spline variation theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The centered spline moments give the sole quadratic-reproducing parameter \(a=1/8\). The exact step derivative has five knot values \(0,-a,1+2a,-a,0\), so the two outer and two inner negative triangles sum to \(a+a^2/(1+3a)\). This proves the displayed norm with no reliance on numerical interpolation. Absolute jump decomposition and an \(L^1\) triangle inequality prove the bound for every two-sided finite-variation sequence; a step attains it. Exact-rational checker results are corroboration, not a replacement for the infinite proof.
+## correctness
 
-## Originality
-**PASS on the inspected evidence, with historical-priority qualifications.** Sablonnière's complete accessible April 2005 manuscript displays exactly the interior correction \(\mu_j=(-f_{j-1}+10f_j-f_{j+1})/8\) and a finite-interval maximum norm, but not the bi-infinite discrete-to-continuous variation norm. His December 2005 paper concerns the same classical construction and quadrature. Dũng's accessible 2010 manuscript gives general B-spline quasi-interpolant representations and Besov recovery estimates; the inspected operator definitions and theorems do not give this exact norm. The classical variation-diminishing result concerns the positive-sampling baseline, which is not the signed quadratic-reproducing operator. Nearby published records involving spline orthoprojections and cubic-spline interpolation concern different operators. An earlier 2003 precursor and the full 1986 variation-diminishing paper were not available for complete text-level priority resolution; their existence remains a residual risk.
+PASS
 
-## Mathematical value
-**PASS.** This is an exact edge-stability benchmark for a classical low-cost, polynomial-reproducing reconstruction rule, not an arbitrary coefficient or an exercise in rescaling. It quantifies the cost of correcting the positive B-spline sampler to reproduce curvature: the unique quadratic-exact correction raises the worst-case variation from \(1\) to \(14/11\), and the whole parameter family has an explicit strict monotonic stability frontier. It specifies a concrete worst-case step input and rules out nonexpansiveness for any positive correction in this natural class. No broader optimality among all spline algorithms is asserted.
+The exact centered quadratic cardinal B-spline moments give quadratic-reproduction iff correction a=1/8. The derivative of a unit input step is a signed three-triangle combination with endpoint heights 0,-a,1+2a,-a,0. Integrating each signed linear segment gives 1+2a+2a^2/(1+3a) for all real a>=0, including 14/11 at a=1/8; the step is a true attaining input. Absolute summability of input jumps and the derivative kernel supplies the global upper bound on the bi-infinite grid. We separately integrated six rational correction strengths, including a=0, 1/8, and 7/3. The finite integral checks corroborate rather than establish the all-input theorem.
 
-## Limitations and closest prior results
-The theorem concerns a bi-infinite uniform grid, not finite-interval boundary rules. General nonuniform and higher-order problems are not settled. Full-text inspection of the 2003 precursor and Marsden's 1986 article was unavailable; an exact prior characterization cannot be categorically excluded. Sablonnière (2005), Dũng (2010) and the classical positive spline literature remain the closest sources discussed in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact quadratic-reproducing stencil is classical: Sablonniere (2005) explicitly prints (-f_{j-1}+10f_j-f_{j+1})/8. The novelty that survives is its precise discrete-to-continuous total-variation norm and the full nonnegative-correction tradeoff, not the construction or polynomial reproduction. The primary full text reports a finite-interval infinity norm and approximation rates but no bi-infinite jump-TV operator norm. Nearby cubic interpolatory spline and B-spline projection results use different operators; complete historical priority remains best-of-knowledge only.
+
+## value
+
+PASS
+
+Quantifies a concrete cost of achieving quadratic exactness for a canonical low-cost spline rule: stable positive sampling a=0 becomes intrinsically BV amplifying by exactly 14/11 at the unique quadratic reproducer. Entire natural a>=0 parameter family has an exact attained, monotone stability frontier, with a simple worst-case step witness. This is a motivated precise invariant, not just a code validation or known norm recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
