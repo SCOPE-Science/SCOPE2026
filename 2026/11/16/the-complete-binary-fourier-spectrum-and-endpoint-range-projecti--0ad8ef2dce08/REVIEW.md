@@ -1,15 +1,21 @@
-# Scientific review: order-three Latin-square binary Fourier spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact statement concerns the unnormalized convolution of the twelve Latin-square incidence vectors in the 27-coordinate binary group. Two independent constructions enumerate exactly the same twelve squares. The difference vectors have rank eight; an explicit list of twelve quotient coordinates suffices for complete enumeration of the 256 restricted characters. Direct sums, the Walsh transform, and ambient-representative character sums agree on every quotient coefficient. The complete absolute Fourier distribution exhausts all 134,217,728 ambient frequencies. Both methods for the 256-term support-indicator transform yield the absolute-value distribution whose sum is 1984. Translation averaging supplies an analytic argument for minimality among all projections rather than only invariant ones. The standalone checker verifies the two Parseval equalities and every claimed integer in its finite domain. The general averaging step and ambient-fiber factors are justified explicitly in RESULT.md.
+## correctness
 
-## Originality — PASS under bounded comparison
-The object and its twelve-member count are classical. Cameron's dated incidence exposition and the complete McKay–Wanless preprint were compared. In particular, the signed-permanent moment formula in McKay–Wanless counts Latin squares but neither gives the 27-variable Fourier frequency table nor the rank/projection constant. A published record classifying the twelve Latin-square graphs as extremal frameproof codes was inspected in full: classification of the twelve binary vectors is not the Fourier transform of their indicator, and its statement supplies none of the values \(148\), \(1984\), or \(31/4\). Zippin's general averaging mechanism is also excluded from the novelty claim. Literal and semantic searches for signed one-factorizations of the three-by-three bipartite graph, binary Fourier transforms of Latin squares, the exact numerical invariants, and alternative incidence encodings found no stronger implication. An obscure small-table record remains possible; absence from searches is not proof of absolute priority.
+PASS
 
-## Mathematical value — PASS
-Latin-square triple incidence is a natural representation of three-way exact-cover designs, and order three is the first size with a genuinely nontrivial twelve-element support. The range of its incidence-convolution operator is a natural Fourier-stable subspace. Its complete frequency support and sharp endpoint projection cost quantify precisely which modes cannot be recovered and the unavoidable worst-case amplification in stable range extraction. The observed contrast between the sharp endpoint cost \(31/4\) and the positive \(\ell^2\) condition number \(3\) is a substantive feature not obtained from the unsigned enumeration count or from a generic averaging lemma. This is a motivated complete finite invariant, with no claim of a higher-order formula.
+All 216 triples of row permutations yield precisely 12 Latin squares; independently the affine family ai+bj+c (a,b=1 or2) yields the same 12. Subtracting one incidence vector produces binary span D of rank8, with 12 affine quotient coordinates. Exhausting all 256 quotient characters yields signed multiplier histogram {-8:2,-4:45,0:108,4:90,8:10,12:1}; each has 2^19 ambient extensions and anchor outside D ensures symmetric signs, establishing the complete 2^27 frequency distribution. Transforming the indicator of the 148 nonzero quotient frequencies gives |H| histogram {0:12,4:81,8:108,12:54,148:1}, sum |H|=1984 and kernel L1 norm 1984/256=31/4. Translation averaging every projection onto translation-invariant range yields the unique invariant Fourier support projection, so 31/4 is the minimum even among non-invariant real/complex projections. Independent exact enumeration regenerated all counts and the two Parseval identities. This is exhaustive finite mathematics for n=3, not an extrapolation to all orders.
 
-## Closest evidence and residual limits
-McKay and Wanless's full arXiv text (especially introduction, incidence/one-factorization setup and Theorem 3) is the closest classic enumeration source. The published ternary 2-frameproof equality-classification result is the closest exact support-list statement. General Fourier projection literature supplies the averaging method. The source comparison remains bounded, the finite table relies on its exact checker, and no independent mathematical review has been performed. No unverified higher-order extension is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical order-three Latin squares, the twelve incidence vectors and averaging techniques are explicitly prior knowledge. The claimed new facts are exact Walsh cancellation levels in the 27-bit additive group and the sharp 31/4 endpoint projection constant for this exact design support. McKay-Wanless signed-permanent counting does not yield the Walsh transform over arbitrary 27-bit frequency masks; a prior 12-graph frameproof-code classification describes support only, not its Fourier spectrum. Other Resultary Walsh projection records involve different natural combinatorial supports and do not imply these numbers. Obscure preexisting exact tables remain possible.
+
+## value
+
+PASS
+
+The full triple-incidence code of the first nontrivial Latin-square order is a canonical exact-cover design. Exact missing Walsh frequencies quantify information loss in its convolution and the unavoidable endpoint range-extraction amplification, with a nontrivial contrast between spectral gap/condition number3 and projection cost31/4. A natural complete finite harmonic invariant need not extend to all orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
