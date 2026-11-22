@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is an exact three-state transfer-matrix calculation for every dimension \(n\ge3\). Its critical identities are \(N^3=I_3\), \(P^3\equiv I_3\pmod2\), \(P^2N\mathbf1=\mathbf1\), and the parity-even coordinate marginals when \(n\equiv2\pmod3\). The three explicit periodic signing families attain the claimed multiplier gaps; they are not inferred from a finite scan.
+# Independent mathematical audit
 
-Run `python3 checker.py` (Python 3 standard library). It independently generates the admissible binary words, computes full integer fast Walsh transforms for dimensions 3 through 17, compares them against state-based direct signed sums on all masks through dimension 10 and selected additional masks through 17, and checks arithmetic lemmas and the gap witnesses. The expected final marker is `FORBIDDEN_001_SHARP_WALSH_PASS`. The finite scans support but cannot prove the infinite statement.
+## correctness
 
-The source comparison includes accessible full-text HTML versions of arXiv:1402.6377 and arXiv:1501.00378, and bounded comparison with related mathematical records; a comprehensive historical-priority certificate is not asserted. No independent validation is reported.
+PASS
+
+The 001-avoidance transfer matrices P=M(+), N=M(−) exactly give every character sum e∏M(ε_i)1 for linearly scanned words. Integer identities N³=I, P³≡I (mod 2), and B=P²N fixing terminal vector prove the zero modes for n mod3=1,2 and periodic witnesses of magnitudes δ_(n mod3)=1,2,4. The count F_(n+3)−1 is odd if n mod3=0, so then every multiplier is nonzero; modulo-four divisibility for n mod3=2 follows from even single-coordinate marginals (three exhaustive exponent residue pairs). Thus gcd, least nonzero magnitude, inverse norm and condition number hold for all n>=3; bounded Walsh checks only corroborate.
+
+## originality
+
+PASS
+
+Generalized Fibonacci cube work provides automata and counting methods for strings avoiding forbidden factors, but the inspected primary isomorphism theorems concern graph structure and do not determine all Walsh multipliers, exact nonzero gap or the pseudoinverse of counting convolution. A sharp n mod3 divisibility and witness mechanism is the additional claim. Best-of-knowledge PASS with possible implicit older automata Fourier identity risk.
+
+## value
+
+PASS
+
+Convolution by the indicator of words avoiding one simple length-three factor is a natural finite-automaton sampling/aliasing problem. The exact all-length least nonzero Walsh gap and three-phase pseudoinverse norm quantify stability beyond mere word enumeration and supply a reproducible invariant not mechanically implied by Fibonacci word counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
