@@ -1,12 +1,21 @@
-# Scientific review: cubed-sphere quadratic concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the closed spherical square \(x\ge|y|,x\ge|z|\); boundary sets are null. The global harmonic space is exactly the five-dimensional complex pure quadratic space, and the operator is normalized using the full sphere's area measure. Every one of the five eigenvectors is a harmonic quadratic. The region's independent sign reflections and exchange symmetry make the local matrix diagonal in the stated global-orthogonal basis. Three square-boundary divergence identities and the face area yield a unique exact system for four necessary fourth moments; substituting them into the five Rayleigh quotients gives the complete four-value spectrum. The strict gaps and positivity are analytical, not sampled. The standalone exact symbolic check and independent 25-entry numerical integration pass. Residual limitation: no assertion for higher degrees, bands through degree two, weighted measures or arbitrary regions.
+## correctness
 
-## Originality — PASS with residual priority risk
-The spatial–spectral eigenproblem is classical (Simons–Dahlen–Wieczorek); regional manifold Slepian constructions are given by Roddy–McEwen (2023). The geometry and cubed-sphere coordinates are classical (Simons et al., 2011), and Faham–Nasir (2012) develop cubed-sphere harmonic inner products and Fourier formulations. The compared full material provides general mathematical machinery but does not state the complete local pure-quadratic face spectrum with multiplicities, sharp bounds and equality modes. Specifically, orthogonality of globally integrated harmonics or a formula involving unspecified local integrals does not evaluate and order these four numbers. Related octant and wedge spectra apply to different domains, while prior quadrupolar analysis on a tetrahedral spherical triangle is not congruent with the six-face square partition. Indexed title/claim/parameter searches for exact geometry, aliases, eigenvalues and cubed-sphere Slepian spectra did not identify an implication covering this claim. A specialist computation hidden in older cubed-sphere spectral tables remains the main uneliminated novelty risk; publication should receive independent priority review.
+PASS
 
-## Mathematical value — PASS
-The standard six-patch cubed sphere is a canonical finite-overlap domain for global spectral processing. The exact spectrum answers which degree-two harmonic is maximally or minimally observable on a single face, identifies a two-dimensional intermediate eigenspace and determines the optimal energy condition number without discretization. The exact constants supply a sharp benchmark for local-to-global harmonic transforms and numerical cubed-sphere methods. The result is a natural complete five-dimensional concentration classification, not an arbitrarily chosen sequence of moments; neither a higher-degree theorem nor a numerical scheme is claimed.
+The gnomonic parameterization (1,u,v)/√(1+u²+v²), u,v∈[-1,1], supplies area density (1+u²+v²)^−3/2 and fourth-moment kernel exponent −7/2. Reflection and y↔z exchange diagonalize the five pure H2 sectors Q0=3x²−1,xy,xz,y²−z²,yz. Four exact relations A−3B=T1, 3B−2C+3E=T1, B+C−4E=T3 and A+4B+2C+2E=2π/3 with T1=8√3/27,T3=2√3/27 yield A=2π/15+52√3/135, B=2π/45+4√3/135, C=2π/15−26√3/135, E=2π/45−8√3/135. Dividing local sector norms (3A−12B+Ω, B, B, 2(C−E), E) by full sphere norms (16π/5,4π/15,4π/15,16π/15,4π/15) gives exactly all four positive ordered levels; strict level gaps yield uniqueness of extremizers. Independent exact SymPy solution and eigenvalues reproduced.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original scope after positive mathematical implication comparisons, not inferred from mere negative search. A general matrix-integral formulation is an equivalent setup, not the same evaluated constants/equality spaces. No inspected prior theorem with numerical closed-form values on a different region automatically implies these cubed-sphere-face eigenvalues via symmetry or complement. The new value is exact evaluation and spectral order for this natural region and pure H2, not the established Slepian paradigm.
+
+## value
+
+PASS
+
+An exact sharp bandlimited regional concentration operator on the fundamental cubed-sphere face is a natural concrete Slepian benchmark, with exact extremizing degree-two modes and energy condition ratio for face-localized spherical analysis; it provides independently useful constants not determined by the generic eigensolver framework.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

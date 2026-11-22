@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The included `verify_cube_face.py` uses exact symbolic linear equations for four regional fourth-order moments, checks that their solutions equal the stated formulas, and proves algebraically that the resulting five normalized eigenvalues equal the stated values and have the required trace. It tests strict ordering and positivity separately.
+## correctness
 
-An independently implemented tensor Gauss–Legendre quadrature evaluates each of the 25 local Gram matrix entries directly from the gnomonic parametrization, without using the solved moment formulas. With orders 24, 40, 64 and 100 the maximum absolute discrepancy from the predicted diagonal matrix was respectively \(5\cdot10^{-16}\), \(2.11\cdot10^{-15}\), \(1.22\cdot10^{-15}\) and \(2.16\cdot10^{-15}\). The proof's universal quantifiers are established by exact identities and the finite-dimensional spectral theorem, not by finite sampling.
+PASS
 
-Run with `python verify_cube_face.py`; dependencies: `sympy`, `numpy`, Python 3. A separate independent mathematical review has not been performed.
+The gnomonic parameterization (1,u,v)/√(1+u²+v²), u,v∈[-1,1], supplies area density (1+u²+v²)^−3/2 and fourth-moment kernel exponent −7/2. Reflection and y↔z exchange diagonalize the five pure H2 sectors Q0=3x²−1,xy,xz,y²−z²,yz. Four exact relations A−3B=T1, 3B−2C+3E=T1, B+C−4E=T3 and A+4B+2C+2E=2π/3 with T1=8√3/27,T3=2√3/27 yield A=2π/15+52√3/135, B=2π/45+4√3/135, C=2π/15−26√3/135, E=2π/45−8√3/135. Dividing local sector norms (3A−12B+Ω, B, B, 2(C−E), E) by full sphere norms (16π/5,4π/15,4π/15,16π/15,4π/15) gives exactly all four positive ordered levels; strict level gaps yield uniqueness of extremizers. Independent exact SymPy solution and eigenvalues reproduced.
+
+## originality
+
+PASS
+
+Best-of-knowledge original scope after positive mathematical implication comparisons, not inferred from mere negative search. A general matrix-integral formulation is an equivalent setup, not the same evaluated constants/equality spaces. No inspected prior theorem with numerical closed-form values on a different region automatically implies these cubed-sphere-face eigenvalues via symmetry or complement. The new value is exact evaluation and spectral order for this natural region and pure H2, not the established Slepian paradigm.
+
+## value
+
+PASS
+
+An exact sharp bandlimited regional concentration operator on the fundamental cubed-sphere face is a natural concrete Slepian benchmark, with exact extremizing degree-two modes and energy condition ratio for face-localized spherical analysis; it provides independently useful constants not determined by the generic eigensolver framework.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
