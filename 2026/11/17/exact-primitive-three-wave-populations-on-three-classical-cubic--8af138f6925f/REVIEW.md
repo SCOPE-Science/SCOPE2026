@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For a connected graph every non-resting period-three configuration must rotate every vertex through 0, 1 and 2 at each update. The necessary-and-sufficient local successor-neighbor condition reduces the three graph counts to finite bipartite incidence-cover enumerations. Direct branching and a separate subset-mask dynamic program agree exactly for each graph, and a direct 729-state update check confirms the convention for the smaller cubic bipartite benchmark. The exhaustive enumeration concerns exactly the finite sets stated; it does not extrapolate to larger graphs.
+## correctness
 
-**Originality — PASS, qualified.** General GHM winding/activity theory is not a tabulation of period-three populations on these three graphs. Primary graph-geometric results for Pappus and nearest indexed excitation results for Heawood or subdivisions do not imply the three numbers on distinct cubic incidence graphs. Targeted exact-number and alias searches found no matching counts. The full texts of some potentially relevant indexed items were not available for examination, so absolute historical priority remains a residual risk.
+PASS
 
-**Value — PASS.** A complete exact invariant for coherent excitatory waves on three canonical incidence graphs is mathematically motivated as a baseline for discrete wave dynamics on symmetric networks; the nontrivial counts are not consequences of symmetry alone. No higher-period or transient classification is claimed.
+On a connected graph, a GH configuration of exact temporal period 3 has all vertices cycle phases or is all resting; a resting vertex cannot neighbor an always-cycling vertex. Fully cycling phase coloring c(v) in Z3 advances iff each vertex has some neighbor c(v)+1. On three connected cubic bipartite incidence graphs with shore sizes m=8/9/10, fix first point phase to zero, enumerate all 3^(m-1) remaining point colors and each allowed line phase; require union of point-successor coverage masks = all point vertices. Factor 3 for global color rotation. The disjoint cover count yields 54036,134478,645180 phase states and 18012,44826,215060 primitive three-orbits. Independent new inclusion-exclusion algorithm using graph encodings reproduced the full three integer counts; no inference from sample or partial census.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: Gravner–Lyu–Sivakoff (2018) defines exactly the 3-color GH dynamics and characterizes synchronization/activity by conservative initial forms and cycle winding (Theorem 3) on arbitrary graphs, but does not list these exact primitive-three phase counts. Published full-subdivision GH 3-periodic formula concerns graphs with inserted degree-2 edge vertices, not these entirely degree-3 Möbius–Kantor/Pappus/Desargues Levi graphs. Other GH line graph and Heawood population counts concern different objects and/or thresholds. A targeted search for named 16/18/20-vertex populations found no numerical implication. Unindexed specialized color-count tables remain a risk.
+
+## value
+
+PASS
+
+The three historically canonical finite cubic symmetric incidence graphs are natural objects, and exact primitive-three excitation population is a dynamical invariant with a clear definition, useful for benchmarking constrained waves versus total recurrent populations. It is an independently unknown exact census of nontrivial graph/coloring interaction, requiring full 3^(m-1) mask cover enumeration, not a gratuitous tiny arbitrary slice. No general/all-period classification or downstream theorem is required for this independently useful exact finite fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
