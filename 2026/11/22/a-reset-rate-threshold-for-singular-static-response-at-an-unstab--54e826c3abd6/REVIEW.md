@@ -1,0 +1,11 @@
+# Scientific review: singular static response under resetting
+
+**Correctness (PASS).** The renewal representation follows from the exponential stationary reset age and the monotone flow. All three regimes are independently justified by dominated convergence or a local squeeze. The subcritical beta-function amplitude is obtained by a convergent integral, the critical logarithm by a uniform near-origin comparison, and the supercritical coefficient by an integrable scaled limit. The critical crossover is proved locally uniformly for the scaled rate detuning. The standalone checker passed 31 numerical normalization/asymptotic consistency tests; experiments do not replace the proof.
+
+**Originality (PASS, with residual priority risk).** The 2026 Wang et al. source studies finite-frequency periodic amplification, provides the general renewal framework and a coarse-grained phase-dependent well-selection time; none of these statements is equivalent to the precise static-response classification and crossover at fixed \(r/a\). The known general renewal identity is not asserted as original. Rose et al. 2018 and Evans–Sunil 2024 address general reset processes, without an identified exact version of this nonlinear weak-field threshold. Indexed comparisons found no covering statements for the same flow and parameters. A stronger implicit formulation in older nonlinear response theory remains a possibility requiring independent review.
+
+**Value (PASS).** The threshold \(r=a\) is governed by competition between resets and the local unstable escape rate, and separates finite and divergent static susceptibility in a natural double-well amplification model. The exact amplitude and the finite critical crossover give quantitative information absent from a simple logarithmic escape-delay estimate. This matters specifically when assessing weak *constant* signals rather than periodic resonance.
+
+**Limits.** The inter-reset dynamics are deterministic; point resetting, fixed positive rates and weak static forcing are essential. No noise robustness or finite-frequency claim follows. At the critical point the static derivative is infinite, not a finite linear-response coefficient.
+
+Self-review: passed. Independent audit: not yet performed.
