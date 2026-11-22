@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T19:14:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the binomial thinning semigroup, cut decomposition of the complete-pair Gini seminorm and column-mass <=1/p estimate. The endpoint singleton produces the displayed sum. The linear rank-one-modulo-constants approximation has exact norm p(n+1)(n+2)/6 and a uniform O(n(n+1)(n-1)p^2/2) remainder. It yields gamma~n^2 p/6 for np->0 and gamma~1/p for np->infinity; endpoint Riemann sums show the log-n lower window and at 2 log n + s the exact limit e^{-s}/6. The stochastic-row overlap gives Dobrushin delta=1-(1-p)^n, hence ratio~n/6 in np->0. Independently enumerated all 62 nonconstant binary cuts at n=5,p=1/7, obtaining the same maximum and endpoint value 62921/84035. The finite check does not establish any all-n norm formula beyond stated bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004 proves a general factor floor(N^2/4)/(N-1) for N-state Gini versus Dobrushin; it does not supply e^-s/6 in the specific 2log n binomial window.",
+          "https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf gives oscillation/dual total-variation contraction formulas, with a different seminorm."
+        ],
+        "reasoning": "The general comparison has only an O(n) envelope; even at the proper model it cannot infer the sharp n/6 ratio, the first-window lower integral or the second-window limit.",
+        "searches": [
+          "binomial thinning pure death Markov semigroup complete pairwise Gini seminorm operator norm amplification logarithmic n time",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004",
+        "https://arxiv.org/abs/1302.5226",
+        "https://research.tue.nl/files/1719387/340666.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaubert–Qu https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf implies delta=1-(1-p)^n for this chain, but the tested Gini norm can exceed one and is asymptotically n/6 times delta.",
+          "Steutel–van Harn original thinning theory establishes the binomial process, not an all-function counting-Gini operator norm."
+        ],
+        "reasoning": "Known lemmas are credited as premises; estimating the endpoint cut and the operator remainder supplies nontrivial new implications absent from those statements.",
+        "searches": [
+          "binomial thinning pure death Markov semigroup complete pairwise Gini seminorm operator norm amplification logarithmic n time",
+          "https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert–Qu classical Dobrushin coefficient is row-total-variation/Hopf oscillation, not complete-pair Gini.",
+          "Binomial thinning is classically equivalent to survivor sums and generating-function substitution."
+        ],
+        "reasoning": "Equivalent descriptions of the Markov semigroup and row oscillation do not turn into this unequal-weight counting Gini norm; the exact model-specific amplification is additional.",
+        "searches": [
+          "binomial thinning pure death Markov semigroup complete pairwise Gini seminorm operator norm amplification logarithmic n time",
+          "binomial thinning stochastic matrix complete pair variation norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced the same assigned item and distinct complete-pair Gini findings on Ehrenfest and Cesaro matrices; no prior table of these binomial-death two-scale constants was found."
+        ],
+        "reasoning": "A parametric n-to-infinity operator norm theorem is not a finite tabulation; checked model-specific published summaries did not contain this asymptotic table. Negative search is not novelty proof.",
+        "searches": [
+          "binomial thinning pure death Markov semigroup complete pairwise Gini seminorm operator norm amplification logarithmic n time",
+          "Resultary binomial semigroup gini Dobrushin exact formula"
+        ]
+      },
+      "rationale": "PASS for the model-specific sharp small-survival expansion, two logarithmic scales and exact Gini/Dobrushin asymptotic separation, not for binomial thinning, Dobrushin contraction, superlevel cuts or the general dimension-dependent comparison.",
+      "residual_risks": [
+        "Unindexed pre-2026 Gini seminorm papers could contain equivalent binomial-death constants.",
+        "The oldest thinning source was not successfully read in full; no full-text novelty exclusion is asserted.",
+        "Bounds at t=log n+s do not assert a single limiting first-window profile; this is an explicitly unproved limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different oscillation/dual-TV norm; no whole-paper no-overlap assertion",
+          "evidence": "The coefficient is a supremum of pairwise row total-variation distances, not the sum over every output state pair.",
+          "identifier_or_url": "https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf",
+          "material_read": "Author full-text PDF introduction and central Dobrushin/Hopf/dual total-variation formulae, not every appendix",
+          "method": "Primary PDF read and formula comparison",
+          "title": "Dobrushin’s ergodicity coefficient for Markov operators on cones",
+          "trigger": "Same stochastic semigroup, possible stronger Markov contraction theorem"
+        },
+        {
+          "assessment": "Only general dimensional factor; residual possibility of undiscovered refined version",
+          "evidence": "Factor floor(N^2/4)/(N-1) gives only a dimensional envelope, not the exact binomial coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004",
+          "material_read": "Published result summary and explicit inequality; not a full primary text read",
+          "method": "Resultary search and published synopsis",
+          "title": "A sharp two-sided Gini–Dobrushin comparison for finite Markov operators",
+          "trigger": "Potential dimension-free/dominating comparison"
+        },
+        {
+          "assessment": "Cannot claim full-text absence; priority remains a risk",
+          "evidence": "Bernoulli thinning/generating function theory is a prerequisite, not a displayed Gini operator-norm theorem.",
+          "identifier_or_url": "https://research.tue.nl/files/1719387/340666.pdf",
+          "material_read": "Bibliographic identity and original result description; PDF full text was unavailable in the accessible retrieval",
+          "method": "Bibliographic and theorem-topic comparison",
+          "title": "Discrete analogues of self-decomposability and stability",
+          "trigger": "Foundational thinning operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies an unusually strong noncontractive seminorm amplification mechanism for a classical finite stochastic semigroup and distinguishes two parameter windows with a quantified sharp ratio to oscillation contraction. These model-specific constants and cutoff scales give a meaningful structural operator-norm comparison; it is not merely a reparametrization of classical total variation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004",
+    "https://arxiv.org/abs/1302.5226",
+    "https://research.tue.nl/files/1719387/340666.pdf",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/two-logarithmic-scales-of-gini-amplification-in-the-binomial-dea--e9a974cac24c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed pre-2026 Gini seminorm papers could contain equivalent binomial-death constants.",
+    "The oldest thinning source was not successfully read in full; no full-text novelty exclusion is asserted.",
+    "Bounds at t=log n+s do not assert a single limiting first-window profile; this is an explicitly unproved limit.",
+    "Independent bounded computations and source inspection establish only the specified checks; general proof rests on the mathematical argument in the frozen RESULT.md.",
+    "Publication transport remains not_ready, distinct from the completed scientific judgment."
+  ],
+  "residual_risks": [
+    "Unindexed pre-2026 Gini seminorm papers could contain equivalent binomial-death constants.",
+    "The oldest thinning source was not successfully read in full; no full-text novelty exclusion is asserted.",
+    "Bounds at t=log n+s do not assert a single limiting first-window profile; this is an explicitly unproved limit."
+  ],
+  "schema_version": 1
+}

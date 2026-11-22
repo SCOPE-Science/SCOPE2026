@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite test script `check_binomial_death.py` was executed with ordinary Python 3. It enumerated all nontrivial binary cuts at sizes \(n=2,\ldots,8\) for five rational thinning probabilities, checked rational semigroup matrix multiplication through \(n=13\), and verified the Dobrushin coefficient at \(n=2,\ldots,13\). All assertions passed.
+# Independent mathematical audit
 
-The universal upper bound, small-survival estimate, and all limiting transitions are proved analytically in `RESULT.md`. Exhaustive checks on finitely many dimensions do not certify the unbounded-dimensional cases; a numerical limit is not treated as a proof. The exact norm for arbitrary finite dimension is not asserted.
+## correctness
+
+PASS
+
+Reconstructed the binomial thinning semigroup, cut decomposition of the complete-pair Gini seminorm and column-mass <=1/p estimate. The endpoint singleton produces the displayed sum. The linear rank-one-modulo-constants approximation has exact norm p(n+1)(n+2)/6 and a uniform O(n(n+1)(n-1)p^2/2) remainder. It yields gamma~n^2 p/6 for np->0 and gamma~1/p for np->infinity; endpoint Riemann sums show the log-n lower window and at 2 log n + s the exact limit e^{-s}/6. The stochastic-row overlap gives Dobrushin delta=1-(1-p)^n, hence ratio~n/6 in np->0. Independently enumerated all 62 nonconstant binary cuts at n=5,p=1/7, obtaining the same maximum and endpoint value 62921/84035. The finite check does not establish any all-n norm formula beyond stated bounds.
+
+## originality
+
+PASS
+
+PASS for the model-specific sharp small-survival expansion, two logarithmic scales and exact Gini/Dobrushin asymptotic separation, not for binomial thinning, Dobrushin contraction, superlevel cuts or the general dimension-dependent comparison.
+
+## value
+
+PASS
+
+The result identifies an unusually strong noncontractive seminorm amplification mechanism for a classical finite stochastic semigroup and distinguishes two parameter windows with a quantified sharp ratio to oscillation contraction. These model-specific constants and cutoff scales give a meaningful structural operator-norm comparison; it is not merely a reparametrization of classical total variation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
