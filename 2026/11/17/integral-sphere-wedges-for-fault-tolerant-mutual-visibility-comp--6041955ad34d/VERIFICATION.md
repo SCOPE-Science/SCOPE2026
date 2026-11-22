@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite computations
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` in the same directory as the file. It uses only the Python standard library. The procedure builds \(K_{m,n}\) by its adjacency list; finds shortest paths by a breadth-first-search distance function; explicitly packs sets of clear paths with disjoint interiors; exhaustively enumerates all nonempty subsets; compares their face numbers with the stated closed polynomial; and separately calculates the augmented simplicial boundary ranks over \(\mathbb F_2\) by bitset elimination.
+## correctness
 
-The computations cover exactly \((m,n,q)=(4,4,1),(4,4,2),(5,5,2),(5,5,3),(5,6,3),(6,5,2),(6,6,3)\), totaling 6149 nonempty faces. All seven cases passed, and the exact output is in `VERIFY_OUTPUT.txt`. The \(q=1\) case only tests the known ordinary-visibility boundary; it is not a novel claim.
+PASS
 
-For \(q=2\) on \(K_{4,4}\), the resulting reduced mod-two third Betti number is 27. For \(q=2\) on \(K_{6,5}\), the reduced mod-two Betti numbers in degrees four, five and six are each 20. These match the integral wedge theorem, but the finite computations alone neither establish higher-dimensional integral torsion-freeness nor prove the formula for arbitrarily large shores or redundancy. Those claims follow from the explicit all-parameter simplicial pushout and nullhomotopy proof in RESULT.md. No external proof assistant or independent auditor is represented.
+Fix q≥2, m,n≥q+2, a=m−q,b=n−q≥2. For a chosen vertex set with i on shore A and j on B, a pair on A has n−j internally disjoint unblocked length-two paths and a pair on B has m−i, giving the exact face criterion (i≤1 or j≤b) AND (j≤1 or i≤a). The simplicial complex decomposes as P_A*P_B ∪ Δ_A*D_B ∪ D_A*Δ_B; the latter two joins are cones. Attaching subcomplexes L_A=P_A*D_B and L_B=D_A*P_B map nullhomotopically to the core because a,b≥2 make the simplex skeletons path connected, so each discrete shore inclusion is null. The two cofiber attachments split as K≈P_A*P_B∨ΣL_A∨ΣL_B. The uniform-matroid skeletons are binomial wedge sums, giving sphere families of degrees a+b−1,a+1,b+1 with multiplicities c_Ac_B,(n−1)c_A,(m−1)c_B. The disjoint face regions give the exact polynomial. This proves integral and infinite-parameter assertions; does not extrapolate from finite mod2 tests.
+
+## originality
+
+PASS
+
+Targeted Resultary search and accessible primary treatments distinguish ordinary q=1 mutual visibility (known) and general fault-tolerant definitions/maximum sizes on Cartesian or categorical products of complete graphs from the complete bipartite q≥2 face complex. None of the actually inspected primary claims computes a three-family integral homotopy wedge or its functorial core inclusion. The structural null-attachment calculation yields additional topology not implied by maximum visibility cardinality. Best-of-knowledge originality PASS with risk of an unindexed theorem applying to these same truncated-skeleton joins.
+
+## value
+
+PASS
+
+Complete integral homotopy classification of a natural family of fault-tolerant visibility complexes for all shores and redundancy thresholds; explicit face counts and core-homology split explain how pairwise fault robustness changes topology, including three possible degrees. These are motivated graph-visibility invariants a future researcher can use, not a one-off small table or routine independent-set substitution. The boundary a,b≥2 is essential to connectivity and null attachments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

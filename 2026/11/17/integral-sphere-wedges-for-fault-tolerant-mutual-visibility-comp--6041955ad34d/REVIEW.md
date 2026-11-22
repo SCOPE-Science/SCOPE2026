@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is exactly \(q\ge2\) and \(m,n\ge q+2\). Every nonadjacent selected pair lies in one bipartition class and has a unique length-two geodesic for each opposite-class intermediate vertex. Consequently the face criterion depends only on the selected shore sizes, with the explicit three-piece simplicial decomposition shown in RESULT.md. The two contractible attachments have intersections equal to joins with discrete sets. The key nontrivial step is verified: each truncated simplex is path connected at the stated boundary, so a discrete inclusion into it is homotopically constant; thus each attaching map is null. The uniform-matroid skeleton joins prove the claimed integral wedge decomposition and homology inclusion. The standalone verifier reconstructs the faces from shortest paths, then calculates true simplicial boundary ranks over \(\mathbb F_2\) for seven parameter cases totaling 6149 nonempty faces. These finite computations do not replace the unrestricted proof.
+PASS
 
-## Originality — PASS with residual risk
+Fix q≥2, m,n≥q+2, a=m−q,b=n−q≥2. For a chosen vertex set with i on shore A and j on B, a pair on A has n−j internally disjoint unblocked length-two paths and a pair on B has m−i, giving the exact face criterion (i≤1 or j≤b) AND (j≤1 or i≤a). The simplicial complex decomposes as P_A*P_B ∪ Δ_A*D_B ∪ D_A*Δ_B; the latter two joins are cones. Attaching subcomplexes L_A=P_A*D_B and L_B=D_A*P_B map nullhomotopically to the core because a,b≥2 make the simplex skeletons path connected, so each discrete shore inclusion is null. The two cofiber attachments split as K≈P_A*P_B∨ΣL_A∨ΣL_B. The uniform-matroid skeletons are binomial wedge sums, giving sphere families of degrees a+b−1,a+1,b+1 with multiplicities c_Ac_B,(n−1)c_A,(m−1)c_B. The disjoint face regions give the exact polynomial. This proves integral and infinite-parameter assertions; does not extrapolate from finite mod2 tests.
 
-Bujtás–Klavžar–Tian, arXiv:2412.03066, Proposition 3.2 (inspected full article Section 3) supplies the **known** ordinary-visibility case and its polynomial for balanced complete bipartite graphs. That fact is not counted as new. Cicerone–Di Stefano–Klavžar–Zhang, arXiv:2512.01978 (inspected full arXiv HTML), introduces fault-tolerant visibility but gives extremal numerical results for Cartesian and categorical products, not complete bipartite simplicial homotopy types. Direct database searches for the equivalent geodesic-clearance, full-face, positive-redundancy and homotopy formulations returned related but logically different total-visibility, induced-degree and cycle-visibility results. No stronger published coverage was found. The originality assessment does **not** infer uniqueness merely from unsuccessful searches; unindexed treatments of truncated partition joins and inaccessible indexed full text remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural, infinite, three-parameter topological classification of all robust mutual-visibility placements on a canonical network family. The theorem distinguishes three sphere-degree mechanisms and allows mixed-dimensional integral homology; face polynomials and extremal visibility numbers by themselves do not determine this homotopy information. The null attachment structure also identifies inclusion-induced integral homology, supporting further study of redundancy filtrations. The \(m,n\ge q+2\) regime is the mathematically necessary connected-skeleton range of the proof rather than an arbitrary numeric slice.
+Targeted Resultary search and accessible primary treatments distinguish ordinary q=1 mutual visibility (known) and general fault-tolerant definitions/maximum sizes on Cartesian or categorical products of complete graphs from the complete bipartite q≥2 face complex. None of the actually inspected primary claims computes a three-family integral homotopy wedge or its functorial core inclusion. The structural null-attachment calculation yields additional topology not implied by maximum visibility cardinality. Best-of-knowledge originality PASS with risk of an unindexed theorem applying to these same truncated-skeleton joins.
 
-## Limitations
+## value
 
-Only complete bipartite graphs and the specified redundancy regime are established. No equivariant splitting, below-threshold shore-size classification, or independently certified verification is claimed. Bibliographic comparisons leave the usual unindexed-source risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete integral homotopy classification of a natural family of fault-tolerant visibility complexes for all shores and redundancy thresholds; explicit face counts and core-homology split explain how pairwise fault robustness changes topology, including three possible degrees. These are motivated graph-visibility invariants a future researcher can use, not a one-off small table or routine independent-set substitution. The boundary a,b≥2 is essential to connectivity and null attachments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
