@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "A vertex-by-vertex local argument rules out every excitation at time 2 for all m>=1: a time-one excited leaf requires its adjacent hub to be time-one refractory, and a time-one excited paired leaf requires its opposite leaf to be time-one refractory. Thus F^3=0. A sharp initial coloring makes a hub newly excited at time one. Exact enumeration of allowed initial page pairs by nine initial hub assignments yields S_m, from which all first-hit counts and the 8/9 limit follow algebraically. The standalone direct program exhaustively checked 5,380,830 distinct configurations at m=1..6; a separate coefficient implementation checked the nine-case sum for m=1..30. Finite checks are corroboration, not proof of all m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91, proof: if rho(G)<q, eventual extinction with event-budget bound floor(q m/(q-rho(G))); B_m is two-degenerate and rho(B_m)<2.",
+        "2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2: exact threshold-two excitation on complete bipartite graphs, a distinct dense graph family admitting nonzero cycles.",
+        "arxiv:1610.07320v1, Theorem 3, explicitly requires one-contact GHM update."
+      ],
+      "reasoning": "The density theorem strongly covers qualitative extinction, so that property is excluded from the novelty claim. Its event-count bound scales with initial excitation count and therefore does not imply the uniform exact F^3=0 identity or the S_m census. The known complete-bipartite and triangular-book classifications use different edges, or thresholds, so they neither contain B_m as an asserted family nor imply the exact counting formula by parameters.",
+      "searches": [
+        "published-finding corpus: quadrilateral book threshold two three-color Greenberg-Hastings extinction three steps exact 9^m 8^m",
+        "published-finding corpus: threshold-two excitation graph with two hubs and matching leaf pairs three-step extinction",
+        "published-finding corpus closest: 2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+        "published-finding corpus related: 2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2",
+        "Web: 3 state Greenberg Hastings threshold 2 quadrilateral book graph extinction"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-three-and-four-phase-excitation-on-quadrilateral-books--b7d28b39fb97",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+      "https://arxiv.org/html/1610.07320v1",
+      "https://arxiv.org/abs/patt-sol/9303002",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact prior threshold-one books: Q_3(m)=3^m-2^(m+1)+1, Q_4(m)=2^(m+1)-2, and persistence; incompatible with threshold-two absorption and no direct logical implication.",
+        "Density theorem: applies because B_m has every induced subgraph with edge density <2, but bounds only total excitations, not the sharp time or its histogram.",
+        "Present independent proof distinguishes t2 excitation obstruction and counts allowed t1 configurations by nine hub cases."
+      ],
+      "reasoning": "Neither known stronger qualitative extinction nor exact recurrence of the *different* threshold-one map contains the full new conclusion. A purported prior result that merely says that B_m eventually extinguishes is therefore subsumed by density and not the novelty. Novelty is confined to a quantitative sharp clock, exact labelled hitting-time polynomial and limit law.",
+      "searches": [
+        "GitHub full RESULT.md: 2026/11/2/SCOPE-exact-three-and-four-phase-excitation-on-quadrilateral-books--b7d28b39fb97",
+        "GitHub full RESULT.md: 2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+        "arxiv:1610.07320v1: update rule, Theorem 3, Sections 1 and 2",
+        "published-finding corpus: squared-cycle threshold-collapse; threshold-two biclique and wheel extinction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026/11/2/SCOPE-exact-three-and-four-phase-excitation-on-quadrilateral-books--b7d28b39fb97: threshold ONE on the same B_m, primitive period-three and -four counts and transient bound five; full RESULT.md read.",
+        "2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91: a general threshold-q density obstruction, not an exact first-hitting rule; full RESULT.md read.",
+        "arxiv:1610.07320v1, Sections 1–2: one-contact GHM, circulation and synchronization, not a two-contact update."
+      ],
+      "reasoning": "The same quadrilateral book B_m is used by the threshold-one result, but raising the minimum number of simultaneously excited neighbors changes the transition map and destroys all its oscillating recurrent states. The density criterion gives extinction but no exact three-step identity or binomial-exponential time histogram. Search did not locate an equivalent full census under alternative graph names K_{1,m} square K_2, quadrilateral book, edge-glued squares.",
+      "searches": [
+        "published-finding corpus: two contact Greenberg Hastings book graph squares common edge extinction excitation square book",
+        "published-finding corpus: synchronous three state Greenberg Hastings on square book graphs many 4 cycles sharing edge",
+        "published-finding corpus: K1,m cartesian K2 two-contact excitable dynamics all rest first hitting time",
+        "Web: Greenberg Hastings two neighbor threshold on book graph K1m Cartesian K2 dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved explicit table of N_0,N_1,N_2,N_3 for B_m under threshold two.",
+        "Own historical claims include threshold-two results for ladders, sunlets, friendship graphs and particular finite regular graphs but no quadrilateral-book claim.",
+        "The closest published-finding corpus quadrilateral-book RESULT.md explicitly limits itself to threshold one and states no claim about higher thresholds."
+      ],
+      "reasoning": "The exact object/time histogram was absent from the observed result sets and recoverable own ledger claims. This negative search is treated as evidence under incomplete indexing, not a proof of global priority.",
+      "searches": [
+        "published-finding corpus: book graph quadrilateral 2 contact threshold 3 state no periodic configurations",
+        "published-finding corpus: three-color Greenberg-Hastings contact threshold two exact extinction time distribution book graph",
+        "Web: quadrilateral book graph GHM excitation threshold exact counts",
+        "Own accessible ledger: 41 existing claim rows, searched book; Cartesian; threshold two; excitation; square"
+      ]
+    },
+    "rationale": "The threshold-one quadrilateral-book classification, arbitrary-graph one-contact circulation theorem, and threshold-two induced-density extinction theorem were compared at the level of hypothesis and implication. Eventual extinction is previously implied and explicitly excluded from originality. None of the inspected stronger statements yields the exact size-independent three-update cutoff, first-hitting-time histogram, or limiting two-point law. Historical-equivalence risk is noted rather than represented as impossible.",
+    "residual_risks": [
+      "An unindexed historical two-contact quadrilateral-book census may exist.",
+      "The 1993 foundational manuscript was inspected by dated abstract only; no whole-document noncoverage inference.",
+      "Search ranking and accessible repository records cannot prove absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Threshold one only; gives oscillations, first-entry bound five and basin counts; does not cover two-contact F^3 or its absorption-time counts.",
+        "evidence": [
+          "Finding explicitly specifies threshold one",
+          "Limitations explicitly exclude higher excitation thresholds",
+          "Closed three/four-period orbit and basin formulas are for threshold one."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-three-and-four-phase-excitation-on-quadrilateral-books--b7d28b39fb97",
+        "material_read": "Complete RESULT.md, including update definition, theorem, proof, verification, comparison, limitations and references",
+        "method": "GitHub fetch_file public repository contents",
+        "title": "Exact three- and four-phase excitation on quadrilateral books",
+        "trigger": "Same graph and excitation model with a different contact threshold"
+      },
+      {
+        "assessment": "Proves eventual extinction for B_m from induced edge density <2. Does not prove uniform three-update extinction or an exact hitting-time count.",
+        "evidence": [
+          "Theorem gives N<=floor(q*initial_excited/(q-rho(G))) and a corresponding time bound",
+          "Limitations explicitly say the budget may be loose."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+        "material_read": "Complete RESULT.md with graph density hypothesis, proof, quantitative bound, limitations and references",
+        "method": "GitHub fetch_file public repository contents",
+        "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+        "trigger": "Potential stronger all-graph extinction theorem under contact threshold two"
+      },
+      {
+        "assessment": "Update (1) uses some excited neighbor (one contact); Theorem 3 characterizes this model via initial one-form circulation, not the contact-two book system.",
+        "evidence": [
+          "Section 1, update equation (1) gives existential neighbor excitation",
+          "Theorem 3 concerns irrotationality in the one-contact model."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+        "material_read": "HTML full-text sections 1–2, particularly displayed update (1), Lemma 1, Theorem 3 and definitions",
+        "method": "arXiv lawful HTML full text",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Original arbitrary-graph GHM recurrence and synchronization theory may dominate new claim"
+      },
+      {
+        "assessment": "Abstract establishes 1993-03-22 source date and threshold-range spiral-focus; full paper not inspected and therefore no whole-document noncoverage assertion is made.",
+        "evidence": [
+          "ArXiv abstract submitted 1993-03-22",
+          "Abstract emphasizes Z^2 spirals and threshold-range scaling; no specific book family in abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "Dated arXiv abstract only, not paper full text",
+        "method": "arXiv abstract display and bibliographic record",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Earliest publicly dated threshold-parametrized GHM model source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b0f24b2c-9d17-4772-bcbf-7f409c07582a",
+  "value": {
+    "rationale": "Changing the local contact threshold on a canonical many-cycle graph produces a sharp phase collapse from persistent period-three/four oscillations to uniform bounded-time absorption. The all-m exact first-hitting-time law is a natural invariant of this change; its 8/9 limiting last-time mass gives quantitative macroscopic content not supplied by the prior extinction criterion. It is a complete motivated infinite-family temporal classification, not an isolated arithmetic instance.",
+    "status": "PASS"
+  }
+}
