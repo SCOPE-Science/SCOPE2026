@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying standalone `check_monge_shortest.py` checks exact matrix entries, pair distances, minimizer counts and their index labels with rational arithmetic. The executed command was `python3 check_monge_shortest.py`, yielding:
+# Independent mathematical audit
 
-`MONGE_MINIMUM_VERTEX_SEPARATION_CHECKS_PASSED n_range=3..33 all_pairs=973896 direct_matrices_pairs=1386`
+## correctness
 
-The explicit matrix replay covered all pairs for \(3\le n\le9\); the formula-level exhaustive replay covered all pairs for \(3\le n\le33\). The analytically verified quantifiers extend to every integer \(n\ge3\); the program is corroboration only. The normalization counts both off-diagonal symmetric entries. No external or independent audit is asserted.
+PASS
+
+The normalized hollow symmetric Monge vertices are two disjoint a-by-b symmetric corner rectangles of entries 1/(2ab), as established by the primary vertex theorem. Their exact matrix inner product is 1/[2max(a,c)max(b,d)], yielding the given squared Frobenius distance. Comparable pairs telescope into positive one-coordinate expansion increments, and the discrete cubic a(n-a-1)(n-a) has a factored first difference giving the three residue-specific maxima and ties. Incomparable pairs have squared distance >=27/(4n^3), strictly greater than optimal comparable separation for every n>=4; n=3 is separately enumerated. Hence the exact all-n three-case formula, two/two/four face-crossing shortest edges, and half-distance nearest-vertex noise radius follow. A separately written exact-rational enumeration checked all 100947 pairs for n=3..21 and literal normalized matrices for n=3..6; it is not used as an infinite proof.
+
+## originality
+
+PASS
+
+Erickson–Kretschmann 2023 already proves the normalized hollow symmetric Monge simplex, its corner-block vertex set and its metric face. Their full text does not give the Frobenius minimum over vertex pairs or the residue-class equality list. A different same-day published full result computes each vertex projection onto the convex metric face and the Hausdorff gap; although it uses exactly the same Gram coefficients, it neither yields nor implies the shortest pair metric. Source-restricted historical priority remains provisional, particularly the original Monge extremal-ray article.
+
+## value
+
+PASS
+
+Gives an exact sharp geometric resolution and noise margin for a canonical normalized transport-cost simplex. All nearest pairs unexpectedly cross its distinguished metric face except a fully classified smallest case, with three modular regimes and n^{-3/2} scale. These precise structural/equality results are not textbook consequences of knowing the vertices or the volume, and naturally matter when discerning extreme cost models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

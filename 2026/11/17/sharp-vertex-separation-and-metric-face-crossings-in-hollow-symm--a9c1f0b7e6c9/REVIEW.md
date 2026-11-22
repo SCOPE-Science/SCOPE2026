@@ -1,11 +1,21 @@
-# Review of the minimum Frobenius vertex separation of hollow symmetric Monge simplices
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise matrix normalization gives squared norm \(1/(2ab)\) and cross inner product \(1/[2\max(a,c)\max(b,d)]\), which were independently checked against literal matrix constructions. Comparable pairs telescope into strictly positive unit-expansion increments. Incomparable pairs obey a dimension-uniform lower bound \(27/(4n^3)\), strictly above the computed minimum for every \(n\ge4\), with \(n=3\) handled separately. The factored first difference of the cubic denominator and exact residue calculations establish all equality cases for every integer parameter, not merely tested cases.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Erickson–Kretschmann (2023) proves the vertex and simplex model and identifies the metric face, but the inspected complete Sections 3, 4.1, 4.3 and main-result overview provide no Euclidean shortest-edge formula or modular equality classification. Rudolf–Woeginger (1995) is the source of the extremal ray decomposition; only its abstract and bibliographic details were available for comparison, so an uninspected equivalent formula cannot be excluded. Related published geometry of nonsymmetric Monge inballs and metric emulators does not imply this theorem. A targeted search of related research-result records surfaced no identical statement; searches are not novelty proofs.
+PASS
 
-**Mathematical value — PASS.** Extreme normalized cost matrices are canonical vertices of the Monge simplex used in transport optimization. Their exact minimum separation is the sharp metric resolution of this finite geometric model: it supplies an explicit vertex-classification noise threshold and a complete, somewhat unexpected description of every shortest edge as crossing into the distinguished metric-cost face. The scaling \(n^{-3/2}\), three residue classes, and all-equality classification do not follow from mere simplex combinatorics or volume counting. This is about vertex-level robustness; no distance estimate for the continuum of near-metric matrices is claimed.
+The normalized hollow symmetric Monge vertices are two disjoint a-by-b symmetric corner rectangles of entries 1/(2ab), as established by the primary vertex theorem. Their exact matrix inner product is 1/[2max(a,c)max(b,d)], yielding the given squared Frobenius distance. Comparable pairs telescope into positive one-coordinate expansion increments, and the discrete cubic a(n-a-1)(n-a) has a factored first difference giving the three residue-specific maxima and ties. Incomparable pairs have squared distance >=27/(4n^3), strictly greater than optimal comparable separation for every n>=4; n=3 is separately enumerated. Hence the exact all-n three-case formula, two/two/four face-crossing shortest edges, and half-distance nearest-vertex noise radius follow. A separately written exact-rational enumeration checked all 100947 pairs for n=3..21 and literal normalized matrices for n=3..6; it is not used as an infinite proof.
 
-**Residual limitations.** Historical priority has not been independently established. The 1995 predecessor was not available in full text in the consulted sources. The certified infinite range depends on the stated analytic inequality and integer optimization proof, with finite computations serving as checks. The metric is specifically the full Frobenius norm and the matrices have entry sum one.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Erickson–Kretschmann 2023 already proves the normalized hollow symmetric Monge simplex, its corner-block vertex set and its metric face. Their full text does not give the Frobenius minimum over vertex pairs or the residue-class equality list. A different same-day published full result computes each vertex projection onto the convex metric face and the Hausdorff gap; although it uses exactly the same Gram coefficients, it neither yields nor implies the shortest pair metric. Source-restricted historical priority remains provisional, particularly the original Monge extremal-ray article.
+
+## value
+
+PASS
+
+Gives an exact sharp geometric resolution and noise margin for a canonical normalized transport-cost simplex. All nearest pairs unexpectedly cross its distinguished metric face except a fully classified smallest case, with three modular regimes and n^{-3/2} scale. These precise structural/equality results are not textbook consequences of knowing the vertices or the volume, and naturally matter when discerning extreme cost models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
