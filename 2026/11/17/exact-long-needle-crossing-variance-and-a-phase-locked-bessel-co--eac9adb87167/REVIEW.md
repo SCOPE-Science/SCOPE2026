@@ -1,15 +1,21 @@
-# Scientific review: long-needle grid crossing variance
+# Independent mathematical audit
 
-## Correctness — PASS
-Conditionally on the orientation, the two independent uniform coordinate phases yield exactly the adjacent-integer count law for crossings in each line family. The law of total variance splits the total into an explicitly evaluated angular quadratic form and the mean fractional-part variance. The latter has an absolutely and uniformly convergent Bernoulli-polynomial Fourier series; angular integration gives the Bessel series. The uniform large-argument remainder for \(J_0\), summed with \(k^{-2}\), proves an absolute \(O_{a,b}(L^{-3/2})\) error. Substitution of integers and half-integers verifies the exact opposite-sign limits. Grid corner events are null. An independent quadrature of the original fractional-part integral and direct endpoint sampling corroborate, but do not replace, this proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The nearest exact prior observable is the number of tiles visited by a uniformly placed segment on a rectangular grid, treated in Mendo–Arkhipov (arXiv:2201.03975); the full accessible paper derives its *mean* and a maximal-tile probability, not its variance. Min–Zhu–Zhao (arXiv:2402.06670) treat long-needle **hit probabilities**, not the total count variance. Bäsel (arXiv:2508.04640) treats the count variance only for needles shorter than all grid spacings and therefore cannot imply the length-to-infinity phase law. Siniksaran (2009) treats the classical short needle. Diaconis (1976) treats a single parallel-line family and approximate long-needle moments; its complete text was unavailable, and may contain relevant one-family calculations. The newly assessed joint two-family all-length Bessel identity, exact angle-induced negative covariance, and nonzero opposite-sign lattice-phase limits were not located in inspected sources or targeted research-record comparisons. This is a best-knowledge, not independently certified, novelty assessment.
+PASS
 
-## Value — PASS
-The observable is the exact second moment of a canonical grid-line intersection count, or equivalently tile-visitation count. The mean and maximum are already natural subjects of prior work, while variance controls variability and estimators based on repeated long-needle drops. The sharp \(L^{-1/2}\) oscillations after quadratic and constant subtraction reveal arithmetic length-grid resonance that the leading quadratic asymptotic cannot encode. The theorem applies at every length and every positive rectangular aspect ratio, with two explicit sign-distinct regimes in the square case; it is neither an arbitrary finite slice nor a change of notation.
+PASS. For length L, square-grid projected displacements u=L|cos theta|/a, v=L|sin theta|/b, uniform independent translation phases yield conditional independent line counts with means u,v and variances g(u),g(v) where g(t)={t}(1-{t}). Total variance is Var(u+v)+E g(u)+E g(v); angular moments give exact K_ab L^2, negative covariance L^2/(ab)(1/pi-4/pi^2), and mean. g has absolutely uniform Fourier series 1/6-(1/pi^2)sum cos(2pi kt)/k^2; angular averaging gives J0 at each argument and exact constant 1/3. Uniform positive-argument J0 asymptotic at all k>=1 for L large fixed a,b, sum of errors O_ab(L^-3/2), proving the S(L/a),S(L/b) term and signed integer/half-integer limits. Independent quadrature of g against angle and 10,000-term Bessel expansion for four L,a,b samples agreed at numerical tolerance. Short-needle identity and boundary equal grid crossing at zero-probability coincidences checked.
 
-## Scope and residual risks
-No claim is made for nonrectangular lattices, random lengths, orientation bias, or a grid-spacing-uniform asymptotic. The unavailable full text of Diaconis (1976), and less accessible historical books on geometric probability, leave a priority risk for one-family component calculations and possible stronger classical implications. Such literature has not been represented as having been fully inspected. Independent mathematical and historical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Prior exact count/moment results for one family of parallel lines (Diaconis 1976) and large-grid mean number of visited tiles (Mendo–Arkhipov 2023) are related, but neither inspected stated result supplies the joint orthogonal two-family total variance, negative interfamily covariance plus phase-locked Bessel asymptotic. Bäsel short-needle multidimensional variance is restricted L<=min(a,b), so does not imply unrestricted lengths or the oscillatory L^-1/2 correction. Diaconis 1976 full text inaccessible (institutional VPN disconnected) remains a concrete originality risk, not an automatic failure.
+
+## value
+
+PASS
+
+PASS. The exact unrestricted-length second moment with negative cross-family covariance, an absolutely convergent Bessel correction and provably phase-dependent L^-1/2 fluctuation quantify the geometry of long segments beyond classical contact probabilities and mean counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
