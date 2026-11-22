@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 30-plane domain, parity splitting, low-degree observation definitions and Gram normalization are explicit. Every monomial of degree at most two has zero pairing with the orientation sign by a point-transposition argument. The degree-two Gram eigenvalues follow from a verified 15-by-15 symmetric-design matrix, and one three-line event separates the missing direction. Two exhaustive standard-library checkers successfully reproduced all finite premises and checked independent modular ranks. No extrapolation or probabilistic numerical rank is used.
+## correctness
 
-**Originality — PASS under bounded comparisons.** Saniga (arXiv:1509.06009, full 2016 open-access text inspected) provides the two 15-plane classes and pair intersections, so these ingredients are credited. The novel target is the exact Fourier interpolation hierarchy \((1,15,29,30)\), its explicit one-dimensional quadratic obstruction, and the monomial Gram eigenvalues. Lindner–Rosa (1975) and Hall (1980) address underlying design intersections and geometric identification; their accessible summaries do not directly identify the full Fourier sampling kernel. published-finding corpus and local claim comparisons found no statement containing or implying this exact observation map. Unindexed treatments and inaccessible older full text remain residual priority risks.
+PASS
 
-**Mathematical value — PASS.** The result establishes the minimal observation order for recovering an *arbitrary* law on a natural 30-element combinatorial class, pinpoints the unique unobservable contrast at degree two, and computes the full low-degree spectral conditioning data in closed integers. The distinction between strong second-order blindness and complete third-order identification is a specific structural obstruction, not simply a recount of the known 30 planes.
+PASS. The canonical 7-line Fano STS orbit has exactly 30 planes: independent enumeration of all 7! relabellings recovered a stabilizer of order 168 acting by even permutations, and precisely 15 planes in each sign class. For up to 2 specified lines, 7 points fall in at most 4 membership cells; an odd transposition in a cell fixes both constraints, hence annihilates their parity moment. Direct computation from all 30 plane incidence sets confirmed same-class intersection exactly one, opposite-class intersection either zero or three, and cross B B^T=4I+3J. The block Gram formulas then give eigenvalues 72,12,0 with multiplicities 1,14,15 for degree 1 and 114,39,15,0 with multiplicities 1,14,14,1 for degree 2. Exactly one STS extends lines 123,145,246, so a cubic monomial detects the last contrast and degree 3 spans 30 dimensions. This is an exact finite universe and explicit geometric proof, not extrapolation from a sample.
 
-**Scope.** Only the labelled seven-point Fano planes are classified. The group-theoretic parity classes and their intersections were known previously. No assertion is made about larger Steiner systems or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best of knowledge: Compare the incidence-kernel rank and blind character, not whether authors call them Fano planes or signed designs. The geometrical 15/15 parity split alone lacks the evaluated degree filtration and Gram spectra. The 15/15 Fano incidence association geometry could in principle imply spectral calculations, but the inspected source does not state or prove the low-degree ranks; the order-nine result cannot specialize to order seven. No universal historical-priority certification is claimed.
+
+## value
+
+PASS
+
+PASS. A complete and sharply minimal measurement-degree classification for a natural 30-element labelled design space identifies an explicit one-dimensional indistinguishable probability contrast and the first distinguishing three-line event. The full low-degree Gram spectra quantify stability, not just a textbook restatement of Fano counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
