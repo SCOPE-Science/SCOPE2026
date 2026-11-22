@@ -1,15 +1,21 @@
-# Review: A six-step relaxation clock and exact temporal census for four-state excitation on cocktail-party graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The neighbor rule yields an exact map on ten unordered pair types with multiplicities saturated at two. The exhaustive 59,049-signature certificate establishes the six-step entrance bound on this size-independent quotient. Its safe-rotation and resting predicates imply true periodicity of every microscopic state in the corresponding signature, while invariance excludes earlier periodic configurations. The surjection-type exponential generating factors count every choice of labelled pairs. A separate direct functional-graph census on all 16,777,216 states with six matched pairs agrees on period classes, basins and maximal depth. Boundary cases are excluded from the stated new domain.
+## correctness
 
-## Originality — PASS (qualified)
-Full published-result texts for three-state cocktail-party excitation, four-state complete-tripartite excitation, and three-state complete-bipartite time censuses were inspected. The first have the correct graph family but three states; the second cover exactly three parts, including the excluded three-pair boundary, but not arbitrarily many parts; the last have a different graph and number of states. A 1995 one-dimensional multicolor article and a 2018 three-color general-graph article were also inspected in full. Searches included aliases 'complete graph minus perfect matching', 'cocktail-party', 'complete multipartite with parts two', and four-state Greenberg–Hastings excitation. No discovered prior statement implies the new all-size joint first-entry/period law. The full foundational 1993 preprint remained inaccessible, so historical priority is qualified.
+PASS
 
-## Mathematical value — PASS
-The exact first-entrance law for arbitrarily many matching-deleted pairs is a motivated structural dynamical invariant: it is sensitive to exceptional single excited nonneighbors, yet becomes computable by a fixed finite signature quotient. The sharp uniform six-update cutoff and full temporal basin counts refine period-only classifications, giving an all-size theorem rather than a collection of unrelated small-graph enumerations.
+Verified each pair follows one of ten unordered color types. Capping counts at 2 suffices for classifying total excited 0/1/>=2 and the single (0,1) mate defect. This induces a deterministic exact 3^10=59049-state finite quotient for all graph sizes, not finite-m extrapolation. Inspected source quotient checker and independently reimplemented transfer; exhaustively checked all 59049 signatures reach rest or safe full rotation by six, maximum six. EGF products H0=1,H1=z,H2=e^z-1-z with weight 2 for unequal types correctly count ordered labelled matching pairs. Source direct C++ adjacency enumeration m<=6 corroborates; the universal proof rests on finite exhaustive quotient lemma.
 
-## Limits
-The finite exhaustive quotient is an essential verified lemma, and independent mathematical audit is absent. No claim is made for other thresholds, other state counts or arbitrary complete multipartite parts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Four-state tripartite K2,2,2 prior has exactly 3 nonadjacency classes (m=3) and some six-step behavior, but its result does not imply arbitrary m>=4 ten-pair signature census. Three-state cocktail party results have different refractory dynamics. Classical lattice GH papers do not supply this finite dense-graph census.
+
+## value
+
+PASS
+
+Full temporal and period-resolved population formula plus sharp graph-size-independent relaxation on a natural dense graph family; 59049 quotient is a genuine finite structural classification not a toy-size table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

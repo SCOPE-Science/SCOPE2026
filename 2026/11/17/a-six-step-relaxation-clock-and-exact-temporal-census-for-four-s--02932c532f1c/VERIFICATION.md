@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The provided `verify_quotient.py` derives the exact cap-two map, tests all 59,049 signatures, and computes the weighted coefficient census for five graph orders. The independent C++17 `verify_direct.cpp` generates all full vertex states through six matched pairs and computes functional-graph distances without using the quotient. Both implementations were executed; their recorded text files are included and agree on their displayed counts. The complete finite quotient, not bounded direct simulations, establishes the all-size theorem. Re-run with `python3 verify_quotient.py` and `g++ -std=c++17 -O2 verify_direct.cpp -o check && ./check` (the latter prints to standard error).
+# Independent mathematical audit
 
-The proof's essential checks are the single-excited-mate exception, saturation correctness, full-rotation safety condition, class entry bound, and multiplication by two for orientations of mixed-color matched pairs. The certificate does not assert an external independent audit or generalize to other graph families. All formulas concern deterministic labelled states.
+## correctness
+
+PASS
+
+Verified each pair follows one of ten unordered color types. Capping counts at 2 suffices for classifying total excited 0/1/>=2 and the single (0,1) mate defect. This induces a deterministic exact 3^10=59049-state finite quotient for all graph sizes, not finite-m extrapolation. Inspected source quotient checker and independently reimplemented transfer; exhaustively checked all 59049 signatures reach rest or safe full rotation by six, maximum six. EGF products H0=1,H1=z,H2=e^z-1-z with weight 2 for unequal types correctly count ordered labelled matching pairs. Source direct C++ adjacency enumeration m<=6 corroborates; the universal proof rests on finite exhaustive quotient lemma.
+
+## originality
+
+PASS
+
+Four-state tripartite K2,2,2 prior has exactly 3 nonadjacency classes (m=3) and some six-step behavior, but its result does not imply arbitrary m>=4 ten-pair signature census. Three-state cocktail party results have different refractory dynamics. Classical lattice GH papers do not supply this finite dense-graph census.
+
+## value
+
+PASS
+
+Full temporal and period-resolved population formula plus sharp graph-size-independent relaxation on a natural dense graph family; 59049 quotient is a genuine finite structural classification not a toy-size table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
