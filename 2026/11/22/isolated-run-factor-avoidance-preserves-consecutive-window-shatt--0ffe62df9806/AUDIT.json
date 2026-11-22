@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For any arbitrary prescribed trace, initial zero gaps have forbidden distance m-1 iff the factor occurs. Every bad gap of m-1 has an unqueried interior position since no length-m block is fully selected, and inserting a zero there replaces that gap by two strictly shorter gaps without creating new bad gaps. This is a terminating all-length path/cycle proof. Polynomial coefficient counting via q+1 linear or q circular runs and exact covering lower bounds are reconstructed; 70 direct exhaustive cases and 16,260 support decisions agree with predicted coefficients and dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson 2021, sections 2 and 4: VC and masks for factors drawn from a single binary string, not the full fixed-length factor-avoiding language.",
+        "Itsykson–Okhotin–Oparin 2016: infinite partial-string avoidability of wildcard forbidden patterns, not the support completion condition for one fixed forbidden full word.",
+        "The indexed two-monochromatic-trigram result concerns simultaneous avoidance of 000 and 111 and gives a different support obstruction."
+      ],
+      "reasoning": "Different quantifiers and concept families prevent implication from the inspected related published results. The publicly indexed two-factor record was available only in summary and is not certified as fully noncovering; no explicit stronger completion theorem was located.",
+      "searches": [
+        "palindromic forbidden word shattering supports consecutive",
+        "partial word avoids palindrome pattern iff no total occurrence universal completion",
+        "VC dimension forbidden substring pattern 010 binary strings shattered coordinate sets",
+        "https://arxiv.org/html/2101.06490v2 (full HTML primary)",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2016.51 (publication page)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2101.06490",
+      "doi:10.1155/2013/126214",
+      "doi:10.4230/LIPIcs.CPM.2021.9",
+      "published indexed two-monochromatic-trigram result (2026-11-08, summary only)",
+      "earlier known single-trigram classification (r=1 only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mészáros–Rónyai 2013 studies equality between concept count and number of shattered subsets, and the case of VC dimension one; it does not supply the stated all-r support classification.",
+        "Bernardini et al. 2021 is an algorithmic prefix/suffix completion problem, not fixed-coordinate shattering on paths/cycles.",
+        "The older isolated-one trigram classification is genuinely subsumed by the present r=1 proof, so novelty is restricted to r>=2 and the cyclic extension."
+      ],
+      "reasoning": "Neither the statement of a general Sauer inequality, nor the known coefficient formula for avoiding a long run of selected positions, logically entails that every partial assignment extends to a word avoiding the different factor 0 1^r 0. The gap-splitting lemma supplies that missing implication.",
+      "searches": [
+        "https://doi.org/10.1155/2013/126214 (full HTML article)",
+        "https://doi.org/10.4230/LIPIcs.CPM.2021.9 (publication abstract)",
+        "For binary strings avoiding the factor 0 1^r 0, shattered coordinate supports exactly avoid r+2 consecutive positions, both paths and cycles, VC dimension n - floor(n/(r+2)) and cyclic n - ceil(n/(r+2))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A previously catalogued single-forbidden-trigram theorem already gives the r=1 path case; it does not quantify over r>=2 and does not treat the cyclic boundary.",
+        "Known run-avoiding binary indicator words enumerate the support set once its characterization is proved; their enumeration alone does not establish the original concept-class equality."
+      ],
+      "reasoning": "We compare the precise universal statement to its equivalent partial-word completion and forbidden-run replacement forms. The exact r=1 special case is excluded. No retrieved statement asserts the r>=2 two-boundary replacement law; a general unindexed completion theorem remains possible.",
+      "searches": [
+        "VC dimension shattering binary words avoiding 010 local forbidden factor supports independent set",
+        "shattering equivalent binary forbidden words 0110 and 1111, equality of shattered supports",
+        "For binary strings avoiding the factor 0 1^r 0, shattered coordinate supports exactly avoid r+2 consecutive positions, both paths and cycles, VC dimension n - floor(n/(r+2)) and cyclic n - ceil(n/(r+2))",
+        "binary words avoiding \"0110\" \"VC dimension\" shattering"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical no-long-run counts match the derived coefficients after the nontrivial support identification.",
+        "An accessible earlier claim for forbidden length-three factors includes the isolated-one r=1 case only."
+      ],
+      "reasoning": "A numerical table of m-run-avoiding indicators would reproduce coefficient counts but would not by itself show that these are exactly the shattered supports of the distinct 0 1^r 0-avoiding concept family. The length-three special case is not asserted to be new.",
+      "searches": [
+        "binary words avoiding \"0110\" \"VC dimension\" shattering",
+        "coordinate shattering complex of binary words avoiding palindromic pattern 0 1^r 0, all runs, avoiding consecutive selected positions",
+        "shattering regular language no 0110 binary words VC dimension"
+      ]
+    },
+    "rationale": "The previously covered r=1 trigram case and classical run-avoidance enumerations are expressly excluded from novel scope. Comparison with accessible binary-factor VC literature, s-extremal results, forbidden substring algorithms, a close two-trigram indexed record and exact-transition records yielded no theorem implying the universal r>=2 path/cycle shattering replacement, though generic partial-word completion work remains a priority risk.",
+    "residual_risks": [
+      "Unindexed equivalences in partial-word completion or forbidden-factor shattering may already imply the all-r lemma.",
+      "The full primary text of the closest indexed two-trigram result and of the algorithmic forbidden-substring paper was not inspected.",
+      "The underlying no-run face enumeration is classical and is not presented as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different object: factors of a single word, no theorem computing all-support shattering of complete forbidden-factor languages",
+        "evidence": [
+          "Definitions of factor set, sliding windows and masks in section 2; theorem on alternation in section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2101.06490v2",
+        "material_read": "Selected full-text HTML passages in sections 1, 2 and 4, including definitions of substrings and masks and the alternation theorem",
+        "method": "direct full-text HTML reading and in-document search",
+        "title": "Binary strings of finite VC dimension",
+        "trigger": "Foundational primary source concerning binary-string masks and shattering"
+      },
+      {
+        "assessment": "General framework and special extremality results, no apparent all-r replacement law",
+        "evidence": [
+          "Introduction: Sauer inequality and description of extremal VC dimension one systems"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/126214",
+        "material_read": "Accessible HTML abstract, introduction and stated restriction to VC dimension one",
+        "method": "direct web HTML reading",
+        "title": "Shattering-Extremal Set Systems of Small VC-Dimension",
+        "trigger": "Potential general stronger coverage by s-extremal results"
+      },
+      {
+        "assessment": "Prefix/suffix constrained construction of words, no claim about all coordinate supports in accessible abstract; residual full-text risk",
+        "evidence": [
+          "Abstract states prescribed prefix/suffix and forbidden-substring algorithms"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2021.9",
+        "material_read": "Publication page and full abstract; complete paper not inspected",
+        "method": "abstract-level comparison",
+        "title": "Constructing Strings Avoiding Forbidden Substrings",
+        "trigger": "Potential general forbidden-factor completion theorem"
+      },
+      {
+        "assessment": "Two simultaneous forbidden trigrams 000 and 111, not a single forbidden factor 0 1^r 0 for r>=2; full-document noncoverage not certified",
+        "evidence": [
+          "Summary states two-factor support obstruction and a different rational generating series"
+        ],
+        "identifier_or_url": "Indexed published record, 2026-11-08 (full text not accessible)",
+        "material_read": "Indexed title and full summary only",
+        "method": "statement-level indexed comparison",
+        "title": "A regular shattering complex for binary words with no monochromatic triple",
+        "trigger": "Closest indexed simultaneous forbidden-pattern shattering result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ffe62df-9806-40b6-a33c-8d07b439a14e",
+  "value": {
+    "rationale": "The theorem identifies an infinite class of nonisomorphic regular-language concept families with exactly the same labeled shattered supports as simple run-free languages. It furnishes both complete coefficientwise counts and a sharp periodic-boundary VC rank transition, resolving a natural generalization of the known isolated-one trigram boundary beyond any single small length.",
+    "status": "PASS"
+  }
+}
