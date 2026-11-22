@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For t fixed marked pair events, their horizontal-index graph with v vertices and c components permits O(n^c) choices of horizontal base indices and O(n^c) choices of vertical base values. The probability of a consistent injective assignment is 1/(n)_v. Every overlap component on >=3 vertices has total contribution O(n^{2c-v})=O(1/n), while t disjoint two-vertex components give spatial mixed factorial moments equal to products of rectangle areas. Expected fixed-mark counts are exactly (n-h)(n-k)/(n(n-1)) and remain bounded. The mixed moments and tightness yield independent unit-intensity Poisson point measures; finite lattice union counting yields joint distance probabilities; conditioning on a nonempty independent Poisson shell gives the uniform nearest-pair mark and anchor. The standalone Python verifier completed 364 exact tests through n=8. Finite checks do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn–Homberger–Winkler arXiv:1706.01557, Section 3 and Theorem 5: Poisson asymptotics for the unmarked close-pair count and the Manhattan minimum, with proof organized around near-pair start positions.",
+        "Crane–DeSalvo arXiv:1509.07941, Section 3, defines ordinal-pattern occurrence indicators by relative order only; a specified small numeric gap between values is not a fixed ordinal pattern.",
+        "Bevan–Homberger–Tenner arXiv:1608.06931, Theorem 2.25: prolificness is equivalent to a lower bound on minimum Manhattan plot-point distance; no marked spatial Poisson construction is stated there."
+      ],
+      "reasoning": "The 2017 scalar Poisson theorem would cover a claim made solely about the Manhattan marginal; this is explicitly treated as already known. It does not logically imply the joint signed-mark counts or the spatial anchoring law. The 2015 general ordinal pattern-approximation theorems cover a different event class. The searched sources did not supply a general stronger theorem with all the present fixed-displacement events as a direct special case.",
+      "searches": [
+        "random permutation plot smallest Manhattan distance Poisson close pairs joint distribution",
+        "random permutations bounded displacement difference close pairs joint independent Poisson 2014",
+        "random permutations close pair distance vector independent Poisson process local coincidences"
+      ]
+    },
+    "checked_sources": [
+      "Berkeley Statistics Report 822, 2013, https://statistics.berkeley.edu/tech-reports/822",
+      "Crane–DeSalvo, arXiv:1509.07941, initially 2015",
+      "Bevan–Homberger–Tenner, arXiv:1608.06931, initially 2016",
+      "Blackburn–Homberger–Winkler, arXiv:1706.01557, initially 2017",
+      "Indexed published mathematical finding: Poisson two-deletion sphere deficiency for random permutations (2026/11/8); statement summary checked, full text not retrieved.",
+      "Indexed published mathematical finding: independent corner Poisson clouds and Gaussian inversion fluctuations (2026/10/12); statement summary checked, full text not retrieved."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 Manhattan close-pair theorem gives the marginal exp[-d(d+1)] for event D1>=d+2. It therefore already implies that single scalar corollary, independently of this claim.",
+        "Diaconis–Evans–Graham (2013) gives exact distributional information for increasing (1,1,+) successions. It does not determine all (h,k,s) marks jointly.",
+        "The present theorem implies Poisson(2|B|) for each fixed finite unsigned-offset set B and the joint event exp[-d(d+1)-2r^2+2J_{d,r}]. Neither scalar predecessor logically determines the intersection term J_{d,r} or spatial uniform anchor law."
+      ],
+      "reasoning": "The new theorem strictly implies already-published one-mark and Manhattan-radius consequences, not conversely. The valuable increment is joint signed-mark and two-dimensional spatial independence, which yields genuinely joint anisotropic distance events and conditional location/mark distributions. No novelty credit is assigned to any special case already established in prior literature.",
+      "searches": [
+        "Minimum Manhattan distance prolific permutations local close pair count Blackburn Homberger Winkler Poisson joint displacements Chebyshev infinity metric",
+        "random permutation plot number of pairs with bounded differences in both position and value, joint Poisson displacement vectors, minimum Manhattan distance, L infinity Chebyshev distance",
+        "random permutation plot local displacement spectrum bounded horizontal and vertical gaps signed marks independent Poisson counts, multivariate marked Poisson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Evans–Graham (2013), Theorem 1.1: an exact distributional equality for the set of increasing successions, corresponding to one signed displacement (1,1,+).",
+        "Blackburn–Homberger–Winkler (2017), Theorem 5: the scalar number of all fixed-Manhattan-radius close pairs is asymptotically Poisson, without a stated split into individual displacement signs and spatial anchors."
+      ],
+      "reasoning": "The formulation in terms of all fixed signed displacement counts, their two-dimensional anchors, and independent marked Poisson processes is not equivalent to knowing one marginal count or the sum of all counts inside a Manhattan ball. A Poisson sum need not have independent Poisson summands. The diagonal and maximal-displacement permutation results concern other regimes, not this local field.",
+      "searches": [
+        "random permutation plot local displacement spectrum bounded horizontal and vertical gaps signed marks independent Poisson counts, multivariate marked Poisson",
+        "uniform permutation spatial pattern near-neighbors |i-j| |pi(i)-pi(j)| local Poisson rare edges minimum distance",
+        "random permutations close pair distance vector independent Poisson process local coincidences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed published result 2026/11/8/SCOPE-poisson-two-deletion-sphere-deficiency-for-random-permutations--32fcc2c370f3: a Poisson(2) adjacent-consecutive-value count appears as an ingredient of a deletion deficiency limit.",
+        "Indexed published result 2026/10/12/SCOPE-independent-corner-poisson-clouds-and-gaussian-inversion-fluctua--14fa62567e42: Poisson clouds near opposite corners at square-root scale, not fixed pair-displacement microcollisions throughout the square.",
+        "The accessible same-category prior ledger contains a conditional rare common-triplet law for signed adjacent-consecutive-value counts, not an unconditional Poisson field across all offsets and spatial anchors."
+      ],
+      "reasoning": "The searched index records and accessible ledger claims do not contain a table or theorem specifying all the present signed marks and spatial point processes. The adjacent-succession Poisson counts are already covered projections and are not claimed to be novel. Two relevant indexed full texts were not accessible, and their summaries alone are not used to assert whole-document noncoverage.",
+      "searches": [
+        "Permutation pattern microcollision local defects Poisson mean one in each signed displacement bin h,k",
+        "Unseparated pairs and fixed points in random permutations Diaconis Evans Graham 2013 joint asymptotic signed local displacement counts for every fixed position difference h and value difference k independent Poisson",
+        "random permutation pairs position distance value distance Poisson asymptotic close pairs"
+      ]
+    },
+    "rationale": "The claimed independent unit-intensity two-dimensional spatial Poisson fields for all fixed distinct signed displacement marks are stronger than the already known unmarked Manhattan close-pair Poisson count and the isolated increasing-succession law. A 2017 theorem covers the Manhattan marginal exactly and that marginal is explicitly excluded from the novelty argument. The 2013 source covers the single increasing adjacent-consecutive-value mark; 2015 ordinal-pattern approximations do not fix numerical differences; 2016 prolific permutations connect a different geometric invariant. No inspected source states independence across the entire finite mark spectrum and location, or the joint Manhattan/max-coordinate law. Indexed records with closest titles either concern one adjacent mark or extreme corner positions. This is a best-knowledge judgment, not proof of exhaustive literature uniqueness.",
+    "residual_risks": [
+      "A more general local-configuration Poisson point-process theorem not indexed by the searched phrases may imply the spatially marked result without the same wording.",
+      "Two published-record repository pages could not be read in full; only their indexed statements were available, so no full-document noncoverage claim is made.",
+      "The fixed-mark result may be extendable by general Poisson approximation machinery; extension methods alone are not treated as existing statement coverage, but priority warrants independent specialist assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers a strong one-mark result (positions of upward consecutive values), not the entire fixed (h,k,s) marked spatial field or anisotropic joint minima.",
+        "evidence": [
+          "Berkeley Technical Report 822, publicly dated 2013-08-01; Theorem 1.1 equates increasing-succession positions with a truncated fixed-point set."
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+        "material_read": "Abstract, introductory setup, statement and remarks of Theorem 1.1, and the summary of the later commutator result on PDF pages 1–3.",
+        "method": "Fetched public full-text PDF, read the primary textual passages, and inspected a rendered PDF page containing Theorem 1.1.",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Exactly the increasing adjacent-consecutive-value mark and a possible encompassing commutator theorem."
+      },
+      {
+        "assessment": "Joint approximation is for occurrence indicators of ordinal patterns specified by relative order, whereas marked microcollisions fix the actual integer difference and the anchor coordinate. No direct implication is provided for this event class.",
+        "evidence": [
+          "arXiv:1509.07941, first posted 2015-09-26, Section 3.1 (fixed relative-order pattern indicators)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.07941",
+        "material_read": "Abstract, introduction, Section 3 definitions and the general pattern-approximation setup on PDF pages 1–6.",
+        "method": "Fetched arXiv full text, read definitions and main theorem context, and inspected rendered PDF pages 3 and 6.",
+        "title": "Pattern avoidance for random permutations",
+        "trigger": "Possible joint Poisson approximation stronger than the desired countwise limit."
+      },
+      {
+        "assessment": "Characterizes prolific permutations by a minimum Manhattan-distance bound; does not state the independent spatial marked Poisson law.",
+        "evidence": [
+          "arXiv:1608.06931, first posted 2016-08-24, Theorem 2.25."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.06931",
+        "material_read": "Abstract, introductory distance definitions, and Theorem 2.25 on PDF pages 1–3.",
+        "method": "Fetched arXiv full-text PDF, read primary theorem statements, inspected rendered PDF page 3.",
+        "title": "Prolific permutations and permuted packings: downsets containing many large patterns",
+        "trigger": "Minimum Manhattan distance motivates the rare close-pair geometry."
+      },
+      {
+        "assessment": "Theorem 5 establishes the unmarked close-pair aggregate Poisson law; it does not state an independently marked spatial point-process limit. Its scalar Manhattan result is explicitly credited as prior coverage.",
+        "evidence": [
+          "arXiv:1706.01557, first posted 2017-06-05, Theorem 5 on p.8."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.01557",
+        "material_read": "Abstract, introduction, Section 2 overview, Section 3 near-pair counting proof, and Theorem 5 on PDF pages 1–9.",
+        "method": "Fetched arXiv full-text PDF, read theorem and proof passages, inspected rendered PDF page 8.",
+        "title": "The minimum Manhattan distance and minimum jump of permutations",
+        "trigger": "Direct scalar Poisson limit and possible broader close-pair theorem that might dominate this claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c9c169e8-4f60-42a3-bfc7-c8ada0099bda",
+  "value": {
+    "rationale": "The full finite-mark field is a motivated complete local collision invariant for permutation diagrams. It provides joint and spatial information not implied by the published scalar Manhattan and unseparated-pair laws: any fixed anisotropic exclusion zone has an exact limiting avoidance probability, the joint Manhattan/max-coordinate law has a nontrivial intersection correction, and the first closest-pair mark and anchor have an explicit conditional distribution. This connects permutation pattern breadth to quantitative spatial rank-matching defects without selecting an arbitrary finite parameter slice. The novelty credit concerns the full structural law and its genuinely joint consequences, not known marginals.",
+    "status": "PASS"
+  }
+}
