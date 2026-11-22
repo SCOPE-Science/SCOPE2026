@@ -1,0 +1,15 @@
+# Scientific assessment: exact terminal-wave rarity on complete branching trees
+
+## Correctness — PASS
+The proof isolates an excitation's complete \(b\)-ary causal witness using the exclusion of two-step re-excitation on trees. On the perfect height-\(h\) tree, a time-\(h\) witness must span the entire tree and be rooted at the global root, because every nonroot vertex is more than \(h\) edges from some leaf. Height-one and height-two initial states are therefore forced as stated. A separate inductive argument proves that, despite arbitrary parent feedback, every permitted higher initial color preserves the upward excitation wave. This proves the exact count, the probability, and all boundary heights. Direct full-state checks, conditioned checks, adversarial local-input enumeration and randomized independent states all passed. The all-parameter assertion rests on the proof rather than finite tests.
+
+## Originality — PASS, qualified
+The exact maximum extinction time is **already covered** by the earlier branching-rank clock theorem. More importantly, **Bello–Sivakoff (2021), Lemma 4.7, already gives the necessary initial-color restrictions** on a threshold-branching causal witness; the inequality preceding their equation (4.7) multiplies those restrictions into the same candidate probability **upper bound**. Their statement does not provide the converse or its exact attainment on finite perfect trees. The present proof supplies a local sufficiency induction valid despite arbitrary parent feedback, making the restriction **necessary and sufficient** and the upper bound **exact**. Thus neither the restrictions as necessary nor the upper bound is claimed as new; only the sharp equality, independent upper-layer freedom, and the resulting exact law. Gravner–Lyu–Sivakoff (2016) studies threshold-one excitation rather than the threshold-\(b\) rule. The accessible maximal-time count for paths is a different shape/contact regime. Actual archival, indexed-publication and research-record searches did not find the present complete-tree cardinality formula. The original 1993 full text and a related public-record page were not fully accessible, and unindexed equivalent formulations remain a priority risk.
+
+## Value — PASS
+A sharp worst-case extinction bound does not reveal the likelihood that a random initial field attains it. For every branching parameter this theorem gives the exact event, its number of labelled states, and the power recurrence of its vanishing probability as height grows. This is a mathematically natural extremal first-hitting-time classification on an unbounded family, with a local structural reason for the three distinct initial layers.
+
+## Scientific limits
+The proof is restricted to three states, synchronous updates, complete rooted trees and a threshold equal to the number of children. It does not supply the distribution of all shorter extinction times. The code is corroborative only; a separate independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

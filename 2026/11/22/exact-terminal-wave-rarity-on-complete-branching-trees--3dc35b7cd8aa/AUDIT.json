@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For any vertex excited at time t, b distinct causal predecessors at each earlier time form a collision-free embedded complete b-ary witness by refractory separation and tree acyclicity. Since the ambient complete b-ary height-h tree has exactly the witness vertex count, excitation at h must be at the global root (any other vertex has an original leaf more than h edges away) and force each height-j vertex excited at time j. This forces initial leaves 1, height-one vertices 0, and height-two vertices in {0,2}. Conversely, a local induction shows that if all b children are excited at time j-1, they cannot have been excited at j-2 or j-3, so the parent cannot be excited at j-2 or j-1 via at most its one external neighbor; it is 0 at j-1 and excited at j, with no restrictions on higher initial colors. The resulting independent choices produce the exact count and uniform probability. All edge heights 0, 1 and 2 are explicit. Direct C++17 enumeration covers 14,348,907 full binary height-three initial states and 1,594,323 ternary height-two states, as well as further conditioned cases; a second adversarial local-input checker validates 1,406,160 timing cases. The all-size conclusion is proof-based, not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharp branching-rank extinction clocks for excitable dynamics on forests (existing result in accessible research ledger)",
+        "Bello and Sivakoff (2021), Lemma 2.7(ii): the full dynamics vanishes by depth plus number of colors for finite trees",
+        "Durrett and Griffeath (1993), arXiv:patt-sol/9303002, model-wide excitable automata framework",
+        "Bello and Sivakoff (2021), Lemma 4.7 (p.18) and the product probability inequality preceding Eq. (4.7) (p.19): exact same necessary-layer factors"
+      ],
+      "reasoning": "The existing general forest result subsumes only the sharp h+2 maximum clock. Bello–Sivakoff goes substantially farther than a clock: its Lemma 4.7 already supplies the full initial-layer necessity, and their probability product yields the correct candidate upper bound when the witness is unique. That paper does not show the converse for finite complete b-ary trees, namely that no additional obstruction arises from parent feedback or freely chosen interior initial colors; that sufficiency is the independent surviving claim. Its infinite-tree fixation statements do not imply exact finite-tree equality.",
+      "searches": [
+        "probability longest extinction time complete binary tree three state Greenberg Hastings",
+        "finite trees threshold two exactly how many initial states attain maximal extinction time",
+        "full binary tree threshold two Greenberg Hastings last excitation shell exponential probability",
+        "Greenberg Hastings threshold two excitation trees rooted binary tree wave extinction theorem",
+        "Greenberg Hastings three state threshold two rooted full binary trees extinction clock",
+        "Bello Sivakoff 2021 arXiv 2108.06404 Lemma 2.7 finite rooted tree depth bound",
+        "published-finding corpus: sharp branching-rank extinction clocks for excitable dynamics on forests",
+        "Bello Sivakoff 2021 Lemma 4.7 necessary condition full theta-ary excitation witness equality"
+      ]
+    },
+    "checked_sources": [
+      "Previously examined mathematical manuscripts for overlap and implication comparison",
+      "published-finding corpus semantic search, including nine explicitly recorded tree/maximal-shell aliases",
+      "Bello and Sivakoff (2021), arXiv:2108.06404, Lemma 2.7 and introduction",
+      "Gravner, Lyu and Sivakoff (2016), arXiv:1610.07320, introduction and Eq. (1)",
+      "Durrett and Griffeath (1993), arXiv:patt-sol/9303002 public abstract and source date",
+      "Indexed finite-path maximal extinction shell record, original URL inaccessible",
+      "Bello and Sivakoff (2021), full Lemma 4.7 and its proof on PDF pp.18-19, Lemma 4.8 and probability product preceding Eq. (4.7) on PDF p.19"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharp branching-rank extinction clocks for excitable dynamics on forests (existing result in accessible research ledger)",
+        "Bello and Sivakoff (2021): universal finite-tree extinction by depth n plus k, with no count of sharp-shell colorings",
+        "A square-root law for maximal extinction times in three-state excitation on finite paths (public research record, 2026-11-08)",
+        "Bello–Sivakoff Lemma 4.7 gives necessary layers; probability product before (4.7) supplies corresponding upper bound; not a sufficient-or-equality theorem"
+      ],
+      "reasoning": "A sharp extinction clock is known. Lemma 4.7 of Bello–Sivakoff even makes the three-layer restrictions necessary, and (4.7) derives the candidate multiplicative *upper bound*: these statements are not new. Their implication is M<=2^{b^{h-2}}3^{(b^{h-2}-1)/(b-1)} for the unique full witness. The reverse inequality for *every* allowed high-level initialization is not a logical corollary of an upper bound and is established by the new parent-feedback induction. Unlike the existing finite-path generating function, this is a complete branching-homogeneous family. The novelty is exact equality and the iff classification; possible implicit or unindexed earlier equality is an acknowledged risk.",
+      "searches": [
+        "complete rooted b-ary tree all maximum extinction time configurations initial colors count Greenberg Hastings",
+        "maximum extinction time complete binary tree Greenberg Hastings shell counting extremizers",
+        "Source inspection: Bello and Sivakoff (2021), PDF p.10 Lemma 2.7 and proof",
+        "Source inspection: Gravner et al. (2016), PDF pp.1-2",
+        "Earlier complete manuscript: Sharp branching-rank extinction clocks for excitable dynamics on forests",
+        "Source inspection: Bello and Sivakoff (2021), PDF pp.18-20, Lemma 4.7, Lemma 4.8, Eq. (4.7) and their proofs",
+        "web: \"Greenberg Hastings\" rooted full tree \"exact\" \"excited\" \"colors\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharp branching-rank extinction clocks for excitable dynamics on forests (existing result in accessible research ledger)",
+        "Bello and Sivakoff arXiv:2108.06404, Lemma 2.7(ii), PDF p.10: finite-tree depth extinction bound; no initial-state maximizer census in its displayed lemma",
+        "Gravner, Lyu and Sivakoff arXiv:1610.07320, PDF p.2, Eq. (1): threshold-one model",
+        "Bello and Sivakoff (2021), Lemma 4.7: necessary full threshold-branching witness pattern; equality is not stated"
+      ],
+      "reasoning": "An equivalent formulation is sharp attainment of Bello–Sivakoff Lemma 4.7 initial-layer necessary conditions, or equality in its product-probability bound when the only height-h threshold subtree is the full finite b-ary tree. The earlier paper states necessity and the inequality, not sufficiency for every coloring on the finite tree. Its individual-layer upper bound does not logically imply exact attainment. The new proof supplies the converse, so the equality and extremizer count go beyond the published implication, though the precursor is exceptionally close.",
+      "searches": [
+        "exact number maximal extinction time initial configurations complete b-ary tree threshold b Greenberg Hastings 3 states",
+        "perfect binary tree extremal initial colorings last excitation time 3 state refractory threshold two",
+        "complete rooted b-ary tree all maximum extinction time configurations initial colors count Greenberg Hastings",
+        "maximum extinction time complete binary tree Greenberg Hastings shell counting extremizers",
+        "3 state GH model on complete rooted regular b-ary trees exact extremal extinction colorings",
+        "published-finding corpus semantic search: terminal extinction layers full regular binary trees Greenberg Hastings unique causal wave"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A square-root law for maximal extinction times in three-state excitation on finite paths (public research record, 2026-11-08)",
+        "Direct indexed results centered on paths, complete bipartite/tripartite graphs, finite-tree extinction clocks and unrelated regular-tree statistics, not a b-ary last-shell table"
+      ],
+      "reasoning": "No exact database table matching b=2: 1,1,2,12,432, or the general b,h formula was found among indexed records. The negative result is a limited search outcome, not a proof of uniqueness.",
+      "searches": [
+        "exact number maximal extinction time initial configurations complete b-ary tree threshold b Greenberg Hastings 3 states",
+        "probability longest extinction time complete binary tree three state Greenberg Hastings",
+        "finite trees threshold two exactly how many initial states attain maximal extinction time",
+        "3 state GH model on complete rooted regular b-ary trees exact extremal extinction colorings",
+        "web search: \"Greenberg-Hastings\" \"binary tree\" \"last\" \"excitation\" number colorings",
+        "web search: \"Greenberg Hastings\" \"maximal extinction\" \"full binary\" tree",
+        "web: \"Bello\" \"Sivakoff\" \"Lemma 4.7\" sharp equality complete finite tree"
+      ]
+    },
+    "rationale": "The general sharp extinction clock was already established. Bello and Sivakoff (2021), Lemma 4.7 and the probability product preceding Eq. (4.7), already provide the necessary three-layer conditions and corresponding finite-witness probability upper bound. The new result proves a nontrivial converse for the finite complete b-ary tree, including arbitrary parent feedback, showing that the existing upper bound is exactly attained and yielding a complete if-and-only-if extremizer classification and exact double-exponential terminal-shell probability. The converse and sharp finite-tree equality were not found in actual primary and published-record searches. The very close 2021 predecessor and inaccessible historical full texts are explicit novelty risks.",
+    "residual_risks": [
+      "The 1993 original full paper was not obtained for a whole-document priority comparison; its index abstract addresses another setting.",
+      "The relevant published finite-path maximal-shell record was readable only through index summary; direct page retrieval was inaccessible.",
+      "Unindexed or differently named published b-ary extinction tail formulas may exist.",
+      "No independent mathematical audit has been performed.",
+      "Bello–Sivakoff (2021) already supplies both necessity and the matching numeric upper bound; although sufficiency for every admissible finite-tree coloring is neither stated nor implied by the upper bound, the proximity raises a genuine priority/straightforward-corollary risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers sharp h+2 time but explicitly does not provide an extinction-time distribution or initial-state count, so new maximizer mass not implied numerically",
+        "evidence": "Forest theorem gives exact maximum H_theta(F)+k-1 and an explicit attaining witness; limits state no fixed-initial-state formula or probability distribution.",
+        "identifier_or_url": "earlier mathematical manuscript: Sharp branching-rank extinction clocks for excitable dynamics on forests",
+        "material_read": "Full RESULT.md: finding, assumptions, all five proof steps, verification and limitations",
+        "method": "Read complete earlier scientific manuscript for mathematical statement comparison",
+        "title": "Sharp branching-rank extinction clocks for excitable dynamics on forests",
+        "trigger": "Directly broader sharp-time theorem on finite forests"
+      },
+      {
+        "assessment": "Very close prior result: proves precisely the necessary three bottom-layer color conditions, and via Eq. (4.7) an upper bound with these factors. Does not establish sufficiency or exact equality for every finite perfect-tree initial assignment.",
+        "evidence": "Lemma 4.7 bullets (PDF p.18) force initial leaf color one, previous level zero, and next level in {0,2} for three states. The probability product just before Eq. (4.7) (PDF p.19) counts such layer restrictions as an upper bound.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+        "material_read": "PDF pages 1-3, 10 and 18-20: model, finite-tree Lemma 2.7, Lemmas 4.7-4.8 with proofs and the inequality preceding Eq. (4.7)",
+        "method": "Readable PDF extraction and visual screenshots of the actual primary pages 10, 18, 19",
+        "title": "Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees",
+        "trigger": "Multi-contact finite/infinite regular-tree GHM overlap"
+      },
+      {
+        "assessment": "Explicit activation criterion requires any one excited neighbor, not b contacts; no implication to threshold-b terminal-shell count",
+        "evidence": "Eq. (1), page 2, uses existence of a single neighbor in state 1.",
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "PDF pages 1-2: abstract, introduction, equations defining threshold-one GHM",
+        "method": "Readable PDF extraction and visual page inspection",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Original finite-graph tree excitation classification"
+      },
+      {
+        "assessment": "Historical basis for the rule; indexed description does not determine b-ary extremizer counts; uninspected full text remains a residual risk",
+        "evidence": "ArXiv submission date 1993-03-22; abstract emphasizes lattice threshold-range spiral transitions.",
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "Public dated abstract, not full primary article",
+        "method": "Public arXiv metadata and abstract reading",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Archival dated source and general model framework"
+      },
+      {
+        "assessment": "On finite paths, not threshold-b complete rooted trees; cannot infer b-ary counts from available summary; full-text priority caveat retained",
+        "evidence": "Indexed formula gives a square-root generating function for maximal extinction-time counts on open paths.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-square-root-law-for-maximal-extinction-times-in-three-state-ex--2a387c4efac2",
+        "material_read": "Published semantic-index title and summary; attempted original page fetch inaccessible",
+        "method": "Index implication comparison, without falsely claiming full-text inspection",
+        "title": "A square-root law for maximal extinction times in three-state excitation on finite paths",
+        "trigger": "Closest same observable: maximal extinction-time mass"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3dc35b7c-d8aa-4896-b374-82a96bc3b3eb",
+  "value": {
+    "rationale": "The exact population of states realizing a universal sharp extinction clock is a natural first-hitting-time tail, not an arbitrarily selected invariant. The causal-tree theorem shows the worst-case time but not how typical it is. The new forced-bottom-layer/free-interior characterization yields a surprising all-b exact fraction, and p(h+1)=p(h)^b quantifies a double-exponential separation of worst-case and typical trajectories. This is a complete unbounded-family classification with a structurally meaningful local-wave mechanism, independently of any broader theorem.",
+    "status": "PASS"
+  }
+}
