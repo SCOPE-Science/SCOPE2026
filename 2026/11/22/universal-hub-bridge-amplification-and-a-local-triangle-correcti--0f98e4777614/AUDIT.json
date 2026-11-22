@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Matching graph is exactly (d+1)-regular. In the fan, the block-eigenvector equations yield the single resolvent root λ-d=nR_v(λ), uniquely above d. Star containment and a bounded degree-d perturbation give √n≤λ≤√n+d. Rooted closed walks have first moments 1,0,d,t_v; substituting their Neumann series into the scalar root gives coefficients d/2, d/2+d²/8, (t_v-d²)/2 and a uniform O_d(n^-3/2) residual by f′≥1. Nine standalone graph calculations compared independent numerical methods, but are not relied on for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dung and Phuc (2026), https://arxiv.org/abs/2607.14048, Definition 3 and Theorem 1 are a general local/global spectral inequality",
+        "Wang et al. (2013), https://arxiv.org/abs/1303.0781, Theorems 7–12 give coupling bounds and perturbations, including the matched case",
+        "Sahneh et al. (2012), https://arxiv.org/abs/1212.4194, Theorem 2 gives general coupled-layer spectral criteria"
+      ],
+      "reasoning": "The general prior results cover modeling formalism and imply some coarse inequalities, but do not supply the four-term fan asymptotic uniformly over arbitrary bounded-degree regular layers. The 2013 large-coupling result anticipates leading √n and d/2 terms; these are credited rather than relied upon as independent novelty.",
+      "searches": [
+        "An Epidemic Threshold Set for Networks Hoang Phi Dung Nguyen Hong Phuc 2607.14048 community-level SIS thresholds",
+        "two d-regular graph communities n matching edges versus all n edges incident to one vertex exact spectral radius order square root n and SIS epidemic threshold ratio",
+        "spectral radius two d regular graph copies one vertex connected to all other graph n matching threshold hub asymptotic sqrt n triangle count epidemic community"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.14048",
+      "https://arxiv.org/abs/1212.4194",
+      "https://arxiv.org/abs/1303.0781",
+      "https://doi.org/10.1016/j.laa.2021.04.023"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dung–Phuc Theorem 1 only ensures τ_global≤τ_local; its inequality does not determine whether τ_global stays bounded away from zero",
+        "Wang et al. 2013 Lemma 5 exactly covers the matched construction; its perturbation Lemma 13 and graph norms forecast growth but do not give the displayed finite-order coefficient",
+        "The 2012 resolvent theory is a general method under which the specialized scalar identity can be derived"
+      ],
+      "reasoning": "The central statement concerns a graph-sequence dependent asymptotic absent from the cited generic criteria; the split bridge budget and vertex-triangle O(n^-1) correction require new explicit analysis. No standalone claim of novel matching spectral radius, resolvent method, or baseline inequality is made.",
+      "searches": [
+        "An Epidemic Threshold Set for Networks Hoang Phi Dung Nguyen Hong Phuc 2607.14048 community-level SIS thresholds",
+        "two cycle communities identical local epidemic thresholds same number of intercommunity edges fan versus matching vanishing epidemic threshold concentrated bridges",
+        "two d-regular graph communities n matching edges versus all n edges incident to one vertex exact spectral radius order square root n and SIS epidemic threshold ratio",
+        "vertex resolvent diagonal spectral radius star attached regular graph n edges local triangle correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sahneh et al. (2012), https://arxiv.org/abs/1212.4194, Theorem 2: resolvent method for inter-network SIS threshold",
+        "Wang et al. (2013), https://arxiv.org/abs/1303.0781, Lemma 5: exactly d+1 for matched regular copies",
+        "2021 walk-bound article excerpt https://doi.org/10.1016/j.laa.2021.04.023: length-three rooted walks encode vertex triangles"
+      ],
+      "reasoning": "The resolvent method, matched root and first motif identity are known and explicitly not claimed new. Neither read epidemic work states the uniform n-dependent fan expansion through the vertex-local triangle term. Search cannot rule out an equivalent unpublished or classical spectral statement.",
+      "searches": [
+        "two cycle communities identical local epidemic thresholds same number of intercommunity edges fan versus matching vanishing epidemic threshold concentrated bridges",
+        "universal asymptotic adjacency spectral radius sqrt n + d/2 + (d/2+d²/8)/sqrt n + (closed walks length 3 minus d²)/(2n) for one-to-all intercommunity star",
+        "vertex resolvent diagonal spectral radius star attached regular graph n edges local triangle correction",
+        "spectral radius adding dominating vertex to a regular graph asymptotic sqrt n plus d/2 triangles closed walks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed result “A sharp bridge-placement phase diagram for SIS thresholds in clique–star communities” analyzes a distinct finite clique–star bridge-placement system",
+        "Indexed result “Total-degree ranking of endemic infection on two equitable communities” concerns steady infection ranking, not an asymptotic fan bridge threshold",
+        "Source 2026 numerical Table 1 lists thresholds for unrelated synthetic and Haslemere contact networks"
+      ],
+      "reasoning": "The indexed records closest in topic concern finite endpoint selection and endemic-prevalence ranking, not the universal regular-community fan/matching limit or triangle coefficient. No exact tabulation of the claimed sequence was located; absence in a search alone does not establish priority.",
+      "searches": [
+        "two cycle communities identical local epidemic thresholds same number of intercommunity edges fan versus matching vanishing epidemic threshold concentrated bridges",
+        "prism graph versus two cycles connected by star spectral radius √n local infection threshold",
+        "universal asymptotic adjacency spectral radius sqrt n + d/2 + (d/2+d²/8)/sqrt n + (closed walks length 3 minus d²)/(2n) for one-to-all intercommunity star"
+      ]
+    },
+    "rationale": "The source 2026 paper contains the local/global inequality, not the all-regular fixed-edge-budget fan-vs-matching asymptotic. The 2012 coupling resolvent and 2013 exact matching eigenvalue (and general perturbation) are acknowledged as existing. The claimed contribution is the new uniform high-order hub expansion with the first vertex-triangle coefficient and its structural same-budget contrast; no stronger statement covering it was identified in the inspected full texts or indexed searches. General spectral graph folklore remains a priority risk.",
+    "residual_risks": [
+      "Historical priority cannot be certified from web and semantic indexed search; an earlier spectral asymptotic for a vertex joined to a regular layer may be equivalent.",
+      "The 2021 walk-based spectral work was available only in excerpt, so no full-document exclusion is claimed.",
+      "The 2013 generic strong-coupling asymptotic implies the first two coefficients of the hub case under suitable uniformity; originality is confined to the complete uniform expansion and triangle correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Local/global inequality and threshold-set framework established; no fan/matching same-budget graph-family asymptotic",
+        "evidence": [
+          "Definition 3 local thresholds are inverse induced-community eigenvalues",
+          "Theorem 1 proves every local threshold dominates global"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.14048",
+        "material_read": "Entire accessible arXiv HTML, specifically model Eq. (2), Definitions 2–3, Theorem 1 and its proof, numerical tables, and conclusion",
+        "method": "Read public arXiv full HTML and compare exact definitions, quantifiers, and theorem implications",
+        "title": "An Epidemic Threshold Set for Networks",
+        "trigger": "Same spectral SIS and local community threshold object; 2026 initial source"
+      },
+      {
+        "assessment": "Broader existing spectral coupling and resolvent mechanism; specialized uniform expansion through rooted triangles not stated",
+        "evidence": [
+          "Theorem 2 gives general effective spectral threshold through a coupled-network resolvent"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1212.4194",
+        "material_read": "Accessible full arXiv HTML including Sections II–V, Theorems 1–3, matrix resolvent and numerical setup",
+        "method": "Inspect equations, theorem premises, matrix blocks and specialized implications",
+        "title": "Effect of Coupling on the Epidemic Threshold in Interconnected Complex Networks: A Spectral Analysis",
+        "trigger": "Generic Schur complement/resolvent results could dominate fan root statement"
+      },
+      {
+        "assessment": "Matching eigenvalue and leading perturbative method are known, fully credited; higher-order local-triangle expansion and equal-budget fan contrast were not identified",
+        "evidence": [
+          "Lemma 5 proves the matching eigenvalue ρ(A)+α",
+          "Lemma 13 gives leading strong-coupling perturbation",
+          "Theorems 7–12 contain generic bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.0781",
+        "material_read": "Full public HTML, Section 3.1 matching Lemma 5 and Section 3.4 perturbations plus general bounds",
+        "method": "Check exact matching, general eigenvalue bounds, and large interconnection limit against proposed coefficients",
+        "title": "Effect of the Interconnected Network Structure on the Epidemic Threshold",
+        "trigger": "Directly compares intercommunity links and contains matched-network formula"
+      },
+      {
+        "assessment": "Contains triangle-based lower spectral bounds; a possible historical-priority limitation, no claimed whole-document exclusion",
+        "evidence": [
+          "Corollary 15 uses the local vertex-triangle count in a spectral lower bound"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2021.04.023",
+        "material_read": "Search-exposed scholarly excerpt including Corollaries 14 and 15; full text not accessed",
+        "method": "Compare locally stated degree and triangle rooted-walk inequalities",
+        "title": "Measure-theoretic bounds on the spectral radius of graphs from walks",
+        "trigger": "Potentially known closed-walk triangle dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0f98e477-7614-4013-888b-af061c00ba03",
+  "value": {
+    "rationale": "Community threshold sets and intercommunity link budgets are natural epidemic network summary statistics. The theorem proves their asymptotic insufficiency even when the complete within-community graphs match, quantifies a divergent spectral vulnerability factor, and isolates the first local motif in a uniform high-order expansion. This is a mathematically motivated structural counterexample rather than a routine numerical plug-in or a new definition.",
+    "status": "PASS"
+  }
+}
