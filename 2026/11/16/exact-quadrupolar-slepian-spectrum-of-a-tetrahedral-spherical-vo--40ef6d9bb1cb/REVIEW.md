@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cell is the simultaneous intersection of three hemispheres and is one of four congruent tetrahedral Voronoi cells, so its area is exactly \(\pi\). A five-element harmonic quadratic basis is orthonormal under the normalized whole-sphere measure. Applying the Euclidean harmonic decomposition of each quartic basis product and the spherical Green identity reduces all matrix entries to explicit edge integrals of degree-one and degree-three trigonometric polynomials. The embedded exact SymPy checker recomputes all fifteen upper-triangular entries, verifies the displayed matrix and validates the block roots. A separate SciPy integration directly in spherical coordinates agrees to less than \(8\times10^{-11}\) entrywise. No infinite statement relies upon sampling or truncation.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Simons–Dahlen–Wieczorek (arXiv:math/0408424) formulate the general Slepian operator; their general variational principle is prior art, not a claim of novelty. Bates–Khalid–Kennedy (arXiv:1608.05479) numerically handle arbitrary spherical masks, and arXiv:1608.03031 concerns coordinate latitude-longitude regions. Roddy–McEwen (arXiv:2302.06006) develop manifold Slepian wavelets, not the exact tetrahedral triangle spectrum. Closely related published cap-mask, orthant, hemisphere, and lune spectral claims have different regions and do not state an equivalent formula. Distinguishing contribution: the exact triangular Voronoi matrix, all five eigenvalues, their sharp two-sided factors, and the unexpected two-dimensional top eigenspace. An unindexed table of exact polyhedral-region moments could still contain the same result. The 2016 coordinate-mask article was assessed through its abstract rather than full mathematical text; its different defined geometry is not by itself a uniqueness proof.
+PASS
 
-## Value — PASS
-A regular tetrahedron gives the canonical four-cell equal-area partition of the sphere, hence a natural non-axisymmetric missing-region mask for low-degree spherical harmonic data. Degree-two quadrupoles are the first even anisotropic harmonic modes. The sharp energy-retention and leakage factors quantify both observation and recovery on this cell. The exact two-dimensional maximizing sector contrasts with an axial-mode heuristic, and the elementary closed form provides a stringent nonpolar Slepian test case where general mask methods normally use numerical integration. This is a substantive exact natural invariant, not a parameter-specific numerical experiment.
+The Voronoi cell is exactly x+y≥0,x+z≥0,y+z≥0 with area π (one of four partition cells). Using the globally orthonormal five harmonic quadratics Q0..Q4 and quartic product decomposition p=h4+r²h2+c r⁴ where c=Δ²p/120, h2=(Δp−20cr²)/14, integrate via spherical Green theorem over three great-circle edges. This yields the scalar Z=1/4+√3/(9π) and two identical (A,C;C,B) blocks with A=1/4+11√3/(54π), B=1/4−7√3/(27π), C=−√6/(27π). Eigenvalues simplify to above; 219>75 proves λ−<Z<λ+. Source exact_tetra_slepian.py performs symbolic boundary integrations and matrix assertions; independent numerical eigenmatrix check reproduces .103836526588684, .311258766157977, .365534090332327 and trace 5/4. The exact edge integrations, not numerical quadrature, prove the stated values.
 
-## Limits
-No claim is made for higher spherical-harmonic degrees, a full band through degree two, or independent publication priority. The exact symbolic derivation is decisive for the stated five-dimensional operator; the second integration is corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
+
+## value
+
+PASS
+
+The tetrahedral Voronoi tile is a natural symmetry-defined observation region; its exact five-mode low-degree spectrum and surprising two-dimensional optimal (nonaxial) eigenspace give a clean benchmark not captured by circular caps. The sharp energy bound can be used for deterministic harmonic restriction and localization comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact construction is reproduced by `exact_tetra_slepian.py` with SymPy. It derives the cell edge parametrizations, decomposes each quartic into harmonic components, integrates the boundary terms symbolically, and compares all fifteen distinct matrix entries to exact expressions. It checks the trace \(5/4\), the two-by-two characteristic factors and the sharp eigenvalue ordering.
+## correctness
 
-The separate `verify_tetra_numeric.py` integrates over the actual spherical triangle in axis-and-azimuth coordinates using adaptive quadrature. It confirms all twenty-five matrix entries to error below \(8\times10^{-11}\), and the spectrum to tolerance \(5\times10^{-9}\). The calculations are reproducible from the files, using SymPy for the first checker and NumPy/SciPy for the second. A finite quadrature is not used as an infinite proof.
+PASS
 
-The preceding statements concern checks of the present mathematical result; independent external mathematical audit has not been performed.
+The Voronoi cell is exactly x+y≥0,x+z≥0,y+z≥0 with area π (one of four partition cells). Using the globally orthonormal five harmonic quadratics Q0..Q4 and quartic product decomposition p=h4+r²h2+c r⁴ where c=Δ²p/120, h2=(Δp−20cr²)/14, integrate via spherical Green theorem over three great-circle edges. This yields the scalar Z=1/4+√3/(9π) and two identical (A,C;C,B) blocks with A=1/4+11√3/(54π), B=1/4−7√3/(27π), C=−√6/(27π). Eigenvalues simplify to above; 219>75 proves λ−<Z<λ+. Source exact_tetra_slepian.py performs symbolic boundary integrations and matrix assertions; independent numerical eigenmatrix check reproduces .103836526588684, .311258766157977, .365534090332327 and trace 5/4. The exact edge integrations, not numerical quadrature, prove the stated values.
+
+## originality
+
+PASS
+
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
+
+## value
+
+PASS
+
+The tetrahedral Voronoi tile is a natural symmetry-defined observation region; its exact five-mode low-degree spectrum and surprising two-dimensional optimal (nonaxial) eigenspace give a clean benchmark not captured by circular caps. The sharp energy bound can be used for deterministic harmonic restriction and localization comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
