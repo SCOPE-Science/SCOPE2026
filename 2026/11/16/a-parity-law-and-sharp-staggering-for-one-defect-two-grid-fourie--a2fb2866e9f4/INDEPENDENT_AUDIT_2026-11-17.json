@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:02:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assigned RESULT proof decomposes the (2q)-normalized Fourier matrix by a q-point DFT on both sampling grids. For residue r the remaining 2-by-2 block has off-diagonal Gram magnitude |cos(pi*d_r*theta)|, d_r=1 except d_b=m. Thus the complete 2q spectrum, rank defect exactly one at theta=k/m, and independence from b follow. The minimax is the maximum of |cos(pi theta)| and |cos(pi m theta)|. For odd m, both vanish only at theta=1/2; for even m, the barrier u*=sin(pi/[2(m+1)]) follows from the monotonic cosine on m*arcsin(u) for u<u* and the trivial u bound for u>u*. Taylor expansion at theta=k/m gives 2/(pi*m*|theta-theta0|). Independently constructed full complex Fourier matrices for q=2..7, m=2..11 and several offsets had spectrum error under 2.3e-14; this finite check does not replace the universal DFT/trigonometric proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Batenkov–Goldman gives bounds for clustered Fourier Vandermonde matrices; Lai–Sheynis proves multi-tile exponential Riesz-basis criteria, not explicit one-defect 2q spectra and optimal stagger."
+        ],
+        "reasoning": "Broader stability and existence criteria do not supply sharp finite-dimensional equality, all frequency substitutions, or the even/odd optimal offsets without a new residue-block calculation. Nonetheless DFT aliasing is standard prior machinery.",
+        "searches": [
+          "two shifted grids Fourier interpolation one replaced integer frequency singular spectrum sharp staggering parity m minimax",
+          "arXiv:2107.09326v1",
+          "arXiv:2309.14625v1"
+        ]
+      },
+      "checked_sources": [
+        "pinned original RESULT.md SHA e642fdc0456adf1d23c89f96bd67c6a70633e490",
+        "source METADATA/AUDIT/SLOGAN at pinned commit",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add/RESULT.md",
+        "https://arxiv.org/abs/2107.09326",
+        "https://arxiv.org/abs/2309.14625"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-interval theorem optimized a different pair of consecutive cosines and has the same m=2 scalar relation; current claim adds all m and exact interpolation blocks."
+        ],
+        "reasoning": "Special scalar minimax and block diagonalization are prior; neither entails the replacement-height parity law for all m on finite sampling grids. The claimed distinction is substantive but vulnerable to a specialized two-grid aliasing paper.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add/RESULT.md",
+          "arXiv:2309.14625v1",
+          "two shifted grids Fourier interpolation one replaced integer frequency singular spectrum sharp staggering parity m minimax"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary two-interval work has fibers 2±2 max(|cos(pi m*tau)|,|cos(pi (m+1)*tau)|); assigned discrete matrix has 1±max(|cos(pi theta)|,|cos(pi m*theta)|)."
+        ],
+        "reasoning": "The scalar m=2 minimax is a known specialization of two-coset cosine optimization, but the two-continuous-interval Riesz operator uses consecutive frequencies m,m+1 and a noninteger spatial interval separation; the assigned finite 2q sampling problem uses 1,m and one substituted integer frequency for arbitrary m. The full family of spectra, rank profiles and odd/even all-height optimizers is not implied by the prior object's consecutive-frequency theorem.",
+        "searches": [
+          "two shifted grids Fourier interpolation one replaced integer frequency singular spectrum sharp staggering parity m minimax",
+          "Optimal two-coset Fourier conditioning on separated unit intervals cosine minimax",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned a distinct two-interval Riesz basis finding, not a table enumerating these one-defect discrete grids; no exact (q,m,b,theta) spectrum table found."
+        ],
+        "reasoning": "The object is an infinite parametric family with continuous theta, so finite matrix tables would not dominate it. No prior exact matching tabulation was located; absence of a matching hit is not proof of priority.",
+        "searches": [
+          "two shifted grids Fourier interpolation one replaced integer frequency singular spectrum sharp staggering parity m minimax",
+          "Optimal two-coset Fourier conditioning on separated unit intervals cosine minimax"
+        ]
+      },
+      "rationale": "Bounded search finds no prior covering the final substantive claim as a whole; all identifiable overlapping subresults are disclosed, especially the duplicate two-row parity/gap, and residual historical risks are retained.",
+      "residual_risks": [
+        "Specialized finite nonuniform DFT aliasing literature may contain an equivalent all-m solution.",
+        "Independent numerical checks only span finitely many grid sizes; infinity rests on the explicit analytical proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING all arbitrary replacement-height finite sampling-grid claims; scalar m=2 analogy is covered.",
+          "evidence": "The prior coherence is max(|cos(pi m tau)|,|cos(pi(m+1)tau)|), with optimizers ±1/(2m+1), not the assigned max(|cos(pi theta)|,|cos(pi m theta)|).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add/RESULT.md",
+          "material_read": "Complete publicly available RESULT.md, finding, assumptions, proof, minimax, limitations",
+          "method": "GitHub connector full file",
+          "title": "Optimal two-coset Fourier conditioning on separated unit intervals",
+          "trigger": "Closest prior with exact 2x2 cosine fiber minimax"
+        },
+        {
+          "assessment": "Bounds are related but no directly identified exact optimizer; remaining literature risk.",
+          "evidence": "General clustered node singular-value bounds rather than exactly one substituted integer character in two cyclic banks.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.09326",
+          "material_read": "Public abstract and citation/description, not full original body",
+          "method": "web abstract lookup",
+          "title": "Single-exponential bounds for the smallest singular value of Vandermonde matrices in the sub-Rayleigh regime",
+          "trigger": "Clusters and Fourier conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural, fully quantified perturbation problem for periodic Fourier interpolation: one exceptional Fourier band, two regular interlaced sampling grids, and an optimally chosen offset. The exact all-dimension spectrum and optimal even/odd staggering law distinguish stability loss due to one altered character; resonant blow-up quantitatively matters for interpolation design. The two-by-two DFT method and scalar minimax are elementary, so the claim makes no stronger methodological novelty assertion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned original RESULT.md SHA e642fdc0456adf1d23c89f96bd67c6a70633e490",
+    "source METADATA/AUDIT/SLOGAN at pinned commit",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add/RESULT.md",
+    "https://arxiv.org/abs/2107.09326",
+    "https://arxiv.org/abs/2309.14625"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "This review is a scientific assessment only; no repository or public-file change was made.",
+    "Literature priority is best-of-knowledge within identified inspected source material."
+  ],
+  "residual_risks": [
+    "Specialized finite nonuniform DFT aliasing literature may contain an equivalent all-m solution.",
+    "Independent numerical checks only span finitely many grid sizes; infinity rests on the explicit analytical proof."
+  ],
+  "schema_version": 1
+}
