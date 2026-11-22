@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The seven-cycle on labels zero through six fixes label seven; every graph-edge orbit has size seven, whereas a matching has at most four edges, so the action on the realization is free. The quotient has exactly four, thirty, sixty and fifteen cells in dimensions zero through three. A three-edge matching has exactly one containing four-edge matching, permitting fifteen disjoint equivariant free-face collapses. The embedded exact verifier reconstructs the remaining two-dimensional presentation, contracts a stated spanning tree, and replays twenty-six generator-relator cellular eliminations to one generator and nineteen two-cells attached by powers divisible by seven, including one of exponent negative seven. The one-cell/one-disk Moore complex followed by eighteen nullhomotopic two-cell attachments proves the asserted wedge homotopy type. Independent Euler-characteristic and signed boundary checks agree. The finite checker is exhaustive for this finite object; no computation is extrapolated to all sizes.
+PASS
 
-## Originality — PASS relative to the checked literature
+A 7-cycle on seven of eight labels acts freely on simplices since a matching contains at most four edges but every nonfixed graph edge has orbit size seven. Quotient f-vector (4,30,60,15), Euler 19. Every size-three matching extends to a unique perfect matching, allowing 15 free face pairs and a 2-complex (4,30,45). Contract three tree edges and eliminate 26 generator/relator pairs (each generator occurs precisely once in its chosen attaching word); certificate final 19 exponents lie in 7Z, at least one ±7, hence Moore M(Z/7,1) plus 18 null-attached two-cells, a wedge of 18 S². Independently formed all orbit chain matrices and exact integer SNF: d1 rank3, d2 rank27 with sole nonunit factor7, d3 rank15, ∂²=0; this confirms H1,Z7 and H2,Z18 but does not by itself prove wedge. The inspected complete 26-step attaching-word certificate plus standard homotopy moves supplies that stronger step.
 
-The March 2012 Jonsson preprint tabulates the unquotiented \(M_8\) homology and studies symmetric-group chain operations, rather than the ordinary seven-cycle orbit space. The May 2023 Mondal–Mukherjee–Saha preprint addresses discrete Morse topology of complete-graph matching complexes, emphasizing \(M_7\), without an exact integral homotopy classification of this quotient in the material inspected. Searches of published mathematical-result records for \(M_8\), seven-cycle type \((7,1)\), ordinary orbit spaces, the line-graph independence-complex formulation, Moore spaces and eighteen spheres did not surface an identical or stronger covering statement. A prior seven-point complete-graph matching quotient has a different underlying matching complex and different cyclic fundamental group, so does not imply this eight-point result. An order-seven Moore quotient for a Fano-plane cap complex likewise has a distinct simplicial object. Full-text access to some indexed secondary records was unavailable, so an unindexed equivalent computation remains a priority risk. Lack of a match is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This determines a complete integral homotopy type for the canonical order-seven conjugacy class of permutations of eight labels, acting freely on the first simply connected complete-graph matching complex admitting such a seven-cycle action. The quotient develops seven-primary first homology even though the original complex has torsion-free homology, and the complete Moore-plus-spheres decomposition rules out ambiguity left by the group's homology alone. The exact sphere count and the reducible two-complex are structural features of this naturally defined symmetry quotient, not a renamed existing invariant. The result is finite and is not presented as an all-order classification.
+PASS best-of-knowledge: Jonsson tabulates unquotiented M8 H2=Z132, and Mondal–Mukherjee–Saha discusses matching complexes/M7; these do not determine the C7 ordinary quotient π1 or wedge decomposition. Fano cap Moore C7 on a different complex has no same-object implication.
 
-## Closest references and limits
+## value
 
-Jonsson, arXiv:1203.5658, sections introducing the matching complex and its integral table for \(M_8\); Mondal–Mukherjee–Saha, arXiv:2305.02973, introduction and discrete-Morse scope. The source comparison is limited to material actually read and indexed searches; possible unpublished or alternatively indexed identical work has not been ruled out. The conclusions are homotopy equivalences, not homeomorphisms, and do not apply to Borel homotopy quotients.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact integral homotopy type, with genuinely seven-primary torsion in π1 and 18 free second homology summands, is a natural invariant of a canonical matching complex under a prime cyclic symmetry. It strengthens a mere Betti-number computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
