@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The two canonical kernels give an exact matching-offdiagonal-pair covariance identity; the explicit Anderson–Darling logarithmic kernel reduces the cross moment to a Bernoulli-polynomial integral, evaluated in two exact independent forms. A positive Fourier series proves all-order positivity. Strict monotonicity follows from monotone likelihood ratios of the frequency weights and a rational sample-size variance factor. The first Fourier mode yields the nonzero floor. The standalone standard-library checker passes 129 exact and diagnostic assertions, with simulations treated as non-proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 article presents separate generalized Anderson–Darling and generalized Watson constructions, their respective KL eigenvalues, process covariances, and marginal distributions.",
+        "Stephens 1974 decomposes classical U-squared and A-squared into Fourier/Legendre components, with a focus on component behavior and power; reviewed sections did not provide the higher-order cross-covariance sequence."
+      ],
+      "reasoning": "The standard marginal spectra are insufficient to determine a mixed cross-family covariance without the cross-kernel overlap. The new result calculates that overlap and identifies order monotonicity and first-harmonic floor. A sufficiently general older quadratic-form mixed-moment identity could supply a method, but a theorem explicitly encompassing the present weighted Watson order family with exact values was not found in inspected relevant statements.",
+      "searches": [
+        "generalized Anderson Darling versus generalized Watson integrated empirical measures finite n exact covariance Bernoulli numbers cross-family 2024",
+        "cross covariance original Anderson Darling statistic with higher order generalized Watson U^[m], m>=2",
+        "Hwang Kuriki generalized Watson Anderson Darling cross covariance correlation order m",
+        "https://arxiv.org/pdf/2404.06040",
+        "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2404.06040",
+      "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835",
+      "https://www.researchgate.net/publication/268315464_Watson-type_goodness-of-fit_tests_based_on_the_integrated_empirical_process",
+      "https://arxiv.org/abs/2404.06040"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously published exact mixed covariance: (n-1)/(36n), only original Watson order m=1.",
+        "Hwang–Kuriki: Bernoulli kernel representation for all m and separate generalized-test eigenexpansions; does not provide mixed Anderson–Darling overlap integrals or order trend.",
+        "The calculated m=2 coefficient is 7/10800 and does not follow numerically from the m=1 covariance without further mixed integration."
+      ],
+      "reasoning": "The m=1 result is a special case of this family, but the newly accepted domain is m>=2. Neither the earlier single cross-statistic covariance nor separate spectra imply the higher-order mixed integrals or their strict monotonicity without new structure. We do not claim novelty for Bernoulli polynomials, canonical U-statistic expansions, or Watson harmonics.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835",
+        "https://arxiv.org/pdf/2404.06040",
+        "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+        "generalized Anderson Darling versus generalized Watson integrated empirical measures finite n exact covariance Bernoulli numbers cross-family 2024",
+        "integrated empirical measures Hwang Kuriki Watson second order U2 covariance original Anderson Darling 7/10800"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hwang–Kuriki Theorem 3.3 gives the order-m Watson Bernoulli pair kernel; the available earlier finite-n cross-statistic result covers only m=1, with kappa_1=1/36.",
+        "The new all-m>=2 formulation can equivalently be written as a rational Bernoulli integral or a positive Fourier series with logarithmic integrals."
+      ],
+      "reasoning": "The known m=1 mixed covariance is subsumed algebraically by the extended formula, so it is explicitly excluded from the new claim. The searched earlier result does not state any higher-order covariance, order monotonicity, or positive limiting floor. A previously published exact expression for the same m>=2 mixed sequence would cover this claim regardless of notation; none was identified among accessed sources.",
+      "searches": [
+        "generalized Anderson Darling versus generalized Watson integrated empirical measures finite n exact covariance Bernoulli numbers cross-family 2024",
+        "cross covariance original Anderson Darling statistic with higher order generalized Watson U^[m], m>=2",
+        "integrated empirical measures Hwang Kuriki Watson second order U2 covariance original Anderson Darling 7/10800",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The m=2,3,4 values 7/10800, 41/2540160 and 19/46656000 were obtained by independent exact coefficient integration, not read from a tabulated result.",
+        "Targeted published-finding corpus searches returned the single classical m=1 Watson–Anderson–Darling mixed covariance record, rather than a higher-integration-order table."
+      ],
+      "reasoning": "Exact rational constants are not asserted novel merely because a numerical table does not contain them; the claim concerns the all-order formula, positivity, monotone dependence and floor. No identified exact database or table already covered those implications.",
+      "searches": [
+        "cross covariance original Anderson Darling statistic with higher order generalized Watson U^[m], m>=2",
+        "integrated empirical measures Hwang Kuriki Watson second order U2 covariance original Anderson Darling 7/10800",
+        "generalized Watson Anderson Darling exact covariance 2024 2025 higher order integrated empirical measure"
+      ]
+    },
+    "rationale": "The cited 2024 primary paper defines generalized Watson orders and derives marginal spectra; the closest published exact cross covariance is only classical Watson m=1, explicitly excluded. The m>=2 cross-family coefficient, all-orders strict order monotonicity and nonzero first-harmonic correlation floor were not identified in accessed primary literature or semantic research records. General quadratic-form theory could provide derivation routes but does not itself supply the mixed values; older integrated-process literature creates a stated historical-priority risk.",
+    "residual_risks": [
+      "Older general Watson component covariance formulas may imply the extended result after unrecognized reduction.",
+      "The 2002 Henze–Nikitin paper was not inspected in full; only accessible abstract/intro descriptions were available.",
+      "Mathematical literature search and published-finding corpus semantic similarity do not establish absolute originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the objects and gives marginal properties; the higher-order mixed classical Anderson–Darling covariance and decreasing correlation sequence were not among examined results.",
+        "evidence": [
+          "Primary MSC 62G10, 62E20 on first page; Theorem 3.3 gives U^[m] sample sum with (-1)^(m-1) b_{2m}(|Xi-Xj|)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.06040",
+        "material_read": "Cover/primary MSC and full relevant Sections 3.1–3.5, including Theorem 3.3 and related formulas; relevant pages 32–43 of the preprint.",
+        "method": "Read PDF extracted content and page screenshots, followed kernel and eigenvalue statements.",
+        "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+        "trigger": "Defines the exact generalized Watson statistic and is the motivating primary paper."
+      },
+      {
+        "assessment": "Gives components and separate asymptotic behavior, not an explicit finite-n higher-integrated-Watson/Anderson–Darling cross-covariance or its order trend in reviewed material.",
+        "evidence": [
+          "Page 4 displays Watson Fourier components; abstract says Anderson–Darling is decomposed using Legendre functions."
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+        "material_read": "Abstract, introduction and relevant Fourier expansion/components and Anderson–Darling sections.",
+        "method": "Inspected scanned PDF page images and searchable text.",
+        "title": "Components of goodness-of-fit statistics",
+        "trigger": "Potentially stronger classical result via spectral decomposition of both Watson and Anderson–Darling."
+      },
+      {
+        "assessment": "Covers m=1 only, with covariance (n-1)/(36n); m=1 explicitly excluded from newly claimed m>=2 result.",
+        "evidence": [
+          "Published formula is Cov(U_n²,A_n²)=(n-1)/(36n), and the proof uses a fixed first-order Watson kernel."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835/RESULT.md",
+        "material_read": "Full RESULT.md statement, proof, related literature and limitations.",
+        "method": "Read publicly available primary result file through repository fetch.",
+        "title": "Exact finite-sample covariance of Watson and Anderson–Darling goodness-of-fit statistics",
+        "trigger": "Direct overlap risk for the first Watson integration order."
+      },
+      {
+        "assessment": "Could contain related m=2 kernel or process limits; absence of a covering exact mixed covariance has not been established for the full paper.",
+        "evidence": [
+          "The accessible descriptions focus on Watson-type testing via the integrated empirical process; higher-order Anderson–Darling cross covariance remains unverified."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/268315464_Watson-type_goodness-of-fit_tests_based_on_the_integrated_empirical_process",
+        "material_read": "Abstract and accessible introductory descriptions only; full technical statements were not established.",
+        "method": "Accessible page review and cross-reference from the Hwang–Kuriki work.",
+        "title": "Watson-type goodness-of-fit tests based on the integrated empirical process",
+        "trigger": "Hwang–Kuriki cites this as an earlier integrated Watson-process work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6967a739-df45-4649-b339-b15ae308ab8c",
+  "value": {
+    "rationale": "The mixed finite-n covariance and exact order/sample-size correlation law quantify unavoidable shared null variation between widely used tail-weighted Anderson–Darling and recursively centered multiscale Watson goodness-of-fit diagnostics. The positive correlation floor shows that using arbitrarily high Watson integration order does not eliminate redundancy. This is a structural all-order calibration fact, not a routine restatement of separate marginal moments; a joint test would need its full distribution beyond this contribution.",
+    "status": "PASS"
+  }
+}
