@@ -1,0 +1,12 @@
+# Scientific assessment
+
+**Correctness — PASS.** The finite-state heat-bath generator yields closed equations for the two distinct pair correlations; solving them determines all reservoir heat currents. The exact rectification ratio follows by exchanging \(a=\tanh(\beta_{\mathrm h}J)\) and \(b=\tanh(\beta_{\mathrm c}J)\) in the central and end-site update rules. A strict positive derivative in \(b\), followed by a unique critical point \(a=4-\sqrt{15}\), proves the global sharp but unattained supremum. Exact-rational full-generator enumeration verifies 100 trimer and 100 dimer cases. These checks supplement the all-parameter proof; no finite scan is treated as exhaustive.
+
+**Originality — PASS (examined literature; priority provisional).** Primary works by Schmüser–Schmittmann (2002), Schmittmann–Schmüser (2002) and Bauer–Cornu (2017) determine stationary properties of even periodic alternating-temperature Ising chains, not the asymmetric open trimer or the sharp universal orientation ratio. Lavrentovich–Zia (2010) study infinite domain junctions, a distinct bath geometry. The 1994 Rácz–Zia model likewise treats alternating site baths on a periodic chain. Relevant indexed calculations in two-temperature Kawasaki rings, three-site mass exchange and quantum thermal diodes do not imply the specified classical, uniform-clock trimer theorem. A previously published but unlocated finite-trimer calculation remains a historical-priority risk.
+
+**Mathematical value — PASS.** The problem isolates whether geometry of the reservoir-to-site coupling alone can rectify steady heat transport in the smallest interacting classical spin chain, without bond, field or attempt-rate asymmetry. The result supplies a complete two-parameter current law, strict polarity and an unusual sharp ratio exceeding two, plus the two-spin obstruction. This is a finite-state quantitative boundary, not an infinite-volume phase transition or a result about arbitrary bath geometries.
+
+## Limitations and audit status
+The results require local heat-bath flip rates and equal couplings. The comparison studies neither all conceivable historic finite-spin works nor infinite-volume dynamics. The supremum is approached as a limit and not realized at finite bath temperatures. Independent checking of the historical novelty and theorem has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
