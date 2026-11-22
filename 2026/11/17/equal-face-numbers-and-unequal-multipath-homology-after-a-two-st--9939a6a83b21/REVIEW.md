@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain consists of two specifically defined tournaments on seven vertices, with all 21 oriented edges given by a fixed increasing orientation and one two-step reversal. Their only possible directed cycle is the identified three-cycle. Thus an arc subset is a directed linear forest exactly when each source and target is used at most once and this triangle is absent. The provided standard-library checker exhaustively computes all face sets by separate combination and extension procedures, obtains matching face counts, builds the augmented simplicial chain matrices, verifies squared boundaries are zero, and agrees between row and column Gaussian elimination. The exact rank tables yield the stated reduced \(\mathbb F_2\)-homology. An exhaustive finite proof is sufficient for this finite finding. It does not claim integral homology or infinite extrapolation.
+PASS
 
-## Originality — PASS, subject to residual bibliographic uncertainty
+For a=0,1 on n=7, orient all tournament edges increasingly except a+2->a. Every directed cycle must include the reversed arc followed by an increasing a-to-(a+2) path, forcing the unique a,a+1,a+2 triangle. An arc subset forms a directed linear forest iff each tail and head appears at most once and the triangle is not all selected. I independently enumerated faces via direct combinations of the 21 arcs, sorted into simplicial levels, and calculated exact augmented GF2 boundary ranks with bitset Gaussian elimination. For a=0 and a=1 both full face vectors are (1,21,142,370,351,93,3); boundary ranks are respectively (1,20,122,242,90,3) and (1,20,122,248,90,3), yielding reduced betti a=0 beta2=6,beta3=19 and a=1 beta3=13 alone. For every n=3..6 and every admissible two-step reversal, independently enumerated exact same face vector and reduced bettis within that order: n3 (1,3,3), beta1=1; n4 (1,6,9,3), beta1=1; n5 (1,10,27,21,3), acyclic; n6 (1,15,67,102,45,3), beta2=7. This exhausts the specified finite family, not all digraphs, and the mod-two discrepancy proves non-homotopy equivalence.
 
-The 2026 Deshpande–Sawant manuscript treats the same general directed-linear-forest object and includes the known conflict-hypergraph face characterization; no novelty is assigned to that reduction. Its structural results do not cover this particular equal-face-vector/different-homology comparison. Caputi–Collari–Di Trani–Smith calculate the Euler characteristic for transitive tournaments and one reversal of their outermost edge, and establish a sphere-wedge property for intact transitive tournaments. These results do not imply either of the two mod-two rank tables: the present two reversals are interior two-step arcs, and equal Euler characteristics are compatible with distinct Betti ranks. Semantic comparisons against indexed research records and source/alias searches did not identify an equivalent statement. Bibliographic incompleteness remains possible; no independence is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The natural one-arc perturbation of a transitive tournament is a direct stress test of the newly studied directed-linear-forest complex. Seven is the first number of vertices in this two-step reversal family where arc position affects mod-two homology. The two complexes nevertheless have the same entire face vector and the same unique directed-triangle count. Thus face enumeration, all derived face-polynomial invariants, and Euler characteristic fail to determine the graded topology even within this tightly specified perturbation family. This is a motivated boundary example rather than an arbitrary numerical slice. The result does not assert a general tournament classification.
+PASS best-of-knowledge. The structural directed-forest/conflict-hypergraph characterization is prior work and not new. The earlier transitive-tournament and extremal-edge-reversal computations provide Euler characteristic or wedge results for different arcs; a previously published Wagner-vs-cube fully bidirected equal-face-vector example illustrates similar philosophy, but cannot imply the two specific one-edge-reversed tournaments and their distinct mod-two boundary ranks. This is a new exact natural seven-vertex witness within a motivated proximity-to-transitive family, not a general all-digraph minimality claim.
 
-## Closest literature and limitations
+## value
 
-Deshpande–Sawant, arXiv:2602.14936 (2026-02-16), Sections 3 and 5.2; Caputi–Collari–Di Trani–Smith, arXiv:2208.04656, *Mathematika* 70 (2024), Sections 3 and 5. Exact mod-two calculation only; integral homology, all-order patterns and homotopy types are not established. A differently formulated prior computation is a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This small but natural counterexample proves that the entire f-vector and the number of directed triangles fail to determine multipath homology even among almost-transitive tournaments, and identifies the first size within the precise two-step-reversal family where reversal location matters. The exact rank separation β2=6/0 and β3=19/13 is a substantive invariant, not merely a negative type/normalization test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
