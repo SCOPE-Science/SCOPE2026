@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible algebraic checks
+# Independent mathematical audit
 
-The attached `verify.py` requires Python 3 and SymPy. Run `python verify.py`. It verifies the general factorization of the real two-step equations, the two branch formulas, the threshold and the exact symmetry-breaking squared amplitude. It also evaluates two exact rational witnesses and checks the threshold collision, confirming the source and image points under direct polynomial iteration. The last output line is `ALL_CHECKS_PASSED`.
+## correctness
 
-The assertions about *all* real primitive two-cycles are proved by exhaustive algebraic factorization in `RESULT.md`, not by finite samples. The checker does not address higher periods, stability, or general parameters outside the theorem. The scientific literature comparison has an explicit full-text access limitation, and independent audit has not been performed.
+PASS
+
+Read complete fixed-tree RESULT.md and actual verify.py file entry. In the period-two equations x coordinates exchange a,b; solving third-coordinate equations and subtracting a f1-b f2 gives (a²-b²)(c+ab/(1+nu3))=0, checked separately in exact symbolic algebra. The a=±b case gives fixed or one antisymmetric primitive cycle; the other case ab=-c(1+nu3) and the positive-root discriminant proves exactly two additional reflected cycles, with collision at the threshold; no other real cases. Independently checked the exact rational witness (nu1,nu3,nu2)=(1/2,1/2,25/24), (a,b)=(1,-3/4), and derived amplitude and threshold comparisons. This does not establish higher-period dynamics or stability.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full-real alpha=-1 primitive-two census and exact second symmetry-breaking threshold, with substantial priority caveat. The 2024 Gonchenko article gives the normal forms, square-map duality and local pitchfork/flip, rather than a confirmed full global census. Another 2026-11-17 published finding treats alpha=+1 and nu1=-b in a different sign family, so cannot simply be counted as an exact identical statement; duality may give some reduced implications and needs specialist comparison. Full 2023 original unavailable; no unverified whole-paper negative claim is made.
+
+## value
+
+PASS
+
+PASS: A natural complete global real classification in a three-dimensional polynomial normal form, including an independently meaningful second symmetry-breaking threshold and branch collision, addresses dynamics not resolved by merely local bifurcation plots. It does not require higher-period classification to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

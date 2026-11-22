@@ -1,19 +1,21 @@
-# Scientific review: exact global primitive-two census
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof solves the third-coordinate two-step linear equations uniquely for \(0<\nu_3<1\), then obtains an exhaustive factorization of the remaining periodicity equations into \(a^2=b^2\) or \(ab=-(1-\nu_1)(1+\nu_3)\). Fixed points are separated from primitive period-two orbits; no candidate is inferred from numerical trajectories. The quadratic for the two coordinate squares gives an exact discriminant boundary, and strict off-boundary roots give precisely two new axial-reflection-related cycles. The endpoint, including duplicate representations, is counted correctly. A reproducible exact-arithmetic checker confirms the identities and rational witnesses. The proof handles all real initial points, not just a trapping box.
+## correctness
 
-## Originality — PASS within inspected evidence
-Gonchenko and Gonchenko introduced the map and described local fixed-point, period-doubling and attractor bifurcations. Their 2024 paper includes the prior sharp period-doubling picture for one orbit, which this work does not recast as new. The available substantive sections of that paper do not give the global all-real period-two count, the second exact two-cycle threshold, or its ordering exchange with the fixed-point pitchfork. The original 2023 abstract confirms the same model, but complete 2023 text was inaccessible; that limits publication-priority confidence and is not represented as a whole-document negative comparison. Related exact prime-two results for planar Duffing and Bogdanov maps concern different recurrences, whose conclusions do not imply the axial three-dimensional count. Searches for the normal form, equivalent two-step equations, and a three-cycle period-two census found no stronger applicable theorem.
+PASS
 
-## Mathematical value — PASS
-A complete natural prime-two invariant for a published three-dimensional normal form supplies a global bifurcation skeleton beyond local diagrams. There is a genuine additional pair of symmetry-exchanged two-cycles with exact square-root birth; their threshold lies on either side of the known fixed-point pitchfork depending on \(\nu_3\). A nonempty open parameter region has three primitive two-cycles despite a unique fixed point. These assertions are not mere renaming or a stability computation at a single parameter choice.
+Read complete fixed-tree RESULT.md and actual verify.py file entry. In the period-two equations x coordinates exchange a,b; solving third-coordinate equations and subtracting a f1-b f2 gives (a²-b²)(c+ab/(1+nu3))=0, checked separately in exact symbolic algebra. The a=±b case gives fixed or one antisymmetric primitive cycle; the other case ab=-c(1+nu3) and the positive-root discriminant proves exactly two additional reflected cycles, with collision at the threshold; no other real cases. Independently checked the exact rational witness (nu1,nu3,nu2)=(1/2,1/2,25/24), (a,b)=(1,-3/4), and derived amplitude and threshold comparisons. This does not establish higher-period dynamics or stability.
 
-## Closest sources and remaining limitations
-- Gonchenko and Gonchenko, *On discrete Lorenz-like attractors in three-dimensional maps with axial symmetry*, Chaos 33 (2023), 123104, DOI 10.1063/5.0172243: exact model, local bifurcation context; only abstract-level full-paper access.
-- Gonchenko and Gonchenko, *Discrete Lorenz attractors of new types in three-dimensional maps with axial symmetry*, Partial Differential Equations in Applied Mathematics 11 (2024), 100904, DOI 10.1016/j.padiff.2024.100904: model equation and substantial indexed bifurcation/duality discussion; whole downloadable article could not be independently fetched.
-- Neighboring periodic classifications for distinct planar quadratic maps do not dominate the present parameter-dependent three-dimensional theorem.
+## originality
 
-This result does not determine higher periods, stability multipliers, basins, or the excluded parameter boundaries. The inaccessible complete 2023 source and unindexed equivalent statements retain a publication-priority risk. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS for the full-real alpha=-1 primitive-two census and exact second symmetry-breaking threshold, with substantial priority caveat. The 2024 Gonchenko article gives the normal forms, square-map duality and local pitchfork/flip, rather than a confirmed full global census. Another 2026-11-17 published finding treats alpha=+1 and nu1=-b in a different sign family, so cannot simply be counted as an exact identical statement; duality may give some reduced implications and needs specialist comparison. Full 2023 original unavailable; no unverified whole-paper negative claim is made.
+
+## value
+
+PASS
+
+PASS: A natural complete global real classification in a three-dimensional polynomial normal form, including an independently meaningful second symmetry-breaking threshold and branch collision, addresses dynamics not resolved by merely local bifurcation plots. It does not require higher-period classification to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
