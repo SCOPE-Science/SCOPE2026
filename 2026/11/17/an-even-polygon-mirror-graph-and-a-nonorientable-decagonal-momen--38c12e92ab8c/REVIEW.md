@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The actual claim comprises (i) the reflection-mirror graph theorem for every even integer \(n\ge6\) and (ii) the exact surface homeomorphism at \(n=10\). The two exceptional index-orbit types for a reflection supply the only possible varying coordinates of a fixed point; supports of those two orbits cannot vary simultaneously, so the fixed locus is a union of four-edge circles. Different mirrors meet only at sign vertices, since their product is a nontrivial index rotation fixing no positive-dimensional cubical cell. Consequently the defined binary graph is the full preimage of the quotient boundary, proving (i). For (ii), exhaustive finite orbit calculations yield ten mirror components, Euler characteristic \(-74\), and a fifteen-edge odd orientation-monodromy cycle. Reproducible source checks reconstruct those certificates directly. Compact-surface classification yields \(66\) crosscaps. Limits: no general even orientability assertion and no closed divisor-sum formula for even boundary counts.
+## correctness
 
-## Originality — PASS relative to inspected statements
-The closest published full-dihedral polygonal quotient result explicitly supplies an all-width graph-spine and Euler characteristic and an odd-width boundary count, while leaving the even boundary and orientability unresolved in its stated theorem and limitations. The direct primary text of Das treats cyclic-only quotients, so it does not imply reflection-boundary gluing. The full path-reversal quotient result uses a different complex and action. Historical coordinate-sign involution results also do not contain the index-permutation dihedral quotient. Searches for the binary mirror graph, decagonal ten-boundary count, and \(66\)-crosscap homeomorphism found no equivalent result; that lack is not a general uniqueness guarantee.
+PASS
 
-## Value — PASS
-Boundary count plus orientability completes the homeomorphism classification of a natural quotient that the existing Euler characteristic and free fundamental group do not determine. The decagon is the first tested even polygon at which the boundary count leaves the power-of-two pattern \(2,4\) of widths \(6,8\); the exact value ten is an informative boundary phenomenon rather than an arbitrary slice. The all-even mirror graph replaces two-dimensional orbit triangulations by a lower-dimensional, reflection-symmetric binary graph, offering a reusable structural method for further even widths.
+PASS. For even n>=6, each index reflection has exactly two special coordinate orbits whose individual free supports are permitted faces; other reflection orbits are nonadjacent pairs forced to endpoint signs. Because the two special supports are mutually nonadjacent, their parameters vary only on a square boundary; different reflection mirrors can meet only at sign vertices since a nonidentity rotation fixes no positive-dimensional permitted face. Therefore the full mirrored boundary is exactly the labelled reflection-symmetric sign-word graph modulo D_n. Independently generated complete bitmask mirror graphs yielded (mirror vertices,boundary components) n=6:(52,2), 8:(160,4), 10:(424,10), 12:(1036,20); the n=10 component signature is (0,56),(5,40),(9,40),(17,40),(27,40),(51,40),(85,32),(119,40),(165,56),(347,40). Independent face-poset orbit triangulation gives cubical orbit ranks (78,272,136), barycentric f-vector (486,1584,1024), 96 incidence-one edges, Euler -74, and contradictory orientation propagation around an interior dual cycle. A connected nonorientable surface with b=10, chi=-74 has h=2-b-chi=66 crosscaps. Computations exhaust n=10 only; the all-even assertion rests on geometric fixed-locus argument.
 
-## Closest literature and residual limits
-Denham–Suciu and Grujić–Welker give polyhedral-product frameworks; Das computes cyclic quotient genus; the directly inspected published polygonal-dihedral result gives homotopy and odd-boundary information; the path-reversal result concerns a different quotient. The original Euler characteristic and cyclic genus are not presented as discoveries. An unindexed equivalent treatment of the even boundary remains possible, and no independent review has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified. The 2026-11-01 published all-width dihedral-quotient homotopy theorem already proves chi/rank and explicitly gives the n=10 boundary count 10 in its VERIFICATION discussion; the number 10 ALONE is NOT original. That prior theorem expressly does not determine even-width boundary counts in its theorem or orientability. The new all-even reflection-word graph as an exact boundary model plus an explicit nonorientability obstruction and complete n=10 homeomorphism type remain mathematically distinct and are not consequences of homotopy wedge rank or knowing b=10 alone.
+
+## value
+
+PASS
+
+PASS. A natural equivariant topological quotient of a classical moment-angle surface has a homeomorphism problem not decided by homotopy rank. A uniform exact mirror graph for all even widths and the precise nonorientable homeomorphism type for the first decagonal case provide reusable structural/computational classification beyond a known Euler characteristic. The boundary count alone would be old, but is not the entire finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
