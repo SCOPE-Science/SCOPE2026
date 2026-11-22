@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is analytic. To reproduce it for any specified nonnegative unbounded selfadjoint \(H\), set \(A=H^{1/2}\), equip \(\operatorname{dom}A\) with its graph inner product, and use the unitary \(W=(I+H)^{1/2}\) from that graph space onto the Hilbert space. Invoke the published von Neumann disjoint-domain unitary \(U\) for \(A\), and take \(\mathcal D=W^{-1}U\operatorname{dom}A\), \(T=A|_{\mathcal D}\). The spectral-measure test \(\lambda^2/(1+\lambda)\asymp\lambda\) at large \(\lambda\) verifies \(W\operatorname{dom}H=\operatorname{dom}A\). Consequently \(\mathcal D\) is graph dense and avoids \(\operatorname{dom}H\), which proves \(\operatorname{dom}(T^*T)=\{0\}\), while \(\overline T^{\,*}\overline T=H\). The bounded reverse implication is direct from the boundedness of \(\overline T\).
+## correctness
 
-The only non-elementary invoked lemma is the classical von Neumann domain-separation theorem, given and cited in Arlinskiĭ–Zagrebnov (arXiv:1312.6502). The theorem is not re-proved here and no external certification is represented. There are no software dependencies or numerical tests. The result concerns an existential graph core, not a computationally specified basis. Independent audit is not performed.
+PASS
+
+PASS: Let A=H^(1/2) unbounded selfadjoint and E=dom A with graph norm. W=(I+H)^(1/2) is unitary E→Hilbert space, and spectral measure shows W(dom H)=dom A because λ²/(1+λ) and λ are comparable for λ≥1, including arbitrary kernel and spectral type. The credited von Neumann theorem gives unitary U with U dom A∩dom A={0}. Thus D=W^-1 U dom A is graph dense, D∩dom H=0. For T=A restricted to D, closure T=A and T*=A, while dom(T*T)=D∩dom(A²)={0}, yet (closure T)*closure T=H. If H is bounded, closure T is bounded everywhere and T* is bounded everywhere, so dom T*T=dom T nonzero; converse holds. Checked source proof quantifiers including H≥0 with no injectivity/compactness conditions and distinguished unclosed vs closed products. Main nonstandard theorem is the credited 1929 von Neumann separating-unitary theorem, checked in Arlinskiĭ–Zagrebnov. No computation can replace this analytic proof.
+
+## originality
+
+PASS
+
+PASS, best of knowledge with meaningful priority qualification: the 2015 Arlinskiĭ–Zagrebnov paper prominently quotes domain-disjoint unitaries and constructs closed proper restrictions/form subspaces, but not a graph-dense core disjoint from dom H with exact prescribed closed product. Hassi–de Snoo 2026 Theorem 5.4 and Proposition 6.4 give some closable or block essentially selfadjoint pathologies without arbitrary H prescription. A historical equivalent via graph-space transport could exist and must be considered residual risk.
+
+## value
+
+PASS
+
+PASS: The sharp bounded-versus-unbounded classification for every preassigned nonnegative selfadjoint spectral operator, preserving exactly its kernel, multiplicities, and continuous spectrum in closure-product H while dom(T*T) is zero, provides a structural separation of core closure and adjoint-product domains in unbounded-operator theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

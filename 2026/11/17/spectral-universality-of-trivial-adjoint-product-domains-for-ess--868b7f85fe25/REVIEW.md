@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The essential nonstandard input is the established von Neumann theorem separating domains by a unitary for every unbounded selfadjoint operator. For any nonnegative unbounded \(H\), the spectral transform \((I+H)^{1/2}\) identifies the graph Hilbert space of \(H^{1/2}\) with the original Hilbert space, and exactly maps \(\operatorname{dom}H\) to \(\operatorname{dom}H^{1/2}\). Transporting the separated dense domain yields a graph core disjoint from \(\operatorname{dom}H\). All adjoints and products are computed on their actual domains. The bounded converse follows because the closure of a realization of a bounded \(H\) is bounded. There is no approximation or infinite-to-finite extrapolation. Reliance on the classical separating-unitary theorem is explicit.
+PASS
 
-## Originality
+PASS: Let A=H^(1/2) unbounded selfadjoint and E=dom A with graph norm. W=(I+H)^(1/2) is unitary E→Hilbert space, and spectral measure shows W(dom H)=dom A because λ²/(1+λ) and λ are comparable for λ≥1, including arbitrary kernel and spectral type. The credited von Neumann theorem gives unitary U with U dom A∩dom A={0}. Thus D=W^-1 U dom A is graph dense, D∩dom H=0. For T=A restricted to D, closure T=A and T*=A, while dom(T*T)=D∩dom(A²)={0}, yet (closure T)*closure T=H. If H is bounded, closure T is bounded everywhere and T* is bounded everywhere, so dom T*T=dom T nonzero; converse holds. Checked source proof quantifiers including H≥0 with no injectivity/compactness conditions and distinguished unclosed vs closed products. Main nonstandard theorem is the credited 1929 von Neumann separating-unitary theorem, checked in Arlinskiĭ–Zagrebnov. No computation can replace this analytic proof.
 
-**PASS, qualified.** The source work of Hassi–de Snoo establishes an existential closable pathological product and an essentially selfadjoint *block* variant; it does not claim exact realization of every specified nonnegative unbounded \(H\) by the closure product of a graph-core restriction of \(H^{1/2}\). Arlinskiĭ–Zagrebnov construct proper **closed** restrictions and complementary **closed** form subspaces; this is materially different from a **graph-dense** core avoiding \(\operatorname{dom}H\). Von Neumann's disjoint-domain unitary is classical, recognized as the central input rather than an invention here. No matching universal spectral-prescription statement was located by the recorded mathematical research and primary-literature searches; equivalence under another formulation is a residual risk. Publication priority is not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The statement upgrades the existence of pathological adjoint-product domains to a complete classification based solely on boundedness of the preassigned nonnegative selfadjoint operator, while keeping its entire spectral measure and multiplicities *exactly*. This distinguishes graph-core closure from graph-core product, a significant stability boundary in semibounded form representation and unbounded-operator algebra. It does not require a downstream theorem or a particular eigenvalue model to be useful.
+PASS, best of knowledge with meaningful priority qualification: the 2015 Arlinskiĭ–Zagrebnov paper prominently quotes domain-disjoint unitaries and constructs closed proper restrictions/form subspaces, but not a graph-dense core disjoint from dom H with exact prescribed closed product. Hassi–de Snoo 2026 Theorem 5.4 and Proposition 6.4 give some closable or block essentially selfadjoint pathologies without arbitrary H prescription. A historical equivalent via graph-space transport could exist and must be considered residual risk.
 
-## Limits and closest literature
+## value
 
-The key historical result, disjoint-domain unitaries, is fully credited; the construction is noncanonical. The Arlinskiĭ–Zagrebnov 2015 paper is closest, especially introductory theorems and Theorem 3.22. A direct historical restatement may exist under different vocabulary. Hassi–de Snoo's 2026 Theorem 5.4 and Proposition 6.4 and Arlinskiĭ–Tretter's 2019 work are directly discussed in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The sharp bounded-versus-unbounded classification for every preassigned nonnegative selfadjoint spectral operator, preserving exactly its kernel, multiplicities, and continuous spectrum in closure-product H while dom(T*T) is zero, provides a structural separation of core closure and adjoint-product domains in unbounded-operator theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
