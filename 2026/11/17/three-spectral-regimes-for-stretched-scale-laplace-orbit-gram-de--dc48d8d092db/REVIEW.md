@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Cauchy Gram determinant is derived algebraically. The logarithmic hyperbolic-tangent kernel has an explicit integrable singularity and exponential tail, allowing a quantitative moving-grid Riemann-sum argument and boundary truncation. The geometric critical sum and trace-class/spectral claims follow from independently stated operator arguments. The standalone finite numerical diagnostics provide additional checks but are not used as proof.
+## correctness
 
-**Originality — PASS, best knowledge.** The full accessible texts of arXiv:2611.03358 and 2607.20798 distinguish stationary reconstruction and diagonal Carleson frame stability from the exact stretched-spacing determinant law. The related 2026-11-10 arXiv semigroup-frame paper concerns structural equivalence, not this volume constant. Semantic comparison with published normalized Hardy chains and geometric wavelet records found no direct coverage. The ordinary Cauchy identity and qualitative Carleson consequence are explicitly excluded from the novelty claim. A same-family result in less searchable specialized Cauchy determinant literature remains a credible priority risk.
+PASS
 
-**Mathematical value — PASS.** A natural Hilbert-space observation Gram family exhibits an intrinsic Bessel-to-Riesz-to-trace-class transition. The exact \(\pi^2\) volume-loss coefficient is a meaningful quantitative instability law not supplied by qualitative separation theory. The asymptotic is finite-dimensional but probes stability of an infinite analysis system and can guide spectral design and numerical recovery.
+The normalized Laplace inner product is the exact Cauchy kernel 2sqrt(lambda_i lambda_j)/(lambda_i+lambda_j). Cauchy double-alternant gives the tanh product. For alpha<1, the kernel F_c(u)=-2 log tanh(cu/2) has integral pi^2/(2c) and the k-mesh near i has spacing alpha*i^(alpha-1); summing row terms yields N^(2-alpha)*pi^2/[2c*alpha*(2-alpha)]. Uniform tail truncation is supported by concavity and exponential decay. At alpha=1 the equal-index-gap sum gives gamma(c)N-beta(c)+o(1). For alpha>1 sum of off-diagonal sech entries is absolutely finite, G-I is trace class, injectivity from uniqueness of the Laplace transform of a finite atomic measure gives bounded invertibility and positive Fredholm determinant. Toeplitz positive symbol for alpha=1 and coherent large blocks for alpha<1 establish the frame/Bessel threshold. Inspected frozen RESULT.md and check.py; numerical diagnostics are finite checks, not proof of limits.
 
-The claim is restricted to fixed \(c>0\), fixed \(\alpha>0\), and is not uniform near the critical exponent. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the explicit three-regime sharp finite-volume determinant asymptotics and coefficient, not for the classical Cauchy determinant identity, Carleson separation or generic frame equivalence.
+
+## value
+
+PASS
+
+The exact determinant decay is a natural quantitative condition-volume invariant for normalized Laplace orbit samples, with a sharp phase transition from non-Bessel to stable frames and trace-class perturbations, and a nontrivial pi-squared asymptotic coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
