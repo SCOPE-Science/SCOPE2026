@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact sampling measure is defined by a uniform interior point and an independent uniform normal. The toroidal Jacobian \(R+H\) is normalized correctly, and the annulus/disk/two-disk criteria agree with the full geometric slicing classification. The disk event is a pair of square-root azimuthal boundary layers; a uniform \(O((R\sin\beta)^{-1/2})\) bound justifies the tilt-angle dominated convergence. The annular event lives in the \(R\sin\beta<1\) layer, with correct \(R^{-2}\) Jacobian, and its limiting coefficient reduces by an arcsine/semicircle integral to \(16/(9\pi^2)\). Exact conditional probability formulas were compared with direct angular geometry and numerical quadrature. These finite tests are not used as infinite proofs.
+
+**Originality — PASS against examined coverage.** Finch's November 2026 theorem explicitly conditions a motion-invariant random plane on hitting a torus. The general published Crofton law for convex-meridian toroids also assumes motion-invariant offsets; the Villarceau section-area note fixes the plane through the origin. Neither describes the area-size-biased measure induced by a uniform interior anchoring point, nor the asymptotic disk and annulus probabilities for that measure. Searches of mathematical research records and public literature used anchored, size-biased, torus-section, stereological and exact-constant formulations. A stronger general stereological result with enough area-distribution information could imply the claim, and has not been ruled out exhaustively.
+
+**Value — PASS.** The sampling mechanism is a natural stereological alternative to uniform-offset Crofton sections. It changes both of the rare topology orders (disk \(R^{-1}\) versus \(R^{-1/2}\), annulus \(R^{-3}\) versus \(R^{-2}\)), with exact nonzero constants. This is an interpretable geometric phase of sampling bias, not an arbitrary small-radius numerical improvement.
+
+**Limitations.** Claims concern a one-parameter circular ring-torus family, not arbitrary solids or finite-radius optimizers. Numerical checks validate the exact finite-dimensional integrands, while the asymptotic theorem depends on the analytic dominated-convergence arguments. The closest older stereological literature was not exhaustively covered.
+
+Self-review: passed. Independent audit: not yet performed.
