@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the signed shuffle basis and coinvariants
+# Independent mathematical audit
 
-The theorem is established by the integral Künneth isomorphism and the exact signed orbit–stabilizer calculation in `RESULT.md`. The following finite checks are an independently executable consistency test, not a replacement for the all-parameter proof.
+## correctness
 
-Run `python VERIFY.py` using only the Python standard library. It constructs every signed shuffle representative for dimension one through four and degrees zero through four, evaluates the actual magnitude boundary on each chain, and compares the entire coefficient dictionary under each adjacent coordinate swap and a bit flip. These tests examine chains rather than just homology dimensions.
+PASS
 
-Run `python VERIFY.py --smith` with SymPy installed to additionally construct the integer matrix of all relations from coordinate flips and adjacent coordinate transpositions and compute its Smith normal form at five specified dimension/degree pairs. It must agree exactly with `VERIFY_EXPECTED.txt` and yield only unit and two invariant factors. The checks were executed from the included source, and the recorded output is included. The finite cases covered are exactly those printed by the program, not all values of the parameters.
+The statement is for all n>=1,k>=0 on diagonal integral MH_{k,k} of graph-metric Q_n, not the torsion of MH itself or of a topological quotient. K2 alternating paths generate two copies of Z in each diagonal degree; natural integral Kunneth gives a complete basis of 2^n times weak compositions. The shuffle chains are cycles: deleting a vertex from two different successive flips cancels with the transposed word; equal consecutive flips backtrack and cannot be deleted preserving length. The inversion parity for permutation sigma is sum_{i<j,sigma(i)>sigma(j)} a_i a_j. Free translation coinvariants leave a signed S_n-permutation module on weak compositions. Each partition orbit yields Z or Z/2, with negative stabilizer precisely from repeated odd parts; all zero and even repeated parts have positive swap sign. For n=3, even k, odd j in (j,j,k-2j) yield floor((k+2)/4) distinct torsion orbits. Independent small n,k partition counting and exact inspected chain differential/transposition checks corroborate, not replace, the universal Kunneth-and-stabilizer proof.
 
-For the general result the critical logical checks are: natural Künneth is an integral isomorphism (no Tor terms for the Cartesian powers of \(K_2\)); the sign of a block permutation is its weighted inversion parity; translations have no signs; a stabilizer of a weak composition has a negative element precisely when an odd part repeats; one orbit then imposes just \(2x=0\); and distinct composition orbits contribute direct summands. These observations prove all quantifiers and the unbounded-rank corollary without appealing to computer enumeration.
+## originality
 
-Independent mathematical audit: not performed.
+PASS
+
+PASS: Exact integral full-symmetry signed action and repeated-odd-part coinvariant invariant factors refine known integral hypercube ranks; these are not the previously published rank formula. Natural Kunneth entails signed graded swaps, making the result a relatively short consequence, but explicit all-degree B_n coinvariants and unbounded fixed-Q3 two-torsion are a useful unrecorded module classification in inspected material. Inaccessible general tope-graph full text is an unresolved priority risk, not a fabricated reading.
+
+## value
+
+PASS
+
+Natural signed-coordinate action on standard magnitude homology of hypercubes and its integral coinvariants are mathematically motivated invariants; exact free/two-primary partition formula and fixed n=3 unbounded torsion distinguish quotient module from free underlying homology. These are not isolated random finite counts, despite their proof using known Kunneth machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

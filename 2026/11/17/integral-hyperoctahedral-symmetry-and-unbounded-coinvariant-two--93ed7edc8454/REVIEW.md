@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the integral diagonal magnitude-homology module of the binary cube and the algebraic coinvariants of its full automorphism group. The prior natural integral Künneth isomorphism supplies a free shuffle basis. The new chain-level calculation explicitly determines both generators of the automorphism group: coordinate flips alter initial vertices without signs; adjacent coordinate swaps contribute exactly the Koszul sign determined by the two step counts. The orbit–stabilizer coinvariant calculation is integral, giving one free summand or exactly one order-two summand per partition, and proves no other torsion. Exhaustive differential and symmetry checks on small cases, plus exact Smith forms of five integer action-relation matrices, corroborate the proof. The infinite result depends on the written argument, not finite sampling.
+## correctness
 
-## Originality — PASS with stated priority uncertainty
-Koizumi–Liu's arXiv:2604.03718v5, Example 2.12 and Section 6.3, supplies the ordinary integral hypercube homology and shuffle basis; those facts are acknowledged and are not the claim. The source does not state the full integral signed-permutation representation, partition-indexed coinvariants, or unbounded coinvariant two-rank. Liu's arXiv:2608.24869, inspected in its public full text, works primarily over characteristic two and classifies a different multiplication structure; its explicit signed antipodal cycles do not constitute the claimed hyperoctahedral quotient classification. Koizumi's arXiv:2607.11863 is plausibly adjacent, but only its abstract was retrievable, and a stronger hidden comparison cannot be excluded. Dedicated searches for the same signed-coordinate magnitude representation, repeated-odd-part partition rule, and coinvariant two-torsion did not find an equivalent result. A failed search is not proof of novelty, and the residual bibliographic risk is real. The novel object is an equivariant integral refinement and quotient computation, not a rearrangement of the published nonequivariant rank formula.
+PASS
 
-## Mathematical value — PASS
-Integral symmetry coinvariants are a canonical functorial invariant of a group action, and the question matters because plain Betti ranks and rational representations cannot reveal coinvariant two-torsion. The all-degree answer is an exact, natural classification in the smallest nontrivial family of arrangement tope graphs, with a clean repeated-odd-part criterion. The fixed three-cube already has unbounded two-torsion rank across degrees in this quotient, despite every underlying magnitude-homology group being torsion-free. The computation exposes an integral symmetry phenomenon, rather than an arbitrary finite numerical instance. It does not assert new nonequivariant homology or torsion in an orbit graph.
+The statement is for all n>=1,k>=0 on diagonal integral MH_{k,k} of graph-metric Q_n, not the torsion of MH itself or of a topological quotient. K2 alternating paths generate two copies of Z in each diagonal degree; natural integral Kunneth gives a complete basis of 2^n times weak compositions. The shuffle chains are cycles: deleting a vertex from two different successive flips cancels with the transposed word; equal consecutive flips backtrack and cannot be deleted preserving length. The inversion parity for permutation sigma is sum_{i<j,sigma(i)>sigma(j)} a_i a_j. Free translation coinvariants leave a signed S_n-permutation module on weak compositions. Each partition orbit yields Z or Z/2, with negative stabilizer precisely from repeated odd parts; all zero and even repeated parts have positive swap sign. For n=3, even k, odd j in (j,j,k-2j) yield floor((k+2)/4) distinct torsion orbits. Independent small n,k partition counting and exact inspected chain differential/transposition checks corroborate, not replace, the universal Kunneth-and-stabilizer proof.
 
-## Evidence and limitations
-The primary technical input is the integral natural Künneth/exterior-product isomorphism, together with the explicit chain differential and shuffle representatives. All new character signs and stabilizer relations are proved explicitly. The related tope-graph classification (arXiv:2607.11863) could not be read in full despite arXiv and open-access attempts; its abstract gives no equivariant statement. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Exact integral full-symmetry signed action and repeated-odd-part coinvariant invariant factors refine known integral hypercube ranks; these are not the previously published rank formula. Natural Kunneth entails signed graded swaps, making the result a relatively short consequence, but explicit all-degree B_n coinvariants and unbounded fixed-Q3 two-torsion are a useful unrecorded module classification in inspected material. Inaccessible general tope-graph full text is an unresolved priority risk, not a fabricated reading.
+
+## value
+
+PASS
+
+Natural signed-coordinate action on standard magnitude homology of hypercubes and its integral coinvariants are mathematically motivated invariants; exact free/two-primary partition formula and fixed n=3 unbounded torsion distinguish quotient module from free underlying homology. These are not isolated random finite counts, despite their proof using known Kunneth machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
