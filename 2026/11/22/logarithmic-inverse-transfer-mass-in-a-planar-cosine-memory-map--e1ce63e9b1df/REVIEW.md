@@ -1,0 +1,21 @@
+# Scientific review: logarithmic inverse-transfer mass in a planar cosine-memory map
+
+## Correctness — PASS
+
+The theorem concerns the full real-plane map \(F(x,y)=(a+bc\,x\cos(dy),y+ex)\) under the explicit and necessary nonzero conditions \(bcde\ne0\). Elimination of the second coordinate gives exactly \(x\cos(dV-de x)=(U-a)/(bc)\). Around each sufficiently distant cosine zero the scalar derivative has fixed nonzero sign, the fixed target level is bracketed, and every sufficiently distant root lies in one such interval. The precise phase expansion yields \(x_k-z_k=O(|z_k|^{-1})\), and the Jacobian equals \(bc\) times the reduced scalar derivative. These identities rigorously give the linear inverse count and the harmonic reciprocal-Jacobian sum. Uniformity on compact target rectangles applies only to remote branches, avoiding the invalid assumption of bounded weights at central folds. The area formula on regular remote branches and a bounded-area central strip produce the logarithmic preimage-area law. Finally the critical set is null by Fubini and the complement locally diffeomorphic, proving null preimages; infinite mass for every positive-area target rules out sigma-finiteness. The standalone numerical checker passed; numerical experiments were not used as proof of the global statements.
+
+## Originality — PASS within inspected evidence
+
+The source article by Zhang et al. (2022; DOI 10.1088/1674-1056/ac7294) gives the exact same map and studies no fixed points, translationally repeated hidden attractors and numerical forward bifurcations; its model and conclusions were inspected in the publisher's full HTML. A publicly indexed same-map mathematical analysis, inspected as a complete manuscript, proves a sharp forward compact-recurrence threshold and ballistic drift but does not study inverse Jacobian weights, finite-window planar volumes or sigma-finiteness. A distinct published cosine-flux Chialvo-map inverse theorem proves a linear inverse-count law but neither has this defining map nor supplies an area-transfer law. Ramadoss et al. (2022; DOI 10.3390/sym14102110) introduce a serial sine/cosine memristive construction and report fixed-point and bifurcation behavior; their inspected HTML does not imply the quantitative result here. Claim-to-prior implications were compared, including the shared scalar oscillatory-root technique; that technique alone does not provide this coefficient and full-area pushforward conclusion.
+
+An unindexed treatment of a conjugate model or of infinite-transfer measure may have prior coverage. Full publication-priority certainty would require an external literature audit; no statement of global uniqueness is made.
+
+## Value — PASS
+
+For a natural published nonlinear map, exact predecessor density alone does not quantify the planar volume of all states compatible with a target measurement. The theorem identifies a sharp and surprising logarithmic divergence with coefficient independent of the memory and oscillation scales, plus the structural failure of sigma-finiteness of unbounded planar-volume transport. This is a meaningful state-reconstruction/transfer-operator property rather than a renaming or a finite computation; it clarifies why unrestricted uniform-area observation cannot be normalized after one iteration. It makes no unsupported claims about forward chaos, attractor statistics, numerical device security or bounded physical implementations.
+
+## Limitations and sources
+
+The proof concerns the full untruncated real plane with nonzero coefficients; in finite source windows all fibers are finite. Jacobian-singular roots at central folds are explicitly excluded from the pointwise weighted sum but are covered by the area-law argument. The area estimate is only for bounded target sets. Primary source DOI: https://doi.org/10.1088/1674-1056/ac7294 ; publisher full text https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_10_100503.shtml . Related general-model source: https://doi.org/10.3390/sym14102110 . The earliest verified public source date is 2022-05-24, reported as the accepted-manuscript-online date in the publicly archived original manuscript; later landing-page date fields vary and have not been treated as the earliest release.
+
+Self-review: passed. Independent audit: not yet performed.
