@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T08:52:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, blob SHA 4fafc1e609636d59f49831cd51b8da3ab93e1615: entire theorem and five proof steps",
+        "Frozen verify.py, blob SHA 346770851d4cb71103acb277aa606bb54e9eff8f: code inspected but not taken as oracle",
+        "Fresh independent_checks.py: 311 exact rational instances, 57,543 individual vertex comparisons, 35,554 contacts, 26 larger-dimensional phase profiles",
+        "The 7 file names and their reported Git blob SHAs reconstruct assigned tree 745dad0830715cfc8c48f6f379e8f59e7e2fd049"
+      ],
+      "rationale": "For n>=3 and real 0<tau<=n, the frozen result proves all vertices are 0/1 vectors of weights <=q, plus q-ones/one-s vertices for s>0. The max squared distance to a center c is ||c||² plus a max of affine functions of c, strictly convex and coercive, ensuring a unique center; permutation symmetry makes it diagonal. An origin bound and the cube midpoint constrain 0<=a<=1/2. The two farthest squared-distance profiles Dq=na²+q(1-2a) and DF=Dq+s(s-2a) cross at a=s/2, with stationary centers q/n and (q+s)/n. Their convex-envelope minimizer is precisely the median clipped to [0,1/2]. Strict increase in Boolean weight for a<1/2, the exact branch difference and strict convexity on segments classify all contacts (including transitions); a=1/2 contacts all admitted Boolean ranks, never fractional vertices. At integer s=0 and tau=n the formulas have correct limiting boundaries. For q=1,n>=5 the crossings s=2/n and 2/(n-2) and R²=(n-1)/n plateau follow algebraically. Fresh separate Fraction code tested 311 rational parameter instances, all 57,543 enumerated vertices and 35,554 exact contacts, plus 5<=n<=30 phase thresholds; computed 7-blob Git tree matches assigned SHA. This is supporting finite evidence, not the proof for arbitrary n,real tau.",
+      "residual_risks": [
+        "Independent exact enumeration is limited to n<=9 and rational caps; all-n all-real statements rely on the inspected convexity and quadratic-envelope proof.",
+        "No formal Lean or external expert attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Nov 1 theorem covers all integers n>=2 and all real 0<=t<=n, including 0 and n; audited theorem restricts to n>=3 and 0<tau<=n.",
+          "Published matroid outer-sphere RESULT.md separately covers only integer-cap uniform matroid cases."
+        ],
+        "reasoning": "The older same-object continuous-cap outer-sphere theorem is strictly broader in domain, not merely related. The matroid and John records explain other overlaps but cannot undo this exact subsumption.",
+        "searches": [
+          "Resultary: Minimum enclosing Euclidean ball Chebyshev center circumradius of a truncated cube [0,1]^n intersect sum x_i <= τ for fractional real τ, Boolean and fractional vertices, contact transitions",
+          "Resultary: Smallest circumscribed sphere of uniform matroid independence polytopes, fractional hypersimplex, cardinality constrained 0-1 cube, exact median center",
+          "Resultary: Three-phase John ellipsoid capped hypercube and minimum enclosing sphere of fractional knapsack polytope"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-fractional-cap-plateaus-and-sharp-contact-transitions-of-euclide--bb22c3b5f56b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127/RESULT.md",
+        "https://arxiv.org/abs/2605.19809",
+        "Resultary semantic queries q1,q2,q3, Nov 19 2026",
+        "Web query w1/w2, Nov 19 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Finding equations (1)–(3) and proof sections 1–5 match every component of current RESULT.md.",
+          "Prior theorem covers q=1 all n>=5: threshold 2/n, mixed interval to 2/(n-2), radius plateau (n-1)/n and fractional-only phase.",
+          "Prior contact classification already includes threshold equality and all Boolean ranks at a=1/2."
+        ],
+        "reasoning": "Every part of the asserted final claim is logically implied by the prior complete covering theorem after variable renaming; the current proof reproduces the same reduction to two quadratic vertex-orbit envelopes. An auxiliary n=5 example and alternative median clipping do not provide a new theorem. Rejection is scientifically decisive, not caused by inaccessible literature.",
+        "searches": [
+          "Resultary: Minimum enclosing Euclidean ball Chebyshev center circumradius of a truncated cube [0,1]^n intersect sum x_i <= τ for fractional real τ, Boolean and fractional vertices, contact transitions",
+          "Resultary: Smallest circumscribed sphere of uniform matroid independence polytopes, fractional hypersimplex, cardinality constrained 0-1 cube, exact median center",
+          "Resultary: Three-phase John ellipsoid capped hypercube and minimum enclosing sphere of fractional knapsack polytope",
+          "Direct full-text read of published 2026/11/1 RESULT.md",
+          "Direct full-text reads of 2026/10/11 matroid outer-sphere and capped-cube John results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary 2026/11/1 RESULT.md Eq. (1), blob SHA 38d8a54e8b0fe86ff27b5c9b8f55958e027aadb4.",
+          "Same polytope under fractional cardinality-capped cube, uniformly truncated hypercube, or fractional uniform matroid relaxation."
+        ],
+        "reasoning": "Identify m=floor(tau)=q and delta=s, and compare q/n and (q+s)/n with u and v in the new median. If q>=n/2 both return 1/2; if q<n/2 the new upper clipping at 1/2 cannot affect the median because the two lower quantities q/n and s/2 are <1/2. The squared radius and contact cases coincide exactly.",
+        "searches": [
+          "Resultary: Minimum enclosing Euclidean ball Chebyshev center circumradius of a truncated cube [0,1]^n intersect sum x_i <= τ for fractional real τ, Boolean and fractional vertices, contact transitions",
+          "Resultary: Smallest circumscribed sphere of uniform matroid independence polytopes, fractional hypersimplex, cardinality constrained 0-1 cube, exact median center",
+          "Web: \"fractional cap plateaus\" enclosing sphere cube Euclidean median contact transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary 2026/11/1 published RESULT.md Eq. (2) explicitly tabulates all three exact branches: constant m-m²/n, mixed m(1-delta)+n delta²/4, and fractional m+delta²-(m+delta)²/n.",
+          "Earlier complete contact theorem identifies each Boolean and fractional orbit at every phase; at n=5,tau=8/5 it implies center 3/10, R²=17/20, and 5+20=25 contacts."
+        ],
+        "reasoning": "There is a direct exact published theorem/table, not just an absent database hit. The new scalar example is a plug-in special case and adds no unentailed classification.",
+        "searches": [
+          "Resultary: Minimum enclosing Euclidean ball Chebyshev center circumradius of a truncated cube [0,1]^n intersect sum x_i <= τ for fractional real τ, Boolean and fractional vertices, contact transitions",
+          "Resultary: Smallest circumscribed sphere of uniform matroid independence polytopes, fractional hypersimplex, cardinality constrained 0-1 cube, exact median center",
+          "Web: \"fractional cap plateaus\" enclosing sphere cube Euclidean median contact transitions",
+          "Web: minimum enclosing ball truncated cube [0,1]^n sum x_i <= t circumradius"
+        ]
+      },
+      "rationale": "A previously published full theorem on precisely the same K_{n,t} supplies all formulas, quantifiers and contacts. The November 1 Resultary record gives median center and squared radius (Eq. 1), full Boolean/fractional contact classification, all three transition branches and plateau (Eq. 2), and proves them for n>=2,0<=t<=n. With m=q,delta=s,t=tau, the present theorem for n>=3,0<tau<=n is an immediate restriction; its highlighted n=5,tau=8/5 example and 1+s three-phase family follow directly. No surviving independent new statement is present in RESULT.md. This is not just matching a title or parameter; it is exact theorem-level implication from the inspected prior primary text.",
+      "residual_risks": [
+        "Historical priority before the current repository snapshot is not independently certified: the Nov 1 record metadata claims publication_date 2026-11-01, while SOURCE.json documents GitHub sync 2026-11-08T19:43:52Z. This does not affect theorem-level coverage available at the Nov 19 audit.",
+        "Current public source may have other earlier formulations not checked; their existence is unnecessary for this decisive rejection.",
+        "The Gunluk full paper was not read here, but its status cannot restore originality already eliminated by the exact earlier theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING: earlier theorem is for all n>=2 and real 0<=t<=n, containing this n>=3, 0<tau<=n scope, and gives the same median-optimal center, R² and every Boolean/fractional contact phase. Published record dated 2026-11-01; source synchronization timestamp 2026-11-08T19:43:52Z; historical first-public attribution itself is not used to prove priority.",
+          "evidence": [
+            "Earlier Finding equation (1): for 2m<n c=median(m/n,delta/2,(m+delta)/n), R²=n c²+max(m(1-2c),m+delta²-2(m+delta)c), and for 2m>=n c=1/2, R²=n/4.",
+            "Earlier Finding equation (2): exact three piecewise radius branches, with plateau delta<=2m/n and mixed/fractional switch delta=2m/(n-2).",
+            "Earlier Complete contact classification: Boolean weight m iff c>=delta/2, fractional q/s orbit iff c<=delta/2, and all Boolean shells at saturated c=1/2.",
+            "Earlier proof sections 1–5 derive identical vertex orbit/circumball minimax and contact regimes; statement directly applies by m=q, delta=s, t=tau."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-fractional-cap-plateaus-and-sharp-contact-transitions-of-euclide--bb22c3b5f56b/RESULT.md",
+          "material_read": "Entire earlier RESULT.md: Finding, all formulas (1)–(3), contact-set theorem, assumptions, five proof sections, verification, prior-work comparison and limitations; full 11,224-byte file.",
+          "method": "GitHub read of published RESULT.md from Resultary/2026, verified blob SHA 38d8a54e8b0fe86ff27b5c9b8f55958e027aadb4; METADATA.json and SOURCE.json also inspected for dates.",
+          "title": "Fractional-cap plateaus and sharp contact transitions of Euclidean cube circumballs",
+          "trigger": "Exact same capped unit cube and optimal Euclidean outer sphere; the top Resultary near-duplicate surfaced by fresh semantic search."
+        },
+        {
+          "assessment": "COVERS integral caps only (via 0/1 matroid vertices), not by itself the fractional cap law; unlike this source, the November 1 outer-sphere record directly covers all real caps.",
+          "evidence": [
+            "Equations (2),(11),(17) give uniform matroid K_{n,q} for integer q, center min(q/n,1/2), R²=q(n-q)/n or n/4.",
+            "Proof relies on Boolean norm identity ||x||²=sum x_i, which fails at genuine fractional vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da/RESULT.md",
+          "material_read": "Entire published RESULT.md including main theorem, all five proof sections, integer uniform rank formula, equality cases and limitations.",
+          "method": "Published Resultary GitHub file read; blob SHA 683ffa4917295add4d7d64940948e28f1403a737.",
+          "title": "Sharp minimum-sphere bounds for matroid independence polytopes distinguish uniform density from arboricity two",
+          "trigger": "Stronger general matroid theorem whose uniform rank integer caps are direct special cases."
+        },
+        {
+          "assessment": "NOT COVERING on its own: optimizes volume of the largest inscribed ellipsoid, not radius of smallest enclosing Euclidean ball, and tangent facets differ from outer ball contact vertices.",
+          "evidence": [
+            "Finding explicitly determines a John ellipsoid E(t,a,b) contained in K_{n,tau}.",
+            "Theorem thresholds (n+1)/2 and (n+sqrt(n))/2 are facet-tangency regimes, not the q/s outer-sphere regimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127/RESULT.md",
+          "material_read": "Entire published RESULT.md, including center and shape theorem, full proof, facet-tangency phases, assumptions and limitations.",
+          "method": "Published Resultary GitHub file read; blob SHA 1b2dbb114256b1880397079b64a954493a1877ba.",
+          "title": "Three-phase John ellipsoid of a capped hypercube",
+          "trigger": "Exactly same real-cap unit cube and an extremal enclosing/inscribed geometry risk."
+        },
+        {
+          "assessment": "Abstract concerns deterministic volume approximation, not an explicit minimum enclosing ball; no whole-paper noncoverage claim is inferred. This limited reading is immaterial to the decisive exact prior Resultary theorem.",
+          "evidence": [
+            "arXiv:2605.19809 abstract states polynomial-time approximation of volume of a hypercube intersected with constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.19809",
+          "material_read": "Abstract and public bibliographic information, including original 2026-05-19 posting and 2026-10-15 revision. Full text not inspected in this run.",
+          "method": "ArXiv abstract and indexed page via web search; arXiv HTML full-text fetch failed.",
+          "title": "Deterministic Volume Estimation of Truncated Hypercubes",
+          "trigger": "Same truncated-cube class, with a potentially dominating algorithmic generality."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Current frozen RESULT.md theorem and complete proof",
+        "Published 2026-11-01 Resultary RESULT.md equation (1)/(2) and complete contact theorem (full text)",
+        "Independent exact parameter check against the prior piecewise formula in 311 cases"
+      ],
+      "rationale": "The geometry is mathematically natural: the minimum enclosing sphere of a symmetrically truncated unit cube, with exact real-cap center, radius, contact orbits and sharp plateau. But in the final submitted claim every such exact fact, including the entire boundary phase classification and illustrative numerical instance, is a previously published consequence of the 2026-11-01 same-body theorem. Reworking a known complete classification without any new domain, invariant, proof technique or unentailed boundary information does not constitute an independently useful new mathematical finding. This is a known-result recomputation, not a rejection because the claim is elementary or because its computations are finite.",
+      "residual_risks": [
+        "The natural underlying earlier theorem remains mathematically valuable; FAIL evaluates the incremental novelty/value of this duplicate submission, not the interest of capped-cube sphere geometry.",
+        "No independent surviving claim in the submitted package was identified after full theorem comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The original theorem is correct but fully covered by a previously available broader exact theorem; O and incremental V fail.",
+    "Earlier archive metadata has a Nov 1 publication date and Nov 8 source sync; no claim is made about independent historical priority beyond the concrete published full text.",
+    "Finite exact checks corroborate but do not replace infinite analytical proof.",
+    "Public file confidentiality prohibits unsanitized failed-package publication."
+  ],
+  "schema_version": 1
+}
