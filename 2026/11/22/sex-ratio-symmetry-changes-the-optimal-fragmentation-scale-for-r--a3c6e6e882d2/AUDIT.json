@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Poisson thinning yields exact independent mixed-sex Bernoulli site indicators; a Markov bound ensures finite attainment. Exact log q=-aL/k+h_delta(L/k) and two complementary binomial tail terms provide coercive lower bounds. A unique scalar minimum yields the balanced sqrt(L) constant; trial comparison and exclusion of both off-scale ranges yields biased k log L/L -> delta, including optimized logarithmic failure exponents. All r>=2, fixed theta, k integer and r=1 boundary are handled. A separate stdlib checker tests exact laws and finite optimization; the asymptotic claims rest on analysis, not samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dupuis, Nuzman and Whiting (2007), abstract and large-deviations theorem; https://doi.org/10.1239/jap/1175267167",
+        "Koontz et al. (2018), experimental/simulation results with repeated temporal introductions; https://doi.org/10.1002/ece3.4226"
+      ],
+      "reasoning": "The colored-ball large-deviations theorem considers ball count proportional to urn count, whereas the optimizing occupancy here has L/k tending to infinity, and the required probability is an extreme lower-tail event. The existing broad LDP cannot directly furnish the displayed site-count optima in this different regime. Temporal introduction treatments and mate-matching models do not imply this r-distinct-site asymptotic by a direct corollary.",
+      "searches": [
+        "Given L independent Poisson male female population with fixed sex ratio distributed uniformly among k mating landmarks, optimize probability at least r distinct locations containing both sexes. Asymptotic optimal k scales sqrt L balanced 1:1 and L/log L under unequal sex ratio.",
+        "Cuddington \"Landmarking and strong Allee thresholds\" 2015",
+        "https://doi.org/10.1239/jap/1175267167"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/1365-2664.14326",
+      "https://doi.org/10.1007/s12080-015-0254-z",
+      "https://doi.org/10.1002/ece3.4226",
+      "https://doi.org/10.1239/jap/1175267167"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chase et al., Journal of Applied Ecology, 2022 first public manuscript, experimental propagation, host selection and Allee effects; https://doi.org/10.1111/1365-2664.14326",
+        "Cuddington et al. (2015), main theoretical and Appendix B exact combinatorial material; https://doi.org/10.1007/s12080-015-0254-z",
+        "Koontz et al. (2018), original experimental and simulated temporal introduction outcomes; https://doi.org/10.1002/ece3.4226"
+      ],
+      "reasoning": "Empirical association between founder pressure and colonization cannot imply an exact optimum of a new combinatorial reliability objective. Cuddington is the closest basis for the stochastic co-sex site model, but its mating-count formulas and fixed-count numerical scenarios do not themselves assert the singular sex-ratio-dependent optimizer scaling; proving it requires the separate complement-tail asymptotics in RESULT.md.",
+      "searches": [
+        "bark beetle propagule pressure dispersal Allee threshold two sex mate matching independent hosts colonization probability exact allocation",
+        "Koontz Parsing propagule pressure Number not size of introductions drives colonization success 2018 full",
+        "Cuddington \"Landmarking and strong Allee thresholds\" 2015",
+        "https://doi.org/10.1111/1365-2664.14326"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cuddington et al. (2015), main text and Appendix B, exact male/female co-location counts and numbers of matings; https://doi.org/10.1007/s12080-015-0254-z",
+        "Elementary Poisson splitting yields a binomial count of mixed-sex sites, which is not an originality claim."
+      ],
+      "reasoning": "Cuddington encompasses finite sex-specific occupancy modeling and a stronger finite matching enumeration, but it analyzes encounter and total matched individuals rather than maximizing a rare event requiring at least r distinct co-sex sites across an unconstrained number of sites. No fixed-pressure large-L balanced/biased optimizer-scale theorem is established there. The present claim is only that distinct asymptotic optimization law, not the underlying occupancy identity.",
+      "searches": [
+        "sex ratio imbalance optimum number mate finding sites at least r occupied with both sexes Poisson founders sqrt intensity versus intensity over log intensity",
+        "two color occupancy independent Poisson sexes requirement at least two mixed boxes optimize number of boxes square root vs linear logarithm",
+        "https://doi.org/10.1007/s12080-015-0254-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact finite combinatorial enumeration in Cuddington et al. (2015), Appendix B, pertains to counts of matched individuals and the co-location process, not a published table of the optimized asymptotic site count."
+      ],
+      "reasoning": "No inspected table supplies an optimizer over all positive site counts as founder pressure diverges with fixed r and sex bias. The independent binomial count itself is a standard probability fact and is not counted as original.",
+      "searches": [
+        "Two-colored random occupancy with Poisson load per box and number of boxes variable; optimize probability at least r boxes contain both colors; balanced biased type population asymptotics.",
+        "two-color Poisson occupancy many boxes at least m boxes containing both colors optimal number of boxes scaling sqrt total",
+        "https://doi.org/10.1007/s12080-015-0254-z"
+      ]
+    },
+    "rationale": "Finite mixed-sex site occupancy itself and prior mating-landmark calculations are known. The inspected primary literature did not establish the new r-distinct-site, fixed-sex-ratio, globally optimal site-count asymptotic dichotomy or its failure exponents. Comparison is by scientific implication rather than title similarity; historical mathematical priority remains provisional.",
+    "residual_risks": [
+      "A wider extreme-occupancy rare-event optimization literature may contain an equivalent asymptotic under alternative nomenclature.",
+      "Models with sex proportions tending to equality with founder pressure may produce a separate crossover not addressed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivation only; not covering the stated optimization or its asymptotics",
+        "evidence": [
+          "Public accepted manuscript 2022-11-01; releases at different densities and host distances; colonization and Allee effect tests."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1365-2664.14326",
+        "material_read": "Full open-access article abstract, methods and experimental results plus publication history",
+        "method": "Read publisher full-text HTML",
+        "title": "The role of propagule pressure in experimental bark beetle invasions",
+        "trigger": "Motivating middle-cohort study of release pressure and mate-related Allee effect"
+      },
+      {
+        "assessment": "Strongest overlap: covers finite co-sex occupancy and matching, but not the present r-distinct-site optimizing asymptotics",
+        "evidence": [
+          "Its Appendix B sums over allocations of male and female individuals and counts matching pairs; figures vary the number of locations while assessing expected pair count."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12080-015-0254-z",
+        "material_read": "Main mate-finding section, exact finite counting in Appendix B and approximation discussion",
+        "method": "Read open-access publisher full text including mathematical equations",
+        "title": "Landmarking and strong Allee thresholds",
+        "trigger": "Directly studies male/female occupancy at mating landmarks and possible match counts"
+      },
+      {
+        "assessment": "Different temporal arrival protocol and colonization outcomes; no distinct co-sex spatial occupancy asymptotics",
+        "evidence": [
+          "Temporal introduction number and size varied with fixed total founders and biological establishment outcomes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.4226",
+        "material_read": "Full original abstract, methods, results and discussion",
+        "method": "Read open-access publisher HTML",
+        "title": "Parsing propagule pressure: Number, not size, of introductions drives colonization success in a novel environment",
+        "trigger": "Possible dominating optimal number-versus-size of introduction result"
+      },
+      {
+        "assessment": "Related combinatorial methodology; proportional balls-to-urns scaling differs from the optimized high-per-site load regime",
+        "evidence": [
+          "Original LDP takes ball number proportional to urn count as urn count diverges."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1175267167",
+        "material_read": "Abstract, model and main LDP statement in primary PDF",
+        "method": "Read primary published PDF and mathematical setup",
+        "title": "Large deviations principle for occupancy problems with colored balls",
+        "trigger": "General colored occupancy mathematical theorem could dominate tail calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a3c6e6e8-82d2-4d9b-baa3-4e7491013d61",
+  "value": {
+    "rationale": "The asymptotic order of the number of sites needed to achieve redundant co-sex occupancy changes from sqrt(L) at exact sex balance to L/log L for every fixed imbalance; the r=1 benchmark differs entirely. This is a motivated structural threshold for a natural redundancy objective in mate-limited colonization, not a narrow numerical example or reparameterization. Biological interpretation is limited to mating potential, not establishment.",
+    "status": "PASS"
+  }
+}
