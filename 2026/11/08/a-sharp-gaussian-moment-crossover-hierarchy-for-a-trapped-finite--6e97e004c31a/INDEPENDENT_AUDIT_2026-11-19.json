@@ -1,0 +1,202 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T00:48:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-sharp-gaussian-moment-crossover-hierarchy-for-a-trapped-finite--6e97e004c31a/RESULT.md",
+        "2026/11/08/a-sharp-gaussian-moment-crossover-hierarchy-for-a-trapped-finite--6e97e004c31a/check.py",
+        "2026/11/08/a-sharp-gaussian-moment-crossover-hierarchy-for-a-trapped-finite--6e97e004c31a/VERIFICATION.md",
+        "https://arxiv.org/abs/2409.00578",
+        "https://arxiv.org/abs/2610.24961"
+      ],
+      "rationale": "For all R,T>0 the Markov generator for (X,S), S in {-1,0,1}, gives m_k=h_(k-1), (k-1+R)h_(k-1)=(k-1)u_(k-2), and (k+R+T)u_k=(k+T)m_k. At even k these imply m_(2j)/m_(2j-2)=(2j-1)(T+2j-2)/[(R+2j-1)(R+T+2j-2)], with m0=1 and m2=T/[(R+1)(R+T)]. Hence Q_n is exactly the stated product for every integer n>=2. Its log derivative is sum of d_R(T+2j-2)-d_R(T), where d_R(x)=R/[x(x+R)] strictly decreases, so Q_n strictly decreases. As T->0, Q_n~const*T^(1-n)->infinity; as T->infinity, Q_n tends to product_(j=2)^n (R+1)/(R+2j-1)<1. Thus a unique positive root exists with the claimed signs. The n=2 identity reduces to R^2+R-RT-T^2-2T=0 and the stated positive root. Gamma products yield m2n~[c Gamma((R+1)/2)Gamma(R/2)/(2sqrt(pi))]n^(-(R+1)) at T=c/n, while (2n-1)!!m2^n~sqrt(2)e^(-c/R)[2c/(eR(R+1))]^n. Uniformity for c in compact positive intervals brackets c_n=nT_n and the root expansion gives c_n=c_R[1-((R+1)log n-B_R)/n+O_R((log n)^2/n^2)]. This is for fixed R>0 only. Independently reconstructed an exact conditional-state generator solution and compared 60 rational moment cases through degree 30, simplified two symbolic fourth-cumulant/root identities, and solved 12 high-precision roots for R=0.2,1,3 and n=20,100,1000,10000. Their error behavior corroborates (not proves) the analytic asymptotic. The source tree was independently recomputed from its seven actual Git blob SHAs and matches the assigned tree.",
+      "residual_risks": [
+        "Numerical root tests are finite and cannot prove the n->infinity result; correctness relies on the independent gamma Stirling and bracketing derivation.",
+        "No uniform conclusion for R depending on n, R approaching zero or infinity, Brownian forcing or nonexponential rests.",
+        "The original finite checker was inspected but not executed from the repository; an independent small checker was executed instead."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024/25 moment formula covers arbitrary R,T and all n, and is strictly broader as a forward-statistics identity; its published scaling keeps rates fixed and does not classify the order-dependent threshold curve.",
+          "The 2026 conditional-law paper supplies state-dependent density formulas for the identical stochastic model, another stronger distribution-level description, but the crossing law is not a direct named consequence.",
+          "The Resultary 2026-11-08 inverse-identifiability theorem proves a global twofold variance/fourth-moment fold, not matched-Gaussian crossings over T at fixed R.",
+          "The Resultary 2026-11-08 Erlang-rest paper states the exact exponential-rest n=2 positive kurtosis crossing T_2(R), explicitly covering the candidate fourth-moment special case, but its main comparison concerns Erlang-2 versus exponential rest and gives no n>=3 hierarchy or asymptotic."
+        ],
+        "reasoning": "Stronger forward distribution/moment information implies the numerical value of Q_n for each parameter, and the n=2 boundary is independently prior. However the joint all-order uniqueness and n->infinity crossover-scale asymptotics are not a direct special case of a prior stated classification. The novelty is narrowly restricted to these global derived consequences, not to the moment product, the underlying model, or the fourth-moment formula.",
+        "searches": [
+          "Resultary same-model semantic queries (2026-11-02, 2026-11-08): inverse moment fold, Laplace transform universality and sharp kurtosis crossover",
+          "Web: Sun Ye Podgornik exact moments high-order scaling and 2026 conditional densities",
+          "https://arxiv.org/abs/2409.00578",
+          "https://arxiv.org/abs/2610.24961",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twofold-stationary-moment-fold-and-three-moment-identifiabilit--be13e0084c9a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-two-moment-inverse-fold-in-a-trapped-run-and-tumble-par--432388eb4847/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2409.00578",
+        "https://arxiv.org/html/1910.10083v1",
+        "https://arxiv.org/abs/2610.24961",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twofold-stationary-moment-fold-and-three-moment-identifiabilit--be13e0084c9a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-two-moment-inverse-fold-in-a-trapped-run-and-tumble-par--432388eb4847/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e/RESULT.md",
+        "https://doi.org/10.1103/PhysRevE.111.044136"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun et al. Eq. (38) gives m_2n exactly after coefficient extraction. Combining it with m2 yields the candidate product, so this data is not independently new.",
+          "The 2026-11-08 Erlang-rest paper explicitly derives T_2(R)=(sqrt(5R^2+8R+4)-R-2)/2; T_2 is covered.",
+          "The all-order monotonicity requires checking sign of d_R(T+2j-2)-d_R(T), where d_R(x)=R/[x(x+R)] is strictly decreasing; uniform gamma Stirling at T=c/n is needed to get c_R and B_R.",
+          "The primary 2026 conditional distribution theorem determines more conditioned spatial statistics but does not give a Gaussian-normalized joint n/T phase portrait."
+        ],
+        "reasoning": "The exact raw moments logically encode the candidate quantities, but no read prior theorem proves these particular simultaneous global parameter inequalities or the double-scaling logarithmic boundary. The n=2 special case is fully covered and is not separately counted as novel. The surviving combined all-order and asymptotic classification is a modest but substantive derived theorem; latent mathematical implications of raw formulas and unindexed earlier derivations remain priority risks.",
+        "searches": [
+          "https://arxiv.org/abs/2409.00578",
+          "https://arxiv.org/html/1910.10083v1",
+          "https://arxiv.org/abs/2610.24961",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twofold-stationary-moment-fold-and-three-moment-identifiabilit--be13e0084c9a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-two-moment-inverse-fold-in-a-trapped-run-and-tumble-par--432388eb4847/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e/RESULT.md",
+          "Resultary 2026-11-08 matched Gaussian finite tumble crossover hierarchy exact claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Ye–Podgornik (2024/2025) Section III Eq. (38) gives the 1F2 characteristic function, which expands into precisely the same raw moment product; Sections II.3–II.4 develop moment recurrence and fixed-rate large-order support-edge scaling.",
+          "Basu et al. (2019/2020) study the equal-run/rest-rate one-parameter three-state model, and classify stationary spatial density shapes; no independent unequal-rate Gaussian-matched all-even-order crossing is given.",
+          "Sun–Ye–Chen (2026) Sections IV–V and Appendix C derive conditional state distributions for unequal run/rest rates and verify the Fokker–Planck formulation; they do not formulate the Gaussian-matched order/rate crossing theorem."
+        ],
+        "reasoning": "Compared both the stationary-distribution formulation and the equivalent beta-product/Markov-generator moment formulation. The previous 1F2 law determines each m_2n, so the candidate is explicitly a derived classification, not a new stationary law. In the inspected texts, strict monotonic Q_n(T), a unique root simultaneously for all n>=2, nT_n -> eR(R+1)/2, and its logarithmic displacement are not previously asserted; they require separate global inequality and uniform singular asymptotic arguments.",
+        "searches": [
+          "Resultary semantic: run and tumble particle finite duration tumble harmonic trap standardized Gaussian even moments threshold crossing order asymptotic",
+          "Resultary semantic: Sun Ye Podgornik Gaussian moment ratios high order run and tumble threshold tumble rate",
+          "Web: trapped run tumble finite duration resting Gaussian standardized moments all order kurtosis thresholds asymptotic",
+          "https://arxiv.org/abs/2409.00578",
+          "https://arxiv.org/html/1910.10083v1",
+          "https://arxiv.org/abs/2610.24961"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest available exact tables concern stationary moments, fourth-cumulant thresholds, density shapes, or inverse moment data; none of the inspected full texts provides a table of T_n(R) for every n nor the nT_n double scaling.",
+          "The claim involves continuous R>0 and unbounded even order, so a finite catalogue of tabulated examples cannot alone imply its uniform analytic statements."
+        ],
+        "reasoning": "A conventional finite database/table is not a substitute for the all-parameter theorem. The actual searches located relevant prior formulas and the known n=2 special case but no dominating tabulation; negative search results are only a risk-qualified observation, not proof of originality.",
+        "searches": [
+          "Resultary: Gaussian kurtosis normalized moments trapped run tumble particle switching 1/n asymptotic",
+          "Web: Gaussian standardized moments all order run tumble switching threshold asymptotic table",
+          "Web: Sun Ye Podgornik matched Gaussian variance moment ratios"
+        ]
+      },
+      "rationale": "Best-of-knowledge, narrow derived-theorem originality: the stationary law and all raw moments were already published, and a separate published theorem explicitly covers the n=2 fourth-cumulant crossing. The inspected primary papers and published mathematical results do not state the full simultaneous n>=2 uniqueness/sign classification or the double-scaling critical-rate law with explicit logarithmic correction. These nontrivial properties require extra monotonicity and uniform asymptotic arguments beyond writing the moment product. The pass does not assign originality to the model, moment recurrence, beta product, the known fourth-moment special case, or the full density.",
+      "residual_risks": [
+        "Published exact all-order moments imply the numeric Q_n for every R,T; a predecessor could have extracted the same threshold hierarchy without different notation.",
+        "A 2025 doctoral thesis by A. Sun on the Kac method was referenced in the recent primary paper but was not located/inspected in full; it could contain related moment-comparison deductions.",
+        "The n=2 crossing is explicitly prior in the published Erlang-rest comparison and must never be presented as newly discovered in isolation.",
+        "This is best-of-knowledge originality, not a publication priority certificate; indexed search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXACT_RAW_MOMENTS_NOT_INSPECTED_GLOBAL_CROSSING",
+          "evidence": [
+            "Section III Eq.(38) gives the exact stationary 1F2 characteristic function; Section II gives a general moment recursion; Section II.4 studies large-order moments at fixed positive rates.",
+            "Section IV uses Gaussian quadrature as a numerical method for reconstructing densities, not a same-variance Gaussian comparator for moments; Section V summarizes density peaks and future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.00578",
+          "material_read": "Available full arXiv-rendered text: introduction/model, Sections II.1–II.5 (moment diagram and Volterra recurrence), III (1F2 characteristic function Eq.38), IV (Gaussian quadrature for distribution estimation), V (conclusions).",
+          "method": "Read HTML full text, compared assumptions and stationary coefficient formulas, checked high-order fixed-rate statement versus T=c/n root asymptotics.",
+          "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+          "trigger": "Same stochastic model, raw stationary moments and high-order scaling; primary potential prior coverage."
+        },
+        {
+          "assessment": "COVERS_EQUAL_RATE_SPECIAL_MODEL_AND_DENSITY_SHAPES",
+          "evidence": [
+            "The internal jump process uses one rate gamma and the model shape transition beta=gamma/mu; Sections 2–3 derive the stationary spatial distribution.",
+            "It does not vary independent positive R and T and does not provide the n-indexed matched-Gaussian threshold family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1910.10083v1",
+          "material_read": "Accessible HTML abstract, introduction, model, Section 3 density solution and boundary behavior, and concluding scope.",
+          "method": "Read primary arXiv HTML; checked state transition parameters and whether varied independent run and tumble rates.",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Earliest near-identical three-velocity harmonic confinement and shape threshold."
+        },
+        {
+          "assessment": "COVERS_CONDITIONAL_STATIONARY_DENSITIES_NOT_ALL_ORDER_GAUSSIAN_CROSSOVER",
+          "evidence": [
+            "Section IV gives a finite-tumble conditional moment recursion and state-dependent densities, Eq.(27) and Appendix C (C1)–(C3); Section V concludes joint distribution and Fokker–Planck equivalence.",
+            "No Gaussian/kurtosis comparison or unique per-even-order threshold is stated in the relevant sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.24961",
+          "material_read": "Primary full-text PDF introduction, Sections IV and V, Appendix C; PDF first page visually inspected to confirm identity and scope.",
+          "method": "Read accessible primary PDF extracted text and inspected its first-page screenshot; searched for Gaussian/kurtosis and compared rate-dependent claims.",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker-Planck equation from the equations of motion",
+          "trigger": "Recent same-authors same-model stronger conditional density paper, possible covering statement."
+        },
+        {
+          "assessment": "SAME_MODEL_INVERSE_PROBLEM_NONCOVERING_ALL_ORDER_CROSSING",
+          "evidence": [
+            "Its finding is a two-to-one fold from m2,m4 and unique recovery from m2,m4,m6 when R,T are unknown.",
+            "It provides exact m2,m4,m6 expressions but not T_n(R) at every n or singular nT_n expansion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twofold-stationary-moment-fold-and-three-moment-identifiabilit--be13e0084c9a/RESULT.md",
+          "material_read": "Entire published RESULT.md: finding, proof, verification, relationship to prior work and limitations.",
+          "method": "Read GitHub source text and compare same R,T recurrence versus inverse identifiability claims.",
+          "title": "A twofold stationary-moment fold and three-moment identifiability in a finite-tumble harmonic particle",
+          "trigger": "Published SCOPE same-model stationary even-moment consequences; potential stronger classification."
+        },
+        {
+          "assessment": "COVERS_EXACT_N_EQUALS_2_SPECIAL_CASE_ONLY",
+          "evidence": [
+            "Its exponential-rest positive fourth-cumulant root c_*(a) is exactly (sqrt(5a^2+8a+4)-a-2)/2, matching T_2(R).",
+            "Its main result concerns arbitrary rest laws and Erlang-2 threshold ordering for the fourth cumulant; no n>=3 moment hierarchy or order-asymptotics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e/RESULT.md",
+          "material_read": "Entire published RESULT.md including exponential-rest comparison and proof Section 5.",
+          "method": "Read GitHub source; compared its exact exponential rest threshold to candidate n=2 formula.",
+          "title": "Laplace-transform universality and a sharp kurtosis crossover for trapped run–rest particles",
+          "trigger": "Published SCOPE same-model fourth cumulant crossing; exact special-case coverage."
+        },
+        {
+          "assessment": "EXACT_FORWARD_STATIONARY_LAW_ALREADY_KNOWN_INVERSE_CLASSIFICATION_DIFFERENT",
+          "evidence": [
+            "The independent beta product Z=sign sqrt(UW) has U~Beta(T/2,R/2), W~Beta(1/2,R/2), which supplies the raw even moments.",
+            "Its main theorem gives parameter ordering and two-moment inverse folding, not the all-even-order matched-Gaussian crossover uniqueness or logarithmic large-order shift."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-two-moment-inverse-fold-in-a-trapped-run-and-tumble-par--432388eb4847/RESULT.md",
+          "material_read": "Entire published RESULT.md including beta-product proof, inverse fold, limitations and references.",
+          "method": "Read GitHub source and trace beta-product representation and change of variables to candidate Q_n.",
+          "title": "An exact two-moment inverse fold in a trapped run-and-tumble particle",
+          "trigger": "Published SCOPE beta-product identity and inverse variance/fourth-moment classification in the exact same process."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2409.00578",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twofold-stationary-moment-fold-and-three-moment-identifiabilit--be13e0084c9a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e/RESULT.md",
+        "2026/11/08/a-sharp-gaussian-moment-crossover-hierarchy-for-a-trapped-finite--6e97e004c31a/RESULT.md"
+      ],
+      "rationale": "The stationary three-state harmonic particle is a natural physical stochastic model and variance-matched Gaussian excess is a natural nondimensional measure of high-order non-Gaussianity. Exactly one sign change for every even order n>=2 gives a full qualitative phase classification over a continuous two-rate family. The sharp nT_n limit and (log n)/n displacement identify a singular order-dependent boundary not available by a fixed-order kurtosis sign calculation; a researcher can use the exact boundary to distinguish long-rest intermittency at increasing moment sensitivity. The all-n asymptotic and exact uniqueness are substantive information rather than renaming a known table or merely enumerating small cases. This is a natural derived structural theorem, not an assertion of distributional dominance or novel raw moments.",
+      "residual_risks": [
+        "Moment sign thresholds may be difficult to estimate in finite samples because high even moments are statistically unstable.",
+        "Physical interpretation is limited to exact stationary expectations and no assertion of full tail or convex stochastic order is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original stationary law and arbitrary even-moment recurrence are known from Sun–Ye–Podgornik; n=2 fourth-kurtosis threshold is also previously published. Originality acceptance is restricted to full hierarchy plus sharp singular asymptotic.",
+    "Uninspected relevant 2025 Kac-method thesis and non-indexed prior comparisons pose residual novelty risk.",
+    "The model requires fixed R>0, independent symmetric redraws after zero-propulsion exponential rests, exact stationarity and no translational thermal diffusion; high-order Gaussian moment comparison does not imply tail ordering.",
+    "Publication is withheld because inspected metadata contains operational/provenance fields and no complete locally guarded sanitization operations are available.",
+    "No Lean formal proof, external expert attestation, new public certificate or GitHub publication has been performed."
+  ],
+  "schema_version": 1
+}
