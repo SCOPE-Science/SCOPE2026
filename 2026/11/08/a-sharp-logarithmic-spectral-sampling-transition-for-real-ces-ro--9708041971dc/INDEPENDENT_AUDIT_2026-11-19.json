@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T03:09:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-logarithmic-spectral-sampling-transition-for-real-ces-ro--9708041971dc (RESULT.md §§Finding/Assumptions/Proof 1–4/Verification)",
+        "https://link.springer.com/article/10.1007/s00020-026-02865-7 (operator definition and eigenfunctions)",
+        "https://ems.press/content/serial-article-files/26078?nt=1 (bilateral Laplace representation)",
+        "Independent exact Git tree recomputation and independent symbolic/numeric checks; no external certification"
+      ],
+      "rationale": "For 1<p<2 and c>0 the beta integral gives v_z∈Lp exactly when 1/q<Re z<1/p, and direct differentiation gives C_p v_z=z^(-1)v_z. For any Lq annihilator, F_g(z) is holomorphic and uniformly bounded on every strict substrip by Hölder, while on Re z=1/2 its logit change of variables is the Fourier transform of an integrable h(t)e^{t/2}, so F_g≡0 forces g=0. For c<Delta/pi choose width pi*c<d<Delta: the strip-to-disk map sends z_n to -(1-u_n)/(1+u_n), u_n=(n+1)^(-pi*c/d), with divergent Blaschke sum. Uniqueness forces dense span. For c>Delta/pi choose Delta<d_prime<pi*c; the zeros satisfy the Blaschke condition in the wider strip. A nonzero bounded product B(z) with these zeros times e^{z²} has Gaussian decay on each vertical line; inversion plus horizontal contour shift gives h(t)=O(e^{-b_-t}) on t<0 and O(e^{-b_+t}) on t>0 for interior b_-<1/q, b_+>1/p. Under g(x(t))=h(t)/(1-x(t)), the exact logistic Lq weight x(t)(1-x(t))^(1-q) gives tail exponents 1-q*b_->0 and q-1-q*b_+<0, so g∈Lq, nonzero and annihilating. Translated h(t-j) supply infinitely many independent annihilators since their transforms are e^{jz}F(z). This proves infinite codimension without asserting the critical equality. Independently recomputed Git tree and checked derivative/logit map, mapping of sample points, sign of dual-tail exponents, and representative p=3/2 power thresholds. Numerical sums are corroboration, not proofs.",
+      "residual_risks": [
+        "Strict regimes only, 1<p<2, complex Lp and one-sided positive logarithmic sample; equality c=Delta/pi excluded.",
+        "No formal Lean proof or human expert attestation was claimed; numerical finite checks do not certify infinite completeness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md, general sufficient uniqueness criterion: if sum exp(-pi|t_n|/(2delta)) diverges for some delta<min(sigma-1/q,1/p-sigma), then completeness; arithmetic-coset infinite codimension. No converse for nonarithmetic logarithmic samples.",
+          "https://ems.press/content/serial-article-files/26078?nt=1, Zen Harper, Documenta Mathematica 15 (2010), Theorems 2.1–2.2, pp. 236–239: bilateral Laplace representation for analytic functions satisfying vertical-line integral/Bergman hypotheses; no sampled Cesàro spectral dichotomy.",
+          "https://www.mathnet.ru/eng/ufa45, Napalkov–Rumyantseva–Yulmukhametov 2010, published abstract restricts to Hilbert L2 on R with power-exponential |x|^alpha, alpha in (1,2], unlike the logistic exponential tails and q>2 dual here."
+        ],
+        "reasoning": "Ordinary strip Blaschke is a known necessary condition for bounded analytic zeros and supplies the zero-product construction, but a nonzero disk Blaschke product is not automatically an Lq Cesàro annihilator; the submission adds Gaussian damping, inversion on a larger strip and q-integrability. Prior October work covers c<Delta/pi after sigma=1/2, but its arithmetic-coset obstruction does not cover c log(n+1), whose consecutive gaps tend to zero, impossible for any subset of finitely many hZ cosets with fixed h>0. A sufficiently general older weighted exponential theorem could subsume the result; none verified to do so.",
+        "searches": [
+          "Resultary semantic query: Completeness and infinite codimension of logarithmically spaced Cesaro eigenfunctions in Lp via Blaschke zeros in a vertical strip",
+          "Resultary semantic query: Weighted exponential systems zero sets in strip Laplace transforms uniqueness Lp logistic beta",
+          "Web search: Harper Laplace transform representations Paley Wiener functions on vertical strips Documenta Mathematica 2010 pdf",
+          "Web search: completeness weighted complex exponential systems horizontal strip Blaschke sequence logarithmic frequencies sharp threshold",
+          "Web search: weighted exponentials e^{i lambda t} complete Lp(R) exponential weights logistic sech strip Blaschke density",
+          "Web search: Napalkov Rumyantseva Yulmukhametov 2010 completeness of exponential systems weighted spaces real line pdf",
+          "Web search: completeness of an exponential system in weighted Banach spaces closure of its linear span Zikkos"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00020-026-02865-7",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md",
+        "https://ems.press/content/serial-article-files/26078?nt=1",
+        "https://www.mathnet.ru/eng/ufa45",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-logarithmic-spectral-sampling-transition-for-real-ces-ro--9708041971dc",
+        "https://www.arxiv.symmetricfunctions.com/paper/2610.06114v1 (weighted finite-interval Schauder-basis defects; abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md: at sigma=1/2 the earlier sufficient bound c<2w/pi equals c<Delta/pi, but the earlier negative result only applies to finitely many arithmetic cosets.",
+          "https://link.springer.com/article/10.1007/s00020-026-02865-7, Example 6.5, §§6–7 explicitly leaves infinite eigenspan completeness open; Theorem 6.6 is an invariant-subspace equivalence not a logarithmic sharp test.",
+          "https://ems.press/content/serial-article-files/26078?nt=1, Theorem 2.1 gives transform representation under L2-area integrability, not a direct classification of this Lp eigenvector span."
+        ],
+        "reasoning": "The new theorem genuinely extends the previous published logarithmic completeness side by establishing infinite codimension for every c>Delta/pi through a wider-strip zero product with an Lq inverse transform. The old arithmetic criterion cannot apply: a finite union of hZ cosets is uniformly discrete after removing duplicate residues, whereas gaps c log(n+2)-c log(n+1) tend to zero. Prior spectral formulas identify individual eigenvectors but do not imply completeness or infinite codimension for this one-parameter sequence.",
+        "searches": [
+          "Resultary semantic query: Completeness and infinite codimension of logarithmically spaced Cesaro eigenfunctions in Lp via Blaschke zeros in a vertical strip",
+          "Resultary semantic query: Real variable Cesàro operator point spectrum discrete eigenvectors density infinite sequence logarithmic imaginary parameters",
+          "Web search: Crescents and the Real Variable Cesàro Operator Belli Gul Ross Siskakis 2026 Example 6.5 full text",
+          "Web search: Harper Laplace transform representations Paley Wiener functions on vertical strips Documenta Mathematica 2010 pdf",
+          "Web search: spectral sampling completeness weighted exponentials cosh sech log n sharp density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00020-026-02865-7, Example 6.5 defines M_E and expressly asks whether infinite eigenvector families are dense in Lp; Proposition 3.1 provides the existing eigenfunction formula.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md, Finding/Proof §§2–5: logit transform turns the problem into Fourier zeros of weighted Lq annihilators and proves a sufficient non-Blaschke uniqueness test for distinct real frequency sequences."
+        ],
+        "reasoning": "Equivalent formulations are completeness of complex logit-weighted exponentials on the real line, uniqueness of a bilateral Laplace/Fourier transform in a vertical strip, and density of reciprocal-parameter Cesàro eigenvectors. The sample z_n=1/2+i c log(n+1) corresponds to a strip disk-zero sequence with boundary distance asymptotic to (n+1)^(-pi c/d). The earlier October result proves the below-threshold half for this line but not the above-threshold logarithmic non-density half.",
+        "searches": [
+          "Resultary semantic query: Completeness and infinite codimension of logarithmically spaced Cesaro eigenfunctions in Lp via Blaschke zeros in a vertical strip",
+          "Resultary semantic query: Real variable Cesàro operator point spectrum discrete eigenvectors density infinite sequence logarithmic imaginary parameters",
+          "Web search: Crescents and the Real Variable Cesàro Operator Belli Gul Ross Siskakis 2026 Example 6.5 full text",
+          "Web search: Cesaro eigenvectors completeness log imaginary parameters Blaschke threshold pi width non-density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md: October 18 published result is a close precursor but lacks the c>Delta/pi classification for log sampling.",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-logarithmic-spectral-sampling-transition-for-real-ces-ro--9708041971dc: November 8 result is the same finding as the assigned source, not independent earlier coverage.",
+          "Resultary semantic results also included Cesàro matrix singular spectra and rank-one perturbations of the L2 Cesàro operator; these use different objects or invariants."
+        ],
+        "reasoning": "A search of the exact log-frequency spectral-sampling claim located the present public mirror and the preceding sufficient-only October theorem, not an independent published sharp both-sided classification. This database result is evidence of comparison rather than proof of historical priority; no standard finite table is an alternative for the infinite-dimensional dichotomy.",
+        "searches": [
+          "Resultary semantic query: Completeness and infinite codimension of logarithmically spaced Cesaro eigenfunctions in Lp via Blaschke zeros in a vertical strip",
+          "Resultary semantic query: Real variable Cesàro operator point spectrum discrete eigenvectors density infinite sequence logarithmic imaginary parameters",
+          "Resultary semantic query: Weighted exponential systems zero sets in strip Laplace transforms uniqueness Lp logistic beta",
+          "Web search: logarithmic Cesàro eigenvectors codimension",
+          "Web search: Cesaro Blaschke eigenvectors complete span"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the strict two-sided sharp c=Delta/pi phase transition. The earlier October 18 published Cesàro sampling result already proves the below-threshold log-family density, so this portion is inherited. Its distinct arithmetic-coset obstruction does not cover this logarithmic family. The submitted wider-strip inverse-Laplace annihilator supplies the new above-threshold infinite-codimension result, completing the strict classification for a naturally motivated family. The 2026 motivating article asks the overarching question. Directly read the closest prior full result, primary article and relevant strip-Laplace theorem. A stronger unindexed weighted exponential result is a retained priority risk, not automatically a failure.",
+      "residual_risks": [
+        "A more general classical complex Müntz/weighted exponential uniqueness theorem with the same zero-divisor criterion could imply the evaluated phase transition; no covering exact statement verified after targeted searches.",
+        "Napalkov–Rumyantseva–Yulmukhametov 2010 Russian full article was not read; its abstract states a materially different L2 superlinear-tail class, so potential broader antecedents remain.",
+        "The identical public mirror establishes prior public availability of this same finding but not independent historical priority or external certification.",
+        "Critical equality c=Delta/pi remains genuinely undecided by this claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives spectral formulas and asks the relevant infinite-set completeness question; does not supply the sharp c< or c> logarithmic sampling classification.",
+          "evidence": "Theorem 1.3(b), Proposition 3.1, Example 6.5, Theorem 6.6 and Theorem 7.1; published 10 September 2026.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00020-026-02865-7",
+          "material_read": "Open-access full-text HTML, introduction/Theorem 1.3, point spectrum/Proposition 3.1, §6 Example 6.5 and Theorem 6.6, §7 cyclicity and stated limitations",
+          "method": "Compared exact reciprocal eigenparameter strip, definition of M_E and statements of cyclicity/invariant-subspace results",
+          "title": "Crescents and the Real Variable Cesàro Operator",
+          "trigger": "Same real-variable Cesàro operator, same p<2 eigenvectors and explicitly posed eigenvector-span problem"
+        },
+        {
+          "assessment": "Proves c<Delta/pi density for the same family (up to n starting index), but only proves non-density for finite unions of arithmetic cosets, not fast logarithmic samples; explicitly disclaims sharpness.",
+          "evidence": "Finding: sum exp(-pi|t_n|/(2delta))=infinity sufficient; §4 arithmetic cosets; §5 c<2w/pi; Limitations: bound not claimed sharp.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md",
+          "material_read": "Complete published RESULT.md Finding, Assumptions, full five-step Proof, Relationship to Prior Work and Limitations",
+          "method": "Substituted sigma=1/2 and w=Delta/2 into its criterion; compared its arithmetic-obstruction assumptions to logarithmically spaced frequencies",
+          "title": "Logarithmic spectral sampling and arithmetic noncompleteness for crescent Cesàro eigenvectors",
+          "trigger": "Same operator and a logarithmic dense example; plausible direct prior implication"
+        },
+        {
+          "assessment": "Supplies general bilateral-Laplace representation machinery but no discrete logarithmic Cesàro eigenvector completeness classification. Its different transform conventions were checked.",
+          "evidence": "Theorems 2.1 and 2.2, pp. 236–239; §4 discussion of uniqueness across vertical strips.",
+          "identifier_or_url": "https://ems.press/content/serial-article-files/26078?nt=1",
+          "material_read": "Open-access PDF pages 235–239, including introduction, Theorem 2.1 assumptions/proof and Theorem 2.2 statement; later §4 uniqueness discussion checked by extracted text",
+          "method": "Inspected PDF page screenshots and text, compared integral-norm requirements and conclusions to logit-weighted Lq annihilator construction",
+          "title": "Laplace transform representations and Paley-Wiener theorems for functions on vertical strips",
+          "trigger": "A potentially stronger published representation theorem for holomorphic strip transforms"
+        },
+        {
+          "assessment": "Abstract states L2(R;a|x|^alpha), 1<alpha<=2; not shown applicable to exponential-tail logistic Lq, and full text not inspected.",
+          "evidence": "Ufimsk. Mat. Zh. 2:1 (2010), pp.97–109, abstract and metadata, https://www.mathnet.ru/eng/ufa45.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/ufa45",
+          "material_read": "Publisher-indexed abstract/metadata and publicly described weight hypotheses; original Russian full article not materially read",
+          "method": "Compared Hilbert weighted L2 power-exponential regime with the logistic-tail Lq transform; retained unread-primary-source risk",
+          "title": "Completeness of exponential systems in weighted spaces on real axe",
+          "trigger": "Potentially stronger weighted-exponential completeness theorem"
+        },
+        {
+          "assessment": "An identical public mirror of the assigned finding, not evidence of a distinct antecedent; self-publication/first priority not certified.",
+          "evidence": "Resultary record dated November 8 2026 and same 9708041971dc suffix as the assigned package.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-logarithmic-spectral-sampling-transition-for-real-ces-ro--9708041971dc",
+          "material_read": "Published finding title and complete summary; assigned full six-file Git package separately inspected",
+          "method": "Matched exact parameter family and wording against current assigned record",
+          "title": "A sharp logarithmic spectral-sampling transition for real Cesàro eigenvectors",
+          "trigger": "Exact Resultary semantic match; must distinguish an identical mirror from independent prior coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00020-026-02865-7 (Example 6.5 natural question)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-spectral-sampling-and-arithmetic-noncompleteness-for--5073f7496319/RESULT.md (strictly weaker prior log-density and arithmetic obstruction)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-logarithmic-spectral-sampling-transition-for-real-ces-ro--9708041971dc (proof and mathematical scope)"
+      ],
+      "rationale": "The one-parameter imaginary-logarithmic sampling family is a natural subproblem of the explicit infinite-eigenvector-span question posed by Belli et al. Example 6.5. The exact threshold c=Delta/pi distinguishes density from infinite codimension for every strict c, sharpening the already published one-sided sufficient condition and answering the previously unclassified fast-log regime. The necessary inverse-transform construction connects operator invariant subspaces to strip zero sets rather than merely renaming a known parameter or producing a computational special case. It does not claim the critical case, all eigenvalue subsets, or practical numerical approximation rates.",
+      "residual_risks": [
+        "The result is specific to a fixed centered vertical logarithmic family; arbitrary eigenvalue subsets and critical equality remain open.",
+        "The proof uses standard Blaschke/Fourier principles; value rests on the nontrivial exact operator-specific threshold and inverse-transform realization, not originality of those standard tools."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Domain exactly complex Lp(0,1), 1<p<2, c>0 and sample n>=1 with z_n=1/2+i c log(n+1).",
+    "No proof or verdict for the critical equality c=Delta/pi, no arbitrary-E characterization or quotient basis.",
+    "Best-of-knowledge originality, not exhaustive or human/formal certification; earlier October 18 supplies the lower-c half.",
+    "Published same-finding mirror is identified; scientific comparison and historical priority are distinct."
+  ],
+  "schema_version": 1
+}
