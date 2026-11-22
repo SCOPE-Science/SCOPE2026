@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The full six-cycle Fourier resonance enumeration is exhaustive; the exact formula for the cubic moment and for the excess word-length energy follows by orthogonality. The phase-aligned upper bound is actually attained. Its generalized Rayleigh reduction has a strictly positive top eigenvector, and the remaining one-variable optimization has exactly one global maximum, proved by an explicit derivative identity and Descartes' rule. Equality phases and amplitudes give six translates up to scale and sign. The extracted checker verifies the exact polynomial and 16,020 supplementary assertions; finite tests do not substitute for the proof.
+
+**Originality — PASS relative to inspected evidence.** Chen–Lam–Lu, arXiv:2610.05347v1, Section 6.1, treats exactly the six-cycle with the same energy and cubic quotient, but only proves the nonsharp squared coefficient 59/10; their global theorem uses 383/64. Xie–Zhang, arXiv:2606.02847v1, obtains the weaker uniform squared coefficient 9. These inequalities do not imply the sharp 5.600302548116345... or its complete optimizer classification. Published published-finding corpus results on sixth-power Fourier norms, fifth-cycle maximal operators and mixed Sobolev embeddings concern different functionals. Equivalent older Fourier hypercontractive inequalities remain a bibliographic risk.
+
+**Value — PASS.** The six-cycle is singled out as an exceptional resonance in the recent word-length cubic stability proof and requires a separate sum-of-squares estimate. The present complete exact invariant and equality classification replace a nonsharp six-cycle calculation by its optimal coefficient, clarify the frequency-3 Nyquist contribution, and supply an exact diagnostic for quantitative refinements. This is not a claim about the exact logarithmic Sobolev stability constant or higher cycle orders.
+
+Self-review: passed. Independent audit: not yet performed.
