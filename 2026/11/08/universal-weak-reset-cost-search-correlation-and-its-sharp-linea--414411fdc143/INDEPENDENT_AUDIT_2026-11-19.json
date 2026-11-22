@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T22:13:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, blob c3b47717f02616d17cec781a217b086beaa29700",
+        "Assigned check_cost.py source inspected, blob cb022ac66d5dbaabb13ee41da51c869a0b9b17b0",
+        "worker10_reset_independent.py, independently implemented checker, with checked output",
+        "Classical Karamata-Laplace theorem and Potter bounds for measurable regular variation"
+      ],
+      "rationale": "For Brownian motion on (0,infinity) killed at 0, diffusion generator D d²/dx², start and instantaneous Poisson reset point a>0, I reconstructed the killed resolvent G_q=(exp[-sqrt(q/D)|x-a|]-exp[-sqrt(q/D)(x+a)])/(2D sqrt(q/D)) and absorption transform phi(q)=exp[-a sqrt(q/D)]. Conditioning on first reset/absorption gives the exact joint transform; differentiating yields E C=B1/phi, Var C=B2/phi+(B1/phi)², E T=(exp(gamma)-1)/r, Var T=(exp(2gamma)-1-gamma exp(gamma))/r² and Cov(T,C)=E C [(exp(gamma)-1-gamma/2)/r - d_q log B1(q)|_{q=r}], where B_j(q)=r int c(|x-a|)^j G_q dx, with r held fixed in q derivative. The covariance is strictly positive for every r>0 when the nonnegative cost has positive finite second resolvent integral. The exact left/right resolvent split, Karamata-Laplace/Potter bounds for c^j and one weighted k derivative give B_j(r)~gamma c(sqrt(D/r))^j Gamma(j beta+1) and -r d_q log B1(r) -> (beta+1)/2 for every measurable locally bounded eventually positive regularly varying cost with beta>=0. Thus Var T~gamma/r², Var C~gamma c(sqrt(D/r))² Gamma(2beta+1), Cov~(gamma/r)c(sqrt(D/r))(beta+1)Gamma(beta+1)/2. The universal limiting Pearson ratio follows without inferring an infinite theorem from numerical tests. The sharp unique maximum at beta=1 follows from Lprime(1)=0 and Lsecond=-1/(beta+1)²+[trigamma(beta+1)-trigamma(beta+1/2)]/2<0 on beta>=0. I separately wrote and executed a high-precision independently cross-differentiated renewal-transform checker: 24 covariance comparisons across 12 (a,D,beta) settings and two rates, with positive covariance and convergence samples. These are finite corroborations only.",
+      "residual_risks": [
+        "The checker samples finite rates and several power costs; it is not an independent verification of the full infinite quantification over all slowly varying factors. Universal limit relies on dominated-convergence/Potter control of derivative.",
+        "The 1/sqrt(2) ceiling applies to the zero-rate limit only; fixed-rate values can exceed it.",
+        "All costs are bookkeeping charges with no physical return-time contribution; model not extended to physical returns or non-Poisson clocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sunil et al. derive the joint transform, optimize mean costs and describe power-law resetting cost distributions, a strong prior framework but no identified gamma Pearson theorem.",
+          "Radice (2022) includes finite-speed return periods and gamma resetting, changing the physical first-passage clock.",
+          "Singh (2024) studies mean work and mean search time Pareto tradeoffs with stochastic physical return; not the cost/time Pearson limit for instantaneous reset.",
+          "2026 Edinburgh thesis relevant to all cost results was only abstract-inspected; full PDF unavailable via lawful OA and university access blocked."
+        ],
+        "reasoning": "A universal fixed-rate joint law is distributionally stronger raw data but the specific all-cost-class singular-limit theorem with sharp exponent optimization does not follow by a cited already-stated result or elementary parameter choice. Any uninspected thesis extension is explicitly a residual priority risk, not proof of novelty.",
+        "searches": [
+          "Resultary search: reset displacement cost and search completion time Pearson correlation linear cost exponent maximizing 1/sqrt 2 (30 hits)",
+          "arXiv:2304.09348v2 full PDF/Appendices A-D",
+          "arXiv:2201.01829 full PDF",
+          "arXiv:2407.02071 full PDF",
+          "2026 Edinburgh thesis Cost of stochastic resetting, abstract and OA full-text attempt"
+        ]
+      },
+      "checked_sources": [
+        "J. C. Sunil, R. A. Blythe, M. R. Evans, S. N. Majumdar, The cost of stochastic resetting, arXiv:2304.09348v2 (2023)",
+        "M. Radice, Diffusion processes with Gamma-distributed resetting and non-instantaneous returns, arXiv:2201.01829 (2022)",
+        "P. Singh, Emerging cost-time Pareto front for diffusion with stochastic return, arXiv:2407.02071 (2024)",
+        "The cost of resetting discrete-time random walks, arXiv:2503.03697v2 (2025)",
+        "J. C. Sunil, Cost of stochastic resetting (PhD thesis, University of Edinburgh, deposited 2026-10-28)",
+        "Wang and Chen, Pairwise correlations of global times in one-dimensional Brownian motion under stochastic resetting (Phys Rev E 2026)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2023: full joint transform is known, hence an exact finite-rate moment relation is derivable by calculus; attribution is mandatory.",
+          "Assigned theorem: all beta>=0 RV costs have a scale-independent weak-rate correlation (beta+1)Gamma(beta+1)/(2 sqrt(Gamma(2beta+1))), uniquely maximizing at beta=1.",
+          "Related published SCOPE/Resultary records concern time exposure, local-time correlations, or Brownian search optimal rates, not the joint reset-charge/time observable of the assigned theorem."
+        ],
+        "reasoning": "The known transform is the input, not the asserted limiting theorem. Its implication of the claimed singular asymptotic requires nontrivial Tauberian limits for two Laplace moments and a derivative as well as global trigamma concavity. Related known optimized mean-cost theorems are not a dominating Pearson-correlation statement. Cannot exclude an unpublished/unindexed or inaccessible later direct result.",
+        "searches": [
+          "arXiv:2304.09348v2 joint transform Eq. (10) and normalized cost formulas",
+          "arXiv:2407.02071 work-time Pareto full text",
+          "Resultary searches: stochastic resetting Brownian first passage time accumulated reset cost covariance Pearson correlation weak resetting regular variation gamma function (30 hits)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2304.09348v2 Eq. (10) supplies the exact joint transform for absorption time and reset costs; a Pearson coefficient is a normalized mixed second derivative, but its r->0 RV-class gamma limit and beta optimizer are not asserted in inspected source text.",
+          "Wang–Chen 2026 abstract treats global times (occupation, last-passage, time of maximum), rather than charge at reset jumps."
+        ],
+        "reasoning": "Exact joint transforms are prior; differentiating produces finite-rate covariance algebra but not automatically the singular regularly varying class limit or its global maximizer. Time-integrated Brownian area and occupation-time observables are not identical to reset-event displacement charges.",
+        "searches": [
+          "Resultary search: stochastic resetting Brownian first passage time accumulated reset cost covariance Pearson correlation weak resetting regular variation gamma function (30 hits)",
+          "Resultary search: renewal reward Brownian resetting covariance of first passage time with total reset costs universal correlation asymptotics (30 hits)",
+          "2023 Sunil et al. arXiv:2304.09348v2: Sections 2-6, appendices and searches for covariance/correlation",
+          "2026 Wang–Chen pairwise correlations of global times, doi:10.1103/PhysRevE.113.014134 (abstract)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2023 paper has known exact cost generating transforms and mean-optimal reset-rate plots, rather than an identified table of R(beta).",
+          "2025 discrete-time paper centers on reset-cost distributions and walking models, not the exact Brownian weak-reset Pearson profile.",
+          "Exact formula R(0)=1/2, R(1)=1/sqrt(2) is proved analytically here; numerical matching alone would not be novelty."
+        ],
+        "reasoning": "No exact independently precomputed Pearson table was found in inspected relevant material. Negative lookup is not evidence of historical novelty; the distinction rests on implication and comparison of mathematical conclusions.",
+        "searches": [
+          "Resultary search: reset displacement cost and search completion time Pearson correlation linear cost exponent maximizing 1/sqrt 2 (30 hits)",
+          "Search: Brownian resetting cost Pearson correlation optimize power exponent time cost",
+          "arXiv:2304.09348v2 cost power-law figures/tables and appendices",
+          "arXiv:2503.03697v2 discrete-time cost distribution and examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS. The 2023 Sunil–Blythe–Evans–Majumdar paper gives the general joint cost-time Laplace renewal transform and is explicitly acknowledged; the source therefore already determines all fixed-rate moments in principle. Its inspected 26-page primary text, power/linear/quadratic cost sections and appendices do not state a regularly varying weak-reset Pearson correlation law or unique optimal growth exponent. The exact normalized singular limit and strict gamma-ratio optimization require substantial additional asymptotic and special-function reasoning, not an instantaneous substitution in a published table. Other inspected full-text papers concern physical return clocks, discrete walks, or other path functionals; the Resultary search produced the assigned paper itself as top match and other records with different observables. A 2026 thesis by the 2023 author is an important inaccessible plausible source; only its abstract was read, so no whole-thesis negative assertion or unqualified priority claim is made.",
+      "residual_risks": [
+        "2023 general time–cost joint transform already determines finite-rate mixed moments; some historical authors may have derived the weak-rate class limit as a corollary without using the same naming.",
+        "2026 Edinburgh thesis by the same author, deposited before assigned 2026-11-08 record, was abstract-only; its full text could not be checked due access and institutional VPN disconnect, so later explicit overlap remains possible.",
+        "Negative Resultary/literature searches cannot establish global novelty; further unindexed unpublished or publisher material may dominate the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the general renewal joint transform and numerous mean-cost/cost-tail results; no explicit weak-reset RV Pearson gamma profile or strict beta=1 maximizing theorem located in inspected text. Strong implicit-derivability priority risk explicitly retained.",
+          "evidence": [
+            "Sunil, Blythe, Evans, Majumdar (2023), arXiv:2304.09348v2, Eq. (10), Eq. (14), Sections 3-6 and Appendices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.09348",
+          "material_read": "26-page primary full PDF: model and joint Laplace transform Eq. (10), cost transform Eq. (14), power/linear/quadratic/exponential cost analysis in Sections 3-6, conclusion and appendices; searched covariance/correlation terms across PDF",
+          "method": "Read primary PDF text, inspected PDF page image, checked equations and derivative implications",
+          "title": "The cost of stochastic resetting",
+          "trigger": "Exact same Brownian absorption/resetting model, cost at jump events, and full joint time-cost transform"
+        },
+        {
+          "assessment": "Physical return phase alters first passage clock; optimizes expectations rather than Pearson covariance for book-kept jump cost.",
+          "evidence": [
+            "Singh (2024), arXiv:2407.02071, model and work–time optimization sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.02071",
+          "material_read": "Full PDF, abstract/model, return dynamics, mean energy expenditure, mean first passage time and Pareto optimization; first page image inspected",
+          "method": "Read full PDF scientific sections and compare physical clocks/cost observable",
+          "title": "Emerging cost-time Pareto front for diffusion with stochastic return",
+          "trigger": "Close contemporary work comparing cost and time in diffusional searches"
+        },
+        {
+          "assessment": "Finite-speed physical returns and gamma renewal resetting differ from instantaneous Poisson bookkeeping, not a direct stronger Pearson profile theorem.",
+          "evidence": [
+            "Radice (2022), arXiv:2201.01829, Sections on mean first-passage and noninstantaneous returns."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.01829",
+          "material_read": "Full PDF model, stationary law, first passage and return-time discussion, conclusions; PDF first page image inspected",
+          "method": "Read primary preprint, compared reset-clock and first-passage definitions",
+          "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+          "trigger": "Reset/return protocol close to assigned theorem, possible wider model"
+        },
+        {
+          "assessment": "Main analytical objects are reset costs in discrete-time random walks; no directly stated all-index Brownian RV Pearson formula found in material read. Does not exclude all implicit parallels.",
+          "evidence": [
+            "arXiv:2503.03697v2, opening model and selected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.03697",
+          "material_read": "Full 28-page primary PDF acquired; introduction, model, reset cost distribution results and key conclusion portions inspected, plus PDF page image",
+          "method": "Compared discrete-time definitions, stated theorems and analytical objects; no claim to have read every proof line",
+          "title": "The cost of resetting discrete-time random walks",
+          "trigger": "Same authors/topic later than 2023 joint cost paper; could contain extension"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE SOURCE: no full-text noncoverage assertion. Retained as substantive historical priority risk, not automatic originality failure.",
+          "evidence": [
+            "Edinburgh Research Archive thesis item, deposited 2026-10-28; OA PDF download unavailable; authorized institutional connection reported vpn_disconnected."
+          ],
+          "identifier_or_url": "https://era.ed.ac.uk/items/8066c15a-a649-4f1a-a0e7-0968c9c04e1f",
+          "material_read": "University repository metadata and abstract only; full thesis PDF could not be obtained through lawful OA; authorized institutional access returned VPN disconnected",
+          "method": "Read repository abstract; attempted open-access PDF and institutional full-text request; did not read thesis full text",
+          "title": "Cost of stochastic resetting (doctoral thesis)",
+          "trigger": "2026-10-28 thesis by author of 2023 source, potentially overlapping later material before assigned record"
+        },
+        {
+          "assessment": "Abstract discusses correlations of global times, not recorded reset-displacement monetary cost; no full-document exclusion claimed.",
+          "evidence": [
+            "Wang and Chen, Phys. Rev. E 113, 014134 (2026), abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.113.014134",
+          "material_read": "Indexed abstract and bibliographic information only, not full text",
+          "method": "Compared abstract list of occupation/global time observables",
+          "title": "Pairwise correlations of global times in one-dimensional Brownian motion under stochastic resetting",
+          "trigger": "Correlation of Brownian first-passage associated observables published in 2026"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, universal limit and sharp trigamma optimization proof",
+        "J. C. Sunil, R. A. Blythe, M. R. Evans, S. N. Majumdar, The cost of stochastic resetting, arXiv:2304.09348v2 (2023)",
+        "P. Singh, Emerging cost-time Pareto front for diffusion with stochastic return, arXiv:2407.02071 (2024)"
+      ],
+      "rationale": "The joint dependence of random search duration and cumulative reset-displacement cost is a motivated risk diagnostic separate from minimizing either mean. The theorem resolves a mathematically natural observable for every regularly varying cost of index beta>=0, not merely a fitted special case; the scale-independent gamma-function class profile and exact unique optimum at linear growth give a clear structural distinction. The strict positivity at all fixed rates is a useful complementary sign theorem. A future researcher comparing reset-cost growth laws and first-passage risk could need precisely this universal correlation; no assertion of a general physical-work, higher-dimensional, or finite-rate cap is made. The known joint transform is credited as input; the new all-class asymptotic and sharp inequality provide more than repeating the transform.",
+      "residual_risks": [
+        "Importance is for instantaneous bookkeeping cost/time Pearson dependence, not total physical work including return duration.",
+        "The result does not optimize absolute cost, mean search time or finite-rate correlations; does not extend to irregular/non-RV cost tails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical literature priority qualified; 2026-10-28 Edinburgh thesis available as abstract only, full text inaccessible and authorization reported VPN disconnected.",
+    "The 2023 existing joint transform provides known exact fixed-rate distributional input; novelty concerns the regular-variation weak-rate Pearson profile and optimizer.",
+    "Publication plan not ready: full verified public-file sanitization missing. No repository writes, no server closeout."
+  ],
+  "schema_version": 1
+}

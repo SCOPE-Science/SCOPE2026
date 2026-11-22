@@ -1,19 +1,21 @@
-# Review of the weak-reset cost–search correlation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stopped Brownian resolvent and absorption transform are explicit. Differentiating the geometric renewal transform gives exact finite-rate first- and second-moment expressions and a strictly positive covariance identity. Splitting the resolvent at the reset point isolates a Laplace integral of the cost, whose regularly varying asymptotics and weighted derivative give the claimed universal Pearson limit. Strict logarithmic concavity of the gamma expression is proved by the trigamma duplication relation and monotonicity. The standalone numerical checker reconstructs the moment identities at finite rates. Numerical testing is not substituted for the all-parameters proof.
+PASS
 
-## Originality
+For Brownian motion on (0,infinity) killed at 0, diffusion generator D d²/dx², start and instantaneous Poisson reset point a>0, I reconstructed the killed resolvent G_q=(exp[-sqrt(q/D)|x-a|]-exp[-sqrt(q/D)(x+a)])/(2D sqrt(q/D)) and absorption transform phi(q)=exp[-a sqrt(q/D)]. Conditioning on first reset/absorption gives the exact joint transform; differentiating yields E C=B1/phi, Var C=B2/phi+(B1/phi)², E T=(exp(gamma)-1)/r, Var T=(exp(2gamma)-1-gamma exp(gamma))/r² and Cov(T,C)=E C [(exp(gamma)-1-gamma/2)/r - d_q log B1(q)|_{q=r}], where B_j(q)=r int c(|x-a|)^j G_q dx, with r held fixed in q derivative. The covariance is strictly positive for every r>0 when the nonnegative cost has positive finite second resolvent integral. The exact left/right resolvent split, Karamata-Laplace/Potter bounds for c^j and one weighted k derivative give B_j(r)~gamma c(sqrt(D/r))^j Gamma(j beta+1) and -r d_q log B1(r) -> (beta+1)/2 for every measurable locally bounded eventually positive regularly varying cost with beta>=0. Thus Var T~gamma/r², Var C~gamma c(sqrt(D/r))² Gamma(2beta+1), Cov~(gamma/r)c(sqrt(D/r))(beta+1)Gamma(beta+1)/2. The universal limiting Pearson ratio follows without inferring an infinite theorem from numerical tests. The sharp unique maximum at beta=1 follows from Lprime(1)=0 and Lsecond=-1/(beta+1)²+[trigamma(beta+1)-trigamma(beta+1/2)]/2<0 on beta>=0. I separately wrote and executed a high-precision independently cross-differentiated renewal-transform checker: 24 covariance comparisons across 12 (a,D,beta) settings and two rates, with positive covariance and convergence samples. These are finite corroborations only.
 
-**PASS, qualified.** Sunil et al. (arXiv:2304.09348, Sections 2–6 and Appendices A–D) already derive the full joint renewal transform and study cost means and cost tails. The present claim is not that transform, but the specific regularly varying cost–time correlation limit and its sharp maximizing growth exponent. The inspected text does not state a corresponding Pearson theorem; mathematical implication requires additional asymptotics and a nontrivial optimization. Related finite-return papers (arXiv:2201.01829, arXiv:2407.02071) analyze different clocks and mean-cost tradeoffs. The largest residual novelty risk is a result implicit in a general joint-transform or regular-variation treatment not located by the searches.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Cost and search duration are simultaneously random, and minimizing either mean alone does not quantify their dependence. The correlation limit distinguishes cost-growth universality classes, gives a sharp dimensionless maximum for the physically natural linear-return cost exponent, and identifies universal strict positive finite-rate association. The result is a structural, parameter-independent statement, rather than an arbitrary numeric specialization.
+Best-of-knowledge qualified PASS. The 2023 Sunil–Blythe–Evans–Majumdar paper gives the general joint cost-time Laplace renewal transform and is explicitly acknowledged; the source therefore already determines all fixed-rate moments in principle. Its inspected 26-page primary text, power/linear/quadratic cost sections and appendices do not state a regularly varying weak-reset Pearson correlation law or unique optimal growth exponent. The exact normalized singular limit and strict gamma-ratio optimization require substantial additional asymptotic and special-function reasoning, not an instantaneous substitution in a published table. Other inspected full-text papers concern physical return clocks, discrete walks, or other path functionals; the Resultary search produced the assigned paper itself as top match and other records with different observables. A 2026 thesis by the 2023 author is an important inaccessible plausible source; only its abstract was read, so no whole-thesis negative assertion or unqualified priority claim is made.
 
-## Boundaries
+## value
 
-Only instantaneous-reset search time is considered; the cost is recorded but not added to the clock. The gamma profile is asymptotic as the reset rate goes to zero, not a uniform finite-rate bound. Regular variation is essential for the stated universality. General unindexed equivalent work remains a publication-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint dependence of random search duration and cumulative reset-displacement cost is a motivated risk diagnostic separate from minimizing either mean. The theorem resolves a mathematically natural observable for every regularly varying cost of index beta>=0, not merely a fitted special case; the scale-independent gamma-function class profile and exact unique optimum at linear growth give a clear structural distinction. The strict positivity at all fixed rates is a useful complementary sign theorem. A future researcher comparing reset-cost growth laws and first-passage risk could need precisely this universal correlation; no assertion of a general physical-work, higher-dimensional, or finite-rate cap is made. The known joint transform is credited as input; the new all-class asymptotic and sharp inequality provide more than repeating the transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
