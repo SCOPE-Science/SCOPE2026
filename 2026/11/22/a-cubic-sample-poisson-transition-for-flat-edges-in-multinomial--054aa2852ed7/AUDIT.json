@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Every fixed finite set of flat-edge constraints equals BX=0 for a signed incidence matrix. Fourier inversion of the fixed-N iid ball increments and a unique Fourier peak give the uniform local limit (2πλ)^(-k/2)/sqrt(det BB^T); its determinant is the product of run length plus one. At cubic scaling, nonadjacent k-tuples yield the Poisson factorial moments, while adjacent tuples are asymptotically negligible; first- and second-moment estimates prove the two sides. All quantifiers and ranges are explicit, and standard-library verify.py passed 345 finite checks. Finite checks are corroborating, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Part 4 Theorem 3.3 is a folded-normal variance with n fixed; Prop.4.4 is an iterated large-bin limit",
+        "Published 2026-10-18 SCOPE result assumes finite N/n and computes Var(sum of absolute differences)/n"
+      ],
+      "reasoning": "The exact zero-event count cannot be recovered directly from the expectation/variance of its absolute-value complement, and neither fixed-n nor fixed-load moment asymptotics control a critical rare-event process with N/n of quadratic order. General aperiodic lattice LLT plus Poisson approximation may be a broader framework, but no inspected cited theorem already states this model-specific conclusion.",
+      "searches": [
+        "critical cubic occupancy sample N proportional n cubed adjacent equal histogram counts Poisson limit zero discrete gradient plateaus",
+        "number of adjacent ties in multinomial histogram n bins rare exact equality central local limit Poisson transition",
+        "arXiv:2611.09592v1 §3 and §4",
+        "published-finding corpus:2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.09592 (first publicly submitted 2026-11-06)",
+      "https://arxiv.org/abs/2610.13366",
+      "https://arxiv.org/abs/0806.1007",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb/RESULT.md",
+      "published-finding corpus published semantic search: critical cubic occupancy sample N proportional n cubed adjacent equal histogram counts Poisson limit zero discrete gradient plateaus, Poisson law count adjacent equal occupancies balls bins massive sample uniform multinomial N n cubed, number of adjacent ties in multinomial histogram n bins rare exact equality central local limit Poisson transition, multinomial histogram Poisson rare flat edges zero differences at N n^3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.13366 computes E sum |X_{j+1}-X_j|, not number of zeros",
+        "arXiv:2611.09592v1 computes Var sum |X_{j+1}-X_j| for fixed n",
+        "The published proportional-load fixed-sample variance limit does not enter lambda proportional to n squared"
+      ],
+      "reasoning": "None of the inspected statements logically implies the spatial Poisson point-process convergence at N/n^3→c, the no-flat-edge probability or both sides of the threshold without substantially new uniform multi-edge local analysis.",
+      "searches": [
+        "critical cubic occupancy sample N proportional n cubed adjacent equal histogram counts Poisson limit zero discrete gradient plateaus",
+        "Poisson law count adjacent equal occupancies balls bins massive sample uniform multinomial N n cubed",
+        "number of adjacent ties in multinomial histogram n bins rare exact equality central local limit Poisson transition",
+        "multinomial histogram Poisson rare flat edges zero differences at N n^3",
+        "arXiv:2610.13366",
+        "arXiv:2611.09592v1",
+        "published-finding corpus:2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flat edges are zeroes of the histogram discrete derivative, equivalently ties of consecutive multinomial cell counts",
+        "The 2008 occupancy-tie work analyzes different comparisons rather than this path-indexed rare point measure"
+      ],
+      "reasoning": "Searched exact ties/flat edges/zero gradient/adjacent equal occupancies and Poisson point-process aliases. Relevant papers do not state a point process of zero path gradients under fixed-total N proportional to n cubed.",
+      "searches": [
+        "published-finding corpus semantic search: critical cubic occupancy sample N proportional n cubed adjacent equal histogram counts Poisson limit zero discrete gradient plateaus",
+        "published-finding corpus semantic search: Poisson law count adjacent equal occupancies balls bins massive sample uniform multinomial N n cubed",
+        "published-finding corpus semantic search: number of adjacent ties in multinomial histogram n bins rare exact equality central local limit Poisson transition",
+        "published-finding corpus semantic search: multinomial histogram Poisson rare flat edges zero differences at N n^3",
+        "arXiv:2611.09592v1",
+        "arXiv:0806.1007"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus strongest histogram hits concern roughness variance, fixed-bin large deviations and disjoint-edge covariance",
+        "No inspected exact table reports no-flat-edge probabilities at the cubic sample threshold"
+      ],
+      "reasoning": "Exact finite multinomial distributions or tables, even if computable, do not by themselves prove the joint point-process limit. No overlapping precomputed threshold was found in the examined index.",
+      "searches": [
+        "number of adjacent ties in multinomial histogram n bins rare exact equality central local limit Poisson transition",
+        "multinomial histogram Poisson rare flat edges zero differences at N n^3",
+        "Poisson law count adjacent equal occupancies balls bins massive sample uniform multinomial N n cubed",
+        "published-finding corpus:2026/10/18/SCOPE-sharp-fixed-bin-large-deviations-for-histogram-total-variation-a--27e1ac5a78fb"
+      ]
+    },
+    "rationale": "Closest literature addresses moments of absolute adjacent contrasts under fixed-dimensional or proportional-load limits, not rare exact zero contrasts in joint n,N growth. A dedicated tie/occupancy paper concerns different competitions. Equivalent and broader implications were compared, but residual unindexed general local-limit literature is a genuine risk.",
+    "residual_risks": [
+      "An abstract Poisson limit theorem for rare lattice ties might imply this conclusion although no such application appeared in the examined sources",
+      "Literature priority is best-knowledge only, not independent certification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the rare flat-edge Poisson point process or simultaneous cubic scaling; its main limit holds for fixed bin count and absolute-variation variance",
+        "evidence": [
+          "arXiv:2611.09592v1, pp.1–3: abstract/intro explicitly fixed n; §3 Theorem 3.3: variance of sum of folded differences; §4 Prop.4.4: iterated large-bin variance limit"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.09592",
+        "material_read": "Accessible 45-page PDF: abstract, introduction, model, theorem and uniform/large-bin results, sections 2–4 and references searched for zero-gradient/plateau/tie/Poisson point statements",
+        "method": "Read PDF text, visually inspected first page, examined the main theorem and large-bin proposition and searched text for tie, plateau, zero differences, Poisson point",
+        "title": "Discrete total variation under the multinomial, Part 4: variance under a general distribution",
+        "trigger": "Same model of adjacent differences and most recent motivating primary 60F05 paper"
+      },
+      {
+        "assessment": "NOT_COVERING; gives second-moment coefficient for sum of |adjacent differences| when sample-to-bin ratio tends to a positive constant, not zero-edge count at diverging load",
+        "evidence": [
+          "Published RESULT.md: first display is Var(D)/n→V(lambda) under N/n→lambda>0; no flat-edge point process"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb/RESULT.md",
+        "material_read": "Full RESULT.md including theorem, proof, limitations and references",
+        "method": "Fetched published full scientific result via read-only repository file retrieval",
+        "title": "Conditioning removes a leading variance term from multinomial histogram roughness",
+        "trigger": "Top published-finding corpus match sharing the exact histogram model and conditioning issue"
+      },
+      {
+        "assessment": "NOT_COVERING the specific fixed-total neighboring-bin equal-load point process or its cubic threshold",
+        "evidence": [
+          "arXiv:0806.1007: occupancy competition is cast in different tie-score and fixed-occupancy events rather than adjacent ordered-bin flat-edge PPP"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0806.1007",
+        "material_read": "Accessible full-text version and relevant tie/occupancy sections",
+        "method": "Read arXiv HTML full text and compared model, events and asymptotic scale",
+        "title": "Competition between Discrete Random Variables, with Applications to Occupancy Problems",
+        "trigger": "Potential broader occupancy tie comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: sum of absolute differences differs from count of exact zero differences",
+        "evidence": [
+          "arXiv:2610.13366: expected ℓ1 adjacent variation and recurrence, not the flat-edge count"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13366",
+        "material_read": "Abstract and cited prior RESULT.md discussion of its principal expectation statement",
+        "method": "Compared abstract/expectation with flat-edge count theorem",
+        "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+        "trigger": "Same uniform adjacent-bin statistic, exact finite marginal sums"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "054aa285-2ed7-4a69-96b8-f1183de64317",
+  "value": {
+    "rationale": "Exact flat edges are a natural structural defect of a discrete histogram gradient. A sharp cubic threshold and spatial Poisson law describe when an ordered histogram becomes locally strictly nonflat, including the no-flat-edge probability and both directions of the transition. Uniform Fourier control under fixed-total sampling is the substantive technical component, not a numerical substitution or arbitrary slice.",
+    "status": "PASS"
+  }
+}
