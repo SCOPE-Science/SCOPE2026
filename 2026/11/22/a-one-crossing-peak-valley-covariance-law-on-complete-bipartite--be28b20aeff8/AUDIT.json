@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "A uniform order on the complete bipartite graph gives a uniform binary word; its two terminal run lengths are the extrema counts. First/last run moments yield the exact formula. The one-step covariance decrement is proven strictly positive by a 65-term positive-coefficient polynomial on a>=3 and b>=a and a seven-term polynomial at a=2. The a=1 case is directly negative except at 1,1; balance is strictly positive for a>=2, the fixed-a limit is negative, and symbolic expansion at b=a+c sqrt(a) yields a^2 covariance ->8(1-c^2). The bundled exact checker passed 2061 assertions and reproduced the symbolic certificates, which support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General graph two-point local extrema covariance work (previously compared) supplies local covariance components.",
+        "Baldi–Rinott–Stein 1989 treats one-type extrema counts and normal approximation, with regular graph emphasis."
+      ],
+      "reasoning": "Summing a general two-point formula can recover the exact rational identity, but does not, without the parameter-uniform inequality, imply strict monotonicity for every integer imbalance or the square-root transition. Balanced-regular positivity does not imply unbalanced signs.",
+      "searches": [
+        "extrema counts complete bipartite graphs covariance negative positive as bipartition sizes vary",
+        "positive negative covariance peaks valleys complete bipartite graph sizes random i.i.d heights",
+        "random graph local extrema two point covariance complete bipartite"
+      ]
+    },
+    "checked_sources": [
+      "https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+      "https://arxiv.org/abs/1606.08025",
+      "Full text of the new RESULT.md and exact verify.py",
+      "Scientific claims and descriptions of closely related previously recorded general pairwise extrema results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1989 marginal minima paper, https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+        "Burdzy–Pal 2016 arxiv full text https://arxiv.org/abs/1606.08025",
+        "Related previous general dyadic extrema formula and regular-host result (scientific comparison only)."
+      ],
+      "reasoning": "Earlier pairwise formulas imply some starting algebra, and a previous regular-graph extrema theorem covers positive balanced bicliques. The new claim concerns the strict continuous integer one-crossing law in unbalanced bicliques, a negative tail, and its asymptotic sqrt(a) location. Neither those results nor the two inspected primary sources state or directly imply this stronger phase diagram without a substantive inequality.",
+      "searches": [
+        "complete bipartite graph iid continuous heights number local maxima minima covariance initial terminal runs random binary shuffle",
+        "extrema counts complete bipartite graphs covariance negative positive as bipartition sizes vary",
+        "positive negative covariance peaks valleys complete bipartite graph sizes random i.i.d heights",
+        "2016 random labeling two local maxima minima random graph Baldi Rinott Stein Burdzy Pal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform ranking on a biclique reduces the two extrema counts to the first and last same-letter run lengths in a uniformly shuffled fixed-content word.",
+        "Related public record a published result on run-length spectrum dependence analyzes numbers of bounded runs, not terminal run lengths."
+      ],
+      "reasoning": "Both endpoint-run and graph-extrema formulations were considered. Results about aggregate run frequencies and their correlations do not determine the one-crossing covariance of terminal-run lengths. An unlocated equivalence remains possible.",
+      "searches": [
+        "complete bipartite graph iid continuous heights number local maxima minima covariance initial terminal runs random binary shuffle",
+        "covariance of first and final homogeneous runs uniform binary words fixed composition one sign change ratio",
+        "initial and final runs of uniform random binary word fixed letter counts covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact biclique peak–valley sign table with universal monotonicity/cutoff was encountered.",
+        "Related record a published result on singleton-run covariance addresses count-of-singleton-runs conditional vs unconditional covariance, a different statistic."
+      ],
+      "reasoning": "Nearby tabulations concern distinct observables. An exact finite covariance table would not alone settle the quantified all-size monotonicity and scaling; no stronger exact table was located.",
+      "searches": [
+        "complete bipartite graph iid continuous heights number local maxima minima covariance initial terminal runs random binary shuffle",
+        "extrema counts complete bipartite graphs covariance negative positive as bipartition sizes vary",
+        "covariance of first and final homogeneous runs uniform binary words fixed composition one sign change ratio"
+      ]
+    },
+    "rationale": "The joint peak-valley one-crossing and square-root imbalance phase diagram is not stated in the inspected primary literature or close published comparisons. The exact covariance formula alone is accessible from more general pairwise-extrema results, so novelty is claimed for the all-integer monotonicity and sharp transition regime, not for basic moment machinery. Search cannot prove priority; an equivalent run-statistics treatment is residual risk.",
+    "residual_risks": [
+      "Historical equivalent of the same first/last monochromatic-run covariance transition may have appeared under classical conditional runs terminology.",
+      "The general pairwise extrema identity could have been analyzed further in unlocated literature; novelty concerns the strict all-size monotonicity and sqrt cutoff only.",
+      "No independent external audit or conclusive world-wide priority check."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides classical marginal extrema distribution/normal approximation, not the biclique mixed covariance one-crossing theorem.",
+        "evidence": [
+          "The main normal approximation concerns local minima counts, especially on regular graphs; no all-imbalance biclique sign law in inspected paper."
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+        "material_read": "Full six-page PDF, including definitions, statements, proofs and examples; page images inspected",
+        "method": "Read complete lawful conference PDF; checked theorems for mixed counts, biclique imbalance and joint extrema covariance",
+        "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+        "trigger": "Classical graph extrema counts, potential broader moment coverage"
+      },
+      {
+        "assessment": "Studies conditioning on peak configurations and does not assert the biclique mixed max/min one-crossing phase diagram.",
+        "evidence": [
+          "arXiv:1606.08025v1 is first publicly posted 2016-06-26; its primary 60C05 classification is consistent with the random graph labeling problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.08025",
+        "material_read": "ArXiv full PDF, title, abstract, main propositions and text search for bipartite, valley, minima; PDF page image inspected",
+        "method": "Read lawful arXiv full text and inspect theorem statements for peak-valley count covariance",
+        "title": "Twin peaks",
+        "trigger": "Known paper explicitly studying multiple peaks of uniform random vertex labelings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be28b20a-eff8-4f06-82f5-8a113a9acb41",
+  "value": {
+    "rationale": "The sign of the dependence between the total numbers of local maxima and minima is fundamental to random height models. The result supplies a complete natural K_{a,b} classification: positive balanced host, negative highly unbalanced host, only one transition, and sqrt(a) sharp scale. This is a motivated structural and asymptotic boundary unavailable from a handful of finite calculations.",
+    "status": "PASS"
+  }
+}
