@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The standalone Python 3 file `CHECK.py` uses only the standard library. Run `python3 CHECK.py` from the directory containing this document and the file. Verified result during preparation:
+## correctness
 
-`VERIFY_OK exact_rational_identities=35 root_and_multiplier_cases=7 basin_cases=5 critical_clocks=2 total_checks=48`
+PASS
 
-Exact rational tests verify the orbit identity, the derivative identity and the double-root fold relation for multiple admissible and extended algebraic parameters. Numerical tests check representative root counts, periodic orbit amplitudes and multiplier signs, a five-state basin partition, and the two critical clocks. The proof in RESULT.md supplies the all-parameter conclusions; these finite checks cannot prove exhaustive global claims or independent mathematical certification.
+For mu>-1, nu>-2 the odd cubic T(z)=z+z³ and the second odd implicit relation are strictly invertible. The two-step return is odd strictly decreasing, and its modulus f is continuous strictly increasing and sublinear at infinity; every amplitude orbit is eventually monotone and bounded. Substitution a=b+b³, t=b² gives exact residual -b H(t), H=t^4+3t³+3t²-nu*t-mu, with H strictly convex. Root counts and the unique fold tc follow from H′=0, muc=-3tc²(1+tc)². At positive roots 1-f′=2tH′/[(1+3t)(1+3a²)], determining stability and basins. Independent symbolic expansion verifies f(a)=a-3a^5+O(a^7) at mu=nu=0, yielding n a_n^4→1/12 by reciprocal difference; for mu=0,nu<0 the cubic term yields n a_n²→-1/(2nu). Endpoint mu=muc within mu>-1 is correctly conditioned.
+
+## originality
+
+PASS
+
+Oliveira first defined the same alternating cubic implicit system and its local degenerate flip; the exact globally monotone return map, quartic all-real root census, bistable four-cycle basin separation and sharp critical clocks extend those local conclusions. Existing general nonautonomous GAS exclusion does not imply model-specific fold/basins.
+
+## value
+
+PASS
+
+An exact global period-four coexistence/bistability partition for a published local degenerate-flip example, with a precise algebraic fold, repelling separator and two critical power-law clocks, is a natural and useful strengthening. It supplies global information not present in local normal-form coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

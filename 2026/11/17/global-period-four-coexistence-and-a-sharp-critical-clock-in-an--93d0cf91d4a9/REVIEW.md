@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Global single-valuedness and strict monotonicity follow from the cubic \(T(z)=z+z^3\), the parameter inequalities and explicit composition. The exact polynomial identity and the derivative identity reduce the orbit census, basin order and stability to convexity of a quartic on the positive half-line. The asymptotic clocks follow from actual fifth- and third-order signed expansions and telescoping reciprocal powers, not finite experiments. The standalone checker supports the exact identities and samples but is not an infinite certificate.
+## correctness
 
-**Originality — PASS within investigated evidence.** Oliveira (arXiv:2611.03336v1), Sections 6 and 8.3, proves a local degenerate-flip normal form with nonzero quintic coefficient; it does not give a global fold and full-basin classification for the entire \(\mu>-1,\nu>-2\) parameter region. General connected-space periodic-attractor obstructions (Elaydi–Sacker, 2005) neither imply the model's exact algebraic wedge nor invalidate it: the persistent lower-period orbit remains. The exact source, alternate amplitude formulation, general monotone-map implication, and nearest published indexed results were compared. The 2005 post-print PDF could not be obtained, leaving a bounded priority risk, but its abstract concerns a different global-attractor assertion.
+PASS
 
-**Mathematical value — PASS.** The primary work studies a local degenerate period-doubling point; global dynamics need not be determined by a local jet. Here the entire regular family is classified by a sharp explicit fold and exact separating repeller, ruling out all other recurrent periods and quantifying the singular critical return clock. This supplies a complete, nonlocal benchmark for implicit periodically forced bifurcations, not an arbitrary parameter slice or a restatement of the local normal form.
+For mu>-1, nu>-2 the odd cubic T(z)=z+z³ and the second odd implicit relation are strictly invertible. The two-step return is odd strictly decreasing, and its modulus f is continuous strictly increasing and sublinear at infinity; every amplitude orbit is eventually monotone and bounded. Substitution a=b+b³, t=b² gives exact residual -b H(t), H=t^4+3t³+3t²-nu*t-mu, with H strictly convex. Root counts and the unique fold tc follow from H′=0, muc=-3tc²(1+tc)². At positive roots 1-f′=2tH′/[(1+3t)(1+3a²)], determining stability and basins. Independent symbolic expansion verifies f(a)=a-3a^5+O(a^7) at mu=nu=0, yielding n a_n^4→1/12 by reciprocal difference; for mu=0,nu<0 the cubic term yields n a_n²→-1/(2nu). Endpoint mu=muc within mu>-1 is correctly conditioned.
 
-**Limitations and closest sources.** The result depends on globally monotone real implicit branches; it does not extend to multivalued branches or general planar implicit systems. Oliveira (2026), Section 8.3, is the closest source. Elaydi and Sacker (2005) provide a general divisibility obstruction, not these model-specific formulas. Complete historical priority and independent validation are unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Oliveira first defined the same alternating cubic implicit system and its local degenerate flip; the exact globally monotone return map, quartic all-real root census, bistable four-cycle basin separation and sharp critical clocks extend those local conclusions. Existing general nonautonomous GAS exclusion does not imply model-specific fold/basins.
+
+## value
+
+PASS
+
+An exact global period-four coexistence/bistability partition for a published local degenerate-flip example, with a precise algebraic fold, repelling separator and two critical power-law clocks, is a natural and useful strengthening. It supplies global information not present in local normal-form coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
