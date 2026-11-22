@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The gradient-tracking recurrence and compatible initialization yield a conserved codimension-one subspace. Eliminating the tracker produces the symmetric polynomial eigenvalue problem \(Q_\alpha(\zeta)\). The complex unit-circle exclusion uses both real and imaginary parts of a scalar quadratic form, with positivity of \(W^{-1}-W\) and \(H\). The permanent unit eigenvalue is simple and lies outside the admissible error subspace. Small-step stability follows from spectral continuity and an explicit consensus-branch perturbation; the first permitted crossing is \(-1\), at precisely the smallest generalized eigenvalue. Beyond that point, continuity of the smallest eigenvalue of the real symmetric pencil produces a real unstable root. An observability argument proves failure for a valid gradient initialization. The exact two-agent certificate and 168 multi-agent numerical instances passed supplementary checks.
+PASS
 
-## Originality
+For n>=2 and fixed symmetric entrywise nonnegative doubly stochastic 0<W≼I with eigenvalue 1 simple, H positive diagonal, exact tracker initialization yields invariant codimension-one subspace sum(y-Hz)=0. Eliminating y yields the symmetric quadratic pencil Q_alpha(zeta)=(zeta I-W)W^-1(zeta I-W)+alpha(zeta-1)H. Permanent simple eigenvalue 1 has nonadmissible eigenvector (1,0). For zeta=e^{it} nonreal unit-circle, imaginary and real null-form equations imply z*Wz-z*W^-1 z-alpha z*Hz=0, impossible. Small positive alpha puts the second consensus branch 1-alpha mean(h)+O(alpha²) inside the disk; all other branches start at eigenvalues of W of modulus<1. The first crossing must be at -1 and Q_alpha(-1)=W^-1+2I+W-2alpha H gives exact positive-definiteness frontier. For larger alpha a negative min pencil eigenvalue at -1 and positive-leading coefficient as zeta→-∞ yield a real root <-1. The left eigenvector projection argument shows threshold/supercritical bad modes are excitable by some valid primal initialization; primal convergence would force tracker convergence, ruling out false failure. Exact independently reconstructed 2x2 example gives alpha*=9/5, det(C-18H/5)=0, and characteristic (z-1)(z+1)(40z²-12z-19)/40. No finite test is used as a universal proof.
 
-PASS within inspected evidence, with priority limitations. The principal 2026 paper optimizes a computable sufficient contraction certificate for heterogeneous curvatures and states exact optimizations for complete graphs and uniform curvatures; this result instead provides an exact eigenvalue *stability* cutoff for every fixed positive-spectrum symmetric network and arbitrary positive heterogeneous diagonal Hessian. The closest publicly indexed homogeneous tuning result assumes commuting \(H\) and \(W\), while an accessible historical two-node signed-spectrum analysis gives Schur conditions and limiting comparisons rather than this arbitrary-dimensional positive-spectrum generalized-eigenvalue law. Abstracts of the 2019–2020 control-oriented distributed quadratic literature were inspected; full-text coverage could not be ruled out, so historical priority remains a risk. Search failure alone is not interpreted as novelty proof.
+## originality
 
-## Value
+PASS
 
-PASS. An exact, efficiently evaluable symmetric generalized-eigenvalue frontier answers a practical design question left conservative by common norm bounds. The no-complex-crossing principle is structural, independent of graph dimension and curvature commutativity. It distinguishes stability from rate optimization and isolates why lazy/positive-spectrum mixing can have a simple sharp threshold. Restrictions to fixed SPD mixing and exact arithmetic are explicit.
+Best-of-knowledge: the exact arbitrary-n heterogeneous SPD-graph stability frontier and proof that the only first nontrivial unit-circle crossing is -1 survive direct statement/implication comparisons with two materially inspected primary papers, the 2020 sparse-design abstract, and published homogeneous/two-agent records. The indexed November 8 exact claim is the assigned work itself, not independent older coverage.
 
-## Limitations and closest literature
+## value
 
-Wang et al. (arXiv:2608.03548v1), a previously published homogeneous signed-spectrum tuning result, Bin et al. (arXiv:1911.06665), and Carnevale et al. (DOI 10.1016/j.ifacol.2020.12.405) were compared using accessible evidence. Unread historical full text may contain related exact criteria; a separate independent priority review is appropriate. Finite verifier diagnostics cannot certify the theorem in lieu of proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-network common-step stability threshold for a motivated class of lazy SPD consensus mixing matrices and heterogeneous local curvatures replaces conservative fixed-network tuning by one computable symmetric generalized eigenvalue. The exclusion of nonreal unit-circle crossings supplies structural information about the sharp flip frontier, not merely a numerical bound. It is distinct from optimizing an asymptotic contraction rate or obtaining local online step selection, and arbitrarily many agents are included.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

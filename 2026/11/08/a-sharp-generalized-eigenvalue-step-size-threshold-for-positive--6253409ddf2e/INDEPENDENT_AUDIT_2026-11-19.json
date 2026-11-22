@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T02:23:29.992791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-generalized-eigenvalue-step-size-threshold-for-positive--6253409ddf2e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-generalized-eigenvalue-step-size-threshold-for-positive--6253409ddf2e/verify.py",
+        "Independent rational SymPy reconstruction of displayed two-agent matrix identities; exact Git tree SHA from seven fetched blobs"
+      ],
+      "rationale": "For n>=2 and fixed symmetric entrywise nonnegative doubly stochastic 0<W≼I with eigenvalue 1 simple, H positive diagonal, exact tracker initialization yields invariant codimension-one subspace sum(y-Hz)=0. Eliminating y yields the symmetric quadratic pencil Q_alpha(zeta)=(zeta I-W)W^-1(zeta I-W)+alpha(zeta-1)H. Permanent simple eigenvalue 1 has nonadmissible eigenvector (1,0). For zeta=e^{it} nonreal unit-circle, imaginary and real null-form equations imply z*Wz-z*W^-1 z-alpha z*Hz=0, impossible. Small positive alpha puts the second consensus branch 1-alpha mean(h)+O(alpha²) inside the disk; all other branches start at eigenvalues of W of modulus<1. The first crossing must be at -1 and Q_alpha(-1)=W^-1+2I+W-2alpha H gives exact positive-definiteness frontier. For larger alpha a negative min pencil eigenvalue at -1 and positive-leading coefficient as zeta→-∞ yield a real root <-1. The left eigenvector projection argument shows threshold/supercritical bad modes are excitable by some valid primal initialization; primal convergence would force tracker convergence, ruling out false failure. Exact independently reconstructed 2x2 example gives alpha*=9/5, det(C-18H/5)=0, and characteristic (z-1)(z+1)(40z²-12z-19)/40. No finite test is used as a universal proof.",
+      "residual_risks": [
+        "The theorem excludes W with zero or negative eigenvalues, nonsymmetric time-varying networks, nonlinear objectives, and differing node steps.",
+        "Analytic proof does not give finite-precision numerical robustness or transient norm bounds.",
+        "Only exact two-agent certificate independently executed here; source-reported 168 random networks were inspected as code but not independently rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. 2026 https://arxiv.cnoctave.top/pdf/2608.03548, Sections III-IV: exact rate tuning only in complete mixing or uniform-curvature cases; Theorem 1 constructs a certified sufficient radius via Phi(r,beta,sigma,eta)<1 and (29)-(30) optimize that surrogate.",
+          "The public homogeneous record https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 assumes scalar H=hI, so it is a commuting restricted case.",
+          "Published two-agent frontiers https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913 and https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-heterogeneous-two-agent-gradient-tracking-stability-fronti--da4f13406cac address n=2, not arbitrary positive-definite network size."
+        ],
+        "reasoning": "A sufficient parameter-compressed certificate cannot imply an exact iff threshold for every fixed noncommuting positive-spectrum W,H pair. The two-agent formulas imply some special cases, but do not themselves cover the all-n structural theorem. These distinctions are about mathematical implications, not titles.",
+        "searches": [
+          "Wang Ballotta Carli Iannelli Cao Schenato 2026 Adaptive Stepsizes Certified Convergence Distributed Gradient Tracking Quadratic Costs pdf exact rate stability",
+          "Resultary: sign-aware graph-specific tuning homogeneous distributed gradient tracking"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1911.06665",
+        "https://arxiv.cnoctave.top/pdf/2608.03548",
+        "https://cris.unibo.it/handle/11585/839359",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-heterogeneous-two-agent-gradient-tracking-stability-fronti--da4f13406cac",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-generalized-eigenvalue-step-size-threshold-for-positive--6253409ddf2e",
+        "https://arxiv.org/abs/2608.03548"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bin et al. 2019 https://arxiv.org/pdf/1911.06665 Proposition 4.5: sufficiently small diagonal gains; no exact maximal common step-size formula in read text.",
+          "Wang et al. 2026 https://arxiv.cnoctave.top/pdf/2608.03548 Theorem 1 and (29)-(30): sufficient convergence certificate and surrogate minimization; numerical benchmark compares to actual fixed-system radius.",
+          "Specialized n=2 results https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913 and https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-heterogeneous-two-agent-gradient-tracking-stability-fronti--da4f13406cac do not imply n>=3 claims without an independent proof."
+        ],
+        "reasoning": "The prior statements supply initialized subspace convergence frameworks, sufficient step certificates, homogeneous rate optima or n=2 exact boundaries. The present arbitrary-dimensional strictly-positive-spectrum, arbitrary diagonal H if-and-only-if threshold is stronger than those inspected statements and not deduced merely by parameter substitution. Priority qualification remains because broader historical controls literature is not comprehensively exhausted.",
+        "searches": [
+          "Resultary: distributed gradient tracking positive spectrum heterogeneous quadratic curvature sharp exact step size generalized eigenvalue [service unavailable]",
+          "Resultary: gradient tracking constant step size stability quadratic objective arbitrary symmetric W and diagonal Hessian",
+          "gradient tracking quadratic positive definite consensus matrix exact stepsize generalized eigenvalue W^-1+2I+W Hessian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bin et al. 2019 https://arxiv.org/pdf/1911.06665, Proposition 4.4 requires Schur stability of reachable restriction; Proposition 4.5 establishes sufficiently small steps rather than the W^-1+2I+W generalized eigenvalue threshold.",
+          "The submitted Q_alpha(zeta) = (zeta I-W) W^-1 (zeta I-W)+alpha(zeta-1)H specializes to a nonlinear matrix-pencil Schur test but is not given as an exact explicit scalar-step threshold in the inspected 2019 paper."
+        ],
+        "reasoning": "An invariant-subspace Schur spectral test is a general equivalent convergence criterion, but its applicability does not already establish the explicit necessary-and-sufficient generalized eigenvalue formula, exclusion of nonreal crossings and sharp accessibility statement. The 2019 paper was materially read through its model, structural results, Propositions 4.4/4.5, and conclusion.",
+        "searches": [
+          "gradient tracking quadratic positive definite consensus matrix exact stepsize generalized eigenvalue W^-1+2I+W Hessian",
+          "Bin Notarnicola Marconi Notarstefano 2019 A System Theoretical Perspective to Gradient-Tracking Algorithms for Distributed Quadratic Optimization pdf",
+          "Resultary: gradient tracking constant step size stability quadratic objective arbitrary symmetric W and diagonal Hessian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary includes the very same submitted November 8 finding https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-generalized-eigenvalue-step-size-threshold-for-positive--6253409ddf2e; this self-match cannot be independent prior coverage.",
+          "Resultary also lists related homogeneous and two-agent results https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-heterogeneous-two-agent-gradient-tracking-stability-fronti--da4f13406cac; none of their inspected summaries states the arbitrary-dimensional matrix frontier."
+        ],
+        "reasoning": "The theorem determines a continuous generalized-eigenvalue invariant for arbitrary real finite W,H; no finite numerical table could subsume the universal claim. Self-indexing and negative search results do not prove novelty; they only contextualize comparisons.",
+        "searches": [
+          "Resultary: gradient tracking constant step size stability quadratic objective arbitrary symmetric W and diagonal Hessian",
+          "Resultary: sign-aware graph-specific tuning homogeneous distributed gradient tracking",
+          "gradient tracking quadratic positive definite consensus matrix exact stepsize generalized eigenvalue W^-1+2I+W Hessian"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact arbitrary-n heterogeneous SPD-graph stability frontier and proof that the only first nontrivial unit-circle crossing is -1 survive direct statement/implication comparisons with two materially inspected primary papers, the 2020 sparse-design abstract, and published homogeneous/two-agent records. The indexed November 8 exact claim is the assigned work itself, not independent older coverage.",
+      "residual_risks": [
+        "A pre-2026 system-theory or robust-control result might encode the same necessary-and-sufficient matrix-pencil threshold under an equivalent algorithm or similarity transform; the broader historical corpus was not exhausted.",
+        "The 2020 sparse-gain design full text was not read.",
+        "The 2019 primary paper uses x^+=A x - gamma s whereas submitted x^+=W(x-alpha y); literature comparisons must avoid identifying distinct update placements without conjugacy proof.",
+        "Published n=2 records and the indexed assigned result were available only as summaries; do not claim their complete proofs inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves invariant-space stability criteria and existence of sufficiently small stabilizing gain; does not provide a closed-form maximal all-n SPD common step in terms of generalized eigenvalue of W^-1+2I+W versus H.",
+          "evidence": [
+            "https://arxiv.org/pdf/1911.06665, pp. 9-11, Proposition 4.4 and 4.5",
+            "At equation (5), x-update is A x - gamma s; the submitted variant uses W(x-alpha y), so algorithms differ in where W acts on tracker. This distinction LIMITS direct equivalence and must be respected."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.06665",
+          "material_read": "Primary arXiv PDF passages including Sections II and IV, equations (5), (14), (19), invariant-set Proposition 4.4, small-gain Proposition 4.5, and conclusion; inspected page 9 image for the control decomposition. Not a claim that every sentence was reviewed.",
+          "method": "Primary PDF extraction plus page-image inspection and theorem-by-theorem comparison",
+          "title": "A System Theoretical Perspective to Gradient-Tracking Algorithms for Distributed Quadratic Optimization",
+          "trigger": "Same quadratic gradient-tracking dynamics, proper initialization and invariant reachable/stabilizable subspace"
+        },
+        {
+          "assessment": "Certified optimizer minimizes a sufficient bound parameterized by sigma,eta; not an exact iff stability boundary across noncommuting W,H. Need check the precise x-update normalization before declaring direct recurrence identity.",
+          "evidence": [
+            "https://arxiv.cnoctave.top/pdf/2608.03548, Section III heading, Theorem 1, equation (29)-(30), discussion of nonconvex true optimum in Section VI"
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2608.03548",
+          "material_read": "Substantial primary full-text rendering: setup and update, Section III special regimes, Section IV convergence certificate Theorem 1 and (29)-(30), Section V Theorem 2, numerical comparison with exact fixed-network spectral radius.",
+          "method": "Direct primary open-access full-text rendering and comparison of statements/equations",
+          "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+          "trigger": "Same scalar heterogeneous quadratic DGT model, W spectrum, stability/rate and constant-step design"
+        },
+        {
+          "assessment": "Abstract describes sparse gain matrices via sequential approximate matrix inequalities; cannot make a whole-document noncoverage claim; plausible uninspected priority risk.",
+          "evidence": [
+            "https://cris.unibo.it/handle/11585/839359"
+          ],
+          "identifier_or_url": "https://cris.unibo.it/handle/11585/839359",
+          "material_read": "Official Bologna repository abstract and publication metadata only. Full open-access PDF linked but not materially read.",
+          "method": "Abstract-level comparison with strict no-full-text claim",
+          "title": "Enhanced Gradient Tracking Algorithms for Distributed Quadratic Optimization via Sparse Gain Design",
+          "trigger": "Related control-system design and stabilizing gain synthesis for distributed quadratic DGT"
+        },
+        {
+          "assessment": "Covers two-agent special case and may be compatible with the n=2 specialization; no inspected proof of arbitrary-n matrix criterion.",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913",
+          "material_read": "Published index title and detailed abstract/summary only; source RESULT full text could not be opened.",
+          "method": "Resultary semantic search and mathematical specialization comparison",
+          "title": "Sharp stability frontier for heterogeneous two-agent gradient tracking",
+          "trigger": "Exact step frontier with same positive disagreement eigenvalue and heterogeneous curvature in n=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2608.03548",
+        "https://arxiv.org/pdf/1911.06665",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-stability-frontier-for-heterogeneous-two-agent-gradient-tr--0c9d73382913",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6"
+      ],
+      "rationale": "The exact all-network common-step stability threshold for a motivated class of lazy SPD consensus mixing matrices and heterogeneous local curvatures replaces conservative fixed-network tuning by one computable symmetric generalized eigenvalue. The exclusion of nonreal unit-circle crossings supplies structural information about the sharp flip frontier, not merely a numerical bound. It is distinct from optimizing an asymptotic contraction rate or obtaining local online step selection, and arbitrarily many agents are included.",
+      "residual_risks": [
+        "The exact threshold needs global W,H and is not a decentralized tuning rule.",
+        "It remains a sharp stability boundary, not the optimizer of convergence speed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Literature search is best-of-knowledge and not an exhaustive priority certificate.",
+    "Primary 2019 paper uses a distinct x-update placement; exact algorithm equivalence requires proof, not assumed.",
+    "Independent finite randomized sweep was not rerun; exact certificate and analytic proof were independently checked."
+  ],
+  "schema_version": 1
+}
