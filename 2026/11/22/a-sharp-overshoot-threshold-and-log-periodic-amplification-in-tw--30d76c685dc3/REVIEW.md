@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The finding is a rigorous statement about the weak-import stationary two-atom contagion kernel, not the full epidemic's observed time series. Detailed balance gives the exact limiting conditional moment ratio; direct subtraction yields the sign identity. Its bracket is strictly increasing, ensuring the unique *strict* overshoot threshold; the Lambert-function inversion and its large-odds expansion retain the correct constant. The count \(i=N\) is excluded since it has no susceptible subjects. For the rare-high-rate asymptotic, the phase-dependent lattice maximum follows from an exact finite-difference identity for \(F(\theta z)\) and a uniform geometrically controlled error. The checker supplies 609 finite diagnostic checks; none substitutes for the infinite proof.
+
+## Originality — PASS, bounded by accessible primary literature
+St-Onge, Hébert-Dufresne and Allard (2023) explicitly state the two-point moment-ratio infection kernel and its approximate logarithmic posterior crossover. Hébert-Dufresne et al. (2026) already distinguish pooled differences from matched-group increments, including qualitative observations of apparent slopes higher than a group's physical increment. These are not new here. The separately assessed statements are a sharp **maximum-slope overshoot** test at each observable count, a sharp minimum group size, the negative log-log correction, and especially the **unbounded** pooled increment with nonconvergent log-periodic amplitude in the rare-high-rate limit. The cited primary full texts inspected do not state those results. The existence of their explicit input formulas means an unknown prior analysis of their consequences remains a real priority risk. The 2023 supporting PDF could not be inspected; the 2021 article was compared at abstract level for a materially different heterogeneous-exposure mechanism.
+
+## Value — PASS
+The exact group-size cutoff answers the operational mathematical question: when can a population-aggregated slope exceed every actual linear transmission slope, without any within-group synergy? The unusual logarithmic amplitude shows that this measurement artifact can be arbitrarily large for vanishingly rare high-transmission groups if group size is correspondingly large, and that discrete infection counts leave a periodic leading fluctuation. The result strengthens a previously qualitative warning into sharp testable bounds on a well-motivated observable. This is not a claim about a universal real-world epidemic threshold.
+
+## Scope, limitations and references
+The source-specific inputs and mechanisms are in `RESULT.md`; related full texts are https://arxiv.org/html/2605.00791v1 and https://pmc.ncbi.nlm.nih.gov/articles/PMC10769855/. No general theorem for arbitrary transmission-rate laws, positive fixed external importation, or statistical estimation from finite incidence samples is established. Historical priority beyond the inspected sources remains uncertain; independent evaluation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
