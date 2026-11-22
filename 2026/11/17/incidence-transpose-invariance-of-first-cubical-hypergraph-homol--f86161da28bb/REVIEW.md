@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite supported incidence assumptions make the primal and dual two-sections unambiguous. Each normalized cubical cube for the \(\Box\) construction is precisely a cube map to the two-section graph. In degree one, reversals, triangles and quadrilaterals are exactly the signed boundaries imposed by nondegenerate squares. A witness transfer along cyclic graph walks sends all the defining relations to defining relations in the transposed graph. Replacing witnesses introduces pairs of triangle boundaries, and transferring twice recovers the original cycle modulo triangle boundaries. These give mutually inverse integral maps, including any possible torsion. Complete independent enumeration of \(0\)-, \(1\)- and \(2\)-dimensional cube data for six finite examples supplies a reproducibility check, not the infinite argument.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating 2026 source poses incidence-dual homotopy equivalence as a conjecture, and proves \(\Box\)-homotopy invariance, but does not state or prove unconditional first-homology duality. Earlier work establishes graph cubical/path comparisons and ordinary Dowker duality, neither of which alone identifies the added three- and four-cycle relations in the two graph expansions. Searches of scientific research records for incidence-dual \(\Box\)-homology, graph cubical homology under transposition, and aliases found related results on \(\Gamma\)-homology and on \(\times\)-homology, but no statement with the same implication. Nonindexed equivalences remain a risk; the result is not claimed as independently validated.
+PASS
 
-## Mathematical value — PASS
-The new hypergraph homotopy conjecture has a clear necessary obstruction: an invariant homotopy theory must have isomorphic homology groups on a hypergraph and its dual. The theorem removes *all* integral degree-one \(\Box\)-homology obstructions at once and supplies a canonical, computable cycle-level explanation, not a small example or a renaming of Dowker's theorem. It pinpoints that any obstruction through \(\Box\)-homology must occur in higher degrees.
+For finite supported hypergraphs, maps from Box-hypercubes reduce exactly to graph cubical chains of the 2-section P(H). In degree one, oriented backtracks, triangles and 4-cycles generate all boundaries of cubical 2-cubes, identifying H1^Box(H;Z) with H1 of the 2-complex T(P(H)) filling all 3- and 4-cycles. The incidence-transposed hypergraph has 2-section equal to L(H), the edge-intersection graph. Replacing consecutive vertex-pair steps by incident-hyperedge witnesses transfers closed walks P(H)→L(H); changing witnesses differs by triangles and a 3- or 4-cycle transfers to a null-homologous short loop. Transposition gives the reverse map; the composites differ only by traversals within hyperedge cliques, hence triangles. This is an integral inverse, including torsion. Independently built graph short-cycle presentations and verified Smith H1 ranks: loose five-cycle Z on both sides, loose four-cycle zero, Fano zero. Tests support but do not prove arbitrary hypergraphs.
 
-## Closest literature and limitations
-The relevant primary definitions and dual conjecture were inspected in Zaidi–Jamil, arXiv:2610.08196v1, sections 2–4. The earlier graph cubical theory was inspected in Barcelo–Greene–Jarrah–Welker, arXiv:1803.07497, especially the normalization and low-dimensional chain conventions. Dowker duality concerns unflagified nerves; our explicit comparison is of the additional short-cycle relations. Only degree one is proved; nothing here establishes incidence-dual hypergraph homotopy equivalence. An unindexed overlapping theorem cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Zaidi–Jamil proposal introduces Box-cubical homology and states a stronger incidence-dual homotopy-equivalence conjecture, not an established homotopy theorem. Existing Gamma-cubical H1 comparison identifies simplicial-closure homology, a different chain theory; Barcelo et al treat ordinary graphs. Classical Dowker equivalence identifies nerves, not immediately the triangle-square quotient of two-section/intersection graphs. No prior inspected theorem directly covers this precise integral Box-H1 duality, subject to limited access to the Zaidi–Jamil full text.
+
+## value
+
+PASS
+
+The result proves a natural, specific degree-one homological shadow of a newly posed hypergraph incidence-duality conjecture, with an actual integral correspondence rather than merely rank comparison. It can preserve possible torsion and resolve homological necessary conditions without proving the much stronger conjectural homotopy equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
