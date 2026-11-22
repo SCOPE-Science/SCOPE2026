@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T17:15:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final theorem is a finite assertion over K=F5^3 defined by the homogeneous polynomial Y^6-X^5 Z-X Z^5+(Y^2-2XZ)^3, with projective normalized triples covering all 15751 points/lines. A third independently implemented complete integer-field model using the irreducible v^3+2v+1 (different from both source cubics) obtains exactly 136 curve points and the rational-line weight histogram {0:5940,1:3606,2:5460,3:610,4:15,5:0,6:120}. The computed 120 full secants give s(P)={0:6571,1:3720,2:5340,6:120}; on-curve 0:16,6:120, exterior 0:6555,1:3720,2:5340. Verified sum_L w(L)=17136=136*126; sum_L binom(w,2)=9180=binom(136,2); sum_P binom(s,2)=7140=binom(120,2); the 16 uncovered on-curve points equal C(F5), and 6555 external points can each be added individually without creating a 7-point line. Every projective point and line is enumerated, so finite exhaustive arithmetic proves the precise finite result; checking the 124 nonzero multiplication rows certifies a field. Independently the established parametrization gives 126 image points, with 10 extra F5 rational nodal points on the plane curve, agreeing with 136. Source code in verify_direct.py and verify_pairlines.py was read and checked for complete loops and field reductions, but independent results do not rely on their PASS logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Theorem 7.5 specifies r>=5; specializing r=3 is invalid, and its proof invokes an existence inequality unavailable at r=3.",
+          "Primary Theorem 8.2 holds for r>=3 but only identifies curve points not on full secants.",
+          "The October quartic treats q=3, F27/F81 and the November octic treats q=7,F343; neither is a uniform q theorem or a statement about F125."
+        ],
+        "reasoning": "No broad theorem inspected gives the exterior q=5,r=3 spectrum. The general property that full secants have six distinct curve points gives a degree bound, not the exact distribution.",
+        "searches": [
+          "Borges Korchmaros Speziali curves arcs secants q=5 r=3 completeness noncomplete",
+          "https://publicatio.bibl.u-szeged.hu/29111/1/KorchmarosNagySzonyiAlgebraicapproachtothecompletenessproblemforkn-arcsinplanesoverfinitefields.pdf",
+          "https://arxiv.org/pdf/2202.05765",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-four-point-splitting-line-spectra-of-the-rational-bks-quar--17c25d1f3615/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-eight-secant-and-exterior-hole-geometry-of-the-rational-bk--e47dccb217c8/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://publicatio.bibl.u-szeged.hu/29111/1/KorchmarosNagySzonyiAlgebraicapproachtothecompletenessproblemforkn-arcsinplanesoverfinitefields.pdf (Section 4.2, Theorems 7.5 and 8.2)",
+        "https://arxiv.org/pdf/2202.05765 (Proposition 4.24)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-four-point-splitting-line-spectra-of-the-rational-bks-quar--17c25d1f3615/RESULT.md (complete RESULT)",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-eight-secant-and-exterior-hole-geometry-of-the-rational-bk--e47dccb217c8/RESULT.md (complete RESULT)",
+        "Resultary query: rational BKS sextic finite field F125 136 points six-secant lines 6555 uncovered q=5 extension r=3",
+        "Resultary query: Borges Korchmaros Speziali curves arcs secants q=5 r=3 completeness noncomplete",
+        "Resultary query: BKS sextic F125 line character six-secants 120 exterior incidence spectrum",
+        "Web broad/targeted BKS r=3 q=5 and numerical table searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Borges–Korchmaros–Speziali Proposition 4.24 establishes the rational nodal curve and its 10 base-field nodes for q=5; it does not enumerate lines over the cubic extension.",
+          "Korchmaros–Nagy–Szonyi Theorem 7.5 has r>=5, while the assessed theorem is r=3; Theorem 8.2 supplies the sixteen on-curve points missed by six-secants, a known subclaim rather than a novel one.",
+          "Their Section 4.2 line-character possibilities do not determine a full histogram of frequencies or external concurrence numbers."
+        ],
+        "reasoning": "The prior on-curve information and 6-degree incidence constraints give sums of moments but not a unique distribution of all line weights or external s(P). The new exhaustive table supplies genuinely additional exact information. The older q=3 and q=7 tables are not parameters of a uniform theorem.",
+        "searches": [
+          "https://publicatio.bibl.u-szeged.hu/29111/1/KorchmarosNagySzonyiAlgebraicapproachtothecompletenessproblemforkn-arcsinplanesoverfinitefields.pdf",
+          "https://arxiv.org/pdf/2202.05765",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-four-point-splitting-line-spectra-of-the-rational-bks-quar--17c25d1f3615/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-eight-secant-and-exterior-hole-geometry-of-the-rational-bk--e47dccb217c8/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalent to a complete rational line character/weight enumerator of the 136-point BKS (136,6)-arc in PG(2,125), plus the dual arrangement concurrence profile.",
+          "Korchmaros–Nagy–Szonyi Section 4.2 gives possible line intersection characters and Theorem 8.2 determines sixteen uncovered ON-curve F5-points, but does not list 5940,3606,5460,610,15,0,120 line frequencies or the 6555,3720,5340 off-curve multiplicity counts."
+        ],
+        "reasoning": "Equivalent coding-theoretic weight distributions or finite projective-incidence reformulations are covered only if the full frequency table or a genuinely dominating theorem is shown. No inspected earlier statement yields those frequencies for q=5,r=3.",
+        "searches": [
+          "Resultary semantic: rational BKS sextic finite field F125 136 points six-secant lines 6555 uncovered q=5 extension r=3",
+          "Resultary semantic: BKS sextic F125 line character six-secants 120 exterior incidence spectrum",
+          "Web slow: \"BKS curve\" \"125\" \"secants\" geometry",
+          "Web slow: \"Borges Korchmáros Speziali\" \"r=3\" \"q=5\" 2025 2026",
+          "https://publicatio.bibl.u-szeged.hu/29111/1/KorchmarosNagySzonyiAlgebraicapproachtothecompletenessproblemforkn-arcsinplanesoverfinitefields.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest published BKS finite enumerations give q=3 quartic over 27/81 and q=7 octic over 343, with no q=5 table.",
+          "Resultary semantic hits include the assigned source itself; that is NOT independent prior work.",
+          "No accessible primary table listing 6555 exterior uncovered centers or 120 six-secants of the F125 sextic was found in the conducted searches."
+        ],
+        "reasoning": "The exact-table check cannot establish global nonexistence; recorded residual risk concerns unindexed older finite-geometry tables. The assigned self-publication is excluded from prior-art evidence.",
+        "searches": [
+          "Resultary exact: rational BKS sextic finite field F125 136 points six-secant lines 6555 uncovered q=5 extension r=3",
+          "Resultary exact: BKS sextic F125 line character six-secants 120 exterior incidence spectrum",
+          "Web fast: \"BKS\" \"r=3\" \"q=5\" arc completeness",
+          "Web slow: \"BKS\" \"six-secants\" \"F125\" 2026",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-four-point-splitting-line-spectra-of-the-rational-bks-quar--17c25d1f3615/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-eight-secant-and-exterior-hole-geometry-of-the-rational-bk--e47dccb217c8/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge new complete F_125 dual-line weight and six-secant concurrence histograms, including 6555 external uncovered points, are not implied by inspected primary arc-completeness results. The 2024 Korchmaros–Nagy–Szonyi Theorem 7.5 explicitly assumes extension r>=5 and says r=3,4 BKS completeness remains open; Theorem 8.2 supplies the ON-CURVE uncovered locus only. The 2022 original BKS paper identifies rational nodal geometry, not this finite incidence table. Published q=3 quartic and q=7 octic computations concern different curves/fields and do not determine the q=5 case. Independent full enumeration corroborates all asserted data. Priority is qualified by possibility of unindexed numerical work; lack of search matches is not novelty proof.",
+      "residual_risks": [
+        "An unindexed prior numerical enumeration, older finite-geometry table or coding-theoretic weight enumerator for the same BKS 136-point arc could establish these counts.",
+        "The Korchmaros–Nagy–Szonyi Section 4.2 general k-count appears to use a normalization count subtracting nodes; q=5,r=3 exact plane-equation count gives 126 parametrized points plus 10 F5 nodes. The mismatch should be independently reconciled before citing its numeric k directly.",
+        "Only identified primary relevant passages were materially read; no claim of every document page read or exhaustive worldwide literature coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_NOT_FULL_Q5_R3",
+          "evidence": "Theorem 7.5 applies r>=5; Section 8.2 Theorem 8.2 identifies on-curve missed points for r>=3. The r=3 BKS completeness problem is expressly left open. Section 4.2 formula for generic rational-point count appears inconsistent at odd r with 10 extra F5 nodes; exact q5 enumeration instead gives 136.",
+          "identifier_or_url": "https://publicatio.bibl.u-szeged.hu/29111/1/KorchmarosNagySzonyiAlgebraicapproachtothecompletenessproblemforkn-arcsinplanesoverfinitefields.pdf",
+          "material_read": "Primary OA PDF introduction, Section 4.2 including equation (5) and parametrization (6), Section 7.2 and Theorem 7.5, Section 8.2 and Theorem 8.2; theorem page screenshot checked",
+          "method": "Full-text searchable PDF with targeted section reading and page-image inspection",
+          "title": "Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields",
+          "trigger": "Directly same rational BKS curve, secant weights, and low-extension completeness"
+        },
+        {
+          "assessment": "CURVE_STRUCTURE_ONLY",
+          "evidence": "Proposition 4.24 identifies C_-1 as a rational curve with q(q-1)/2 rational nodes, no full F125 line or exterior concurrence table.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.05765",
+          "material_read": "Primary PDF abstract, Section 4 around Proposition 4.24 and its proof, page 18-19 text and supporting page screenshot",
+          "method": "PDF section text and page image",
+          "title": "Plane curves with a large linear automorphism group in characteristic p",
+          "trigger": "Original rational BKS nodal-curve definition"
+        },
+        {
+          "assessment": "DIFFERENT_BASE_FIELD_DEGREE",
+          "evidence": "Finite enumerations are for q=3 rational quartic over F27/F81, not q=5 sextic over F125.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-four-point-splitting-line-spectra-of-the-rational-bks-quar--17c25d1f3615/RESULT.md",
+          "material_read": "Complete published RESULT.md finding, field setup, proof, comparison and limitations",
+          "method": "Read exact GitHub published text",
+          "title": "Exact four-point splitting-line spectra of the rational BKS quartic over two small extensions",
+          "trigger": "Published closely related q=3 r=3,4 finite secant census"
+        },
+        {
+          "assessment": "DIFFERENT_Q_NOT_DOMINATING",
+          "evidence": "Calculations are specifically for q=7,F343 and do not state a universal q formula implying q=5 counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-eight-secant-and-exterior-hole-geometry-of-the-rational-bk--e47dccb217c8/RESULT.md",
+          "material_read": "Complete published RESULT.md finding, definitions, proof, scope and limitations",
+          "method": "Read exact GitHub published text",
+          "title": "Exact eight-secant and exterior-hole geometry of the rational BKS octic over F343",
+          "trigger": "Published q=7 r=3 analogue with full line arrangement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The q=5,r=3 BKS sextic is the first natural small-characteristic/low-extension sextic excluded from the main published r>=5 arc completeness classification. Its 6555 off-curve holes and complete 120-six-secant line-concurrence arrangement answer a concrete motivated finite-geometry question, not an arbitrary unmotivated sample. The full line spectrum and external s(P) frequencies are non-implied by the known on-curve classification and may be used in arc extension and finite projective code invariants. No general-q theorem or orbit classification is claimed; the finite result itself is a natural complete instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical originality is best of knowledge, not worldwide priority certification.",
+    "Finite classification is specifically F125, with no claim of a general q or r theorem.",
+    "Current public source METADATA.json and AUDIT.json contain scope_run_id and same_model_review fields; no complete guarded confidentiality-safe replacement was staged.",
+    "Server-side postprocessing has not occurred; no GitHub writes."
+  ],
+  "schema_version": 1
+}
