@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A fully specified Gaussian signal and independent white-noise model give exact fixed and matched information rates. Error-function elasticity decreases strictly, proving the unique bounded fixed optimum; strict concavity of the integrated autocorrelation proves the unique matched optimum. Taylor expansions, Gaussian moments, and a strict projection inequality prove the small- and large-overhead limits and the 0.6293963793 information ratio. verify.py passed 3561 supplementary numerical assertions; global and limiting claims depend on analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A previously available idealized Doppler autocorrelation optimization for the broadened matched filter establishes full-template uniqueness and square-root growth, which are therefore not treated as new.",
+        "Beatty and Gaudi 2015, arxiv:1507.00780, treat Gaussian-line and other profile radial-velocity precision but not an unbroadened template under integrated drift and overhead."
+      ],
+      "reasoning": "The established fully matched result dominates the matched-filter branch of the comparison but not the mismatched rank-one projection branch. Inspected primary literature contains physical motivation and cadence experiments, not the sharp loss constant; no stronger covering result was identified in the checks.",
+      "searches": [
+        "published-finding corpus: optimal exposure time with readout overhead Doppler smearing Gaussian line erf analytic exposure cadence theorem",
+        "Web: spectrograph optimal exposure time readout overhead Doppler line smearing erf cube root optimal cadence",
+        "Web: optimal exposure time spectroscopy smearing readout time power one third cube root"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2312.08320",
+      "https://www.astro.uu.se/~oleg/papers/lbc1.pdf",
+      "https://doi.org/10.1051/0004-6361/202347398",
+      "https://arxiv.org/abs/1507.00780",
+      "https://arxiv.org/abs/2302.02897"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023/2024 motivating study established that realistic detection significance varies with exposure resolution and system parameters, but does not claim a universal exact template-mismatch law.",
+        "The fully matched Gaussian formula uses an autocorrelation double integral; the fixed-template formula instead squares a single Gaussian correlation integral.",
+        "The new proof establishes bounded fixed optimal length versus divergent matched optimal length and a quantified 0.629396 limiting ratio."
+      ],
+      "reasoning": "Empirical maxima and the matched-template concavity result are consistent with, but do not yield, the fixed-template elasticity equation or its bounded solution. The new assertion is the sharp distinction, not that a compromise exists or that a fully matched optimum is unique.",
+      "searches": [
+        "published-finding corpus: exoplanet high resolution spectroscopy optimal exposure length Gaussian line smeared linear radial velocity drift Gaussian matched filter error function overhead cube root optimal cadence",
+        "Web: Optimising spectroscopic observations of transiting exoplanets 2024 Boldt Christmas exposure phase smearing cadence full text",
+        "Web: Gaussian spectral line smearing exposure time readout overhead analytically optimum radial velocity drift Gaussian matched filter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaussian line identity: the fixed information rate involves a squared rank-one projection, while the adapted-template rate is the squared full L2 signal norm.",
+        "Boldt-Christmas et al., arxiv:2312.08320v1, sections 2.1, 2.2, 5.6, discuss smearing and overhead but use simulated spectral pipelines."
+      ],
+      "reasoning": "The rank-one and full-norm objectives are not equivalent. Cauchy-Schwarz orders their values but supplies neither equality of optimizer lengths nor the fixed projection maximizer. A prior theorem about maximizing the full norm cannot imply the new finite-saturation law without new analysis.",
+      "searches": [
+        "published-finding corpus: Gaussian spectral line integrated during exposure cross correlation with unsmeared template versus smeared matched template limiting signal to noise 37 percent loss",
+        "Web: Gaussian spectral line smearing exposure time readout overhead analytically optimum radial velocity drift Gaussian matched filter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boldt-Christmas et al. analyze nine simulated time resolutions, not an exact Gaussian error-function law (2024, sections 4 and 5.6).",
+        "No inspected source provided the specific root 0.9899390828 or information ratio 0.6293963793 as an existing tabulation."
+      ],
+      "reasoning": "The numerical constants are defined by a transcendental equation and evaluated by independent bisection; searches did not identify a covering exact-value table. Absence from the index alone does not establish uniqueness of publication.",
+      "searches": [
+        "published-finding corpus: unbroadened fixed Gaussian template under linear Doppler drift exposure overhead optimal length converges constant 0.989939 instead of matched filter sqrt overhead 0.629396 efficiency",
+        "Web: \"Gaussian\" \"smearing\" \"readout\" \"exposure\" \"optimal\" exoplanet spectroscopy",
+        "Web: \"erf\" \"exposure time\" \"smearing\" \"overhead\" spectroscopy"
+      ]
+    },
+    "rationale": "Physical transit-spectroscopy simulations and spectral-line precision theory motivate but do not establish the exact fixed-template optimizer or limiting comparison. A known exact fully matched autocorrelation result already covers the matched branch, which is explicitly credited as a benchmark. The new fixed-template rank-one result yields a qualitatively different bounded optimizer and sharp 37.06% asymptotic deficit. No direct covering result was identified in actual record and literature searches; historical priority remains provisional.",
+    "residual_risks": [
+      "Generic optimal matched-filter theory is long established; the new claim is strictly the fixed-template phase and its explicit comparison, not basic matched-filter optimality.",
+      "Historical literature not exhaustively indexed, so an older equivalent error-function cadence optimization may exist.",
+      "No claim that a fixed spectral template is an actual required pipeline choice or that the high-overhead idealization is achievable within finite planetary transits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Physical cadence simulations and overhead accounting, no exact fixed-template rank-one Gaussian optimization theorem in inspected material",
+        "evidence": [
+          "Section 2.1 describes tradeoff",
+          "Section 2.2 specifies Gaussian instrumental line profile, photon noise, overhead",
+          "Section 4 samples nine resolutions",
+          "Section 5.6 discusses overhead"
+        ],
+        "identifier_or_url": "https://www.astro.uu.se/~oleg/papers/lbc1.pdf",
+        "material_read": "Full-text pages and extracted sections 1, 2.1, 2.2, 4, 5.1 and 5.6; visual inspection of page 3",
+        "method": "Read author-hosted full PDF text and visually inspect a relevant page",
+        "title": "Optimising spectroscopic observations of transiting exoplanets",
+        "trigger": "Directly motivates exposure overhead and Doppler smearing"
+      },
+      {
+        "assessment": "Addresses line-centroid precision and line-shape broadening, not identified as a direct match to the new projection-overhead claim; residual coverage possible",
+        "evidence": [
+          "Abstract gives Gaussian/Lorentzian/Voigt centroid-error scaling",
+          "Introduction surveys cross-correlation precision"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.00780",
+        "material_read": "Abstract and introduction, including spectral-line precision and historical references; not a full-body inspection",
+        "method": "Read accessible arXiv text",
+        "title": "Astrophysical Sources of Statistical Uncertainty in Precision Radial Velocities and Their Approximations",
+        "trigger": "Potential broader Gaussian-line precision coverage"
+      },
+      {
+        "assessment": "Photometric time-bin cadence and planet-radius precision, rather than fixed spectral-line template Doppler smearing; claim of noncoverage limited to abstract",
+        "evidence": [
+          "Abstract reports photometric precision improvements at different cadences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.02897",
+        "material_read": "Public abstract; full paper not inspected",
+        "method": "Read arXiv abstract and bibliographic description",
+        "title": "Understanding and predicting cadence effects in the characterization of exoplanet transits",
+        "trigger": "Plausible prior on cadence effects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7c45e8a-2083-45c3-9d62-f1b010a10160",
+  "value": {
+    "rationale": "The fixed-vs-adapted template decision is motivated by Doppler smearing of lines in high-resolution exoplanet spectroscopy; the mathematically exact contrast reveals a change in the asymptotic exposure-length scale and a nonvanishing 37.06% information-rate penalty, with an explicit universal constant. This is a structurally informative benchmark, not a marginal numerical gain or a claim about a specific instrument.",
+    "status": "PASS"
+  }
+}
