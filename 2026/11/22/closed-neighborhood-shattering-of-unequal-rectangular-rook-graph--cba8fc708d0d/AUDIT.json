@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For every board dimension, proof identifies necessary empty row/column and leaf-endpoint conditions, classifies every star-forest shape of at most three edges, proves explicit eight-trace realization for P3 plus disjoint edge and excludes every quartet by hereditary subshape and two-star side obstruction. Counts and exceptional boundaries are exact. The bundled standard-library checker independently verifies 144135 supports on all rectangles through 6x6. Finite tests are corroboration, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93 gives full coefficients only for uniform alphabets q repeated d times; it explicitly excludes unequal sizes.",
+        "published-finding corpus 2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0 gives static VC and online dimensions for mixed sizes but explicitly treats the closed VC classification as prior and does not count supports.",
+        "Adler et al., arXiv:2007.16042, Section 4, Theorem 4.6 proves the open Hamming VC bound three; Coudert et al., arXiv:2405.07588, Sections 1–2, 4–6 frame general algorithms and graph bounds, not two-parameter coefficients."
+      ],
+      "reasoning": "The uniform-alphabet formula yields the square m=n specialization exactly but does not imply the non-square coefficients because restricting the alphabet deletes both candidate centers and query cells. A scalar VC or Littlestone dimension does not determine the number or shape of all shattered supports. These sources are genuine coverage of related statements but not of the new heterogeneous polynomial.",
+      "searches": [
+        "published-finding corpus: complete closed neighborhood shattering polynomial rectangular rook graph K_m Cartesian K_n star forest disjoint row column three-edge support",
+        "published-finding corpus: exact shattering polynomial closed neighborhoods of Hamming two coordinates unequal alphabet",
+        "published-finding corpus: closed neighborhood VC-dimension Johnson graphs triangular graph",
+        "Web: 2020 Adler Benediktsson Macpherson VC dimension and density Johnson Hamming graphs",
+        "Web: 2024 Practical Computation of Graph VC-Dimension Coudert Csikos Ducoffe Viennot"
+      ]
+    },
+    "checked_sources": [
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol301-sea2024/LIPIcs.SEA.2024.8/LIPIcs.SEA.2024.8.pdf",
+      "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomials-of-rectangular-ro--ffaa2f7a2b1d/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 open rectangular-rook theorem gives a different XOR predicate and includes three-edge stars among shattered open supports, while those are provably excluded for closed crosses.",
+        "The 2026 closed homogeneous Hamming theorem covers all m=n, and the 2026 closed 4x4 comparison covers a single square; both are expressly cited rather than claimed.",
+        "The 2026 mixed-factor online theorem gives only dimensions, including the non-square thresholds. Distinct 3x8 and 4x6 boards with identical VC dimension three and 24 vertices have 1008 versus 1080 shattered triples, demonstrating the missing information."
+      ],
+      "reasoning": "Published scalar VC and adaptive ranks are logically weaker: many polynomials share the same degree. Equal-size alphabet formulas are values on the diagonal m=n, which cannot determine all off-diagonal coefficients without additional statements or assumptions. The open support theorem is not a closed-concept corollary. The assessed claim is the full off-diagonal support classification, not these known special results.",
+      "searches": [
+        "published-finding corpus: complete shattering polynomial closed neighborhoods rook graphs Cartesian product K_m K_n",
+        "published-finding corpus: VC dimension three full faces closed neighborhoods rook graphs arbitrary rectangular boards",
+        "published-finding corpus: exact online neighborhood dimensions of mixed-alphabet Hamming graphs",
+        "Web: 2019 2022 VC dimension graph neighborhood Hamming Johnson full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closed rook neighborhoods are exactly Boolean row-equality OR column-equality predicates, or the two-side incidence-star union on the edge set of K_{m,n}. The open rectangular-rook result uses XOR of these predicates, hence has genuinely different traces.",
+        "The exact two-literal Boolean OR query result 2026/11/2/SCOPE-static-and-adaptive-shattering-for-exact-two-literal-disjunction--6d369ad144f6 concerns arbitrary Boolean query words and unordered pairs of variables, not a Cartesian product of two categorical equality queries. Its unrestricted criterion does not determine the rectangular coefficient census."
+      ],
+      "reasoning": "Checked under alternate names: crosses, row/column union, bipartite incidence stars, two-term disjunction and reflexive Hamming balls. Similarity hits with edge-subset rectangles or exact-two-OR use different hypothesis and query domains. No inspected equivalent statement counts all closed crosses on arbitrary unequal boards.",
+      "searches": [
+        "published-finding corpus: two-parameter shattering polynomial row-column crosses on rectangular grids exact support count triples",
+        "published-finding corpus: VC-shattered supports of unions of one full row and one full column on a grid",
+        "published-finding corpus: Boolean concept class OR of row equality and column equality all shattered triples",
+        "published-finding corpus: rectangular line graph complete bipartite K_m,n Boolean incidence two sided star-union VC dimension 3 closed neighborhood"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463 gives 4x4 rook graph polynomial 1+16z+120z²+288z³; this equals the theorem specialization.",
+        "published-finding corpus 2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93 gives square n=n closed Hamming coefficients and not mixed sizes.",
+        "Direct symbolic evaluation yields 3x8 and 4x6 equal lower coefficients and different triple coefficients, 1008 and 1080, which no inspected table provides."
+      ],
+      "reasoning": "Specific published tables and finite coefficients were inspected, not inferred from title nonmatches. The exact 4x4 and all square-board cases are credited, excluded from originality, and used as boundary comparisons. No retrieved table includes the unequal-board third coefficient.",
+      "searches": [
+        "published-finding corpus: closed rook lattice graph shattered triples K_m square K_n exact count m(m-1)n(n-1)(m+n-4)/2",
+        "published-finding corpus: VC dimension three full faces closed neighborhoods rook graphs arbitrary rectangular boards",
+        "published-finding corpus: two-parameter shattering polynomial row-column crosses on rectangular grids exact support count triples",
+        "Web: exact closed-neighborhood VC shattering polynomial rectangular rook graph all K_m square K_n"
+      ]
+    },
+    "rationale": "The full heterogeneous coefficientwise formula and exact star-forest support criterion for unequal rectangular closed rook neighborhoods are not present in the inspected stronger Hamming square coefficients, open rook polynomial, 4x4 table, or full mixed VC/Littlestone dimension table. These are compared by hypotheses and implication, with all square/dimension cases credited. Searched alternative cross/incidence/OR names. Priority risk: possible differently indexed older census; absence from indexed hits is not mathematical uniqueness.",
+    "residual_risks": [
+      "An unindexed or differently titled all-rectangle row-column-cross shattering census may predate this account.",
+      "Uniform-case and VC-dimension statements are explicitly prior; newness relies on the independently derived off-diagonal coefficients and complete support shapes.",
+      "No independent specialist validation or exhaustive bibliography search is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General graph algorithms/bounds, not a complete non-square rook face polynomial",
+        "evidence": [
+          "Publication arXiv first version 2024-05-13; paper DOI 10.4230/LIPIcs.SEA.2024.8",
+          "Section 2 defines N[v] and VC; Sections 4–6 concern general bounds/algorithms/experiments; rook and Hamming terms were not present as body theorem targets"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol301-sea2024/LIPIcs.SEA.2024.8/LIPIcs.SEA.2024.8.pdf",
+        "material_read": "PDF title/abstract, introductory contributions, definitions, sections describing algorithms and bounds; searched full text for rook/Hamming and relevant table names",
+        "method": "Full PDF textual inspection via accessible repository, title-page screenshot and targeted full-text searches",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Same closed-neighborhood relation and eligible 2024 primary mathematical motivation"
+      },
+      {
+        "assessment": "Open-neighborhood VC bound and density; no exact closed heterogeneous coefficient formula",
+        "evidence": [
+          "Theorem 4.6 bounds open VC dimension at three",
+          "The paper explicitly defines its edge relation using open neighborhoods and only derives boundedness for closed neighborhoods"
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+        "material_read": "Accessible accepted author manuscript abstract, graph definitions and Section 4, including Theorems 4.6 and 4.7 on open Hamming neighborhoods",
+        "method": "Full PDF open, title-page screenshot, targeted theorem text",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Primary origin of VC bounds for Hamming neighborhoods, possible dominating formula"
+      },
+      {
+        "assessment": "Different XOR/open relation; does not imply OR/closed coefficients",
+        "evidence": [
+          "Open neighborhoods exclude their centers, described as XOR row/column incidence; three-cell full row star can be shattered in that relation"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomials-of-rectangular-ro--ffaa2f7a2b1d/RESULT.md",
+        "material_read": "Complete accessible RESULT.md, including formulas, structural classification, proof, limitations, and references",
+        "method": "Authorized read-only full source file fetch",
+        "title": "Exact open-neighborhood shattering polynomials of rectangular rook graphs",
+        "trigger": "Same rectangular graph and full shattering coefficients"
+      },
+      {
+        "assessment": "Decisively covers every square-board case. Does not claim heterogeneous factor sizes; original claim narrowed to unequal boards",
+        "evidence": [
+          "Its assumption explicitly fixes a common q across all d coordinates",
+          "For d=2, q>=4 its leading coefficient is q²(q−1)²(q−2), the square specialization of the current formula"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93/RESULT.md",
+        "material_read": "Complete accessible RESULT.md including all-formulas, examples, limitations and proof",
+        "method": "Authorized read-only full source file fetch",
+        "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+        "trigger": "Stronger same closed predicate on all uniform Hamming products"
+      },
+      {
+        "assessment": "Covers 4x4 specialization only; credited as previous known special case",
+        "evidence": [
+          "Exact 4x4 rook polynomial is 1+16z+120z²+288z³"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463/RESULT.md",
+        "material_read": "Complete accessible RESULT.md including full finite proof and comparison",
+        "method": "Authorized read-only full source file fetch",
+        "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+        "trigger": "Existing exact closed polynomial for 4x4 rook graph"
+      },
+      {
+        "assessment": "Already covers exact heterogeneous closed VC dimensions, but does not give per-support classifications or coefficients",
+        "evidence": [
+          "For d=2, closed ranks are two on 2-by-q and 3-by-3, and three from 3-by-4 onward",
+          "It explicitly disclaims originality for previously known mixed closed VC dimensions"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0/RESULT.md",
+        "material_read": "Complete accessible RESULT.md including full static and adaptive dimension table, proof and prior-work paragraph",
+        "method": "Authorized read-only full source file fetch",
+        "title": "Exact online neighborhood dimensions of mixed-alphabet Hamming graphs",
+        "trigger": "Existing statements for all non-square rook products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cba8fc70-8d0d-4b1b-ba52-171da966a09a",
+  "value": {
+    "rationale": "The complete two-parameter shattering polynomial for non-square rook graphs detects structural distinctions invisible to previously published dimensions or homogeneous coefficients: 3x8 and 4x6 both have 24 vertices, VC dimension three and all 276 pairs shattered, but have 1008 and 1080 shattered triples. The full support characterization provides a reusable natural boundary for two categorical-equality disjunction classes; no broader consequence is required.",
+    "status": "PASS"
+  }
+}
