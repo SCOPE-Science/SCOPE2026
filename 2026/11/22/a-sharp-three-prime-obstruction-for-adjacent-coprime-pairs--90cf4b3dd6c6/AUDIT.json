@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For any p≥17 each local bad-index mask in a 14-window is empty, a singleton or two neighboring indices; the explicit finite superset suffices. Every allowed 3-odd-prime support maps to one of 26 combinations of five exact small-prime mask sets and the large superset. The standalone script exhaustively computes all products and union bitmasks, showing exactly two 14-coverings, both with small support 3,5,7. CRT/direct period enumeration gives a=2,89 mod 105, and their good neighboring starts exclude length 15. The code was executed from the packaged content path, and the table is included in the proof. No finite sample inference is substituted for the exact reduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A072753 permits arbitrary two forbidden residues per odd prime, and reports maximal gaps for primorial support",
+        "Kalmynin–Konyagin §1, Theorem 1: x+f(i) additive translation and primorial asymptotic lower bound",
+        "Nguyen 2026 §§2,5: symmetric center fixed and finite window of offsets"
+      ],
+      "reasoning": "An unrestricted two-residue bound only upper-bounds the more constrained consecutive-residue problem and does not determine 14, uniqueness of support or residue classes. A polynomial-output-translation sieve, and an offset-varying symmetric-center sieve, cannot directly provide the input-translation classification.",
+      "searches": [
+        "\"two consecutive residues\" \"Jacobsthal\" 3 5 7",
+        "OEIS A072753 two-stage prime-sieves",
+        "arXiv:2302.00459 polynomial Jacobsthal function",
+        "Nguyen preprint 202608.1299 finite-window noncovering"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1706.00317v1",
+      "arXiv:1706.03668v1",
+      "arXiv:2302.00459v2",
+      "OEIS A072753 indexed text",
+      "Nguyen preprint 202608.1299v1",
+      "Published mathematical claim index results for exact-claim queries and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ziller–Morack (2017) even-difference j_2 and h_2 inequality; neither handles fixed odd difference 1",
+        "2017 computational table covers even-difference primorials including the factor 2",
+        "2023 polynomial Jacobsthal source concerns x+f(i), not f(x+i)",
+        "2026 wheel work fixes a symmetric center and has no 105=3·5·7 thirteen/fourteen cutoff theorem in the inspected sections"
+      ],
+      "reasoning": "None of these sources has quantifiers simultaneously requiring all odd moduli with exactly three distinct prime divisors, two consecutive excluded classes per prime, a sharp 14-index covering bound, and the two extremal starts. A stronger matching claim would cover this one but none was located in the searched evidence.",
+      "searches": [
+        "every product of exactly three distinct odd primes has consecutive interval of at most fourteen integers each with gcd of t(t+1) greater than 1; only 3*5*7 supports fourteen starting at 2 or 89",
+        "finite covering of 14 consecutive indices by three pairs of adjacent residue classes modulo distinct odd primes",
+        "arXiv:1706.00317v1 §2 and §3",
+        "arXiv:1706.03668v1 §2",
+        "arXiv:2302.00459v2 §§1–2",
+        "Nguyen 202608.1299 §§2–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1706.00317v1, §2: paired progression j_2(N) maximizes over even coordinate differences; odd differences excluded for even modulus",
+        "New statement is the maximum gap between starts a such that gcd(a(a+1),N)=1 with odd N and coordinate separation fixed to one"
+      ],
+      "reasoning": "Rephrasing via adjacent coprime pairs or 2-residue-class coverings is equivalent to the new invariant, but the existing j_2 problem has a different quantified coordinate difference and even-primorial context; rephrasing alone provides no exact bound.",
+      "searches": [
+        "\"paired Jacobsthal\" odd moduli pair difference one",
+        "\"Jacobsthal\" \"x(x+1)\" \"three\" primes 14",
+        "three odd prime divisors extremal gaps of adjacent coprime residue pairs modulo 105; exact 14 classification",
+        "Ziller–Morack arXiv:1706.00317v1, Definition 2.1 and Remark 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A072753 displays initial gaps 2,4,10,24,... and explicitly allows nonadjacent forbidden pairs",
+        "arXiv:1706.03668v1 Table 1 lists j_2 primorial with even coordinate separation"
+      ],
+      "reasoning": "The available exact tables count different, less restricted patterns or different modulus supports; their numerical values neither equal nor imply this universal 14 cutoff and precisely two starts.",
+      "searches": [
+        "site:oeis.org/A072753 maximum gaps two consecutive residue classes primes",
+        "OEIS A072753 maximal two-stage prime-sieve gap",
+        "arXiv:1706.03668v1 Table 1 primorial paired Jacobsthal",
+        "every product of exactly three distinct odd primes has consecutive interval of at most fourteen integers each with gcd of t(t+1) greater than 1; only 3*5*7 supports fourteen starting at 2 or 89"
+      ]
+    },
+    "rationale": "Actual mathematical claim searches and the relevant primary full-text sections were compared for logical implication. The closest classical two-residue-covering and paired-Jacobsthal results allow different congruence patterns or coordinate differences; none of the inspected statements implies the sharp fixed-odd-offset three-prime bound with unique prime support and exact CRT starts. Residual discovery risk remains as stated.",
+    "residual_risks": [
+      "Semantic search results and accessible source inspections are not comprehensive priority proof",
+      "OEIS primary web page returned access-denied; inspected search-indexed sequence text and its formula, not full direct page",
+      "2017 companion note advertises ancillary detailed data PDF that was not inspected; its published scope is still even-coordinate paired primorial",
+      "Unindexed or inaccessible mathematical results may remain undiscovered",
+      "The permissive large-prime family intentionally overcounts realizable local masks, but this only strengthens upper-bound verification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different even-difference quantified paired progression; fixed odd offset for odd modulus not classified",
+        "evidence": [
+          "arXiv:1706.00317v1, 1 Jun 2017, §2 Definition 2.1 and Remark 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1706.00317v1",
+        "material_read": "HTML abstract, §§1–3 including Definitions 1.1–2.2, remarks and primorial comparisons",
+        "method": "Primary full-text HTML section examination",
+        "title": "Divisibility in paired progressions, Goldbach’s conjecture, and the infinitude of prime pairs",
+        "trigger": "Closest original definition of paired Jacobsthal invariant"
+      },
+      {
+        "assessment": "Computes even-difference primorial j_2 table, not adjacent difference-one three-odd-prime universal result",
+        "evidence": [
+          "arXiv:1706.03668v1, §1 Definition 3, §2 Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1706.03668v1",
+        "material_read": "HTML §§1–2, all definitions, Table 1 and references; ancillary PDF not examined",
+        "method": "Primary full-text HTML section examination",
+        "title": "A short note on the computation of the generalised Jacobsthal function for paired progressions",
+        "trigger": "Potential exact table or companion stronger computation"
+      },
+      {
+        "assessment": "Different input/output translation, a primorial lower bound rather than small-prime-support classification",
+        "evidence": [
+          "arXiv:2302.00459v2, §1 definition j_f(N), Theorem 1, §2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.00459v2",
+        "material_read": "HTML abstract, §1 complete definitions and theorems, §2 main proof setup and sieve steps",
+        "method": "Primary full-text HTML section examination",
+        "title": "A polynomial analogue of Jacobsthal function",
+        "trigger": "Plausible quadratic-polynomial analogue with overlapping terminology"
+      },
+      {
+        "assessment": "Two residues unrestricted, unlike consecutive residues, with no exact claimed 14/105 entry",
+        "evidence": [
+          "OEIS A072753 formula a(n) for arbitrary c(k),d(k) and initial terms 2,4,10,24"
+        ],
+        "identifier_or_url": "https://oeis.org/A072753",
+        "material_read": "Search-indexed OEIS sequence, formula and comments, including allowed residue pairs",
+        "method": "Read detailed indexed sequence text; direct OEIS page access blocked",
+        "title": "Maximum gap in two-stage prime-sieves",
+        "trigger": "Possibly dominating exact two-forbidden-residue database"
+      },
+      {
+        "assessment": "Different symmetric-pair fixed-center sieve and shifted-window problem; no stated fixed adjacent-pair universal 14 cutoff",
+        "evidence": [
+          "Nguyen, posted 19 Aug 2026, §§2,3,5"
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202608.1299",
+        "material_read": "HTML abstract, §§2 and 3 finite windows, §5 literature relationship, searched for 105 and three-prime exact cutoff",
+        "method": "Primary open full-text HTML examination and targeted finds",
+        "title": "Finite-Window Noncovering on Primorial Wheels: Higher-Order CRT Bounds and Shift Correlations",
+        "trigger": "Nearby 2026 literature on two-residue prime wheel coverings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "90cf4b3d-d6c6-454e-a8b5-2328b9c0fee7",
+  "value": {
+    "rationale": "The three-prime layer is a canonical small-support level in paired Jacobsthal and wheel-sieve problems. It has a nontrivial jump in attainable blocked-run lengths and a sharp uniform cutoff valid for arbitrary large prime factors; the uniquely extremal 3·5·7 support and exact two CRT start classes are a natural complete classification. The result controls finite gaps between admissible adjacent pairs and is not a parameter substitution, bounded scan of moduli, or restatement of an existing table. It makes no unjustified claim about prime-pair existence.",
+    "status": "PASS"
+  }
+}
