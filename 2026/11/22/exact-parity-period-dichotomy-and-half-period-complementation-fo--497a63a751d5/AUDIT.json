@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact theorem for every k>=2: reduced rational generating function z/(1+z^2+...+z^k) identifies the least binary period with the unit order of x modulo its reciprocal C_k. A derivative argument for N=(x+1)C_k proves that C_k is squarefree except exactly one double root x=1 when k≡2 mod4; every simple irreducible root has odd order, whereas x mod (x+1)^2 has order two. A shift polynomial annihilation argument proves that the nonzero half-period difference is the constant one. The k=2 case is included; a genuine standalone exact checker tests all k from 2 through 500 for the polynomial gcd and independently enumerates entire state cycles for 2 through 18, confirming full complement symmetry in all exceptional cases. Finite checks are ancillary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deveci–Karaduman, Utilitas Mathematica 96 (2015), https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups: general Pell order k under arbitrary modulus, but its theorems give matrix and lifting relations dependent on hP_k(2), not a closed parity-classification result.",
+        "Deveci–Avcı–Karaduman, 2018, https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf: finite-group direct-product periods depend on hP_k(2), so they do not supply its dyadic order."
+      ],
+      "reasoning": "A broader period theorem for arbitrary k and modulus could dominate this statement only if it evaluates the unknown order-of-matrix parameter sufficiently to force the parity split and complement involution. The inspected group-period work does not: it propagates the unknown base period as a parameter. General linear-recurrence structure is used in our proof, but does not by itself state the k-dependent answer without specific polynomial factor analysis.",
+      "searches": [
+        "k-generalized Pell sequence characteristic polynomial x^k + x^(k-2)+...+1 squarefree if k mod4",
+        "k generalized Pell modulo 2 parity period odd terms",
+        "k Pell numbers periodicity parity modulo 2 even odd exact period k 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.01170v1",
+      "https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups",
+      "https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-binary-power-periods-for-every-k-step-fibonacci-sequence--4eeed3c3b3c2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.01170v1, https://arxiv.org/html/2611.01170v1: theorem 1.1 and proof treat absence of Wagstaff primes; characteristic polynomial appears in preliminaries.",
+        "Deveci–Karaduman, Utilitas Mathematica 96 (2015), https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups: modular period as a matrix order, classical k=2 period.",
+        "Deveci–Avcı–Karaduman, 2018, https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf: full variable-k Pell period hP_k(2) explicitly present as a factor in group period formula."
+      ],
+      "reasoning": "Neither the Diophantine Wagstaff exclusion, nor the identity expressing a group period in terms of hP_k(2), nor results for order-two Pell alone entails the new sharp k-mod4 classification. The general matrix-order equivalence is a tool but not a coverage of the explicit k-dependent claim. The half-period bit-complement involution is stronger than merely determining which periods are even.",
+      "searches": [
+        "sharp two-primary valuation of least period hP_k(2) Pell recurrence 2P_{n-1}+sum_{j=2}^{k}P_{n-j}, squarefree characteristic",
+        "\"hP_k(2)\" \"k\" period Pell 2",
+        "\"The Pell sequences in finite groups\" Deveci Karaduman 2015 pdf",
+        "k-generalized Pell sequence characteristic polynomial x^k + x^(k-2)+...+1 squarefree if k mod4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deveci–Karaduman, Utilitas Mathematica 96 (2015), https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups: Theorems 2.1–2.6, general matrix period and k=2 computation, no displayed k-mod4 rule.",
+        "Deveci–Avcı–Karaduman, 2018, https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf: Theorem 2.3 uses hP_k(2) symbol rather than explicit 2-adic valuation or half-period parity flip."
+      ],
+      "reasoning": "An equivalent may be formulated as parity of hP_k(2), mod-two characteristic-polynomial squarefreeness, or all-indices balanced Pell parity. These formulations were searched together. No inspected primary theorem states the all-k classification or complement shift; ordinary periodicity is strictly weaker.",
+      "searches": [
+        "exact parity classification for k-generalized Pell sequence modulo 2 half-period complement iff k congruent 2 modulo 4",
+        "sharp two-primary valuation of least period hP_k(2) Pell recurrence 2P_{n-1}+sum_{j=2}^{k}P_{n-j}, squarefree characteristic",
+        "\"k-Pell\" \"period modulo 2\"",
+        "\"generalized Pell\" \"modulo 2\" \"period\" k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus search: closest two-step Pell complete dyadic cycle census 2026/10/25/SCOPE-complete-dyadic-cycle-census-for-the-pell-companion-recurrence--2a4860fa5277.",
+        "Published published-finding corpus search: k-step Fibonacci binary-power period result 2026/11/8/SCOPE-exact-binary-power-periods-for-every-k-step-fibonacci-sequence--4eeed3c3b3c2.",
+        "Historical local mathematical claims were compared for the exact same variable-order Pell sequence; none covers its parity-period dichotomy."
+      ],
+      "reasoning": "The closest indexed entries concern (1) order-two Pell state maps over growing 2-power moduli, not growing order k over modulus two, and (2) k-step Fibonacci sequences with first-lag coefficient one, whose binary characteristic polynomial differs. Tables of small k are not an all-k proof, and no covering exact table was located.",
+      "searches": [
+        "exact parity classification for k-generalized Pell sequence modulo 2 half-period complement iff k congruent 2 modulo 4",
+        "Prosper Kaggwa On Wagstaff primes in k-Pell number sequence modulo two parity period",
+        "\"k-Pell\" \"parity\" period odd terms"
+      ]
+    },
+    "rationale": "The compared primary papers distinguish the full variable-order binary period hP_k(2) from classical two-step Pell periods and from finite-group periods expressed in terms of hP_k(2). The 2015 paper proves general periodicity and treats the classical k=2 binary period but does not evaluate the complete 2-primary hP_k(2) by k mod4; the 2018 paper explicitly leaves hP_k(2) as an input in Theorem 2.3. The 2026 k-Pell source proves Wagstaff-prime nonoccurrence, not parity periods. Indexed counterparts concern the two-step Pell recurrence with varying modulus or the k-step Fibonacci recurrence with different coefficients, and do not imply the uniform period dichotomy plus exact half-period bit-complementation. Searches below support noncoverage, but non-indexed implicit earlier derivations remain possible.",
+    "residual_risks": [
+      "A non-indexed or implicit earlier parity-period corollary may exist despite the checked published sources.",
+      "The 2018 relevant PDF was read through indexed mathematical text; screenshot request timed out, limiting visual verification, though the theorem formula was legible.",
+      "Classical general recurrence theory supplies the tools; the assessed novelty/value concerns their explicit sharp application and complement conclusion for this particular natural family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_QUESTION: nonexistence of Wagstaff primes, not modular least periods or parity complement",
+        "evidence": [
+          "Submission 2026-10-31 UTC, arXiv 2611.01170v1",
+          "Theorem 1.1 says no generalized Pell term is a Wagstaff prime",
+          "Characteristic polynomial Ψ_k introduced over the rationals; no mod-two period result"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.01170v1",
+        "material_read": "HTML body: abstract, background, Theorem 1.1, characteristic-polynomial preliminaries, methods, finite and large-order proof cases; searched entire HTML for parity, modulo 2 and period",
+        "method": "Lawful arXiv full HTML open; matched recurrence and initial conditions; read theorem and proof text",
+        "title": "On Wagstaff primes in the k-Pell number sequence",
+        "trigger": "Exact contemporary k-generalized Pell recurrence and qualifying primary MSC2020 11B39"
+      },
+      {
+        "assessment": "NOT_COVERING_AFTER_RELEVANT_READ: establishes periodicity and matrix recurrences, handles classical k=2 but no general k-mod4 binary-period/half-shift conclusion located",
+        "evidence": [
+          "Theorem 2.1: generalized-order-k Pell sequence modulo m is periodic",
+          "Theorem 2.2 calculates only hP_2(2^u)",
+          "Theorem 2.4 relates general hP_k(p^α) to companion matrix order"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups",
+        "material_read": "Author-posted accessible full-text content, especially Theorems 2.1 through 2.6 and the classical binary-period case; searched the text for all-order mod-two claims",
+        "method": "Read accessible primary full text through HTML transcription; compare theorem hypotheses and conclusions",
+        "title": "The Pell Sequences in Finite Groups",
+        "trigger": "Closest prior title specifically treating generalized order-k Pell periods modulo m"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_RELEVANT_THEOREMS: Theorem 2.3 leaves hP_k(2) unevaluated in group-period formula; does not state the new parity dichotomy",
+        "evidence": [
+          "Theorem 2.3(ii) contains lcm[2^i,n] hP_k(2)/2",
+          "Theorem 2.4 similarly uses hP_k(2) and odd-factor corrections"
+        ],
+        "identifier_or_url": "https://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf",
+        "material_read": "Indexed PDF text: definition, Theorems 2.3 and 2.4, relationship of variable-order Pell period with finite-group period",
+        "method": "Retrieved scientific article PDF indexed text; screenshot attempt timed out, so visual reading unavailable",
+        "title": "The periods of the k-step Fibonacci and k-step Pell sequences in finite groups",
+        "trigger": "Period formulas explicitly involve the exact parameter hP_k(2)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "497a63a7-51d5-476d-bab5-9dadaf31a252",
+  "value": {
+    "rationale": "Sharp complete dyadic period classification for all orders k>=2 of a classical generalization, plus an exact all-index anti-period parity involution and necessary-and-sufficient exact parity balance. Known least periods vary irregularly in their odd factors, so the uniform 4-class dependence and complement symmetry are a motivated invariant rather than an arbitrary finite-table recomputation; the 2018 finite-group period formulas depend on the previously unevaluated base period hP_k(2). No closed odd-period formula or broader modular claim is promised.",
+    "status": "PASS"
+  }
+}
