@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof Steps 1–5",
+      "artifacts/verify.py: standalone direct histogram and pair enumeration, observed PASS 105 cases"
+    ],
+    "rationale": "Proof independently reconstructed: f(x)-f(y)=(x-y)(x+y)(x^2+y^2+c); the conic has p-chi(-1) points; pairwise intersections total I=3+2chi(-c/2), with no triple crossing; each of U-I single components lifts to p^(k-1) solutions and each of I transverse crossings has W_k=p^(k-1)(1+(k-1)(p-1)) lifts. Thus E_k=p^(k-1)[3p-3-epsilon-2eta+(k-1)(p-1)(3+2eta)], all odd primes and k>=1. The test on the included file artifacts/verify.py passed 105 target histograms, 114015 direct pair checks, and 35 geometric cases; these are finite corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Xiong Theorem 1.8 treats all degree-four polynomials over fields",
+        "published 2026/11/8/35db6c8e1cdf treats all k but pure quartic four-input energy",
+        "published 2026/10/18/327b026713c6 treats unit perturbation but only p^2 and four-input energy"
+      ],
+      "reasoning": "The broad finite-field theorem cannot substitute a ring of characteristic p^k with nilpotents; the all-precision graph theorem changes both polynomial and invariant; the matching unit coefficient graph result fixes exponent two and a different collision constraint. Standard normal-crossing techniques could recover this special formula, but they do not directly supply its explicit two-class phase reversal without the three-component intersection census.",
+      "searches": [
+        "Seraj 2023 sum distinct biquadratic residues quartic local zeta all prime powers",
+        "quartic binomial polynomials p-adic value fiber x^4+ax^2 prime-power",
+        "Li Xiong 2024 intersection distribution degree four polynomial prime powers"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2309.13070",
+      "https://doi.org/10.1007/s10623-024-01488-6",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-exact-fourth-moments-of-unit-perturbed-quartic-graphs-over-prime--327b026713c6/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-additive-energy-of-the-quartic-graph-over-prime-power-ring--35db6c8e1cdf/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Seraj arXiv:2309.13070v1 field-only, distinct-sum objective",
+        "Li–Xiong DOI:10.1007/s10623-024-01488-6 all degree-four field intersection distributions",
+        "2026/10/18/327b026713c6 p^2 additive quartic graph energy",
+        "2026/11/8/35db6c8e1cdf pure quartic all-exponent additive graph energy"
+      ],
+      "reasoning": "The new claim implies its own k=1 finite-field collision value and k=2 moment, so priority cannot rest on those special cases; its scope is every exponent k and the sign reversal between k=1 and all k>=2. The p^2 graph proof can potentially imply the isolated k=2 slice, but not k>=3. The pure quartic has c=0, outside the unit hypothesis and with a different singular origin. None of the inspected stronger-looking statements implies the full claimed sequence.",
+      "searches": [
+        "p-adic quartic x^4+c x^2 equal value collision count p^k square character first-lift reversal",
+        "fiber second moment sum_y N(y)^2 for x^4 + c x^2 modulo odd prime powers",
+        "quartic binomial polynomials p-adic value fiber x^4+ax^2 prime-power",
+        "Li Xiong 2024 intersection distribution degree four polynomial prime powers",
+        "quartic polynomial x^4+a x^2 fiber frequencies prime power residue rings collisions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Seraj arXiv:2309.13070v1, Lemma 9 and Section 2",
+        "Li–Xiong DOI:10.1007/s10623-024-01488-6, Definitions 1.1/5.1",
+        "published quartic graph energy 2026/10/18/327b026713c6"
+      ],
+      "reasoning": "Reformulated the claim as sum_z N(z)^2, an equal-value pair count, a local-congruence collision zeta series, and a normal-crossing product count. Seraj addresses distinct-output sums at k=1; Li–Xiong covers fields F_{p^n}, not rings Z/p^k; the published p^2 graph moment is a four-variable sum with a special related slice. No inspected source states the full all-k two-variable formula.",
+      "searches": [
+        "p-adic quartic x^4+c x^2 equal value collision count p^k square character first-lift reversal",
+        "fiber second moment sum_y N(y)^2 for x^4 + c x^2 modulo odd prime powers",
+        "ordered equal value pairs quartic x^4+ax^2 mod p^k local density",
+        "\"x^4+c x^2\" \"p^k\" \"solutions\" \"pairs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct all-k biquadratic two-input collision row found in indexed mathematical results returned for these searches",
+        "Seraj table is of distinct-value sums modulo primes, not second moments at p^k",
+        "105 independent finite histograms reproduce the displayed formula but are not a prior table"
+      ],
+      "reasoning": "Looked for image cardinalities, exact target histograms, second moments, and local zeta functions. The nearest indexed records describe graph additive energy or finite-field value sets; none gives the stated p-power collision sequence. Absence from an index does not establish absolute novelty.",
+      "searches": [
+        "p-adic quartic x^4+c x^2 equal value collision count p^k square character first-lift reversal",
+        "fiber second moment sum_y N(y)^2 for x^4 + c x^2 modulo odd prime powers",
+        "Seraj 2023 sum distinct biquadratic residues quartic local zeta all prime powers",
+        "ordered equal value pairs quartic x^4+ax^2 mod p^k local density"
+      ]
+    },
+    "rationale": "Originality is assessed for the uniform second-fiber moment on all rings Z/p^kZ with unit c, particularly the sharp first-lift reversal and 1:5 slope split. Closest finite-field studies and published graph-energy studies are compared by implication, not just by title. Although the p-field collision count and normal-crossing lifting ingredients are elementary and may be implicit in general machinery, none of the inspected complete statements derives the all-k specialized formula. No general novelty guarantee or independent bibliographic certification is claimed.",
+    "residual_risks": [
+      "A general local-zeta or normal-crossing theorem with an explicit worked biquadratic specialization might already imply this formula without matching keywords.",
+      "The k=1 calculation is elementary and may already be present or implicit in field-level multiplicity tables.",
+      "The k=2 slice is closely related to the existing unit-perturbed graph-energy proof; the new scientific distinction is the entire exponent tower and class-order reversal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exponent-uniform statement: source computes sums of distinct residues and related field-level class structure, rather than a formula for ordered equal-value pairs over all nonfield prime-power rings.",
+        "evidence": "arXiv:2309.13070v1, Sections 1–3, especially Lemma 9 and Theorems 15, 20, 21. All working congruences are modulo p.",
+        "identifier_or_url": "https://arxiv.org/abs/2309.13070",
+        "material_read": "Full accessible text for introduction, Lemmas 9–14 on collisions of intermediate square inputs, main theorem and Section 3 coefficient-class results.",
+        "method": "Theorem and proof comparison with the proposed all-precision two-variable collision moment.",
+        "title": "Sum of Distinct Biquadratic Residues Modulo Primes",
+        "trigger": "Exactly the unit-perturbed even quartic over primes; same polynomial and quadratic-character classes."
+      },
+      {
+        "assessment": "NOT_COVERING all k: counts line intersections over finite fields and so does not furnish p-adic higher-congruence lifting or first-lift reversal.",
+        "evidence": "Theorem 1.8, Definition 1.1 and Section 5 specify F_q[x]; the class x^4+c x^2 appears in Lemma 2.1.",
+        "identifier_or_url": "https://doi.org/10.1007/s10623-024-01488-6",
+        "material_read": "Open-access full text in HTML: Definitions 1.1 and 1.3, Theorem 1.8, Lemma 2.1, representative Section 3 proof, concluding Section 5 and multiplicity distribution Definition 5.1.",
+        "method": "Compared ambient object and quantifiers q=p^n (field extension) against p^k (ring of integers).",
+        "title": "Intersection distribution of degree four polynomials over finite fields",
+        "trigger": "Its classification contains the quartics x^4+c x^2 and determines extensive root/intersection data."
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: its s=0 graph-sum slice is closely related to the k=2 two-variable moment; its theorem is a different additive energy and only covers k=2, so does not imply the all-k formula or reversal quantified across k.",
+        "evidence": "Its graph energy counts a+b=d+e and f(a)+f(b)=f(d)+f(e) modulo p^2. It explicitly limits scope to exponent-two rings.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-exact-fourth-moments-of-unit-perturbed-quartic-graphs-over-prime--327b026713c6/RESULT.md",
+        "material_read": "Entire RESULT.md including formulas (1)–(10), proof, relationship to prior work, and limitations.",
+        "method": "Checked the four-variable graph-sum constraint and fixed exponent two against the proposed two-variable equality at every exponent.",
+        "title": "Exact fourth moments of unit-perturbed quartic graphs over prime-square rings",
+        "trigger": "Same polynomial, nonfield ring, and collisions; strongest direct published overlap."
+      },
+      {
+        "assessment": "NOT_COVERING: studies four-variable additive energy of the graph of x^4 with no quadratic perturbation; setting c=0 leaves the unit regime and creates a different singular cone. It supplies a related method, not the stated object or its first-lift phase boundary.",
+        "evidence": "Finding and Proof sections explicitly use uv(u^2+v^2+12s^2) and k-step origin recursion.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-additive-energy-of-the-quartic-graph-over-prime-power-ring--35db6c8e1cdf/RESULT.md",
+        "material_read": "Entire RESULT.md including exact four-step recurrence and limitations.",
+        "method": "Compared polynomial, number of input variables, and singular locus.",
+        "title": "Exact additive energy of the quartic graph over prime-power rings",
+        "trigger": "All-exponent quartic collision lifting and normal crossings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "95be8e89-2285-4e0e-8d98-67f31bf13a66",
+  "value": {
+    "evidence": [
+      "RESULT.md, formulae (1)–(3), variance corollary",
+      "Seraj (2023) focuses on distinct-output sums, providing a related but non-equivalent motivation"
+    ],
+    "rationale": "The second moment of polynomial fibers quantifies local representation nonuniformity, a natural invariant beyond distinct-value sum/cardinality; the all-precision closed law reveals linearly growing target-fiber variance, a 1:5 coefficient-class slope split, and a strict first-lift reversal. These phenomena require accounting for the distinct transverse intersections rather than repeating a fixed prime-level table. They are meaningful for local congruence distributions, even though standard Hensel methods form the proof foundation.",
+    "status": "PASS"
+  }
+}
