@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:06:22.041625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The order ideal of P=[2]×[3]×[4] is uniquely a legal monotone 2×3 array of heights in {0,...,4}; independently wrote a complete recursion checking all height arrays and obtained exactly 490 distinct 24-bit masks. On all 2^24=16,777,216 characters I independently computed exact 24-stage Walsh coefficients with 442 distinct signed values, 1,234,934 zeros, 15,542,282 nonzero, nonzero extremes 2 and 490, and Parseval total squares 490*2^24=8,220,835,840. I applied a second all-coordinate integer transform to the Boolean support mask, independently obtaining numerator sum |H(x)| =11,078,918,348 and H(0)=15,542,282, support Parseval 15,542,282*2^24=260,756,222,246,912. Thus ratio 11,078,918,348/16,777,216 reduces to 2,769,729,587/4,194,304. For arbitrary linear projections, translation averaging onto the invariant Fourier range gives the unique Fourier-support projector, proving unrestricted minimality analytically. These are complete finite-24bit calculations; no claim about all boxes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohn–Larsen–Propp arXiv:math/9801059 concerns MacMahon product/limit shapes; Borodin–Gorin–Rains arXiv:0905.0679 develops elliptic/q weighted tiling measures with few shared parameters.",
+          "BGR Theorem 10.5 uses integrable weight parameters shared across many cubes, rather than independent 24 Boolean character switches."
+        ],
+        "reasoning": "Broader integrable models encompass many weighted ensembles but do not state or immediately imply the full 442-level independent-bit Walsh histogram and projector support. A sufficiently general partition function algorithm permits computation in principle, not supplied evaluated result.",
+        "searches": [
+          "2x3x4 boxed plane partitions order ideals full Boolean Walsh spectrum rank projection norm",
+          "Borodin Gorin Rains q-distributions boxed plane partitions Theorem 10.5",
+          "Cohn Larsen Propp shape typical boxed plane partition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT 05b47a9a5b251c7e393f94f6398ba38ff708af2d, C++ check.cpp read, spectrum.csv/projection_kernel.csv available from frozen tree; tree 7e95a7d1ab39b47e1b35b79999155a2d03ca0fec.",
+        "Independent compiled C++ exact integer 2^24 Walsh transforms and kernel proof replay generated solely from mathematical height-array specification.",
+        "https://arxiv.org/pdf/math/9801059",
+        "https://arxiv.org/pdf/0905.0679",
+        "Resultary query: 2x3x4 boxed plane partitions order ideals full Boolean Walsh spectrum rank projection norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 490 count is implied by known MacMahon enumeration.",
+          "All 24 sign assignments and projection L1 total rely on a full Fourier support census not a mere specialization of one variable q."
+        ],
+        "reasoning": "Generic Fourier diagonalization and MacMahon count are classical and credited. None of the inspected primary results provides the all-sign spectrum or unique minimum projection constant as an immediate corollary; their few-variable specializations cannot fix all 24 independent character values.",
+        "searches": [
+          "2x3x4 boxed plane partitions order ideals full Boolean Walsh spectrum rank projection norm",
+          "Cohn Larsen Propp hexagon tilings enumeration",
+          "Borodin Gorin Rains elliptic weights theorem 10.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order ideals of [2]×[3]×[4] correspond to boxed plane partitions and lozenge tilings of a 2×3×4 hexagon.",
+          "MacMahon product produces 490 at all positive weights, but 24 independently signed cube-coordinate Fourier evaluations are different data."
+        ],
+        "reasoning": "Known bijections and classic enumeration are accounted for; a 24-coordinate Boolean sign transform on *all* ideals is not equivalent to a single q-volume generating function or a few-parameter tiling weight.",
+        "searches": [
+          "2x3x4 boxed plane partitions order ideals full Boolean Walsh spectrum rank projection norm",
+          "MacMahon product [2] [3] [4] order ideals",
+          "signed lozenge tilings boxed plane partitions Fourier coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MacMahon formula gives known 490 count, and Resultary search recovers same exact target record plus distinct Boolean-lattice antichain and ASM spectra.",
+          "The new tables include every one of 2^24 signs (442 signed values) and all kernel absolute magnitudes."
+        ],
+        "reasoning": "No distinct published 24-bit signed table identified; old 490 counting tables are insufficient to derive nullity or projection norm without doing new computation. Negative search alone not treated as priority proof.",
+        "searches": [
+          "2x3x4 boxed plane partitions order ideals full Boolean Walsh spectrum rank projection norm",
+          "2 3 4 boxed plane partitions Walsh 1234934 2769729587",
+          "plane partition boxed 490 signed order ideal Fourier table"
+        ]
+      },
+      "rationale": "Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.",
+      "residual_risks": [
+        "An historical independently weighted plane-partition table or general signed-ideal specialization may encode equivalent data despite nonmatch in sampled sections.",
+        "Existing packaged CSV table blobs were identified; independent full signed-level histogram count and norm evaluated, but the packaged CSV files were not downloaded for byte-for-byte table comparison.",
+        "Finite theorem does not imply asymptotic box-volume behavior or a formula for all box sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counting/product and limiting shapes, not independently signed 24-coordinate Fourier histogram in inspected relevant portions.",
+          "evidence": "Cohn–Larsen–Propp (1998), arXiv:math/9801059, introduction and Proposition 2.1.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9801059",
+          "material_read": "29-page PDF opened, introduction, enumeration discussion and Proposition 2.1/section2, with visual screenshot p.9",
+          "method": "PDF primary text and screenshot",
+          "title": "The Shape of a Typical Boxed Plane Partition",
+          "trigger": "Same object and classic enumerator; plausible preexisting signed specializations"
+        },
+        {
+          "assessment": "Several shared elliptic/q parameters; not a statement of all 24 independent binary signs or sharp Fourier-support projection norm.",
+          "evidence": "Borodin–Gorin–Rains (2009), arXiv:0905.0679, §§2–3 and Thm10.5.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.0679",
+          "material_read": "58-page PDF opened; introduction, relevant weighted ensemble sections2–3 and theorem10.5 at p.53, visually inspected",
+          "method": "PDF primary text and theorem screenshot",
+          "title": "q-Distributions on Boxed Plane Partitions",
+          "trigger": "Closest multivariate-looking weighted tiling theorem, potential domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Boxed plane partitions and their order ideals/lozenge tilings are canonical objects; the 2×3×4 box is the smallest nontrivial three-dimensional box with mutually distinct side lengths. Its 490 unweighted count is classical, but the entire 24-coordinate binary signed frequency distribution, sharp zero support and projector amplification are independently useful exact invariant data for a natural constrained-height ensemble. Complete finite classification rather than an arbitrary selected slice, with no higher-box extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An historical independently weighted plane-partition table or general signed-ideal specialization may encode equivalent data despite nonmatch in sampled sections.",
+    "Existing packaged CSV table blobs were identified; independent full signed-level histogram count and norm evaluated, but the packaged CSV files were not downloaded for byte-for-byte table comparison.",
+    "Finite theorem does not imply asymptotic box-volume behavior or a formula for all box sizes."
+  ],
+  "schema_version": 1
+}

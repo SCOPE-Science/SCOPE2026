@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of boxed-plane-partition Fourier census
+# Independent mathematical audit
 
-Compile and run `check.cpp` from a writable directory with a C++17 compiler, using `c++ -O3 -std=c++17 check.cpp -o check && ./check`. It regenerates the two output CSV files; compare them to the packaged `spectrum.csv` and `projection_kernel.csv` or rerun in a fresh directory containing packaged CSV files and compare file hashes.
+## correctness
 
-The checker verifies 490 ideal incidence masks using both a six-entry height-array recursion and a breadth-first addition of admissible cubes; both complete enumeration sets are identical. It verifies all 16,777,216 Fourier multipliers by two exact Hadamard butterfly orders, 8,192 defining character sums, and both Parseval identities. It verifies every coefficient of the support transform with two independent butterfly orders and its exact absolute sum 11,078,918,348. Its final marker is `BOXED_PLANE_PARTITION_234_WALSH_PASS count=490 frequencies=16777216 zeros=1234934 rank=15542282 signed_levels=442 smallest=2 largest=490 projection=2769729587/4194304`.
+PASS
 
-The signed histogram and support-transform histogram are complete finite certificates, not sampled approximations. The proof of unrestricted projection minimality is analytic, not inferred from checking invariant competitors. There is no claim of independent external audit or a theorem for larger boxes.
+The order ideal of P=[2]×[3]×[4] is uniquely a legal monotone 2×3 array of heights in {0,...,4}; independently wrote a complete recursion checking all height arrays and obtained exactly 490 distinct 24-bit masks. On all 2^24=16,777,216 characters I independently computed exact 24-stage Walsh coefficients with 442 distinct signed values, 1,234,934 zeros, 15,542,282 nonzero, nonzero extremes 2 and 490, and Parseval total squares 490*2^24=8,220,835,840. I applied a second all-coordinate integer transform to the Boolean support mask, independently obtaining numerator sum |H(x)| =11,078,918,348 and H(0)=15,542,282, support Parseval 15,542,282*2^24=260,756,222,246,912. Thus ratio 11,078,918,348/16,777,216 reduces to 2,769,729,587/4,194,304. For arbitrary linear projections, translation averaging onto the invariant Fourier range gives the unique Fourier-support projector, proving unrestricted minimality analytically. These are complete finite-24bit calculations; no claim about all boxes.
+
+## originality
+
+PASS
+
+Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.
+
+## value
+
+PASS
+
+Boxed plane partitions and their order ideals/lozenge tilings are canonical objects; the 2×3×4 box is the smallest nontrivial three-dimensional box with mutually distinct side lengths. Its 490 unweighted count is classical, but the entire 24-coordinate binary signed frequency distribution, sharp zero support and projector amplification are independently useful exact invariant data for a natural constrained-height ensemble. Complete finite classification rather than an arbitrary selected slice, with no higher-box extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

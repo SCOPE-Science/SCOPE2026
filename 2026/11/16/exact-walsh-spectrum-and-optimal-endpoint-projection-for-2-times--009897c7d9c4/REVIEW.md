@@ -1,15 +1,21 @@
-# Scientific review: boxed-plane-partition Walsh census
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified 24-bit encoding is unambiguous. Two structurally different complete ideal enumerators agree on exactly 490 masks. Two differently ordered exact Walsh transforms agree at all 16,777,216 frequencies, with 8,192 independent direct character sums. Their signed histogram has 1,234,934 zeros and has smallest/largest nonzero absolute values 2 and 490. Support transforms agree exactly and have absolute-coefficient sum 11,078,918,348. Both Parseval identities and the minimum-coordinate pairing symmetry check. Translation averaging proves projection optimality among *all* real or complex linear projections, not merely invariant ones. The C++17 code and histograms are embedded and replayable.
+## correctness
 
-## Originality — PASS under bounded comparison
-Cohn--Larsen--Propp (arXiv:math/9801059, Introduction and Section 2) establish the shape/tiling interpretation and classical enumerations, not a binary cube-sign spectrum. Borodin--Gorin--Rains (arXiv:0905.0679, Sections 2--3 and Theorem 10.5) study finitely parameterized weights and their integrable models, rather than all 24 independent character signs or this support-projection constant. Existing finite-group results on complete spectra of binary permutation matrices and perfect matchings share methods but not support sets or numerical implications. An earlier exact study of indicators of two-chain order ideals concerns a two-dimensional poset; the present set is the 24-coordinate order-ideal ensemble of a three-chain product. No source inspected provided the claimed 490-point spectrum, nullity or projector constant. The search is not a proof of priority; generic weighted-partition-function expressions may offer alternate routes without explicitly supplying this census.
+PASS
 
-## Mathematical value — PASS
-The smallest box with three mutually distinct nontrivial side lengths is an intrinsically natural first asymmetric lozenge-tiling ensemble. A full Fourier-nullity census and a sharp unrestricted endpoint projection norm quantify recoverable and unstable signal modes in its binary incidence representation. The sharp constant is substantially larger than 1 despite the large nonzero spectral support, and the exact histogram supplies a reproducible benchmark for finite harmonic analysis of constrained random surfaces. The result is a self-contained natural complete finite classification, not a generic parameter slice selected solely to produce digits. No asymptotic or paper-sized contribution is asserted.
+The order ideal of P=[2]×[3]×[4] is uniquely a legal monotone 2×3 array of heights in {0,...,4}; independently wrote a complete recursion checking all height arrays and obtained exactly 490 distinct 24-bit masks. On all 2^24=16,777,216 characters I independently computed exact 24-stage Walsh coefficients with 442 distinct signed values, 1,234,934 zeros, 15,542,282 nonzero, nonzero extremes 2 and 490, and Parseval total squares 490*2^24=8,220,835,840. I applied a second all-coordinate integer transform to the Boolean support mask, independently obtaining numerator sum |H(x)| =11,078,918,348 and H(0)=15,542,282, support Parseval 15,542,282*2^24=260,756,222,246,912. Thus ratio 11,078,918,348/16,777,216 reduces to 2,769,729,587/4,194,304. For arbitrary linear projections, translation averaging onto the invariant Fourier range gives the unique Fourier-support projector, proving unrestricted minimality analytically. These are complete finite-24bit calculations; no claim about all boxes.
 
-## Limitations and closest sources
-The primary sources give the underlying plane-partition ensemble and weighted partition functions. They do not rule out every historical presentation of equivalent signed specializations. The calculation is exhaustive only for \(2\times3\times4\), and the remaining unknown general-dimensional behavior is not inferred. External independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.
+
+## value
+
+PASS
+
+Boxed plane partitions and their order ideals/lozenge tilings are canonical objects; the 2×3×4 box is the smallest nontrivial three-dimensional box with mutually distinct side lengths. Its 490 unweighted count is classical, but the entire 24-coordinate binary signed frequency distribution, sharp zero support and projector amplification are independently useful exact invariant data for a natural constrained-height ensemble. Complete finite classification rather than an arbitrary selected slice, with no higher-box extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
