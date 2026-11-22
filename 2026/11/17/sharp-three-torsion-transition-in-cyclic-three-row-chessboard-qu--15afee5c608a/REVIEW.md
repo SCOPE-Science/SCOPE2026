@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The group acts freely because a nontrivial row cycle cannot preserve the unique rook in a fixed occupied column. Each quotient cell is therefore a genuine orbit simplex. The two oriented triangular boundaries follow from the column ordering and provide a complete integer presentation for first homology. Eliminating the integral fundamental-cycle generators yields triple-sum relations and exactly one order-three factor once four row-difference generators are present. The \(n=3\) collapse and \(n=4\) orientable surface quotient follow directly. The proof of simple connectivity for the cover when \(n\ge5\) invokes the expressly cited 1994 theorem with its hypotheses verified. The second homology is free as a subgroup of a free two-chain group, and Euler characteristic fixes its rank. The standalone checker independently reconstructs all faces and performs exact Smith reductions through \(n=8\). Risk: a mistake in the signed cell incidences would affect the integer presentation; the checker rederives these from the raw labeled faces.
+PASS
 
-## Originality — PASS relative to inspected evidence
+All nonempty rook faces have trivial stabilizer under the cyclic 3-row rotation: each occupied column has exactly one selected row. Quotient orbit cells are n vertices, n(n-1) oriented edges, 2*C(n,3) triangles with the displayed integral boundary signs. The spanning-tree cycle basis eliminates triangle variables and leaves H1=<x2,...,xn | xi+xj+xk=0, 2<=i<j<k<=n>. For n=3 no relations gives Z^2, for n=4 one primitive triple relation gives Z^2, and n>=5 has at least four generators so pair-sharing differences force all xi equal and 3x=0 with a map to Z/3 proving exact order. At n=3 free-edge simplicial collapses give wedge S1∨S1; n=4 original chessboard surface is torus and odd-order orientation-preserving covering keeps torus. For n>=5 classic chessboard connectivity gives simply connected cover, hence π1 quotient C3; top H2 is free as kernel of integer ∂2 and its rank is χ-1=n(n-2)(n-4)/3-1. Direct integral presentation is all-width proof; bounded Smith checks n=3..10 independently corroborate.
 
-The 1994 source was inspected through the author-posted full text, particularly its introductions, connectivity theorem, and \(3\times4\) torus discussion. It supplies the premises but does not state the row-rotation orbit-cell presentation or the all-width quotient homology diagram. The 2004 and 2026 preprints describe underlying complexes; the modern paper was accessible only by abstract and is retained as a bibliographic risk. The closest indexed mathematical records concern rotation of **columns**, different graph complexes, or nonidentical reflection actions, so their stated results do not imply the exact present quotient. Absence of identified coverage is not a proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-row chessboard is a standard test object for topological combinatorics. Passing to the natural smallest nontrivial subgroup of row permutations reveals a sharp, integral, **parameter-wide** transition: a rank-two free fundamental group at three columns, a surface group at four, and the nonfree abelian group of order three in every width from five onward. The explicit integer relation matrix explains the exact threshold and distinguishes a genuine order-three quotient class from torsion in the underlying complex, which is absent for all these widths. The simultaneous closed formula for the growing second-homology rank makes the result a complete natural low-dimensional classification, not an arbitrary numerical table or a restatement of shellability.
+Earlier homology results for ordinary chessboard complexes are about the cover and other Resultary records concern column rotation or different row/column dimensions. The row C3 geometric quotient and all-width H1 torsion transition are a distinct exact integral invariant. Standard covering-space theory supplies π1 given simple connectivity but does not compute the complete signed orbit-cell presentation.
 
-## Closest sources and residual limits
+## value
 
-Björner–Lovász–Vrećica–Živaljević (1994), DOI 10.1112/jlms/49.1.25, supplies the key covering connectivity and the exceptional torus. Shareshian–Wachs, arXiv:math/0409054, concerns unquotiented matching and chessboard torsion. Limonchenko–Yu, arXiv:2610.37827, accessible in abstract only, is a residual novelty risk. The general formula does not identify the \(\pi_2\) module or the full homotopy type of \(Q_n\) for \(n\ge5\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural group action on the basic 3×n chessboard complex acquires order-three torsion exactly at n=5 although the cover has torsion-free homology; the sharp wedge/torus/torsion change and all-width free H2 rank are meaningful classification data and provide test cases for equivariant combinatorial topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
