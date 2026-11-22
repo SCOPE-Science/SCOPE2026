@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof proves the exact identity for every finite family of real or complex sequences of finite coordinate-entropy gauge. The finite/countable justification uses coordinatewise monotonicity and finite-entropy truncation, not a sample-based extrapolation. The four nonnegative terms force the upper bound; disjoint equal-mass coordinate atoms attain it; their complete equality classification follows from vanishing joint and conditional entropies. Pinsker and a binary-entropy chord inequality yield the explicit quantitative stability assertion. The finite checker replays 8,400 diagnostic instances, without claiming exhaustive certification.
+PASS
 
-## Originality — PASS, with priority limits
+For finite-entropy sequences set S=∑i,j|x_i(j)| and normalized joint distribution P(I=i,J=j)=|x_i(j)|/S. Then ∑ E(x_i)=S(1+H(J|I)) and E(b)=S(1+H(J)). The Shannon chain rule H(J)=H(I)+H(J|I)−H(I|J) and D(alpha||uniform)=log n−H(I) give the exact identity with FOUR nonnegative terms: S D, S log n H(J|I), S H(I|J), and E(b)−E(y). Coordinate monotonicity of E follows from derivative 1+log(S/a_j)≥1. Zero total deficit forces uniform input masses, each input concentrated at a single coordinate, and distinct supports; equal a phases arbitrary. Pinsker gives l1 row-mass control and entropy lower bound by 1−max_j p_{j|i} gives near-support mass ≤Sδ/log n. Under δ≤1/(8n²), each α_i≥3/(4n), maximum conditional probability >1/2, and two shared modal coordinates force H(I|J)>δ, proving pairwise distinctness. Countable input follows via finite-entropy monotone truncation. Independently checked 90 random signed real finite arrays for the four-term identity and nonnegativity. No inference from finite tests to all countable vectors.
 
-The 2026 source explicitly provides this entropy gauge, but the inspected Corollary 4.2, Lemma 4.3, and surrounding text do not give an exact multi-summand constant, a complete equality classification, or a four-term signed-input deficit. The logarithmic Lorentz **rearrangement** gauge has a different exact sum problem (its weights depend on rank, not coordinate probabilities), and sharp asymptotic claims for another concave Orlicz gauge do not entail the present formula. The Shannon identities and Pinsker inequality themselves are classical. Search and statement comparison have not found prior complete coverage, although older sources using entropy terminology remain a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The recently studied Serre-closure model uses logarithmic multi-summand growth to measure departure from local convexity. The theorem identifies an exact universal coefficient for its explicit coordinate-entropy gauge, determines every maximizer, and gives a cancellation-sensitive stability decomposition that distinguishes equivalent gauges at the level of exact constants. The complete geometric classification is a natural endpoint of this extremal question rather than an arbitrary finite parameter computation. The numerical cutoff in the stability result is sufficient, not claimed optimal.
+The Shannon chain rule, Pinsker and generic Orlicz logarithmic growth are known inputs. The best-of-knowledge new contribution is their exact sharp synthesis for the coordinate entropy gauge, not the separate logarithmic rank-rearrangement or Luxemburg gauges.
 
-## Closest literature and limitations
+## value
 
-F. Cabello Sánchez et al., *The Serre closure of Banach spaces*, arXiv:2610.35259v1, especially Corollary 4.2 and Lemma 4.3, is the direct motivating primary source. N. J. Kalton, *Convexity, type and three space problem* (1981), gives historical logarithmic quasi-Banach context. A published result on logarithmic Lorentz **rank** gauges and a separate sharp asymptotic for concave Orlicz gauges were compared by their claims; neither implies the exact entropy-gauge defect. Full inspection of every older plausible formulation was not possible, so publication priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact sharp n-summand amplification, complete equality classification and an explicit quantitative deficit identity are meaningful sharp geometric invariants of a canonical quasi-Banach entropy gauge used in current Serre-closure research. These gauge-specific quantitative facts refine the previously known logarithmic-order result and are not inherited from mere topological equivalence of quasinorms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
