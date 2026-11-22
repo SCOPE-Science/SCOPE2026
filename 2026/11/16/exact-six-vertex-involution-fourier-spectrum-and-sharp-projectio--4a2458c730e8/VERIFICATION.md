@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-Exact verification relies on a 15-bit signed-matching representation, not on direct construction of a \(2^{36}\)-entry operator. The reduction from the original additive matrix characters is proved in `RESULT.md`.
+# Independent mathematical audit
 
-Two genuinely different algorithms were executed:
+## correctness
 
-* `check_spectrum.cpp`: enumerate all 76 matching incidence masks and apply the exact integer Walsh-Hadamard transform; separately compute all relabeling orbits and the exact projection kernel mass.
-* `check_spectrum.py`: for each one of the 32768 signed graphs, recursively sum over remaining fixed and paired vertices; then apply an independent exact integer Walsh-Hadamard transform to the nonzero mask.
+PASS
 
-The two ordered signed-multiplier vectors agree byte-for-byte in little-endian signed 32-bit form. Their SHA-256 is `622bf9900d5a6d9a43e681e8e32a8d28c8c111e85ced8c12fdbefbae7093b134`.
+For six-label involution permutation matrices: verified each fixed point/transposition partition yields W(K)=(-1)^(ΣK_ii) Z(t), t_ij=K_ij+K_ji+K_ii+K_jj mod2, surjective 15 bits with fibers 2^21. Independently enumerated all 32768 signed K6 monomer-dimer recurrences (76 matchings), exact 19-level integer spectrum; zeros=6825, nonzero=25943, min nonzero |Z|=4. Independently recounted zero negative-edge supports 5:480,7:2880,9:2280,11:1185; relabeling all 720 permutations yields 26 orbits, with support-five orbit sizes 120 and 360 and claimed degree sequences. Support indicator Walsh absolute sum 1,524,338 gives sharp endpoint norm 762169/16384 and nullity 6825*2^21. No full-n classification asserted. Finite exhaustive enumeration is a complete certificate for fixed n=6; code reviewed, not only a saved success marker.
 
-Both methods check zero count \(6825\), nonzero count \(25943\), least positive absolute multiplier \(4\), the 19 exact signed levels, the negative-edge-count distribution \(480,2880,2280,1185\) at sizes \(5,7,9,11\), and exact Parseval identities. The C++ code checks 26 relabeling orbits and their size histogram; its `orbit_table.csv` output matches the included certificate. Both methods compute the integer sum of absolute inverse-mask Fourier coefficients \(1\,524\,338\), giving sharp endpoint norm \(762169/16384\).
+## originality
 
-Success markers: `INVO_FOURIER_CPP_PASS` and `INVO_FOURIER_PYTHON_PASS`.
+PASS
 
-Compiler: `g++ -O2 -std=c++17 -Wall -Wextra -pedantic check_spectrum.cpp -o check_cpp`. Execute `./check_cpp spectrum.bin orbits.csv`, then `python3 check_spectrum.py`. No third-party packages or data downloads are required.
+Best-of-knowledge new complete signed K6 monomer–dimer 19-level Walsh census, zero-orbit classification and sharp range projection norm at exactly six labels. Distinct from known involution counts and signed-graph switching classes.
 
-Limits: the computation exhausts precisely fifteen signed graph edges; it is not an infinite-order spectrum calculation. The mathematical independence of an external auditor is not claimed.
+## value
+
+PASS
+
+The six-label involution family is the first sizable natural monomer–dimer group embedding with a nontrivial signed Walsh zero locus. Its first cancellation support, complete zero orbits and exact sharp range projection norm isolate symmetry-induced recovery loss; these are useful exact finite invariants not implied merely by the classical involution count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

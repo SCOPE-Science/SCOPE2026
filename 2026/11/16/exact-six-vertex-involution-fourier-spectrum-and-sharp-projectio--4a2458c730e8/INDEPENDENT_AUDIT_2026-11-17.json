@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:14:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For six-label involution permutation matrices: verified each fixed point/transposition partition yields W(K)=(-1)^(ΣK_ii) Z(t), t_ij=K_ij+K_ji+K_ii+K_jj mod2, surjective 15 bits with fibers 2^21. Independently enumerated all 32768 signed K6 monomer-dimer recurrences (76 matchings), exact 19-level integer spectrum; zeros=6825, nonzero=25943, min nonzero |Z|=4. Independently recounted zero negative-edge supports 5:480,7:2880,9:2280,11:1185; relabeling all 720 permutations yields 26 orbits, with support-five orbit sizes 120 and 360 and claimed degree sequences. Support indicator Walsh absolute sum 1,524,338 gives sharp endpoint norm 762169/16384 and nullity 6825*2^21. No full-n classification asserted. Finite exhaustive enumeration is a complete certificate for fixed n=6; code reviewed, not only a saved success marker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sehrawat–Bhattacharjya arXiv:1812.08383 classifies signed K6 switching-isomorphism (16 switching classes), whereas these 26 zero orbits are only under vertex relabeling.",
+          "Switching changes signed monomer terms in Z(t) and need not preserve the zero set."
+        ],
+        "reasoning": "Switching classification is not a dominating classification of zeros for monomer–dimer partition functions. Broader generic matching polynomial formulas compute values but do not state the complete 19-level distribution or sharp 15-bit support projection.",
+        "searches": [
+          "Signed Complete Graphs on Six Vertices Sehrawat Bhattacharjya",
+          "six vertex involution Fourier spectrum sharp projection recovery"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1812.08383",
+        "https://arxiv.org/abs/math/0412222",
+        "https://arxiv.org/abs/1404.3469",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-first-nontrivial-walsh-singularity-of-complete-graph-forests-exa--c987bb4dd1d8",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8/check_spectrum.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Map has fiber 2^21 giving kernel 6825*2^21 and rank 25943*2^21. Orbit representatives distinguished by negative-edge degrees (4,2,1,1,1,1) and (3,3,2,1,1,0)."
+        ],
+        "reasoning": "Known number of involutions 76 and monomer–dimer recurrence imply bounded algorithmic computability, not the displayed sharp Fourier support projection mass or the entire zero orbit classification without full census.",
+        "searches": [
+          "six vertex involution Fourier spectrum sharp projection recovery",
+          "Sehrawat Bhattacharjya signed complete K6 switching classes",
+          "Dukes permutation statistics involutions 2004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact identity W(K)=(-1)^(ΣK_ii) Z(t) with t_ij=K_ij+K_ji+K_ii+K_jj; classical involutions are unions of monomers and transpositions.",
+          "Li–Shi–Trinks arXiv:1404.3469 studies matching polynomial reconstruction."
+        ],
+        "reasoning": "The operator is equivalently a signed K6 matching-enumerator Walsh convolution in a 15-dimensional quotient of 6x6 matrix signings. This formal equivalence is not original; the finite numerical distribution and endpoint projection norm are the claim.",
+        "searches": [
+          "six vertex involution Fourier spectrum sharp projection recovery",
+          "monomer dimer signed K6 matching polynomial involution Fourier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All 32768 signings independently re-enumerated; exact zero count 6825, 19 signed levels, 26 orbits, 5-negative-edge first zeros and projection sum 1,524,338.",
+          "Nearby published SCOPE K6 forest and two-factor support distributions are for different sets of spanning subgraphs."
+        ],
+        "reasoning": "The exact values are not a recomputation of a found matching table. Similar finite Walsh spectra of different combinatorial families do not imply this spectrum or endpoint constant.",
+        "searches": [
+          "K6 involution signed matching Walsh 6825 762169/16384",
+          "six vertex involution Fourier spectrum sharp projection recovery"
+        ]
+      },
+      "rationale": "Best-of-knowledge new complete signed K6 monomer–dimer 19-level Walsh census, zero-orbit classification and sharp range projection norm at exactly six labels. Distinct from known involution counts and signed-graph switching classes.",
+      "residual_risks": [
+        "Involution-to-monomer–dimer transform and finite Walsh evaluation are classical constructions; their existence is not claimed original.",
+        "Exact 19-level 6-label census and projection norm could have been computed in unindexed signed matching-polynomial tables; checked sources did not locate this table.",
+        "The 26 relabeling orbits are not switching equivalence classes: conflating the two would falsely suggest coverage.",
+        "The finite theorem does not assert general-n closed formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_SAME_ZERO_ORBITS",
+          "evidence": [
+            "Switching-isomorphism classification not invariant for unweighted monomer terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08383",
+          "material_read": "Primary PDF Sections 1–2 on signed complete graph switching and relabeling, plus class list",
+          "method": "arXiv PDF text and page image",
+          "title": "Signed Complete Graphs on Six Vertices",
+          "trigger": "same signed K6 objects but different equivalence"
+        },
+        {
+          "assessment": "KNOWN_COMBINATORIAL_INPUT",
+          "evidence": [
+            "76 involutions at order six is pre-existing combinatorics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0412222",
+          "material_read": "Abstract/theorem metadata; full article not claimed read",
+          "method": "arXiv bibliographic check",
+          "title": "Permutation statistics on involutions",
+          "trigger": "known involution enumeration"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXACT_TABLE",
+          "evidence": [
+            "No matched 19-level signed K6 Walsh table in accessible scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.3469",
+          "material_read": "Abstract and cited scope; full article not claimed read",
+          "method": "arXiv bibliographic check",
+          "title": "Polynomial reconstruction of the matching polynomial",
+          "trigger": "generic polynomial machinery"
+        },
+        {
+          "assessment": "DISTINCT_SUPPORT_SET",
+          "evidence": [
+            "Forests rather than all matchings on K6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-first-nontrivial-walsh-singularity-of-complete-graph-forests-exa--c987bb4dd1d8",
+          "material_read": "Resultary published finding abstract and parameters",
+          "method": "Resultary semantic search",
+          "title": "First nontrivial Walsh singularity of complete-graph forests",
+          "trigger": "nearby SCOPE 6-label Fourier projection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The six-label involution family is the first sizable natural monomer–dimer group embedding with a nontrivial signed Walsh zero locus. Its first cancellation support, complete zero orbits and exact sharp range projection norm isolate symmetry-induced recovery loss; these are useful exact finite invariants not implied merely by the classical involution count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1812.08383",
+    "https://arxiv.org/abs/math/0412222",
+    "https://arxiv.org/abs/1404.3469",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-first-nontrivial-walsh-singularity-of-complete-graph-forests-exa--c987bb4dd1d8",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8/check_spectrum.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All counts are complete at six labels only. Distinguish vertex relabeling from signed-graph switching equivalence.",
+    "Involution-to-monomer–dimer transform and finite Walsh evaluation are classical constructions; their existence is not claimed original.",
+    "Exact 19-level 6-label census and projection norm could have been computed in unindexed signed matching-polynomial tables; checked sources did not locate this table.",
+    "The 26 relabeling orbits are not switching equivalence classes: conflating the two would falsely suggest coverage.",
+    "The finite theorem does not assert general-n closed formulas."
+  ],
+  "residual_risks": [
+    "Involution-to-monomer–dimer transform and finite Walsh evaluation are classical constructions; their existence is not claimed original.",
+    "Exact 19-level 6-label census and projection norm could have been computed in unindexed signed matching-polynomial tables; checked sources did not locate this table.",
+    "The 26 relabeling orbits are not switching equivalence classes: conflating the two would falsely suggest coverage.",
+    "The finite theorem does not assert general-n closed formulas."
+  ],
+  "schema_version": 1
+}

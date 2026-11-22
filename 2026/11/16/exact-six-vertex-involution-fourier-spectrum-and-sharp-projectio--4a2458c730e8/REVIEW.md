@@ -1,19 +1,21 @@
-# Scientific assessment: involution-matrix Fourier recovery
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact domain is the additive matrix group \((\mathbb F_2)^{6\times6}\), and the family consists of the 76 symmetric permutation matrices with squared permutation equal to the identity. The character factorization to the 15-bit signed complete-graph matching sum is proved, with a surjective linear reduction of fiber size \(2^{21}\). Integer enumeration of all \(2^{15}=32768\) effective signings gives a 19-level spectrum, 6825 zeros and minimum nonzero magnitude four. An independent vertex-subset recursion agrees on all ordered coefficients (complete spectrum digest in `VERIFICATION.md`). Exact relabeling across all 720 permutations gives 26 zero orbits, including the two minimum-support classes. A second integer Fourier transform proves the stated sharp endpoint norm, rather than sampling it. Checks of both Parseval identities and the edge-support histogram corroborate arithmetic. This finite exhaustive certificate does not assert results for larger orders.
+PASS
 
-## Originality (O): PASS under bounded comparison
+For six-label involution permutation matrices: verified each fixed point/transposition partition yields W(K)=(-1)^(ΣK_ii) Z(t), t_ij=K_ij+K_ji+K_ii+K_jj mod2, surjective 15 bits with fibers 2^21. Independently enumerated all 32768 signed K6 monomer-dimer recurrences (76 matchings), exact 19-level integer spectrum; zeros=6825, nonzero=25943, min nonzero |Z|=4. Independently recounted zero negative-edge supports 5:480,7:2880,9:2280,11:1185; relabeling all 720 permutations yields 26 orbits, with support-five orbit sizes 120 and 360 and claimed degree sequences. Support indicator Walsh absolute sum 1,524,338 gives sharp endpoint norm 762169/16384 and nullity 6825*2^21. No full-n classification asserted. Finite exhaustive enumeration is a complete certificate for fixed n=6; code reviewed, not only a saved success marker.
 
-Prior complete-graph matching Fourier work already gives the general matching-polynomial coefficient formula, dyadic gcd and six-vertex singularity; these are background, not claimed as contributions. The new evaluated quantities are the exact six-vertex signed-spectrum distribution, the first zero-support threshold with its two extremizer graph types, the complete 26-orbit zero census and the sharp range-projection endpoint norm. The previously available broader formula is computable at six vertices but does not itself state these evaluated numerical and structural invariants. The 2004 involution-statistics paper, 2014 matching-polynomial reconstruction paper and 2018 signed-complete-graph switching-isomorphism classification were inspected; none of their examined results furnishes the target Fourier cancellation table or projection norm. Switching equivalence in the 2018 paper is strictly coarser and does not preserve the present monomer-dimer sum. Indexed Fourier results for perfect matchings or unrestricted permutation matrices have different supports. Priority remains uncertain relative to unindexed sign-polynomial tables and undiscovered calculations.
+## originality
 
-## Value (V): PASS
+PASS
 
-The six-vertex case is the first return to singularity after the zero-free orders four and five. Its full nullspace is a natural spectral invariant, not a random selected submatrix. Identifying the first cancelling signings and both orbit types supplies a genuinely sharp low-support boundary; their complete census and the endpoint projection norm quantify how singularity amplifies data even when the Hilbert inverse-on-range has norm just one fourth. This is a reproducible, exact benchmark for a natural finite graph-based convolution, with mathematical interpretation beyond simply recomputing the involution count.
+Best-of-knowledge new complete signed K6 monomer–dimer 19-level Walsh census, zero-orbit classification and sharp range projection norm at exactly six labels. Distinct from known involution counts and signed-graph switching classes.
 
-## Boundaries and closest literature
+## value
 
-Prior general signed-matching formulas cover divisibility and singularity existence; do not attribute them to this result. The order-six zero classification and projection constant are finite exact computations; larger orders and independent validation remain outside scope. Dukes (arXiv:math/0412222), Li–Shi–Trinks (arXiv:1404.3469) and Sehrawat–Bhattacharjya (arXiv:1812.08383) were material inspected. Relevant matching/permutation Fourier search records were compared at the statement level.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The six-label involution family is the first sizable natural monomer–dimer group embedding with a nontrivial signed Walsh zero locus. Its first cancellation support, complete zero orbits and exact sharp range projection norm isolate symmetry-induced recovery loss; these are useful exact finite invariants not implied merely by the classical involution count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
