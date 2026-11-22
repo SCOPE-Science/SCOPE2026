@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Each edge-sign product has expectation one iff every edge has even total multiplicity. Distinct triangle characters are orthogonal, so variance S=t. Four-sign even products are either matched-pair repeats (3t^2-2t ordered) or the four distinct faces of one four-clique (24q ordered); the four-distinct case is forced by the three boundary edges of an initial triangle. Thus E[S^4]=3t^2-2t+24q and cumulant scaling gives exact formulas without asymptotics. The full checker was actually executed: 1,103 labeled graphs and 117,154 complete edge-sign assignments, using rational moments, five assertions per graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026/10/11 indexed research sharp-fourth-moments graph-supported Walsh-space record studies quadratic characters on graphs with edge-disjoint squares; these are not the cubic triangle-edge characters indexed by K3(G).",
+        "The 2025 Tian-Feng indexed article explicitly describes first and second moments and sparse-regime joint normality for signed Erdős–Rényi triangles, not universal conditional-on-G fourth cumulants."
+      ],
+      "reasoning": "Generic Walsh moment expansion is a useful broader tool but does not on its own state the requisite classification of four distinct triangle-edge incidence vectors or its structural inversion. The nearby results change both the stochastic object and statistic.",
+      "searches": [
+        "Rademacher graph triangle Fourier chaos K4 fourth moment",
+        "Fourth cumulant of triangle sign sum tetrahedral boundaries arbitrary finite graph",
+        "Random signed graph balanced triangle count fourth moment K4 clique"
+      ]
+    },
+    "checked_sources": [
+      "https://www.lri.fr/~yannis/randsigned.pdf",
+      "https://strathprints.strath.ac.uk/68212/1/Estrada_Benzi_PRE_2014_a_walk_based_measure_of_balance_in_signed_networks_detecting_a_lack_of_balance.pdf",
+      "https://doi.org/10.1016/j.spl.2025.110459"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "El Maftouhi et al. (2012) establish asymptotic balance, not higher moments at fixed unsigned support.",
+        "Estrada–Benzi (2014) uses the triangle balance ratio of one signing and weighted closed walks, not a distribution over all edge signings.",
+        "Tian–Feng (2025) focuses on first two moments and asymptotic Gaussian fluctuations under random support; variance cannot distinguish K4 from four separated triangles, while the fourth cumulant does."
+      ],
+      "reasoning": "A marginal expected fraction of balanced triangles or a Gaussian approximation is strictly weaker than exact fourth cumulant for every finite G. A fixed-sign walk index is a different experiment. None of those statements logically implies the exact q(G) recovery formula without the additional tetrahedral even-multiplicity classification.",
+      "searches": [
+        "Random signed graph balanced triangle count fourth moment K4 clique",
+        "Fourth cumulant of triangle sign sum tetrahedral boundaries arbitrary finite graph",
+        "Rademacher graph triangle Fourier chaos K4 fourth moment",
+        "Signed triad balanced fourth cumulant variance plus exact count four-cliques",
+        "Degree of balance in random signed graphs Tian Feng first two moments 2025",
+        "Estrada Benzi random signed triangle walk balance theorem 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2014 text defines triad ratio K3 via tr(A^3)/tr(|A|^3) and walk-balance via tr(exp(A)), not the fourth cumulant across repeated independent fair signings (https://strathprints.strath.ac.uk/68212/1/Estrada_Benzi_PRE_2014_a_walk_based_measure_of_balance_in_signed_networks_detecting_a_lack_of_balance.pdf, pp. 2-3).",
+        "The author-version 2012 paper states model G_{n,p,q}, balance thresholds, relative m-balance and line-index, not fixed-graph tetrahedral fourth moments (https://www.lri.fr/~yannis/randsigned.pdf, introduction and Sections 2-5)."
+      ],
+      "reasoning": "The event of a balanced triangle is a sign of a triangle-edge product; an equivalent law would identify all fourth-cumulant contributions as four faces of K4. The inspected formulas either treat fixed-sign ratios or sparse graph randomness, not this equivalence.",
+      "searches": [
+        "Random signed graph balanced triangle count fourth moment K4 clique",
+        "Fourth cumulant of triangle sign sum tetrahedral boundaries arbitrary finite graph",
+        "Rademacher graph triangle Fourier chaos K4 fourth moment",
+        "Signed triad balanced fourth cumulant variance plus exact count four-cliques",
+        "2012 Balance in Random Signed Graphs El Maftouhi Manoussakis Megalakaki",
+        "2014 Estrada Benzi signed network walk balance triangle fourth cumulant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed research record 2026/11/8/SCOPE-three-reciprocity-cumulants-recover-graph-order-degree-and-trian--f702eed6f7e8 recovers 3-cliques by reciprocity cumulants of random neighbor choices, not 4-cliques by sign-triad fourth cumulants.",
+        "The closest indexed research random-matching cumulant record 2026/10/18/SCOPE-a-triangle-fingerprint-in-the-third-cumulants-of-random-matching--6e31b6af7c94 is based on coloring a random perfect matching, with a different input graph and dependent model."
+      ],
+      "reasoning": "No direct formula, table or exhaustive-reconstruction entry for the stated graph-universal cumulant-to-K4 identity appeared in the actual searched indexed research records or the inspected scientific papers. Search absence alone is not proof of historical uniqueness.",
+      "searches": [
+        "Graph universal identity K4 clique count recoverable from variance and fourth cumulant of number of balanced triangles after independent fair random edge sign assignment",
+        "Signed triad balanced fourth cumulant variance plus exact count four-cliques",
+        "Rademacher edge signs balanced triangle count fourth cumulant tetrahedron 24 choose(n,4)"
+      ]
+    },
+    "rationale": "Targeted semantic searches returned graph-motif and cumulant papers on distinct random mechanisms, not the fixed-graph fourth cumulant of fair signed triangles. The 2012 paper studies structural balance under random edge appearance, the 2014 complete text studies signed walks and fixed-sign balance diagnostics without cumulants, and the extracted 2025 sections focus on mean, variance, covariance and CLT of sparse signed ER triangle counts. Known Rademacher/Walsh orthogonality is acknowledged; the four-triangle parity-circuit classification gives an exact inversion for four-cliques that is not stated by these inspected sources. Limits: some later full text unavailable; unindexed equivalent algebraic treatments possible.",
+    "residual_risks": [
+      "General Walsh-character fourth-moment identities may encode this as an unstated corollary; not all historical texts are indexed.",
+      "Tian–Feng (2025) full text could not be inspected beyond publisher-indexed substantive sections; its appendix was not verified.",
+      "An author-hosted 2012 PDF produced parsed text but its screenshot endpoint failed, so visual/formula rendering there was not independently checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for precise fixed-support fourth-cumulant recovery based on materially read theorem and section scope; does cover older random-sign model",
+        "evidence": "Section 1 defines G_{n,p,q} with random edge presence; sections 2–5 cover balancedness and threshold; Lemma 2.1 gives sign parity probabilities.",
+        "identifier_or_url": "https://www.lri.fr/~yannis/randsigned.pdf ; doi:10.1080/15427951.2012.675413",
+        "material_read": "Extracted author-paper text, introduction and model, Lemma 2.1, statements and proof outlines in Sections 2–5 (global balance, relative balance and threshold)",
+        "method": "Read searchable primary PDF text; direct screenshot of author URL failed 404 on retrial, so no assertion of visual inspection",
+        "title": "Balance in Random Signed Graphs",
+        "trigger": "Closest older mathematical work on unbiased random edge signs and structural balance"
+      },
+      {
+        "assessment": "NOT_COVERING: K3 is one fixed-sign triad ratio and K is signed-walk spectral index; no fair-resigning fourth cumulants or four-clique recovery",
+        "evidence": "p.3 formula K3=tr(A^3)/tr(|A|^3) and p.2 K=tr(exp A)/tr(exp |A|); no fourth cumulant term or variance; published 2014-10-03.",
+        "identifier_or_url": "https://strathprints.strath.ac.uk/68212/1/Estrada_Benzi_PRE_2014_a_walk_based_measure_of_balance_in_signed_networks_detecting_a_lack_of_balance.pdf ; doi:10.1103/PhysRevE.90.042802",
+        "material_read": "Full ten-page primary PDF: abstract, Sections I–IV, balance definitions, equations for K and K3, results/conclusion and references, with page images 2 and 9 inspected",
+        "method": "Lawful institutional OA PDF, extracted text and screenshots of pages 2 and 9; searched PDF for cumulant, variance, random, triangles",
+        "title": "Walk-based measure of balance in signed networks: Detecting lack of balance in social networks",
+        "trigger": "Direct triad-balance diagnostic potentially equal to the random signed-triangle count"
+      },
+      {
+        "assessment": "PARTIAL, priority risk: the accessible sections state means, variances, covariances and sparse signed ER CLT, but full appendices cannot be excluded from containing related fourth moments",
+        "evidence": "Section 3 explicitly titled First two moments of distinct triangles; study models randomly present signed edges and asymptotic normality.",
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2025.110459",
+        "material_read": "Publisher-indexed abstract, full introduction, descriptions of Sections 2–4 and displayed first- and second-moment discussion; complete publisher manuscript inaccessible on attempted open",
+        "method": "Web-indexed publisher sections and DOI; direct full-paper fetch was blocked by publisher redirect",
+        "title": "Degree of balance in random signed graphs",
+        "trigger": "Most direct recent primary research on moments of balanced-triangle counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6837d933-45ce-49a6-bd2a-7d785b57338b",
+  "value": {
+    "rationale": "Reconstruction of a natural four-vertex graph motif from a scalar distribution over random signings is a structural invariant, not a parameter substitution: K4 and four disjoint K3 share identical triangle count, balanced-triangle mean and variance, yet fourth cumulants are 1 versus -1/2. The universal tetrahedral parity-circuit lemma is the precise mechanism and provides a reproducible benchmark for signed-triad fluctuations.",
+    "status": "PASS"
+  }
+}
