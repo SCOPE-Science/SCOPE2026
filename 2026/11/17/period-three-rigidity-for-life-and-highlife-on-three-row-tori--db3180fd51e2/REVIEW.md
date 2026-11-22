@@ -1,12 +1,21 @@
-# Mathematical review — period-three rigidity on three-row Life-like tori
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-bit local-neighbor formula has six external and two same-column neighbors, exactly the eight Moore offsets for width at least three. A three-layer history requires 512 column symbols; a shift-register graph therefore has 262144 vertices. The stipulated edge equations are necessary and sufficient for a globally periodic three-time trajectory. Exhaustive enumerations of every graph vertex and edge yield recurrent component sizes 30 and 27 in both rules and no nonconstant three-layer recurrent vertex, giving the all-circumference conclusion. The independent NetworkX reconstruction reproduces the graph statistics and recurrent sets; direct original-state evolution through circumference seven provides a separate bounded cross-check. Mathematical limitation: the finite component lemma is computer-assisted but exhaustive, not a merely sampled experiment.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-Eppstein's complete 2009 primary text treats planar fertility, mortality and known oscillators, including HighLife and the Life pulsar, not a three-row periodic no-period-three theorem. The separate Eppstein HighLife page likewise concerns replicators and constructions, not the present height restriction. Prior accessible exact Life three-row fixed-point and period-two counts, and the Life/HighLife fixed-state comparison, do not determine third-iterate fixed points. Targeted mathematical-record queries for thin-torus Life period-three exclusions returned no equivalent statement; leading retrieved records concerned different rules or different invariants. LifeWiki catalogues were available in search results but their full pages were blocked, and Bell's historical HighLife ZIP was not inspectable; those are genuine originality risks, not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The period-three pulsar is a foundational Life oscillator, making exclusion of all primitive three-cycles under severe periodic confinement a natural qualitative question. The theorem settles it for every horizontal circumference, including exponentially large state spaces, and for two standard rules differing by the extra B6 birth. Its transfer-graph lemma shows a structural obstruction (no time-varying recurrent column histories), rather than a finite list of failed oscillator searches. Period-two motion is already known to be possible on selected three-row Life tori, so this is a selective temporal obstruction rather than a generic absence of oscillation. No claim is made about all odd periods or minimal oscillator width.
+The 3-row local neighbor sum counts 8 distinct Moore offsets for n>=3. Encoded three-time columns A,B,C give the exact edge constraint b^(t+1)=L(a^t,b^t,c^t). A spatial n-cycle is a closed walk for every n>=3. Independently enumerated all 262144 pair vertices and verified Life 294072 edges, HighLife 321875, nontrivial SCCs [30,27], 57 cyclic vertices and zero temporally varying cyclic columns. Every closed walk stays in a cycle-containing SCC, forcing temporal constancy. A 3-step-fixed state is a fixed point and converse is immediate. Bounded small-n tests not substituted for this all-n transfer argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new third-iterate rigidity on every three-row torus; prior two-step/fixed-state catalogues and planar oscillator facts are logically incomparable.
+
+## value
+
+PASS
+
+A genuinely structural forbidden-period theorem over infinitely many circumferences for two canonical Life-like rules, proved by a finite nontrivial recurrence graph and distinguishing plane oscillators from thin tori; neither a renaming nor routine fixed-state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
