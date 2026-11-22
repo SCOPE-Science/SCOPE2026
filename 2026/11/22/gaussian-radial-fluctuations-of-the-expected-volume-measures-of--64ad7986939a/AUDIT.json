@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs the exact annealed Laplace transform for both models from source equations (64)-(68), including beta density and factorial series. Uniform analytic estimates use E exp(Cd|t|(1-U))<= (1-2C|t|)^(-1/2), then log h=-t/6+11t^2/180+O(t^3). Levy continuity yields centered variances 22/45 and 11/360. The source rational moments are exactly recovered by 1,562 independent rational assertions in embedded checker.py; finite checks supplement rather than prove infinite CLT.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kabluchko [1], Sections 2.1 and 3.3, supplies finite-dimensional absorption transforms and all fixed-order Mellin ratios, which are premises for but do not assert the uniform CLT.",
+        "Panzo and Socher [3], full accessible arXiv text, studies volume/surface/diameter/circumradius expectations and inverse processes, not expected-volume-weighted interior radii.",
+        "Companion [2] abstract concerns OU hulls and Gaussian point absorption; its crucial identities were materially verified in [1, equations (64)–(65)], not extrapolated from the companion abstract."
+      ],
+      "reasoning": "An exact finite-dimension transform determines any later asymptotics in principle, but the uniform dimension-dependent analytic estimate is not a direct substitution or a stated stronger CLT. There is no examined broader theorem with hypotheses matching both volume-annealed Brownian hull laws that already asserts this distributional consequence.",
+      "searches": [
+        "Absorption probabilities Brownian convex hull arbitrary dimension normalized expected volume measures radius Gaussian central limit radial fluctuations",
+        "Absorption Probabilities for Brownian Convex Hulls in Arbitrary Dimension Kabluchko 2611.00381 type B type A",
+        "Panzo Socher high-dimensional Brownian convex hull expected volume inverse process dimension",
+        "https://arxiv.org/abs/2610.37911",
+        "https://arxiv.org/abs/2407.08712"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.00381v1 (primary mathematical full text)",
+      "https://arxiv.org/abs/2407.08712 (mathematical full text)",
+      "https://arxiv.org/abs/2610.37911 (abstract; probe formulas inspected through the primary full text)",
+      "https://arxiv.org/abs/2509.17590 (abstract; differing observable)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-endpoint-driven-gamma-and-interior-gaussian-fluctuations-for-ran--77a979074148 (indexed summary, not full-text verification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published [1] Corollary 1.13 gives L2 limits only, not centered, distributional limits.",
+        "Published [1] equation (133) and the exact q identities provide finite-dimension coefficients but require controlling the full analytic characteristic function uniformly.",
+        "The present proof supplies a beta-moment exponential estimate proving L_d(t)=h(t)^d(1+O(|t|)) (and the type-A scaled analogue), yielding the CLT by Levy continuity."
+      ],
+      "reasoning": "L2 convergence and any fixed number of moment equations cannot logically establish the Gaussian limit. The source full generating functions are mathematically sufficient once new non-asymptotic uniform estimates are proved; the claim is an asymptotic theorem not stated or immediately covered as a special case of a previously proved general CLT.",
+      "searches": [
+        "Brownian convex hull volume-biased radial point thin shell central limit theorem universal Gaussian fluctuations 22/5 Brownian bridge",
+        "Absorption probabilities Brownian convex hull arbitrary dimension normalized expected volume measures radius Gaussian central limit radial fluctuations",
+        "Absorption Probabilities for Brownian Convex Hulls in Arbitrary Dimension Kabluchko 2611.00381 type B type A",
+        "https://arxiv.org/html/2611.00381v1#S1.SS8",
+        "https://arxiv.org/abs/2407.08712"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kabluchko [1] Corollary 1.13 states L2 limits of squared radius divided by dimension, not centered sqrt-d Gaussian limits.",
+        "Source [1] explains its expected-volume measure is volume-biased and differs from a uniform point of an unweighted random hull.",
+        "Indexed nearest statement on convex hulls of random points on parabolic arcs concerns a different sample-size asymptotic and area: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-endpoint-driven-gamma-and-interior-gaussian-fluctuations-for-ran--77a979074148"
+      ],
+      "reasoning": "Equivalent aliases include annealed / normalized expected-volume measure, size-biased hull point, Gaussian radial shell fluctuation, type-A Brownian-bridge hull and type-B Brownian-motion hull. No examined statement provides this centered radius distribution; the published L2 law is strictly weaker than a CLT.",
+      "searches": [
+        "Brownian convex hull volume-biased radial point thin shell central limit theorem universal Gaussian fluctuations 22/5 Brownian bridge",
+        "Brownian motion convex hull Brownian bridge annealed expected volume sampled point radius fluctuation CLT",
+        "Brownian hulls volume weighted radius Gaussian fluctuations N(0, 22/45) N(0, 11/360)",
+        "https://arxiv.org/html/2611.00381v1#S1.SS8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source [1] equations (140)–(141) contain the exact second moments, implying the limiting variances, and are explicitly credited.",
+        "No inspected reference or indexed database table provides the two full Gaussian laws or dimension-uniform transform errors.",
+        "Nearest published indexed examples of radial Gaussian fluctuations concern different zonotopes or resetting particles: https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-random-radius-law-and-conditional-gaussian-fluctuations-in-hig--b9f048a9e93f"
+      ],
+      "reasoning": "The new claim is a distributional central limit theorem and a shared nontrivial standardized variance, not the exact two-moment table. The numerical constants for leading variance are recoverable from that table, so they are not falsely claimed as independent discoveries.",
+      "searches": [
+        "Gaussian centered radial squared norm volume weighted Brownian convex hull 11/360 22/45",
+        "Brownian hulls volume weighted radius Gaussian fluctuations N(0, 22/45) N(0, 11/360)",
+        "https://arxiv.org/html/2611.00381v1#S3.SS3"
+      ]
+    },
+    "rationale": "Primary paper [1, Corollary 1.13] proves only L2 radial thin-shell concentration; [1, Section 3.3] proves fixed-order exact moments, and [1, Section 2.1] gives Gaussian-probe identities. Neither the central limit distribution nor the uniform transform estimate (3) is stated there. The new theorem needs dimension-uniform beta-exponential control and full characteristic functions. Panzo–Socher [3] studies other expected geometric functionals; inspected public research findings concern different random objects/observables. This is substantive new asymptotic information, though general historical priority is not certified.",
+    "residual_risks": [
+      "A general high-dimensional analytic-transform CLT could imply the result if it applies to these specific Brownian hull expected-volume measures; none was found in the examined sources.",
+      "Companion arXiv:2610.37911 full text was not directly accessible, so only its abstract and the formulas reproduced in [1] were checked.",
+      "Indexed search and inspected sources cannot establish worldwide historical priority; independent literature review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains L2 thin shell, fixed-order moments, exact probe identities; not the high-dimensional radial Gaussian CLT or its uniform analytic bound",
+        "evidence": [
+          "Corollary 1.13, equations (59)-(61) and proof",
+          "equations (64)-(68), (133)-(135), (140)-(141)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.00381v1",
+        "material_read": "Full mathematical HTML with detailed Sections 1.8, 2.1, 3.3 and adjoining proofs and formulas, including Corollary 1.13 and Proposition 3.8",
+        "method": "Direct primary-source HTML reading and formula-to-claim comparison",
+        "title": "Absorption Probabilities for Brownian Convex Hulls in Arbitrary Dimension",
+        "trigger": "Exact same expected-volume measures and Brownian hulls; possible full coverage"
+      },
+      {
+        "assessment": "The expected size and inverse-time bounds do not involve normalized expected-volume distribution or point squared radius",
+        "evidence": [
+          "Section 1 and Sections 2-3 as rendered"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.08712",
+        "material_read": "Accessible arXiv full text, Introduction, main results and described proof targets (volume, surface, diameter, circumradius, inverse times)",
+        "method": "Direct full-text arXiv rendering; comparison of definitions and statements",
+        "title": "Bounds on Some Geometric Functionals of High Dimensional Brownian Convex Hulls and Their Inverse Processes",
+        "trigger": "High-dimensional Brownian convex hull geometry could dominate radial result"
+      },
+      {
+        "assessment": "No justified entire companion full-text noncoverage assertion; possible independent relevant asymptotic is residual risk",
+        "evidence": [
+          "Abstract states OU transition and Brownian Gaussian-point absorption",
+          "[1], equations (64)-(65), explicitly attributes source [2]"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.37911",
+        "material_read": "Public arXiv abstract only; relevant formulas read in full as reproduced and proved-from in primary paper [1, Section 2.1]",
+        "method": "Abstract retrieval plus source [1] verified formula inspection",
+        "title": "Ornstein--Uhlenbeck Spirals: Absorption Probabilities and Conic Intrinsic Volumes",
+        "trigger": "Companion original source of the Gaussian-probe formulas"
+      },
+      {
+        "assessment": "Different planar random-walk hull perimeter/diameter and long-time regime; no assertion about full paper noncoverage",
+        "evidence": [
+          "Abstract identifies perimeter and diameter with drift configurations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.17590",
+        "material_read": "Public arXiv abstract only",
+        "method": "Abstract-level object/observable comparison",
+        "title": "Non-Gaussian Limits for Diameter and Perimeter of Convex Hulls of Multiple Random Walks",
+        "trigger": "Nearby convex-hull fluctuation results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64ad7986-939a-4fe0-8779-b5a79e9cf516",
+  "value": {
+    "rationale": "The volume-annealed Brownian hull thin shells were identified at only L2 law-of-large-numbers precision. The proved CLTs resolve the natural next-order distribution of precisely that canonical random point and show both types have a common standardized variance 22/5, versus 2 for their Gaussian time-average proxies. The strict 11/5 variance ratio reveals nontrivial hull geometry not determined by radii, fixed two moments, or generic Gaussian concentration. It is not a parameter renaming, trivial first-moment calculation, or unrelated slice.",
+    "status": "PASS"
+  }
+}
