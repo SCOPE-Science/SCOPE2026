@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:08:26.873755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each strict coordinate ordering of u, the unique maximizing simplex vertex for each I is highest-ranked e_i, giving orbit coordinates a_i(k)=Σ_{j=1}^k binom(i−1,j−1), strictly increasing for k≥2. The difference body is centrally symmetric orbit polytope with d_i=a_i−a_(n+1−i), all proper subset-sum facets. Its largest centered Euclidean insphere is tangent to a minimizing facet, so minimizing support directions are precisely facet unit normals ν_S, not sums of multiple gap normals. For S of size s each Δ_I width is 1 in the unnormalized indicator precisely when I intersects both sides; crossing count C=Σ_{j=2}^k[binom(n,j)−binom(s,j)−binom(n−s,j)], yielding cut widths. For k=n, C=(2^s−1)(2^(n−s)−1), minimize over s. Independently enumerated all 36 finite strict integer comparisons for n=3..14. For n≥15 derivative h’(t)>0 for t≥5 forces f_n(s) decreasing on s∈[5,⌊n/2⌋]; s=2,3,4 handled by separate exact inequalities; direct comparison at n=15 and monotone even/odd upper bounds for n≥16 select balanced uniquely. Independent numeric ratio f_14(7)/f_14(1)=1.01425, f_15(7)/f_15(1)=0.988372, f_16(8)/f_16(1)=0.960725 (diagnostic only). Distinguishes ambient Euclidean width induced on sum x_i=constant; no arbitrary simplex weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete split K_c∨independent_m theorem explicitly assumes c,m≥2; complete K_n would require m=1 and is excluded. Its crossing count B−2^k−2^(n−k)+2^b+2^(m−b) differs from 2^n−2^s−2^(n−s)+1 for complete graph.",
+          "Biclique K_pq has no within-part edges; its tube counts and balanced-part equality differ. Fixed-j hyperpermutahedra use one simplex cardinality instead of sum of all j≤k."
+        ],
+        "reasoning": "Shared 15 threshold and generic cut reduction are prior techniques, but no cited broader theorem has the exact complete-graph full-stage coefficient or all optimal normals as a direct special case.",
+        "searches": [
+          "Resultary 2026/11/8 complete-bipartite width transition cb31d741c454",
+          "Resultary 2026/11/17 complete-split width transition cb964e64693d full RESULT.md",
+          "Resultary hyper-permutahedron 41162ec5e048"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2209.12053",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-fifteen-vertex-thickness-transition-for-complete-spl--cb964e64693d",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-fifteen-vertex-width-transition-for-complete-biparti--cb31d741c454",
+        "https://arxiv.org/abs/math/0507163"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pešović–Stojadinović Q_{Γ,m} definition matches object, emphasis quasisymmetric/Hopf enumerators rather than metric width.",
+          "Complete split result assumes nonempty independent class of size at least 2 and hence cannot be specialized to K_n; equal transition numerology not coverage.",
+          "Hyper-permutahedron same-norm technique does not provide the different cumulative cardinalities without calculation."
+        ],
+        "reasoning": "Prior framework proves orbit or facet structure, whereas threshold demands counting all crossing subsets, minimizing a nontrivial scalar function with strict equality and analytical all-dimensional tail.",
+        "searches": [
+          "Pešović Stojadinović 2022 Section 2 Definition 2.1 full preprint",
+          "Resultary complete split full RESULT.md and all parameter hypotheses",
+          "Resultary complete bipartite theorem summary",
+          "Postnikov orbit/simplex-sum geometric framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-graph Q(n,k) has every nonempty |I|≤k as a Minkowski simplex summand; a standard generalized permutohedron.",
+          "Metric min-width requires origin-centered difference-body insphere, not a combinatorial f-vector."
+        ],
+        "reasoning": "Other descriptions as simplex sums, nestohedra, or permutohedral orbit polytopes are equivalent for this realization; only exact metric threshold is assessed as new.",
+        "searches": [
+          "Resultary: complete graph associahedron permutohedron minimum Euclidean width dimension 15 balanced singleton cut",
+          "Pešović Stojadinović arXiv:2209.12053 Definition 2.1",
+          "Postnikov math/0507163 permutohedra associahedra beyond"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An infinite all-n equality and exact cut formula cannot be proved by the finite n≤120 script alone.",
+          "The 36 exact integer inequalities for n≤14 are a valid complete finite base, followed by analytic tail; no earlier exact table for complete-graph min widths found."
+        ],
+        "reasoning": "Even if a table included small-n widths, it would not imply infinite classification and all equality directions, absent a separate analytic proof.",
+        "searches": [
+          "Resultary complete graph associahedron min width numerical table",
+          "arXiv:2209.12053 entire mathematical construction",
+          "Related published complete split graph n=15 exact profile"
+        ]
+      },
+      "rationale": "Pešović–Stojadinović define precisely Q_{Γ,m}; Postnikov supplies orbit/simplex-sum framework, but neither derives min Euclidean width or n=15 minimizer classification. Closely related published Resultary 2026 claims for complete-bipartite K_pq and split K_c∨independent_m (c,m≥2) share n=15 threshold but have different tube sets; crucially split theorem EXCLUDES complete graphs (m=1). Thus same numeric threshold does not establish direct implication.",
+      "residual_risks": [
+        "Potential same-target results in unindexed permutohedral metric geometry are a historic-priority risk; the matching 15 threshold in two separate graph families deserves human review.",
+        "Postnikov complete full text was not inspected this run; claims about absence of width formula there are limited to accessible contents/context."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NO_WIDTH",
+          "evidence": "Definition matches truncated complete graph case; no 15-vertex min-width extremum found in its main results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.12053",
+          "material_read": "Complete 16-page arXiv preprint including Definition 2.1, graph-polytope construction and ensuing algebraic/quasisymmetric work; PDF page 3 inspected",
+          "method": "arXiv full PDF and readable HTML version",
+          "title": "Between graphical zonotope and graph-associahedron",
+          "trigger": "Defines exact graph-polytope interpolation Q_{Γ,m} and possibility of included metric claims"
+        },
+        {
+          "assessment": "CLOSE_DIFFERENT_TUBE_FAMILY",
+          "evidence": "Split formula excludes complete graph and has different crossing-set counts/normal classifications; not a direct theorem inclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-fifteen-vertex-thickness-transition-for-complete-spl--cb964e64693d",
+          "material_read": "Whole published RESULT.md read, including assumptions c,m≥2, cut formula, finite checks and analytic tail",
+          "method": "Read GitHub published primary record at immutable file/blob",
+          "title": "A universal fifteen-vertex thickness transition for complete split graph associahedra",
+          "trigger": "Highly relevant same threshold and overlapping simplex-sum geometry"
+        },
+        {
+          "assessment": "ANALOG_PRIORITY_RISK",
+          "evidence": "Graph and cut family differ from complete graph; common numeric threshold may arise from similar counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-fifteen-vertex-width-transition-for-complete-biparti--cb31d741c454",
+          "material_read": "Resultary published abstract including precise graph K_pq and color class cut classification, not full RESULT.md",
+          "method": "Semantic source summary only; no whole-document negative conclusion",
+          "title": "A universal fifteen-vertex width transition for complete-bipartite graph associahedra",
+          "trigger": "Earlier same transition for different graph family"
+        },
+        {
+          "assessment": "FOUNDATIONAL_RISK",
+          "evidence": "General framework known; possible implicit width formulas in broader generalized-permutohedron literature remain unexcluded.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507163",
+          "material_read": "Accessible abstract/background references only; full primary document not materially read in this run",
+          "method": "Bibliographic context, not represented as whole-document comparison",
+          "title": "Permutohedra, associahedra, and beyond",
+          "trigger": "Foundational simplex-sum/orbit realization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum Euclidean thickness and the complete set of optimal orientations are natural exact metric invariants of the canonical unweighted graph-associahedron and its intermediate graph-polytopes, not ordinary face counts. The first dimension exhibiting a change in width bottlenecks is a meaningful sharp geometric cutoff even though similar thresholds occur in other tube families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Euclidean width is for one unscaled simplex per eligible set, not arbitrary affine realizations.",
+    "For 2≤k<n, exact finite minimum formula is given but optimal s need not have closed classification.",
+    "Older generalized permutohedra literature and concurrent related results may contain a stronger metric formula."
+  ],
+  "schema_version": 1
+}
