@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary initial residual and all iid sample strings, direct composition of the rank-one residual projections gives an exact PSD objective-risk matrix. The correlated-pair transfer coefficient is exact, and the signed-spin expansion has only nonnegative even powers of imbalance with a strictly positive second-order coefficient for K>=2. K=1 follows from the exact 2-by-2 eigenvalue formula. The orthogonal maximum and monotone scalar intersection prove global uniqueness including simplex boundaries. Direct exact block solve and explicit sequence enumeration were independently checked in the delivered verifier (864 finite checks). Finite tests are supportive, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie and Yang arxiv:2610.04685v1, Theorem 4.1 and Remarks 4.1-4.2 optimize bounds and discuss learning-based laws, not the exact K-step risk on this family.",
+        "Rodomanov and Kropotov arxiv:1904.04587, sections 2-3 and Theorem 3.10 derive expected-error rates for a prescribed volume law.",
+        "Published fixed-volume transfer results, https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c, explicitly fix p to determinant-proportional probabilities."
+      ],
+      "reasoning": "General convergence theories, a one-step optimizer, and a transfer-matrix formula under one prescribed law do not, as statements, dominate the unique all-simplex exact K-horizon minimax solution. A broad theorem on arbitrary p would subsume this if it proved the optimizer, but no examined source did.",
+      "searches": [
+        "one-step optimal distribution versus multistep optimal distribution for exact block coordinate descent",
+        "Xie Yang 2610.04685 volume sampling exact finite step optimal distribution correlated pair",
+        "Rodomanov Kropotov volume sampling randomized block coordinate descent 2019 arxiv 1904.04587",
+        "multi iteration optimized static sampling Kaczmarz finite horizon iid nonorthogonal frame exact minimax distribution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.04685",
+      "https://arxiv.org/pdf/1904.04587",
+      "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26 establishes the K=1 formula as a specialization; the K=1 part is explicitly not claimed separately novel.",
+        "Source https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c contains a transfer-matrix idea for fixed volume law; it does not optimize all fixed probabilities at K>=2.",
+        "Source https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5 explicitly concerns one-step worst-direction retention in an inverse-Gram signed triangle and excludes multistep.",
+        "arxiv:2610.04685v1, Eq. (4.12)-(4.13) aims at the theoretical bound, not the exact product of stochastic projections after K rounds."
+      ],
+      "reasoning": "The final theorem implies all the K=1 and asymptotic formulas shown, and gives the unique optimizer for every K. The reverse implication from one-step optimality and a known fixed-law transfer formula is not a theorem: horizon balancing follows only after proving the Ising even-coefficient inequality and the active-mode intersection. No examined prior implication yields that.",
+      "searches": [
+        "static sampling probability for exact block coordinate descent two correlated plus n-2 independent columns optimal worst-case K-step expected objective ratio",
+        "one-step optimal distribution versus multistep optimal distribution for exact block coordinate descent",
+        "Xie Yang 2610.04685 volume sampling exact finite step optimal distribution correlated pair",
+        "On randomized batch-sampling coordinate descent Xie Yang Theorem 4.1 2026",
+        "2015 Gower Richtarik section 5.1 optimal probabilities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact all-but-one-coordinate minimization is orthogonal projection onto the omitted-column complement (source arxiv:2610.04685, Eq. (1.2); proof Eq. (4.5)).",
+        "Gower and Richtárik, arxiv:1506.03296, Theorem 4.6 and section 5.1 optimize a one-step spectral bound rather than exact finite K terminal loss.",
+        "Published one-step optimizer, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26, recovers K=1 on this example."
+      ],
+      "reasoning": "The dual rank-one projection/sketch-and-project formulation gives the same updates but does not supply the nontrivial finite-horizon minimax optimizer. The present K>=2 theorem needs the transfer matrix and positivity of an Ising path partition function to prove unique balance for every fixed pair mass.",
+      "searches": [
+        "finite horizon minimax optimal iid omission sampling all but one coordinate exact block least squares single correlated pair and orthogonal directions horizon power balance",
+        "static sampling probability for exact block coordinate descent two correlated plus n-2 independent columns optimal worst-case K-step expected objective ratio",
+        "multi iteration optimized static sampling Kaczmarz finite horizon iid nonorthogonal frame exact minimax distribution",
+        "Randomized Iterative Methods for Linear Systems arxiv:1506.03296 PDF Theorem 4.6 and section 5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest IDs: 2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26 (one step); 2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c (fixed volume); 2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5 (one step).",
+        "Additional one-step rank-projection result: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f."
+      ],
+      "reasoning": "Actual searched index results provided one-step optimum and fixed-law multistep rates, but no exact horizon-dependent optimum or closed coefficient C_K. This is a bounded search comparison, not uniqueness certification.",
+      "searches": [
+        "finite horizon minimax optimal iid omission sampling all but one coordinate exact block least squares single correlated pair and orthogonal directions horizon power balance",
+        "static sampling probability for exact block coordinate descent two correlated plus n-2 independent columns optimal worst-case K-step expected objective ratio",
+        "one-step optimal distribution versus multistep optimal distribution for exact block coordinate descent",
+        "Xie Yang 2610.04685 volume sampling exact finite step optimal distribution correlated pair",
+        "finite horizon K step exact E optimal minimax block coordinate descent sampling two correlated omitted normal directions and orthogonal directions optimal probabilities (1+rho^2)^{(K-1)/K}",
+        "optimal nonuniform probability sampling pair blocks randomized block coordinate descent on three variables with two correlated columns and a perpendicular column exact worst-case expected error contraction"
+      ]
+    },
+    "rationale": "The all-horizon K-dependent global minimax distribution and exponential loss of reusing the one-step-optimal law are not stated or implied in examined primary framework, fixed-volume transfer analyses, or previously published one-step sampling optimizers. The K=1 special case and generic transfer dynamics are explicitly acknowledged as prior ingredients. Priority remains bounded by the inspected sources and search results.",
+    "residual_risks": [
+      "Potential unlocated numerical linear algebra or finite-horizon Markov projection design result may have equivalent formula under another term; searchable-index absence does not prove originality.",
+      "A general fixed-sampler transfer formula is already available in the literature; only its global finite-horizon optimizer and all-horizon consequences are claimed new.",
+      "Historical priority has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General static sampling and convergence-bound optimization; not exact finite-horizon all-simplex sampling optimizer",
+        "evidence": [
+          "https://borowiecki.dev/pdf/2610.04685",
+          "Eq. (1.2), Theorem 4.1, Remarks 4.1-4.2, section 5.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.04685",
+        "material_read": "Accessible full PDF, introduction, (1.2), section 4 Theorem 4.1, proof equations (4.5)-(4.7), Remarks 4.1-4.2, section 5.2 learning laws",
+        "method": "PDF text reading and page images, including pages 1, 11, 13",
+        "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+        "trigger": "Direct motivating contemporary full-rank batch-descent framework"
+      },
+      {
+        "assessment": "Rates under fixed determinant-proportional probabilities; not horizon-optimized arbitrary iid law",
+        "evidence": [
+          "https://arxiv.org/pdf/1904.04587",
+          "Section 3, Theorem 3.10"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+        "material_read": "Full PDF introduction, sections 2-3 including determinant-sampling derivation and Theorems 3.9-3.10, relevant overview",
+        "method": "PDF full text text pages and page image",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "Classical block coordinate volume distribution and rates"
+      },
+      {
+        "assessment": "General expected iterate identity and spectral convergence estimate; section 5.1 optimizes one-step spectral bound, not exact finite-horizon objective",
+        "evidence": [
+          "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+          "Theorem 4.6, section 5.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+        "material_read": "Accessible journal full PDF introductory framework, Theorems 4.4 and 4.6, section 5.1 on one-step optimal probabilities",
+        "method": "Open-access journal PDF text and page image",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Potentially dominating general sketch-and-project and optimal-distribution theory"
+      },
+      {
+        "assessment": "Its general one-step optimizer includes K=1 case, which is treated as known; its scope expressly excludes exact finite-horizon mean square",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+        "material_read": "Public RESULT.md, theorem, normalized inverse-Gram minimax lemma, relationship and limitations",
+        "method": "Direct repository source-file read",
+        "title": "A sharp volume-versus-uniform reversal for two-coordinate sampling on SPD stars",
+        "trigger": "Closest overlapping exact all-but-one-coordinate one-step result"
+      },
+      {
+        "assessment": "Exact finite-time transfer under determinant-proportional law but does not optimize distribution; not dominating",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c",
+        "material_read": "Public RESULT.md theorem, exact transfer recurrence and relationship-to-prior-work section",
+        "method": "Direct repository source-file read",
+        "title": "Exact two-regime convergence of maximal-block volume-sampled quadratic coordinate descent",
+        "trigger": "Potentially stronger multistep transfer calculation"
+      },
+      {
+        "assessment": "One-step, frustrated signed triangle; explicitly no multistep optimization",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5",
+        "material_read": "Public RESULT.md theorem and minimax eigenmode proof and limitations",
+        "method": "Direct repository source-file read",
+        "title": "Exact minimax omission sampling for a frustrated three-coordinate quadratic",
+        "trigger": "Same block size and near-matching three-coordinate model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e7d367ac-86b3-429d-a324-9298dca43dda",
+  "value": {
+    "rationale": "The motivating 2026 block-descent study explicitly learns static block distributions and optimizes convergence surrogates. This structural theorem gives a complete finite-horizon oracle benchmark for a natural correlated pair plus independent columns, with equal-size candidate blocks and an all-horizon unique optimizer; it proves a substantive distinction between one-step spectral design and finite-terminal-loss design and quantifies exponentially compounding loss from a horizon-mismatched sampler. It does not assert practical runtime superiority or a general dense-matrix solution.",
+    "status": "PASS"
+  }
+}
