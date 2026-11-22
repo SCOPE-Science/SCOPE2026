@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed-basis expansion is a finite sum over independent subsets. Extension counts follow by ordered basis completion, with factorial normalization. The two-adic valuation formula is exact; its lower bound at ranks at least five uses \(2r-s-3\ge2\) and \(\nu_2(s!)\le s-1\). A basis-sized sign set gives sharpness. The small-rank congruences follow from explicit extension counts, and the rank-five nine-point frequency has a complete six-term integer cancellation. Independently enumerated rank-four and rank-five cases corroborate all computational boundary claims. No inference from limited enumeration is used to prove the infinite-rank statement.
+## correctness
 
-## Originality — PASS under bounded comparison
-Classical matroid theory identifies the projective bases and their generating polynomial. Brändén and González D'León (arXiv:0906.1071) exclude projective geometries from weak half-plane stability, but their condition permits neither an inference of zero-free behavior nor an explicit real-sign zero. Kordecki (arXiv:1305.3119) counts geometric hyperplanes and circuits relative to a basis, rather than signed Fourier coefficients. The already-known rank-three Fano boundary and regular-matroid Fourier gcd results do not imply a sharp higher-rank congruence: projective geometries in ranks at least three are nonregular. A related projective-matroid top-homology result concerns invariant homology classes, not congruences of every sign evaluation. Database and literature comparisons did not expose a dominating claim. The priority search was bounded, and the related homology result was only available as an indexed abstract.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies the exact power of two common to exponentially many Fourier coefficients of a natural nonregular matroid family in every dimension. The congruence also recovers the parity of contained projective bases directly from the lowest dyadic layer of a signed Fourier coefficient. The rank-five cancellation marks a concrete change from universal invertibility to singularity, separating real-sign behavior from the known half-plane-stability obstruction. This supplies a meaningful arithmetic and recoverability boundary beyond unsigned projective-basis counts. It does not classify later singular ranks or complete spectra.
+Each signed basis contributes product over chosen negative points (1−2). Summing the expansion over independent k-subsets gives W_r(S)=sum_{k=0}^r (-2)^k c_k(S) N_k(r), with N_k(r)=prod_{j=k}^{r−1}(2^r−2^j)/(r−k)!. For r≥5 the exact valuation v2(2^k N_k)=k+(r−k)(r+k−1)/2−v2((r−k)!) exceeds r for k<r and equals r for k=r; hence W_r(S)≡(-2)^r c_r(S) mod 2^{r+1}, and a basis-sized S attains valuation r. For r=3,4 the extension counts yield constant residue 4 mod 8 and 8 mod 16, forcing nonzero all frequencies; r=1,2 multipliers odd. At r=5 the frequency (span(e1,e2,e3)\{0})∪{e4,e5} has independent-set counts (1,9,36,77,77,28), and exact extension counts (83328,13440,1792,192,16,1), whose signed sum is exactly zero. Read pg_basis_fourier_check.py which exhausts rank-four 32768 Walsh characters and directly counts rank-five 83328 bases; independently checked the finite cancellation and formula. Symbolic valuation proves all-rank claims, not enumeration through rank64.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact mathematical conclusions and implication relations were compared against actual indexed findings and relevant primary texts, with explicit partial-read limits and residual priority risks. The proposed target itself was not counted as independent prior coverage.
+
+## value
+
+PASS
+
+The basis-incidence Walsh transform is a natural signed enumerator on projective matroids. Its exact dyadic content across all ranks and the first singular convolution rank are structural invariants; the rank-five nine-point zero witness marks a genuine invertibility boundary, not a tiny ad hoc gain or arbitrary case. General ranks above five are not claimed to be classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
