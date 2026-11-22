@@ -1,70 +1,67 @@
-# Integral homology and the \(S_5\)-character of three unordered points on \(K_5\)
+# The torsion-free second integral homology of three unordered points on the complete graph K5
 
-## Finding
-For the geometric complete graph \(K_5\), let \(B_3(K_5)\) be the space of unordered subsets of exactly three distinct points. Its complete integral homology is
+## Finding and exact scope
+
+Let \(G=|K_5|\) denote the geometric realization of the five-vertex complete graph, and let
 \[
-H_i(B_3(K_5);\mathbb Z)\cong\begin{cases}
-\mathbb Z,&i=0,\\
-\mathbb Z^6\oplus\mathbb Z/2,&i=1,\\
-\mathbb Z^{30},&i=2,\\
-0,&i\ge3.
-\end{cases}
+B_3(G)=\bigl\{\{x_1,x_2,x_3\}\subseteq G:x_1,x_2,x_3\text{ are distinct}\bigr\}
 \]
-The vertex-permutation group \(S_5\) acts on rational homology. With \(S^\lambda\) denoting the irreducible rational Specht module of partition \(\lambda\vdash5\),
+be the unordered, collision-free three-point configuration space. Then
 \[
-H_1(B_3(K_5);\mathbb Q)\cong S^{(3,1,1)},\qquad
-H_2(B_3(K_5);\mathbb Q)\cong S^{(4,1)}\oplus S^{(3,2)}\oplus 2S^{(3,1,1)}\oplus S^{(2,2,1)}\oplus S^{(2,1,1,1)}.
+\boxed{H_2(B_3(G);\mathbb Z)\cong\mathbb Z^{30}.}
 \]
-The second-homology trace equals \(30\) on the identity, \(-2\) on elements of cycle type \((2,2,1)\), and zero on all other elements. In particular \(H_2(B_3(K_5);\mathbb Q)^{S_5}=0\).
+In particular, the second integral homology has no torsion of any order. The claim concerns exactly this graph and this number of particles; it does not assert a theorem for all complete graphs or all graph configuration spaces.
 
-## Assumptions and scope
-The underlying graph is the geometric realization of the simple complete graph on vertices \(0,1,2,3,4\); particles are unordered and may move continuously on edges, but may never coincide. The group \(S_5\) acts by permuting the original graph vertices (and hence the points along its edges). No particle-number variation or equivariant homotopy splitting is asserted.
+**Precise novelty boundary.** The rank \(30\), the rational second-homology character of the natural vertex-permutation action \(S_5\), and its five-Specht-summand decomposition were already established in *The \(\mathfrak S_5\)-character of three-point configuration homology on \(K_5\)* (October 18, 2026; linked below). The first integral homology and its order-two torsion follow from Ko–Park's general graph-braid first-homology theorem. Neither result by itself proves the integral *second*-homology torsion-freeness asserted here. The new assertion is the integral saturation computation for the third cubical boundary, combined with the known rational rank. The previously known rational symmetry character is contextual information, not an additional novelty claim.
 
-Each original graph edge is subdivided once, yielding a graph with fifteen vertices and twenty edges. Distinct original vertices have graph distance two in this subdivision, and every simple noncontractible cycle has length at least six. For three particles these satisfy the Prue–Scrimshaw sufficient-subdivision inequalities: essential-to-essential paths of length at least two and essential cycles of length at least four. The resulting unordered Abrams cubical complex is included \(S_5\)-equivariantly and is a homotopy model for the configuration space. An equivariant inclusion that induces an ordinary homology isomorphism also induces an isomorphism of \(S_5\)-modules.
+## Integral chain model
 
-A cubical \(k\)-cell is an unordered selection of three pairwise closure-disjoint vertex and open-edge cells, exactly \(k\) of which are edges. Orient a cube by sorting its moving edges by the index of their oriented edge in a fixed global list; each graph edge is oriented from its lesser to its greater numbered endpoint. Boundary signs are the usual alternating product-cube signs.
+Subdivide each of the ten original edges of \(K_5\) once. The resulting graph \(G'\) has 15 vertices and 20 half-edges. Every path joining two distinct original degree-four vertices has at least two half-edges, and each nontrivial simple cycle has at least six. For three particles, these satisfy the Prue–Scrimshaw strengthened Abrams subdivision conditions (essential paths of length at least \(3-1=2\), simple cycles of length at least \(3+1=4\)). The finite cubical complex of unordered triples of pairwise closure-disjoint graph cells therefore models \(B_3(G)\) up to homotopy.
 
-## Proof
-**Integral chain calculation.** Complete enumeration gives cubical chain ranks \((455,1560,1650,520)\) in degrees \(0,1,2,3\). Both compositions \(d_1d_2\) and \(d_2d_3\) vanish coefficientwise over the integers. The one-skeleton is connected and \(d_1\) is an ordinary oriented incidence map, so its Smith factors are \(454\) copies of \(1\).
-
-For \(d_2\), integer-preserving unit-pivot elimination splits off \(1098\) independent unit factors, leaving a \(23\)-row, \(37\)-column integer residual matrix. Direct Smith normal form of that actual residual has nonzero factors \((1,2)\). Thus the complete nonzero Smith factors of \(d_2\) are \(1099\) copies of \(1\) and one \(2\); its rank is \(1100\).
-
-For \(d_3\), unit-pivot elimination produces \(520\) unit pivots and no residual. Hence \(d_3\) is injective and its image is a primitive (direct-summand) sublattice of \(C_2\). It follows that \(H_2=\ker d_2/\operatorname{im}d_3\) is torsion-free, because it injects into the free abelian group \(C_2/\operatorname{im}d_3\). Rank computations then give \(b_1=1560-454-1100=6\) and \(b_2=1650-1100-520=30\). The torsion of \(H_1\) is exactly the torsion of \(C_1/\operatorname{im}d_2\), since the quotient by \(H_1\) is the free group \(\operatorname{im}d_1\). Therefore it is \(\mathbb Z/2\). There are no cells above degree three, and \(d_3\) is injective.
-
-**First-homology symmetry.** Summing the paths traveled by all three particles gives a natural \(S_5\)-equivariant morphism from the first homology of the configuration space to the first homology of the underlying graph. For each original triangle, park two particles on its two complementary original vertices and let the remaining particle travel once around the triangle. The ten resulting loops map onto the triangle cycle classes, which span \(H_1(K_5;\mathbb Q)\). Both spaces have first rational homology of dimension six, so the map is an equivariant isomorphism. The graph cycle representation is \(\ker(\mathbb Q^{10}\rightarrow\mathbb Q^5)\), equivalently \(S^{(3,1,1)}\).
-
-**Second-homology symmetry.** For each of the 120 vertex permutations, the program counts its fixed cubical generators with orientation signs. A fixed cube contributes the sign of the permutation of its moving edge factors multiplied by the signs of any reversed oriented edges. Let \(L(g)=\sum_{k=0}^3(-1)^k\operatorname{tr}(g\mid C_k)\). Since the only rational homology is in degrees zero, one and two, the equivariant Euler–Poincaré identity gives
+A degree-\(k\) cubical generator consists of \(k\) pairwise closure-disjoint open half-edges together with \(3-k\) vertices disjoint from their endpoints. Orient half-edges by ascending endpoint index and the product cube by ascending half-edge index. Replacing one moving half-edge by its terminal or initial endpoint, with the alternating cubical incidence sign, gives the integral boundary \(\partial_k\). Enumerating all cells gives
 \[
-\operatorname{tr}(g\mid H_2)=L(g)-1+\operatorname{tr}(g\mid H_1(K_5;\mathbb Q)).
+\operatorname{rank}(C_0,C_1,C_2,C_3)=(455,1560,1650,520).
 \]
-The latter trace is the oriented-edge trace minus the vertex-permutation trace plus one. In the standard conjugacy-class order, the following table gives the exact values:
+Direct signed integer expansion verifies \(\partial_1\partial_2=0\) and \(\partial_2\partial_3=0\); there are no cells in degrees exceeding three.
 
-| Cycle type | Class size | Trace on \(H_1\) | Trace on \(H_2\) |
-|:---|---:|---:|---:|
-| \((1,1,1,1,1)\) | 1 | 6 | 30 |
-| \((2,1,1,1)\) | 10 | 0 | 0 |
-| \((2,2,1)\) | 15 | -2 | -2 |
-| \((3,1,1)\) | 20 | 0 | 0 |
-| \((3,2)\) | 20 | 0 | 0 |
-| \((4,1)\) | 30 | 0 | 0 |
-| \((5)\) | 24 | 1 | 0 |
+## Integral torsion argument
 
-The Murnaghan–Nakayama character rule and character orthogonality now give the displayed Specht decomposition. All seven multiplicities are nonnegative integers; their weighted dimensions sum to thirty. The trivial-representation multiplicity is zero.
+The essential step is an **integer** elimination of the map
+\(\partial_3:\mathbb Z^{520}\to\mathbb Z^{1650}\), not merely a modular or rational rank calculation. Work with sparse columns and choose a coefficient \(+1\) or \(-1\) in a row not yet used as a pivot; using integral elementary row/column operations, clear the chosen pivot and continue. On the actual degree-three boundary all 520 columns admit such unit pivots and the residual matrix is empty. Thus the Smith invariant factors of \(\partial_3\) are exactly 520 copies of 1, and
+\[
+C_2/\operatorname{im}\partial_3\cong\mathbb Z^{1130}
+\]
+is free. Since \(\partial_2\partial_3=0\), the group
+\[
+H_2(B_3(G);\mathbb Z)=\ker\partial_2/\operatorname{im}\partial_3
+\]
+embeds in \(C_2/\operatorname{im}\partial_3\). Every subgroup of a finitely generated free abelian group is free. Therefore **\(H_2\) is torsion-free**. This is the integral statement not implied by an earlier rational computation.
 
-## Verification
-The standalone `k5_three_point_verify.py` (Python 3.10+ and SymPy) constructs all cubical cells, all signed integer boundary matrices, validates the chain identities, performs the integral unit-pivot reductions, and takes the Smith form only of the actual residual \(23\)-by-\(37\) matrix. It also verifies ten explicit triangle cycles and commutation of differential and action for a generating set of adjacent transpositions, computes all 120 signed equivariant Euler traces, and independently reconstructs the seven irreducible characters using rim-hook removal. Executing the included program reproduces `k5_three_point_verify.out`, whose success marker is `K5_UNORDERED_THREE_POINT_INTEGRAL_AND_S5_CHARACTER_PASS`. No numerical tolerance or extrapolation from finite fields is used.
+To determine its rank without relying on an uncited numerical experiment, the previously published exact rational calculation gives \(\dim_{\mathbb Q}H_2=30\). It can also be recovered directly from this same cubical model: an integer unit-pivot reduction of \(\partial_2\) has 1,098 unit pivots and a 23-by-37 residual with Smith nonzero factors 1 and 2. Thus \(\operatorname{rank}\partial_2=1100\); together with \(\operatorname{rank}\partial_3=520\),
+\[
+\operatorname{rank} H_2=1650-1100-520=30.
+\]
+The full nonzero Smith factors of \(\partial_2\) are \(1\) repeated 1,099 times and one 2. That 2 contributes to the **known torsion in \(H_1\)**, not to \(H_2\). The connected degree-zero cubical incidence graph yields \(\operatorname{rank}\partial_1=454\), and hence the complete integral groups are
+\[
+H_0\cong\mathbb Z,\quad H_1\cong\mathbb Z^6\oplus\mathbb Z/2,\quad H_2\cong\mathbb Z^{30},\quad H_i=0\ (i\ge3).
+\]
+Only the degree-two integral torsion conclusion is advanced as new in this corrected statement.
 
-## Relationship to prior work
-Farley–Sabalka (2004 preprint; 2005 paper) and Prue–Scrimshaw (2009 preprint) provide the cubical model and subdivision framework, without this specific second-homology symmetry calculation. Ko–Park (2011 preprint) establish a general first-homology formula for graph braid groups: the first integral homology is not claimed as new here. Maciążek–Sawicki (2019, full open-access article, especially Sections 5.1, 5.3, 5.5 and 5.6) give universal cycles and relations for wheel graphs, \(K_{3,3}\), and \(K_{2,p}\), but not this classification of \(B_3(K_5)\).
+## Verification and interpretation
 
-Ramos–Yun, *Computing stable homology representations of graph configuration spaces* (June 11, 2026 preprint), is particularly close. Its Table 8 gives the \(S_5\)-representation of **ordered** three-point configuration homology of \(K_5\), while its Theorem 4.4 concerns certain stable multiplicities of the ordered problem. Their ordered \(S_5\)-module by itself does not determine the \(S_5\)-module of the unordered quotient: that requires the commuting particle-permutation action and its invariant subspace, not supplied by their Table 8. The present calculation independently evaluates the unordered cubical chain action and additionally proves the integral Smith form. Thus the two results have overlapping objects and methods but distinct stated representations and integral conclusions.
+The accompanying `k5_three_point_verify.py` constructs every cell and signed boundary, checks both integral chain identities, runs the unit-pivot reductions, and computes the Smith normal form of the exact 23-by-37 residual matrix using SymPy. The adjacent-transposition chain actions, 120 signed Lefschetz traces and rational Specht decomposition are additional consistency checks of previously established representation theory. The printed output `k5_three_point_verify.out` records a successful run; the mathematical reason for torsion-freeness is the primitive integer image of \(\partial_3\), not a success marker or a finite-field check.
+
+The use of an integral computation is substantive: knowing the rational Betti vector and character does not detect integral torsion. Here the lowest nonplanar complete graph has order-two first homology but no second-homology torsion, a concrete distinction relevant to integral graph-configuration homology. No integral \(\mathbb Z[S_5]\)-module structure, canonical integral basis of \(H_2\), or general all-graphs torsion theorem is asserted.
+
+## Relation to prior literature
+
+1. *The \(\mathfrak S_5\)-character of three-point configuration homology on \(K_5\)* (October 18, 2026), https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-mathfrak-s-5-character-of-three-point-configuration-homology--2c0746967d76/RESULT.md. Exact same unordered space, its rational degree-two dimension 30, seven-class \(S_5\) character, and Specht decomposition; the prior paper explicitly does **not** rule out integral torsion in degree two.
+2. K. H. Ko and H. W. Park, *Characteristics of graph braid groups*, arXiv:1101.2648 (2011), https://arxiv.org/abs/1101.2648. The general first-homology theorem covers the free rank and nonplanar order-two torsion in degree one.
+3. P. Prue and T. Scrimshaw, *Abrams's stable equivalence for graph braid groups*, arXiv:0909.5511 (2009), https://arxiv.org/abs/0909.5511. Supplies the graph subdivision criterion used to identify the finite cubical model with the continuous configuration space.
+4. E. Ramos and C. H. Yun, *Computing stable homology representations of graph configuration spaces*, arXiv:2606.13813v1 (June 11, 2026), https://arxiv.org/abs/2606.13813. Section 4 and Table 8 study ordered three-point complete-graph configuration homology over \(\mathbb Q\); those data do not establish torsion-freeness for the unordered integral degree-two group.
+5. T. Maciążek and A. Sawicki, *Non-abelian Quantum Statistics on Graphs*, Communications in Mathematical Physics 371 (2019), https://doi.org/10.1007/s00220-019-03583-5. Contains general methods and complete wheel-graph cases, including \(K_4\), but not an integral degree-two computation of \(B_3(K_5)\).
+6. B. H. An, *Torsion of every finite order in the homology of graph braid groups*, arXiv:2610.04305 (October 3, 2026), https://arxiv.org/abs/2610.04305. Its explicit second-degree torsion results concern complete bipartite graph families, not \(K_5\); they demonstrate why integral torsion is a meaningful issue rather than a rational afterthought.
 
 ## Limitations
-This is an exact finite case, not a uniform calculation for all complete graphs or all particle counts. The rational \(S_5\)-representation is determined, but integral \(\mathbb Z[S_5]\)-module extension data and an equivariant homotopy type are not. Published and indexed literature was checked, including closely related 2026 ordered-space work, but an unidentified equivalent treatment or derivation from a stronger uninspected result remains possible. No independent mathematical audit has been performed.
 
-## References
-1. D. Farley and L. Sabalka, *Discrete Morse theory and graph braid groups*, arXiv:math/0410539, first public 25 October 2004; Algebraic & Geometric Topology 5 (2005), 1075–1109.
-2. P. Prue and T. Scrimshaw, *Abrams's stable equivalence for graph braid groups*, arXiv:0909.5511, first public 30 September 2009.
-3. K. H. Ko and H. W. Park, *Characteristics of graph braid groups*, arXiv:1101.2648, first public 13 January 2011; Discrete & Computational Geometry 48 (2012), 915–963.
-4. T. Maciążek and A. Sawicki, *Non-abelian Quantum Statistics on Graphs*, Communications in Mathematical Physics 371 (2019), 921–973, DOI:10.1007/s00220-019-03583-5.
-5. E. Ramos and C. H. Yun, *Computing stable homology representations of graph configuration spaces*, arXiv:2606.13813v1, 11 June 2026, especially Section 4 and Table 8.
+The torsion-free conclusion is a fully finite, exact statement for \(B_3(K_5)\). The existing rational result is credited. An unindexed earlier integral treatment or a stronger torsion-vanishing theorem specialized to this graph may exist; novelty is best-of-knowledge, not certified universal priority. The code checks integral matrices but does not formally verify the cited subdivision theorem, which is invoked as an external mathematical result.
