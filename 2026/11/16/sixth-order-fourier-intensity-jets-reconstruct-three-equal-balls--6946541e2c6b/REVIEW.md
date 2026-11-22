@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for three equal-radius **additive** ball indicators, with all mixed second- and sixth-order Fourier-intensity derivatives available, not unions of overlapping balls or radial-only measurements. The measured zeroth value fixes the common radius. Exact division by the known nonvanishing ball Fourier factor reduces the problem to three equal point masses. The centered three-point difference moments satisfy the verified algebraic identities \(M_2=6p_2\), \(M_4=9p_2^2\), and \(M_6=33p_2^3/2-18p_3^2\). These identities prove the fourth-order redundancy and permit recovery of both the quadratic center polynomial and the square of the cubic. Polynomial integral-domain and unique-factorization arguments give the entire center multiset up to a single global reflection; no generic-position or distinctness assumption is needed. Two explicit rank-two rational triples have the same quadratic but different squared cubic, proving sharp order six even for noncollinear triples. The standard-library exact checker confirms 1,133 finite algebraic assertions, but the all-dimensional conclusion relies on the full proof.
+## correctness
 
-## Originality — PASS relative to inspected work
-Xia and Xu, *Fourier Phase Retrieval for Finite Unions of Intervals* (arXiv:2606.19855, 2026), concerns one-dimensional sets and full Fourier magnitudes; the accessible abstract does not assert the present finite-jet three-ball theorem. The closest published result, *Sixth-order Fourier-intensity recovery for three equal-width intervals* (2026), was inspected through its entire result and proof. It already establishes scalar sixth-order recovery and fourth-order redundancy for three disjoint equal-width intervals on a line. This is a substantive conceptual precursor, **not** the same multidimensional theorem: the new proof reconstructs noncollinear vector triples from multivariate tensor invariants, allows coincident centers and overlapping additive balls, and proves sharpness using a noncollinear orthogonally coupled rational witness. An older multivariate three-point polynomial-moment theorem might provide equivalent or stronger coverage; that remains a concrete priority risk. No uniqueness is inferred merely from search nonresults or from a topic partition.
+PASS
 
-## Mathematical value — PASS
-The natural inverse problem is finite low-frequency phaseless reconstruction of structured spatial sources. The exact derivative-order cutoff, complete sharpness witness, and a factorization formula for arbitrary noncollinear centers provide more than an isolated calculation. Unlike a mere restatement of one-dimensional interval inversion, the tensor result specifies precisely how all directional ambiguities share a **global sign**, giving unique multivariate geometry even when every fixed-direction measurement admits reflection. The theorem is narrow and does not claim noisy recovery, unequal ball radii, or a new general theory of phase retrieval.
+The zero-frequency intensity fixes the common positive radius by I(0)=9v_d²r^(2d); dividing by the known nonzero near-origin ball Fourier factor recovers difference autocorrelation moments. For centered projected coordinates u_i with sum0: M2=6p2, M4=9p2², M6=(33/2)p2³-18p3². Thus the complete 2nd and 6th tensors recover p2(t) and polynomial p3(t)^2 for every direction, and the full 4th tensor is determined by the 2nd. Integral-domain square-root uniqueness gives p3 up to global sign; monic cubic z³-p2 z/2-p3/3 uniquely factors into center linear forms including multiplicity. Exact rational noncollinear pair C, Cprime with Cprime=C R orthogonal verifies equal covariance/4th moment but distinct cubic up to sign, proving no ≤5 jet uniformly identifies every triple. Checks address overlap/coincidence and d>=2 via polynomial argument, not finite tests alone.
 
-## Sources and residual risks
-The source arXiv:2606.19855 was verified as first public on 2026-06-18, but its entire manuscript was not accessible through the attempted primary full-text route; comparison to this paper rests on the title and abstract. The closest published 2026 three-interval finite-jet result was inspected in full. The Huang–Dokmanić point-distance paper was compared at its published abstract level. The possibility of prior algebraic moment formulas or a general multivariate finite-source phase-retrieval theorem remains a real originality risk. Exact derivative data can be numerically ill-conditioned, and no stability estimate is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published 2026 sharp sixth-jet reconstruction for three equal-width disjoint intervals on the line is a close one-dimensional antecedent. It does not imply the multivariate polynomial-square-root sign coherence, all-configuration including overlapping additive equal balls, or a noncollinear sharpness witness. Unassigned full-distance methods also concern stronger data rather than these finite jets.
+
+## value
+
+PASS
+
+The sharp minimal finite derivative order for localization of three unknown equal-radius balls from phaseless low-frequency data is a natural inverse problem. It covers all overlapping and noncollinear configurations and shows quartic information carries no new invariant; the explicit covariance-preserving noncollinear collision is a valuable boundary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
