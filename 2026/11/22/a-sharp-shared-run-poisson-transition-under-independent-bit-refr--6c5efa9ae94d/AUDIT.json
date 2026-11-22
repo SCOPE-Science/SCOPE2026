@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "At every interior site each copy has start probability \\(p=2^{-k-1}\\) and the common start has \\(q=p(1-\\varepsilon/2)^{k+1}\\). For displacement \\(1\\le d\\le k\\), identical-copy starts are exclusive and a cross-copy pair has exact probability \\(r_d=\\varepsilon2^{-k-d-2}(1-\\varepsilon/2)^{k-d}\\). The sum of all local cross collisions is \\(O(1/k+2^{-k/2})\\), while \\(b_1=O(k/n)\\) and \\(b_3=0\\). AGG marked Poisson approximation yields the three independent spatial limits; boundary starts contribute probability \\(O(2^{-k})\\). An exact rational checker passes 181 assertions at stated finite sizes; those tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "AGG 1990 Theorem 2 and Section 3.1 supply a general marked process approximation framework; it requires problem-specific collisions and vanishing neighborhoods.",
+        "Kamalja–Shinde 2011 develops general bivariate-run finite generating functions, encompassing finite joint counts but not an explicit critical marked spatial limit."
+      ],
+      "reasoning": "The present statement is an application of an existing broad theorem, not a claim that the method itself is new. However the sharp regime and uniform shifted-start collision bound are not explicitly extracted from these general treatments. Historical risk remains if an earlier paper carried out this exact specialized limit.",
+      "searches": [
+        "critical scale 1/log n resampling perturbation longest consecutive heads run Poisson thinning same-location distinct long-run starts",
+        "extreme consecutive-one runs coupled strings common shock Poisson process retention noise",
+        "Arratia Goldstein Gordon Poisson approximation process theorem 1990",
+        "Kamalja Shinde 2011 bivariate patterns Markov trials joint probability generating functions"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1214/ss/1177012015",
+      "https://doi.org/10.1214/aop/1046294302",
+      "https://doi.org/10.4236/ojs.2011.12014",
+      "https://doi.org/10.1186/2195-5832-1-5",
+      "https://arxiv.org/abs/math/9811157",
+      "2026/10/18/SCOPE-joint-spatial-poisson-and-gaussian-limits-for-long-monotone-runs--f3a425560b6e",
+      "2026/11/8/SCOPE-two-mode-covariance-spectrum-for-circular-bernoulli-run-frequenc--5e29bbdfb592",
+      "2026/10/25/SCOPE-a-nested-majorization-coupling-for-fixed-composition-binary-run--0174d9413a90",
+      "2026/11/2/SCOPE-independent-poisson-misses-at-the-short-subsequence-crossover-fo--d6195162bd45",
+      "2026/10/12/SCOPE-poisson-extremes-for-alternating-streaks-of-two-point-moving-ave--fb294c939e5a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A static run-start Poisson approximation yields each marginal rate \\(\\lambda\\) but cannot determine the three-way splitting rate.",
+        "Qualitative noise sensitivity does not fix a nontrivial crossover with \\(k_n\\varepsilon_n\\to c\\), nor the explicit \\(e^{-c/2}\\) common fraction.",
+        "The exact shifted-start probability \\(\\varepsilon2^{-k-d-2}(1-\\varepsilon/2)^{k-d}\\) and its summed bound ensure asymptotic spatial independence between distinct marked sites."
+      ],
+      "reasoning": "The present limit is not implied by the listed narrower static or qualitative statements alone. The AGG general theorem plus specialized estimates does imply the result, so originality attaches only to the previously-unlocated explicit specialized law, not to an independent approximation principle.",
+      "searches": [
+        "coupled longest run heads bit-flip noise threshold inverse log n Poisson long runs",
+        "critical scale 1/log n resampling perturbation longest consecutive heads run Poisson thinning same-location distinct long-run starts",
+        "two correlated binary strings longest run joint exceedance limit bivariate Poisson retained resampled",
+        "BHPS 2003 run tests and noise sensitivity, full-text relevant sections",
+        "AGG 1990 Theorem 2 general process Poisson approximation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The shared-mark intensity is \\(\\lambda(1-\\varepsilon_n/2)^{k_n+1}\\) in finite size and tends to \\(\\lambda e^{-c/2}\\); this is a correlated-extremes survival formulation.",
+        "BHPS 2003 treats dynamical run properties and exceptional times; relevant inspected run-test discussion does not explicitly give a two-copy marked Poisson law.",
+        "AGG 1990 Section 4.2 treats single-sequence head-run Poisson approximations."
+      ],
+      "reasoning": "A common-shock bivariate Poisson count law and a marked spatial Poisson law are equivalent here by aggregating three independent populations, but a marginal law or qualitative sensitivity statement does not supply the common intensity. Searched under both noise and coupled longest-run aliases.",
+      "searches": [
+        "longest runs heads in Bernoulli sequences after noise resampling noise sensitivity Poisson joint bivariate longest run",
+        "coupled longest run heads bit-flip noise threshold inverse log n Poisson long runs",
+        "Benjamini, Häggström, Peres, Steif 2003 dynamical runs exceptional times and noise sensitivity",
+        "Arratia Goldstein Gordon 1990 Poisson process head runs Theorem 2 Section 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published short-run covariance covers fixed-length circular occurrences, not length growing with sample size.",
+        "Published monotone-run extreme theorem concerns ordered continuous data and no noise pairing.",
+        "Kamalja–Shinde exact finite bivariate PGF is acknowledged; finite counts and covariance are not asserted to be novel."
+      ],
+      "reasoning": "No returned exact table or prior finding matched the three-mark dynamic rare-run intensities. Finite joint probabilities are covered in principle by earlier bivariate generating-function methods and therefore excluded from the originality claim.",
+      "searches": [
+        "longest runs heads in Bernoulli sequences after noise resampling noise sensitivity Poisson joint bivariate longest run",
+        "two correlated binary strings longest run joint exceedance limit bivariate Poisson retained resampled",
+        "published finding: 2026/11/8/SCOPE-two-mode-covariance-spectrum-for-circular-bernoulli-run-frequenc--5e29bbdfb592",
+        "published finding: 2026/10/18/SCOPE-joint-spatial-poisson-and-gaussian-limits-for-long-monotone-runs--f3a425560b6e"
+      ]
+    },
+    "rationale": "The new mathematical target is a three-type spatial Poisson limit at the critical per-coordinate refresh scale, with an explicit common-site intensity and joint extreme probability; the known static long-run Poisson law, abstract marked Chen–Stein framework, qualitative dynamical sensitivity, and bivariate finite PGF are all explicitly credited and are not claimed new. No inspected source explicitly gives this coupled marked crossover, though a broader correlated-pattern limit theorem remains a genuine historical-implication risk.",
+    "residual_risks": [
+      "A broader existing bivariate correlated-pattern Poisson limit may imply this exact critical three-mark law without spelling out its fair-bit parameters; independent historical review is not performed.",
+      "The most general finite bivariate-run PGF from Kamalja and Shinde covers finite joint counts, so those finite consequences are not asserted original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General approximation method and static marginal coverage; not an explicit two-copy critical three-mark spatial limit",
+        "evidence": [
+          "Theorem 2 controls local-dependence process approximation via b1,b2,b3.",
+          "Head-run treatment analyzes static rare patterns, without the independent refresh coupling."
+        ],
+        "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/pacs-1.pdf",
+        "material_read": "Theorem 2, Section 3.1 marked process framework, and Section 4.2 on long runs; text and rendered PDF page examined",
+        "method": "Full primary PDF sections and theorem; compared hypotheses and conclusions",
+        "title": "Poisson Approximation and the Chen–Stein Method",
+        "trigger": "Generic Poisson process approximation and known static head-run results may subsume the new assertion"
+      },
+      {
+        "assessment": "Related qualitative dynamical noise-sensitivity and exceptional-time results; no explicit three-type spatial Poisson law located",
+        "evidence": [
+          "Studies run tests under dynamical bit evolution and exceptional-time dimensions.",
+          "Does not explicitly specify the joint \\(e^{-c/2}\\) marked intensity in inspected sections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aop/1046294302",
+        "material_read": "Relevant full-text run-test, dynamical-sensitivity, and exceptional-time sections",
+        "method": "Author-posted accessible full article text inspected and compared to marked critical limit",
+        "title": "Which properties of a random sequence are dynamically sensitive?",
+        "trigger": "Dynamical run-tests noise sensitivity potentially implies the sharp two-copy crossover"
+      },
+      {
+        "assessment": "Broad finite joint-distribution machinery explicitly credited; no explicit critical extreme-marked PPP theorem found",
+        "evidence": [
+          "General bivariate Markov-pattern generating functions can subsume finite covariance.",
+          "Claimed original theorem excludes the finite PGF and covariance formulas."
+        ],
+        "identifier_or_url": "https://www.scirp.org/pdf/ojs20110200006_34566710.pdf",
+        "material_read": "Full PDF sections defining bivariate run counts and joint generating-function technique, including results and examples",
+        "method": "Primary full PDF text with rendered page examination; compared exact finite machinery with asymptotic spatial theorem",
+        "title": "Runs and Patterns in a Sequence of Markov Dependent Bivariate Trials",
+        "trigger": "Same two-string objects and finite run counts could dominate the claim"
+      },
+      {
+        "assessment": "Marginal/static run-pattern approximation, no independently refreshed two-copy marked crossover",
+        "evidence": [
+          "Approximation focus on distributions of run counts and patterns.",
+          "Does not explicitly provide shared-old-new spatial extreme marked rates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-5",
+        "material_read": "Accessible full article discussion of marginal run-pattern approximation and supporting results",
+        "method": "Full publisher open HTML text inspected; compared assumptions and target outputs",
+        "title": "Approximating the distributions of runs and patterns",
+        "trigger": "Potential known Poisson pattern and run approximation that covers this regime"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c5efa9a-e94d-4220-b231-c8761e0ece47",
+  "value": {
+    "rationale": "The precise probability of simultaneous failure (a long heads run in either of two highly correlated measurements) cannot be determined from marginal rare-run Poisson laws. The critical regime \\(\\varepsilon\\asymp1/\\log n\\) supplies an interpretable persistence/creation/destruction decomposition with a calibrated joint extreme probability, giving a meaningful structural noise-sensitivity law rather than an arbitrary low-dimensional special case.",
+    "status": "PASS"
+  }
+}
