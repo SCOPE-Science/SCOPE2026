@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every nontrivial conference graph with v=5 mod 8, the SRG parameter identity gives A²=A+I+J, and vectors u=Ae and w=1+e are independent, even-weight and orthogonal. Direct expansion proves N=B³+I=wwᵀ+uuᵀ, rank N=2, N²=0, hence B⁶=I. On span(w,u), B has minimal polynomial t²+t+1. Fixed points of B are span(1+u), and a B²-fixed state must be B-fixed because B+I is invertible on im N. Consequently dimensions of Fix(B), Fix(B²), Fix(B³), Fix(B⁶) are 1,1,v−2,v and cycle populations follow. The baseline decomposition span(1)⊕ker 1ᵀ proves the exact one-step transient census. Matrix tests at v=5,13,29,37,53,61,101 and full enumeration at v=5,13 were replayed from included scripts. Finite computations do not prove all v or extension fields; algebra does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haemers–Peeters–van Rijckevorsel (1999), Proposition 3.1, proves A²=A+I+J mod two and binary rank(A)=v−1 for v≡5 mod8; section 4.3 treats Paley graph codes.",
+        "The inspected strongly regular second-order wave theorem acts on pairs (u,w) and has different order-four/six/ten cases; the present operator acts on a single vertex-field vector with one diagonal toggle."
+      ],
+      "reasoning": "The strongly regular wave result covers arbitrary SRG parameter classes but a different, doubled-time reversible update (u,w)↦(Au+w,u); no specialization to conference parameters gives B=A+eeᵀ or its fixed-iterate census. The code identity describes unmodified adjacency but does not calculate iterates of B. Both were compared at the level of operators and implications.",
+      "searches": [
+        "conference graph 5 mod 8 local self-feedback one loop parity dynamics invertible period six",
+        "any strongly regular conference graph v=5 mod8 one diagonal toggle adjacency binary sixth power equals identity",
+        "published-finding corpus:2026/11/8/SCOPE-three-universal-wave-periods-and-spectrally-invisible-orbit-coun--6be21916ed4f"
+      ]
+    },
+    "checked_sources": [
+      "https://pure.uvt.nl/ws/files/327256/fulltext.pdf",
+      "https://arxiv.org/abs/math/0605252",
+      "https://arxiv.org/abs/1203.1818",
+      "Full published result on Boolean-cube one-site feedback",
+      "Full published result on strongly regular two-time-layer waves",
+      "Full published result on generalized Paley modular automata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Haemers–Peeters–van Rijckevorsel (1999), Proposition 3.1, proves A²=A+I+J mod two and binary rank(A)=v−1 for v≡5 mod8; section 4.3 treats Paley graph codes.",
+        "Lim–Praeger, arXiv:math/0605252, defines Paley graphs and studies automorphism groups, not one-site defective neighbor sums.",
+        "The inspected Boolean hypercube feedback theorem permits periods 1,2,3,6 in odd dimension and nonreversible transients in even dimension; its adjacency square is scalar, unlike conference A²=A+I+J.",
+        "The inspected strongly regular second-order wave theorem acts on pairs (u,w) and has different order-four/six/ten cases; the present operator acts on a single vertex-field vector with one diagonal toggle."
+      ],
+      "reasoning": "The exact modular identity A²=A+I+J does imply the original A-rank and short unperturbed clock, but not *by itself as a published claim* the derived B³+I=wwᵀ+uuᵀ of rank two or the 1/3/6 period counts. The additional rank-one feedback calculation is supplied and checked. Nearby hypercube and reversible wave statements use incompatible hypotheses and do not subsume this theorem.",
+      "searches": [
+        "strongly regular graph a single diagonal toggle self feedback characteristic two sixth power identity",
+        "strongly regular graph quadratic adjacency A^2=A+I+J one vertex loop global order 6 periodic census",
+        "single vertex self loop conference graph XOR all states periodic",
+        "arxiv:math/0605252",
+        "doi:10.1023/A:1026479210284"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haemers–Peeters–van Rijckevorsel (1999), Proposition 3.1, proves A²=A+I+J mod two and binary rank(A)=v−1 for v≡5 mod8; section 4.3 treats Paley graph codes.",
+        "The inspected Boolean hypercube feedback theorem permits periods 1,2,3,6 in odd dimension and nonreversible transients in even dimension; its adjacency square is scalar, unlike conference A²=A+I+J."
+      ],
+      "reasoning": "One-site self-input, loop insertion and a rank-one diagonal toggle are the same operator, B=A+eeᵀ, and were searched as such. The Boolean-cube result is not equivalent: cube A²=(d mod 2)I and its period classes/fixed dimensions disagree with conference B, whose A²=A+I+J and whose two-cycles are absent.",
+      "searches": [
+        "Paley graph one vertex self loop XOR parity update exact order six reversible q=5 mod8",
+        "strongly regular graph a single diagonal toggle self feedback characteristic two sixth power identity",
+        "single loop defect Paley graph adjacency finite field GF2 order 6 period three or six",
+        "published-finding corpus:2026/11/2/SCOPE-a-one-site-feedback-defect-creates-periods-three-and-six-on-bool--a9a2b0b84ed9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Haemers–Peeters–van Rijckevorsel (1999), Proposition 3.1, proves A²=A+I+J mod two and binary rank(A)=v−1 for v≡5 mod8; section 4.3 treats Paley graph codes.",
+        "The modular generalized Paley table concerns the state field of characteristic equal to the prime graph order and index at least three; neither matches the binary conference index-two case with one feedback site."
+      ],
+      "reasoning": "Searched Paley characteristic-two XOR loop defects, conference graph dynamics and strongly regular modular adjacency tables. The older binary code tables list ranks/weights of A or A+I, not time periods of A+eeᵀ. No identical orbit census was found in inspected sources; this is evidence of noncoverage rather than proof of unique priority.",
+      "searches": [
+        "Paley graph one vertex self loop XOR parity update exact order six reversible q=5 mod8",
+        "strongly regular graph quadratic adjacency A^2=A+I+J one vertex loop global order 6 periodic census",
+        "published-finding corpus:2026/11/8/SCOPE-cyclotomic-index-determines-the-complete-orbit-census-of-prime-o--dae15684bd7a"
+      ]
+    },
+    "rationale": "A full-text binary SRG code source yields the common-neighbor identity but not the single-site perturbation, rank-two square-zero third-iterate defect, or exact 1/3/6 period census. Full-result comparisons to the closest indexed Boolean-cube self-feedback theorem and the strongly regular reversible wave theorem establish nonimplication by different adjacency algebra and state operator. The all-graph conference family and graph-specific fixed-space formulas differ substantively; priority risk remains for unindexed work.",
+    "residual_risks": [
+      "The 1999 source was read as extracted full text; page-image rendering was unavailable and exact day of initial public availability is not established.",
+      "Unindexed historical results could express the same rank-one perturbation orbit census in coding-theoretic language.",
+      "Independent external mathematical validation was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers A²=A+I+J, rank(A)=v−1 and Paley graph code structures but not single-loop temporal dynamics or orbit counts.",
+        "evidence": [
+          "Proposition 3.1 lines 127–144: A²=A+I+J mod 2; Section 4.3 lines 282–294: parameters and Paley graph codes."
+        ],
+        "identifier_or_url": "https://pure.uvt.nl/ws/files/327256/fulltext.pdf",
+        "material_read": "Extracted full-text Introduction; Section 3 Proposition 3.1 and proof; Section 4.3 Paley graphs, plus find for loop. PDF image-render attempt returned unavailable.",
+        "method": "Open-access full-text extraction with targeted section reading and within-document find",
+        "title": "Binary Codes of Strongly Regular Graphs",
+        "trigger": "Strongly regular conference graph binary adjacency ranks and possible preexisting diagonal-feedback consequences"
+      },
+      {
+        "assessment": "Graph definitions, connectivity and automorphism groups; no field-state binary single-loop dynamical theorem.",
+        "evidence": [
+          "arXiv first submitted 2006-05-10; introduction identifies Paley graphs as conference graphs; Theorem 1.2 concerns automorphism groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0605252v2",
+        "material_read": "Introduction, Definition 1.1, Theorem 1.2 and description of cyclotomic association scheme, plus abstract and preprint submission history.",
+        "method": "Public arXiv full-text HTML and submission metadata",
+        "title": "On generalised Paley graphs and their automorphism groups",
+        "trigger": "Earliest verified day-level public Paley family and conference-graph background"
+      },
+      {
+        "assessment": "Distinct graph family and matrix identity, with periods one/two/three/six or transients rather than only one/three/six; no implication of conference rank-two identity.",
+        "evidence": [
+          "Its proof has cube A²=(d mod 2)I, whereas the present A²=A+I+J; its orbit census includes primitive period two."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-a-one-site-feedback-defect-creates-periods-three-and-six-on-bool--a9a2b0b84ed9",
+        "material_read": "Complete RESULT.md with hypothesis, formula, proof, related literature and limitations.",
+        "method": "Published full-text repository read",
+        "title": "A one-site feedback defect creates periods three and six on Boolean hypercubes",
+        "trigger": "Closest local self-feedback XOR modification and matching periods three/six"
+      },
+      {
+        "assessment": "Second-order reversible wave on doubled state (u,w), not first-order one-site update; exact 4/6/10 order spectrum cannot subsume this claim.",
+        "evidence": [
+          "Its map is (u,w)↦(Au+w,u), as contrasted with B=A+eeᵀ."
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-three-universal-wave-periods-and-spectrally-invisible-orbit-coun--6be21916ed4f",
+        "material_read": "Complete RESULT.md theorem, proof, comparisons and limitations.",
+        "method": "Published full-text repository read",
+        "title": "Three universal wave periods and spectrally invisible orbit counts on strongly regular graphs",
+        "trigger": "Broadest strongly regular dynamics classification using the same adjacency parameters"
+      },
+      {
+        "assessment": "Excludes quadratic-residue index two and works in odd graph-prime characteristic without local feedback; no coverage.",
+        "evidence": [
+          "Explicit index k≥3, state characteristic p, graph prime p; no defect e eᵀ."
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-cyclotomic-index-determines-the-complete-orbit-census-of-prime-o--dae15684bd7a",
+        "material_read": "Complete RESULT.md theorem, scope, proof and relationship to prior work.",
+        "method": "Published full-text repository read",
+        "title": "Cyclotomic index determines the complete orbit census of prime-order generalized Paley automata",
+        "trigger": "Same Paley-like graphs, modular neighbor-sum dynamical populations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb25beab-75fe-4ccc-94f5-4d0e0e6b9536",
+  "value": {
+    "rationale": "A motivated feedback-sensitivity problem on canonical conference strongly regular networks is answered uniformly across an infinite family and all characteristic-two field extensions. One self-feedback site makes an originally noninvertible linear update globally reversible and creates exact six-period cycles; the rank-two square-zero perturbation mechanism yields full primitive orbit populations. This is a structural dynamical transition rather than a merely reparameterized code-rank observation or isolated small-graph table.",
+    "status": "PASS"
+  }
+}
