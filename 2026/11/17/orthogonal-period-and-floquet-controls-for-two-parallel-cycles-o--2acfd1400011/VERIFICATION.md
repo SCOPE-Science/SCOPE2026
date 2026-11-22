@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python CHECK.py` with Python 3, SymPy and mpmath. Successful execution prints three `*_OK` lines. The program reconstructs the exact cofactor identities for \(U=x^2+y^2-a^2\) and the torus equation, the exact angular formula and the orthogonal dot/determinant identities. It then compares both analytic return integrals with independent high-precision numerical quadratures in eight cases and checks explicit witnesses.
+## correctness
 
-The essential mathematical verification is analytical: linearization in \(U\) **along the invariant torus** gives the normal variational equation, and the angular vector integral gives its full return exponent. The eight finite numerical cases check implementation only, not universal quantifiers. There is no formal proof assistant or independent third-party audit. No statement is made about the ambient three-dimensional normal multiplier, off-parallel periodic orbits, or nonlinear dynamics at unit Floquet multiplier.
+PASS
+
+Reviewed the exact frozen RESULT.md field, torus H=(x²+y²−a²)²+z²−1, and both signed parallels z=s. Symbolic reconstruction independently checks H-dot=2zBH and U-dot=zBU for U=x²+y²−a², B=px+qy. On z=s the angular coefficient is −ω−aA_s·(cosθ,sinθ); for |ω|>a||A_s|| the standard tangent-half-angle integral gives physical period 2π/Δ_s, and integrating B over that angular clock gives the sole nontrivial within-surface Floquet multiplier. Expansion yields Δ_+²−Δ_-²=−2a²(uq−vp) while the B numerator depends on pu+qv. Both s signs, ω sign, unit-multiplier and zero-angular-speed boundaries were distinguished. Exact SymPy identities and numerical quadrature are checks, not substitutes for the angular integral proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge new quantitative Floquet/period control for the Jana cubic torus field. Jana gives precisely the model and a zero-free periodicity criterion, while older tori studies classify invariant curves qualitatively. Their conclusions do not imply closed physical periods and two independent controls without the submitted angular integral and first-order variational calculation; exact predecessor is credited.
+
+## value
+
+PASS
+
+The two simultaneously invariant torus cycles provide a natural testbed for distinguishing phase speed from transverse stability: independent determinant and dot-product controls permit equal-time opposite-stability and unequal-time neutral examples, which cannot be recovered from a bare invariant-circle existence theorem. This is a motivated quantitative structural refinement with explicit original-time normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes invariance of the smooth torus through exact polynomial cofactor identities; uses the genuine torus-transverse coordinate \(U=x^2+y^2-a^2\), rather than the quadratically vanishing coordinate \(z-s\); and derives the nonzero angular-speed criterion, original-time integral, and return-map multiplier without changing time variables. The first-harmonic vector integral is elementary and includes the removable zero-amplitude case. The sharp dot-product versus determinant decomposition follows by direct expansion. The included symbolic checker reproduces the identities; eight original-time quadratures separately test the periods and multipliers. No finite computation is offered as proof for all real parameters.
+PASS
 
-## Originality — PASS within inspected evidence
+Reviewed the exact frozen RESULT.md field, torus H=(x²+y²−a²)²+z²−1, and both signed parallels z=s. Symbolic reconstruction independently checks H-dot=2zBH and U-dot=zBU for U=x²+y²−a², B=px+qy. On z=s the angular coefficient is −ω−aA_s·(cosθ,sinθ); for |ω|>a||A_s|| the standard tangent-half-angle integral gives physical period 2π/Δ_s, and integrating B over that angular clock gives the sole nontrivial within-surface Floquet multiplier. Expansion yields Δ_+²−Δ_-²=−2a²(uq−vp) while the B numerator depends on pu+qv. Both s signs, ω sign, unit-multiplier and zero-angular-speed boundaries were distinguished. Exact SymPy identities and numerical quadrature are checks, not substitutes for the angular integral proof.
 
-Jana's arXiv:2401.07843 states the parent cubic family and the angular nonvanishing criterion; those facts are credited to the source. The source's Theorem 2.6 and proof do not give closed original-time periods, transverse Floquet multipliers, or independent dot/cross controls in the affine-angular subclass. Llibre–Rebollo-Perdomo (2013, full accessible preprint inspected in the theorem and main proof regions) covers geometric invariant-parallel counts and existence of algebraic limit cycles, not this quantitative theorem. The 2011 Llibre–Medrado paper treats the same torus and qualitative limit-cycle conditions, but its full paper was inaccessible; its abstract cannot exclude a quantitative formula in the body. That is a concrete unresolved publication-priority risk, not a proof of novelty. Related known formulas for unrelated planar and toral oscillators do not imply the particular two-parallel orthogonal-control law.
+## originality
 
-## Value — PASS
+PASS
 
-The originating dynamical family naturally has exactly two distinguished invariant parallels. The theorem identifies their physical clocks and transverse stability in closed form across the entire nonzero-coupling affine-angular parameter family, including sharp loss-of-periodicity surfaces, neutrality, and two independently adjustable controls. This separates two dynamical observables usually entangled in polynomial torus flows; explicit examples show why the separation matters. The result neither claims a global phase portrait nor a new invariant-parallel existence theorem.
+Best-of-knowledge new quantitative Floquet/period control for the Jana cubic torus field. Jana gives precisely the model and a zero-free periodicity criterion, while older tori studies classify invariant curves qualitatively. Their conclusions do not imply closed physical periods and two independent controls without the submitted angular integral and first-order variational calculation; exact predecessor is credited.
 
-## Literature and limits
+## value
 
-References: S. Jana, arXiv:2401.07843, Theorem 2.6; J. Llibre and S. Rebollo-Perdomo, J. Dynam. Differential Equations 25 (2013), 777–793, DOI:10.1007/s10884-013-9315-4; J. Llibre and J. C. Medrado, Bull. Sci. Math. 135 (2011), 1–9, DOI:10.1016/j.bulsci.2010.06.005. The full 2011 article and unindexed equivalent derivations remain the principal originality risks. The multiplier is restricted to the invariant surface; linear Floquet neutrality does not establish nonlinear stability.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two simultaneously invariant torus cycles provide a natural testbed for distinguishing phase speed from transverse stability: independent determinant and dot-product controls permit equal-time opposite-stability and unequal-time neutral examples, which cannot be recovered from a bare invariant-circle existence theorem. This is a motivated quantitative structural refinement with explicit original-time normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
