@@ -1,15 +1,21 @@
-# Review: finite-size critical layer for diagonal sections of \(\ell_p\)-balls
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The section-to-density identity is Equation (10) of Brazitikos–Eskenazis, arXiv:2611.07619; the two-coordinate section integral is evaluated explicitly. The normalized second and fourth moments follow by a gamma-integral substitution. Fourier inversion of the sum density, a uniform fourth-cumulant expansion, nonlattice decay, and uniform derivative control supply the \(O(n^{-2})\) expansion, including its derivative in \(p\). The trigamma bound proves \(L'(p_0)<0\), and the convergent log-gamma series proves \(\kappa(p_0)<0\) without relying on a floating-point sign. Strict monotonicity of the local comparison, existence of the unique root, and the exact first-order root displacement follow by the implicit-function argument given in the proof. The standalone Python verifier tests the special-function constants and independently integrates the finite-dimensional characteristic-function formula. Numerical checks do not substitute for the Fourier remainder proof. The claim is deliberately local in \(p\) and valid for sufficiently large \(n\), not for every finite \(n\).
+## correctness
 
-## Originality
-**PASS, subject to historical priority limitations.** The exact \(p_0\), the limit \(G(p)\), and the asymptotic diagonal-versus-Ball comparison are already known from Oleszkiewicz and the recent Brazitikos–Eskenazis theorem. König's arXiv:2403.14456 gives a sufficient bound \(n\ge650/(p_0-p)\) for the diagonal to beat the two-coordinate section; it explicitly says 650 is not optimal. Neither that bound nor the dimension-free theorem entails the *unique local finite-\(n\) crossing* or its exact first displacement coefficient \(C_*=195.0172976114\ldots\). König's arXiv:2409.06432 analyzes Fourier bounds in the same regime without the claimed critical-window expansion. Published-record and primary-literature searches for the exact crossover and excess-kurtosis correction did not yield an identical statement. Standard Edgeworth expansion is a known tool, not claimed as new. The original Oleszkiewicz chapter has not been exhaustively inspected, and unindexed previous calculations remain a risk; no absolute novelty or independent validation is claimed.
+PASS
 
-## Mathematical value
-**PASS.** The recently established extremal-section phase boundary is dimension-free, whereas the diagonal competitor overtakes the two-coordinate competitor at finite dimensions depending sensitively on \(p\). The theorem extracts the *sharp geometric finite-size scale* \(n(p_0-p)\) and its exact limiting coefficient from the excess kurtosis of the underlying generalized Gaussian. This distinguishes a specific phase transition from the nonsharp sufficient factor 650, supplies the complete first-order critical-window law, and proves local uniqueness. It does not assert a global optimizer, nor is the value predicated on that stronger open problem.
+The probabilistic section density representation with normalized f_p=exp(-(2Gamma(1+1/p))^p|x|^p) gives variance Gamma(1+3/p)/(12Gamma(1+1/p)^3) and kurtosis Gamma(5/p)Gamma(1/p)/Gamma(3/p)^2-3. Characteristic function inversion around zero gives +kappa/(8n) uniformly with one p derivative using nonlattice tail bounds. The transversality L′<0 on [25,28], kappa<0 and implicit-root calculation give a unique local crossing with the stated sign. Independent high-precision mpmath calculation gives p0=26.2650319766054, L′=-0.00075969556454019, kappa=-1.18523020803, C*=195.017297611416. Only pairwise hyperplanes and asymptotic n are claimed.
 
-## Closest literature and limits
-Brazitikos–Eskenazis, *The dimension-free threshold for maximal sections of* \(\ell_p\), arXiv:2611.07619 (2026); H. König, *On hyperplane sections and projections in* \(\ell_p^n\), arXiv:2403.14456 (2024), especially Theorem 1.1 and the nonoptimality remark; H. König, *On maximal hyperplane sections of the unit ball of* \(\ell_p\) *for* \(p>2\), arXiv:2409.06432 (2024), especially the threshold lemma and Fourier bounds; K. Oleszkiewicz, *On p-pseudostable random variables, Rosenthal spaces and* \(\ell_p^n\) *ball slicing* (2003), bibliographic and secondary-source examination only. Restriction: pairwise comparison, local in exponent and asymptotic in dimension; historical-priority uncertainty persists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The dimension-free threshold of Brazitikos–Eskenazis (Theorem 1) identifies p0 and the asymptotic diagonal competitor but not an exact finite-dimensional pairwise crossing or its n^-1 Edgeworth constant. König gives a sufficient large-n dimension bound away from p0, not an asymptotically exact crossover. Classical Edgeworth terms are a credited method, not a prior calculation of C*. Historical priority under older Oleszkiewicz notes remains a risk.
+
+## value
+
+PASS
+
+The sharp finite-size boundary layer and its explicit sign constant quantifies where two canonical hyperplanes exchange order near a geometrically meaningful exponent. It sharpens qualitative dimension-free/asymptotic slicing results in a naturally parameterized regime; it does not overclaim global optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

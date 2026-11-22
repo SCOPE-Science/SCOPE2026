@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite-size critical-layer verification
+# Independent mathematical audit
 
-The independent Python-standard-library program `verify.py` reproduces the defining gamma-function ratio, locates the reference root numerically, computes the log-ratio derivative using a recurrence and Stirling-series digamma approximation, and verifies the excess-kurtosis and sharp-displacement constants. It additionally evaluates the Fourier inversion integral for the *actual finite-dimensional diagonal section density* using two nested composite Simpson rules (positive generalized-Gaussian half-line and nonnegative Fourier variable) with fixed integration cutoffs. It tests dimensions \(n=150,600,1200\) at exponents \(p=p_0-0.2,p_0,p_0+0.02\), checks the \(O(n^{-2})\) residual magnitude, and verifies a sign reversal in the finite-dimensional comparison at \(n=1200\).
+## correctness
 
-Executed command: `python3 verify.py`. Outcome: `ALL NUMERICAL CONSISTENCY CHECKS PASSED`. The observed finite-dimensional approximation remainders times \(n^2\) were about \(-0.0166\) to \(-0.0168\) in the tested cases. The calculation tests arithmetic, normalization and sensitivity, not the universal Fourier asymptotic theorem. Mathematical proof of that asymptotic, including parameter differentiation, is in `RESULT.md`. The numeric root and coefficients are decimal approximations to the exact gamma/digamma expressions; no interval-arithmetic certification or independent expert audit is claimed.
+PASS
+
+The probabilistic section density representation with normalized f_p=exp(-(2Gamma(1+1/p))^p|x|^p) gives variance Gamma(1+3/p)/(12Gamma(1+1/p)^3) and kurtosis Gamma(5/p)Gamma(1/p)/Gamma(3/p)^2-3. Characteristic function inversion around zero gives +kappa/(8n) uniformly with one p derivative using nonlattice tail bounds. The transversality L′<0 on [25,28], kappa<0 and implicit-root calculation give a unique local crossing with the stated sign. Independent high-precision mpmath calculation gives p0=26.2650319766054, L′=-0.00075969556454019, kappa=-1.18523020803, C*=195.017297611416. Only pairwise hyperplanes and asymptotic n are claimed.
+
+## originality
+
+PASS
+
+The dimension-free threshold of Brazitikos–Eskenazis (Theorem 1) identifies p0 and the asymptotic diagonal competitor but not an exact finite-dimensional pairwise crossing or its n^-1 Edgeworth constant. König gives a sufficient large-n dimension bound away from p0, not an asymptotically exact crossover. Classical Edgeworth terms are a credited method, not a prior calculation of C*. Historical priority under older Oleszkiewicz notes remains a risk.
+
+## value
+
+PASS
+
+The sharp finite-size boundary layer and its explicit sign constant quantifies where two canonical hyperplanes exchange order near a geometrically meaningful exponent. It sharpens qualitative dimension-free/asymptotic slicing results in a naturally parameterized regime; it does not overclaim global optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
