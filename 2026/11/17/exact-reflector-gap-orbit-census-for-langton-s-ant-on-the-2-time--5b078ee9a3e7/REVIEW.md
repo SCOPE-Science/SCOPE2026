@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-step reduction uses the exact standard turn-flip-move rule; direct calculation verifies invariance of \(b_z=c_{0,z}\oplus c_{1,z}\oplus\mathbf1_{z=x}\) and the reflector transition. Each gap has exact projected return length \(2j\) and full macroperiod \(4j\); patterns with at most one reflector have full macroperiod \(2n\). Counting lifted states and dividing by the proved primitive periods yields the closed orbit formulas. Independent full-state simulation checks all configurations at \(n=2,\ldots,9\); separate all-vertical-state macro-invariant tests cover \(n=2,\ldots,7\). The proof, rather than the finite checks, establishes arbitrary size.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 1995 original-ant paper's full accessible text does not classify finite two-row torus temporal orbits. The 2019 torus discussion provides reversibility, all-white periods and the column-parity marker; these are specifically credited and are not new claims. Its published discussion does not derive the present reflector-gap orbit multiplicities or limiting period distribution. The 2020 twisted-torus complexity paper addresses a distinct question. The closest one-dimensional-ant journal paper (Gajardo–Goles 2004) was accessible only by abstract, leaving a credible equivalence risk. The accessible related mathematical-record matches concern other local updates and do not imply these formulas. This is best-knowledge originality, not a claim of exhaustive priority proof.
+PASS
 
-**Mathematical value — PASS.** Langton's ant is a classical nonlinear, reversible moving-head lattice system; finite torus orbit lengths are natural dynamical invariants. A full labelled cycle classification at all widths for its first nontrivial finite strip is more informative than a selected-seed period, and distinguishes a linear worst-case period from a tight, explicit size-biased geometric limiting law with mean 24. The count is not a trivial renaming or a small numerical increment.
+PASS: Reconstructed the actual turn-right-on-0, left-on-1, flip, move rule and distinguished geometric coincident destinations from east/west headings when n=2. Verified the marker-twisted column parity invariant, gap reflector sign law, primitive macroperiod lifts and exceptional <=1-reflector patterns. Independently enumerated every labelled full ant state and direct temporal orbit for n=2..5 (including n even overlapping period), reproducing the precise multiplicities. The proof provides arbitrary-n bijective gap decomposition; finite enumerations corroborate only these cases.
 
-**Limitations.** The orientation-sensitive \(n=2\) convention is explicit, and no geometric quotient classes, taller tori or independent formal validation are asserted. A published 1D-ant article could contain a mathematically equivalent finite-ring case not visible in its abstract.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The conserved column marker and reversibility are explicitly present in the 2019 MSE discussion, so not novel. Gale et al. discuss planar ant symmetry, and Gajardo–Goles study infinite one-dimensional ant families. The inspected material does not give this *complete labelled 2×n torus* primitive-orbit formula and exact uniform-state period law. Its exact gap spectrum is a substantive finite-width dynamical classification. The 2004 full text remains a named risk.
+
+## value
+
+PASS
+
+Langton's ant is a standard reversible finite-state dynamical system, but a complete all-configuration primitive-cycle census on a two-row torus contrasts exponentially many worst-case configurations with an n-independent limiting typical period and proves exact exception/overlap behavior. The width restriction is forced by the invariant reflector reduction, rather than an arbitrary small-instance slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

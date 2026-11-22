@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact orbit census
 
-The two accompanying standalone programs were run with their supplied code and outputs. Compile `verification/direct_census.cpp` with `c++ -std=c++17 -O2` and execute; it checks all labelled full states for \(2\le n\le9\), exact cycle counts, permutation closures, and the full state checksum. The largest test has \(18,874,368\) full states. Run `python3 verification/column_invariant.py` to test the separate macrostep derivation on every vertical-heading state for \(2\le n\le7\), including the invariant and reflector direction rule. Standard Python is sufficient.
+# Independent mathematical audit
 
-The full proofs of the invariant, exact return periods, lifted-state counts, and the limiting period law are in `RESULT.md`. Finite checks do not prove arbitrary width; their role is reproducibility and detection of implementation or algebraic errors. Counts are for labelled states, not spatial symmetry classes. No independent mathematical audit has been performed.
+## correctness
+
+PASS
+
+PASS: Reconstructed the actual turn-right-on-0, left-on-1, flip, move rule and distinguished geometric coincident destinations from east/west headings when n=2. Verified the marker-twisted column parity invariant, gap reflector sign law, primitive macroperiod lifts and exceptional <=1-reflector patterns. Independently enumerated every labelled full ant state and direct temporal orbit for n=2..5 (including n even overlapping period), reproducing the precise multiplicities. The proof provides arbitrary-n bijective gap decomposition; finite enumerations corroborate only these cases.
+
+## originality
+
+PASS
+
+PASS (qualified): The conserved column marker and reversibility are explicitly present in the 2019 MSE discussion, so not novel. Gale et al. discuss planar ant symmetry, and Gajardo–Goles study infinite one-dimensional ant families. The inspected material does not give this *complete labelled 2×n torus* primitive-orbit formula and exact uniform-state period law. Its exact gap spectrum is a substantive finite-width dynamical classification. The 2004 full text remains a named risk.
+
+## value
+
+PASS
+
+Langton's ant is a standard reversible finite-state dynamical system, but a complete all-configuration primitive-cycle census on a two-row torus contrasts exponentially many worst-case configurations with an n-independent limiting typical period and proves exact exception/overlap behavior. The width restriction is forced by the invariant reflector reduction, rather than an arbitrary small-instance slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
