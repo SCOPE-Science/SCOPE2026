@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "The piecewise exponential profile gives exactly W(a)=min(max(a,1),1/q)*max(1,d-(1-q)a). The entire compact interval 0<=a<=d is partitioned at first-dose threshold 1, retained threshold 1/q and post-second threshold (d-1)/(1-q). Only the strictly concave quadratic a(d-(1-q)a) and the strictly decreasing cap can outperform a single bolus; comparing the vertex, cap, endpoints and all equality boundaries proves the complete real-parameter optimizer set. The half-life switch q=1/2, d=4(1-q) jump and strict equal-split inversion are analytically derived. A standalone exact-rational checker passed 183183 assertions over 5200 randomized and dedicated boundary parameter cases, only as corroboration. Infinite-domain claims rest on algebraic proof, not these samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corvaisier et al. (1998) model time above MIC for one-compartment IV simulations over a 24-hour index and compare it to killing, rather than optimize a fixed-total two-impulse split over the infinite tail.",
+        "Bachmann et al. (2024) optimize dosing numerically in a dynamic bacterial-count/AUC setting, not an analytic two-impulse superlevel duration.",
+        "The indexed independent Hill-target allocation theorem considers nonlinear inhibition across distinct targets, with a sum-of-benefits objective, not repeated superposed concentration inputs."
+      ],
+      "reasoning": "Generic optimal-control and dose-design frameworks may subsume the model as a possible special instance, but an algorithmic framework or a different endpoint is not a statement implying the exact closed-form branch and all equality cases. No inspected stronger theorem entailed the new classification; general optimization theory remains a priority risk rather than a proof of originality.",
+      "searches": [
+        "maximize time above minimum inhibitory concentration with two fixed bolus injection times and shared total dose sharp transition dose split vs single",
+        "two delta pulses exponential concentration time over a threshold optimal dose allocation gap half life discontinuous",
+        "doi:10.1128/AAC.42.7.1731",
+        "doi:10.1007/s10928-024-09940-9",
+        "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd"
+      ]
+    },
+    "checked_sources": [
+      "Corvaisier et al. (1998), doi:10.1128/AAC.42.7.1731 (full HTML)",
+      "Jacobs (2001), doi:10.1046/j.1198-743x.2001.00295.x (full HTML)",
+      "Ibrahim et al. (2004), doi:10.1128/AAC.48.11.4195-4199.2004 (full HTML)",
+      "Bachmann et al. (2024), doi:10.1007/s10928-024-09940-9 (full HTML)",
+      "Plusquellec et al. (1999), doi:10.1016/S0939-6411(99)00017-X (abstract only)",
+      "2026/11/2/SCOPE-the-exact-anti-phase-fluctuation-law-for-two-oral-doses--5b25dde3d179 (full scientific result)",
+      "2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9 (full scientific result)",
+      "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd (indexed summary; separate target model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Time-above-MIC as an efficacy index and monoexponential clearance give the baseline expression but not a characterization of the maximizer over first-dose amount.",
+        "The periodic oral-dose phase theorem has fixed amounts and a quadratic objective; the delayed-input peak theorem has fixed amounts and a mode-count objective.",
+        "Ibrahim et al. (2004) compare a finite set of predetermined pulse schedules experimentally and cannot imply all real dose totals, q values, or exact optimizer uniqueness.",
+        "The current proof is a complete global case analysis of clipped quadratic and linear branches, including q=1/2 and both dose thresholds."
+      ],
+      "reasoning": "The cited prior statements are logically insufficient to determine the argmax set of the present time-above-threshold functional. The equivalence to maximizing W(a), the threshold 4(1-q), and the equal-split inversion require new comparisons absent from the reviewed prior claims. Residual uninspected broader optimization literature prevents absolute priority certification.",
+      "searches": [
+        "2026/11/2/SCOPE-the-exact-anti-phase-fluctuation-law-for-two-oral-doses--5b25dde3d179",
+        "2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9",
+        "doi:10.1128/AAC.42.7.1731",
+        "doi:10.1128/AAC.48.11.4195-4199.2004",
+        "fixed time above threshold total exposure for two exponential bolus doses optimize dose allocation first order pharmacokinetics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The duration functional is the measure of a superlevel set, or equivalently the maximum of a clipped product W(a)=min(max(a,1),1/q) max(1,d-(1-q)a).",
+        "The indexed 2026 oral-dosing result optimizes periodic squared concentration fluctuation by varying a phase with fixed positive doses; its full RESULT.md explicitly excludes therapeutic-window objectives.",
+        "The indexed delayed-Bateman result classifies local peak counts as delay and relative depot input change, but neither the time-above-level functional nor a fixed-total dose split appears in its fully inspected RESULT.md."
+      ],
+      "reasoning": "Rewriting time above threshold as a level-set or clipped-product optimization is a genuine equivalence within the current result. Squared-fluctuation phase optimization, two-peak counting and dose-distribution optimization have different constraints and objective functionals, and their theorems do not supply the present global optimizer or its half-life boundary.",
+      "searches": [
+        "antibiotic pharmacokinetics two bolus doses exponential elimination time above MIC dose split optimal time concentration threshold",
+        "fixed time above threshold total exposure for two exponential bolus doses optimize dose allocation first order pharmacokinetics",
+        "time above MIC half-life separation phase transition unequal dose fractionation optimal fixed budget",
+        "2026/11/2/SCOPE-the-exact-anti-phase-fluctuation-law-for-two-oral-doses--5b25dde3d179",
+        "2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed mathematical results nearest in models involve oral periodic fluctuation or the delayed Bateman peak-count diagram; their fully read RESULT.md files do not tabulate the two-bolus time-above-threshold optimum.",
+        "The 1998 time-above-MIC paper provides pharmacodynamic simulations, not a table of the present q,d optimizer or its sharp boundaries.",
+        "The available own historical ledger was searched for concentration-threshold, pharmacokinetic and pulse-allocation descriptions; no matching exact classification was found."
+      ],
+      "reasoning": "No matching exact value table or solved q,d parameter diagram appeared in checked sources or accessible own historical records. This is a positive comparison of inspected mathematical statements and objects, not an assertion that every database has been exhaustively searched.",
+      "searches": [
+        "antibiotic pharmacokinetics two bolus doses exponential elimination time above MIC dose split optimal time concentration threshold",
+        "time above MIC half-life separation phase transition unequal dose fractionation optimal fixed budget",
+        "2026/11/2/SCOPE-the-exact-anti-phase-fluctuation-law-for-two-oral-doses--5b25dde3d179",
+        "2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9"
+      ]
+    },
+    "rationale": "The compared literature supplies the classical time-above-MIC index, one-compartment decay models and selected nonuniform dosing schedules, but none of the inspected primary results or close indexed statements proves the global dose-split maximizer, its discontinuous/continuous half-life boundary, and the strict equal-split inversion for a fixed two-bolus gap. Novelty is qualified by named inaccessible older material and unsearched theoretical reductions; absence from search alone is not used as proof.",
+    "residual_risks": [
+      "The full 1999 periodic/nonuniform dose article was not available; its statements could affect historical priority despite the different abstracted problem.",
+      "The broader mathematical optimal-control/rearrangement literature may contain an equivalent clipped-level-set optimization or a theorem that subsumes this special model, even without matching phrasing.",
+      "Search and inspection are finite; originality is not an assertion of exhaustive historical novelty or independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates time-above-MIC measure; does not solve global fixed-interval two-impulse allocation",
+        "evidence": "1998 paper relates one-compartment IV PK simulations to 24-hour MIC exposure and bacterial killing rather than an unbounded-horizon optimal-dose-splitting theorem.",
+        "identifier_or_url": "https://doi.org/10.1128/AAC.42.7.1731",
+        "material_read": "Full accessible primary journal HTML including methods, exposure indices, simulations and conclusions",
+        "method": "Scientific reading and direct comparison of optimization variable, timing horizon and objective",
+        "title": "Comparisons between antimicrobial pharmacodynamic indices and bacterial killing as described by using the Zhi model",
+        "trigger": "Earliest verified public paper directly calculating time above MIC under one-compartment IV exponential elimination"
+      },
+      {
+        "assessment": "Conceptual PK/PD motivation, not an all-parameter two-bolus argmax theorem",
+        "evidence": "Discusses clinical PK/PD parameters and time-dependent killing, without the exact clipped-product phase diagram.",
+        "identifier_or_url": "https://doi.org/10.1046/j.1198-743x.2001.00295.x",
+        "material_read": "Full available article HTML",
+        "method": "Compared described indices, treatment constraints and asserted optimization results",
+        "title": "Optimisation of antimicrobial therapy using pharmacokinetic and pharmacodynamic parameters",
+        "trigger": "Primary review linking time-dependent pharmacodynamics and drug dosing"
+      },
+      {
+        "assessment": "Does not prove a continuum global argmax or half-life transition",
+        "evidence": "Finite experimentally specified regimens and bacterial outcomes differ from infinite-horizon duration-maximization over all allocations.",
+        "identifier_or_url": "https://doi.org/10.1128/AAC.48.11.4195-4199.2004",
+        "material_read": "Full primary journal HTML, dosing methods and experimental comparisons",
+        "method": "Compared dose choices and experimental finite-horizon outcomes with current optimization quantifiers",
+        "title": "Pharmacodynamics of pulse dosing versus standard dosing: in vitro metronidazole activity",
+        "trigger": "Plausible empirical prior with fixed normal and pulse dosing and exponential elimination"
+      },
+      {
+        "assessment": "Broad numerical dose-design method, no same threshold-duration closed-form theorem",
+        "evidence": "The endpoint involves bacterial-count/AUC metrics; its general numerical formulation does not assert the present half-life discontinuity.",
+        "identifier_or_url": "https://doi.org/10.1007/s10928-024-09940-9",
+        "material_read": "Full available article HTML, approach and examples",
+        "method": "Compared optimized endpoint, constraints and explicit analytic claims",
+        "title": "Computing optimal drug dosing regarding efficacy and safety: the enhanced OptiDose method in NONMEM",
+        "trigger": "Broad clinical dose optimization potentially dominating simpler dose-splitting statements"
+      },
+      {
+        "assessment": "Not covering: varying phase at fixed doses to minimize periodic squared fluctuation, not varying dose split to maximize finite-superlevel duration",
+        "evidence": "Its finding defines J(delta)=integral of a squared deviation; its scope excludes therapeutic-window optimization.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-the-exact-anti-phase-fluctuation-law-for-two-oral-doses--5b25dde3d179/RESULT.md",
+        "material_read": "Entire RESULT.md including finding, proof, relationship to prior work and limitations",
+        "method": "Direct implication comparison against objective and optimization variable",
+        "title": "The exact anti-phase fluctuation law for two oral doses",
+        "trigger": "Closest indexed dosing theorem involving two doses and an exponential dynamic response"
+      },
+      {
+        "assessment": "Not covering: mode counts of oral absorption profiles do not imply the time-above-threshold optimum for IV impulses",
+        "evidence": "The sharp criterion is d>t0 and m>Q(d) for two concentration peaks; neither duration-over-MIC nor shared dose-budget maximization is part of that assertion.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9/RESULT.md",
+        "material_read": "Entire RESULT.md including theorem, proof and limitations",
+        "method": "Direct comparison of quantifiers, type of inputs and measured mathematical outcome",
+        "title": "A sharp reentrant two-peak window for delayed unequal Bateman inputs",
+        "trigger": "Closest indexed two-pulse superposition model with a possible mode/threshold relation"
+      },
+      {
+        "assessment": "Unresolved possible historical overlap, not classified from snippets as full-text NOT_COVERING",
+        "evidence": "Abstract concerns periodic nonuniform steady state; detailed theorem content cannot be excluded without full text.",
+        "identifier_or_url": "https://doi.org/10.1016/S0939-6411(99)00017-X",
+        "material_read": "Abstract and bibliographic record only; full paper was not available for inspection",
+        "method": "Limited metadata and abstract comparison only, with explicit residual-risk designation",
+        "title": "Concentration at steady-state after periodic and non-uniform administration of drug",
+        "trigger": "Potentially relevant historical nonuniform dosing calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8965d617-50fe-4810-9323-8a8688f07c13",
+  "value": {
+    "rationale": "Time above MIC is a longstanding pharmacodynamic exposure quantity, and a fixed total dose with two prescribed delivery times is a natural minimal model of fractionation. The analysis exposes an exact one-half-life boundary between first-order continuous and discontinuous emergence of a beneficial second bolus, two sharp budget thresholds, and a nonempty open region where equal splitting is strictly worse than giving all at once while an unequal split is strictly superior. This furnishes a meaningful structural counterexample to a natural equal-fractionation heuristic, not just an arbitrary numerical parameter evaluation. Real prescribing applications require separate clinical modeling and validation.",
+    "status": "PASS"
+  }
+}
