@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+All quantifiers are \(n\ge2\) with two **distinct** reverse arcs of a fully specified one-way \(K_{2,n}\). The classification reduces the three incidence orbits to (i) a two-cone union along an explicitly described graph or (ii) dominated-vertex collapses to a six-vertex complex. The two-cone formula uses the correct simplicial intersection, and the graph has exactly \(2n-2\) vertices, \((n-1)(n-2)\) edges, two components at \(n=2,3\), and one at \(n\ge4\). The disjoint case's only directed cycles have lengths two and four, and the vertex domination tests preserve cycle-freeness. The four base triangles constitute the tetrahedral sphere boundary; the three extra edges attach a path, producing the circle. A standalone exhaustive face-enumerator checked 27 finite cases for \(2\le n\le10\); the infinite proof does not rely on extrapolation.
+
+## Originality — PASS against inspected evidence
+The 2022 multipath-complex paper's complete-bipartite calculation is for the alternating/one-way graph and provides only its Euler characteristic, not reverse-edge modifications or incidence-sensitive homotopy types. The foundational path-poset study, the oriented-matching study, and the bidirected-polygon study have distinct hypotheses and invariants. Published records on fully bidirected \(K_{2,n}\) cannot imply the partial two-reciprocal-arc cases merely by restriction; homotopy type is not inherited by arbitrary subcomplexes. Targeted comparisons with indexed scientific findings did not yield an equivalent or stronger statement. The remaining bibliographic risk is an unindexed equivalence or a stronger unpublished proof not accessible from search summaries.
+
+## Value — PASS
+The result classifies **every** two-reverse-edge perturbation of the natural fixed two-source complete bipartite model, not a cherry-picked finite graph. It shows a structural bifurcation: disjoint feedback arcs force a stable mixed-dimensional wedge, while incident feedback arcs give a sharp circle-to-two-spheres transition and a quadratic growth law. The explicit simple-collapse proof shows why the additional columns are topologically irrelevant in exactly one orbit, while suspension of an incidence graph explains the other two. These distinctions are not obtained from the intact one-way or fully bidirected endpoints.
+
+## Limitations and closest literature
+No classification is claimed for larger first shore or more than two reverse arcs. The two-cone suspension argument does not produce a simple-collapse certificate for the incident cases. Sources: arXiv:2208.04656, Theorem 3.7 (§3.2); arXiv:2110.11206, §6; arXiv:2203.03476, introductory statements on oriented matching complexes; arXiv:2601.05670, introduction and bidirected path/polygon statements. Related public fully bidirected biclique records were compared at the claim level; their detailed proofs were not read because they treat a different complete reciprocal graph. Unindexed equivalent literature remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
