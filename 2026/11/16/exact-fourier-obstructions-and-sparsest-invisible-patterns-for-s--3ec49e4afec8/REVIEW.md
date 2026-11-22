@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier multiplier and normalization are explicit. Mann's relative-order bound reduces every torsion zero to a 420th-root pair: all 162 non-singleton minimal-subsums partitions are enumerated, the only three rank-one exceptions are excluded by incompatible primitive cubic and antipodal relations, and the remaining lattices have index at most two. Complete modular tests at 421 and 2521 leave exactly 48 candidates, each independently verified by exact cyclotomic divisibility. At the isolated seven-resonance, these twelve frequencies are two punctured lines. Their inverse transforms are exactly mean-zero additive arrays, whose maximal zero set has cardinality 37; equality uniquely produces the crossed-strip supports. The standalone exact checker has been replayed successfully, including 201 independent exact-rational erasure-rank comparisons. The 49-cross certificate and sharp sparse recovery and the arbitrary-erasure component criterion are algebraic, not numeric extrapolations.
+## correctness
 
-## Originality — PASS, with priority risks
-Conway–Jones (1976) and Christie–Dykema–Klep (2020) give general root-of-unity relation classifications, which may imply the nullity subclaim after specializing and checking the angular constraint. The present combined claim does not rest on that subclaim alone: the precise kernel decomposition, complete arbitrary-erasure component criterion, minimum-support 12 crossing rigidity, all equality cases, and optimal sparse-recovery threshold are separately proved. Earlier triangular graph spectra provide spectral representations, not an identified minimum-support kernel theorem. Source excerpts and available full texts were compared against the mathematical implication, not merely title similarity. An unlocated specialized grid-code classification remains a substantive historical-priority risk.
+PASS
 
-## Value — PASS
-The seven-point nearest-neighbor filter is canonical on a triangular periodic lattice. The result identifies exactly when information is lost for *every* grid order and, in the first resonance family, exactly how localized an invisible perturbation can be. The unexpectedly cancellation-free intersection and its 49 distinct minimum erasures and the component formula for all other erasures yield a sharp sparsity threshold for noiseless recovery, not merely a routine rank computation. No claim about noisy inversion is made.
+Reconstructed the Fourier character multiplier 1+z+z^-1+w+w^-1+z/w+w/z. The all-orders step applies Mann relative-order bounds to minimal vanishing partitions and a rank-two lattice index at most 2; independently enumerated all 162 labeled no-singleton partitions with index distribution 0:3,1:150,2:9, the 3 rank-one cases being excluded by incompatible primitive-cube and antipodal constraints. This proves both torsion orders divide 420, so a 420^2 finite census is exhaustive. Independent modular evaluation over primes 421 and 2521 left 426 and 96 necessary candidates, intersection 48; exact cyclotomic divisibility of every survivor gives 12 conductor-7, 12 conductor-12, and 24 conductor-30 zeros. For the isolated conductor-7 pair of frequency lines, additive 7x7 matrices A(u)+B(v) with zero-mean A,B have at least 12 nonzero entries: the 37-zero extremum is attained only by matched (6,1) value multiplicities. The (7x7) crossing exhibits exactly 12 sites and 49 positions; group-component propagation yields c-rank([[r_j],[s_j]]) for arbitrary retained observations. The finite computation is exhaustive only because the independent torsion-bound proof supplies the cutoff.
 
-## Scope and remaining sources
-The source on general toroidal graph spectra was accessible only in an extended article excerpt, while the 1976 trigonometric theorem was available in a published theorem transcription rather than a full accessible PDF. These priority risks cannot be fully closed without further historical comparison; the proof itself is self-contained modulo the cited standard Mann theorem and exhaustive packaged integer certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the composite sharp invisible-support and arbitrary-erasure result. Mann/Conway-Jones cover vanishing-sum arithmetic and may imply much of the nullity subclaim; toroidal spectrum framework gives multipliers rather than the rigidity of the minimum-support kernel. Comparisons to the published seven-site Turán mass and fourth-moment results show different optimization objectives and do not supply 49-cross extremizers or the graph erasure formula. Historical specialized coding-theory and graph spectra remain risks.
+
+## value
+
+PASS
+
+A sparse identifiability cutoff and exact erasure criterion for a geometrically natural seven-point convolution are mathematically motivated operator and coding invariants, not just a small parameter count. Sharp extremizers and all-order torsion obstruction yield structural information usable by later sampling/recovery work. The support classification is deliberately limited to isolated seven-resonance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
