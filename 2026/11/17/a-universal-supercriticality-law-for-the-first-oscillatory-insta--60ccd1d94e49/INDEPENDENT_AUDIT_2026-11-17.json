@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:02:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The specified local polynomial map has homogeneous equilibrium E=(1/S,1/S,1/S). The circulant Jacobian diagonalizes into lambda0=1-R and complex lambda±=1-R(a±ib)/S. The condition alpha^2+beta^2>alpha+beta ensures C-Sa=3/2*(alpha^2+beta^2-alpha-beta)>0, so R*=2Sa/C lies in (0,2); the complex pair crosses modulus one before the mean-mode flip at R=2 with derivative a/S>0. Bounds b^2>3a(1-a) and 0<a<1/2 imply b^2>3a^2, so |arg lambda|<pi/3 and resonances of orders 1-4 are excluded. The exact Fourier recurrence gives the center-manifold quadratic r=-2a|w|^2+..., q=-R*conj(c), d=2R*a(S+c); nonresonant quadratic elimination produces Re(conj(lambda)(d+2q conj(H)))=-2R*a^2(1+R*)<0. This universal identity was independently verified symbolically in SymPy for free a,b,S (simplifies to exactly zero difference), rather than trusting saved checker logs. Consequently the classical nonresonant Neimark-Sacker theorem yields a locally attracting shrinking invariant Jordan curve with |w|^2=(R-R*)/[2R*a S(1+R*)]+o(R-R*). Local existence does not imply positivity globally or a global basin. An explicit rational witness (alpha,beta)=(3/2,1/10) gives R*=104/151 and lambda=(143-28sqrt(3)i)/151, consistent with formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published circulating logistic triad is antisymmetrically coupled, whereas current alpha,beta are simultaneously nonnegative with alpha^2+beta^2>alpha+beta. Generic 1987 same-model theorems could be stronger, but complete hypotheses were inaccessible."
+        ],
+        "reasoning": "The logistic-triad formula requires a coupling balance structurally incompatible with alpha+beta>1; it does not imply the current coefficient. A broad title for the 1987 paper is insufficient by itself to assert it dominates or fails to cover this precise parameter family.",
+        "searches": [
+          "cyclic three species Euler discrete Lotka Volterra competition supercritical Neimark Sacker first Lyapunov coefficient normal form",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-universal-supercritical-oscillatory-bifurcation-in-a-circulati--75840f5cffe4",
+          "https://doi.org/10.1137/0147031"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at 38f660417eada10767aa88b7205916ebe94dccd4",
+        "Frozen check_normal_form.py at actual record tree",
+        "SymPy independent derivation of cubic normal-form identity",
+        "https://arxiv.org/abs/2408.15054",
+        "https://doi.org/10.1137/0147031",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-universal-supercritical-oscillatory-bifurcation-in-a-circulati--75840f5cffe4/RESULT.md",
+        "Resultary same-model periodic/tori semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C-Sa=3/2*(alpha^2+beta^2-alpha-beta)>0 provides a sharp first-crossing inequality, with the cubic identity -2R*a^2(1+R*)."
+        ],
+        "reasoning": "Prior numerical observations of some supercritical cases do not imply a uniform strict sign across the whole admissible nonnegative quadrant, or automatic low-order nonresonance. The separate logistic map differs in coupling signs and is not an implication.",
+        "searches": [
+          "cyclic three species Euler discrete Lotka Volterra competition supercritical Neimark Sacker first Lyapunov coefficient normal form",
+          "https://arxiv.org/abs/2408.15054",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-universal-supercritical-oscillatory-bifurcation-in-a-circulati--75840f5cffe4/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Muni studies three-dimensional cyclic LV dynamics, including torus bifurcations and hyperchaos, while 1987 Gardini et al. describes same-map Hopf/NS context; no fully inspected equivalent two-parameter cubic formula from these works."
+        ],
+        "reasoning": "Equivalent coordinates may use Euler time-step/growth rescaling; the exact universal coefficient and its local-amplitude normalization must be compared after that transformation, not by matching the term Hopf alone. The 1987 full-source comparison is inaccessible and explicitly unresolved.",
+        "searches": [
+          "cyclic three species Euler discrete Lotka Volterra competition supercritical Neimark Sacker first Lyapunov coefficient normal form",
+          "https://arxiv.org/abs/2408.15054",
+          "https://doi.org/10.1137/0147031"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Muni provides numerically observed torus pathways; Resultary two-cycle transverse-stability calculations concern Floquet eigenvalues of a period-two orbit, not the first NS cubic of homogeneous fixed point."
+        ],
+        "reasoning": "A bifurcation diagram or numerical Lyapunov chart is not an exact table of all alpha,beta cubic coefficients; no matching exact formula was available in the inspected material.",
+        "searches": [
+          "cyclic three species Euler discrete Lotka Volterra competition supercritical Neimark Sacker first Lyapunov coefficient normal form",
+          "https://arxiv.org/abs/2408.15054",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-reentrant-transverse-stability-of-synchronous-two-cycles-i--8a580c543a57"
+        ]
+      },
+      "rationale": "PASS with material historical-priority risk: Muni (2024) studies this same Euler–Lotka–Volterra cyclic system and numerically describes quasiperiodic tori, including some subcritical scenarios on other parameter routes, but no inspected theorem yields this sharp *all-admissible-first-instability* criterion and closed-form always-negative normal-form coefficient. Earlier Gardini–Lupini–Mammana–Messia (1987) specifically addresses same cyclic map and bifurcations; full text was not available via lawful OA/arXiv, and authorized Oxford access returned vpn_disconnected. That genuine inaccessible plausible source is a prominent unresolved historical risk, not automatic FAIL absent decisive coverage. Published antisymmetric circulating logistic triad has a different coupling and cannot be specialized into nonnegative alpha,beta in the specified region.",
+      "residual_risks": [
+        "Gardini et al. (1987), an especially close same-map primary predecessor, unavailable in full owing to institutional VPN disconnection; historical priority not certified and further lawful comparison strongly recommended.",
+        "The NS theorem used is local with a contracting third multiplier; invariant circle attraction does not establish global convergence or invariant full positive octant.",
+        "The numerical ell1 value depends on Fourier normalization; only sign and bifurcation type are coordinate invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and qualitative context; no located exact all-parameter first-crossing Lyapunov theorem",
+          "evidence": "Paper emphasizes numerical torus and hyperchaotic paths, not closed form ell1=-2R*a^2(1+R*) on the stated complete first-oscillatory region.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.15054",
+          "material_read": "Accessible extensive primary-text treatment and figures of torus routes, numerical bifurcation methods, and reported examples (plus abstract)",
+          "method": "read relevant full-text representation and mathematical model/methods sections",
+          "title": "Torus and hyperchaos in 3D Lotka-Volterra map",
+          "trigger": "Same cyclic three-species discrete Lotka-Volterra map and Neimark-Sacker phenomena"
+        },
+        {
+          "assessment": "UNRESOLVED close predecessor; no claim of whole-document noncoverage",
+          "evidence": "Precise universal first Lyapunov sign or equivalent formula in this article cannot be ruled out.",
+          "identifier_or_url": "https://doi.org/10.1137/0147031",
+          "material_read": "Publication abstract and bibliographic information only; full article not accessible. OA/arXiv did not supply full text, and authorized institutional request returned vpn_disconnected.",
+          "method": "abstract-only and protected access attempt without bypass",
+          "title": "Bifurcations and Transitions to Chaos in the Three-Dimensional Lotka-Volterra Map",
+          "trigger": "1987 same-map predecessor, potentially decisive comparison"
+        },
+        {
+          "assessment": "Different map and coupling signs, not coverage via parameter substitution",
+          "evidence": "Its c-coupling is balanced antisymmetric x_(j+1)-x_(j-1), not nonnegative competitive alpha,beta in the required region.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-universal-supercritical-oscillatory-bifurcation-in-a-circulati--75840f5cffe4/RESULT.md",
+          "material_read": "Entire RESULT.md including exact dynamical map, Fourier recurrence, proof, coefficient, and limitations",
+          "method": "read full GitHub mathematical source",
+          "title": "A universal supercritical oscillatory bifurcation in a circulating logistic triad",
+          "trigger": "Resultary paper with universal negative Neimark-Sacker cubic coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Identifying the precise nonnegative competition region where oscillatory onset precedes flip, proving automatic nonresonance and an exactly negative parameter-universal Lyapunov coefficient upgrades qualitative/numerical torus observations to a rigorous analytic family theorem. Quantitative invariant-circle amplitude is a useful normal-form invariant once the Fourier normalization is fixed. The scope is a natural sharp stability boundary for a named ecological dynamical family, not an isolated numerical parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "alpha,beta>=0, 1<alpha+beta<2, alpha^2+beta^2>alpha+beta; parameter R near first crossing R*.",
+    "No global population positivity/attraction, no uniqueness of rotation number or beyond-low-order resonance classification."
+  ],
+  "schema_version": 1
+}

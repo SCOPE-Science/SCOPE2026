@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exact circulant eigenvalues give the sharp first-crossing condition \(\alpha^2+\beta^2>\alpha+\beta\). This condition forces \(b^2>3a^2\), excluding all resonances of order at most four. The exact Fourier quadratic map supplies the center-manifold coefficient \(-2a\). Explicit elimination of the quadratic nonresonant term yields the cubic radial identity \(\ell_1=-2R_*a^2(1+R_*)\), strictly negative. This checks all hypotheses for the standard local Neimark–Sacker theorem. The extracted algebraic checker confirms the exact polynomial and normal-form identities in symbolic arithmetic. A finite orbit does not prove an invariant circle; existence follows from the theorem.
+## correctness
 
-## Originality
-**PASS under currently inspected evidence, with material residual risk.** Muni (arXiv:2408.15054; complete source text inspected) describes a supercritical fixed-point bifurcation numerically on a selected parameter path, not the all-parameter sharp inequality or universal coefficient. Joshi et al. (2021; full-text sections examined) develop several different three-dimensional mechanisms but do not give this specific cyclic Fourier coefficient. The more closely overlapping 1987 Gardini–Lupini–Mammana–Messia article has only a publicly available abstract in this review; it analyzes the same map and a weakly resonant case, and its unseen full text may contain related local calculations. No absence-of-coverage conclusion is claimed for that article. Nearby published exact coefficients in antisymmetrically coupled logistic triads address a different interaction matrix; a published critical Euler–May–Leonard statement concerns \(\alpha+\beta=2\) rather than the strictly smaller region. The index search is not proof of uniqueness.
+PASS
 
-## Value
-**PASS.** The sharp interaction inequality singles out where coexistence first fails by oscillation instead of a scalar flip, and the sign identity eliminates an entire potential subcritical regime for a natural ecologically motivated cyclic map. The amplitude law gives a quantitative local prediction for all permitted competition strengths. It is not a mere restatement of the qualitative existence of a circle or a single-parameter numerical example.
+PASS: The specified local polynomial map has homogeneous equilibrium E=(1/S,1/S,1/S). The circulant Jacobian diagonalizes into lambda0=1-R and complex lambda±=1-R(a±ib)/S. The condition alpha^2+beta^2>alpha+beta ensures C-Sa=3/2*(alpha^2+beta^2-alpha-beta)>0, so R*=2Sa/C lies in (0,2); the complex pair crosses modulus one before the mean-mode flip at R=2 with derivative a/S>0. Bounds b^2>3a(1-a) and 0<a<1/2 imply b^2>3a^2, so |arg lambda|<pi/3 and resonances of orders 1-4 are excluded. The exact Fourier recurrence gives the center-manifold quadratic r=-2a|w|^2+..., q=-R*conj(c), d=2R*a(S+c); nonresonant quadratic elimination produces Re(conj(lambda)(d+2q conj(H)))=-2R*a^2(1+R*)<0. This universal identity was independently verified symbolically in SymPy for free a,b,S (simplifies to exactly zero difference), rather than trusting saved checker logs. Consequently the classical nonresonant Neimark-Sacker theorem yields a locally attracting shrinking invariant Jordan curve with |w|^2=(R-R*)/[2R*a S(1+R*)]+o(R-R*). Local existence does not imply positivity globally or a global basin. An explicit rational witness (alpha,beta)=(3/2,1/10) gives R*=104/151 and lambda=(143-28sqrt(3)i)/151, consistent with formula.
 
-## Scientific limits
-The invariant circle is local, not a global attractor. The old same-model 1987 full paper was not accessible in this review and remains a significant originality risk. There is no assertion of independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with material historical-priority risk: Muni (2024) studies this same Euler–Lotka–Volterra cyclic system and numerically describes quasiperiodic tori, including some subcritical scenarios on other parameter routes, but no inspected theorem yields this sharp *all-admissible-first-instability* criterion and closed-form always-negative normal-form coefficient. Earlier Gardini–Lupini–Mammana–Messia (1987) specifically addresses same cyclic map and bifurcations; full text was not available via lawful OA/arXiv, and authorized Oxford access returned vpn_disconnected. That genuine inaccessible plausible source is a prominent unresolved historical risk, not automatic FAIL absent decisive coverage. Published antisymmetric circulating logistic triad has a different coupling and cannot be specialized into nonnegative alpha,beta in the specified region.
+
+## value
+
+PASS
+
+PASS: Identifying the precise nonnegative competition region where oscillatory onset precedes flip, proving automatic nonresonance and an exactly negative parameter-universal Lyapunov coefficient upgrades qualitative/numerical torus observations to a rigorous analytic family theorem. Quantitative invariant-circle amplitude is a useful normal-form invariant once the Fourier normalization is fixed. The scope is a natural sharp stability boundary for a named ecological dynamical family, not an isolated numerical parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
