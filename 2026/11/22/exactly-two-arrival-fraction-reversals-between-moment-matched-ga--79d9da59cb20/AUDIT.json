@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every positive v, the derivative of log Gamma/IG density is exactly a quadratic divided by positive 2vx², implying at most three density crossings. Equal raw moments of degree 0,1,2 force at least three sign changes via a degree-at-most-two separating polynomial. The resulting +,-,+,- density order, equal mass and equal mean force exactly two CDF intersections with the asserted signs. Stirling, Taylor, and controlled Gaussian-tail integration give the ±1 standardized small-v cutoff. The packaged checker independently calculates brackets and passed 128 diagnostic assertions across 15 v values; these samples are not used as a proof. All densities use the stated IG shape convention and Gamma scale convention.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical polynomial sign-change criterion for matching moments, used explicitly in the proof.",
+        "Published stochastic-order literature compares general distribution shapes but no directly dominating theorem was identified in the examined search responses."
+      ],
+      "reasoning": "Matching moments alone does not force exactly two CDF intersections for arbitrary distribution pairs. The quadratic log-ratio derivative is a specific extra property of Gamma versus IG; a general 3-density-crossing theorem plus moment identity recovers the result, but that specialized verification is not supplied by the inspected general sources.",
+      "searches": [
+        "two positive distributions with equal first two moments and log density ratio derivative quadratic exactly three density crossings and two cumulative crossings",
+        "third order stochastic dominance gamma inverse gaussian cdf crossings"
+      ]
+    },
+    "checked_sources": [
+      "K. J. McGuire et al. (2005), doi:10.1029/2004WR003657, sections 3.3 and Table 2",
+      "J. J. Starn and K. Belitz (2018), doi:10.1029/2017WR021531, sections 1.2, 2.2 and 4",
+      "H. Colonius, Selected concepts from probability, Fig. 1.2, publisher excerpt https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf",
+      "G. Giner and G. K. Smyth (2016), https://journal.r-project.org/articles/RJ-2016-024/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "K. J. McGuire et al. (2005), doi:10.1029/2004WR003657, sections 3.3 and Table 2",
+        "J. J. Starn and K. Belitz (2018), doi:10.1029/2017WR021531, sections 1.2, 2.2 and 4",
+        "G. Giner and G. K. Smyth (2016), https://journal.r-project.org/articles/RJ-2016-024/",
+        "H. Colonius, Selected concepts from probability, Fig. 1.2, publisher excerpt https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf"
+      ],
+      "reasoning": "McGuire et al. introduce the Gamma and dispersion alternatives; Starn and Belitz compare families by fit; Giner and Smyth supply the IG CDF; the Cambridge figure supplies a visually similar matched-mean/SD density example. None of the inspected passages claims uniqueness and sign order of both cumulative intersections for every positive CV², or the ±1 small-variance root limit. Adjacent first-passage comparison results treat two inverse-Gaussian parameterizations rather than this gamma-versus-IG comparison.",
+      "searches": [
+        "hydrology travel time distribution gamma inverse gaussian residence time comparison early literature pdf",
+        "inverse gaussian first passage transport time advection dispersion analytical hydrology inverse gaussian distribution early 1980 river tracer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "H. Colonius, Selected concepts from probability, Fig. 1.2, publisher excerpt https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf",
+        "G. Giner and G. K. Smyth (2016), https://journal.r-project.org/articles/RJ-2016-024/"
+      ],
+      "reasoning": "Matched first two moments correspond to identical mean and CV², with IG equivalent to a one-dimensional first-passage/dispersion travel-time law. A publisher figure presents equal-moment PDFs but no theorem about the exact two CDF crossings for all CV² in the inspected excerpt. Numerical examples or density plots do not entail the universal statement.",
+      "searches": [
+        "gamma inverse Gaussian same mean and variance two cumulative distribution crossings three density crossings",
+        "gamma Wald inverse Gaussian cumulative distribution sign difference intersections",
+        "comparison of gamma and inverse Gaussian distributions matched mean variance crossing points pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "H. Colonius, Selected concepts from probability, Fig. 1.2, publisher excerpt https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf",
+        "J. J. Starn and K. Belitz (2018), doi:10.1029/2017WR021531, sections 1.2, 2.2 and 4"
+      ],
+      "reasoning": "The Cambridge figure shows one fixed-parameter density pair with equal moments, not a tabulation of all v or of cumulative equalities; the groundwater paper fits distinct parametric families to particle ages and reports model fit, not universal moment-matched CDF crossing times.",
+      "searches": [
+        "gamma versus inverse Gaussian CDF crossover matched moments exactly twice crossing",
+        "gamma versus inverse Gaussian probability density identical mean standard deviation figure"
+      ]
+    },
+    "rationale": "A scoped comparison of actual published content and related mathematical records did not reveal a source proving the universal two-CDF/three-density crossing theorem for moment-matched Gamma versus IG kernels together with the small-variance cutoff. The Cambridge probability text already depicts their equal-moment densities, so merely showing a difference or numerical crossing is not claimed as new; the claimed result is the exact all-v count/sign classification and asymptotic location. Unsearched historical stochastic-order results remain a genuine risk.",
+    "residual_risks": [
+      "Cambridge published figure already compares a single matched-moment pair; only the universal CDF classification and its small-variance limit are assessed as new.",
+      "Unexamined stochastic-order, reaction-time, or residence-time literature might imply the same theorem. The full Cambridge book and all historical primary papers were not inspected.",
+      "Publisher PDF image screenshot retrieval failed; the extracted caption and nearby prose were read, so comparisons to the precise figure geometry are limited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes physical motivation and alternative kernels; inspected comparisons concern calibration and tracer convolution, not the moment-matched crossing claim",
+        "evidence": [
+          "K. J. McGuire et al. (2005), doi:10.1029/2004WR003657, sections 3.3 and Table 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2004WR003657",
+        "material_read": "Open full article HTML sections 3.3 and Table 2, introductory and method discussion",
+        "method": "Read available publisher article HTML, including model definitions and references",
+        "title": "The role of topography on catchment-scale water residence time",
+        "trigger": "Primary 2005 hydrologic rationale for residence-time transfer models and Gamma/dispersion alternatives"
+      },
+      {
+        "assessment": "Makes both distributions salient and fits them, but the inspected model comparison does not give the universal moment-matched crossing theorem",
+        "evidence": [
+          "J. J. Starn and K. Belitz (2018), doi:10.1029/2017WR021531, sections 1.2, 2.2 and 4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2017WR021531",
+        "material_read": "Open full article HTML abstract, introduction 1.1–1.2, distribution fitting section 2.2, discussion and conclusion",
+        "method": "Read open publisher HTML and inspected explicit Gamma and inverse-Gaussian mentions",
+        "title": "Regionalization of groundwater residence time using metamodeling",
+        "trigger": "Same two named parametric laws fitted in groundwater RTD study"
+      },
+      {
+        "assessment": "Figure explicitly compares density curves at a fixed moment match, with no all-variance CDF theorem in inspected excerpt. A close conceptual precursor; fuller book content is a residual priority risk",
+        "evidence": [
+          "H. Colonius, Selected concepts from probability, Fig. 1.2, publisher excerpt https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf"
+        ],
+        "identifier_or_url": "https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf",
+        "material_read": "Publisher PDF excerpt extracted text around figure 1.2 and Example 1.3 (pp. 5–6); figure image could not be independently retrieved in web screenshot",
+        "method": "Read public extracted excerpt text and the figure description; no complete book inspected",
+        "title": "Selected concepts from probability",
+        "trigger": "Exact same two families displayed at identical mean and standard deviation, potentially a close prior"
+      },
+      {
+        "assessment": "The formula supports numerical checks; no Gamma-vs-IG universal crossing theorem found in inspected portions",
+        "evidence": [
+          "G. Giner and G. K. Smyth (2016), https://journal.r-project.org/articles/RJ-2016-024/"
+        ],
+        "identifier_or_url": "https://journal.r-project.org/articles/RJ-2016-024/",
+        "material_read": "Open HTML sections on density and CDF and numerical tail evaluation",
+        "method": "Publisher journal article HTML",
+        "title": "statmod: Probability calculations for the inverse Gaussian distribution",
+        "trigger": "Exact inverse-Gaussian CDF formula and parameter scaling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "79d9da59-cb20-469a-a0cb-6510446ca399",
+  "value": {
+    "rationale": "Both Gamma-reservoir and inverse-Gaussian advection-dispersion kernels are used in hydrologic residence-time modeling. Exact two signed cumulative reversals at fixed mean and variance provide a model-choice benchmark for a policy based on pollutant fraction arriving by a deadline. The two unique threshold locations and their ±1-standard-deviation concentration limit go beyond selected plots or elementary mean comparisons. It does not imply one model is empirically true or that the modeled effect is large in measured catchments.",
+    "status": "PASS"
+  }
+}
