@@ -1,0 +1,206 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T12:15:51Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/expected-distinct-palindrome-pair-factors-in-uniform-random-word--f9cba4af53d5/RESULT.md",
+        "Seven actual fetched Git blobs reconstruct exact assigned tree 6631d8c01a7a047c11595448ae14ef0c16e1e9fd",
+        "worker10_palindrome_independent.py and output: 9 language counts, 7 exact random-host expectation cases and all bounded occurrence inequalities"
+      ],
+      "rationale": "For fixed q>=2, count each palindrome-prefix/suffix split s to get at most (m+1)q^(ceil(m/2)+1) admissible length-m targets. At odd m, each of m cyclic-reflection cut classes has exactly q^((m+1)/2) words. A primitive word cannot occur under two distinct reflections, since their composition is a nonidentity rotation; at most m q^(m/3) words are nonprimitive, as any proper period divisor of odd m is <=m/3. Hence |P_{q,m}|>=m(q^((m+1)/2)-m q^(m/3))=Omega_q(m q^(m+1)/2) for sufficiently large odd m. For any target w, X counts its M=N-m+1 possible starts. Overlapping simultaneous hits at shift d<m have probability <=q^(-m-d), and nonoverlapping hits are independent; E X^2 <= mu^2+mu(1+2/(q-1)), mu=M q^-m. Paley-Zygmund/Cauchy-Schwarz yields P(X>0)>=mu/(mu+1+2/(q-1)), with union upper bound min(1,Nq^-m). Summing target counts above/below h=floor(log_q N) gives O_q(sqrt N log_q N), and choosing the largest odd m<=h gives matching Omega, covering all large N and both parities of h. A newly written direct checker (not imported from repository) enumerated q=2 odd m=3,5,7,9,11 and q=3 odd m=3,5,7,9, plus exact q=2,N=4..7 and q=3,N=4..6 random-host expectations and occurrence inequalities. These finite tests corroborate, but do not substitute for, the general proof. No substantive correctness gap found.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rubinchik--Shur Theorem 1.1 establishes Theta(sqrt N) expected distinct single-palindrome factors and also studies square factors; a palindrome pair need not be a single palindrome or a square.",
+          "Borchert--Rampersad study deterministic Sturmian/Thue--Morse factor languages and maximal counts in a given word, not the iid random-host mean.",
+          "CPM 2017 Theorem 8 applies to alpha-gapped repeats or gapped palindromes of form u v u^R with a gap/arm restriction; this is not the arbitrary concatenation of two palindrome blocks.",
+          "https://arxiv.org/pdf/1505.08043",
+          "https://arxiv.org/pdf/1509.05396",
+          "https://www-igm.univ-mlv.fr/~nicaud/articles/cpm17.pdf"
+        ],
+        "reasoning": "The strongest located probabilistic results do not dominate the assigned statistic: the single-palindrome class is a proper subclass and its smaller Theta(sqrt N) expectation cannot imply a matching upper bound for all palindrome pairs. Gapped palindromes constrain mirrored outer arms, not precisely the P^2 concatenation language. Standard occurrence-probability techniques are related and reduce technical novelty but no checked broader theorem asserts this result for every language with the required growth.",
+        "searches": [
+          "Resultary query: random word distinct palindrome pairs palindromic factors two palindromes substring complexity order growth",
+          "web: random strings expected number distinct palindrome pair factors sqrt n log n",
+          "Rubinchik--Shur arXiv:1505.08043 Theorem 1.1 and Sections 3--6",
+          "Borchert--Rampersad arXiv:1509.05396 Sections 2--5",
+          "Duchon--Nicaud--Pivoteau CPM 2017 Gapped Pattern Statistics Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/expected-distinct-palindrome-pair-factors-in-uniform-random-word--f9cba4af53d5/RESULT.md",
+        "https://arxiv.org/pdf/1503.09112",
+        "https://arxiv.org/pdf/1505.08043",
+        "https://arxiv.org/pdf/1509.05396",
+        "https://www-igm.univ-mlv.fr/~nicaud/articles/cpm17.pdf",
+        "https://oeis.org/A007055",
+        "https://doi.org/10.1016/0012-365X(82)90123-6",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-palindrome-pair-factor-bounds-for-four-run-binary-words--e23e9ffaf1ab",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindrome-pair-complexity-of-binary-two-run-periodic-word--2d1e32988c67"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kemp is credited with exact palindrome-pair language enumeration and asymptotic count, not in accessible secondary descriptions with iid random-host distinct-factor expectation.",
+          "Rubinchik--Shur supplies a pattern-occurrence method and a Theta(sqrt N) theorem for palindromes, but its statement does not quantify the P^2 pattern language.",
+          "The assigned proof requires an independent second-moment lemma: for any length-m pattern, with mu=(N-m+1)q^-m, P(occurs)>=mu/(mu+1+2/(q-1)). Along odd m near log_q N the target language has Omega_q(m q^(m+1)/2) primitive members.",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/expected-distinct-palindrome-pair-factors-in-uniform-random-word--f9cba4af53d5/RESULT.md",
+          "https://arxiv.org/pdf/1503.09112",
+          "https://arxiv.org/pdf/1505.08043"
+        ],
+        "reasoning": "Known language cardinality plus known random single-palindrome results do not by themselves logically imply the claimed expectation without transferring or reproving a uniform occurrence bound; this is elementary but mathematically nontrivial in the presence of overlaps. No located theorem explicitly packages an arbitrary-language sandwich into this corollary. If a published general sparse-language occupancy theorem is later identified, priority may be superseded; this is recorded as a residual risk.",
+        "searches": [
+          "Kemp 1982 DOI full-text OA and institutional lookup; indirect description in Guo--Shallit--Shur Remark 1",
+          "Rubinchik--Shur Theorem 1.1 and proof of random one-palindrome richness",
+          "Duchon--Nicaud--Pivoteau Theorem 8 on alpha-gapped patterns",
+          "Resultary query: Expected number distinct palindrome-pair factors in uniform random words two palindromes substrings square root n log n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo--Shallit--Shur Proposition 5: a palindrome pair is a conjugate of its reversal (a credible word). Theorem 3: the number of factorizations of a word is its integer power exponent. Remark 1 explicitly attributes the language-count formula and asymptotics to Kemp.",
+          "Direct Resultary similarity search returned the present finding as nearest hit, with related deterministic palindrome-pair and scattered-palindrome results rather than a distinct random-factor expectation theorem.",
+          "https://arxiv.org/pdf/1503.09112"
+        ],
+        "reasoning": "The equivalent descriptions P^2, conjugates of reversal, credible words, and reflection-cut classes concern which strings are admissible. They do not themselves provide a host-random-word distinct occurrence expectation. The additional uniform pattern-occurrence lemma is needed. No independently published equivalent random-host expectation was identified; this is a best-of-knowledge finding only.",
+        "searches": [
+          "Resultary query: Expected number distinct palindrome-pair factors in uniform random words two palindromes substrings square root n log n primitive split reflection",
+          "web: \"expected\" \"palindrome pair\" \"random\" \"distinct factors\" asymptotic",
+          "Guo--Shallit--Shur arXiv:1503.09112 Section 3, Proposition 5, Theorem 3, Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A007055 enumerates words of length m in P^2 over a binary alphabet, including values at odd m=3,5,7,9,11 of 8,32,100,260,684; it is a language size, not a random host average.",
+          "Independent direct exhaustive checker gives E[Z] for (q,N)=(2,4),(2,5),(2,6),(2,7),(3,4),(3,5),(3,6) as 57/8,83/8,113/8,147/8,22/3,823/81,356/27 respectively; these are new bounded checks, not literature novelty.",
+          "https://oeis.org/A007055"
+        ],
+        "reasoning": "The table of all possible target words does not count how many distinct targets appear within a given iid host. No located exact database or prior table enumerates the asserted expected host statistic. A language census can be combined with a separate probability argument to derive the growth order; that combination is the precise claimed contribution.",
+        "searches": [
+          "OEIS A007055 (https://oeis.org/A007055)",
+          "Resultary query: random word distinct words of a formal language with cardinality m q^(m/2) expected occurrences",
+          "web: random word expected distinct pattern language growth counting asymptotic general language"
+        ]
+      },
+      "rationale": "A best-of-knowledge novelty survives for the expected number of distinct P^2 factors within a uniformly random host: Kemp/Guo already establish language counts and split structure, Rubinchik--Shur prove single-palindrome (not two-palindrome) random expectation, Borchert--Rampersad deterministic extremes, and Duchon--Nicaud--Pivoteau alpha-gapped patterns. None of the checked applicable statements alone determines Theta_q(sqrt N log_q N) for the P^2 host statistic, and no broader universal occupancy theorem was identified. The probabilistic occupancy argument is simple and conceptually related to standard techniques, and potential historical priority from inaccessible Kemp and unidentified sparse-language theorems remains an explicit risk. A full novelty guarantee is not asserted.",
+      "residual_risks": [
+        "The primary Kemp (1982) paper could not be read (OA unavailable and authorized Oxford connection disconnected); historical coverage beyond its documented language census is unverified.",
+        "A general published occupancy theorem for sparse pattern languages could imply this order mechanically; targeted Resultary and web searches did not identify such a theorem. Search failure is not novelty proof.",
+        "Only Theta order is established. No leading constant, oscillation law, concentration, nonuniform letter-law or growing-q conclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers representation and structural language census; no random-host expected-distinct-factor theorem in the inspected relevant sections",
+          "evidence": [
+            "Section 3 Proposition 5: palindrome pair iff conjugate to reversal; Remark 1 credits Kemp for growth; Theorem 3 gives factorization multiplicity.",
+            "https://arxiv.org/pdf/1503.09112"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.09112",
+          "material_read": "Sections 2 and 3, especially Theorem 2, Proposition 5, Remark 1 and Theorem 3, associated definitions/references; not an unqualified assertion every page was read",
+          "method": "Open-access arXiv PDF text with page 4 screenshot",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Same P^2 objects, word-language count, decomposition uniqueness and Kemp attribution"
+        },
+        {
+          "assessment": "Proves Theta(sqrt N) single-palindrome richness and related square-factor asymptotics, but not the P^2 palindrome-pair class",
+          "evidence": [
+            "Theorem 1.1(1) treats expected number of distinct factors that themselves are palindromes; Sect. 6 addresses squares.",
+            "https://arxiv.org/pdf/1505.08043"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+          "material_read": "Abstract, Theorem 1.1, Sections 3--6 proof and square-factor discussion passages, with page 4 screenshot; relevant material, not entire paper line-by-line",
+          "method": "Open-access arXiv PDF text and rendered page",
+          "title": "The Number of Distinct Subpalindromes in Random Words",
+          "trigger": "Closest prior probability model: fixed q uniform iid host and distinct factors"
+        },
+        {
+          "assessment": "Treats deterministic maximizers and infinite-word factor richness, not random iid-host expectations",
+          "evidence": [
+            "Section 4 explicitly concerns maximal possible number in length-N binary words and presents conjectured extremal values.",
+            "https://arxiv.org/pdf/1509.05396"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.05396",
+          "material_read": "Introduction, deterministic Sturmian and Thue--Morse sections, Section 4 maxima and Section 5 minimal non-pairs, with page 5 screenshot",
+          "method": "Open-access arXiv PDF text and rendered page",
+          "title": "Words with many Palindrome Pair Factors",
+          "trigger": "Identical palindrome-pair factor notion for other host words"
+        },
+        {
+          "assessment": "Counts gapped outer-reflection patterns of form u v u^R with gap bound, not P^2 concatenations; its theorem does not directly imply the claimed logarithmic factor",
+          "evidence": [
+            "Theorem 8 states Theta(n^{alpha/(alpha+1)}) for alpha-gapped repeats or palindromes, with alpha fixed; structure differs from P^2.",
+            "https://www-igm.univ-mlv.fr/~nicaud/articles/cpm17.pdf"
+          ],
+          "identifier_or_url": "https://www-igm.univ-mlv.fr/~nicaud/articles/cpm17.pdf",
+          "material_read": "Abstract, definitions of alpha-gapped palindrome, Section 5 statement and proof sketch of Theorem 8, and conclusion; separate PDF screenshot request timed out",
+          "method": "Open-access indexed PDF text; attempted screenshot timed out",
+          "title": "Gapped Pattern Statistics",
+          "trigger": "Plausible broader prior result on expected distinct structured factors of random words"
+        },
+        {
+          "assessment": "Exact cardinalities of binary P^2 language by length, not expected distinct occurrences in a random host",
+          "evidence": [
+            "Definition a(n) counts length-n words in SS; sequence 8,32,100,260,684 at odd 3,5,7,9,11.",
+            "https://oeis.org/A007055"
+          ],
+          "identifier_or_url": "https://oeis.org/A007055",
+          "material_read": "Definition, values, comments, references and formulas",
+          "method": "Direct database entry",
+          "title": "OEIS A007055",
+          "trigger": "Exact binary census potentially mistaken for a random-host expectation"
+        },
+        {
+          "assessment": "Original full text NOT inspected. Cannot exclude statements beyond the reported language count; the uncertainty is a residual risk rather than an invented noncoverage conclusion",
+          "evidence": [
+            "Guo--Shallit--Shur Remark 1 explicitly attributes language formula to Kemp; independent bibliographic description discusses language density and factorization multiplicity.",
+            "https://doi.org/10.1016/0012-365X(82)90123-6"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(82)90123-6",
+          "material_read": "Bibliographic/abstract-level descriptions on SciSpace and Guo--Shallit--Shur Remark 1; primary full text not accessible",
+          "method": "Searched for same-paper arXiv/preprint and lawful open PDF; DOI inaccessible. Authorized Oxford request returned vpn_disconnected; no bypass or human verification attempted",
+          "title": "On the number of words in the language of products of two palindromes",
+          "trigger": "Original 1982 language enumeration and plausible historical coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/expected-distinct-palindrome-pair-factors-in-uniform-random-word--f9cba4af53d5/RESULT.md",
+        "https://arxiv.org/pdf/1503.09112",
+        "https://arxiv.org/pdf/1505.08043",
+        "https://arxiv.org/pdf/1509.05396",
+        "https://oeis.org/A007055",
+        "Independent bounded checker of actual host expectations"
+      ],
+      "rationale": "The quantity is a natural extension of palindromic richness: count distinct contiguous factors of a random word that have palindromic length at most two. The result identifies a genuine log N increase over the known Theta(sqrt N) behavior of single palindromes. The explanation is structural: odd-length primitive necklace/reflection cuts contribute a linear-in-m multiplicity of allowable words, and overlapping-hit control translates this to realized random-host distinctness. It holds for every fixed alphabet q>=2 rather than an arbitrary tiny slice. It is an order theorem, not a sharp coefficient, and its straightforward second-moment methods limit depth, but the unknown exact natural growth order is a useful standalone fact beyond reprinting the Kemp census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/expected-distinct-palindrome-pair-factors-in-uniform-random-word--f9cba4af53d5/RESULT.md",
+    "https://arxiv.org/pdf/1503.09112",
+    "https://arxiv.org/pdf/1505.08043",
+    "https://arxiv.org/pdf/1509.05396",
+    "https://www-igm.univ-mlv.fr/~nicaud/articles/cpm17.pdf",
+    "https://oeis.org/A007055",
+    "https://doi.org/10.1016/0012-365X(82)90123-6",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-palindrome-pair-factor-bounds-for-four-run-binary-words--e23e9ffaf1ab",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindrome-pair-complexity-of-binary-two-run-periodic-word--2d1e32988c67"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Kemp 1982 OA and institutional full text not accessible; Oxford returned vpn_disconnected; no bypass.",
+    "Connector-to-container assignment response was not mountable; exact fields copied into private manifest and crosschecked with fetched Git blobs.",
+    "Publication withheld because original public metadata contains run provenance, and complete sanitized, source-guarded replacement bytes were not staged."
+  ],
+  "residual_risks": [
+    "The primary Kemp (1982) paper could not be read (OA unavailable and authorized Oxford connection disconnected); historical coverage beyond its documented language census is unverified.",
+    "A general published occupancy theorem for sparse pattern languages could imply this order mechanically; targeted Resultary and web searches did not identify such a theorem. Search failure is not novelty proof.",
+    "Only Theta order is established. No leading constant, oscillation law, concentration, nonuniform letter-law or growing-q conclusion follows.",
+    "Original public AUDIT.json and METADATA.json contain a run identifier; no fully sanitized source-guarded replacements are staged, so publication remains withheld."
+  ],
+  "schema_version": 1
+}
