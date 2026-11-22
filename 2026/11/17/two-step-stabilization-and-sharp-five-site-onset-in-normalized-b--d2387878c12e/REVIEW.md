@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The identity \(P^3=P\) yields the exact positive heat decomposition; sign and monotonicity inequalities prove the total-density dichotomy. Simultaneous within-part flips constrain each nontrivial update to erase or fill an entire remaining class, proving \(F_t^3=F_t^2\). Exact rational data on \(K_{2,3}\) prove that two updates are sometimes necessary, and elementary density cases exclude fewer than five vertices. Tie preservation and both sides of the density-one boundary are addressed explicitly. The standalone checker reproduces the exact rational witnesses and finite cross-checks.
+PASS
 
-## Originality
+For P simple degree-normalized walk on K_{m,n}, P³=P; exact exponential is H_t=rI+B P+C P² with r=e^(−t), B=(1−r²)/2, C=(1−r)²/2. For initial part densities α,β, the heat values at active/inactive vertex types are r+Cα+Bβ and Cα+Bβ (and side-interchanged). If α+β<1, no inactive vertex can cross 1/2; updates delete in at most two simultaneously erasing part-blocks. Complementation covers α+β>1; at =1 all vertices remain fixed. This proves F³=F² for every m,n and t>0, with tie-retain cases. On K2,3 r=3/20 the two initial active values are 2369/4800<1/2 and 2471/4800>1/2 and remaining next value 649/2400<1/2, so exactly two updates are necessary. Stars and K2,2 cannot cascade, giving sharp five-site onset. Rational finite enumeration over 3600 states plus four r samples independently confirmed, but universal proof is structural.
 
-PASS, subject to historical-priority uncertainty. The inspected 2014 van Gennip et al. source establishes qualitative convergence and general estimates, while the closely relevant 2019 corrective sequel reexamines the star example and studies one-step membership changes. Those inspected claims do not imply the normalized complete-biclique classification for arbitrary binary inputs or the sharp two-update upper bound. The present argument does not rely on the earlier corrected star criteria. Merkurjev et al. (2013) concerns the graph MBO algorithm and numerical segmentation, and Budd–van Gennip (2019) concerns its Allen–Cahn relationship, not the present exact iteration law. Closely ranked records on linear complete-bipartite heat operator norms and binary bi-threshold network dynamics use different operators or rules. Unindexed or differently named threshold-dynamics results remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Quantitative convergence depth matters in graph MBO; prior general convergence does not give a small uniform transient bound. Here a complete natural graph family has an exactly determined global transient depth, a provable minimal five-vertex obstruction to one-step stabilization, and a complete rational-quadratic diffusion-time classification. The two-stage cascade is a structural property of the heat-threshold composition, not a simple estimate for linear heat alone.
+Original graph MBO framework (van Gennip et al 2014) gives general convergence and heat-threshold definitions; 2019 corrective star analysis focuses one-node changes, not universal normalized complete-biclique two-step convergence. The indexed SCOPE complete-bipartite bi-threshold theorem uses closed-neighborhood integer thresholds, not heat diffusion/1/2 tie retention, and its sharp cutoff four differs. No covered identical all-m,n map found in bounded primary and Resultary comparisons; historical search risk noted.
 
-## Scope and limits
+## value
 
-The conclusions apply only to unweighted complete bipartite graphs, normalized random-walk heat, a fixed positive time, binary data, threshold one-half and tie preservation. The analysis does not extend unchanged to arbitrary graphs or other Laplacian normalizations. Full comparison of all possible historical literature is not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp worst-case stabilization depth and smallest nontrivial cascade for the natural complete bipartite family is a motivated nonlinear dynamics classification, useful for graph MBO convergence questions. The exact part-density inequalities give every orbit/critical time and distinguish normalized heat from combinatorial and other binary threshold operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
