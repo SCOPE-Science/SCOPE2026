@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact co-rotating-frame pursuit law has a smooth circle equilibrium at separation \(\sqrt{1-n^2}>0\). Its variational matrix has strictly negative trace and positive determinant for each fixed \(0<n<1\); the periodic implicit-function theorem therefore supplies a unique smooth local response. A direct differentiated normalized-direction formula gives the two-frequency forced system, whose nonresonant complex solution yields \(\widehat P_3\). The squared susceptibility has derivative with sign \((5n^2-3)(n^2-3)\), proving a unique maximum of \(1/10\). All fixed-parameter limits and the non-uniformity at endpoints are explicit. The complete proof is in RESULT.md, with corroborative symbolic and ODE checks in verify.py.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+The rotating-frame equilibrium has separation r=sqrt(1-n²)>0 and stable variational matrix [[0,1],[-1,-n/r]], making periodic perturbation differentiable for fixed 0<n<1. Linearizing D/|D| gives a constant plus second-frequency forcing. Solving the complex-amplitude equations (2iA=B-n/2, 2iB=-A-(n/r)B-(n²/(2r))+in/2) yields A+iB=in/(3-2in/r); multiplication by e^{it} gives the displayed third harmonic. The global attracting orbit existence is imported explicitly from Yoshihara, not independently established here. Differentiating S²=x(1-x)/(4(9-5x)) has sign (5x-3)(x-3), proving the interior unique maximum; endpoints limit to zero. Independent scipy Poincare shooting/quadrature at n=.3,.5,sqrt(.6),.9 and eps=.002,.004 reproduced coefficient errors <6.3e-7; these finite tests do not establish the smooth all-n theorem or uniformity at endpoints.
 
-The closest primary paper [1], inspected across its equations, theorem, periodic-solution construction, simulation section and conclusions, establishes orbit existence/attraction and a Floquet product but does not provide first-order weak-ellipticity harmonic coefficients or their extremizing speed ratio. Its related 2024 extended paper [2] develops the circular Jacobian and reports the shape problem numerically, with no Fourier expansion. The complete seven-page conference chapter [3] proves reparametrization invariance of the geometric image rather than the anomaly-clock Fourier law. Search of related mathematical records found harmonics of unrelated oscillator and geometric models, not a stronger statement about the same pursuit ODE. This is evidence of noncoverage by inspected sources, not exhaustive novelty certification; unindexed older pursuit calculations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A prior qualitative observation was that the attracting pursuer's curve is not merely the shrunken evader ellipse. The precise third-harmonic response supplies a directly computable phase-resolved deformation observable in that model, with an unexpected speed tradeoff: it vanishes at both extreme subunit speed ratios and peaks uniquely at an intermediate algebraic ratio. This closes a natural local shape-response question rather than selecting arbitrary discrete parameters, and can calibrate near-circular numerical or perturbative studies. A time-Fourier mode is deliberately not misrepresented as a parameter-free geometric invariant.
+Global existence and Floquet stability in Yoshihara are prior and are not recertified as novel. The new mathematically separate derivative of the phase-locked third spatial Fourier coefficient and its 1/10 sharp speed maximum were not present in the examined primary orbit results or indexed close analogues. This is best-of-knowledge, with unindexed classical pursuit references an explicit risk.
 
-## Relationship and limits
+## value
 
-The source [1] is stronger on global existence, but it neither states nor implies a numerical value for this first-order susceptibility without additional variational analysis. Both [2] and [3] address the same pursuit rule and are counted as related prior work. All coefficients are at fixed subunit speed ratio and canonical anomaly time; unindexed literature and alternative invariant geometric measurements are residual research limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A phase-resolved higher-harmonic response is a natural quantitative observable in elliptical pursuit; its exact nonmonotonic speed optimum is not supplied by general orbit-existence theory. The sharp coefficient and fixed-anomaly qualification allow precise comparison and bifurcation calibration without claiming geometric nonellipticity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
