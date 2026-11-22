@@ -1,11 +1,21 @@
-# Scientific review: exact quadratic-harmonic frames from orthogonal equatorial traces
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly derives fourth-moment normalizations for the sphere and each lower-dimensional equator, identifies all off-diagonal and diagonal irreducible spectral sectors with multiplicities, and gives a direct equality witness for the smallest spectral value. All dimension boundary cases are covered, and the weighted-optimality argument distinguishes the uniquely maximized lower frame bound from the possibly nonunique condition minimizer. The bundled checker passed 670 independent matrix/Monte Carlo assertions. Computations do not replace the all-dimensional proof.
+## correctness
 
-**Originality — PASS, provisional.** The closest thoroughly inspected source, Quellmalz et al. (arXiv:2303.05179), reconstructs from the *scalar Funk–Radon transform over all normals* and Theorem 3.2 gives its frame inversion. Quellmalz (2020) addresses a generalized continuum-normal scalar section transform. Those do not imply the present *function-valued traces on only finitely many equators*; these different domain/codomain comparisons are explicit in AUDIT.json. Nearby published mathematical material concerns quadratic spherical *area* concentration, single Clifford hypersurfaces, and five samples of scalar great-circle means. Xiao–Zhuang spherical framelets (arXiv:2303.05365) and Roddy–McEwen Slepian spherical wavelets (arXiv:2106.02023) are related but their full PDFs were not inspectable here. An implicit classical formula remains a concrete risk; this is not independent historical priority certification.
+PASS
 
-**Mathematical value — PASS.** Determining the smallest viable number of orthogonal equatorial traces, the complete sharp singular spectrum for every dimension and section count, and the unique normalized weighting that maximizes the lower bound answers a concrete, naturally motivated harmonic sampling-design question. The sharp dimension-independent three-section stability factor is a substantive geometric reconstruction consequence. This does not claim unrestricted geometry, higher-band, or noisy/discrete tomography.
+Represent H2 by complex symmetric trace-free d×d matrix A. Probability fourth moment yields ||f_A||²=2||A||_F²/[d(d+2)], while each coordinate equator has energy [2||A||²−4||row_i(A)||²+3|A_ii|²]/(d²−1). Averaging the k equators gives K[2k−4 selected-row mass/||A||²+3 selected-diagonal mass/||A||²], K=d(d+2)/[2k(d²−1)]. Off-diagonal pair (i,j) with s selected indices is eigenvector with factor 2(k−s), multiplicity binom(d−k,2),k(d−k),binom(k,2) for s=0,1,2. On diagonal trace-zero matrices the factor is 2k I−P_VP_I P_V, whose projection compression has eigenvalues 1 (k−1), 0 (m−1 when m>=2), m/d (one if m>0). Total multiplicity d(d+1)/2−1 and all d>=3,k=1..d boundaries check. For k<=2, x1x2 vanishes; for k>=3, minimum K(2k−4)>0. Largest factor 2k−1 (m=0), 2k−1/d (m=1) or 2k (m>=2), giving all stated ratios. Arbitrary positive equator weights give a selected pair eigenvalue d(d+2)(1−w_i−w_j)/(d²−1); largest pair mass exceeds 2/k unless weights uniform, proving unique maximin. Convexity λmax and concavity λmin under permutation averaging prove uniform minimizes ratio, without asserting uniqueness. Independently built 42 full generalized eigenvalue matrices d=3..9, 60 random weights, 102 bounded cases passed, max spectral error 1.78e−15. Finite checks do not establish all d; matrix derivation does.
 
-**Closest literature and limits.** Quellmalz et al. (2023), *A Frame Decomposition of the Funk-Radon Transform*, arXiv:2303.05179; Quellmalz (2020), *The Funk–Radon transform for hyperplane sections through a common point*, DOI 10.1007/s13324-020-00383-2; Xiao and Zhuang (2023), *Spherical framelets from spherical designs*, arXiv:2303.05365; Roddy and McEwen (2021), *Slepian Scale-Discretised Wavelets on the Sphere*, arXiv:2106.02023. Residual risks and source-read levels are documented in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty PASS for the exact k-orthogonal continuous trace frame spectrum and weighted optimum, not for standard spherical fourth moments or the two-orthogonal-equator kernel. The same-day published two-oblique-equator theorem is closest but covers different measurement geometry. Full primary HTML inspections of Xiao-Zhuang, Quellmalz et al, Quellmalz 2020 and Michel-Plattner-Seibert found nonidentical operators. No indexed dominating result identified; not a proof of historical priority.
+
+## value
+
+PASS
+
+A finite collection of continuous equator restrictions is a natural stable observation design for quadrupole fields. The theorem determines the exact universal minimum number of MUTUALLY ORTHOGONAL equators (three), all d,k spectral degeneracies, dimension-independent sqrt(3) sharp conditioning for three when d>=5, and uniqueness of the optimal lower-bound weights. The k=3 strict finite-trace recovery versus k=2 orthogonal nullspace is a meaningful geometry/measurement boundary, not an arbitrary slice or mere numerical repetition; complete optimizers and quantitative stability are useful for reconstruction and benchmarking. Does not claim optimality over nonorthogonal designs: two oblique traces already suffice in related prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

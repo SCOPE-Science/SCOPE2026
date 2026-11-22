@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T10:14:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent H2 by complex symmetric trace-free d×d matrix A. Probability fourth moment yields ||f_A||²=2||A||_F²/[d(d+2)], while each coordinate equator has energy [2||A||²−4||row_i(A)||²+3|A_ii|²]/(d²−1). Averaging the k equators gives K[2k−4 selected-row mass/||A||²+3 selected-diagonal mass/||A||²], K=d(d+2)/[2k(d²−1)]. Off-diagonal pair (i,j) with s selected indices is eigenvector with factor 2(k−s), multiplicity binom(d−k,2),k(d−k),binom(k,2) for s=0,1,2. On diagonal trace-zero matrices the factor is 2k I−P_VP_I P_V, whose projection compression has eigenvalues 1 (k−1), 0 (m−1 when m>=2), m/d (one if m>0). Total multiplicity d(d+1)/2−1 and all d>=3,k=1..d boundaries check. For k<=2, x1x2 vanishes; for k>=3, minimum K(2k−4)>0. Largest factor 2k−1 (m=0), 2k−1/d (m=1) or 2k (m>=2), giving all stated ratios. Arbitrary positive equator weights give a selected pair eigenvalue d(d+2)(1−w_i−w_j)/(d²−1); largest pair mass exceeds 2/k unless weights uniform, proving unique maximin. Convexity λmax and concavity λmin under permutation averaging prove uniform minimizes ratio, without asserting uniqueness. Independently built 42 full generalized eigenvalue matrices d=3..9, 60 random weights, 102 bounded cases passed, max spectral error 1.78e−15. Finite checks do not establish all d; matrix derivation does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quellmalz 2020 gives generalized continuum-normal scalar section integral and nullspace, not arbitrary k full traces.",
+          "Michel-Plattner-Seibert section 3 treats positive-area Slepian concentration masks; its matrix integral over a 2D cap is not normalized arclength on measure-zero equators.",
+          "Xiao-Zhuang sections 4-5 construct point-design framelets and local cap denoising, not orthogonal equator trace spectra."
+        ],
+        "reasoning": "General spherical inversion and spherical-frame methods cannot imply the exact eigenvalues here merely by sharing a harmonic basis: one must change the observation operator to the singular measure supported on k equators and calculate its fourth-moment sectors. No inspected broader theorem supplied the result as a corollary.",
+        "searches": [
+          "web: spherical harmonics restriction to equators coordinate great subspheres injectivity stability degree two eigenvalues",
+          "Quellmalz 2020 DOI 10.1007/s13324-020-00383-2",
+          "arXiv:2103.14650v1",
+          "arXiv:2303.05365v1",
+          "Resultary: one-latitude quadratic harmonic frames"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2303.05179v1",
+        "https://link.springer.com/article/10.1007/s13324-020-00383-2",
+        "https://arxiv.org/html/2303.05365v1",
+        "https://arxiv.org/html/2103.14650v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-dimension-four-bifurcation-in-sharp-latitude-sampling-of-quadr--b1dd3b9ee101/RESULT.md",
+        "https://arxiv.org/abs/2106.02023",
+        "https://arxiv.org/abs/2106.02023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-equator oblique theorem c∈(0,1) gives a rank criterion and spectrum for k=2, and at c=0 only the noninjectivity obstruction; the target says k=3 is minimal for mutually orthogonal normals and has full d,k weighted spectrum.",
+          "Single-latitude theorem has 3 eigenbands at nonzero height z and a different optimization, not a joint orthogonal-equator observation.",
+          "Funk frame inversion recovers from continuum-normal scalar integrals and its polynomial spectral multiplier; finite k full trace restriction spectrum does not follow from scalar mean operator."
+        ],
+        "reasoning": "Direct implication check isolates the prior k=2 orthogonal kernel and standard fourth-moment identity as covered ingredients. The all-k eigenvalue multiplicity list, sharp k≥3 stable frame bounds and unique optimal positive weights were not derived in prior texts reviewed; no directly dominating formula was located.",
+        "searches": [
+          "Resultary: two-equator sharp frame spectrum on harmonic quadratics",
+          "Resultary: dimension-four bifurcation latitude quadratic harmonics",
+          "arXiv:2303.05179v1 Theorem 3.2",
+          "arXiv:2303.05365v1 sections 4-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Funk transform Rf(xi) from Quellmalz et al eq. (1) is a scalar per circle and cannot be identical to restriction f|E_i; a 3-number map cannot injectively encode complex dim d(d+1)/2-1>=5.",
+          "Two-equator oblique work gives full two-trace spectrum for |u·v|>0, not the orthogonal k>=3 operator; for u·v=0 it has a kernel."
+        ],
+        "reasoning": "The natural aliases are great-sphere traces, restriction frames, equator sampling, and quadratic spherical-tensor observation. Scalar Funk means, discrete t-design sampling and positive-area Slepian restrictions are not equivalent: their data spaces and measures differ. The two-equator result shares the operator but not the number/geometry and does not imply the orthogonal multitrace spectral table.",
+        "searches": [
+          "Resultary: quadratic spherical harmonics orthogonal equatorial traces weighted tight frames exact quadrature design degree 2 on sphere",
+          "web: spherical harmonics restrictions to several great subspheres injectivity stability harmonic polynomials",
+          "arXiv:2303.05179v1",
+          "Resultary 2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary exact tables were two oblique equators and one non-equatorial latitude; neither contains the k>=3 mutually orthogonal full spectrum.",
+          "Targeted web results were generic harmonic representations, Funk means, nodal sets, and quadrature, with no exact table identified."
+        ],
+        "reasoning": "No matching table emerged from these real searches; this is a bounded search finding, NOT proof that no table or classical representation-theoretic restatement exists. The current assigned claim appears as its own published mirror and is excluded as independent prior art.",
+        "searches": [
+          "Resultary exact harmonic frame semantic query returned current self record plus oblique two equators and latitude sampling",
+          "web: quadratic harmonics equators trace restrictions spectral eigenvalues normalization",
+          "web: union of great circles spherical harmonic degree 2 norm inequality exact eigenvalues",
+          "web: coordinate hyperplanes spherical harmonic restriction eigenvalues trace"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty PASS for the exact k-orthogonal continuous trace frame spectrum and weighted optimum, not for standard spherical fourth moments or the two-orthogonal-equator kernel. The same-day published two-oblique-equator theorem is closest but covers different measurement geometry. Full primary HTML inspections of Xiao-Zhuang, Quellmalz et al, Quellmalz 2020 and Michel-Plattner-Seibert found nonidentical operators. No indexed dominating result identified; not a proof of historical priority.",
+      "residual_risks": [
+        "Classical harmonic branching/restriction moment literature may encode an equivalent k-equator spectrum without these keywords.",
+        "Roddy-McEwen full document was not read; its abstract describes a different area concentration setup, but noncoverage of unseen sections is not claimed.",
+        "Same-date publication of related oblique two-equator and latitude theorems does not determine who derived what first; claim is relative to identified mathematics, not provenance of discovery.",
+        "Semantic database retrieval and web searches are bounded, not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: produces scalar equator means for continuum of normals; does not imply finite function-valued equator-trace Gram spectrum",
+          "evidence": "Eq. (1) integrates each circle to one scalar Rf(xi); section 3 treats continuum Funk operator and its frame inversion, not k full trace functions.",
+          "identifier_or_url": "https://arxiv.org/html/2303.05179v1",
+          "material_read": "Accessible full HTML article: introduction operator (1), background frame definition, section 3 frame decomposition including Theorems 3.1-3.2, sections 4 and 5",
+          "method": "Compared input/output objects, number of normals, and theorem implications",
+          "title": "A Frame Decomposition of the Funk-Radon Transform",
+          "trigger": "Same equatorial geometry and harmonic frame language; candidate general theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: U_z f is one scalar normalized section mean for each of continuously many normals; no complete finite trace spectrum",
+          "evidence": "Definition U_z f(xi) is integral over C_z^xi divided by its volume; Theorem 4.1 is full-transform nullspace.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13324-020-00383-2",
+          "material_read": "Full open-access HTML: introduction definition of U_z, factorization section 3, Theorem 4.1 nullspace and sections on range/smoothing",
+          "method": "Compared function-valued traces versus normalized integrals over each hyperplane section",
+          "title": "The Funk–Radon transform for hyperplane sections through a common point",
+          "trigger": "General all-dimensional hyperplane-section inverse transform might dominate finite trace claim"
+        },
+        {
+          "assessment": "NOT_COVERING: discrete t-design points and wavelet/framelet constructions, not k probability-normalized coordinate equator traces; no equator-trace spectrum",
+          "evidence": "Sec. 1 defines point-sampling t-designs; secs. 4-5 construct semi-discrete framelets and cap restriction; no equator theorem; arXiv:2303.05365v1.",
+          "identifier_or_url": "https://arxiv.org/html/2303.05365v1",
+          "material_read": "Full HTML inspected including introduction, sections 2-3 design optimization, sections 4.1-4.3 framelets, section 5 spherical-cap denoising and conclusion",
+          "method": "Examined operator supports, main theorems, quadrature formulas, and searched full HTML for equator",
+          "title": "Spherical framelets from spherical designs",
+          "trigger": "Frames, quadrature, partial spherical data and closest same MSC 42C15"
+        },
+        {
+          "assessment": "NOT_COVERING: two-dimensional sphere positive-area cap masks and spin harmonics, not singular equator measure across all d",
+          "evidence": "Section 3.2 writes positive-area cap R={xi:xi·eta>=b}, kernel integration over [b,1]×[0,2π]; no equal-weight orthogonal equator formula.",
+          "identifier_or_url": "https://arxiv.org/html/2103.14650v1",
+          "material_read": "Accessible HTML intro, definitions, section 3.1 general region concentration and Theorems 3.7-3.8 for spherical caps, section 3.4",
+          "method": "Compared ambient-area Gram K_{nj,njprime}=integral_R ... with codimension-one trace probability",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Broader harmonic restrictions and Slepian concentration operator"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE of k=2 rank obstruction; does not cover k>=3 orthogonal trace spectrum, dimension-independent sqrt3 condition or unique weight maximin",
+          "evidence": "Theorem gives c in (0,1) for TWO equators and notes orthogonal pair at c=0 has kernel; no k=3-or-more weighted orthogonal Gram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md",
+          "material_read": "Entire RESULT.md including complete spectra, hypotheses, block proof, sharp angle and prior-work section",
+          "method": "Specialized c=0 orthogonal normal pair, compared k=2 rank and nonzero angle results with k>=3 family",
+          "title": "Sharp two-equator frames for quadratic spherical harmonics: generic injectivity and an optimal oblique angle",
+          "trigger": "Directly same degree and trace model; possible dominating theorem for k sections"
+        },
+        {
+          "assessment": "NOT_COVERING: one latitude at nonzero height optimized over height, not k coordinate equators at zero height nor joint Gram spectrum",
+          "evidence": "Main theorem support x_1=±sqrt(z), 0<z<1, and E-optimal dimension-four bifurcation; at z=0 it becomes a noninjective single equator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-dimension-four-bifurcation-in-sharp-latitude-sampling-of-quadr--b1dd3b9ee101/RESULT.md",
+          "material_read": "Entire RESULT.md including three-branch spectrum and proof and weighted latitude domain",
+          "method": "Compared single non-equatorial latitude measure and its three invariant subspaces to union of orthogonal equators",
+          "title": "A dimension-four bifurcation in sharp latitude sampling of quadratic spherical harmonics",
+          "trigger": "Continuous quadratic trace sampling with exact optimal design and possible equivalence"
+        },
+        {
+          "assessment": "Related area-concentration wavelet framework; exact implicit coverage not excluded without full text",
+          "evidence": "Abstract describes missing spatial region and spatial-spectral Slepian concentration, not specifically codimension-one trace; arXiv 2021/2022.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.02023",
+          "material_read": "Primary abstract and bibliographic metadata only; full paper not materially read",
+          "method": "Abstract-level screen, not a whole-document noncoverage finding",
+          "title": "Slepian Scale-Discretised Wavelets on the Sphere",
+          "trigger": "Potential general incomplete-data harmonic frame theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite collection of continuous equator restrictions is a natural stable observation design for quadrupole fields. The theorem determines the exact universal minimum number of MUTUALLY ORTHOGONAL equators (three), all d,k spectral degeneracies, dimension-independent sqrt(3) sharp conditioning for three when d>=5, and uniqueness of the optimal lower-bound weights. The k=3 strict finite-trace recovery versus k=2 orthogonal nullspace is a meaningful geometry/measurement boundary, not an arbitrary slice or mere numerical repetition; complete optimizers and quantitative stability are useful for reconstruction and benchmarking. Does not claim optimality over nonorthogonal designs: two oblique traces already suffice in related prior work.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2303.05179v1",
+    "https://link.springer.com/article/10.1007/s13324-020-00383-2",
+    "https://arxiv.org/html/2303.05365v1",
+    "https://arxiv.org/html/2103.14650v1",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-dimension-four-bifurcation-in-sharp-latitude-sampling-of-quadr--b1dd3b9ee101/RESULT.md",
+    "https://arxiv.org/abs/2106.02023",
+    "https://arxiv.org/abs/2106.02023"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical priority is bounded best-of-knowledge; a classical implicit restriction spectrum might exist.",
+    "Full Roddy-McEwen 2022 source not read, no full-text noncoverage claim.",
+    "Assumes pure degree-two complex spherical harmonics, mutually orthogonal equators, probability-normalized continuous traces; nonorthogonal two-equator designs can be injective and are not contradicted.",
+    "Private Git connector result cannot be directly mounted into local file generator; returned signed identity transcribed in private manifest, source tree independently recomputed from eight real Git blobs.",
+    "Original public METADATA.json and AUDIT.json embed restricted operational scope_run_id and same_model run metadata; do not publish current files unsanitized."
+  ],
+  "residual_risks": [
+    "Classical harmonic branching/restriction moment literature may encode an equivalent k-equator spectrum without these keywords.",
+    "Roddy-McEwen full document was not read; its abstract describes a different area concentration setup, but noncoverage of unseen sections is not claimed.",
+    "Same-date publication of related oblique two-equator and latitude theorems does not determine who derived what first; claim is relative to identified mathematics, not provenance of discovery.",
+    "Semantic database retrieval and web searches are bounded, not exhaustive priority certification."
+  ],
+  "schema_version": 1
+}
