@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The cubic-to-line-graph local factorization is bijective; every ice vertex collects exactly two arrows from the two original endpoint triangles. The nine-state transfer trace incorporates the untwisted and exchanged-rail closures. Its explicit matrix, exact characteristic polynomial, antisymmetric spectrum, and monotonic sign analysis establish the complete formula and unique odd-length transition. Independently enumerated coefficients match both partition polynomials for ten finite graphs; integer polynomial seam identities hold for lengths three through one hundred. No finite extrapolation is used as proof.
+
+**Originality — PASS on inspected evidence, with residual priority risk.** The closest published three-by-three torus calculation already contains the isolated 148-orientation Möbius length-three value; it is credited explicitly. The published cubic-line-graph Tait-colouring seam result has different local variables and counts. Accessible full texts on cyclic kagome chromatic polynomials and strip flow polynomials count different objects; their formulas do not directly imply the weighted ice seam result. Lin's kagome ice-rule model is materially relevant but only its abstract was accessible; its broader thermodynamic solution could motivate another derivation, and equivalence of a specialized finite strip is not conclusively ruled out. Published published-finding corpus results and the own research ledger were searched by graph aliases, cyclic/twist terminology, local observables, and comparable formulas.
+
+**Mathematical value — PASS.** A single seam modification of a natural frustrated ice graph changes a complete partition polynomial by an exact elementary term, and a local cycle penalty creates an odd/even boundary preference reversal despite identical positive-fugacity bulk entropy. This resolves a physically interpretable boundary effect over an infinite graph family with all local chiral fugacities, not an arbitrary finite numerical entry.
+
+The exact scalar formulas require the defined original-vertex triangular-cycle fugacity; no claim is made for general six-vertex weights or two-dimensional bulk criticality. Historical priority remains provisional and independent scientific audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
