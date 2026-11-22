@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The positive map and exact rational first integral are independently checked symbolically. Positivity and the log-coordinate diffeomorphism hold for every positive coefficient; strict convexity and properness give one equilibrium and one invariant oval per superminimum energy. The map is symplectic and commutes with the Hamiltonian flow, establishing exact rotation conjugacy. An everywhere-negative signed cross product fixes a continuous clockwise rotation lift. The small-energy endpoint follows from the elliptic Jacobian. The large-energy endpoint follows from the explicit log-sum-exp hexagon and uniformly bounded Möbius logarithm. The determinant-zero case is exactly order three, while a nonzero determinant gives an interval of rotation numbers and all sufficiently large prime periods. Finite experiments do not replace these arguments.
+PASS
 
-## Originality
+For all a,b,c,d>0 the proposed rational map preserves H by direct algebra. In log coordinates, H=d(e^u+e^v)+a(e^-u+e^-v)+c e^(u+v)+b e^(−u−v) is proper strictly convex with unique minimizer (ln s,ln s), cs^4+ds^3−as−b=0. The transformed map is symplectic and H-preserving, commutes with Hamiltonian flow and acts by rigid rotation on each oval. Its displacement about equilibrium has negative cross-product for −2<k<0, yielding a continuous clockwise lift in (0,1/2). Linearized trace δ−1 gives ρ_min=acos((δ−1)/2)/(2π). At high log energy, max of six affine forms produces an invariant hexagon and order-3 linear map A(U,V)=(V,−U−V), so ρ∞=1/3. If ad=bc, g(v) constant and T^3=identity; otherwise endpoint angles differ, continuous ρ has interval image, and every sufficiently large prime denominator and irrational rotation appears. Independent SymPy test checks invariant and T^3 special case; numerical tests are corroboration.
 
-PASS on presently inspected evidence, with a residual historical-priority risk. Svinin's arXiv:2611.02309 gives the rational map and its invariant and Laurent structure, not the positive-oval rotation boundary laws. The earlier general QRT paper arXiv:1702.07047 includes the map as a specialization but discusses Laurentification and degree growth; its established general integrability covers the basic invariant-circle framework but does not supply the explicit outer \(1/3\) limit or determinant-dependent nonisochronous prime-period conclusion. Bastien and Rogalski arXiv:1407.0918 investigate a related, lower-degree boundary family and establish rotations and many periods there, rather than the strictly positive four-coefficient map. Specialized historical QRT studies might contain another derivation of the exact outer boundary; their nonavailability in full is recorded as a limitation, not counted as negative evidence.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The recurrence is an integrable dynamical reduction of an explicitly studied two-sequence Laurent system. The result gives its complete positive-energy topology and dynamics, an exact universal outer rotation boundary, and a sharp criterion separating global period three from arbitrarily high prime periods. These are natural dynamical questions not answered by Laurentness, formal integrability, or isolated numerical trajectories. The value is in a global parameter-uniform dichotomy and boundary rotation law, not merely rederiving the known QRT invariant.
+The 2026 Svinin paper supplies this ratio recurrence and conserved invariant, and general QRT theory already supplies integrability/elliptic fibers; these are explicitly treated as premises. The submitted strictly positive all-parameter convex log-oval dynamics, precise local angle and universal outer 1/3 rotation limits, and exact determinant iff-global-period-3 dichotomy with every large prime realized have no matched stronger statement among checked primary sources and Resultary results. This is a best-of-knowledge claim; the related 2014 Bastien–Rogalski full paper and some QRT priority literature were not accessible.
 
-## Boundaries
+## value
 
-The theorem is restricted to the strictly positive ratio map, makes no assertion about original sequence amplitudes, finite-energy rotation monotonicity, or coefficient-zero boundaries. A related 2014 paper was available at abstract level rather than complete text. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the outer tropical rotation law and sharp global-versus-nonglobal periodicity boundary for a natural, published positive Somos-type QRT recurrence. It converts generic integrability into explicit rotation endpoints and infinitely many new realizable prime periods, useful to classification of positive nonlinear recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
