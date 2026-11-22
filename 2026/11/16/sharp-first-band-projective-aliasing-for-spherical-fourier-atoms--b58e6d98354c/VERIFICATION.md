@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 CHECK.py` from the directory containing the standalone script. It uses Python standard-library `math`, `cmath` and `random`, with a fixed reproducible seed. The expected report is:
+## correctness
 
-`CHECK_OK spherical_moment_quadrature=12 first_band_inequalities=500 inverse_distance=250 gram_identity=100 global_shell_alias=48 pure_degree_one=4 total=914`
+PASS
 
-The checker evaluates scalar and first spherical moments by 4096-step trapezoidal angular quadrature at six radii, verifies 500 scalar monotonicity lower inequalities, compares 250 inverse distances, compares 100 exact symbolic-form Gram determinant identities against complex four-coordinate inner products, verifies 48 higher-band alias root relations and checks four exceptional Bessel radii. It does not certify uncountably many locations, all radii, or all source mixtures. Those conclusions instead use the complete analytic argument in `RESULT.md`, specifically the sine-product expansion and the finite-dimensional algebraic rank identity. No outside certification has been performed.
+Under probability-normalized area, integrals of the exponential and first coordinate moments are j0 and i j1 u; the degree-1 projection coefficient is 3i j1 u. j0 and j1 cannot vanish together. Dividing by nonzero j0 identifies complex projective lines exactly with the real vector Y=(1/z-cot z)u. h′=csc²(z)−1/z²>0 on each non-pole band and has the stated endpoint limits, giving the sharp closed-ball threshold κR<π, higher-band paired solutions, special j1=0 spheres, and unoriented directions on j0=0 shells. The sine-product expansion for z<π gives h(z)/z≥1/3 and h′(z)≥1/3. The symmetric radial Jacobian of Y is ≥κ/3, and integration over the convex ball proves |x−x′|≤3|Y(x)−Y(x′)|/κ; h(z)~z/3 proves sharpness. Scaling columns of (1,3iY) verifies rank 1+affine dimension, and the cross-product identity verifies the exact two-column Gram determinant. Examined the packaged quadrature/finite-alias checker and separately checked formula and boundary logic; sampled tests cannot prove continuum claims.
 
-# Boundaries and units
+## originality
 
-Area measure on \(S^2\) is normalized to one. The projective quotient is taken over complex nonzero scalars, not only positive real scalars. The sharp \(3/\kappa\) bound applies to ratios \(Y\), not unnormalized measurement coefficients. The closed-ball boundary \(\kappa R=\pi\) fails because antipodes have equal projective lines. Generic rank does not imply unique inverse recovery of arbitrary multiatom mixtures.
+PASS
+
+Best-of-knowledge, the fully classified projective fibers of the unguarded first two spherical harmonic degrees and sharp closed-ball inverse geometry are not implied by the known full Fourier-subspace/guarded ESPRIT or Bessel identities. A related older formulation remains a priority risk.
+
+## value
+
+PASS
+
+A four-coordinate, phase-insensitive single-source observation has a natural precise uniqueness radius, a sharp inverse Lipschitz bound in its admissible observable, an exhaustive alias taxonomy, and a transparent multiatom span-rank law. The first alias boundary at κR=π is structural and potentially useful for sensing design, not a contrived numerical example. This says nothing about general unknown mixtures or noisy j0-zero measurement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

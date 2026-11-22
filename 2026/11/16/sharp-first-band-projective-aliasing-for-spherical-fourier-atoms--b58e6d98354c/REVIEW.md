@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact projection uses rotational integration and \(\int\omega_i\omega_j\,d\sigma=\delta_{ij}/3\), with Bessel normalization checked directly. No simultaneous zero of \(j_0\) and \(j_1\) occurs. The projective ratio is unique wherever the constant coefficient is nonzero, and the exceptional zero-mean fibers are axial. On each higher complete radial interval, monotonicity explicitly yields **two** solutions for each nonzero ratio, and one whole sphere for the zero ratio; this covers all nonnegative radii. The sharp closed-ball cutoff follows at the first zero of \(j_0\). The Euler sine partial-fraction expansion proves both Jacobian lower bounds globally on the alias-free ball; integration of a symmetric positive Jacobian proves the sharp metric inequality. Gram and affine-rank identities follow from exact four-coordinate algebra. The standard-library `CHECK.py` independently checks 914 finite numerical instances, but proof of the universal assertions is analytic.
+PASS
 
-## Originality (PASS relative to inspected sources)
+Under probability-normalized area, integrals of the exponential and first coordinate moments are j0 and i j1 u; the degree-1 projection coefficient is 3i j1 u. j0 and j1 cannot vanish together. Dividing by nonzero j0 identifies complex projective lines exactly with the real vector Y=(1/z-cot z)u. h′=csc²(z)−1/z²>0 on each non-pole band and has the stated endpoint limits, giving the sharp closed-ball threshold κR<π, higher-band paired solutions, special j1=0 spheres, and unoriented directions on j0=0 shells. The sine-product expansion for z<π gives h(z)/z≥1/3 and h′(z)≥1/3. The symmetric radial Jacobian of Y is ≥κ/3, and integration over the convex ball proves |x−x′|≤3|Y(x)−Y(x′)|/κ; h(z)~z/3 proves sharpness. Scaling columns of (1,3iY) verifies rank 1+affine dimension, and the cross-product identity verifies the exact two-column Gram determinant. Examined the packaged quadrature/finite-alias checker and separately checked formula and boundary logic; sampled tests cannot prove continuum claims.
 
-Closest primary article: A. Fannjiang, *Spherical ESPRIT by Paired Small Circles and Infinitesimal Rotations*, arXiv:2609.33024 (2026-09-26), whose definitions, continuous injectivity, guard-harmonic construction and generic finite cutoff were compared with the present **unguarded first-band complex-projective fiber theorem**. The article's whole-sphere point-cloud identifiability and guarded finite-cutoff methods do not imply sharp one-atom first-band identifiability or the global two-per-band alias geometry without additional analysis. MathWorld/Abramowitz–Stegun establish the raw spherical Bessel identities, not this sharp first-band inverse geometry. Searches of related published mathematical results showed spherical point-cloud Fourier recovery, two-frequency spherical inversion, harmonic sampling frames and real affine projection norms, but none covered this statement by implication. Publication-priority risk remains in older acoustic monopole/dipole spherical-wave localization literature. A negative search is not evidence of definitive novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-Four real low-degree spherical-harmonic coefficients are the smallest natural band containing one scalar and a three-dimensional directional moment. Determining exactly when their projective ratios identify a 3D point, the first inevitable alias radius, all global alias fibers, the sharp inverse geometric constant and the multiatom rank simultaneously resolves an inverse-sampling question directly suggested by recent sphere-based Fourier localization literature. The two-to-one radial aliases and the exact \(\pi\) threshold are substantive structural boundaries, not merely numerical perturbations or restatements of the Bessel formulas. These statements are useful for specifying model geometry and for separating single-atom identifiability from general mixture reconstruction.
+Best-of-knowledge, the fully classified projective fibers of the unguarded first two spherical harmonic degrees and sharp closed-ball inverse geometry are not implied by the known full Fourier-subspace/guarded ESPRIT or Bessel identities. A related older formulation remains a priority risk.
 
-## Scientific limitations
+## value
 
-No noise stability assertion for raw moments uniformly near \(\kappa R=\pi\). No general nonlinear inverse theorem for mixtures of unknown cardinality. Priority against uninspected historical acoustic literature remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A four-coordinate, phase-insensitive single-source observation has a natural precise uniqueness radius, a sharp inverse Lipschitz bound in its admissible observable, an exhaustive alias taxonomy, and a transparent multiatom span-rank law. The first alias boundary at κR=π is structural and potentially useful for sensing design, not a contrived numerical example. This says nothing about general unknown mixtures or noisy j0-zero measurement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
