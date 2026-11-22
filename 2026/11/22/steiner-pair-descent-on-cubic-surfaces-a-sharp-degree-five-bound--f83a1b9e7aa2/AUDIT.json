@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Explicit Picard-class construction gives 27 lines and 45 tritangents; exact enumeration gives 120 repeated Steiner supports, all 51840 Weyl elements, minimum-cycle frequencies (22752,6480,5760,6480,10368), and 12960 rational-tritangent/no-pair elements. A 1+5 Frobenius-stable blowup of six general-position points exists for every q >= 4 and has 24 five-cycles on pairs. Banwait–Fité–Loughran Theorem 1.9 supplies the asymptotic class frequency. Code path verify_steiner_frobenius.py and saved verification_output.json contain executable certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Loughran–Trepalin (2018) realizes each admissible Frobenius conjugacy class but does not compute minimal extension of an invariant Steiner pair.",
+        "Banwait–Fité–Loughran (2016) establishes asymptotic class distributions but no 120-pair invariant.",
+        "Rybakov–Trepalin (2016) gives 25 Weyl-class orders/eigenvalues; none is an orbit table on the 120 pairs."
+      ],
+      "reasoning": "The stated broader inverse Galois and equidistribution theorems supply existence/density of Frobenius classes, not the new class-to-Steiner-cycle mapping; the new calculation is necessary.",
+      "searches": [
+        "arxiv:1811.06785",
+        "arxiv:1606.00300",
+        "arxiv:1611.02475"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1006.1474",
+      "https://arxiv.org/pdf/1611.02475",
+      "https://arxiv.org/pdf/1606.00300",
+      "https://arxiv.org/pdf/1811.06785"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An index-120 permutation action does not imply the 5-element support of shortest orbit degrees or 12960-element obstruction without cycle computation.",
+        "Theorem 1.9 transports an independently established invariant group count to the density 1/4.",
+        "The 1+5 general-position blowup uses an explicit conic and rational-point avoidance estimate; it is not asserted in these papers."
+      ],
+      "reasoning": "The joint input of existing papers plus a newly computed 120-point group action yields the stated claim; no source inspected states a stronger result encompassing the complete spectrum and geometric sharpness.",
+      "searches": [
+        "arxiv:1006.1474",
+        "arxiv:1606.00300",
+        "arxiv:1811.06785"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Elsenhans–Jahnel §2.9–2.11: 120 pairs and stabilizer of order 432; no shortest-cycle table on all 25 Weyl types in the inspected article.",
+        "Searches for Galois-field versions and aliases did not retrieve an equivalent shortest-orbit table."
+      ],
+      "reasoning": "A list of invariant subgroups or an index-120 action is not the complete minimum-orbit histogram; transitive action alone does not specify cycle decompositions. An undiscovered table could still coincide.",
+      "searches": [
+        "\"Steiner trihedra\" \"orbit\" \"W(E6)\" 120",
+        "\"Steiner trihedral pairs\" \"Frobenius\" cubic surface rational finite fields",
+        "Steiner trihedral pair cubic surface minimum field of definition Frobenius all 25 Weyl conjugacy classes 120 pairs extension degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rybakov–Trepalin Table 1 lists element orders and six Picard eigenvalues, not 120 Steiner-pair shortest cycles.",
+        "Banwait–Fité–Loughran Table 7.1 provides 27-line orbit data and Frobenius class counts.",
+        "Closest published-result search hit concerns 120 cubic Steiner exchanges in a toric ideal, not Frobenius actions on the 120 labels."
+      ],
+      "reasoning": "No exact pre-existing table of the new 120-point minimal-cycle histogram was found in inspected materials; this absence is not a uniqueness proof.",
+      "searches": [
+        "Weyl E6 120 Steiner trihedra 25 conjugacy classes orbit lengths 5 finite field",
+        "arxiv:1611.02475",
+        "cubic surface Frobenius Steiner trihedra pairs 120 rational number extension fields"
+      ]
+    },
+    "rationale": "Earlier complete Weyl-type diagnostics from 40 complementary Steiner triplets and combined line/tritangent counts are acknowledged as stronger type-classification results. They do not state the evaluated shortest-orbit distribution on 120 Steiner pairs, rational-tritangent/no-pair quarter-density, or explicit uniform geometric sharpness; these require the additional 120-label action calculation and a new geometric construction. Residual unindexed-table risk is recorded.",
+    "residual_risks": [
+      "An older unindexed group-theory permutation character table for the 120 Steiner trihedral pairs could contain the same cycle census.",
+      "Frobenius class asymptotics are established in cited literature and are not independently reproved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes classical geometry and stabilizer but not the new all-class minimum-cycle spectrum",
+        "evidence": [
+          "§2.9 distinguishes 20+10+90 pairs; §2.11 gives stabilizer order 432 and five relative orbits."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.1474",
+        "material_read": "Full PDF, introduction, §2 definitions and types, §4 and later Galois descent discussion; especially §2.9–2.11",
+        "method": "Full-text/PDF page reading and line-by-line geometric comparison",
+        "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+        "trigger": "Same 120 unordered Steiner trihedral pairs"
+      },
+      {
+        "assessment": "Its table concerns Picard eigenvalues and element orders, not Steiner-pair orbit minima",
+        "evidence": [
+          "Introduction and §7 Table 1 classify Frobenius elements by Weyl type; Steiner trihedral pairs are not part of their table."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1611.02475",
+        "material_read": "Introduction, Picard basis, §7 table of 25 Weyl types and class eigenvalues",
+        "method": "Full-text/PDF page reading and page screenshots",
+        "title": "Minimal cubic surfaces over finite fields",
+        "trigger": "All 25 Weyl Frobenius conjugacy types, possible dominating table"
+      },
+      {
+        "assessment": "Theorem 1.9 supports the density transfer; no 120-Steiner-pair table in the inspected study",
+        "evidence": [
+          "Theorem 1.9 gives unweighted class equidistribution for cubic surfaces; Table 7.1 records 27-line orbit types."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1606.00300",
+        "material_read": "Introduction, Theorems 1.7 and 1.9, Table 7.1 and the proof of the equidistribution theorem",
+        "method": "Full-text/PDF reading including screenshots of class table",
+        "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+        "trigger": "Frobenius class frequencies and possible prior tabulation"
+      },
+      {
+        "assessment": "Class-realizability solved; no shortest-Steiner-orbit invariant or tritangent comparison",
+        "evidence": [
+          "Introduction explicitly poses and solves the Weyl conjugacy class realization problem, without marking-scheme orbit spectra."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.06785",
+        "material_read": "Entire six-page arXiv article, its theorem and references",
+        "method": "Full-text/PDF page inspection",
+        "title": "Inverse Galois problem for del Pezzo surfaces over finite fields",
+        "trigger": "Middle-window lead source and possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f83a1b9e-7aa2-4af3-bf32-32d988d0155f",
+  "value": {
+    "rationale": "The arithmetic descent degree of a canonical 120-point finite marking is determined for every cubic surface, with sharp realizability for all q >= 4 and a surprising positive asymptotic frequency 1/4 of rational tritangents without rational Steiner pairs. This goes beyond the underlying geometric count and the 27-line Frobenius table.",
+    "status": "PASS"
+  }
+}
