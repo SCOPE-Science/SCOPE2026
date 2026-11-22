@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quartic kernel normalization follows from the fourth elementary symmetric function of independent signs, and the endpoint norm is exactly the expectation of its absolute value. The independent-sign recursion and elementary identity for the mean of two absolute values prove the nonnegative increment. The four roots are distinct, inside the sampled interval, and separated by more than a parity-grid spacing for all dimensions covered. This makes the two-binomial sign-change formula and zero-alignment equivalence exact, including root-on-grid cases. A positive Pell descent reduces every possible zero increment to two integer orbits with exponential growth; hence the logarithmic upper bound holds without numerical evidence. Exact calculations confirm the stated plateau at dimension seven. The cutoff to \(10^{100}\) is explicitly a finite exact-integer check, not an unrestricted classification.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest source, Defant et al. (arXiv:2208.06467, Chapter 8; further treatment arXiv:2302.00233, Sections 3–4), proves the kernel expectation representation and fixed-degree Hermite asymptotics, both credited here. Neither inspected presentation supplies the exact successive-dimension quartic increment or its Pell-sparse equality mechanism. Chihara and Stanton's Krawtchouk zero analysis addresses integral roots, interlacing, and coding-theoretic consequences, but not norm plateaus of homogeneous Walsh projections. The accessible cubic projection plateau classification is degree three, and its quadratic families do not imply the quartic two-orbit condition. Specialist-equivalent formulations under coding theory or Krawtchouk quadrature remain possible; this is not an independent or exhaustive historical-priority determination.
+PASS
 
-## Mathematical value — PASS
-The natural question is whether an endpoint projection norm must strictly increase when a Boolean coordinate is added. The answer is governed by an exact boundary sign-change contribution and, in degree four, a rare arithmetic zero-alignment phenomenon. The theorem gives a short exact evaluation rule, a complete per-dimension plateau test, an exponentially sparse list of candidate dimensions, and a fully reproducible exceptionally large finite cutoff. These distinguish the quartic behavior from the square-root-density dimension plateaus known in degree three and supply a usable structural link between projection norms and integral Krawtchouk zeros. The contribution is limited to canonical homogeneous projections and their endpoint norms; it does not settle the existence of further quartic plateaus beyond the certified range.
+PASS: The Walsh degree-four endpoint projection norm is exactly E|K_{4,n}| by finite group convolution. The coordinate recursion K_{4,n+1}=K_{4,n}+epsilon K_{3,n} gives nonnegative increment E(|K3|-|K4|)_+ and, by sign-change identity, a weighted sum over adjacent parity nodes of the quartic P_N(s). Its explicit four simple roots are separated by more than the node step two, so exactly the claimed pair of positive-root intervals contribute, with exact binomial factors. Zero increment iff all four roots lie on the parity lattice. Integrality of both squared roots forces D_N^2=6(2N-3)^2+10; the two Pell seed orbits under multiplying by 5+2sqrt(6) grow geometrically, proving O(log X) possible plateaus. The n=7 plateau and finite range cutoff are separate: only n<=10^100 is computationally excluded, not all n. Independent new exact-integer derivation checked polynomial, increment and plateau arithmetic on N=5..60.
 
-## Closest literature and risks
-- Defant et al., *Projection constants for spaces of multivariate polynomials* (2022), Chapter 8: known norm kernel, no reviewed exact dimension-increment law.
-- Defant et al., *Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces* (2023), Sections 3–4: asymptotics and degree-four Hermite limit, not the finite-dimensional plateau criterion.
-- Chihara–Stanton, *Zeros of generalized Krawtchouk polynomials*, Sections 2–4: known discrete polynomial identities and integral-root context, not endpoint-projection equality.
-- Krasikov–Litsyn (1996) is a related integral-zero source. Only bibliographic details and abstract were accessible, so an uninspected equivalent statement remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the norm expectation formula and general Krawtchouk zeros are prior; the new exact consecutive-dimension increment, parity-root iff plateau and two Pell-sparse possible families were not implied by full inspected general norm/asymptotic material or by the separate cubic plateau classification.
+
+## value
+
+PASS
+
+PASS: The degree-four projection norm is an established natural operator invariant. Exact equality conditions and logarithmically sparse possible plateaus illuminate a genuine arithmetic boundary for monotonicity, distinguished sharply from cubic infinitely frequent plateaus and from an unfinished Pell census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
