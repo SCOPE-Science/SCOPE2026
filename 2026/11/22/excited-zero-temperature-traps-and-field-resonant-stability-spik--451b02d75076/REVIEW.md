@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The degree-five identity restricts all field changes to three positive critical points. Two independently written exhaustive integer programs inspect all 4096 configurations, recompute both the stable-state and ground-energy inventories, and verify the extra excited families. They ran successfully on the actual files. The result is finite and exhaustive, not a sampled-inference extrapolation. Neutral moves at exactly critical fields are explicitly excluded from claims of absorbing traps.
+
+**Originality — PASS on bounded evidence.** Strečka, Karlová and Madaras, arXiv:1502.04449, Sections 2–3 and the icosahedron table, give the ground-state plateaux and their degeneracies, but not the all-state one-spin stability classification and its three elevated-energy trap geometries. Wacław and Burda, arXiv:0801.1224, Sections I–II, address generic random Gaussian couplings and large-size metastable counts, not the uniform icosahedron with a Zeeman field. Masui–Southern–Jacobs and Spirin–Krapivsky–Redner establish broader metastability motivation on other systems. Searches of related research records for the exact geometries, the counts 20/15/6, and the marginal spikes found neighboring results but no statement implying this table. The priority comparison does not exclude every unindexed source.
+
+**Mathematical value — PASS.** The exact zero-temperature kinetic trap landscape answers a natural question not settled by the known equilibrium magnetic staircase: all three plateau regimes contain a non-ground absorbing family. Its geometries change from complementary induced cycles through a matching to antipodal pairs, while field tuning creates unusually large marginal stability spikes. Those precise degeneracies can be used to specify metastable initial classes and validate low-temperature kinetic simulations on an archetypal frustrated finite magnetic cluster.
+
+Scientific limits: single-spin local stability on the twelve-spin icosahedron only; the critical weak minima can move at zero energy. There is no claim of kinetic basin sizes, lifetimes or independent validation. Full historical priority is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
