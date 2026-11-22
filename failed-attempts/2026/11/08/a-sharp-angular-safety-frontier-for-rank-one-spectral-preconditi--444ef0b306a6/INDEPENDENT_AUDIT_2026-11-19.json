@@ -1,0 +1,201 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T00:40:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-angular-safety-frontier-for-rank-one-spectral-preconditi--444ef0b306a6",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md"
+      ],
+      "evidence": [
+        "Inspected exact pinned RESULT.md (blob 881642fd67892efee938eb6909c277609895145f) and check.py (a48f47ad4eaaf0f9704dbb9683abbd6b97c3031b) from the assigned Git tree; reconstructed formulas rather than trusting VERIFY_OK.",
+        "Independent SymPy identities: T=a+bp, 1−T+κp=(κ−1)(p−1)(1−w), and the October 12 q*(r,T) equals the current p* identically at r=1/κ, T=1−w.",
+        "Independent numerical examples: κ=4,w=.4 gives p*=1,K=4; κ=4,w=.6 gives p*=11/14≈.785714,K≈3.903842; κ=4,w=.9 gives p*=13/37≈.351351,K≈2.391927.",
+        "Independent 180,000-sample Gaussian test n=7,κ=4,q=1: empirical event probability 0.561917 versus SciPy F survival 0.562764 (ordinary sampling variation).",
+        "GitHub exact tree listing verified seven blob IDs, tree SHA 1660a5b634805ebf99a25ca55eda7dcb9c4935b2, not truncated."
+      ],
+      "rationale": "For every n≥2, κ>1, unit u,v, 0<p≤1 and w=(uᵀv)², the congruence P_p^(1/2)HP_p^(1/2) has a 2-dimensional active block with trace T=κ+p+(p−1)(κ−1)w and determinant κp; the remaining spectrum is 1. The characteristic polynomial at 1 is (κ−1)(p−1)(1−w)≤0, so the active roots straddle 1 and K is their ratio including endpoint w=0 or w=1. With a=κ−(κ−1)w, b=1+(κ−1)w, normalized trace (a/√p+b√p)/√κ is minimized at p=min(1,a/b); a<b exactly when w>1/2. Evaluating ab/κ=1+[(κ−1)²/κ]w(1−w) yields (sqrt(1+t)+sqrt(t))². At p=1/κ direct comparison yields w>1−sqrtκ/(1+sqrtκ)². For g standard Gaussian, X=g_1²~χ²_1 and Y=Σ_{2..n}g_i²~χ²_(n−1) are independent, so w=κ^(2q)X/(κ^(2q)X+Y), and both asserted success probabilities are exact F_{1,n−1} survival functions. As n→∞, Y/(n−1)→1 in probability, giving the erfc limit at c∈(0,∞), and the zero/one endpoint limits. All normalization cases and quantifiers were checked analytically; finite corroboration was not used as proof.",
+      "residual_risks": [
+        "The verifier includes floating-point checks and finite Gaussian sampling, which do not establish universal quantified identities; proof is explicit and reconstructed independently.",
+        "The result addresses real exact arithmetic, the one-spike spectrum, deflation-only p≤1, and condition number, not actual arbitrary PCG iteration counts or generic eigensolvers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem holds in all d≥2 and 1≤k<d for arbitrary equal-dimensional low spectral subspaces; k=1 and inverse H yield precisely the target rank-one problem.",
+          "October 12 robust theorem permits q>0 and an uncertainty interval 0≤t≤T, and optimizes exact worst one-step energy contraction; for q≤1 the worst angle is t=T and that contraction is a monotone function of two-mode spectral condition number.",
+          "Diouane et al. 2026, Corollary 4 and Theorem 13, involve true eigenvectors, a narrower exact-eigenspace setting; no claim they alone cover the misalignment problem."
+        ],
+        "reasoning": "The stronger October 18 result contains the target as a direct inverse-condition-number specialization. The October 12 robust theorem independently supplies the optimization and nominal-scale boundary. Their mathematical implication decisively rules out novelty of the original central theorem.",
+        "searches": [
+          "rank-one SPD spectral preconditioner misaligned approximate eigenvector angular threshold 45 degrees condition number optimal damping",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "https://arxiv.org/html/2603.28969v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+        "https://arxiv.org/html/2605.23571v2",
+        "https://arxiv.org/html/2603.28969v1",
+        "https://github.com/Resultary/2026/commit/9259a35a934604a0d062febd8b67f58585b1b21f",
+        "https://github.com/Resultary/2026/commit/609cc6791bd77d7d86048df067becbd0b8af6928",
+        "https://github.com/Resultary/2026/commit/961eec6ab7eb29d2b3afc787e153d283de2ca4aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 18 proof yields p* and Kmin in the original n-dimensional family after inversion, including all strict/equality cases w=1/2, w=1.",
+          "October 12 Section 4 gives nominal q=r improvement iff T<sqrt(r)/(1+sqrt(r))²; r=1/κ and T=1-w yield w>1-sqrt(κ)/(1+sqrt(κ))² precisely.",
+          "October 25 proof Section 3 demonstrates standard one-spike Gaussian alignment as a ratio of independent chi-squares and an incomplete-beta probability; its different Rayleigh-quotient scaling means it is supporting precedent for the straightforward probabilistic operation, not incorrectly claimed as the same stochastic theorem.",
+          "Daužickaitė et al. 2605.23571v2 Section 3.2.1 eq. (9) uses Gaussian power sketches and notes their Gaussian covariance; combining such a sampling model with the earlier optimal-angle event gives the requested F survival functions."
+        ],
+        "reasoning": "Original deterministic claims are logical corollaries of two earlier statements. Once the deterministic event is known, H^qg/||H^qg|| implies w=κ^(2q)X/(κ^(2q)X+Y) directly; substituting either known threshold gives an F_{1,n-1} survival function. The c-limit is the ordinary law of large numbers for Y/(n-1). No nontrivial new mathematical step remains in the full combined assertion.",
+        "searches": [
+          "rank-one SPD spectral preconditioner misaligned approximate eigenvector angular threshold 45 degrees condition number optimal damping",
+          "Gaussian power iteration one spike condition number improvement F distribution preconditioner",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+          "https://arxiv.org/html/2605.23571v2",
+          "https://arxiv.org/html/2603.28969v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 RESULT.md, Finding and Proof: with c²=w, s²=1-w, γ*=max{1,(κw+1-w)/(w+κ(1-w))}; minimizing the inverse-transformed condition number gives p*=1/γ* and identical (sqrt(1+z²)+z)² minimum, z²=(κ-1)²w(1-w)/κ.",
+          "Identity (P_p^(1/2) H P_p^(1/2))^(-1)=P_p^(-1/2) H^(-1) P_p^(-1/2), so the October 18 low-subspace boost is exactly the audited high-spike deflation after inversion, not merely similar by title.",
+          "October 12 RESULT.md, Sections 1–4: Q(q,t)=1-4rq/[q+r+(1-q)(1-r)t]^2, q_*= [r+(1-r)T]/[1-(1-r)T] for T<1/2, q*=1 otherwise. At r=1/κ,T=1-w this is exactly p* and the 45-degree boundary."
+        ],
+        "reasoning": "The prior theorem's matrix family, transformation and optimization coincide exactly with the audited theorem. Oct 18 covers arbitrary d and k; Oct 12 independently covers the nominal-scale threshold. This is proven implication, not a name/parameter coincidence.",
+        "searches": [
+          "rank-one SPD spectral preconditioner misaligned approximate eigenvector angular threshold 45 degrees condition number optimal damping",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "https://github.com/Resultary/2026/commit/9259a35a934604a0d062febd8b67f58585b1b21f",
+          "https://github.com/Resultary/2026/commit/609cc6791bd77d7d86048df067becbd0b8af6928"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic matches returned exact earlier full RESULT.md statements: October 12 angular PCG frontier and October 18 principal-angle spectral boost.",
+          "The October 25 Gaussian Ritz-preconditioner RESULT.md also explicitly uses an independent chi-square/Beta calculation for a single Gaussian H-multiplied sketch, but uses a Rayleigh-quotient p(t) rather than the target oracle/fixed p.",
+          "Original November 8 record itself was separately returned by search; self-match was excluded from prior coverage."
+        ],
+        "reasoning": "The decisive coverage is not an opaque numerical table. It is explicit dated, full-text mathematical theorems with algebraic equivalences. The remaining F probability is the textbook ratio-of-chi-squares evaluation of the earlier angular event, rather than a new independently motivated database invariant.",
+        "searches": [
+          "rank-one SPD spectral preconditioner misaligned approximate eigenvector angular threshold 45 degrees condition number optimal damping",
+          "Gaussian power iteration one spike condition number improvement F distribution preconditioner",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md"
+        ]
+      },
+      "rationale": "The central deterministic theorem (optimal scalar p, 45-degree iff barrier, attained minimum condition number) is the k=1 inverse-matrix specialization of the previously published October 18 two-level principal-angle boost theorem. Explicitly, H^{-1}=κ^{-1}uu^T+(I-uu^T) has low eigenspace span(u), and P_p^{-1}=I+(p^{-1}-1)vv^T is its rank-one boost; (P_p^{1/2}HP_p^{1/2})^{-1}=P_p^{-1/2}H^{-1}P_p^{-1/2}, preserving the condition number. The earlier γ_*=max(1,(κw+1-w)/(w+κ(1-w))) therefore yields p_*=min(1,(κ-(κ-1)w)/(1+(κ-1)w)), the same 45-degree threshold and the same exact minimum ratio. Independently, the October 12 robust one-step two-eigenvalue PCG theorem gives the same optimizer and even the exact nominal inverse-eigenvalue threshold. Set r=1/κ and angular deviation T=1-w. Its Q=((K-1)/(K+1))^2 is strictly increasing in K, so q_*(r,T)=p_*; its nominal T<sqrt(r)/(1+sqrt(r))^2 yields exactly the audited threshold. The Gaussian F tails are a routine pushforward of this already established angular event using (κ^{2q}X)/(κ^{2q}X+Y), with X,Y independent chi-squares. No separate nontrivial new stochastic theorem survives after crediting those complete antecedents. Direct overlap predates the November 8 source: Git commit dates Oct 25 (two deterministic records) and Nov 1 (Gaussian precedent).",
+      "residual_risks": [
+        "Published Git histories establish availability before the assigned November 8 research date; archival equivalence of other privately hosted versions was not required for the direct contradiction.",
+        "The October 25 Gaussian source's Rayleigh scaling is different and is not cited as an exact statement of the present probability; the probability's elementary derivability from the earlier deterministic threshold is the grounds for the O judgment.",
+        "The classic preconditioning and Gaussian-angle literature is extensive; no completeness claim about all older sources is needed after the decisive earlier published full-text coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERS the core claim after inverse-matrix transformation, for all n≥2. It supplies identical p* and minimum K and same 45-degree boundary.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+            "https://github.com/Resultary/2026/commit/609cc6791bd77d7d86048df067becbd0b8af6928",
+            "γ*=max(1,(κcos²θ+sin²θ)/(cos²θ+κsin²θ)) and z=(κ−1)sinθ cosθ/sqrtκ; set γ=1/p, cos²θ=w."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+          "material_read": "Entire RESULT.md, including exact eigenvalue formulas, unique optimal boost, all-dimension cosine-sine proof, scope, limitations and references; Git commit metadata dated 2026-10-25T20:03:06Z.",
+          "method": "GitHub repository full text, frozen result publication history through GitHub commit metadata.",
+          "title": "Principal-angle phase transition for subspace-boosted two-level systems",
+          "trigger": "Resultary search produced a seemingly broader arbitrary-dimension principal-angle theorem with the same 45-degree transition."
+        },
+        {
+          "assessment": "DIRECTLY COVERS optimal p and the nominal inverse-spike threshold after r=1/κ and T=1−w. Its objective is exactly monotone in condition number for the two-mode active spectrum.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+            "https://github.com/Resultary/2026/commit/9259a35a934604a0d062febd8b67f58585b1b21f",
+            "Q(q,t)=((K(q,t)-1)/(K(q,t)+1))²; q*(r,T) and Tnominal<sqrt(r)/(1+sqrt(r))²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "material_read": "Entire RESULT.md: finding, two-dimensional trace/determinant, exact worst-one-step energy contraction, robust minimax scalar and nominal-safety proof, boundaries and bibliography; commit dated 2026-10-25T19:49:48Z.",
+          "method": "GitHub repository full text and GitHub file commit metadata.",
+          "title": "Sharp angle-uncertainty frontier for rank-one spectral PCG preconditioning",
+          "trigger": "Resultary search matched the same 45-degree and nominal exact-eigenvector safety thresholds."
+        },
+        {
+          "assessment": "NOT an identical scaling model (p depends on the Rayleigh quotient), but proves a closely related Gaussian alignment Beta-law method; supports the lack of a nontrivial new distributional technique.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+            "https://github.com/Resultary/2026/commit/961eec6ab7eb29d2b3afc787e153d283de2ca4aa",
+            "Their t=κ²τZ1²/(κ²τZ1²+sum Zj²), evaluated by the regularized incomplete-beta distribution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+          "material_read": "Entire RESULT.md including exact Rayleigh-quotient coefficient, Gaussian Beta derivation, critical covariance scaling and limits; commit dated 2026-11-01T22:21:08Z.",
+          "method": "GitHub full result text and GitHub file commit metadata.",
+          "title": "Sharp Gaussian alignment frontier for one-vector Ritz spectral preconditioning",
+          "trigger": "Resultary search found a highly related one-spike Gaussian preconditioner probability and chi-square ratio."
+        },
+        {
+          "assessment": "Supplies preconditioner family and power sketch construction; alone does not state the sharp angular condition-number threshold, but enhances the direct combined implication from two earlier mathematical theorems.",
+          "evidence": [
+            "https://arxiv.org/html/2605.23571v2",
+            "Section 3.1 equation (7): scaled spectral LMP; Section 3.2.1 equation (9): Ω=A^(q−1)Ψ and Gaussian covariance after linear transformation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.23571v2",
+          "material_read": "Abstract, introduction, Sections 3.1 and 3.2 including formulas (7)–(9), the power-method Gaussian sketch, and implementation/scoping discussion; not represented as a full independent rereading of every appendix.",
+          "method": "Lawful open-access arXiv HTML version 2 (2026-10-15).",
+          "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+          "trigger": "The audited paper identifies it as the motivating spectral LMP and Gaussian power-sketch primary source."
+        },
+        {
+          "assessment": "Exact-eigenvector setting; not alone a direct antecedent for inexact angle. The distinct October published mathematical records are decisive for coverage.",
+          "evidence": [
+            "https://arxiv.org/html/2603.28969v1",
+            "Corollary 4 uses exact eigenpairs and explicit F*=I+Σ(θ*/λi−1)sisi^T; Theorem 13 compares PCG energy errors given those eigenpairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+          "material_read": "Introduction, Sections 2–4, Corollary 4 and Theorem 13 and surrounding assumptions as rendered in arXiv HTML; no claim to read every numerical experiment or appendix.",
+          "method": "Lawful open-access arXiv HTML version 1 (2026-03-30).",
+          "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+          "trigger": "Original's key primary source on exact spectral coefficient optimization and condition number."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-principal-angle-phase-transition-for-subspace-boosted-two-level--04f1b10d3f28/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+        "https://arxiv.org/html/2605.23571v2"
+      ],
+      "evidence": [
+        "Oct 18 directly gives the sharp deterministic condition-number classification for a more general principal-angle matrix family.",
+        "Oct 12 provides both the 45-degree optimizer and the exact stricter nominal coefficient threshold.",
+        "Oct 25 gives a Gaussian one-spike alignment/Beta method in a genuinely different preconditioner; the present F-tail is routine Gaussian ratio algebra.",
+        "The audited standalone Gaussian limit erfc(1/sqrt(2c)) is exactly P(χ²_1>1/c) after Y/(n−1)→1, not a new asymptotic universality theorem."
+      ],
+      "rationale": "The one-spike preconditioner and power-sketch reliability are naturally motivated, and an exact probability can be practically interpretable. But the central 45-degree barrier, unique optimal shrinkage, minimum condition number and nominal-scaling boundary were already fully proved by the stronger October 12 and October 18 statements. The only remaining quantitative specialization is the Gaussian power-vector success probability, obtained by a one-line substitution of a known angular threshold into the standard independent chi-square/F ratio and a routine law-of-large-numbers limit. It is mechanically implied by established results and a textbook distributional identity, not an unknown structural invariant, motivated nontrivial cutoff independent of prior theory, or substantive new mathematical gap. A useful numerical or engineering illustration alone does not make this repackaged claim an original mathematically valuable research theorem under the common V bar.",
+      "residual_risks": [
+        "The exact success probability may still be useful for pedagogy or numerical-design calculations, but that usefulness is distinct from a new mathematically nontrivial standalone contribution.",
+        "No judgment is made about commercial or empirical deployment value of randomized spectral preconditioners in general."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Earlier Oct12 and Oct18 mathematical records were available before the target November 8 record according to Git commit times; origin histories outside those records were not needed for the coverage decision.",
+    "Original source metadata is not privacy-safe for automatic public relocation; change-set status not_ready and no GitHub edits.",
+    "Original C proof is mathematically correct on its restricted model; failure is substantive priority and independently motivated value, not an operational or accessibility failure.",
+    "Older audit ledgers contain historical gaps; preserved exactly without retroactively validating their old rows."
+  ],
+  "schema_version": 1
+}
