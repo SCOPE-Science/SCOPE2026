@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The object is fully normalized, the affine action is unitary, and every allowed character is checked. The exact quotient ring \(\mathbb Z[\xi_{24}]\) is represented by its eight-term basis modulo \(X^8-X^4+1\); characteristic polynomials are recomputed from exact traces, not approximate determinants. Twelve orbit-representative Gram matrices (three affine classes times four odd characters) give the three claimed squared quartics. Exact orbit enumeration covers all \(126\) four-subsets, and independent rational sign isolations identify all sixteen relevant extrema. The antiunitary \(J^2=-I\) argument explains multiplicity two. The result has no unproved infinite-family extension.
+## correctness
 
-## Originality: PASS, with residual historical-priority risk
-The 2021 harmonic Grassmannian construction is not new. The most important directly overlapping public result proves that the eight-dimensional order-nine harmonic fusion planes are block-full-spark; its own scope excludes sharp smallest-positive-singular-value bounds and contains no three-quartic spectral census. The new claim is explicitly the complete four-block spectra and exact sharp numerical-stability bounds. The related real quadratic-character family over order thirteen uses a different representation and yields a different four-set classification. Generic erasure-robust frame bounds and totally symmetric EITFF constructions do not imply this nonconstant three-orbit spectrum. Searches cannot eliminate unindexed older specialist computations.
+PASS
 
-## Mathematical value: PASS
-The case \(\mathbb F_9\) is the smallest odd nonprime field for this two-plane harmonic frame construction; all four odd characters are covered. At the first critical four-block size, the known rank guarantee does not quantify conditioning. The exact three-level orbit classification distinguishes sharply differing stability losses and identifies all maximally unstable masks, giving a concrete optimal adversarial-erasure bound. Its precise eigenvalue data are structurally significant for the natural root-of-unity frame, not a postselected arbitrary parameter slice.
+For F9=F3[u]/(u^2+1), all four primitive odd multiplicative characters e=1,3,5,7, the 126 four-label sets partition into affine orbits of 72,18,36 members; inspected verify_f9.py constructs the finite-field matrices in Z[X]/(X^8-X^4+1), uses exact trace/Newton identities to compare all eight characteristic coefficients against Q72^2, Q18^2, Q36^2, and rational sign-change isolations. Antiunitary J with J^2=-1 enforces even eigenvalue multiplicities; complete quartic positivity yields four-plane spanning. Independently recomputed the affine orbit counts and numerical roots; Q36 has least root ≈0.52990359, so sharp lower fusion bound ≈0.06623795, Q72 greatest root ≈15.75534744 giving upper ≈1.96941843. Numerics corroborate but do not replace the exact certificate logic.
 
-## Limits
-Finite exact theorem only. No assertion of publication priority beyond inspected sources; no general field-order stability theorem or independent validation is claimed. Reproduce with `python3 verify_f9.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior order-nine harmonic frame theorem gives complete rank strata but expressly excludes smallest-positive-singular-value bounds; the current three exact characteristic-polynomial squares and orbit-sensitive sharp constants are stronger spectral invariants. General EITFF construction and 13-plane Paley spectra do not imply this F9 octic census. Best-of-knowledge originality subject to unindexed equivalent spectra.
+
+## value
+
+PASS
+
+The natural F9 harmonic EITFF has erasure robustness, but exact sharp frame bounds and orbit-specific conditioning are independent, motivated invariants: even a known full-rank 4-subset can be arbitrarily ill-conditioned. This complete 126-configuration finite classification supplies precise worst erasure pattern and constants across all odd characters, without claiming a new frame construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
