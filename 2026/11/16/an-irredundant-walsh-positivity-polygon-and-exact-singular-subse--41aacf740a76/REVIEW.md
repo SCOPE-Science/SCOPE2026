@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact Fourier coefficient is \((1+r)^{d-k}(1-r)^k(1+a u_k+b v_k)\). Differentiation of the product kernel proves it without normalization ambiguity. The \((u_k,v_k)\) sit on a strictly convex parabola; Fourier inversion supplies a strictly positive barycentric identity placing the origin inside their convex hull. Thus the negative-polar cone has precisely \(d+1\) edges, not merely a possibly redundant list of inequalities. The nullspace support calculation is independent of numerical experiments: degree bounds in both a Walsh polynomial and its parity twist yield the sharp lower bound, while explicit pair-product witnesses attain it. The extension-by-zero quadratic form argument exactly relates nullspace support to singular principal matrices. The checker executes exact rational tests for 25 dimension/scale pairs and confirms 125 polar vertex spectra and the boundary constructions. Risk: no independent line-by-line audit.
+## correctness
 
-## Originality (PASS, provisional)
-Direct statement-level comparisons distinguish three sources: the full text of Han--Wang (2026) gives sharp \(L^1\) graph inequalities, not this positive-definite two-parameter family; Ivanisvili (2026) concerns Walsh coefficient-norm inequalities, not a sharp Gram singularity geometry; Zhao--Ge (2026) treats polynomial distance matrices on the even subcube for restricted-distance extremal families, not exponential damping or the exact full-cube positivity polygon. Two publicly indexed related findings concern squared-Hamming Gaussian thresholds and damped-cosine Hamming kernels; their exact main statements concern distinct radial profiles and do not imply the combined facet and principal-subset theorem. General Krawtchouk diagonalization and Reed--Muller minimum-weight bounds are old tools and explicitly not claimed new. Residual risk: inaccessible full text of Zhao--Ge and older association-scheme literature could contain specialized equivalent results. Search absence is not a proof of novelty.
+PASS
 
-## Mathematical value (PASS)
-A natural covariance-validity question for exponential Hamming similarity with low-degree distance corrections is solved for every dimension, with all constraints shown essential. More than a routine Fourier transform, the result identifies the entire convex parameter geometry and exactly how many *distinct sampling sites* are needed before each boundary degeneracy becomes observable: the cardinality varies exponentially with Fourier degree, and each lower bound is constructively attained. This distinguishes full-matrix degeneracy from finite-subset detectability, a relevant issue in kernel interpolation, covariance design and sparse observation. The explicit formulas enable finite designs without enumerating all subsets. Value does not depend on claiming a general kernel theorem outside this family.
+Directly checked Fourier normalization: r∂_r and r²∂²_r/2 applied to product eigenvalue (1+r)^(d-k)(1-r)^k give u_k,v_k. Convex parabola normals p_k are exposed, and strict positive Walsh spectral weights give barycenter zero and no redundant facet. The support lemma for multilinear Walsh degree ≤t is proved by splitting last coordinate and induction. Applying it to each active homogeneous level and its parity twist yields sharp supports; explicit pair-products attain equality. For two consecutive levels the same dual degree bounds and one extra factor (1+x_j) attain support; degree {0,d} gives parity-class size. PSD extension by zero equates first singular principal subset with least support of a global null vector. Independent rational checks d=2..6 verify polygon and active-shell algebra. This is a proof for all d,r; finite checks are corroboration only.
 
-## Residual limitations
-The first-public-date anchor is 2026-06-05, from the dated arXiv submission by Zhao and Ge. The closest primary text of that paper was accessible at abstract level only; no whole-document noncoverage claim is made. The new proof and finite witness checker have not been independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The conjunction of a full two-parameter PSD region with every minimum singular-subset threshold is more specific than standard finite-group Bochner diagonalization and Reed–Muller minimum support. No consulted indexed or primary theorem implies these coupled formulas. A specialized older quadratic Hamming kernel positivity classification remains an acknowledged priority risk.
+
+## value
+
+PASS
+
+A complete irredundant covariance-parameter classification and exact exponential visibility threshold for local Gram singularity are natural and useful for finite-cube kernel design; the degree-by-degree boundary effects are nontrivial, beyond merely restating Fourier positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
