@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Defined independent edge-sign Walsh characters and unnormalized XOR convolution precisely. Unweighted Laplacian eigenvalues give tau=m^(n-1)(m+n)^(m-1), which is odd when m odd and n even. In odd n, the signed reduced Laplacian modulo 2 has nullity m-1, proving 2^(m-1) divisibility. The one-leaf signed K_(m+1) cofactor cancels; Schur complements of opposite signed leaf neighborhoods cancel exactly and their determinant prefactors multiply by -d^2, so every odd n has zero modes and the stated distinct-signing lower bound. For m=3, explicit seeds at n=1 and n=2 have determinants -4 and -1, and signed-degree-one paired extensions attain these values at all odd and even orders. The independent Prüfer enumeration/FWHT/Bareiss checks passed 248034 assertions; they are finite corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chestnut–Fishkind, arxiv:1208.4125, Theorem 1: all threshold-graph unweighted spanning-tree counts; no character-resolved signed nullity.",
+        "Klee–Stamps, arxiv:1903.03575, Section 4: arbitrary edge signs are outside the special factorized weight theorem.",
+        "The full signed character problem for a clique joined to an independent set has distinct support from complete graph and two-clique-core variants."
+      ],
+      "reasoning": "General counts determine parity for even independent-shore orders but do not exhibit zeros at all odd orders, derive the 2-adic Fourier barrier or prove sharp triangular-core nonzero gaps. Complete-graph results settle only n=1; extending by signed opposite pairs requires a separate all-size structural argument.",
+      "searches": [
+        "Fourier spectrum of weighted spanning tree enumeration of threshold graphs complete split graphs",
+        "threshold graph Walsh spanning tree convolution",
+        "arxiv:1208.4125 threshold graph tree count theorem",
+        "arxiv:1903.03575 weighted threshold tree enumeration Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0302213 — restricted weighted threshold-tree factorization and matrix-tree identity",
+      "https://arxiv.org/abs/1208.4125 — unsigned threshold spanning-tree enumeration",
+      "https://arxiv.org/abs/1903.03575 — generic weighted determinant tools and specialized threshold weights",
+      "Bounded scientific-record searches on the phrases quoted in the named comparison checks; closest graph families analyzed by edge support and quantifiers, not just title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier general complete-graph Walsh results describe the n=1 boundary only; the present claim applies to all n>=1 and all odd m>=3.",
+        "An earlier two-vertex-core triangular-book tree spectrum has a different graph and does not include the extra all-to-all core vertex edges.",
+        "The signed Schur identity H(-s)=-H(s), along with odd signed leaf degrees, proves a zero-preserving recurrence not stated in the source papers.",
+        "An explicit m=3 seed and 2-adic lower bound establish the all-n exact nonzero gap."
+      ],
+      "reasoning": "One-leaf complete-graph cancellation together with unsigned threshold-tree counts is insufficient to conclude all odd independent-shore sizes are singular without the signed twin-leaf Schur recurrence. The vertex-weighted formulas and generic weighted matrix-tree theorem do not explicitly imply the full arbitrary-edge-character classification. The new statement neither merely renames a previous family nor is a numeric subcase of the checked results.",
+      "searches": [
+        "signed spanning tree polynomial threshold graph arbitrary edge signs zeros",
+        "Walsh Fourier transform of spanning-tree indicators of complete split graph K_3 joined to n isolated vertices; singularity condition and convolution rank",
+        "Complete split graph spanning-tree Fourier transform odd clique parity n even no zeros n odd zero",
+        "arxiv:math/0302213 threshold tree polynomial factorization",
+        "arxiv:1903.03575 weighted matrix tree Schur complement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Martin–Reiner, arxiv:math/0302213, Theorem 4 / Eq. 11: weighted factors record in- and out-degree according to vertex ordering, not an independent sign on every edge.",
+        "Klee–Stamps, arxiv:1903.03575, Section 4: threshold-tree weights have factorized form omega_ij = x_min(i,j) y_max(i,j), and the paper describes its specialization.",
+        "Generic weighted Kirchhoff cofactor identity (arxiv:1903.03575, Section 1) applies to arbitrary edge weights but does not evaluate the entire Boolean character zero set."
+      ],
+      "reasoning": "Fourier invertibility of XOR convolution is equivalent to nonvanishing at all independently assigned edge signs. Vertex-factorized weighted enumerators do not range over every sign vector, whereas the new signed opposite-leaf construction does. The general matrix-tree identity supplies a proof tool rather than the stated two-parameter zero/nonzero classification.",
+      "searches": [
+        "Walsh Fourier transform of spanning-tree indicators of complete split graph K_3 joined to n isolated vertices; singularity condition and convolution rank",
+        "Complete split graph spanning-tree Fourier transform odd clique parity n even no zeros n odd zero",
+        "join of clique and independent set spanning tree weighted Fourier transform",
+        "arxiv:math/0302213 Sections 1, 2 and 6",
+        "arxiv:1903.03575 Sections 2 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published threshold graph articles give unlabeled counts or factorized vertex-weight polynomials, not a table of the full 2^(choose(m,2)+mn) Walsh spectrum.",
+        "The zero counts 30, 0, 1088, 0 for triangular cores n=1..4 were computed in a reproducible program and are treated as supporting checks rather than a literature database."
+      ],
+      "reasoning": "No directly tabulated all-parameter Walsh invertibility parity law, odd-shore nullity bound, or sharp m=3 gap was found in the searched primary literature and mathematical records. A failure to locate a table is not itself a proof of uniqueness.",
+      "searches": [
+        "Walsh convolution rank split threshold graph K_m join n isolated vertices odd m 2-adic divisibility 2^(m-1) sharp triangular core spectral gap 1 4",
+        "Complete split graph spanning-tree Fourier transform odd clique parity n even no zeros n odd zero",
+        "Threshold graphs spanning tree XOR convolution nonsingular odd clique join independent graph",
+        "arxiv:1208.4125 enumerative table",
+        "arxiv:math/0302213 factorization table"
+      ]
+    },
+    "rationale": "Compared character-resolved signed spanning-tree claims against archived threshold graph enumerations, vertex-factorized weighted tree polynomials, generic weighted cofactor results and closest published complete-graph/bipartite/core-two character results. The stated two-parameter odd-core parity criterion, uniform dyadic barrier, explicit signed-pair propagation and all-n sharp m=3 gap are not entailed by the specifically checked results. Historical priority remains bounded, with explicit risk stated.",
+    "residual_risks": [
+      "An unindexed full multivariate signed-threshold-tree result might directly imply the parity and gap conclusions.",
+      "Existing specialized signed Laplacian identities beyond the inspected sources might contain the opposite-leaf recurrence.",
+      "Search records are not a proof of independent mathematical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Degree/order-induced weights are restricted to factorizations in vertex variables. Does not claim every-edge-sign Fourier zero classification.",
+        "evidence": [
+          "arxiv:math/0302213 lines in Sections 1, 2, 6; Eq. 11"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0302213",
+        "material_read": "Introduction (including Theorem 4), Section 2 weighted matrix-tree definitions, Section 6 threshold-graph proof and Eq. 11",
+        "method": "Primary arXiv full-text HTML, examined theorem assumptions and factor weights",
+        "title": "Factorizations of some weighted spanning tree enumerators",
+        "trigger": "Close weighted enumerator theorem for threshold graphs; possible implication for arbitrary Fourier edge signs"
+      },
+      {
+        "assessment": "Unsigned spanning-tree counts are covered, but the all-frequency signed zero set and pair-propagation law are not stated.",
+        "evidence": [
+          "arxiv:1208.4125 Section 1 and Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.4125",
+        "material_read": "Overview and Theorems 1–3, threshold creation/degree discussion, and difference-graph section summary",
+        "method": "Primary arXiv full-text HTML, compared variables and scope of tree counts",
+        "title": "Counting Spanning Trees of Threshold Graphs",
+        "trigger": "Same threshold-graph class; possible stronger unweighted or signed enumeration"
+      },
+      {
+        "assessment": "All-edge weighted identity is a tool. Its closed factorization for threshold graphs specializes to vertex-factorized weights, not arbitrary independent signed characters; no parity nullity classification appears.",
+        "evidence": [
+          "arxiv:1903.03575 Sections 1, 2, 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.03575",
+        "material_read": "Introduction and generic weighted cofactor theorem, Section 2 determinant and Schur tools, Section 4 specialized threshold tree weights",
+        "method": "Primary arXiv full-text HTML, checked exact edge-weight restrictions",
+        "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+        "trigger": "More general weighted determinant and Schur complement; possible subsumption of the proposed signed theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58c7cb8a-bc0f-45b6-b793-fe453c14b689",
+  "value": {
+    "rationale": "The clique-plus-independent-set graph is a classical, motivated threshold construction. The unknown natural invariant is invertibility of its spanning-tree edge-support convolution. A complete two-parameter invertibility classification, systematic 2-adic spectral obstruction, exponential explicit zero-family and sharp triangular-core gap are nontrivial structural statements with concrete implications for stable Fourier recovery; these cannot be obtained by computing a single small graph or applying parity alone.",
+    "status": "PASS"
+  }
+}
