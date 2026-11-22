@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For exactly three GC bases the Watson–Crick reverse-complement involution has only size-two orbits. Exhaustive definitional enumeration gives 1280 balanced words, 640 orbits, 248 individually cross-bifix-compatible orbits, and 9048 pairwise compatibility edges. Each eligible code is exactly a graph clique doubled in size. CHECK.py uses a complete bitset branch search with valid greedy coloring bounds, visits 15560 nodes, and establishes clique number 22. WITNESS.txt contains 44 distinct words meeting all constraints. No finite test is extrapolated beyond the six-mer domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik–Moškon–Mraz, arXiv:2410.18458, analyzes GC balance, run restrictions and their intersection without reverse-complement closure; in the four-letter six-mer case the balanced code maximum is 192.",
+        "Stanovnik–Moškon–Mraz, arXiv:2307.12593, provides structural characterization for unrestricted non-overlapping codes."
+      ],
+      "reasoning": "The broader code classes permit words that violate strand closure. A maximum over a superset of 192 (or 251 when entirely unrestricted) only gives a loose upper bound on this subfamily; the structural conclusions do not furnish a 44 upper bound for a reverse-complement-paired code.",
+      "searches": [
+        "Web full text: On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths (2025), Section 3",
+        "Web full text: In search of maximum non-overlapping codes (2024), constructions and optimal-size discussion",
+        "published-finding corpus: exact maximum size reverse complement closed Watson Crick six nucleotide GC balanced nonoverlapping code length six"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.18458 original submission 2024-10-24; publisher full-text manuscript",
+      "arXiv:2307.12593; publisher full-text manuscript",
+      "Frith–Noé–Kucherov 2020 full open-access article Table 2",
+      "arXiv:1709.05214 abstract (full text not read)",
+      "Published short-strand records: five-mer GC-balanced closed nonoverlapping optimum 24; four-mer closed nonoverlapping optimum 17 (summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The balanced four-letter length-six maximum 192 includes non-reverse-complement-closed codes, so cannot establish a smaller exact maximum by itself.",
+        "The unconstrained maximum 251 in Frith–Noé–Kucherov (2020) is still weaker.",
+        "Short-block results at lengths four or five have no all-length reduction fixing the length-six reverse-complement orbit compatibility graph."
+      ],
+      "reasoning": "An explicit 248-vertex compatibility graph and its clique number 22 are additional information not entailed by a general code construction, a superset optimum, or a value at another block length. Source inspections were of accessible article full text where noted; no assertion about inaccessible full texts is made.",
+      "searches": [
+        "Web: arXiv:2410.18458 full open-access text Sections 2–3",
+        "Web: arXiv:2307.12593 full open-access text Sections 2–3",
+        "published-finding corpus: exact maximum size reverse complement closed Watson Crick six nucleotide GC balanced nonoverlapping code length six"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 preprint arXiv:2410.18458 defines non-overlapping (cross-bifix-free, mutually uncorrelated) codes, but omits closure under the Watson–Crick involution.",
+        "Published five-mer strand-closed results treat different lengths and different GC rules."
+      ],
+      "reasoning": "The alternate terms non-overlapping, mutually uncorrelated, cross-bifix-free and strongly comma-free were compared as equivalent overlap conditions. None of the inspected matching-source statements included exact GC-count three and reverse-complement closure at length six; different spelling or a GC-balance construction alone cannot imply the optimum.",
+      "searches": [
+        "published-finding corpus: exact maximum size reverse complement closed Watson Crick six nucleotide GC balanced nonoverlapping code length six",
+        "published-finding corpus: balanced non-overlapping code length six reverse-complement closure 50% GC no prefix suffix overlap",
+        "Web: reverse complement cross bifix free GC six code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Frith–Noé–Kucherov (2020), Table 2, lists unrestricted maximum 251 at six bases, not a balanced strand-closed maximum.",
+        "A published five-mer strand-invariant GC-balanced non-overlapping capacity of 24 is at length five with GC count two or three, not length six with GC count three.",
+        "A published four-mer reverse-complement-closed non-overlapping maximum of 17 imposes neither the same length nor the same composition."
+      ],
+      "reasoning": "There is no matching 44 codeword six-mer strand-closed exact-GC non-overlap entry in the queried records. Tables with 251, 192, 24, or 17 represent different feasible families; the same numerical value 44 in unrelated word-covering or deletion-code records does not imply this result.",
+      "searches": [
+        "published-finding corpus: 44 word strand invariant three GC six-mer strongly cross bifix free 22 paired orbits",
+        "published-finding corpus: strand closed constrained cross bifix free DNA sixmers 3 GC bases",
+        "Web full text: Minimally overlapping words for sequence similarity search, Table 2"
+      ]
+    },
+    "rationale": "The identified primary literature establishes unconstrained or balanced non-overlapping maxima, but not the reverse-complement-closed, exactly GC-balanced six-mer optimum. The closest published short-strand results have different lengths and compositions, and their statements do not imply 44. The checked published paper on balance gives 192 rather than 44 at these base alphabet and length parameters.",
+    "residual_risks": [
+      "An unindexed earlier strand-closed exactly balanced six-mer computation could establish historical priority.",
+      "The abstract-only 2017 primer paper was not used to rule out equivalent full-text results.",
+      "Independent mathematical audit of the finite search has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the strand-closure optimum; it supplies the 192 larger-family comparator",
+        "evidence": [
+          "Article defines polarity balance and non-overlap but not reverse-complement-closed codes.",
+          "Reports exact small q=4, n=6 balanced optimum by its balanced Dyck construction."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "material_read": "Open-access full HTML, definitions/Constructions 1–4, Section 3 and small q/n optimum discussion, including q=4 n=6",
+        "method": "Read primary article sections and compared its code constraints with exact fixed GC and reverse-complement closure",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Strongest directly related exact balanced q-ary non-overlapping small-length results"
+      },
+      {
+        "assessment": "Generic representation of maximal non-overlapping codes does not evaluate the stated reverse-complement GC-balanced six-mer maximum",
+        "evidence": [
+          "Describes maximal non-overlapping codes over general finite alphabets without Watson–Crick closure."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01344-z",
+        "material_read": "Open-access full HTML abstract, definitions, maximal-code construction and uniqueness properties",
+        "method": "Inspected theorem and construction statements to determine whether they calculate this combined constrained optimum",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Possible general characterization subsuming all non-overlapping codes"
+      },
+      {
+        "assessment": "Its length-six maximum 251 is unrestricted and does not imply 44",
+        "evidence": [
+          "Table 2 lists the unrestricted six-base maximum 251."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8016470/",
+        "material_read": "Open-access full HTML introduction, Section 3.1 and Table 2",
+        "method": "Compared exact table parameters against GC-count and strand-involution constraints",
+        "title": "Minimally overlapping words for sequence similarity search",
+        "trigger": "Published finite table covering length-six DNA non-overlap maxima"
+      },
+      {
+        "assessment": "Not classified as NOT_COVERING from abstract; residual source risk remains",
+        "evidence": [
+          "Abstract addresses weakly mutually uncorrelated code constructions and balance, without an explicit six-mer optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.05214",
+        "material_read": "Abstract/metadata only; full text not independently inspected in this comparison",
+        "method": "Compared abstract-specified weak overlap, balanced composition, and primer-dimer design to the exact closed constrained maximum",
+        "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+        "trigger": "Potential strand-aware and GC-balanced primer construction covering this setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c132e6c5-828f-4938-aa77-b12629408ffb",
+  "value": {
+    "rationale": "Exact capacity of a natural intersection of three DNA storage/synchronization constraints gives a benchmark not implied by individual constraints. The stand-alone finite optimum 44 quantifies a substantial capacity penalty compared to the known 192 GC-balanced non-overlapping six-mers without strand closure. No general-length theorem or physical primer performance is asserted.",
+    "status": "PASS"
+  }
+}
