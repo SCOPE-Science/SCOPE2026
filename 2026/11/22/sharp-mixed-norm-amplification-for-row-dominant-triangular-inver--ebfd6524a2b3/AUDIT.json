@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For each inverse row of the finite nilpotent Neumann expansion, triangular support makes the new diagonal unit coordinate orthogonal to earlier inverse rows. The off-diagonal residual row norm is at most the row budget times the largest preceding row norm; induction bounds its squared defect by a finite geometric sum. Summation yields the sharp finite Frobenius maximum, attained term by term on a weighted bidiagonal chain. A universal Euclidean upper bound follows from the Frobenius defect, while the explicit chain with many leaves attains the matching square-root dimension coefficient. Supplementary exact-rational and numerical finite cases were run from checker.py; all passed. Infinite-size conclusions rely on the analytical proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peña 2007 and Peña scaled-pivots article: optimal Skeel/componentwise condition bounds; full text inaccessible for the former.",
+        "Echeverría–Liesen–Nabben 2017: inverse bounds and decay for block tridiagonal matrices.",
+        "Dargaville–Pain 2026: nilpotency does not ensure benign finite-step nonnormal transients."
+      ],
+      "reasoning": "A row-infinity inverse bound (at most 1/(1-tau)) does not imply dimension-independent Euclidean inverse gain because ||B||_2 <= sqrt(n)||B||_infinity; a Skeel/componentwise condition number does not fix the ordinary unweighted Euclidean inverse norm. Tridiagonal inverse-decay results cannot cover comb matrices with many long-range leaf connections. None of the material read establishes the exact coefficient tau/sqrt(1-tau^2).",
+      "searches": [
+        "Sharp asymptotic norm of inverse of unit lower triangular matrices with row diagonal dominance tau, supremum normalized by square root dimension equals tau/sqrt(1-tau^2)",
+        "Optimal inverse spectral amplification under row sum constraint for nilpotent triangular matrices equals tau/sqrt(1-tau^2) comb chain leaves",
+        "DIAG_DOM coarse fine splitting controls infinity row sums but cannot control Euclidean inverse norm triangular factors sqrt dimension precise constant",
+        "weighted rooted forest inverse matrix spectral norm path-plus-many-leaves extremal among substochastic triangular factors",
+        "https://doi.org/10.1137/060677562",
+        "https://arxiv.org/abs/1712.05662"
+      ]
+    },
+    "checked_sources": [
+      "Dargaville and Pain, arXiv:2611.00552v1 (full HTML Sections 2–7)",
+      "Echeverría, Liesen and Nabben, arXiv:1712.05662 (accessible full HTML)",
+      "Peña, DOI:10.1137/060677562 (abstract only; full text access unavailable)",
+      "Peña, DOI:10.1137/S0036142901395163 (abstract only)",
+      "S. Xiang, DOI:10.1137/090753164 (correction abstract)",
+      "Published scientific summaries for sparse comb parent shifts and geometric tree Cesàro averages"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating DIAG_DOM method controls per-row local dominance ratios but gives no spectral norm inverse extremal optimization.",
+        "Classical Skeel condition numbers concern componentwise relative error; the present operator norm uses absolute unit-Euclidean input and output.",
+        "The weighted chain is banded, while the matching sharp Euclidean comb has long-range leaf links and is not uniformly banded."
+      ],
+      "reasoning": "The simultaneous sharp equalities require a universal inequality over all triangular row-budget entries and an explicit asymptotic family; known universal infinity/componentwise inequalities only give the unsharp coefficient 1/(1-tau) after a sqrt(n) comparison. Existing tree resolvent laws do not supply an implication with the same tau, norm and extremum quantifiers.",
+      "searches": [
+        "https://arxiv.org/html/2611.00552v1",
+        "https://arxiv.org/abs/1712.05662",
+        "https://doi.org/10.1137/060677562",
+        "strict row diagonally dominant triangular matrix inverse Frobenius norm sharp spectral 2-norm amplification chain comb parent forest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finite row-stochastic/substochastic parent-chain inverse representation via (I-G)^(-1); no matching universal sharp bound found in public search summaries.",
+        "Echeverría–Liesen–Nabben 2017 addresses block tridiagonal inverse decay rather than unrestricted unit triangular row budgets."
+      ],
+      "reasoning": "Searched under lower triangular inverse, nilpotent Neumann resolvent, parent forest and row-substochastic matrix aliases. Inverse rows of a graph-path forest are a special case of the theorem, but the theorem optimizes over all row-budgeted triangular matrices. Available comparable results do not imply its finite Frobenius equality nor matching upper and lower spectral coefficient.",
+      "searches": [
+        "strictly lower triangular nonnegative row substochastic matrix inverse spectral norm maximum extremal rooted tree forest sharp sqrt(n) tau/sqrt(1-tau^2)",
+        "row diagonal dominance triangular factors spectral norm inverse unbounded despite uniform infinity contraction functional digraph extremal",
+        "sharp spectral norm inverse lower triangular row sum alpha nilpotent matrices rooted trees",
+        "strict row diagonally dominant triangular matrix inverse Frobenius norm sharp spectral 2-norm amplification chain comb parent forest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public ranked findings concerned unrelated Green operators, tree Cesàro averages, weighted shifts, and general numerical conditioning, without the claimed finite F_n(tau) identity.",
+        "Search comparison considered source identifiers and actual claim summaries rather than title matches."
+      ],
+      "reasoning": "Both formulas are parametrized by arbitrary dimension and a continuous row budget, not a finite table look-up. No accessible database record with this class and both norm extrema was located. This is a bounded search, not a proof that no record exists.",
+      "searches": [
+        "strictly lower triangular nonnegative row substochastic matrix inverse spectral norm maximum extremal rooted tree forest sharp sqrt(n) tau/sqrt(1-tau^2)",
+        "row diagonal dominance triangular factors spectral norm inverse unbounded despite uniform infinity contraction functional digraph extremal",
+        "strict row diagonally dominant triangular matrix inverse Frobenius norm sharp spectral 2-norm amplification chain comb parent forest"
+      ]
+    },
+    "rationale": "A statement-level search of published mathematical findings, the accessible own prior claim ledger, and primary related sources did not identify the exact finite Frobenius inverse-defect maximum together with the sharp fixed-tau dimension-normalized Euclidean inverse law. Dargaville–Pain motivate row dominance but do not quantify these extrema; tridiagonal inverse-decay results, classical infinity/Skeel conditioning, and tree-shift resolvent results address different hypotheses or quantities. The proof does not claim absolute or independently certified priority.",
+    "residual_risks": [
+      "The two Peña publisher full texts were not available for reading; a hidden implication from a detailed general theorem cannot be ruled out solely from abstracts.",
+      "Historical numerical linear algebra and nonnegative matrix norm literature may contain an equivalent extremum under different notation.",
+      "Published-result search is not an exhaustive novelty certificate; equivalent reductions in tree shifts or nonnormal resolvent theory remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper treats parallel approximate triangular solves, row-dominance-based splitting, and empirical/non-normal transient behavior. Its row bound is a criterion, not the exact Frobenius inverse extremum or asymptotic Euclidean spectral inverse frontier proved here.",
+        "evidence": [
+          "arXiv:2611.00552v1, §6.2, definition of row ratio r_dd(i) and threshold tau",
+          "arXiv:2611.00552v1, §4, finite Neumann expansion and its nonnormal behavior"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.00552v1",
+        "material_read": "Accessible complete arXiv HTML, especially abstract, Sections 2, 4, 5, 6.1, 6.2, 6.3, conclusions and stated contribution list.",
+        "method": "Primary-paper HTML full-text inspection and comparison of stated objects and propositions.",
+        "title": "A comparison of parallel iterative methods for ILU triangular solves",
+        "trigger": "The motivating triangular factor study explicitly introduces the fine-fine row ratio threshold in Section 6.2."
+      },
+      {
+        "assessment": "Its inverse-decay bounds require tridiagonal block structure and do not give the unrestricted lower-triangular row-budget Frobenius equality or dimension-normalized Euclidean supremum. The leaf-rich comb is nontridiagonal.",
+        "evidence": [
+          "arXiv:1712.05662, abstract: block tridiagonal inverse bounds",
+          "arXiv:1712.05662, introduction: generalization of inverse decay for tridiagonal classes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.05662",
+        "material_read": "Accessible arXiv full HTML mathematical text including abstract, introduction, inverse bound sections and stated hypotheses.",
+        "method": "Read full accessible arXiv HTML and compare block-tridiagonal assumptions and quantities.",
+        "title": "Block diagonal dominance of matrices revisited: bounds for the norms of inverses and eigenvalue inclusion sets",
+        "trigger": "Potentially broader inverse-norm bounds for diagonally dominant block matrices."
+      },
+      {
+        "assessment": "The accessible stated subject is the Skeel/componentwise condition number, not the Euclidean norm of the inverse or the exact Frobenius defect. Full-text inaccessibility leaves an explicit comparison risk.",
+        "evidence": [
+          "J. M. Peña (2007), SIAM J. Numer. Anal. 45:1107–1108, DOI 10.1137/060677562",
+          "S. Xiang (2010), correction DOI 10.1137/090753164"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060677562",
+        "material_read": "Bibliographic abstract and publication description only; publisher full text was not accessible.",
+        "method": "Publisher abstract, bibliographic metadata and related 2010 correction abstract.",
+        "title": "Strict diagonal dominance and optimal bounds for the Skeel condition number",
+        "trigger": "Directly mentions strictly row-diagonally-dominant triangular matrices and optimal condition bounds."
+      },
+      {
+        "assessment": "A dimension-independent componentwise condition bound does not upper-bound the ordinary Euclidean inverse gain independent of dimension, and no exact Frobenius inverse defect is stated in the accessible material.",
+        "evidence": [
+          "DOI 10.1137/S0036142901395163, abstract: dimension-independent Skeel condition number"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036142901395163",
+        "material_read": "Publisher abstract and metadata, not publisher full mathematical text.",
+        "method": "Read publisher abstract and compared the stated dimension-independent Skeel condition conclusion.",
+        "title": "Scaled pivots and scaled partial pivoting strategies",
+        "trigger": "Another classical bound for row-dominant upper-triangular matrices."
+      },
+      {
+        "assessment": "Infinite-dimensional sparse comb shifts, polynomial powers and resolvent growth near a spectral edge; they do not state finite unit-lower-triangular row-budget extrema or the fixed-tau square-root dimension coefficient. Potential reduction remains unproved.",
+        "evidence": [
+          "Public summary describes sparse infinite parent shifts and boundary resolvent growth O(epsilon^{-1-alpha/2})."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sparse-comb-parent-shifts-polynomial-power-growth-with-uniformly--2e3b362caced",
+        "material_read": "Public title and scientific abstract/summary; not full proof.",
+        "method": "Published scientific result search with statement-level implication comparison.",
+        "title": "Sparse comb parent shifts: polynomial power growth with uniformly bounded essential powers",
+        "trigger": "Highly similar words comb and parent shift appeared in the published-record semantic search."
+      },
+      {
+        "assessment": "Normalized ancestor Cesàro averages on homogeneous trees have different coefficients, scaling and a fixed-rank singular law. Neither the unit-triangular row-budget class nor its universal maxima are stated.",
+        "evidence": [
+          "Public summary gives fixed-rank singular spectrum for homogeneous Cesàro averages after geometric renormalization."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-geometric-fixed-rank-singular-staircase-for-finite-tree-ces-ro-a--b2c8f4434d6b",
+        "material_read": "Public title and scientific summary, not full mathematical article.",
+        "method": "Statement and operator-family comparison.",
+        "title": "Geometric fixed-rank singular staircase for finite-tree Cesàro averaging",
+        "trigger": "Closest semantically matched published rooted-tree inverse-like averaging operator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ebfd6524-a2b3-4e4a-ba5e-b8a69f3020a9",
+  "value": {
+    "rationale": "The recently proposed DIAG_DOM coarse/fine splitting method explicitly controls absolute off-diagonal row sums of a triangular fine block. The theorem identifies an exact finite Frobenius bound and the sharp dimension-normalized Euclidean inverse amplification under precisely that user-selected budget, showing that dimension-independent row control need not yield uniform Euclidean solve sensitivity. The structural difference between a chain and a chain-with-leaves explains where apparent pathwise stability fails under wide branching and provides a quantitative benchmark for sparse triangular solves.",
+    "status": "PASS"
+  }
+}
