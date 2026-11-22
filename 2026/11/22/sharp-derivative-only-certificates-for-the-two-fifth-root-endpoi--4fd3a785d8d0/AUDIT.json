@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Both fifth-root rules integrate all polynomials of degree at most five, and their Peano kernels factor exactly as K_plus=z^2(3sqrt5/2-3-z)/720 and K_minus=-z^2(3sqrt5/2+3+z)/720. Since 0<=z<=1/4 and 3sqrt5/2-3>1/4, the kernels are oppositely signed and K_plus-K_minus>0 in the interior. Error/gap is a positive-weight mean of an explicitly linear decreasing function of z; smooth nonnegative-sixth-derivative bumps approach both endpoints. Unique minimax blending follows by balancing extreme ratios. Symbolic checker verified all critical identities and additional exact examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wąsowicz arXiv:2601.16796 Theorem 3 involves G_3 and L_4 function-value quadratures",
+        "Kania–Wąsowicz arXiv:2609.34918 abstract/companion documentation gives general Gauss–Lobatto rule; not these fixed jet formulas",
+        "Bui-Thanh et al. arXiv:2602.18634 abstract describes interpolatory Hermite quadrature, unlike the fifth-root degree-five rules"
+      ],
+      "reasoning": "Gauss/Lobatto sampling and interpolatory Hermite quadrature do not imply the present coefficients and sharp ratio bounds by direct specialization. Interpolatory Hermite rule with four endpoint jets is degree-seven and is not the displayed noninterpolatory degree-five pair. Full access limitation for the latter source remains disclosed.",
+      "searches": [
+        "\"Adaptive integration of 5-convex and 5-concave functions\" Wąsowicz 2026 theorem",
+        "\"Refined Gauss--Lobatto bounds for odd-order convexity\" sharp kernel 2026",
+        "\"From an Elementary Proof of Error Representation for Hermite Quadrature\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.01467",
+      "https://borowiecki.dev/pdf/2602.01467",
+      "https://www.researchgate.net/publication/400071775_Adaptive_integration_of_5-convex_and_5-concave_functions",
+      "https://arxiv.org/abs/2609.34918",
+      "https://github.com/tomaszkania/gauss-lobatto-bounds",
+      "https://arxiv.org/abs/2602.18634",
+      "https://www.alphaxiv.org/abs/2602.18634"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang full text §3.2 establishes the paired formulas but not a sixth-order one-sided error sign or fixed-blend sharpness",
+        "Wąsowicz full text proves shape certification for G_3 and L_4 via separate interior point values",
+        "Generic interpolatory Hermite results do not set the arbitrary fifth-root coefficients"
+      ],
+      "reasoning": "The new guarantee is not a numerical restatement of polynomial exactness: it requires exact sign factorization for both kernels, quantification of their ratio range, and constructive extremal smooth sequences. Earlier higher-order-convex quadrature inequalities apply to different information sets; no stronger coverage was confirmed in inspected literature.",
+      "searches": [
+        "\"Beyond Taylor\" \"complex shift\" \"quadrature\" \"Peano\" \"bounds\" 2026",
+        "\"two\" \"Hermite quadrature\" \"bounds\" \"sixth derivative\"",
+        "quadrature derivative endpoint fifth root of unity shape certified error",
+        "arxiv:2602.01467 equation 3.22 table 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang arXiv:2602.01467 §3.2 equation (3.22), Table 3.1: coefficients, polynomial exactness only",
+        "General Peano kernel theorem provides an abstract representation but not the calculated paired kernel ratio"
+      ],
+      "reasoning": "Reversing the root phase or taking the real part yields the two source formulas, but equivalent reformulations of those coefficients alone do not assert the sharp sign-certified error interval. Computation and sign analysis of two distinct sixth-order Peano kernels and their ratio are needed.",
+      "searches": [
+        "\"Wang\" \"complex shift\" \"quadrature\" \"Peano\" \"bounds\" 2026",
+        "\"fifth roots\" \"quadrature\" \"sixth derivative\" endpoint Hermite",
+        "\"five root of unity\" \"quadrature\" \"sixth derivative\" Peano kernel",
+        "fifth root of unity endpoint derivative quadratures 5-convex a posteriori error enclosure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang Table 3.1 lists real parts of powers of the fifth-root Möbius transform, not the sixth-order error kernels or the sharp interval",
+        "No checked table or cited published paper states both constants for the endpoint-jet pair"
+      ],
+      "reasoning": "A table of existing rule coefficients does not itself supply a certified enclosure for all sixth-derivative-positive inputs. The exact constants and optimal normalized blend are assessed as additional claims; absence of search hits is not proof of world-wide priority.",
+      "searches": [
+        "\"1/2 - 1/sqrt(5)\" \"quadrature\" error",
+        "\"13/(12 sqrt(5))\" quadrature error bound",
+        "\"complex shift\" quadrature \"Peano kernel\" fifth root",
+        "\"Wang\" \"Re(gamma_5)\" \"Peano\" quadrature"
+      ]
+    },
+    "rationale": "The claim is the sharp sign-certified two-rule interval and minimax blend, not Wang’s given root coefficients or general Peano theory. Full-text comparison establishes that the source paper does not state these signed kernels and constants. The closest certified-integration papers concern distinct Gauss/Lobatto interior point rules; the interpolatory endpoint Hermite paper appears different and is retained as a limited-access priority risk.",
+    "residual_risks": [
+      "Independent historical-priority verification remains unperformed; broadly analogous Hermite–Peano inequalities may exist in older literature.",
+      "The related 2026 interpolatory-Hermite paper was inspected at abstract level, not in full text; its exact theorem statements could not be compared.",
+      "The error bound presumes known global sign of the sixth derivative and exact endpoint jets; it does not address floating-point or derivative noise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the two coefficients and polynomial-exactness claim; no a posteriori sixth-derivative-sign enclosure, sharp Peano kernel-ratio interval, or optimal fixed blend",
+        "evidence": "Equation (3.22), Table 3.1, PDF page 7, and discussion in §3.2",
+        "identifier_or_url": "arxiv:2602.01467v1; https://borowiecki.dev/pdf/2602.01467",
+        "material_read": "Accessible full-text extraction, especially §3.2, equation (3.22), Table 3.1, introduction, and searched terms; inspected rendered source page 7",
+        "method": "Full PDF text with visual page confirmation and scientific claim comparison",
+        "title": "Beyond Taylor: Divergence-Based Functional Expansions and Their Application to Numerical Integration",
+        "trigger": "Defines the exact fifth-root endpoint jet quadratures studied in the new theorem"
+      },
+      {
+        "assessment": "Gives 3-point Gauss versus 4-point Lobatto (interior values) and a 1/4 error-gap certificate, not the two fifth-root endpoint derivative rules",
+        "evidence": "Explicit G and L formulas, Theorem 3 and its proof in the available manuscript",
+        "identifier_or_url": "arxiv:2601.16796v1; https://www.researchgate.net/publication/400071775_Adaptive_integration_of_5-convex_and_5-concave_functions",
+        "material_read": "Available full manuscript transcription including §§2–6, the explicit Gauss/Lobatto formulas and Theorem 3",
+        "method": "Read publicly available author full text, compared nodes, required information, theorem statements and implication",
+        "title": "Adaptive integration of 5-convex and 5-concave functions",
+        "trigger": "Nearby 2026 result on certified integration for positive sixth derivative"
+      },
+      {
+        "assessment": "Sharp general Gauss/Lobatto point-evaluation certificates, not the endpoint-derivative source pair",
+        "evidence": "Public abstract and companion README for G_n, L_{n+1} and Q_n=3G_n/4+L_{n+1}/4",
+        "identifier_or_url": "arxiv:2609.34918; https://github.com/tomaszkania/gauss-lobatto-bounds",
+        "material_read": "Primary abstract and openly accessible companion repository description; not the full primary text",
+        "method": "Compared reported Gauss–Legendre/Gauss–Lobatto theorems, sampling information and sharp constants",
+        "title": "Refined Gauss–Lobatto bounds for odd-order convexity",
+        "trigger": "Potentially stronger generic bounds for 5-convex quadratures"
+      },
+      {
+        "assessment": "Abstract does not identify the fifth-root formulas or the sharp two-rule relative-gap interval; residual full-text priority risk",
+        "evidence": "Source abstract identifies endpoint interpolatory Hermite and Legendre error kernels",
+        "identifier_or_url": "arxiv:2602.18634; https://www.alphaxiv.org/abs/2602.18634",
+        "material_read": "Primary abstract and accessible bibliographic synopsis; full text unavailable in this examination",
+        "method": "Compared stated object (interpolatory Hermite, degree seven) and generic error representation with noninterpolatory fifth-root pair",
+        "title": "From an Elementary Proof of Error Representation for Hermite Quadrature to a Rediscovery of Legendre Polynomials and Rodrigues Formula",
+        "trigger": "Closest general two-endpoint jet quadrature error theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4fd3a785-d8d0-4e62-abe0-9da32c3960f0",
+  "value": {
+    "rationale": "This supplies a sharp computable certificate from only endpoint derivatives for a natural higher-order convexity class, and an optimal fixed corrected quadrature. The refined interval is 1/(12sqrt5) of the original pair’s gap; its minimax midpoint has 1/(24sqrt5) of the gap as a sharp error bound. This allows a derivative-only composite tolerance test without derivative-magnitude bounds. The restriction to exact jet data and sixth-derivative sign is explicit; no broader optimality or numerical robustness is asserted.",
+    "status": "PASS"
+  }
+}
