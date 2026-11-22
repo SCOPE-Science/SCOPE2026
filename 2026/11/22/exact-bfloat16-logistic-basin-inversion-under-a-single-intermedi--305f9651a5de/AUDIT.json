@@ -1,0 +1,172 @@
+{
+  "correctness": {
+    "rationale": "Pure-integer scaling U=2^133 exactly encodes all nonnegative bfloat16 numbers through four; nearest-even rational rounding is implemented by exact neighbor-gap comparison. Both maps are computed exhaustively for all 16257 input encodings; full functional-graph classification is checked by successor-chain labeling and independent indegree-peeling plus reverse propagation. Independent Fraction rounding checks agree on every outgoing edge, while the embedded verification source reproduces digests, cycles, depths, basins and exact 275-edge/10423-basin inversion. Scope is finite only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sayed et al. (2017): hardware fixed-point fractional-bit truncation and order studies, not bfloat16 floating-point nearest-even",
+        "Klöwer et al. (2023): logistic bifurcation curves under several number formats; general approximate methods use Monte Carlo initial states",
+        "2026 binary16 results assume a different significand/exponent format and initial-state count"
+      ],
+      "reasoning": "Earlier qualitative coverage says rounding can create false stabilization and altered cycles; this does not mathematically imply the exact bfloat16 11-versus-4 primitive cycles, 275 local edge differences, or exact 10,423-state basin shift. The comparison does not claim novelty for the general mechanism.",
+      "searches": [
+        "published-finding corpus: r=4 logistic map 16-bit floating point rounding evaluation semantics fused un-fused roundoff attractor periods basin of attraction",
+        "published-finding corpus: Klöwer Coveney Paxton Palmer bfloat16 logistic 2023 complete functional graph R(4x(1-x)) and R(4x R(1-x))",
+        "Sayed et al. (2017) full open access DOI 10.1155/2017/8692046"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/",
+      "https://doi.org/10.21203/rs.3.rs-2223046/v1",
+      "https://doi.org/10.1155/2017/8692046",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-absorbing-class-phase-diagram-for-stochastically-rounde--dec78d4aa53f",
+      "https://doi.org/10.1587/transfun.E94.A.1817"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klöwer et al. compare numerical bifurcations, acknowledging collapse of low-precision orbits",
+        "Sayed et al. analyze fixed-point arithmetic and operation order, with digital implementations and sample periodicity",
+        "Public binary16 once-rounded map has a unique nonfixed 5-cycle, not the bfloat16 11-cycle"
+      ],
+      "reasoning": "Any prior general result that finite maps are eventually periodic gives neither exact period nor basin allocation. The theorem requires the complete exact successor maps and finite functional-graph census. The prior general findings and other-format examples do not imply the sharp new combinatorial census.",
+      "searches": [
+        "published-finding corpus: bfloat16 stochastic logistic map 4 all states rounding evaluation order exact cycles",
+        "published-finding corpus: fixed point arithmetic Sayed logistic round order bfloat16 exact periodic orbit 11 4",
+        "Klöwer et al., full published HTML, methods and bfloat16 logistic section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klöwer et al., 2023, Fig. 1(h) and logistic-map section: bfloat16 bifurcation diagrams are numerical",
+        "Public 2026 binary16 two-expression census identifies periods 1,1,5 and 1,1,8 on 15,361 IEEE binary16 encodings",
+        "No exact bfloat16 graph or four-cell basin-cross table was located in those inspected sources"
+      ],
+      "reasoning": "Real algebraic equivalence of the two logistic evaluation expressions is destroyed by rounding. Neither the continuum conjugacy to a doubling map nor the differently encoded binary16 tables determines the bfloat16 16,257-state successors, period-11 versus period-4 spectra, or the nested basin map. Searches were negative, not independent proof of global novelty.",
+      "searches": [
+        "published-finding corpus: bfloat16 float8 e4m3 logistic map r=4 exact full functional graph basins period census",
+        "published-finding corpus: bfloat16 logistic exact 16257 states 11-cycle 4-cycle 275 outgoing edge differences 10423 basin attractor zero",
+        "Web: bfloat16 logistic map 11 cycle 4 cycle deterministic 4x(1-x) round ties even"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed exact table is on 15,361 IEEE binary16 states, with period-5 and period-8 cycles under different evaluation trees",
+        "Published 2023 bfloat16 chart shows frequencies but no enumerated 16,257-state basins or inter-map edge table",
+        "2011 integer-rounding article accessible abstract lacks any mention of bfloat16"
+      ],
+      "reasoning": "The reviewed tables do not contain this bfloat16 complete successor array or its digest, cycle list, basin counts or cross-basin table; a different floating format cannot supply the same finite invariant merely by matching the logistic real formula. Potential unindexed tables remain a residual risk.",
+      "searches": [
+        "published-finding corpus: bfloat16 logistic exact 16257 states 11-cycle 4-cycle 275 outgoing edge differences 10423 basin attractor zero",
+        "published-finding corpus: finite-precision logistic map half float16 fused multiplication evaluation order 15361 initial states zero basin size periodic point count exact exhaustive",
+        "Web: bfloat16 logistic map 2023 periodic orbits exact basin 11 4"
+      ]
+    },
+    "rationale": "Full published 2023 bfloat16 logistic numerical analysis lacks an exact complete two-graph census, the closest 2017 fixed-point paper uses other arithmetic, and two public binary16 complete tables are on a different grid. No inspected source implies the exact 16,257-state bfloat16 periods, 275-edge delta or nested basin reallocation. Unindexed identical calculations and 2011 full-text access remain explicit risks.",
+    "residual_risks": [
+      "The 2011 integer-logistic rounding study was checked only at abstract level; its full text was not available during this examination. It is unlikely to contain this distinct bfloat16 format but priority is not fully assessed.",
+      "Unindexed software projects or supplemental code could contain the exact bfloat16 table even if its indexed abstracts do not.",
+      "No independent publication-priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates finite-precision logistic problem and bfloat16 behavior; does not calculate complete bfloat16 graph under the two specified rounding trees",
+        "evidence": [
+          "Fig. 1(h): bfloat16 bifurcation diagram",
+          "Methods discuss Monte Carlo orbit sampling",
+          "2023 publication DOI 10.1038/s41598-023-37004-4"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/",
+        "material_read": "Open full published text, especially introduction, logistic map, Fig. 1 discussion, finite-orbit methods, conclusions and numerical comparison",
+        "method": "Full-text open-access HTML inspected",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Explicit bfloat16 logistic figure and origin of the mathematical gap"
+      },
+      {
+        "assessment": "Posted November 8, 2022; provides early motivation but the specific bfloat16 logistic chart is inspected in expanded 2023 publication",
+        "evidence": [
+          "Manuscript front matter: Posted Date November 8th, 2022",
+          "Title and authors match published 2023 study"
+        ],
+        "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-2223046/v1",
+        "material_read": "Full publicly rendered version 1 extracted text, initial bibliographic page, overview and finite-precision methods",
+        "method": "Open-access Research Square manuscript full text mirrored in public full-text HTML",
+        "title": "Periodic orbits in chaotic systems simulated at low precision (preprint)",
+        "trigger": "Earliest public source date of motivating study"
+      },
+      {
+        "assessment": "Hardware-oriented fixed-point formats and truncated operations; provides general significance of order but not this bfloat16 finite graph",
+        "evidence": [
+          "2017 article describes sequential fixed-point operation truncation",
+          "Discusses order-dependent periods but no bfloat16 format"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2017/8692046",
+        "material_read": "Full article introduction, map definitions and truncation/evaluation-order discussion, properties and conclusion",
+        "method": "Full open-access scholarly HTML inspected",
+        "title": "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications",
+        "trigger": "Broader prior finite-precision logistic evaluation-order analysis"
+      },
+      {
+        "assessment": "IEEE binary16 on 15,361 states, with 5- and 8-cycles; no bfloat16 16,257-state calculation",
+        "evidence": [
+          "Half-precision sign/exponent/fraction format differs",
+          "Reported once-rounded nonfixed period 5"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d",
+        "material_read": "Full RESULT.md: mathematical definition, all cycles/basins, proof, relationship and limitations",
+        "method": "Read complete public primary research result via repository file fetch",
+        "title": "Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation",
+        "trigger": "Closest published exactly rounded finite-precision logistic table"
+      },
+      {
+        "assessment": "Exhaustive for a different arithmetic format and expanded tree; cannot imply bfloat16 graph invariants",
+        "evidence": [
+          "15,361 binary16 states",
+          "Expanded-map nonfixed periods 4,17,25,30"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+        "material_read": "Full RESULT.md including reference to prior factored 40-cycle, once-rounded 5-cycle, and new expanded graph periods",
+        "method": "Read complete public primary research result via repository file fetch",
+        "title": "Exact complete expanded-evaluation binary16 logistic cycle census",
+        "trigger": "Plausibly dominant operation-order graph census"
+      },
+      {
+        "assessment": "Stochastic rounding on evenly spaced rational grids, not deterministic nonuniform bfloat16; no coverage of claimed basin inversion",
+        "evidence": [
+          "Random two-neighbor transitions on grid denominator 65536 or less",
+          "Only closed classes zero and possibly three quarters for that Markov model"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-absorbing-class-phase-diagram-for-stochastically-rounde--dec78d4aa53f",
+        "material_read": "Full RESULT.md on grid domain, stochastic edge support, proof, stationary classes and limitations",
+        "method": "Read complete public primary research result via repository file fetch",
+        "title": "An exact absorbing-class phase diagram for stochastically rounded logistic dynamics on 16-bit uniform grids",
+        "trigger": "Potentially stronger logistic finite-state absorption result"
+      },
+      {
+        "assessment": "Rounding of integer logistic implementations, not known to cover bfloat16; material comparison limited to abstract and high-priority residual source risk",
+        "evidence": [
+          "2011 abstract describes several rounding schemes and generated sequence properties"
+        ],
+        "identifier_or_url": "https://doi.org/10.1587/transfun.E94.A.1817",
+        "material_read": "Publisher title and abstract only; full text not accessed",
+        "method": "Publisher bibliographic HTML and abstract",
+        "title": "Rounding Logistic Maps over Integers and the Properties of the Generated Sequences",
+        "trigger": "Earlier logistic rounding-method literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "305f9651-a5de-41bc-859b-df1c8592c4c5",
+  "value": {
+    "rationale": "The motivating source specifically reports severe BFloat16 logistic bifurcation degradation. The exact all-state bfloat16 graph is a natural fidelity invariant, and the 275-edge versus 10423-starting-state basin inversion quantifies a dramatic, nonlocal change from a very sparse change in local rounding. It is not a renamed old binary16 table because the format and outcomes differ, and is not claimed as a general theorem about all precisions or real-state basins.",
+    "status": "PASS"
+  }
+}
