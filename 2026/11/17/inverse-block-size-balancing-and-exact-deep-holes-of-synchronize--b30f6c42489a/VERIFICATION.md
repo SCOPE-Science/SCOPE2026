@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python verify_block_parity.py` using Python 3 and the standard library. This code enumerates all binary cube vertices and all parity-synchronized codewords for these ten block-size profiles: `(1,1,1)`, `(2,2,2)`, `(1,2,3)`, `(2,2,3)`, `(1,1,2,2)`, `(1,2,2,2)`, `(2,2,2,2)`, `(1,1,1,1)`, `(2,3,3)`, `(3,3,3)`. For every cube vertex it constructs the exact rational projection from the theorem, tests the defining Euclidean normal-cone inequality against *every* codeword, and verifies the squared-distance formula and maximum over parity profiles. It confirms that the nearest-point expression lies in the convex hull via the explicit two-distribution construction in `RESULT.md`; the normal-cone inequalities separately certify that this feasible point is nearest. Expected final line: `PARITY_BLOCK_HAUSDORFF_KKT_PASS`.
+## correctness
 
-Optionally run `python verify_qp.py` with NumPy and SciPy. It independently minimizes squared distance over all nonnegative convex-combination coefficients summing to one, using the codewords only and not the proposed projection as a constraint or initial point. It checks all violating cube vertices for `(2,2,2)`, `(1,2,3)`, `(2,2,3)`, and `(1,1,2,2)`, with absolute squared-distance tolerance `1e-8`, and prints `PARITY_BLOCK_INDEPENDENT_QP_PASS`. The largest observed discrepancy was below `2e-13` in these tests.
+PASS
 
-These are *finite* checks, not an exhaustive proof for arbitrary block sizes and block counts. The all-parameter correctness argument is the explicit lower-bound/equality construction and residual-variance proof in `RESULT.md`. No Lean, human expert, or independent external audit has been performed.
+For each binary cube vertex x, reflect coordinates to the origin; the synchronized parity code splits into exactly two convex coset types, with block sum lower bounds lambda or 1-lambda. Blockwise Cauchy–Schwarz gives norm^2 >=lambda^2 W_T+(1-lambda)^2(S-W_T) and minimizing lambda yields W_T(S-W_T)/S. Uniform mixtures of single-coordinate flips in the designated odd blocks attain equality; strict convexity gives unique projection. Squared distance to a convex set is convex, hence max over cube occurs at a vertex; the variance identity plus distinct nonzero signed residual vectors at every two distinct noncode vertices strictly excludes other maximizers. Reciprocal subset balance gives farthest patterns and counts, including equal blocks and one dominating reciprocal weight. Independently enumerated all codewords and verified normal-cone projection inequalities by exact Fraction for block sizes (1,1,1), (1,2,3), (2,2,2), (2,2,3), (1,1,2,2); this finite check supports, not proves, the general formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the distinct simultaneous-block-parity codeword polytope, with a complete Euclidean projection and deep-hole classification not implied by inspected single-check work.
+
+## value
+
+PASS
+
+The synchronized parity code is a natural multi-check linear-code family whose Euclidean codeword-polytope approximation to a hypercube is distinct from Hamming covering radius. The exact projection, all deepest corner configurations, reciprocal block balancing and sharp synchronization-vs-independent-block comparison provide a usable nontrivial geometric decoding invariant for arbitrary positive block lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

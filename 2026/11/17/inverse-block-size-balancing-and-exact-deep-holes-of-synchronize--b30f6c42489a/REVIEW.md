@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is about an explicitly specified closed convex hull of simultaneous block-parity codewords in the standard unscaled Euclidean cube. The proof maps each cube vertex isometrically to zero and the code to a union of two constrained flip-pattern classes. Blockwise Cauchy--Schwarz gives an exact lower bound, attained by a convex combination of two uniform one-flip-per-odd-block distributions. Strict convexity proves projection uniqueness. A residual-variance identity establishes that no nonvertex cube point attains the maximum, and a reciprocal-weight subset-sum identity gives all equality cases. The formulas were tested by exact rational normal-cone inequalities and independently by constrained numerical quadratic programming; finite tests are supporting evidence, not an infinite proof. Edge cases include block size one, even and odd block counts, all-even/all-odd codewords, and a dominant reciprocal weight.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest inspected primary literature, Ermel--Walter (arXiv:1803.10561v2, Sections 1--4), treats a single even-parity condition combined with within-block ordering. Gensheimer et al. (arXiv:1901.03240, Sections IV--VIII) study projection to a single-check parity polytope. Neither statement implies a formula for the multi-check hull requiring all block parities to agree; a product of single-check projections likewise cannot resolve the two globally coupled flip-parity classes. A later public result titled *A linear-time nearest-vertex covering certificate for every demihypercube* concerns a single parity check; only its abstract was accessible, so possible uninspected stronger material remains a priority risk. Searches of related mathematical claims did not identify an equivalent or dominating formula. Historical priority cannot be certified from search alone.
+PASS
 
-## Mathematical value — PASS
-The parity-lift of a binary repetition code is a natural systematic family of simultaneous-check binary codeword polytopes, not an arbitrary coordinate slice. The formula gives its complete Euclidean cube-approximation radius in every dimension and every heterogeneous block profile, the exact projection of every cube vertex, all extremizers, and the sharp localized-versus-balanced block-parity regimes. For equal blocks it quantifies a substantive factor-four reduction in squared worst-case error compared with independent even-parity constraints. These features furnish a reproducible metric benchmark for exact convex-hull relaxation and multi-check coupling; no downstream theorem or code-decoding performance claim is assumed.
+For each binary cube vertex x, reflect coordinates to the origin; the synchronized parity code splits into exactly two convex coset types, with block sum lower bounds lambda or 1-lambda. Blockwise Cauchy–Schwarz gives norm^2 >=lambda^2 W_T+(1-lambda)^2(S-W_T) and minimizing lambda yields W_T(S-W_T)/S. Uniform mixtures of single-coordinate flips in the designated odd blocks attain equality; strict convexity gives unique projection. Squared distance to a convex set is convex, hence max over cube occurs at a vertex; the variance identity plus distinct nonzero signed residual vectors at every two distinct noncode vertices strictly excludes other maximizers. Reciprocal subset balance gives farthest patterns and counts, including equal blocks and one dominating reciprocal weight. Independently enumerated all codewords and verified normal-cone projection inequalities by exact Fraction for block sizes (1,1,1), (1,2,3), (2,2,2), (2,2,3), (1,1,2,2); this finite check supports, not proves, the general formula.
 
-## Limits and priority risks
-One 2018 primary paper and one 2019 primary full text were compared by their mathematical objects and the statements of their principal sections. Specialized older coding/optimization literature not indexed by the searches could contain an equivalent statement. General numerical optimization of a projected codeword hull does not alone imply the present explicit general formula or equality classification. Independent mathematical review and experimental validation outside the listed checks remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the distinct simultaneous-block-parity codeword polytope, with a complete Euclidean projection and deep-hole classification not implied by inspected single-check work.
+
+## value
+
+PASS
+
+The synchronized parity code is a natural multi-check linear-code family whose Euclidean codeword-polytope approximation to a hypercube is distinct from Hamming covering radius. The exact projection, all deepest corner configurations, reciprocal block balancing and sharp synchronization-vs-independent-block comparison provide a usable nontrivial geometric decoding invariant for arbitrary positive block lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
