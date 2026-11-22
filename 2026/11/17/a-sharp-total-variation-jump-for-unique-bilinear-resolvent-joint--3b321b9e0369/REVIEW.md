@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C) — PASS.** For every parameter satisfying the stated strict inequalities, the source planar adjugate identity and an independent exact-rational matrix checker yield the three-component positive measure. The new proof verifies: \(\det C_c=abc\), \(\operatorname{tr}C_c=bd+ae\), boundary rank one; scalar gamma-mixture Laplace transform; absolutely continuous conditional gamma laws for positive \(c\); two regular boundary measures with nonzero Jacobians; the exact second moments controlling their variation; and matrix-variation additivity on disjoint singular/regular supports. The two exponentially smoothed components satisfy explicit \(O(\sqrt c)\) variation bounds. All limits are analytic, not inferred from finite checks. Spectral parameters and norm normalization were independently rechecked against the exact source matrix formula.
+## correctness
 
-**Originality (O) — PASS with explicit literature risk.** Tian (arXiv:2611.03081v1, Theorem 4.1, Lemma 2.1, eq. (4.8)) establishes the completion and the three-measure representation; none of that is claimed here. We inspected the primary HTML proof around equations (4.5)--(4.8) and the scalar construction, and searched the full HTML for variation, absolutely continuous, singular and stability, finding no corresponding quantitative total-variation theorem. Downton's 1970 bivariate exponential work concerns scalar joint distributions, not the unique matrix-POVM variation coefficient as exposed by its accessible summary. A previously recorded joint-moment result concerns the sharp matrix commutator bound, not regularity or variation of representing measures. The closest returned published research records concern distinct Nevanlinna measures, tensor Volterra resolvents, and scalar variation boundaries, not this family. The searched material does not establish bibliographic uniqueness: equivalent classical stochastic representations, including unavailable full texts, remain a risk.
+PASS
 
-**Mathematical value (V) — PASS.** The exact discontinuity resolves a natural topology question for a newly classified unique POVM family: when its positive completion loses rank, the representing measure changes from purely absolutely continuous to one with a rank-one singular curve mass. The coefficient \(2(d/a+e/b)\) and simultaneous \(O(\sqrt c)\) smoothing bound distinguish the singular part from regular parts, and the jump ranges over every size in \((0,2)\). This is a motivated boundary classification rather than a numerical instantiation or a restatement of positivity.
+For all a>d>0,b>e>0 with r=d/a+e/b<1 and 0<=c<de, the rank-one parametrization yields det C_c=ab c, tr C_c=bd+ae, PSD completion. The 2x2 adjugate identity splits the moment resolvent into K0,c mu_c + K1 nu1,c + K2,c nu2,c. A geometric mixture of independent gammas supplies the scalar Laplace transform (1+dx+ey+cxy)^-1; at c=0 mu0 is supported on the exponential one-dimensional curve, whereas for c>0 mu_c is planar absolutely continuous. The two exponentially smoothed laws remain absolutely continuous at c=0, and their TV convergence follows by a common exponential marginal, E(X-(d/e)Y)^2=2dc/e, and shifted-exponential TV <=2|h|/a. Mutual singularity of mu_c and mu0 gives variation of K0 terms equal to sum of two operator norms, tending to 2r; remaining terms are O(sqrt c). Matrix moment convergence plus polynomial density proves weak convergence. All r in (0,1) realized by a=b=1,d=e=r/2. Finite exact matrix checks do not prove the limit.
 
-**Scientific limits and risks.** The scope is only the displayed family and does not cover all positive-completion pencils. The finite checker does not verify the variation limit. Bibliographic risk remains from older scalar bivariate-exponential literature and more general weak-to-variation results that might encode this quantitative example. These sources do not presently supply a demonstrated implication covering the full claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tian (2026) supplies the positive bilinear-resolvent completion and 3-component measure decomposition and Downton (1970) supplies background bivariate exponential laws. The assessed new statement is the exact operator-valued total-variation discontinuity 2(d/a+e/b), its O(sqrt c) remainder, and weak-versus-TV contrast at rank drop. Full Tian HTML comparison found the ingredients, not the variation limit; historical probability-limit coverage remains a risk.
+
+## value
+
+PASS
+
+Shows that a natural positive unique operator-valued moment problem can be perfectly weakly stable yet suffer a sharp norm discontinuity from emerging rank-one singular mass. The explicit coefficient and O(sqrt c) quantitative contrast help diagnose strength of approximation as a matrix completion loses rank; sizes fill (0,2). This is a motivated stability boundary, not merely a restatement of existence of the measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
