@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The signed-support rays and chain compatibility give an exhaustive parametrization of ridge pairs, since the normal fan is complete and simplicial. For each compatible pair the outer normal dot product equals the smaller support size; supplementary Euclidean angles therefore give the asserted exact formula. Independent sign choices yield the exact multinomial enumeration, while symmetry gives the exact mean and a conditioned multinomial central limit theorem plus tail control gives variance asymptotics. All quantifiers, the positive strict-orbit boundary, Euclidean convention, and the distinction between counted and weighted ridges were checked. The fraction-exact finite checker independently verifies all facet pairs in dimensions 2–4; the infinite statements rest on the proof, not finite experiments.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For a full type-B_n Coxeter normal fan in standard Euclidean Rⁿ, each facet ray is a nonzero signed-support vector. Simplicial fan two-cones correspond to nested nonempty signed-support pairs with compatible signs. For 1≤k<ℓ≤n, their number is 2^ℓ C(n,ℓ) C(ℓ,k); the paired outward normals have dot product k and norms √k,√ℓ, yielding interior angle θ_{k,ℓ}=π−acos√(k/ℓ). Treat each coordinate as belonging to a signed smaller support (2 choices), signed larger-only support (2), or outside (1); requiring both signed support classes gives R_n=5ⁿ−2·3ⁿ+1. Thus uniformly chosen ridge corresponds to Mult(n;2/5,2/5,1/5) conditional on A,B≥1, with θ=π/2+atan√(A/B). A↔B symmetry pairs θ+θ′=3π/2, so mean exactly 3π/4. Difference A−B has variance 4n/5 and delta-method derivative (5/8,−5/8) at densities (2/5,2/5), yielding asymptotic normal variance 5/16. Exponentially rare boundaries plus fourth moments of A−B justify UI and n Var→5/16. The fixed metric, full fan, unweighted ridge counting, and n=2 polygon convention are essential. Independent exact combinatorial checks confirmed ridge totals and exact mean n=2..10. No claim of area-weighted or affine invariance.
 
-Hetyei's signed-set facet compatibility and the classical type-B face lattice already entail the number of ridges; the count is credited and not claimed new. Bastidas gives the generalized type-B deformation setting. The proposed advance is the explicit metric angle spectrum, the exact universal mean and the centered Gaussian law with variance 5/16. Searches for signed-support, Coxeter fan, dihedral-angle, ridge-angle and equivalent normal-cosine formulations in primary literature and indexed research found adjacent but not dominating results. General computational tables listing f-vectors or algorithms for dihedral angles do not supply this complete distribution or limit law. Residual risk: a pre-existing unindexed angle calculation or derivation could be equivalent; public priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural metric invariant here is the dihedral-angle distribution over every codimension-two face, not a chosen small slice. Exact rigidity across an arbitrarily large deformation family and a dimension-independent mean of 135 degrees with a sharp 1/sqrt(n) fluctuation scale reveal global Euclidean structure absent from the abstract face vector. The complete finite-dimensional spectrum and its probabilistic limit are directly reusable in comparisons of Coxeter-permutohedral geometry. The ordinary face count alone is neither the new result nor the stated basis for value.
+Prior type-B Coxeter-fan results give signed-support facet chains and ordinary face enumeration, so the ridge count itself is not new. The complete Euclidean angle-by-multiplicity law across every realization with this fan, exact 3π/4 mean, and Gaussian 5/16 variance are metric/probabilistic statements, absent from the inspected earlier primary fan-combinatorics. A contemporary type-D theorem quotes the type-B mean and derives a different fork-deficit; it is a same-day related result, not an earlier general theorem covering the B angle CLT. Mathematical relationship is documented rather than silently treating incidence as new.
 
-## Literature comparison and scientific limitations
+## value
 
-The source material inspected includes Hetyei's original facet/chain description and Bastidas's type-B deformation discussion. One indexed result establishes sharp type-B Euclidean roundness, but neither it nor the face-lattice results assert the ridge-angle sampling law. The classification applies to the standard Euclidean metric and full normal fan only; it does not assert anything about coarsened fans or length/area weighted ridge measures. Historical priority remains provisional and independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ridge-angle distributions are natural metric statistics of a classical high-symmetry polytope family. The result shows fan-level invariance despite arbitrary support offsets, gives the entire exact spectrum, a dimension-independent mean and the precise 1/√n fluctuation scale. This is beyond repackaging the classical ridge-count formula and can be used to benchmark Coxeter geometries and metric deformation questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
