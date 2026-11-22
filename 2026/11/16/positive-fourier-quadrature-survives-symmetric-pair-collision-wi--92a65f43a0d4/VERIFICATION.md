@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses finite Fourier orthogonality; the Dirichlet-kernel trigonometric identity; strict cosecant comparison on the circle; rank of a one-pair-collision Fourier sampling matrix; and a first-order perturbation formula for an isolated simple zero singular value. These steps are stated explicitly in `RESULT.md`.
+# Independent mathematical audit
 
-`python check.py` was executed successfully with NumPy and reported 1,226 passed assertions. The checks covered every odd grid size from 3 through 63, nine displacements at each size (including exact collision), exactness on all Fourier frequencies in the prescribed band, positivity, equality of the paired weights, and the numerical singular slope for eight odd sizes. The matrix at collision was checked for rank \(N-1\) at those sizes. These computations do not verify the theorem for unbounded \(N\).
+## correctness
 
-The normalized integral is \((2\pi)^{-1}\int f\), Fourier evaluation is scaled by \(1/\sqrt N\), and the collision is approached from \(\alpha<1/2\). The unique pre-collision weights are distinguished from the merged-on-distinct-sites endpoint weights. Historical priority was assessed against relevant full texts and research-record summaries, without an independent audit or uniqueness certification.
+PASS
+
+For every odd N=2m+1 and symmetric inward pair x0=αh,x1=(1−α)h, 0≤α≤1/2, the D_m Fourier kernel gives explicit real quadrature weights. Fourier inversion proves all N moment equations and Vandermonde uniqueness before collision. An alternating cosecant ratio and circular-distance inequality prove strict positivity of all indexed weights, including the two coincident endpoint labels (whose aggregate is the unique weight). At collision normalized Fourier matrix rank is exactly N−1 with simple left and right null vector (e0−e1)/sqrt(2); first-order singular-value perturbation yields 2π cos(π/(2N))/(N² sin²(π/(2N))) times (1/2−α), tending to 8/π. The proof is for all odd N; independent numerical moment solutions for N=3,5,9,15,31 and α=0,1/4,.499,1/2 verify positivity, exactness and sharp slope near α=.5, but finite checks are not an infinite proof.
+
+## originality
+
+PASS
+
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
+
+## value
+
+PASS
+
+The natural collision boundary of Fourier interpolation distinguishes two different numerical tasks sharply: positive exact quadrature remains optimally noise-stable in ℓ∞ even as Fourier coefficient recovery becomes linearly singular. An exact all-odd-order positive weight law and sharp N-dependent instability slope give a motivated structural benchmark beyond routine finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

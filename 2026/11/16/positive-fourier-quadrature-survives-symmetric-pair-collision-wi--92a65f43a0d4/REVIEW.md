@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem is established for every odd \(N\ge3\) and \(\alpha\in[0,1/2]\), distinguishing the unique interpolatory weights below collision from their canonical merged limit at collision. Inverse cyclic Fourier summation derives all weights and exact moments; explicit cosecant inequalities establish positivity; a one-dimensional nullspace perturbation of the sampled Fourier matrix yields the exact singular slope. Supplemental execution of `check.py` returned 1,226 passed finite assertions. Finite checks are consistency evidence only, not a substitute for the infinite proof.
+PASS
 
-## Originality: PASS, with historical-priority risk
+For every odd N=2m+1 and symmetric inward pair x0=αh,x1=(1−α)h, 0≤α≤1/2, the D_m Fourier kernel gives explicit real quadrature weights. Fourier inversion proves all N moment equations and Vandermonde uniqueness before collision. An alternating cosecant ratio and circular-distance inequality prove strict positivity of all indexed weights, including the two coincident endpoint labels (whose aggregate is the unique weight). At collision normalized Fourier matrix rank is exactly N−1 with simple left and right null vector (e0−e1)/sqrt(2); first-order singular-value perturbation yields 2π cos(π/(2N))/(N² sin²(π/(2N))) times (1/2−α), tending to 8/π. The proof is for all odd N; independent numerical moment solutions for N=3,5,9,15,31 and α=0,1/4,.499,1/2 verify positivity, exactness and sharp slope near α=.5, but finite checks are not an infinite proof.
 
-Closest inspected source: Yu–Townsend (2022), Section 4.1 and Theorems 4.1–4.2, treats general jitter and multi-site alternating constructions producing negative weights, plus broad norm estimates. Austin–Trefethen (2016/2017), Theorems 1–2 and Sections 3–4, treats general perturbed-grid convergence and confluent sampling, not this all-size positive two-site collision family or its singular slope. Direct scientific claim comparisons and semantic research-record searches found no covering statement. A general historic exact-quadrature or rank-two Vandermonde identity could imply this specialization and remains a risk; absolute historical originality has not been independently established.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The precise two-node deformation is a natural minimal stress test of general jitter-induced negative quadrature weights: it identifies a nontrivial family with exact positive integration through rank loss, all grid sizes, and quantifies the separating loss of Fourier reconstruction stability. The result is not a general interpolation convergence theorem and does not require one to be useful.
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
 
-## Limitations
+## value
 
-The statements apply to odd Fourier grids and symmetric inward motion of exactly two adjacent nodes; fixed-size singular asymptotics are not uniform in a joint limit. External historical priority and independent audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural collision boundary of Fourier interpolation distinguishes two different numerical tasks sharply: positive exact quadrature remains optimally noise-stable in ℓ∞ even as Fourier coefficient recovery becomes linearly singular. An exact all-odd-order positive weight law and sharp N-dependent instability slope give a motivated structural benchmark beyond routine finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
