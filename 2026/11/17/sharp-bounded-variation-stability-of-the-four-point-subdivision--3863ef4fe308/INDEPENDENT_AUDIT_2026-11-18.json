@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:16:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-the-four-point-subdivision--3863ef4fe308/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-the-four-point-subdivision--3863ef4fe308/verify_fourpoint.cpp"
+      ],
+      "rationale": "Subtracting subdivision relations gives the stated linear first-difference rule. Subtracting again gives a second-difference transition with l1 column sum bounded q=1/2+4 omega<1; this proves uniform convergence of piecewise-linear refinements for every BV input and the summable variation increment. Interpolation preserves prior nodal values, so polygonal variations are monotone and their limit equals the continuous limit variation (retained-knot lower bound plus lower-semicontinuity upper bound). Translation linearity and jump decomposition give exact sharp norm from the unit jump. The inequality V_(k+1)-V_k<=4 omega W_k and q geometric tail prove a certified finite-to-infinite bracket. Independently computed exact rational levels through k=9 and found V1=5/4, V2=41/32 and consistent convergence; inspected the level-22 exact-integer C++ code and its declared 128-bit cap, but did not re-execute that expensive level-22 calculation.",
+      "residual_risks": [
+        "22-level printed numerators were source-inspected rather than independently regenerated; analytic tail, not finite samples, proves the infinite claim. For omega>=1/8 contraction proof does not apply."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2008 Amat–Dadourian–Liandrat compares supnorm stability/convergence of nonlinear multiresolution schemes, rather than l1 adjacent jump norm of linear dyadic limit."
+        ],
+        "reasoning": "Sup-norm estimates do not dominate or imply the numeric sharp variation factor.",
+        "searches": [
+          "four point interpolatory dyadic subdivision total variation norm limit omega 1/16 sharp step 1.30195",
+          "https://arxiv.org/abs/0810.1146"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-the-four-point-subdivision--3863ef4fe308/RESULT.md",
+        "https://bura.brunel.ac.uk/bitstream/2438/2208/1/TR_09_88.pdf",
+        "https://doi.org/10.1016/0167-8396(87)90001-X",
+        "https://arxiv.org/abs/0810.1146",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-cost-of-fourth-order-keys-cubic-convolut--a05ba9fbfd74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classic references establish rule, polynomial reproduction and smoothness, not a single-jump exact norm and a convergent BV tail bound."
+        ],
+        "reasoning": "Smoothness of every limit interpolant is logically different from a sharp stability bound between discrete node variation and total variation of the continuous result.",
+        "searches": [
+          "four point interpolatory dyadic subdivision total variation norm limit omega 1/16 sharp step 1.30195",
+          "https://bura.brunel.ac.uk/bitstream/2438/2208/1/TR_09_88.pdf",
+          "https://arxiv.org/abs/0810.1146"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1988 Dyn–Gregory–Levin technical report contains the identical four-point interpolatory mask and regularity results, but no displayed sharp BV operator norm or jump norm formula in inspected material."
+        ],
+        "reasoning": "Identity of subdivision mask does not make a sharp total-variation stability coefficient an already proved result.",
+        "searches": [
+          "four point interpolatory dyadic subdivision total variation norm limit omega 1/16 sharp step 1.30195",
+          "https://bura.brunel.ac.uk/bitstream/2438/2208/1/TR_09_88.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published findings address finite cubic-convolution interpolation or different masks, not infinite four-point dyadic subdivision norm."
+        ],
+        "reasoning": "The 22-level rational enclosure is a nontrivial iterative certificate with analytic tail, not a recomputation of a known norm table.",
+        "searches": [
+          "four point interpolatory dyadic subdivision total variation norm limit omega 1/16 sharp step 1.30195",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-cost-of-fourth-order-keys-cubic-convolut--a05ba9fbfd74"
+        ]
+      },
+      "rationale": "The original four-point scheme, continuity and smoothness are credited to Dyn–Gregory–Levin; the sharp discrete-to-continuous variation operator norm and certified omega=1/16 numeric interval were not found in the inspected author report and nearby later stability literature.",
+      "residual_risks": [
+        "Original 1987 article not independently read in full; a historical BV norm theorem under alternate terminology cannot be fully excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies foundational regularity, not the displayed BV norm in the inspected sections",
+          "evidence": [
+            "Theorems concerning convergence/differentiability of subdivision, not exact jump response norm."
+          ],
+          "identifier_or_url": "https://bura.brunel.ac.uk/bitstream/2438/2208/1/TR_09_88.pdf",
+          "material_read": "Technical-report PDF including difference-scheme formulas and convergence/differentiability theorems; relevant pages inspected visually",
+          "method": "PDF text and screenshot inspection",
+          "title": "Uniform subdivision algorithms for curves and surfaces (TR/09/88)",
+          "trigger": "Original author report on precisely this four-point mask"
+        },
+        {
+          "assessment": "Relevant older priority risk remains because complete typeset original not read",
+          "evidence": [
+            "Classical rule predates claimed sharp BV analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-8396(87)90001-X",
+          "material_read": "Online article information and limited transcription, not complete authoritative original article",
+          "method": "Accessible HTML/transcription and bibliography",
+          "title": "A 4-point interpolatory subdivision scheme for curve design",
+          "trigger": "Original primary 1987 four-point construction"
+        },
+        {
+          "assessment": "Focus on nonlinear sup-norm stability, not sharp BV gain",
+          "evidence": [
+            "Supremum norm perturbation bounds and nonlinear transform analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0810.1146",
+          "material_read": "Abstract and high-level method description",
+          "method": "arXiv abstract",
+          "title": "Analysis of a class of non linear subdivision schemes and associated multi-resolution transforms",
+          "trigger": "General stability results in nearby interpolation literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-the-four-point-subdivision--3863ef4fe308/RESULT.md",
+        "https://bura.brunel.ac.uk/bitstream/2438/2208/1/TR_09_88.pdf"
+      ],
+      "rationale": "Exact BV cost of the canonical cubic-reproducing four-point subdivision is a natural invariant for edge-preserving interpolation. The recurrence plus explicit certified tail gives a reusable exact characterization and a narrow rigorous numerical interval unavailable from one or two refinement levels.",
+      "residual_risks": [
+        "Not a closed elementary expression; outside tension range and alternate masks unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "22-level printed numerators were source-inspected rather than independently regenerated; analytic tail, not finite samples, proves the infinite claim. For omega>=1/8 contraction proof does not apply.",
+    "Original 1987 article not independently read in full; a historical BV norm theorem under alternate terminology cannot be fully excluded.",
+    "Not a closed elementary expression; outside tension range and alternate masks unproved."
+  ],
+  "schema_version": 1
+}

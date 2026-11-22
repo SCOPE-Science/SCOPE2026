@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact difference and second-difference recurrences are derived algebraically from the classical four-point insertion formula. Their \(\ell^1\) coefficient bound \(q=1/2+4\omega<1\) establishes uniform convergence and an explicit geometric error bound. Interpolatory retained knots and lower semicontinuity prove that total variation of the continuous limit equals the limit of polygonal variations; translation invariance and absolutely convergent jump superposition establish the *sharp* operator norm and an attaining jump. The level-22 certificate contains exact integer sums, checked against independent low-level rational computations. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Subtracting subdivision relations gives the stated linear first-difference rule. Subtracting again gives a second-difference transition with l1 column sum bounded q=1/2+4 omega<1; this proves uniform convergence of piecewise-linear refinements for every BV input and the summable variation increment. Interpolation preserves prior nodal values, so polygonal variations are monotone and their limit equals the continuous limit variation (retained-knot lower bound plus lower-semicontinuity upper bound). Translation linearity and jump decomposition give exact sharp norm from the unit jump. The inequality V_(k+1)-V_k<=4 omega W_k and q geometric tail prove a certified finite-to-infinite bracket. Independently computed exact rational levels through k=9 and found V1=5/4, V2=41/32 and consistent convergence; inspected the level-22 exact-integer C++ code and its declared 128-bit cap, but did not re-execute that expensive level-22 calculation.
 
-The original 1987 article defines the four-point scheme and is available through its metadata but not the full paper. The October 1988 author report was materially inspected (rule, fundamental solution, convergence and difference machinery); it does not state the present sharp \(BV\) norm or numerical enclosure. The full 2008 arXiv paper of Amat–Dadourian–Liandrat studies stability in the supremum norm for nonlinear subdivision perturbations, rather than the present scalar total variation of the infinite limit. Closest indexed other research concerns spline orthoprojectors and finite/local refinement, which neither mathematically implies nor numerically determines the four-point subdivision limit coefficient. A hidden earlier BV analysis remains a historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The cubic-reproducing four-point scheme is a classical interpolatory subdivision method. Its complete infinite-refinement total variation gain is a natural stability invariant relevant to ringing and response to step data; first-refinement measurements are not the correct limiting constant. The result supplies a sharp jump extremizer, a general-range computable tail certificate, and a rigorous sub-micro-unit enclosure of the classical cubic-tension value. It is intentionally narrower than a complete symbolic closed form but is a substantive quantitative endpoint stability result, not an arbitrary finite table entry.
+The original four-point scheme, continuity and smoothness are credited to Dyn–Gregory–Levin; the sharp discrete-to-continuous variation operator norm and certified omega=1/16 numeric interval were not found in the inspected author report and nearby later stability literature.
 
-## Limitations
+## value
 
-Original 1987 paper full-text priority remains unresolved. The exact constant is characterized as a certified monotone limit, not by an elementary closed form. The bound is proved for real bi-infinite inputs and \(0\le\omega<1/8\), not for all tension parameters, arbitrary nonuniform grids, or nonlinear subdivision rules.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact BV cost of the canonical cubic-reproducing four-point subdivision is a natural invariant for edge-preserving interpolation. The recurrence plus explicit certified tail gives a reusable exact characterization and a narrow rigorous numerical interval unavailable from one or two refinement levels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
