@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The Nyström complement has covariance equal to (A_{UU})^{-1}; Jacobi gives det(K_SS)=det(A_UU)/det A. Exact tail and interior continuants yield a determinant ratio strict chain H_a/H_{a-1}<exp(theta)<F_{j+1}/F_j and strict concavity for interior log determinants. For mu>=1/2, exact increment inequalities g(a)-g(a-1)>=c>f(j)-f(j-1) remove every tail, while strict convexity of x coth(theta*x) balances interiors. For mu<1/2, g(1)<c and the interior increments converge to c, so on some finite path endpoint removal improves trace error. Exact code independently checks 33437 rational assertions; this finite evidence supports but does not replace the analytic all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2001 Purdue thesis describes necessary and sufficient conditions for product covariance path estimation but full work gated",
+        "2010 paper abstract concerns stationary exponential-correlation Kriging design",
+        "2018 arxiv:1808.03444 distinguishes IMSPE and entropy criteria for complex stationary OU"
+      ],
+      "reasoning": "The 2001 general criterion is a plausible stronger antecedent; its abstracts do not state the exact finite discrete screened-Neumann result, and its full implications remain unverified. For stationary exponential covariance, the rescaled endpoint precision is exp(theta), whereas the claimed model has 2cosh(theta)-1; this difference makes the particular sharp threshold nonautomatic. Originality is qualified accordingly.",
+      "searches": [
+        "\"optimal A-optimal sensor placement Gauss Markov chain path end spacing equal intervals\" (indexed records)",
+        "\"optimal designs for estimating the path of a stochastic process\" Mukherjee thesis 2001",
+        "\"Exact Optimal Designs for Computer Experiments via Kriging Metamodelling\" 2010 DOI search"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/0906.4582v1",
+      "https://doi.org/10.1016/j.jspi.2010.03.027 (abstract only)",
+      "https://docs.lib.purdue.edu/dissertations/AAI3043760/ (abstract only)",
+      "https://arxiv.org/abs/1808.03444",
+      "https://ww2.amstat.org/meetings/jsm/2002/onlineprogram/index.cfm?abstractid=300474&fuseaction=abstract_details"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General Schur/Nyström selection problem predates this result",
+        "The 2010 stationary OU precision has different free-end diagonal",
+        "The 2001 product-covariance optimality conditions potentially cover the model but their specialization to threshold 1/2 was not accessible",
+        "2018 complex OU designs are not the lattice screened-Neumann covariance"
+      ],
+      "reasoning": "The current sharp finite-parameter all-budget theorem is not an immediate corollary of the formulations actually inspected: proving endpoint dominance hinges on a specific tail-increment inequality that changes sign exactly at mu=1/2. However, uninspected full texts may contain general results from which this specialization follows; this is explicitly not ruled out.",
+      "searches": [
+        "Belabbas–Wolfe arxiv:0906.4582v1 Sections 3.2, 4.1",
+        "Mukherjee 2001 public dissertation abstract and 2002 presentation",
+        "2010 Kriging DOI abstract; 2018 complex OU design preprint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belabbas–Wolfe arxiv:0906.4582v1 establishes matrix-trace residual objective",
+        "Schur complement equates the present trace objective to A-optimal Gaussian conditional variance on unsampled nodes",
+        "Purdue 2001 thesis abstract states exact optimality conditions for product covariance processes"
+      ],
+      "reasoning": "Equivalent vocabulary includes Gaussian-process IMSE, matrix Green-function posterior variance, Nyström column selection and A-optimal sampling. A general path-sampling criterion could subsume the theorem, but inspected sources do not explicitly derive both all-budget optimizer sets and the half-screening boundary for the nonstationary Neumann-precision kernel.",
+      "searches": [
+        "\"screened path Nyström optimal k landmarks trace error equally spaced endpoint gaps exact\" (public search and indexed math findings)",
+        "\"optimal trace Nyström finite Neumann path endpoint inclusion threshold mass 1/2 logdet optimality\" (indexed mathematical records)",
+        "\"Gaussian Markov screened path kernel A-optimal versus D-optimal landmark placement phase transition\" (indexed mathematical records)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical hits address different path dynamical sensors, cosine kernels, 3-point correlation matrices and cycle placement, rather than this screened Neumann path threshold",
+        "Exact six-vertex rational witness computed independently as error difference 18016/190385"
+      ],
+      "reasoning": "The proposed exact classifications were not located in the searched published index or public literature tables. This is limited negative evidence, not an exhaustive uniqueness or novelty certificate.",
+      "searches": [
+        "\"finite path Nyström trace residual versus covariance determinant, free Neumann boundary Gaussian Markov precision, equal gaps and screening threshold 1/2, exact all-budget optimizer sets\" (indexed mathematical records)",
+        "\"Nyström trace residual path tridiagonal inverse principal submatrix optimal subsets\" (indexed findings)"
+      ]
+    },
+    "rationale": "The focal Nyström formulation is established prior work. The narrower claimed result is the exact discrete free-boundary universal screening threshold for simultaneous A/D-optimal landmark sets at all budgets, including a sharp counterexample below threshold. Accessible primary literature supplies general conditions or different stationary covariances, but no inspected statement directly covers these explicit boundary-dependent complete optimizers. The uninspected 2001 general path-design thesis and 2010 stationary-OU paper are material residual priority risks.",
+    "residual_risks": [
+      "Full text of Mukherjee 2001 dissertation unavailable; it may specialize its general product-covariance exact-optimality criterion to the present screened discrete Neumann model.",
+      "Full text of Baldi Antognini–Zagoraiou 2010 Kriging study unavailable; accessible abstracts alone cannot exclude a transformed equivalent.",
+      "Semantic index retrieval and inspected texts do not establish absolute novelty; specialist unpublished or unindexed results remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general problem and algebraic framework, does not explicitly give free-boundary screened path sharp threshold or the complete all-budget optimizer face",
+        "evidence": [
+          "arxiv:0906.4582v1 original public version, Sections 3.2, 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0906.4582v1",
+        "material_read": "Public preprint body, notably Sections 3.2 and 4.1 and mathematical criteria",
+        "method": "Section-by-section full HTML reading, matched the optimized trace error and the determinant objective to current statements",
+        "title": "On Landmark Selection and Sampling in High-Dimensional Data Analysis",
+        "trigger": "Foundational Nyström subset-selection and residual trace formulation"
+      },
+      {
+        "assessment": "Stationary OU boundary precision differs, so standard equal spacing cannot directly establish this screened discrete free-end threshold; full coverage not ruled out",
+        "evidence": [
+          "DOI 10.1016/j.jspi.2010.03.027 abstract; stationary exponential covariance uses endpoint rescaled diagonal exp(theta), unlike 2cosh(theta)-1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.03.027",
+        "material_read": "Accessible bibliographic abstract and citation descriptions only; full paper unavailable",
+        "method": "Compared the stated exponential-correlation stationary model to the Neumann finite-path precision diagonal coefficients",
+        "title": "Exact Optimal Designs for Computer Experiments via Kriging Metamodelling",
+        "trigger": "High-similarity continuous one-dimensional prediction and maximum-entropy placement"
+      },
+      {
+        "assessment": "Potentially strong antecedent: general conditions might yield this theorem after nontrivial specialization, but neither inspected abstract explicitly states the finite screened-Neumann all-budget simultaneous D/A optimizer and sharp one-half transition",
+        "evidence": [
+          "Purdue thesis public abstract 2001; American Statistical Association 2002 session abstract"
+        ],
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Public dissertation abstract and 2002 conference abstract, complete dissertation gated",
+        "method": "Compared stated universal product-covariance optimality conditions and concrete Brownian/OU examples with the precise lattice screening threshold",
+        "title": "Optimal Designs for Estimating the Path of a Stochastic Process",
+        "trigger": "General necessary-and-sufficient path prediction design conditions for product covariance Green kernels"
+      },
+      {
+        "assessment": "Demonstrates a contrasting entropy/IMSPE design separation in a different model; does not explicitly contain the present discrete uniform screening boundary",
+        "evidence": [
+          "arxiv:1808.03444 (2018 preprint); sections on entropy vs IMSPE"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.03444",
+        "material_read": "Full public 2018 preprint content, introductory and criterion/optimization sections including Sections 1, 4, 6",
+        "method": "Read criterion formulas and distinguish stationary OU sampled-data setting from finite Neumann path precision",
+        "title": "On the Optimal Designs for the Prediction of Complex Ornstein–Uhlenbeck Processes",
+        "trigger": "Explicit comparison of IMSPE and entropy designs in one-dimensional stationary Markov covariance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ff46990-8668-4b87-bdf3-9b23daef31ca",
+  "value": {
+    "rationale": "The exact universal half-screening boundary distinguishes entropy-optimal and trace-optimal covariance landmark selection, not merely the existence of a good heuristic. It is nontrivial because endpoint Schur blocks differ from interior blocks and equality classification holds simultaneously for every finite n and k>=2; a 6-node exact rational witness and a general lower-screening existence argument show the threshold is best possible. The classification supplies an interpretable design rule and an exact benchmark for structured covariance approximation, while not claiming improvement over direct tridiagonal solvers.",
+    "status": "PASS"
+  }
+}
