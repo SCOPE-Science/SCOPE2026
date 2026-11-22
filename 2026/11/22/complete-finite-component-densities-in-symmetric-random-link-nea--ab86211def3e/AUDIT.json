@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The edge-rank equivalence is exact. With independent exponential edge clocks of rate 1/n, unseen-unseen edges form size-two clusters at rate u(u-1)/(2n), and unseen-to-size-j edges grow clusters at rate uj/n. Martingale quadratic variation is O(T/n) on bounded time intervals, yielding the finite ODE system via Gronwall. Its unique two-ancestor time-inhomogeneous Yule solution gives the proposed integral c_k. Unseen-vertex fraction has exact mean exp(-(n-1)T/n), bounding all later component-count changes and justifying the infinite-time limit. The sums of c_k and k c_k are evaluated by positive-term geometric identities; the latter equals one, proving conditional total-variation convergence of size distributions and absence of macroscopic components. Actual standalone VERIFY.py returned VERIFY_OK 121 assertions; numerical checks are explicitly non-proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cooper–Frieze 1995 author PDF https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf, pp.1–2: exact k=1 random-link model; Theorem 1 total edge count; Theorems 2–4 concern k>=2 connectivity.",
+        "Berikkyzy et al. arxiv:1608.00335 sections 1–5: distribution of total component number and general expectation, rather than empirical component-size profile.",
+        "Kozakova–Meester–Nanda 2006 https://doi.org/10.1214/009117905000000729 studies geometric Poisson nearest-neighbor graph components, not iid complete-edge random-link model."
+      ],
+      "reasoning": "The two closest broad earlier theories are actually read on their model and main results. Neither states or immediately yields the proposed size-resolved limit. The geometric continuum study has dependency structure incompatible with the independent-edge clock generator. A more general unlocated growth-process theorem remains a genuine priority risk.",
+      "searches": [
+        "Web: \"random link\" \"nearest neighbor\" \"component size\" complete graph",
+        "Web: \"forest building process\" \"component size\" limiting distribution",
+        "Web: \"On the Connectivity of Random k-th Nearest Neighbour Graphs\" filetype:pdf",
+        "published-finding corpus: \"size-resolved component density for the uniform forest building process on complete graphs, components of fixed size k, Yule pure-birth law\""
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf (1995 author full manuscript, relevant main results)",
+      "https://arxiv.org/abs/1608.00335 (2016 arXiv full manuscript)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8 (entire public RESULT.md)",
+      "https://doi.org/10.1214/009117905000000729 (2006 abstract and model statement)",
+      "published-finding corpus semantic search for fixed component sizes, forest-building, random-link nearest neighbors, Yule growth and exact constants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cooper–Frieze 1995 implies total edge density 3/4 and, because the k=1 graph is a forest, total-component density 1/4, but not its split by order.",
+        "Berikkyzy et al. 2016 Theorem 3/Corollary 1 supplies the exact expected number of components of K_n, not a typical component size law.",
+        "The published-finding corpus exact component-count generating function records the number of reciprocal pairs, which is identical to number of components; component sizes are extra information not determined by that statistic."
+      ],
+      "reasoning": "The present claim strictly refines, rather than rephrases, prior total-count information. In particular the family (c_k) is a complete normalized census; infinitely many distinct size profiles share the same total component count. A separate dynamics-to-size distribution derivation was proved.",
+      "searches": [
+        "published-finding corpus: \"Exact mutual-nearest-neighbor component law in symmetric random-link graphs\"",
+        "published-finding corpus: \"random link model nearest neighbor graph mutual nearest neighbor pairs iid symmetric edge weights distribution\"",
+        "Web: \"Cooper\" \"Frieze\" 2008 \"nearest neighbour\" \"component size\" k=1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The common undirected minimum-edge model equals the rank-ordered forest-building process at k=1, as explicitly described in the Cooper–Frieze 1995 author PDF and Berikkyzy et al. 2016 arXiv:1608.00335.",
+        "published-finding corpus 2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8 has exact marginal law for number of mutual nearest-neighbor pairs, not size-resolved component proportions."
+      ],
+      "reasoning": "The aliases and rank-preserving reduction were checked directly. The two inspected presentations of the same process establish total edges, connectivity for higher selection orders, or total component number, but their stated theorems do not imply the individual c_k densities. The new pure-birth growth analysis is necessary.",
+      "searches": [
+        "published-finding corpus: \"forest building process K_n limiting component size distribution Yule process\"",
+        "published-finding corpus: \"symmetric edge-weight random nearest-neighbor graph K_n empirical component-size distribution and absence of giant component\"",
+        "published-finding corpus: \"random symmetric weights nearest neighbor forest typical component size distribution\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest exact published research hit was 2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8, explicitly yielding exact total-component counting factorial moments but no per-size counts.",
+        "Known 2016 total-component expectation n(n-1)/(4n-6) yields only sum_k c_k=1/4, not the c_2, c_3, ... table."
+      ],
+      "reasoning": "No exact table or record reproducing the full per-size density sequence was retrieved by three size/formula searches. The absence of a retrieved table is not taken as a proof of uniqueness; explicit comparison shows the closest count-only table does not determine size composition.",
+      "searches": [
+        "published-finding corpus: \"complete graph forest-building component-size density (k-1)/2 integral e^-2u\"",
+        "published-finding corpus: \"random link nearest neighbor forest components size three component exact probability distribution\"",
+        "published-finding corpus: \"nearest-neighbor forest random link component-size frequencies geometric mixture 1-e^{-1}\""
+      ]
+    },
+    "rationale": "The size-resolved density and its all-vertex normalization have been compared with Cooper–Frieze 1995, Berikkyzy et al. 2016, a 2026 exact total-component result, and related geometric component-size literature. The two same-model sources give aggregate edge/component counts but no fixed-size component census. There is a distinct non-implied mathematical claim, though historical priority is not certified.",
+    "residual_risks": [
+      "A yet-unlocated general growth-process, random-nearest-neighbor or local-weak-limit theorem might imply the size profile despite no matching title or indexed result.",
+      "The 2006 geometric Poisson component-size paper was checked for model distinction from its abstract; its full text was not read, although it concerns a non-equivalent model.",
+      "No independent expert literature-priority or mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model at k=1; inspected main results cover edge count at k=1 and connectivity at k>=2, not size-resolved component densities.",
+        "evidence": [
+          "Model 1 and Model 2 equivalence, pp.1–2",
+          "Theorem 1 and Theorems 2–4, p.2"
+        ],
+        "identifier_or_url": "https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf",
+        "material_read": "Author-hosted full PDF text, Introduction pp.1–2, model equivalence, all principal theorem statements, and beginning of proof structure; rendered screenshot of page 2",
+        "method": "Read accessible author PDF text and inspected PDF page image",
+        "title": "On the connectivity of random k-th nearest neighbour graphs",
+        "trigger": "Same independent-complete-edge random-link model at k=1 and possible component-size coverage"
+      },
+      {
+        "assessment": "Same random rank-ordered process; covers total component counts and expected totals, not size-by-size density of component orders.",
+        "evidence": [
+          "Introduction and complete-graph discussion",
+          "Theorem 3 and Corollary 1 n(n-1)/(4n-6)",
+          "Concluding results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.00335",
+        "material_read": "Accessible primary manuscript sections 1–5, including definitions, complete-graph discussion, Theorem 2, Theorem 3, concluding limitations, and PDF screenshots",
+        "method": "Read lawful arXiv primary full text and viewed page screenshots",
+        "title": "A forest building process on simple graphs",
+        "trigger": "Exact edge-order equivalent process; earliest selected source first submitted 2016-08-01"
+      },
+      {
+        "assessment": "Proves exact total component-number factorial moments from matching events, but contains no size-resolved component-frequency law or growth process proof.",
+        "evidence": [
+          "Full RESULT.md equations (1)–(6) for number of components",
+          "Model-specific scope and limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8",
+        "material_read": "Complete RESULT.md, including finding, assumptions, proof, relationship to prior work and limitations",
+        "method": "Fetched and read public complete primary-result file",
+        "title": "Exact mutual-nearest-neighbor component law in symmetric random-link graphs",
+        "trigger": "Same model, apparent exact component count theorem"
+      },
+      {
+        "assessment": "Model uses spatial Poisson points in Euclidean space rather than iid edge weights on K_n; this distinctness does not depend on detailed claims of unavailable full text.",
+        "evidence": [
+          "2006 Annals of Probability title and published abstract specifying Poisson spatial point process"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/009117905000000729",
+        "material_read": "Bibliographic abstract and model statement; full paper not inspected",
+        "method": "Read indexed publication abstract and model description",
+        "title": "The size of components in continuum nearest-neighbor graphs",
+        "trigger": "Highly similar title concerning component-size distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab86211d-ef3e-407c-a200-58e92cd8dc25",
+  "value": {
+    "rationale": "The whole size profile answers a mathematically natural fragmentation question absent from known component-number summaries. It distinguishes size-two and higher tree clusters, yields size-biased and component-uniform sampling laws, and proves no giant component by exact mass normalization. Its nontrivial time-inhomogeneous immigration/Yule mechanism is a structural explanation, not a routine restatement or isolated arbitrary constant.",
+    "status": "PASS"
+  }
+}
