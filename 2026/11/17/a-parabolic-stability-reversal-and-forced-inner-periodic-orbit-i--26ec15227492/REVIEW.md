@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial cofactor, angular scalar equation, second variation, small-coupling trigonometric moment and large-coupling Laplace asymptotic are derived directly in RESULT.md. The origin is independently shown to be attracting and a compact invariant basin boundary without equilibria supplies another periodic orbit via Poincaré–Bendixson. The executable checker verifies algebraic identities and provides explicitly non-probative numerical diagnostics. No assertion is made about a finite explicit threshold or an exhaustive cycle count.
+## correctness
 
-## Originality — PASS within inspected evidence
-Mujica's arXiv:2201.03264v1, Section 4, provides the starting system, invariant circle, weak focus and an asserted uniqueness conclusion based on a perturbative Melnikov calculation; it does not state or imply the present large-coupling second-return reversal. The published *Polar Dulac rigidity and exact multiplicity of an invariant circle* has a different profile structure, whose sign-definite return coefficient cannot imply the opposite signs proved here. The 1987 Gasull–Llibre–Sotomayor work is a specifically relevant full-text access risk; absence in search results is not a novelty proof.
+PASS
 
-## Value — PASS
-The finding explains a substantive failure of linear Floquet stability to distinguish the two attraction directions: the multiplier remains one as the parabolic quadratic coefficient flips sign. Strong coupling creates two disjoint attracting basins inside the invariant circle, forcing a further periodic orbit. This clarifies the distinction between perturbative periodic-orbit counts and global parameter regimes.
+Direct differentiation gives sdot=2t s y²(x+y), so unit circle invariant and its theta flow is rotation period2pi; normal Floquet integral vanishes. In polar s=r²-1, expanding exact ds/dtheta gives L=2t sin²(theta)(sin+cos), Q=3t sin²(theta)(sin+cos)-2t²sin³ cos(sin+cos)², and first variation h=e^(tH). The L part of quadratic return integrates to zero, yielding K(t) formula. Independent symbolic integration gives ∫sin³cos(sin+cos)²=pi/4 and fresh numerical quadrature K(0.2)=-0.08276477, K(1)=-7.37659, K(12)=+1.206e14. Global max H*=4/3+sqrt2 at 3pi/4 with H''=-sqrt2 and nonnegative amplitude with quadratic vanishing establishes positive strong-coupling Laplace constant. Origin rreturn=r-(pi/4)t²r³+..., hence attracting, and circle interior attracting when K>0; invariant disk with two disjoint attracting basins has an equilibrium-free compact invariant separator, forcing another periodic orbit via Poincare–Bendixson. Existence is for sufficiently large t only, not a computed finite threshold or unique cycle.
 
-## Limitations
-The coupling cutoff and zeros of the parabolic coefficient are not classified; the extra interior orbit is not counted or assigned a multiplier. The 1987 work was not inspected in full. The self-review is not independent publication-priority or mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022 Mujica primary paper studies EXACT same three-parameter vector field xdot=-y,ydot=x+y(r²-1)(ax+by+c). Its Theorem 4.7 asserts exactly one limit cycle when ab≠0 and c=0, based solely on second-order perturbative Melnikov; that is a conflicting global uniqueness assertion, NOT a stronger theorem implying the current claim. The independently reconstructed strong-t inner periodic orbit gives a finite-coupling parabolic return coefficient absent from the original source. Its isolation is not proved; therefore existence of this periodic orbit does NOT formally refute the 2022 assertion of uniqueness of isolated limit cycles, although it prevents interpreting that assertion as uniqueness of all periodic motion. A 2026 general polar-Dulac rigidity theorem covers a different angular/radial normal form, so cannot transfer sign definiteness. A relevant 1987 Gasull–Llibre–Sotomayor work is accessible only bibliographically, priority risk recorded.
+
+## value
+
+PASS
+
+The exact nonlinear parabolic multiplier-one return coefficient and strong/weak coupling sign reversal exhibit a meaningful nonhyperbolic stability transition. At strong coupling the coexistence of the stable origin and attracting invariant circle forces an interior periodic orbit; its possible non-isolation is left open. This reveals nontrivial global recurrence beyond the observed circle and cautions against extrapolating a perturbative Melnikov count, without claiming to disprove published uniqueness of isolated limit cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

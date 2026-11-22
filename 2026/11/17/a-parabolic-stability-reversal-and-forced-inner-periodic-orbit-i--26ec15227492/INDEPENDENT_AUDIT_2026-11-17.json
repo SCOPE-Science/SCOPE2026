@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T15:08:27.358808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct differentiation gives sdot=2t s y²(x+y), so unit circle invariant and its theta flow is rotation period2pi; normal Floquet integral vanishes. In polar s=r²-1, expanding exact ds/dtheta gives L=2t sin²(theta)(sin+cos), Q=3t sin²(theta)(sin+cos)-2t²sin³ cos(sin+cos)², and first variation h=e^(tH). The L part of quadratic return integrates to zero, yielding K(t) formula. Independent symbolic integration gives ∫sin³cos(sin+cos)²=pi/4 and fresh numerical quadrature K(0.2)=-0.08276477, K(1)=-7.37659, K(12)=+1.206e14. Global max H*=4/3+sqrt2 at 3pi/4 with H''=-sqrt2 and nonnegative amplitude with quadratic vanishing establishes positive strong-coupling Laplace constant. Origin rreturn=r-(pi/4)t²r³+..., hence attracting, and circle interior attracting when K>0; invariant disk with two disjoint attracting basins has an equilibrium-free compact invariant separator, forcing another periodic orbit via Poincare–Bendixson. Existence is for sufficiently large t only, not a computed finite threshold or unique cycle.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mujica 2022 family is broader (arbitrary a,b,c), but its claimed one-isolated-limit-cycle uniqueness does not imply absence of further nonisolated periodic orbits; present strong-t orbit is not claimed isolated.",
+          "1987 Gasull et al paper on related generalized vector fields not available in full after bounded legal attempts."
+        ],
+        "reasoning": "The broader published result is inspected; its proof concerns a perturbative limit-cycle count and cannot directly yield the exact K(t) transition or prohibit a nonisolated inner periodic orbit. Unknown older cycle theorems remain priority risk.",
+        "searches": [
+          "quartic Kukles system invariant unit circle parabolic stability second periodic orbit Gasull Llibre Sotomayor Mujica",
+          "Gasull Llibre Sotomayor 1987 vector fields Av+f(v)Bv",
+          "Mujica 2022 Theorem4.7"
+        ]
+      },
+      "checked_sources": [
+        "Assigned exact ODE RESULT.md/verify.py Git blobs",
+        "quartic Kukles system invariant unit circle parabolic stability second periodic orbit Gasull Llibre Sotomayor Mujica",
+        "polar Dulac rigidity exact multiplicity of an invariant circle",
+        "Mujica arxiv:2201.03264 2022 full Section4 field, Theorem4.4, Theorem4.7",
+        "Resultary 2026/10/11 polar-Dulac rigidity published theorem summary",
+        "Gasull Llibre Sotomayor Journal Differential Equations 67 (1987) 90-110 metadata only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem4.4 gives origin weak-focus sign consistent with rreturn cubic negative for ab=t²>0.",
+          "Theorem4.7 says unique limit cycle but derives it from M2(h)=ab h(2h-1)(6-7h+28h²)pi/3, a perturbative expansion; the present second periodic orbit may be nonisolated, so it need not be an additional limit cycle.",
+          "Current exact K(t)>0 large forces a second orbit strictly inside the invariant circle by a compact annular basin boundary."
+        ],
+        "reasoning": "The new exact second-order return coefficient and strong-t global periodic-orbit existence do not follow from the prior perturbative analysis. Isolation of the additional orbit is unproved, so no claim of a formal contradiction to the uniqueness-of-limit-cycles theorem is made. Full relevant Section4 inspected.",
+        "searches": [
+          "Mujica arxiv:2201.03264 Section4 Theorems4.4 and4.7",
+          "2026/10/11 full Resultary polar-Dulac record summary",
+          "2026/11/17 assigned RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mujica vector field with (a,b,c)=(t,t,0) equals assigned quartic ODE exactly.",
+          "Mujica Theorem 4.7 asserts uniqueness but uses a second-order Melnikov polynomial in perturbation scaling, not exact large-t K(t).",
+          "Polar-Dulac class has different separable radial/angular dynamics and sign-definite parabolic coefficient, not same invariant vector field."
+        ],
+        "reasoning": "Exact specialization yields a different large-t return mechanism absent from the prior proof; because isolation of the additional periodic orbit is not established, the 2022 uniqueness statement for limit cycles is not formally contradicted.",
+        "searches": [
+          "quartic Kukles system invariant unit circle parabolic stability second periodic orbit Gasull Llibre Sotomayor Mujica",
+          "Mujica 2022 arxiv:2201.03264 full original Section4",
+          "Resultary polar Dulac rigidity 2026/10/11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K(t) is a real-analytic non-polynomial integral in continuous coupling t; finite numerical values are checks only.",
+          "No exact table of the all-t parabolic return coefficient or a documented critical coupling classification found."
+        ],
+        "reasoning": "A finite ODE cycle census cannot establish the all-sufficiently-large existence; novelty is exact analytic Laplace sign and basin argument, not numerics.",
+        "searches": [
+          "quartic Kukles system invariant unit circle parabolic stability second periodic orbit Gasull Llibre Sotomayor Mujica",
+          "Kukles exact return coefficient large coupling",
+          "Resultary related invariant circle classifications"
+        ]
+      },
+      "rationale": "The 2022 Mujica primary paper studies EXACT same three-parameter vector field xdot=-y,ydot=x+y(r²-1)(ax+by+c). Its Theorem 4.7 asserts exactly one limit cycle when ab≠0 and c=0, based solely on second-order perturbative Melnikov; that is a conflicting global uniqueness assertion, NOT a stronger theorem implying the current claim. The independently reconstructed strong-t inner periodic orbit gives a finite-coupling parabolic return coefficient absent from the original source. Its isolation is not proved; therefore existence of this periodic orbit does NOT formally refute the 2022 assertion of uniqueness of isolated limit cycles, although it prevents interpreting that assertion as uniqueness of all periodic motion. A 2026 general polar-Dulac rigidity theorem covers a different angular/radial normal form, so cannot transfer sign definiteness. A relevant 1987 Gasull–Llibre–Sotomayor work is accessible only bibliographically, priority risk recorded.",
+      "residual_risks": [
+        "Mujica 2022 Theorem4.7 claims exactly one limit cycle in this family. The additional periodic orbit has unproved isolation, so this audit does NOT claim to disprove limit-cycle uniqueness. Specialist review should compare the exact strong-t return map to that perturbative statement.",
+        "Gasull–Llibre–Sotomayor 1987 full text inaccessible, authorized institutional tool error; priority not fully excluded.",
+        "No explicit t threshold, uniqueness of K zeros or count of extra cycles established or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The 2022 uniqueness-of-isolated-limit-cycles claim is not the same as uniqueness of all periodic orbits; current result does not prove isolation of its second orbit",
+          "evidence": "Eq(4.1) with a=b=t,c=0; Theorem4.7 claims exactly one limit cycle. Current claim only gives additional periodic orbit, not another isolated limit cycle.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.03264",
+          "material_read": "Original full-text PDF Section 4, including eq (4.1), Lemma 4.1, Theorem 4.4 weak focus, Theorem 4.7 and its entire perturbative Melnikov uniqueness proof on printed pp10–12",
+          "method": "Direct arXiv original PDF text and page screenshot of field/lemmas",
+          "title": "Small- and large-amplitude limit cycles in Kukles systems with algebraic invariant curves (Jose Mujica, 2022)",
+          "trigger": "Exact same polynomial family and published purported one-limit-cycle uniqueness"
+        },
+        {
+          "assessment": "Not enough source access for full-document exclusion; displayed vector field differs materially",
+          "evidence": "Model sdot=2s(1-s)U(theta), theta dot=sU(theta)-V(theta), not assigned sqrt(1+s) coupled angular formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591",
+          "material_read": "Resultary full result abstract and displayed model summary; complete paper source was NOT obtained",
+          "method": "Published Resultary semantic search and theorem summary",
+          "title": "Polar Dulac rigidity and exact multiplicity of an invariant circle",
+          "trigger": "Potential stronger circle-return sign theorem"
+        },
+        {
+          "assessment": "UNRESOLVED priority overlap risk, not a whole-document NOT_COVERING claim",
+          "evidence": "No theorem text inspected; may contain applicable global periodic-orbit restrictions.",
+          "identifier_or_url": "Journal of Differential Equations 67 (1987), 90–110",
+          "material_read": "Bibliographic title and reference only; original complete article inaccessible",
+          "method": "Bounded lawful open routes, followed by authorized institutional access attempt, tool unavailable",
+          "title": "Limit cycles of vector fields of the form X(v)=Av+f(v)Bv (Gasull, Llibre, Sotomayor, 1987)",
+          "trigger": "Highly relevant generalized flow and possible dominating theorem"
+        },
+        {
+          "assessment": "The final mathematical assertions and their exact hypotheses inspected; source is treated as evidence, not instruction",
+          "evidence": "RESULT.md Git blob 9f4918308a37cd059f28f1975204ed5897a97841; checker Git blob b6920804d1482a4e3418d1e450460cfa2a2d3bbf",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-parabolic-stability-reversal-and-forced-inner-periodic-orbit-i--26ec15227492/RESULT.md",
+          "material_read": "Entire final RESULT.md including full theorem, proof, scope, prior comparisons, and limitations; the source checker, METADATA.json and AUDIT.json independently inspected",
+          "method": "Read-only GitHub file/blob fetch at frozen inventory commit plus independent formula calculations",
+          "title": "A parabolic stability reversal and forced inner periodic orbit in a quartic Kukles flow",
+          "trigger": "Actual final claim and proof supplied for scientific audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact nonlinear parabolic multiplier-one return coefficient and strong/weak coupling sign reversal exhibit a meaningful nonhyperbolic stability transition. At strong coupling the coexistence of the stable origin and attracting invariant circle forces an interior periodic orbit; its possible non-isolation is left open. This reveals nontrivial global recurrence beyond the observed circle and cautions against extrapolating a perturbative Melnikov count, without claiming to disprove published uniqueness of isolated limit cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Mujica 2022 Theorem4.7 claims exactly one limit cycle in this family. The additional periodic orbit has unproved isolation, so this audit does NOT claim to disprove limit-cycle uniqueness. Specialist review should compare the exact strong-t return map to that perturbative statement.",
+    "Gasull–Llibre–Sotomayor 1987 full text inaccessible, authorized institutional tool error; priority not fully excluded.",
+    "No explicit t threshold, uniqueness of K zeros or count of extra cycles established or claimed."
+  ],
+  "schema_version": 1
+}
