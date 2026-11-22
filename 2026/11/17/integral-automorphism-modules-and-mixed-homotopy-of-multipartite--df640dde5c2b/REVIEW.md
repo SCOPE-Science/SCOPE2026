@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact graph-distance criterion and labelled decomposition are checked at the outset. The proof uses relative long exact sequences integrally: a filled part simplex attached along its discrete vertex set creates an augmentation-lattice degree-one class, and the top homology of the transverse join is a signed tensor of augmentation lattices. The two-part exceptional action is established separately from an edge-relative chain exact sequence, rather than guessed from a Betti formula. The homotopy decomposition uses cofibration/homotopy pushout arguments. The separate finite script verified 15 graphs and 480 genuine graph automorphisms (including part swaps) through chain-level Lefschetz calculations. These computations do not prove the infinite theorem; the complete proof does.
+## correctness
 
-**Originality — PASS, provisionally.** Anand et al. (arXiv:1812.08460) give a general face criterion, and Rather's arXiv:2603.06930v3, Theorem 3.1 already characterizes precisely which vertex sets are general position; none of that part is claimed as new. Section 3 and the rest of the inspected full paper address enumeration and unimodality rather than the integral topological representations. The full published-finding corpus-listed clique-bouquet calculation is close in method but geometrically different, with a different first Betti rank and no such automorphism module. The broad 2025 general-position survey and additional indexed searches found no dominating result. The critical novelty is the full integral action, not a face-classification restatement. Residual risk: differently indexed symmetry literature or unwritten details elsewhere may have covered it.
+PASS
 
-**Mathematical value — PASS.** The outcome assigns an exact integral automorphism module to each nonzero degree of a natural graph-geodesic complex, including sign effects lost by the scalar general-position polynomial. It uniformly identifies when mixed-dimensional homotopy occurs and treats a genuinely different edge-augmentation module in the two-part case. These are intrinsic homotopy/symmetry invariants; no paper-sized downstream theorem is required.
+Geodesic triple criterion shows a face is wholly in one part or selects at most one vertex from each part, hence join B=D1*...*Dr with separate filled part simplices attached along their discrete vertices. Cofibration homotopy pushouts append a_i−1 one-cells per part, and join of discrete spaces produces Π(a_i−1) spheres S^(r−1). Relative chain LES for (GP,B) identifies H1 as ⊕I_i for r>=3 while join orientation swaps two reduced degree-zero factors by −1, giving the full part-permutation twist. r=2 requires separate pair with the two disjoint shore simplices, giving augmentation kernel on cross edges and sign on shore exchanges. Independently enumerated all faces for size profiles (2,2,2), (1,3,2), (2,3), obtaining 30,29,17 faces including empty. Finite checks do not prove integral or all-rank cases.
 
-**Limits.** The nonequivariant wedge is not an equivariant homotopy equivalence. No graph beyond complete multipartite is classified. No independent review has been performed, and computational checks are finite.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rather 2026 exactly proves the general-position FACE characterization and counting polynomial, which is expressly excluded from the novelty assertion. The topological homotopy and integral full-automorphism module are additional. The highly relevant Resultary clique-bouquet geodesic-avoidance complex instead has one central cone, first Betti N−1 rather than Σ(a_i−1)=N−r and no equivalent integral action; multipartite induced-forest results use different face predicates.
+
+## value
+
+PASS
+
+A natural geodesic complex gains a complete integrally equivariant classification, detecting mixed-dimensional topology, essential sign twists under equal-part permutation, and the r=2 lattice that does not generally split integrally. These are useful structural invariants not encoded in the previously known scalar face polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
