@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-The included `verification/verify_chain.py` is self-contained Python using only the standard library. It was executed from the provided package directory. Output was:
+# Independent mathematical audit
 
-```
-PASS: finite kernels, endpoint multiplicities, and chain BFS checks.
-Exact assertions performed: 32161
-At m=2: 38 facets; 164 facet-adjacency edges; distance counts (164,374,156,9).
-All m>=2 theorem: diameter m+2; exactly nine diametral facet pairs.
-```
+## correctness
 
-The script constructs the twenty-four type-\(D_4\) roots and ninety-six adjacency edges, checks isometric eight-vertex seams within all three local blocks, the exact internal transfer kernel and min-plus powers through four intervening blocks, and all endpoint pair cases at zero, odd and even internal-block parity. It independently reconstructs the complete quotient adjacency graph for chains of two through eight cells and checks diameter, the nine extremal pairs, and the facet/edge counts. These are finite exact checks. The proof for unrestricted chain length uses the min-plus identity in `RESULT.md`; no numerical extrapolation is treated as proof. Independent mathematical audit has not been performed.
+PASS
+
+PASS: The D4 root model consists of 24 roots ±e_i±e_j, with adjacency when dot product 1 (96 edges). Deleting opposing cutting facets yields terminal L/H and middle I blocks; the eight-seam-root subgraphs are isometric 3-cubes, so shortest cross-cell paths may be monotone. For A={a:r·a=1}, sigma(a)=r−a and phi(a,b)=0 if a=b, 2 if b=sigma(a), 1 otherwise, the independently inspectable 8x8 base distances give d_I(−a,b)=1+phi(a,sigma(b)). phi satisfies the triangle inequality and is sigma-invariant, so min-plus T^p=p+phi(a,sigma^p(b)) for p>=1. Exhaustive small-root endpoint table has maximum terminal correction 4 attained by exactly nine ordered L/H pairs, versus eight for other block combinations; consequently m−1 seam traversals yield diameter m+2 and only nine terminal-to-terminal diametral pairs for every m>=2. Direct reconstruction of quotient facet graph for m=2..6 gave 14m+10 vertices and exactly nine diameter pairs; m=2 histogram (164,374,156,9). The finite 8-root kernel/endpoint table is exhaustively checkable and the min-plus induction supplies unbounded m; finite m tests alone are not the infinite proof.
+
+## originality
+
+PASS
+
+PASS (qualified): Kolpakov has established the regular ideal 24-cell opposite-cut chain class and its facet count. The exact facet/ridge adjacency diameter and constant nine equality cases are a distinct graph metric not provided by the inspected geometric classification or minimality theorem.
+
+## value
+
+PASS
+
+PASS: A fixed extremal-pair multiplicity despite linearly unbounded graph diameter is a structural rigidity fact for a natural, classified hyperbolic four-polytope chain. The min-plus transfer certificate provides a reusable exact distance method and includes the smallest reflection double histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

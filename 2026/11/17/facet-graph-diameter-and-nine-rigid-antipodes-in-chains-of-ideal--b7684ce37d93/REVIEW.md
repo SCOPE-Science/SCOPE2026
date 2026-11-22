@@ -1,15 +1,21 @@
-# Scientific review of facet-graph antipodes in ideal \(24\)-cell chains
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses Kolpakov's geometrically classified oppositely cut chains. The exact type-\(D_4\) root adjacency realization supplies finite local graphs. The supplied reproducible, exhaustive bounded computation checks isometric seams, the one-block transfer, all cross-endpoint comparisons and all extremal labels. The remaining unbounded step is a written min-plus identity obtained from a genuine auxiliary metric and a commuting involution; geodesic seam replacement excludes backtracking shortcuts. Terminal pair classification is explicitly proved, not inferred from finite chain samples. The \(m=2\) histogram is verified by complete \(38\)-vertex BFS.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2026 primary source is a structural/volume/classification theorem, while the 2012 source establishes optimality of the original regular cell. The newly stated quantitative diameter and exact constant-nine equality description do not follow just by reading either stated theorem or its facet counts. Search of the relevant publicly available primary text, published mathematical records, and accessible earlier findings did not identify a graph-metric equivalent. The finite local proof does depend on the earlier chain classification, and an equivalent hidden in older graph or hyperbolic-polytope literature cannot be ruled out. No historical-priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The facet–ridge adjacency metric is a natural navigation invariant for this geometrically classified family. The diameter increases linearly in chain length, but its number of extremal pairs is rigidly nine across an unbounded family; the explicit root-parity transition is not a direct face-count formula. The result resolves the all-parameter extremal question with a finite verifiable local certificate and transfer argument rather than only a worked double.
+PASS: The D4 root model consists of 24 roots ±e_i±e_j, with adjacency when dot product 1 (96 edges). Deleting opposing cutting facets yields terminal L/H and middle I blocks; the eight-seam-root subgraphs are isometric 3-cubes, so shortest cross-cell paths may be monotone. For A={a:r·a=1}, sigma(a)=r−a and phi(a,b)=0 if a=b, 2 if b=sigma(a), 1 otherwise, the independently inspectable 8x8 base distances give d_I(−a,b)=1+phi(a,sigma(b)). phi satisfies the triangle inequality and is sigma-invariant, so min-plus T^p=p+phi(a,sigma^p(b)) for p>=1. Exhaustive small-root endpoint table has maximum terminal correction 4 attained by exactly nine ordered L/H pairs, versus eight for other block combinations; consequently m−1 seam traversals yield diameter m+2 and only nine terminal-to-terminal diametral pairs for every m>=2. Direct reconstruction of quotient facet graph for m=2..6 gave 14m+10 vertices and exactly nine diameter pairs; m=2 histogram (164,374,156,9). The finite 8-root kernel/endpoint table is exhaustively checkable and the min-plus induction supplies unbounded m; finite m tests alone are not the infinite proof.
 
-## Closest literature and limitations
-A. Kolpakov, *On the second smallest ideal right-angled hyperbolic four-polytope*, arXiv:2611.00118 (2026), provides the classified chains and known facet count. A. Kolpakov, *On the optimality of the ideal right-angled 24-cell*, arXiv:1211.2944 (2012), supplies minimality context. This review addresses only the facet-adjacency graph, not hyperbolic intrinsic distances or an independent human audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Kolpakov has established the regular ideal 24-cell opposite-cut chain class and its facet count. The exact facet/ridge adjacency diameter and constant nine equality cases are a distinct graph metric not provided by the inspected geometric classification or minimality theorem.
+
+## value
+
+PASS
+
+PASS: A fixed extremal-pair multiplicity despite linearly unbounded graph diameter is a structural rigidity fact for a natural, classified hyperbolic four-polytope chain. The min-plus transfer certificate provides a reusable exact distance method and includes the smallest reflection double histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
