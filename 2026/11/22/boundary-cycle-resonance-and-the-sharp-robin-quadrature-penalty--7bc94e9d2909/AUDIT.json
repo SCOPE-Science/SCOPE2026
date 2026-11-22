@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact positive-weight cyclic trace equations reduce to an alternating product closure condition. K+lambda B is SPD and converges variationally to the restriction of K to ker B, giving an if-and-only-if all-load Dirichlet criterion. On the single Q1 square, exact integration yields K v=(2/3)v, F=v/36, det C_epsilon=epsilon/4, C_0 v=0, B_exact v=v/3. Left/right null projections yield the sharp lambda epsilon^2 window and coefficient 1/(24+9 tau), while positive smallest singular value establishes the infinity endpoint. The independent exact symbolic calculation in verify.py passed 64 assertions; no infinite claim is based solely on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han and Wu, arXiv:2606.16675, HTML sections 1, 2.2, 3, 4, 5, 6: quadrature precision and mesh-refinement estimates, 1D lower bounds, no cycle-nullity or fixed-mesh lambda-epsilon squared limit",
+        "Chiba and Saito, arXiv:1905.01605 and doi:10.1002/num.23038, sections on Robin as penalty and Nitsche estimates; no cycle sampling rank classification",
+        "Oden, Stability and Convergence of Underintegrated Finite Element Approximations, NASA-CP-2297 (1984): broader underintegration and spurious modes, no present exact edge-node product criterion"
+      ],
+      "reasoning": "General reduced-integration literature warns of spurious modes, but does not yield the necessary and sufficient positive-node product on each boundary component or lambda epsilon squared sharp limit. Published fixed-Robin mesh-refinement error rates are not uniform-penalty limit results and do not dominate this theorem.",
+      "searches": [
+        "Robin boundary finite element midpoint quadrature spurious boundary mode checkerboard alternating penalty Dirichlet limit",
+        "boundary mass matrix midpoint quadrature linear finite elements singular alternating mode even number segments Robin",
+        "underintegration of Robin boundary terms midpoint rule rank deficiency spurious modes",
+        "\"Robin\" \"midpoint\" \"checkerboard\" finite element boundary",
+        "\"midpoint quadrature\" \"Robin\" \"Dirichlet limit\" finite element",
+        "finite element Robin boundary midpoint quadrature checkerboard Dirichlet penalty spectral rank deficiency",
+        "Robin boundary quadrature midpoint even cycle alternating boundary null mode penalty infinite Dirichlet limit fixed finite element mesh"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.16675",
+      "https://arxiv.org/abs/1905.01605",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/num.23038",
+      "https://ntrs.nasa.gov/api/citations/19840023618/downloads/19840023618.pdf",
+      "published-finding corpus published findings matching queries recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han and Wu, arXiv:2606.16675, HTML sections 1, 2.2, 3, 4, 5, 6: quadrature precision and mesh-refinement estimates, 1D lower bounds, no cycle-nullity or fixed-mesh lambda-epsilon squared limit",
+        "Chiba and Saito, arXiv:1905.01605 and doi:10.1002/num.23038, sections on Robin as penalty and Nitsche estimates; no cycle sampling rank classification",
+        "Oden, Stability and Convergence of Underintegrated Finite Element Approximations, NASA-CP-2297 (1984): broader underintegration and spurious modes, no present exact edge-node product criterion"
+      ],
+      "reasoning": "Han–Wu proves optimal h-rates at a fixed Robin model and gives underprecision examples, not a fixed h limit as lambda grows nor cyclic topology thresholds. Chiba–Saito derives well-posed penalty error estimates for a different assembly setting; they do not imply midpoint underintegration preservation/failure. Oden discusses generic hourglass mechanisms but not quantitative Robin node shifts. Prior results give context, not the precise theorem.",
+      "searches": [
+        "Robin boundary finite element midpoint quadrature spurious boundary mode checkerboard alternating penalty Dirichlet limit",
+        "boundary mass matrix midpoint quadrature linear finite elements singular alternating mode even number segments Robin",
+        "underintegration of Robin boundary terms midpoint rule rank deficiency spurious modes",
+        "Robin boundary quadrature midpoint even cycle alternating boundary null mode penalty infinite Dirichlet limit fixed finite element mesh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus records 2026/10/4/SCOPE-asymmetric-robin-interval-exact-zero-mode-resonance-and-cubic-se--919d57b9a89d and 2026/11/2/SCOPE-a-cycle-sign-parity-law-and-a-sharp-shift-threshold-for-incomple--8f598d6fbe49 involve different spectral and incomplete factorization objects",
+        "Han–Wu arXiv:2606.16675, sections 2.2, 3, 5 have no boundary sampling kernel recurrence"
+      ],
+      "reasoning": "Equivalent characterizations searched: checkerboard/alternating boundary edge trace, product holonomy, singular boundary mass, penalty-to-Dirichlet failure, square element node shift. No exact corresponding statement was retrieved; noncoverage is based on source content for the primary paper, not absence from search alone.",
+      "searches": [
+        "Robin boundary quadrature midpoint even cycle alternating boundary null mode penalty infinite Dirichlet limit fixed finite element mesh",
+        "single Q1 square boundary midpoint quadrature Robin penalty shifted node lambda epsilon squared crossover 24+9 tau",
+        "positive one point edge sampling nodal affine trace cyclic product condition rank defect boundary mass matrix",
+        "Robin boundary finite element midpoint quadrature spurious boundary mode checkerboard alternating penalty Dirichlet limit",
+        "boundary mass matrix midpoint quadrature linear finite elements singular alternating mode even number segments Robin",
+        "underintegration of Robin boundary terms midpoint rule rank deficiency spurious modes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest numerical-analysis records concern FSBP quadrature, heat mass and Robin graphs, no matching 4-by-4 boundary penalty table",
+        "All square matrix entries constructed and checked directly by verify.py"
+      ],
+      "reasoning": "An exact determinant, rank or matrix table deriving the 24+9 tau profile or all-boundary-cycle parity was not identified. Exact finite-element matrix calculations in the paper are independently derived, not copied from a known tabulation.",
+      "searches": [
+        "single Q1 square boundary midpoint quadrature Robin penalty shifted node lambda epsilon squared crossover 24+9 tau",
+        "positive one point edge sampling nodal affine trace cyclic product condition rank defect boundary mass matrix",
+        "\"midpoint\" \"Robin\" \"Dirichlet limit\" finite element"
+      ]
+    },
+    "rationale": "The distinctive all-boundary-cycle positive one-point node-product classification and singular two-parameter square Robin penalty crossover were compared by mathematical implication against the complete accessible Han–Wu public manuscript, older Robin penalty theory, reduced integration literature and indexed mathematical record matches. No inspected source provides these quantitative claims; broader reduced-integration caution does not imply the formulas.",
+    "residual_risks": [
+      "Earlier underintegration literature can contain related alternating null-mode arguments in different terminology; full historical priority is not guaranteed.",
+      "Some older proceedings material was only partially accessible; this does not rule out a hidden special-case table.",
+      "Single Q1 element and boundary penalty limit are not direct estimates for mesh-refinement sequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact fixed-mesh penalty and node product theorem; fixed-Robin h-convergence and face precision instead",
+        "evidence": "arXiv public HTML sections 1, 2.2, 3.1–3.2, 4, 5, 6; p=1 edge precision one, examples lack increasing lambda and parity",
+        "identifier_or_url": "https://arxiv.org/abs/2606.16675",
+        "material_read": "public full HTML introduction, quadrature formulas, main estimates, lower bound examples, numerical experiment descriptions and conclusions",
+        "method": "read full structured article text and searched for penalty/midpoint and boundary-collision phrases",
+        "title": "The effect of numerical integration in the FEM for elliptic problems with mixed boundary conditions",
+        "trigger": "same Robin boundary quadrature and affine FEM"
+      },
+      {
+        "assessment": "NO IDENTIFIED statement for one-point edge mass rank or fixed square lambda epsilon squared crossover",
+        "evidence": "Robin coefficient 1/epsilon classical penalty and parameter dependent error estimates; no specific boundary midpoint rank equation",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/num.23038",
+        "material_read": "full article introductory formulation and technical explanatory sections on penalty parameter and Nitsche setup",
+        "method": "reviewed accessible full-text portions and searched for quadrature underintegration",
+        "title": "Nitsche's method for a Robin boundary value problem in a smooth domain",
+        "trigger": "Robin penalty to Dirichlet limit"
+      },
+      {
+        "assessment": "generic relevant precursor; not enough material to certify exact absence across full document",
+        "evidence": "1984 proceedings exposition of underintegrated FEM stability and spurious zero-energy modes",
+        "identifier_or_url": "https://ntrs.nasa.gov/api/citations/19840023618/downloads/19840023618.pdf",
+        "material_read": "indexed PDF text sections concerning underintegration, rank and spurious mechanisms; complete source not inspected visually",
+        "method": "reviewed accessible text passages, attempted full page screenshot without success",
+        "title": "Stability and Convergence of Underintegrated Finite Element Approximations",
+        "trigger": "general earlier hourglass/zero-energy integration modes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7bc94e9d-2909-49e7-b24a-04676e826996",
+  "value": {
+    "rationale": "One-point Robin face quadrature satisfies first-degree algebraic precision on affine traces but can annihilate a nonzero boundary mode, yielding a discrete Dirichlet limit failure invisible to finite-penalty positive-definiteness. The cycle criterion is complete and useful for diagnostic mesh/quad design, while the explicit 1/sqrt(lambda) displacement scale supplies a nontrivial quantitative sensitivity boundary. No claim of universal method failure or refinement-rate breakdown is made.",
+    "status": "PASS"
+  }
+}
