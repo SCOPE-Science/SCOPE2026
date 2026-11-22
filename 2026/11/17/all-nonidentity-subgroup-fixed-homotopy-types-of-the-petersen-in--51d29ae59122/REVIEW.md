@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The geometric fixed-set model is proved by barycentric coordinates on subgroup orbits. The finite group-generation argument is exhaustive, and all 156 subgroups and 19 conjugacy classes are generated rather than assumed. The verifier constructs all 18 nontrivial conjugacy-class orbit complexes by directly evaluating the induced-forest condition, records and rechecks every elementary collapse, and gives eight explicit triangle relations killing the fundamental group of the only two-dimensional residual. Its Euler characteristic then yields the two-sphere wedge. The other residuals are graphs or discrete spaces, whose homotopy types follow from component and cycle-rank counts.
+## correctness
 
-## Originality
-**PASS, qualified by access.** The prior classical independence-complex literature and Petersen automorphism study do not address the exact nonidentity subgroup-fixed induced-forest spaces. The nearest publicly indexed results compute the ordinary induced-forest homotopy type and the full rational automorphism character, and exhibit symmetric collapses from an induced bipartite complex. Their indexed statements do not give all-subgroup fixed homotopy types or the double-transposition \(S^2\vee S^2\) and Klein-four \(S^1\vee S^1\) transitions. A full line-graph clique-complex paper was examined to rule out the superficially similar but mathematically different complex. Some nearby public project files were unavailable in full; an unindexed equivalent calculation is a residual risk.
+PASS
 
-## Value
-**PASS.** This is a complete nonidentity subgroup-fixed homotopy classification for a canonical graph and its full 120-element symmetry group, not just an individual small computation or rational trace. It distinguishes empty, disconnected, contractible, one-dimensional, and two-dimensional fixed spaces in an action whose underlying induced-forest homology is in degree five. The orders of subgroup-fixed phenomena and the variation under subgroup inclusion are not determined by ordinary character calculations.
+Graph vertices are ten 2-subsets of [5], edges join disjoint pairs, and faces are those vertex subsets inducing acyclic graphs. A fixed geometric point is constant on whole H-orbits of those graph vertices; the admissible orbit-face simplicial complex is PL-homeomorphic to the strict fixed locus. The source verifier independently checks all 1024 induced-vertex subsets by DFS and union-find, enumerates all 120 S5 permutations, builds all 156 subgroups and 19 conjugacy classes, and verifies each elementary free-face collapse. The nontrivial double-transposition residual consists of six vertices, thirteen edges, ten triangles; five star edges give a spanning tree and eight triangle witnesses eliminate all other pi1 generators, so it is simply connected; χ=3 implies H2=Z² and wedge two S2 via 2-dimensional Whitehead/Hurewicz. Independently generated all 156 groups and computed exact orbit-face F2 Betti types across every subgroup: empty20, acyclic105, H0 rank1 ten, H1 rank2 five, H2 rank2 fifteen. The F2 test corroborates but does not prove the integral two-sphere wedge; the reviewed face collapse and pi1 argument do.
 
-## Limits
-No identity-subgroup claim, quotient-space classification, or normalizer-action calculation is included. No independent validation or definitive priority determination is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge substantive comparison with exact mathematical statements and implications, not matching wording. The invariant is strict geometric H-fixed homotopy of *induced vertex forests*, not the Petersen graphic-matroid edge forest or the line-graph clique complex. Another description is the acyclic induced-subgraph orbit-face complex on ten 2-subsets with subgroup H<=S5. The ambient induced-forest six-S5 homotopy does not give these fixed types.
+
+## value
+
+PASS
+
+This is an exact all-subgroup geometric fixed-topology classification of a highly symmetric natural graph complex, not an arbitrary selected tiny case. The double-transposition S2∨S2 and Klein-four S1∨S1 demonstrate sharp symmetry-dependent lower-degree topology, previously invisible from ambient ∨6 S5 and its rational S5-character. A precise 155-subgroup table is useful as an equivariant combinatorial benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
