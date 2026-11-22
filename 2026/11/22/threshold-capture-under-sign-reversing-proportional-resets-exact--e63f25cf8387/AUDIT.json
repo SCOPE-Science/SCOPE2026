@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The bounded mean is secured uniformly over all starting points by a fixed-horizon capture minorization. Conditioning on Poisson reset marks yields a piecewise backward equation: in the far-left region every jump absorbs, giving Robin matching at -L/q. The entire odd/even factorial bases solve the interior nonlocal equations and yield a unique bounded C1 solution, identified by stopping/Dynkin. Positive denominator and both capture channels follow. Coefficient-product limits prove strict-contraction exponential mean and jump rarity; at q=1 the hyperbolic-polynomial reduction proves the finite Brownian-scale mean. The independent finite-difference and exact-arithmetic checker passed 250 diagnostics. All parameters quantified, with no extrapolation from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pierce (2022) develops a pantograph proportional-reset framework for nonnegative multipliers.",
+        "Radice et al. (2024) study barrier overshoots for a discrete-time walk with additive IID jumps and position-independent resets.",
+        "The closest general framework is the strong Markov/Dynkin backward equation rather than an explicit evaluated threshold-capture two-channel law."
+      ],
+      "reasoning": "Generic nonlocal absorbing-generator methods encompass the equations, but their use does not itself give the evaluated entire-function formula, strict-contraction and endpoint asymptotics. The cited explicit models differ in multiplier, increments, reset target, or first-passage convention. Priority of an unindexed general theorem remains a residual risk.",
+      "searches": [
+        "multiplicative resetting negative multiplier absorbing half line crossing at resets jump absorption probability exact pantograph Brownian",
+        "q hyperbolic series sign-flip resets threshold absorbing half line jump capture nonlocal",
+        "Brownian diffusion Poisson proportional negative resetting threshold capture reset overshoot first entry into half line Robin interface singular reflection strong resetting exponential diverging mean jump capture probability",
+        "arxiv:2204.07215v1 Section IV.2",
+        "arxiv:2410.05835v1 first-passage barrier overshoot model"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2406.08387v1",
+      "arxiv:2204.07215v1",
+      "arxiv:2410.05835v1",
+      "2026/10/18/SCOPE-a-simulation-free-resolvent-for-reflected-partial-reset-first-pa--638f1e8ee738",
+      "2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior point-hit processes require continuous Brownian occupation at L; reset jumping across L does not count.",
+        "The present inhomogeneous Robin boundary at -L/q yields a nonzero probability of jump capture and includes the noncontraction q=1 singular strong-reset limit.",
+        "Existing published published-finding corpus point-hitting work is for strict q<1 and does not include the q=1 threshold-capture endpoint."
+      ],
+      "reasoning": "For a negative multiplier, the stopping times differ on a positive-probability set of paths that jump from below -L/q to beyond L. Consequently a theorem for the point-hit time cannot logically imply the present jump-capture probability. Its mean formula likewise lacks the killed-at-overshoot payoff and the reflection endpoint regime. The new full theorem is not just a numerical specialization or rewriting.",
+      "searches": [
+        "resetting by rescaling negative reflection Brownian absorption leapover target hitting times",
+        "Brownian position sign reversing partial reset crossing barrier instead of point landing beyond barrier exact mean probability",
+        "Brownian diffusion Poisson proportional negative resetting threshold capture reset overshoot first entry into half line Robin interface singular reflection strong resetting exponential diverging mean jump capture probability",
+        "arxiv:2406.08387v1 full relevant Sec. III.B and equations (52)-(60)",
+        "2026/10/18/SCOPE-a-simulation-free-resolvent-for-reflected-partial-reset-first-pa--638f1e8ee738/RESULT.md",
+        "2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli et al. solve the point-occupation hitting problem and retain the full-line equation after a reset overflies the target. The two published published-finding corpus results explicitly exclude jump-over capture.",
+        "For the half-line stopping rule, a reset from x<-L/q kills immediately and produces an inhomogeneous Robin interface at x=-L/q."
+      ],
+      "reasoning": "Exact point occupation and first entrance into an absorbing half-line are equivalent for continuous paths, but not for negative multiplicative jumps. These sources prescribe continuation after overshooting, whereas the present process stops. Their resolvent point-hit formulas cannot be substituted into the different generator domain and boundary conditions.",
+      "searches": [
+        "rescaling reset a<0 Brownian passage threshold exact mean first passage Robin boundary",
+        "resetting by rescaling negative reflection Brownian absorption leapover target hitting times",
+        "Brownian position sign reversing partial reset crossing barrier instead of point landing beyond barrier exact mean probability",
+        "arxiv:2406.08387v1 Sec. III.B (equation of the point-target first-passage function)",
+        "2026/10/18/SCOPE-a-simulation-free-resolvent-for-reflected-partial-reset-first-pa--638f1e8ee738",
+        "2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus search returned point-hitting resolvents and unrelated resetting results, but no evaluated jump-capture formula matching these parameters.",
+        "Accessible same-slot ledger claim search found unrelated rescaling/displacement/OU items, with no claim about threshold capture by sign-reversing jumps."
+      ],
+      "reasoning": "No matching exact formula, parameter table, or directly stronger classified result was found in accessed published-finding corpus records and accessible own claims. Negative retrieval is not proof of global novelty, and broader databases could hold variants.",
+      "searches": [
+        "negative rescaling stochastic resetting threshold crossing absorbing point MFPT multiplicative reset Brownian first passage overshoot",
+        "Brownian diffusion Poisson proportional negative resetting threshold capture reset overshoot first entry into half line Robin interface singular reflection strong resetting exponential diverging mean jump capture probability",
+        "own-ledger claims searched for rescal, partial reset, overshoot, jump absorption, first crossing, pantograph, sign-reversing, threshold capture",
+        "2026/10/18/SCOPE-a-simulation-free-resolvent-for-reflected-partial-reset-first-pa--638f1e8ee738",
+        "2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477"
+      ]
+    },
+    "rationale": "Direct matched prior published-finding corpus results and the motivating source concern first exact point occupation, not the genuinely different stopping time at the first entrance into an absorbing half-line by a discontinuous sign-reversing jump. The new process has a reset-capture channel and inhomogeneous Robin interface absent from the point-hit results; the new complete exact two-channel formula and singular noncontractive reflection asymptotics are not implied by those statements. Published generic generator methods are acknowledged. Remaining risk is unindexed threshold-capture literature or an implicit broader representation; priority is not independently certified.",
+    "residual_risks": [
+      "An unindexed general killing-by-jump framework may provide an equivalent first-passage representation or asymptotics; global uniqueness/priority is not certified.",
+      "Only relevant material of the secondary additive-jump and positive multiplier sources was read; lack of statements elsewhere cannot be conclusively established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published first-passage observable is exact point occupation, with reset overshoots not absorbing; threshold capture and endpoint formulas are not stated in the relevant derivation.",
+        "evidence": [
+          "arxiv:2406.08387v1",
+          "The point-hit equation continues across the real line and uses a remaining constant for negative multipliers."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.08387",
+        "material_read": "First-passage Section III.B, equations (52)-(60) and discussion, manuscript pages 9-11; abstract and scope",
+        "method": "Read full relevant PDF pages and their rendered screenshots; compared stopping convention and backward equations",
+        "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+        "trigger": "Exact same negative-multiplier Brownian resetting and target location"
+      },
+      {
+        "assessment": "Full-line exact-point-hit resolvent; explicitly excludes jump-over threshold capture.",
+        "evidence": [
+          "A reset that passes over L without landing on it does not count as a hit."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-simulation-free-resolvent-for-reflected-partial-reset-first-pa--638f1e8ee738",
+        "material_read": "Entire RESULT.md, including claim, proof, relationship to prior work, limits",
+        "method": "Retrieved and read source text with GitHub repository file retrieval",
+        "title": "A simulation-free resolvent for reflected partial-reset first passage",
+        "trigger": "Closest matched prior published-finding corpus negative-multiplier first-passage finding"
+      },
+      {
+        "assessment": "Positive recurrent strict contraction; only actual visits to point L, explicitly not overflights; no threshold-capture jump channel.",
+        "evidence": [
+          "Reset leaps over L are excluded, and |a|>=1 cases are excluded."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477",
+        "material_read": "Entire RESULT.md, including stopping rule, proof, limitations",
+        "method": "Retrieved and read public result through GitHub repository file retrieval",
+        "title": "Certified first-passage series for Brownian reflection–rescaling",
+        "trigger": "Second closest matched exact negative resetting resolvent"
+      },
+      {
+        "assessment": "Multiplier nonnegative and model scope differ; no evaluated negative jump-threshold channel.",
+        "evidence": [
+          "arxiv:2204.07215v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.07215",
+        "material_read": "Abstract, introduction, pertinent first-passage discussion in Section IV, manuscript page 6",
+        "method": "Retrieved arXiv PDF, inspected rendered pages and targeted equations",
+        "title": "An advection-diffusion process with proportional resetting",
+        "trigger": "Foundational proportional-reset pantograph diffusion framework"
+      },
+      {
+        "assessment": "Additive-increment discrete-time model and position-independent resetting, rather than Brownian intervals with negative multiplicative jumps.",
+        "evidence": [
+          "arxiv:2410.05835v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.05835",
+        "material_read": "Abstract, model definitions and absorbing barrier convention in opening sections, manuscript pages 0-2",
+        "method": "Retrieved arXiv PDF, inspected rendered pages and model equations",
+        "title": "Optimal conditions for first passage of jump processes with resetting",
+        "trigger": "Potentially relevant leapover/overshoot first passage model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e63f25cf-8387-49d5-855f-25a2fbc324ea",
+  "value": {
+    "rationale": "First entry into a target region, not exact equality, is the natural detection rule when a reset teleports a searcher. For negative position multipliers it opens a physically real competing jump-capture channel. The theorem evaluates both the mean and its channel probability at every positive rate and obtains a sharp singular contrast between contracting reflection and exact reflection: the former mean diverges exponentially at high rates while the latter tends to L^2/(2D), with a nonzero jump-capture probability. This is a structural, global qualitative classification, not a tiny numerical correction or routine reformulation.",
+    "status": "PASS"
+  }
+}
