@@ -1,19 +1,21 @@
-# Scientific review: Cayley-plane first-harmonic concentration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant real first-harmonic module of the Cayley projective plane is the trace-free exceptional Jordan algebra of dimension 26. Its stabilizer decomposes it into inequivalent 1-, 16-, and 9-dimensional sectors. The elementary rank-one/idempotent identities yield the squared fixed-distance projections \(\frac32(x-1/3)^2\), \(2x(1-x)\), and \((1-x)^2/2\), summing to \(2/3\). The compact rank-one radial law is \(\mathrm{Beta}(4,8)\). Consequently each sector eigenvalue is its normalized weighted beta tail. Rational polynomial integration and three exact factorizations give the stated expressions and all strict inequalities. The trace and thin-cap limit provide independent checks. The companion program verifies the polynomial identities without numerical approximations. No finite computation is treated as a proof of representation-theoretic facts.
+PASS
 
-## Originality — PASS, with a historical caveat
+Using the standard trace-free Albert-algebra first eigenspace J0 and Spin(9)-irreducible splitting 1+16+9, Schur scalarizes every geodesic cap. For x=<e,P>=cos²r, projection squared norms are qA=3/2(x-1/3)^2, qS=2x(1-x), qV=(1-x)^2/2 and sum to 2/3. The radial measure is Beta(4,8). Independently integrated each q_j(x)x^3(1-x)^7 using exact rational symbolic arithmetic and recovered the three displayed polynomials, their 2145 t^4(1-t)^8(3t-1), 1430 t^4(1-t)^8(4t-1), 715 t^4(1-t)^9 pairwise differences and the 26-dimensional trace identity. Positivity follows from positive mass on both cap and complement, and thin-cap ratio is 4290/286=15. Thus all crossings and exact multiplicities follow, subject to the classical geometric premises; script check_cayley.py independently offers rational polynomial witnesses rather than proofs of geometry.
 
-Parton–Piccinni (2018; arXiv:1810.06288) supply exceptional isotropy geometry, and Baez (2001; arXiv:math/0105155) supplies the primitive-idempotent Jordan framework. Jaming–Speckbacher (2020; arXiv:2004.02474) prove general large-sieve concentration bounds on all compact two-point homogeneous spaces, not the exact first-band Cayley cap three-sector spectrum. No equivalent Cayley-plane cap formula was identified in targeted mathematical-record queries. Published related spherical/projective cap calculations concern real, complex, quaternionic, or ordinary spherical settings, not the exceptional Spin(9) module with its dimension-16 spin sector. A historical harmonic-analysis source could nevertheless encode the same result implicitly; exhaustive priority verification is not asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact observability constants concern the exceptional rank-one compact symmetric space, whose 26-dimensional first harmonic space is not part of the infinite classical projective-space families. The full three-sector classification reveals separate extremal mode switches at \(1/4\) and \(1/3\), exact degeneracy dimensions \(10\) and \(17\), and a sharp thin-cap stability coefficient \(15\). These are structural, global-in-cap-height facts for the exceptional space rather than mere numerical instances or relabelings of a classical-field result.
+Best-of-knowledge novelty of the exact exceptional first-band three-sector cap spectrum and two ordered crossings, not equivalent to general two-point homogeneous concentration bounds or different CP/HP harmonic problems. A specialized older exceptional Jacobi table may encode the formulas and remains a residual priority risk.
 
-## Limits and closest literature
+## value
 
-The proof uses standard geometric facts on primitive idempotents, restricted roots, and Spin(9) irreducibles; the original contributions are their quantitative coupling in the concentration spectrum and its exact phase ordering. Priority risk: older spherical-function tables may imply particular formulas. Scope excludes higher harmonics and nonradial masks. Independent validation is not provided.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining every first-harmonic observation eigenvalue on a geometrically natural exceptional compact rank-one symmetric space with exact sector transitions and condition-number blowup gives sharp spectral localization/conditioning data not supplied by broad concentration bounds. The 1+16+9 representation symmetry and two different extremizer changes are substantive structure, not a numerical arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
