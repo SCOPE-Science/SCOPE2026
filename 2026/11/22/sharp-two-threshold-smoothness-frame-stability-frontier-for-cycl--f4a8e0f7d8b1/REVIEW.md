@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The statement is confined to complex-linear completions of one consecutive path in an unweighted cycle, with the full host Parseval analysis and trace Dirichlet objective. The proof reduces the global matrix problem to a strictly convex constrained quadratic, proves that nonendpoint inputs cannot improve the minimum, uses a reflection/complex-conjugation uniqueness argument to diagonalize the endpoint problem into two orthogonal parity modes, and then solves both norm-ball problems by positive-operator resolvents. The exact Dirichlet Green matrix gives the **two distinct** activation thresholds \(q/2\) and \(q(q-1)/(6(q+1))\). No finite experiment is treated as an all-integer proof. A standalone, standard-library checker performed 6,242 finite supplementary assertions, including exact rational identities, independent Dirichlet-sine formulas, competitor stress tests, and Parseval checks. The proof itself covers every allowed integer pair and real budget.
+
+## Originality — PASS within inspected literature
+
+The directly motivating 2026 work establishes Parseval group wavelets and unconstrained harmonic host completion, which corresponds to the last branch of this result. It does not state the constrained coefficient-energy versus trace-smoothness frontier in the accessible overview and theorem descriptions. The complete primary paper's later sections could not be reread reliably and remain a **material bibliographic priority risk**, not proof of novelty. A different full-text source, Beck–Ghandehari–Hudson–Paltenstein, analyzes the construction and bounds of Cayley frames, but not arbitrary extensions with a spectral-norm cap. Ou–Yao–Zhang establish zero-extension compatibility for graph Dirichlet equations, which is a different preservation question. The closest retrieved published mathematical result concerning boundary trace extension treats a weighted tree and an endpoint Sobolev norm, not this cycle-host Parseval-frame/Dirichlet trace Pareto problem. Related prior cyclic graph findings concern different norms or sensor systems. No independence or global exhaustive priority claim is made.
+
+## Value — PASS
+
+The problem has a natural operational meaning: a smooth completion reduces host graph energy but can inflate the total coefficient energy of a Parseval wavelet representation. The finding solves the exact optimal tradeoff **over all linear completions**, not just a proposed interpolation family, and proves a structural localization principle (only observed boundary endpoints matter). It reveals two sharp, dimension-dependent parity activation thresholds, an explicit finite spectral prescription throughout the continuum of budgets, and exact sharp frame bounds. The two-site missing arc already has a genuinely piecewise frontier, while the threshold ratio tends to \(1/3\) for long missing arcs. This supplies a reproducible model for smoothness versus stability in harmonic graph-signal completion; it does not assert a universal result on irregular graphs or a full-band-to-partial-band stability guarantee.
+
+## Closest work and limitations
+
+The direct comparators are [Souop–Bitjoka, arXiv:2607.14168](https://arxiv.org/abs/2607.14168), [Beck et al., arXiv:2303.02812](https://arxiv.org/abs/2303.02812), and [Ou et al., arXiv:2611.10692](https://arxiv.org/abs/2611.10692). The result uses a full Parseval host analysis, a single unweighted cycle and trace-average Dirichlet energy. A previously unlocated equivalent boundary-extension optimization is the central remaining novelty risk, compounded by inability to inspect the complete 2026 motivating text and the July 14, 2026 companion preprint (arXiv:2607.13338) beyond its abstract. These are priority uncertainties rather than hidden correctness assumptions.
+
+Self-review: passed. Independent audit: not yet performed.

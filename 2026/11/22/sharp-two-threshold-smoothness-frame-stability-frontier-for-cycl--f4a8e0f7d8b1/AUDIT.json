@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For all m>=3, q>=max(2,m-2), beta>=0 and all complex-linear completions, the objective reduces exactly to a strictly convex quadratic over a spectral-norm ball. Nonendpoint columns vanish at the unique optimizer; reflection yields two orthogonal trust-region modes. The exact Dirichlet inverse gives thresholds q/2 and q(q-1)/(6(q+1)); positive finite sine spectra give unique multipliers, a complete exact trace-energy formula, and sharp frame bounds. Standard-library checker performed 6242 supplementary assertions, including exact fraction checks and independent Fourier Parseval comparisons; infinite quantifiers are handled in the proof, not asserted from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Souop–Bitjoka arXiv:2607.14168v1, accessible Introduction contribution (iv) and Theorem 5 description: harmonic completion minimizes unconstrained host Dirichlet energy.",
+        "Beck et al. arXiv:2303.02812 accessible author-shared full text, Theorem 4.4/Corollary 4.5: Cayley-frame construction and frame-bound inheritance; no missing-arc extension under a norm budget.",
+        "Ou et al. arXiv:2611.10692v1 main results: zero-extension compatibility, interface rank and Schur-complement error, not this optimization.",
+        "The July 14 companion paper arxiv:2607.13338v1 develops canonical host Fourier analysis and smoothness-respecting completion in its publicly accessible abstract; the abstract does not state an operator-norm-constrained optimal trace energy."
+      ],
+      "reasoning": "Unconstrained harmonic minimization covers only beta at or beyond q/2. The present claim includes all beta and proves an additional phase boundary at q(q-1)/(6(q+1)), sharp frame bounds and unique optimum among all complex-linear lifts. General frame constructions do not imply the value function without a further solved constrained calculation.",
+      "searches": [
+        "Parseval wavelet frames graph isometric embedding harmonic extension Fourier localized optimal extension stable sampling Cayley path cycle exact frame bound",
+        "2026 wavelet graph isometric group embedding harmonic extension conditioning stability frame energy",
+        "\"Tight Wavelet Frames on Graphs via Isometric Group Embedding\" \"Theorem 5\" extension formula",
+        "\"Tight Wavelet Frames on Graphs via Isometric Group Embedding\" \"condition number\" \"extension\"",
+        "Harmonic Analysis on Graphs via Isometric Group Embedding Fokam Souop Bitjoka arxiv July 14 2026 extension"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.14168",
+      "https://arxiv.org/abs/2303.02812",
+      "https://arxiv.org/abs/2611.10692",
+      "https://www.researchgate.net/publication/369035776_Frames_for_signal_processing_on_Cayley_graphs",
+      "2026/10/18/SCOPE-a-sharp-real-complex-cyclic-fourier-sobolev-dichotomy--35ccd6202b47",
+      "2026/11/2/SCOPE-sharp-endpoint-linear-trace-extensions-on-a-two-generation-weigh--3dc47ecf9a04",
+      "2026/11/8/SCOPE-low-pass-dynamical-frame-volume-transition-on-normalized-paths--4cbcd87a2ab9",
+      "https://arxiv.org/abs/2607.13338"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From W*W=I, our sharp frame bound reduces to 1+||T||^2, but neither the Parseval premise nor unconstrained harmonic completion supplies the minimizing T for every beta.",
+        "The new boundary-locality conclusion is proved for all linear completions, not imposed as a restriction.",
+        "The 2023 Cayley frame theorem gives representation-theoretic frame constructions, and the 2026 zero-extension theorem asks whether the graph equation survives padding; neither directly implies the constrained optimizer."
+      ],
+      "reasoning": "The implication from a general trust-region KKT characterization requires nontrivial specialization: reflection reduction, two separate active ball problems, exact Green-function threshold norms and the all-budget closed spectral value. An older exact application could subsume this statement and is not ruled out.",
+      "searches": [
+        "Parseval wavelet frames graph isometric embedding harmonic extension Fourier localized optimal extension stable sampling Cayley path cycle exact frame bound",
+        "Sharp Pareto frontier graph-signal harmonic extension Dirichlet energy versus Fourier Parseval wavelet frame upper bound for path in cycle; two parity-mode thresholds",
+        "\"Tight Wavelet Frames\" \"regularized\" \"operator norm\" harmonic extension",
+        "\"Frames for signal processing on Cayley graphs\" PDF Beck Ghandehari Hudson Paltenstein"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Resolvent solution is equivalent to a 2-channel trust-region quadratic whose norm constraints arise from singular values of the host completion. This equivalence was derived directly, not claimed as a new general optimization principle.",
+        "The motivating 2026 paper explicitly treats unconstrained harmonic completion, whereas the present statement fixes a sharp spectral-norm budget and derives its full value function and parity thresholds.",
+        "No equivalent exact constrained cycle-host statement was located in retrieved published findings."
+      ],
+      "reasoning": "Compare optimization objectives and quantified domains rather than words: a general Schur complement or KKT formula can set up this optimization, but does not itself state the cycle-specific exact thresholds, all-budget value and unique global extension. A future source that computes those quantities would cover this result regardless of title.",
+      "searches": [
+        "Sharp Pareto frontier graph-signal harmonic extension Dirichlet energy versus Fourier Parseval wavelet frame upper bound for path in cycle; two parity-mode thresholds",
+        "Graph host wavelet lifting operator norm constrained endpoint harmonic extension regularized two mode phase transition",
+        "graph harmonic extension minimal Dirichlet energy operator norm constrained optimal extension finite cycle spectral frame bound tradeoff",
+        "\"optimal\" \"Dirichlet energy\" \"wavelet\" \"extension\" \"frame\" graph norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest retrieved records 2026/10/18/SCOPE-a-sharp-real-complex-cyclic-fourier-sobolev-dichotomy--35ccd6202b47 and 2026/11/2/SCOPE-sharp-endpoint-linear-trace-extensions-on-a-two-generation-weigh--3dc47ecf9a04 treat respectively a cyclic Fourier-Sobolev endpoint embedding and a weighted-binary-tree endpoint trace norm.",
+        "published-finding corpus 2026/11/8/SCOPE-low-pass-dynamical-frame-volume-transition-on-normalized-paths--4cbcd87a2ab9 treats a graph dynamical low-pass sensor-frame volume, not host completion."
+      ],
+      "reasoning": "An exact table would have to list the constrained cycle-host trace energies or an exact equivalent of both parity thresholds. The tested database returns nearby graph/frame and norm-extension topics, but not that table. Search absence is supporting risk analysis, not uniqueness proof.",
+      "searches": [
+        "Sharp Pareto frontier graph-signal harmonic extension Dirichlet energy versus Fourier Parseval wavelet frame upper bound for path in cycle; two parity-mode thresholds",
+        "Graph host wavelet lifting operator norm constrained endpoint harmonic extension regularized two mode phase transition",
+        "Discrete Helmholtz graph Dirichlet extension norm constrained symmetrization cyclic missing arc",
+        "\"Tikhonov\" \"Dirichlet extension\" \"norm constrained\" finite cycle frame",
+        "\"Frames for signal processing on Cayley graphs\" \"frame bound\""
+      ]
+    },
+    "rationale": "The new objective is the exact optimal trace-Dirichlet energy of any complex-linear host completion under a sharp full-Parseval analysis norm budget. Prior graph-wavelet work gives the unconstrained harmonic limit, not the two-mode constrained Pareto frontier. Published Cayley-frame results control frame construction, not the missing-arc extension optimum; zero-extension results concern PDE compatibility. Targeted literature/published-finding corpus and accessible own ledgers do not exhibit covering implications. The uninspected portions of the main source and possible older equivalences remain explicitly named novelty risks.",
+    "residual_risks": [
+      "The motivating 2026 wavelet manuscript could not be inspected completely, despite reading its accessible primary introduction and result descriptions; an uninspected appendix may contain related constrained extension calculations.",
+      "Older matrix trust-region, graph inpainting or harmonic-extension literature might imply this exact two-threshold specialization without using frame terminology.",
+      "No external independent scientific validation or exhaustive global priority search has been performed.",
+      "The July 14 same-authors companion arxiv:2607.13338 was checked at abstract level only; its uninspected text could contain a relevant constrained extension result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The unconstrained harmonic endpoint is expressly prior, but the accessible text does not state the new norm-constrained Pareto or the two activation thresholds. Full-source noncoverage was NOT claimed.",
+        "evidence": [
+          "arxiv:2607.14168v1 section 1 contribution (iv) and section 7 title; available text states harmonic host extension uniquely minimizes energy without a frame-norm constraint",
+          "arXiv first public timestamp July 15, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.14168",
+        "material_read": "Accessible arXiv HTML abstract, Introduction (contributions i–v), methodological principle and preliminary embedding definitions, including its explicit description of Theorem 5",
+        "method": "Read accessible HTML abstract, Introduction, theorem descriptions and embedding setup; attempted further primary manuscript access, which was unavailable",
+        "title": "Tight Wavelet Frames on Graphs via Isometric Group Embedding",
+        "trigger": "The motivating July 2026 work establishes host Parseval analysis and harmonic completion"
+      },
+      {
+        "assessment": "Constructs Cayley frames and inherits component frame bounds; no constrained host-completion energy Pareto statement found in the inspected manuscript",
+        "evidence": [
+          "arxiv:2303.02812; Theorem 4.4 and Corollary 4.5 in the author-shared full text"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/369035776_Frames_for_signal_processing_on_Cayley_graphs",
+        "material_read": "Author-shared full preprint body available as page text; Introduction and Theorem 4.4 with Corollary 4.5, including the orthogonal component frame-bound calculation",
+        "method": "Reviewed the full-source theorem descriptions and searched within the source for extension terminology",
+        "title": "Frames for signal processing on Cayley graphs",
+        "trigger": "A potential broader Cayley frame-bound theorem"
+      },
+      {
+        "assessment": "Solves preservation of zero-padded Dirichlet equations and interface errors, not the full Parseval coefficient-energy constrained extension over all linear lifts",
+        "evidence": [
+          "arxiv:2611.10692v1 Theorems 2, 4 and 6, first public Nov 7 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.10692",
+        "material_read": "Accessible full main-result exposition, including Theorem 2 interface criterion, Theorem 4 dual description and Theorem 6 exact error/energy",
+        "method": "Read web-rendered primary text and compared admissible variables, objective and quantifiers",
+        "title": "Zero extension for the Dirichlet problem on graphs",
+        "trigger": "Closely related graph Dirichlet extension and error identities"
+      },
+      {
+        "assessment": "Describes host Fourier transforms and a smoothness-respecting completion but offers no abstract-level claim of the two-threshold spectral-norm-constrained cycle optimization. Full-text overlap is unresolved and remains a stated priority risk.",
+        "evidence": [
+          "arxiv:2607.13338v1 abstract and July 14, 2026 submission date"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.13338",
+        "material_read": "Publicly accessible arXiv abstract and bibliographic record, not complete manuscript",
+        "method": "Compared the abstract scientific assertions against the exact constrained Pareto objective and checked its first arXiv date",
+        "title": "Harmonic Analysis on Graphs via Isometric Group Embedding: A Canonical Fourier Transform, Shift, and Convolution for Network Signals",
+        "trigger": "Same-authors companion paper on host Fourier analysis and smoothness-respecting completion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f4a8e0f7-d8b1-4acb-a471-665c4a2eaa50",
+  "value": {
+    "rationale": "A natural full-Parseval host-analysis stability budget conflicts with energy-minimal completion. The complete exact Pareto frontier is derived over all linear extensions, with emergent boundary locality, two distinct parity thresholds, a sharp q-dependent frame amplification law, a finite-sum design prescription and a first nontrivial q=2 closed piecewise example. This is useful to distinguish zero padding and harmonic lifting and is not just a normalization change or reapplication of the unconstrained harmonic lemma.",
+    "status": "PASS"
+  }
+}
