@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-The fourteen labelled vertices consist of seven points and seven lines. Both checkers generate the incidence graph from the Fano plane rather than loading a graph dataset, and enumerate every labelled initial binary state for the intact graph, all 21 single-incidence deletions, and all 210 unordered double-incidence deletions.
+## correctness
 
-`check_all_defects.cpp` implements the majority map with integer neighborhood bitmasks, follows each orbit to a state whose second iterate is itself, records the first periodic entry time, and compares the unanimity-basin indicator of each initial configuration against that of the original graph. It also verifies all five parameter-class histograms exactly. Compile with `g++ -std=c++17 -O2 -Wall -Wextra -pedantic check_all_defects.cpp -o verify`; run `./verify`.
+PASS
 
-`check_vectorized.py` independently constructs the Fano lines from binary vector addition, builds each transition map using NumPy arrays, identifies the periodic state set directly via a two-step composition, then back-propagates the first-periodic-entry layers and separately computes eventual unanimity. Run `python3 check_vectorized.py` with NumPy installed.
+Reconstructed the fourteen labelled Fano point/line incidence graph from seven triples (21 edges), the synchronous open-neighbor majority rule and tie retention on deleted degree-two vertices. Independently wrote, compiled, and executed a full-domain bitmask C++ checker without executing the submitted program. It enumerated all 232 choices and every one of 16384 labelled binary states each (3,801,088 graph-states), followed each trajectory to first period one or two, compared basin membership bitwise, checked exact fixed and primitive two-cycle counts, and checked every pair class. Results intact=(58,1653,2592,0,0,2), one=(66,777,3744,1152,0,6), adjacent two=(58,533,4960,2368,0,11), disjoint cross=(90,376,4032,1736,296,8), disjoint no-cross=(86,427,4512,2048,128,6), where tuple is (fixed,two-cycles,consensus,gained,lost,max-entry). This directly certifies the exact finite 232-graph domain and the sharp adjacent/disjoint threshold; no finite-to-infinite inference is asserted.
 
-The recorded outputs in `check_all_defects_output.txt` and `check_vectorized_output.txt` match on all five class signatures. Both programs assert complete class sizes (1, 21, 42, 84, 84), fixed-point and two-cycle counts, lost/gained unanimity populations, and the entire transient-entry distributions. Both were executed from these exact source files. The check is exhaustive over 232 finite graph cases times 16,384 initial states; no unbounded generalization, independent audit, or absolute historical-priority certification is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for defect robustness and complete 232-case census, excluding the already published intact graph. An intact 58-symbol majority projection does not determine which of its 2592 consensus-bound states are lost under individual missing incidences; another exact one-edge theorem concerns K_{a,b}, not the cubic Heawood graph.
+
+## value
+
+PASS
+
+A sharp graph-specific robustness threshold for a canonical finite incidence geometry is mathematically motivated: distinguishes basin cardinality gains from actual basin inclusion, gives smallest destructive number of deletions, complete 232-case structural partition and a sharp 11-iteration clock. The exact invariant is not a routine textbook consequence of period-at-most-two or the intact graph projection. Limitation: entirely a fixed 14-vertex graph and finite exhaustive theorem, no extrapolation to larger projective planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

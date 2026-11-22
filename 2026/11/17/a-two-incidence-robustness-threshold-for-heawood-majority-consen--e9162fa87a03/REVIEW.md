@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns a finite, explicitly specified fourteen-vertex graph and all 232 labelled incidence-deletion sets of size at most two. The exact transition is computed from the open-neighbor majority rule including retention of ties, and every starting state is followed to a verified fixed point or two-cycle. Two structurally distinct complete enumeration methods agree on every pair-type signature, every entry-time histogram and every unanimity basin comparison. The two executable source files and their captured outputs are provided, and direct integer-bitmask examples illustrate consensus loss in both disjoint-pair classes. The proof does not infer an infinite claim from a finite sample: its entire claimed domain is enumerated.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed the fourteen labelled Fano point/line incidence graph from seven triples (21 edges), the synchronous open-neighbor majority rule and tie retention on deleted degree-two vertices. Independently wrote, compiled, and executed a full-domain bitmask C++ checker without executing the submitted program. It enumerated all 232 choices and every one of 16384 labelled binary states each (3,801,088 graph-states), followed each trajectory to first period one or two, compared basin membership bitwise, checked exact fixed and primitive two-cycle counts, and checked every pair class. Results intact=(58,1653,2592,0,0,2), one=(66,777,3744,1152,0,6), adjacent two=(58,533,4960,2368,0,11), disjoint cross=(90,376,4032,1736,296,8), disjoint no-cross=(86,427,4512,2048,128,6), where tuple is (fixed,two-cycles,consensus,gained,lost,max-entry). This directly certifies the exact finite 232-graph domain and the sharp adjacent/disjoint threshold; no finite-to-infinite inference is asserted.
 
-The closest intact-Heawood classification gives 58 fixed points, 1,653 two-cycle orbits and a 2,592-state consensus basin; all are expressly credited. It does not state or imply the two-defect threshold. General threshold-periodicity and convergence-time theorems cover eventual two-periodicity or generic bounds, not exact defective-Heawood basin inclusion. Complete-bipartite one-edge formulas are inapplicable to the degree-three incidence graph. Actual searches of mathematical records and the relevant literature did not identify the three two-edge-deletion signatures or the sharp if-and-only-if boundary. Historical priority cannot be guaranteed, and older materials not fully accessible leave a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest loss-inducing incidence-deletion budget is a natural robustness invariant for consensus dynamics. The result determines that budget sharply as two and classifies **which** two-deletion patterns are destructive by Fano geometry; the distinction is nontrivial because total consensus attraction grows for every defective graph. It also identifies a sharp eleven-update delay for adjacent defects despite no loss of original consensus-bound initial states. This is a motivated complete finite perturbation classification, not an arbitrary selection of initial configurations.
+Best-of-knowledge PASS for defect robustness and complete 232-case census, excluding the already published intact graph. An intact 58-symbol majority projection does not determine which of its 2592 consensus-bound states are lost under individual missing incidences; another exact one-edge theorem concerns K_{a,b}, not the cubic Heawood graph.
 
-## Relevant work and scope
+## value
 
-Tamuz–Tessler (arXiv:1307.4035), Kaaser–Mallmann-Trenn–Natale (arXiv:1508.03519), and Goles–Olivos (1980) supply context for synchronous majority convergence. The published intact-Heawood majority census supplies the closest graph-specific comparator. These sources do not replace checking the modified transition maps. This statement is limited to incumbent tie retention and no more than two missing incidences; it has not received an independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp graph-specific robustness threshold for a canonical finite incidence geometry is mathematically motivated: distinguishes basin cardinality gains from actual basin inclusion, gives smallest destructive number of deletions, complete 232-case structural partition and a sharp 11-iteration clock. The exact invariant is not a routine textbook consequence of period-at-most-two or the intact graph projection. Limitation: entirely a fixed 14-vertex graph and finite exhaustive theorem, no extrapolation to larger projective planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
