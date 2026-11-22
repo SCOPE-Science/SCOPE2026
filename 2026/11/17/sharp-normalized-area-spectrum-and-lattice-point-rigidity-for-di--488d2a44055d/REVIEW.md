@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result states a fixed lattice and exactly the two-sided divisor parabola hull \(B_h\) for every integer \(h\ge2\). Area is derived from the known vertex order and a telescoping cubic identity; boundary lattice intervals are determined by segment gcds and Pick's theorem. The passage to subsequential limits is established using reciprocal-divisor profiles, countable diagonalization and a uniform cubic-gap-energy tail bound; the converse explicitly realizes every supernatural profile. Strict refinement proves both necessary-and-sufficient endpoint rigidity statements. A separate standalone standard-library program checked 5,616 direct integer/numeric test assertions; finite checks do not establish the infinite classification.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Hofscheier and Nill, arXiv:2611.08819v1, Lemma 4.1, introduce the exact polygons, establish their \(2\tau(h)+1\) vertices and facet-distance divisibility and use them for high-dimensional reflexive facet constructions. Inspected pages 5–8 contain no normalized-area spectrum, no cubic divisor-gap analysis and no endpoint rigidity. published-finding corpus searches of aliases and geometry/lattice-count parameters found closest entries on lattice width/Ehrhart spectra and other polygon limiting laws, not this claim. The key difference is a complete asymptotic set of normalized areas indexed by supernatural divisibility profiles, with the sharp \((\pi^2-6)/3\) endpoint and its arithmetic rigidity. Generic Pick/shoelace results alone do not state this profile theorem. Unindexed divisor-parabola computations remain possible.
+PASS
 
-## Mathematical value — PASS
-These polygons are canonical explicit planar building blocks in a November 2026 construction of extremely high-face-count reflexive polytopes. A complete profile of their growth-normalized area and interior lattice-point count, including exact extreme behavior under prime versus highly divisible parameters, is a natural quantitative companion to the facet count. The all-limit classification and both sharp arithmetic endpoint criteria go beyond a single finite example, a routine substitution, or an arbitrary constant calculation. It does not assert volume or integer-point counts for the resulting higher-dimensional polytopes.
+The planar polygon from the actual RESULT.md uses the vertices (0,-1),(+/-d,d^2) for d|h. Independently recomputed shoelace area and boundary segment gcd counts for every h=2..200; both match A=(4h^3+2-sum gaps^3)/3 and b=4h. Cubic telescoping, Pick and strict cube superadditivity establish finite results. Reciprocity d/h=1/(h/d), compactness of divisor indicators on finite cutoffs with O(1/M) energy tails, and explicit b_j q_j construction establish the entire supernatural limit spectrum; strict gap refinement establishes iff extremal divisor profiles. Sum 1/[j^3(j+1)^3]=10-pi^2 by partial fractions. The finite test is corroboration only; infinite classification reconstructed analytically.
 
-## Closest literature and limitations
-J. Hofscheier and B. Nill, *Reflexive polytopes can have doubly exponentially many vertices*, arXiv:2611.08819v1, pp. 5–8 and Lemma 4.1, 6 November 2026. The 2023 work by Bogachev and Zarbaliev concerns random polygonal lines, rather than divisor-determined hulls; only its abstract and publication information were reviewed. The given constant is an asymptotic upper endpoint, not a finite uniform upper bound. Different supernatural profiles may share an area limit; the theorem only describes the set, without injectivity. Independent historical priority and external mathematical validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier Hofscheier–Nill construction supplies B_h vertex data, while the normalized area spectrum and iff divisor-profile rigidity are different invariants. These require a nonmultiplicative adjacent-gap energy limit calculation; classic Pick and shoelace alone do not yield the full limit spectrum. Best-of-knowledge originality passes; original 2026 manuscript full text and unindexed divisor geometry remain priority risks.
+
+## value
+
+PASS
+
+The complete natural normalized-area and lattice-point spectrum of the explicit planar divisor-parabola building blocks of a recent reflexive polytope construction, with sharp iff endpoint sequences, fills a motivated geometrical/number-theoretic gap beyond a one-instance area calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

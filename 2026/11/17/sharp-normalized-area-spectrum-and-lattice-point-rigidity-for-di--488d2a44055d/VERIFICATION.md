@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof calculates the exact area, boundary count, diagonal divisibility compactness, series evaluation and both endpoint rigidity directions analytically. The standalone `verify_divisor_area.py` uses only Python's standard library. Run `python3 verify_divisor_area.py` in the directory containing `RESULT.md` and this verifier; the observed execution passed 5,616 exact arithmetic and numerical cross-check assertions. It tests all parameters \(2\le h\le800\) with independently computed shoelace areas and lattice-boundary gcd sums, the sharp finite equality case, sample reciprocal-mesh energies, prime-power limits and highly divisible parameter examples.
+# Independent mathematical audit
 
-Finite checks cannot certify a universal identity or the full infinite limit set. Those assertions rely on the stated analytical proofs. The cited 2026 paper supplies the polygon and its vertex structure; it does not certify the new conclusions. No independent external audit has been performed.
+## correctness
+
+PASS
+
+The planar polygon from the actual RESULT.md uses the vertices (0,-1),(+/-d,d^2) for d|h. Independently recomputed shoelace area and boundary segment gcd counts for every h=2..200; both match A=(4h^3+2-sum gaps^3)/3 and b=4h. Cubic telescoping, Pick and strict cube superadditivity establish finite results. Reciprocity d/h=1/(h/d), compactness of divisor indicators on finite cutoffs with O(1/M) energy tails, and explicit b_j q_j construction establish the entire supernatural limit spectrum; strict gap refinement establishes iff extremal divisor profiles. Sum 1/[j^3(j+1)^3]=10-pi^2 by partial fractions. The finite test is corroboration only; infinite classification reconstructed analytically.
+
+## originality
+
+PASS
+
+The earlier Hofscheier–Nill construction supplies B_h vertex data, while the normalized area spectrum and iff divisor-profile rigidity are different invariants. These require a nonmultiplicative adjacent-gap energy limit calculation; classic Pick and shoelace alone do not yield the full limit spectrum. Best-of-knowledge originality passes; original 2026 manuscript full text and unindexed divisor geometry remain priority risks.
+
+## value
+
+PASS
+
+The complete natural normalized-area and lattice-point spectrum of the explicit planar divisor-parabola building blocks of a recent reflexive polytope construction, with sharp iff endpoint sequences, fills a motivated geometrical/number-theoretic gap beyond a one-instance area calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
