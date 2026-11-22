@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T07:43:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The twelve cube edges were independently reconstructed by one-bit XOR. A separate vertex-based maximum-matching DP on all 4096 edge masks gives face counts 45, 601, 2665 including the empty face for k=2,3,4. Independently implementing the supplied pivot permutations and all oriented nonempty Hasse covers yields respectively 19/295/1331 matched pairs, 72/2184/13884 cover arrows and complete DAG topological sorting. Removing the augmented empty-face pair leaves exactly (critical d0:1,d1:5), (d0:1,d3:9), (d0:1,d5:1). Each is a legitimate finite acyclic discrete-Morse matching, hence an integral CW model with just one vertex and a single higher-cell dimension, forcing the claimed wedges; mod-2 ranks in the source file provide corroboration but not the integral proof. At k=1 there are only the empty face; a cube perfect matching has size four, so all k>=5 give an 11-simplex. Since positive homology appears only in successive degrees 1,3,5 and transitions are by inclusion, each stage class dies at the next threshold, yielding exactly five [2,3), nine [3,4) and one [4,5) positive-degree integral bars. The result is exact only for Q3; no extrapolation to higher cubes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linusson–Shareshian–Welker prove NM_k(K_{r,s}) is a wedge of binomial(r-1,k-1)binomial(s-1,k-1) spheres of dimension 2k-3; K4,4 has ranks (9,9,1), whereas Q3 has k=2 rank five.",
+          "Holmsen–Lee show all bipartite NM_k(G) have vanishing reduced field homology above degree 2k-3, but do not determine low degrees or Q3 sphere multiplicities.",
+          "Shan–Lu–Wang v2 gives top-degree injectivity under bipartite edge addition and a nonzero top class when a cycle length at least 2k exists, not an exact integral homotopy classification.",
+          "The Heawood result classifies another specific 21-edge graph and does not imply this 12-edge graph."
+        ],
+        "reasoning": "The complete bipartite wedge theorem applies to the complete ambient graph and cannot be substituted for the induced subcomplex on the cube edges; its first rank already disagrees. The general vanishing/injectivity results are weaker than a complete integral homotopy type. The k=4 field Betti rank one is partially implied by the 8-cycle injection plus upper rank one in K4,4; this prior implication is explicitly credited, but it does not yield the k=3 rank or either k=3/k=4 integral attaching maps.",
+        "searches": [
+          "https://ftp.gwdg.de/pub/EMIS/journals/JACO/Volume27_3/v9305093145k3118.fulltext.pdf Theorem 1.4 and proof Section 4.2",
+          "https://arxiv.org/pdf/2003.11270 Theorems 1.1–1.2 and Section 4.3",
+          "https://arxiv.org/pdf/2609.02621 Theorem 2.1, Lemma 2.2 and Corollary 2.3",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-integral-non-matching-homotopy-filtration-of-the-heawoo--8c61a8d39b4a/RESULT.md full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://ftp.gwdg.de/pub/EMIS/journals/JACO/Volume27_3/v9305093145k3118.fulltext.pdf",
+        "https://arxiv.org/pdf/2003.11270",
+        "https://arxiv.org/pdf/2609.02621",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-nine-three-spheres-and-the-full-symmetry-character-of-the-peters--03efedc17432/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-five-spheres-in-the-two-matching-complex-of-the-cubical-gr--0c97a14379cb/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-integral-non-matching-homotopy-filtration-of-the-heawoo--8c61a8d39b4a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-nonmatching-complexes-of-square-bouquets-sphere-splitting--841d62e758ac/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k=2 five-circle result is also an elementary nerve-lemma consequence: NM2(Q3) is the union of eight simplices of edges incident to each cube vertex; nerve Q3 has first Betti number 12−8+1=5.",
+          "For k=4, injection from an 8-cycle to Q3 and from Q3 to K4,4 together with the known K4,4 rank one implies a one-dimensional top homology over a field; this does not establish its full integral homotopy type.",
+          "At k=3 the complete bipartite top homology rank nine gives an upper bound, but source results do not show equality for Q3 or vanishing of every other integral group.",
+          "Direct exhaustive acyclic matchings yield critical CW cells (0:1,1:5), (0:1,3:9), (0:1,5:1), proving the full wedge types rather than assuming field Betti numbers imply them."
+        ],
+        "reasoning": "Prior results partially cover the elementary k=2 stage and top-field rank for k=4, so those numerical facts are not claimed as independent first discoveries. The substantive complete classification, especially the k=3 integral wedge, k=4 integral homotopy and all-stage certified filtration, does not follow from the examined theorem implications.",
+        "searches": [
+          "https://ftp.gwdg.de/pub/EMIS/journals/JACO/Volume27_3/v9305093145k3118.fulltext.pdf Theorem 1.4",
+          "https://arxiv.org/pdf/2003.11270 Theorems 1.1–1.2",
+          "https://arxiv.org/pdf/2609.02621 Theorem 2.1, Lemma 2.2, Corollary 2.3",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-nine-three-spheres-and-the-full-symmetry-character-of-the-peters--03efedc17432/RESULT.md full RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-five-spheres-in-the-two-matching-complex-of-the-cubical-gr--0c97a14379cb/RESULT.md full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary parity classes show Q3 is isomorphic to the four-crown K_{4,4} minus its antipodal perfect matching.",
+          "The underlying 12-edge subset predicate forbids a k-edge matching, unlike the ordinary matching complex (only disjoint edges), bounded-degree two-matching complex (degree cap 2) or cut and perfect-matching-extendability complexes.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-five-spheres-in-the-two-matching-complex-of-the-cubical-gr--0c97a14379cb/RESULT.md has M_2(Q3)≃3S^5 for the different degree-cap predicate."
+        ],
+        "reasoning": "Graph aliases Q3, cubical graph, four-crown and matching-deleted K4,4 were compared by the actual face predicate. Search results about ordinary or two-matching complexes do not imply the nonmatching homotopy filtration. The exact published entry matching the requested values is the assigned work itself, not independent priority evidence.",
+        "searches": [
+          "Resultary search: nonmatching complex Q3 cube K4,4 minus perfect matching crown graph wedge 5 circles 9 3-spheres 5-sphere matching number filtration",
+          "Resultary search: nonmatching complexes of cube hypercube crown graph integral homotopy types exact Betti matching number k",
+          "web search: \"non-matching complex\" \"cube\" Q3 homotopy 5 9 1",
+          "web search: \"non-matching\" \"crown graph\" matching number complex homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-nine-three-spheres-and-the-full-symmetry-character-of-the-peters--03efedc17432/RESULT.md computes NM3 of a different ten-vertex Petersen graph.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-five-spheres-in-the-two-matching-complex-of-the-cubical-gr--0c97a14379cb/RESULT.md treats a different degree-restricted two-matching complex on the same cube.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-nonmatching-complexes-of-square-bouquets-sphere-splitting--841d62e758ac/RESULT.md gives NM3 for a general square-bouquet family, not the three-cube.",
+          "The self-indexed November 8 target record matches the exact ranks, but does not constitute an earlier independent theorem."
+        ],
+        "reasoning": "The published-index comparisons distinguish graph vertices, face predicates, and thresholds; no earlier indexed exact Q3 NM2/NM3/NM4 integral table was established by the examined sources. This bounded absence is not proof of priority; external unindexed equivalents remain a risk.",
+        "searches": [
+          "Resultary search: nonmatching complex Q3 cube K4,4 minus perfect matching crown graph wedge 5 circles 9 3-spheres 5-sphere matching number filtration",
+          "Resultary search: nonmatching complexes of cube hypercube crown graph integral homotopy types exact Betti matching number k",
+          "web: \"NM_k\" \"Q_3\" cube \"matching\" complex",
+          "web: \"non-matching\" \"cube\" \"spheres\""
+        ]
+      },
+      "rationale": "The complete-bipartite homotopy formula gives K4,4 ranks (9,9,1), while Q3 is K4,4 minus a perfect matching and has first rank 5. Holmsen–Lee proves vanishing bounds for arbitrary bipartite G, and Shan–Lu–Wang prove top-field injectivity and cycle nonvanishing; these do not imply the full cube homotopy classification or exact k=3 rank. A familiar nerve lemma already gives the k=2 stage, and the k=4 top FIELD rank follows from an 8-cycle and injection into K4,4; those partial implications are explicitly credited. The outstanding precise Q3 k=3 integral wedge, k=4 integral homotopy and complete filtration have not been located in the primary results or published record comparisons. This is best-of-knowledge originality with unindexed equivalence risk, not proof of priority.",
+      "residual_risks": [
+        "Priority remains a best-of-knowledge assessment; an unindexed exact four-crown computation or broader theorem might exist.",
+        "The k=2 homotopy follows from a standard good-cover nerve calculation and the k=4 top field rank is already constrained exactly by prior injection and complete-bipartite results; novelty is therefore limited to the complete integral filtration, notably k=3 and homotopy refinements.",
+        "Primary arXiv 2609.02621 is current v2 dated November 17, 2026, after the audited November 8 result; v1 first appeared September 2, 2026. The title and main theorem are treated as prior at the version level, not the changed author list.",
+        "Executable finite certificate establishes the finite cube complex only; no general crown-graph, equivariant, or higher-hypercube classification follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact K_{r,s} homotopy type, not the proper graph Q3. Different k=2 rank confirms it cannot be transferred unchanged.",
+          "evidence": [
+            "Theorem 1.4 at PDF printed p.333: multiplicity binomial(r−1,k−1)binomial(s−1,k−1), dimension 2k−3.",
+            "Section 4.2 addresses the complexes BNM_k(r,s) on complete bipartite edge sets."
+          ],
+          "identifier_or_url": "https://ftp.gwdg.de/pub/EMIS/journals/JACO/Volume27_3/v9305093145k3118.fulltext.pdf",
+          "material_read": "Primary 2008 PDF: introduction, Theorem 1.4 and its hypotheses, Section 4.2 and surrounding theorem scope; pages 1 and 3 visually checked",
+          "method": "Direct full-document PDF text access plus rendered-page inspection and theorem/section search",
+          "title": "Complexes of Graphs with Bounded Matching Size",
+          "trigger": "Foundational homotopy classification of nonmatching complexes and closest complete-bipartite comparison"
+        },
+        {
+          "assessment": "Provides field-homology vanishing bounds, not exact cube Betti ranks or integral sphere-wedge homotopy.",
+          "evidence": [
+            "Theorem 1.1: no homology in degree d≥2k−2 for bipartite G.",
+            "Section 4.3 explicitly deduces this for arbitrary subgraphs as induced complexes, with no exact rank formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.11270",
+          "material_read": "31-page arXiv v2 PDF: complete main theorem statements, proof outline, Theorems 1.1–1.2, and their general-case deduction in Section 4.3; visually inspected pages 1–2",
+          "method": "Direct primary full-PDF access and targeted reading of relevant proof sections, text search for cube",
+          "title": "Leray Numbers of Complexes of Graphs with Bounded Matching Number",
+          "trigger": "General theorem for all bipartite subgraphs could dominate the Q3 case"
+        },
+        {
+          "assessment": "Overlaps with top-degree lower/upper bounds; especially forces k=4 field top rank with K4,4 rank one, but not full integral homotopy or k=3 rank.",
+          "evidence": [
+            "Theorem 2.1: inclusion under bipartite edge addition injects reduced homology in degree 2t−3.",
+            "Lemma 2.2: a cycle length at least 2t supplies nonzero top homology.",
+            "Corollary 2.3: top-degree nonvanishing and Leray number exact under a long-cycle hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02621",
+          "material_read": "10-page arXiv PDF current v2 dated 2026-11-17; Theorem 2.1, Lemma 2.2, Corollary 2.3 and proofs, section on maximal shifts; visually inspected pages 1 and 3. First preprint version September 2, 2026.",
+          "method": "Primary full-PDF opened and matched claim to precise theorem hypotheses and proof; searched for cube",
+          "title": "Homology of Non-Matching Complexes under Edge Additions and Applications to Their Stanley-Reisner Ideals",
+          "trigger": "Bipartite edge addition and cycle nonvanishing might force exact Q3 ranks"
+        },
+        {
+          "assessment": "Petersen NM3, not Q3; same methodological category but different graph and no implication.",
+          "evidence": [
+            "Petersen has 10 graph vertices and 15 edges; its NM3 is nine 3-spheres.",
+            "The graph is nonbipartite, while Q3 is bipartite."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-nine-three-spheres-and-the-full-symmetry-character-of-the-peters--03efedc17432/RESULT.md",
+          "material_read": "Entire primary RESULT.md: finding, face definitions, discrete Morse proof, symmetry calculation and limitations",
+          "method": "Fetched complete public GitHub RESULT.md and compared predicate and graph",
+          "title": "Nine three-spheres and the full symmetry character of the Petersen non-matching complex",
+          "trigger": "Closely related exact NM3 sphere calculation on a canonical graph"
+        },
+        {
+          "assessment": "Defines M2(Q3) by degree at most two, unequal to NM_k(Q3) by bounded matching number.",
+          "evidence": [
+            "The complex excludes selected triples at a cube vertex; NM3 excludes any triple of disjoint selected edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-five-spheres-in-the-two-matching-complex-of-the-cubical-gr--0c97a14379cb/RESULT.md",
+          "material_read": "Entire public RESULT.md including exact face definitions and verification proof",
+          "method": "Fetched source result and compared forbidden face predicates",
+          "title": "Three five-spheres in the two-matching complex of the cubical graph",
+          "trigger": "Same cube graph and a similarly titled edge-subset complex"
+        },
+        {
+          "assessment": "Specific 14-vertex, 21-edge Heawood graph; does not assert a general three-regular graph formula.",
+          "evidence": [
+            "It reports six ranks (8,36,92,113,36,1), for a different graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-integral-non-matching-homotopy-filtration-of-the-heawoo--8c61a8d39b4a/RESULT.md",
+          "material_read": "Entire primary RESULT.md: six stage computations, acyclic matchings and integral attaching proofs",
+          "method": "Fetched primary full result and compared graph and quantifiers",
+          "title": "Complete integral non-matching homotopy filtration of the Heawood graph",
+          "trigger": "Very close full-filtration computation might give a graph-general method"
+        },
+        {
+          "assessment": "Its graph is a one-vertex wedge of squares, not Q3. No implication for the three-cube.",
+          "evidence": [
+            "The proof uses joins of block paths and contractible core specific to square bouquets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-nonmatching-complexes-of-square-bouquets-sphere-splitting--841d62e758ac/RESULT.md",
+          "material_read": "Entire primary RESULT.md: exact bouquet family definition, gluing proof and scope",
+          "method": "Fetched primary full result and compared graph family",
+          "title": "Three-nonmatching complexes of square bouquets: sphere splitting and integral symmetry",
+          "trigger": "Family theorem at same k=3 threshold for sparse bipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube is a canonical three-dimensional hypercube and four-crown, naturally just one perfect-matching deletion from the complete bipartite graph where full nonmatching topology is known. The complete threshold-by-threshold INTEGRAL homotopy classification is a natural exact invariant of this particular graph complex, not an arbitrary hand-picked computation. Its nine three-spheres and verified higher-stage sphere distinction, combined with the changed first multiplicity and complete persistence bar pattern, provide a reproducible benchmark for graph-complex topology; a researcher comparing sparse bipartite graphs to the complete case could need this precise answer. The elementary first stage and field-level top rank are prior/standard, so no novelty or value is claimed for those isolated facts, nor for a general family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Priority remains a best-of-knowledge assessment; an unindexed exact four-crown computation or broader theorem might exist.",
+    "The k=2 homotopy follows from a standard good-cover nerve calculation and the k=4 top field rank is already constrained exactly by prior injection and complete-bipartite results; novelty is therefore limited to the complete integral filtration, notably k=3 and homotopy refinements.",
+    "Primary arXiv 2609.02621 is current v2 dated November 17, 2026, after the audited November 8 result; v1 first appeared September 2, 2026. The title and main theorem are treated as prior at the version level, not the changed author list.",
+    "Executable finite certificate establishes the finite cube complex only; no general crown-graph, equivariant, or higher-hypercube classification follows."
+  ],
+  "schema_version": 1
+}
