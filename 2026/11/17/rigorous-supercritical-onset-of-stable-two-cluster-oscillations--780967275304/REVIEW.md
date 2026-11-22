@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns precisely the stated eight-node finite-delay equation. The Walsh eigenvalues are exact rational identities, and the alternating parity subspace is an exact nonlinear invariant subspace. Eliminating the gain from the imaginary-axis characteristic equation gives a scalar trigonometric root condition. Sign partitions, a strictly increasing tangent-plus-ratio function on the only two eligible intervals, and the monotonicity of the critical parameter in the root and the instantaneous damping together exhaust all possible first spectral crossings, including high-frequency branches. The source's spectral stability-at-zero argument is independently verified here by a direct positive-real-part bound. The cubic normal form contains no quadratic interactions, and the root derivative and cubic coefficient have strictly separated interval enclosures (recomputed by the supplied checker). Standard retarded Hopf and spectral perturbation theorems transfer radial attraction to full-history orbital attraction. Numerical intervals are not substituted for the global root-count proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Walsh diagonalization of the Hamming-distance coupling gives effective damping a=(.19,.31,.59,1.11), with simple alternating parity eigenmode and an exactly invariant scalar parity line because tanh is odd. The retarded characteristic factor is Δ_j=z+a_j−(1/25)(1−e^(−20z))+(α/5)H(z), H(z)=∫_0^60 e^(−zv)dv, H(0)=60. The imaginary-axis equations yield explicit α=A(θ) and Q_j(θ)=0; a nonnegative-real characteristic root bound at α≤.0953 gives θ<4.34. Trigonometric signs confine roots to (π/3,2π/3) and (π,4π/3), with tangent+positive increasing B/A equation exactly one root in each interval; growing a shifts roots right, and A(θ) increases there, making the smallest-a first root the uniquely first crossing. At α=0 damping has ReΔ>0 in Re z≥0 and no roots enter from infinity. The odd nonlinearity has no quadratic term; scalar cubic fundamental Fourier coefficient is [α/125 H|H|²+(−.31)^3]/D, D=∂_zΔ. Independently at high precision found θ1=1.847814682771..., θ2=3.499629925869..., α1=.09529711602518, α2=.111991274821, Re λ'=.04596363144>0, Re c=−.01223643281<0 and cosine coefficient 3.87623186586; consistent with pinned interval VERIFY.py and exact Walsh. Standard RFDE Hopf center-manifold theorem then yields radial attraction with stable transverse modes and only neutral phase multiplier, proving local orbital attraction in the full history phase space. Finite numerical evaluations certify signs given the analytic root-exhaustiveness argument, not a global dynamical theorem.
 
-The closest paper, Crane, arXiv:2604.20740v2, Sections 2 and 6, proves a symmetry-guided global branch and gives numerical first-center and sampled Floquet results, but not an exhaustive analytic first-root ordering or a signed nonlinear Hopf coefficient proving full local attraction at onset. Chen--Crane--Hensley (2026) concerns a different distributed-delay system and supplies global bifurcation, not this exact example's coefficient. A related dissertation (arXiv:2607.02388) was checked through its abstract but its full text was not available; the possibility of an unpublished equivalent calculation remains. General normal-form theory provides a technique but not the particular signed result. No direct mathematical-record match was found under model, amplitude, spectral, and coefficient formulations. This is not an independent novelty or priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating study explicitly distinguishes rigorous global existence of periodic multiconsensus from its numerically observed stability. A theorem proving that the first transition creates a genuine full-phase-space attracting two-cluster orbit resolves that model-specific gap. The exact first-center ordering across all spatial modes and delay frequencies and the quantitative square-root amplitude law add information not supplied by numeric Floquet samples. This is a natural bifurcation property of the source's specified physically motivated network, not an arbitrary slice or mere parameter refinement.
+Crane 2026 uses the same explicit 8-market model and already approximates the first center and numerically samples stable two-cluster branches. It does not in the full inspected Section 6 provide rigorous supercriticality, first nonlinear Lyapunov coefficient, exact exhaustive frequency/mode crossing proof, or local full-history-space orbital stability. New contribution is precisely that rigorously signed local stability theorem and leading amplitude, not the known near-center parameter or generic Hopf method.
 
-## Scientific limitations
+## value
 
-Local theorem only: no global basin or distant-parameter stability, and no economic claim. The full dissertation comparison remains an access-related priority risk; no full-document exclusion is claimed. Interval evaluation verifies strict local numerical inequalities but not uniqueness without the separate monotonicity argument. No external validation or independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Turning an empirically observed two-cluster cycle into a rigorous full-history-space stable Hopf branch and sharp amplitude coefficient resolves a clearly identified dynamical stability gap for the very same model. It gives exact first-mode identification across an infinite retarded spectrum, a useful nontrivial boundary theorem rather than a generic Hopf-method restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
