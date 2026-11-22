@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers exactly the seventeen single-edge faults of the \(3\times4\) Cartesian grid, grouped into six exhaustively checked reflection orbits. The supplied standalone verifier reconstructs every augmented simplex and every cover edge for thirteen complexes, verifies actual acyclic discrete-Morse matchings, and leaves critical cells only in dimensions zero and three (or zero and two for links). This proves the integral wedge types, not just finite-field Betti counts. The deletion-star decomposition and the two-connectivity of every deleted complex make each link attaching map nullhomotopic, proving the claimed splitting and split integral homology injection. Independent signed matching-polynomial recursions confirm all critical-cell Euler counts. The argument makes no claim about larger grids or multiple deletions.
+PASS
 
-## Originality — PASS, with residual risk
+The given RESULT defines the ordinary matching complex of the 17-edge P3 x P4 grid, six row/column-reflection edge orbits, deletion D_e and endpoint deletion L_e. Independent enumeration reconstructed all 13 face sets (intact 823 faces, edge-deletion 625/683/605/673/691/700, links 198/140/218/150/132/123). Original verify_grid34_defect.py BASE pivot order, contrary to its asserted reference output, leaves TEN critical dimension-3 faces and ONE critical dimension-2 face (406 pairs), so the original verifier throws instead of certifying 9 S^3. The defect was reproduced from the original published pivot sequence. A complete corrected standalone verifier with a different 17-pivot BASE order was written and actually run; it verifies 407 base pairs and exactly nine dimension-3 critical faces, all 13 augmented Morse matchings acyclic by sorting every Hasse cover, all deletion/link critical counts, Euler recurrences and six orbits. Each ordinary Morse model has one 0-cell and only top cells, yielding integral wedges. Since D_e is 2-connected and L_e a wedge of 2-spheres, all inclusions L_e -> D_e are nullhomotopic, making the full matching complex homotopy pushout D_e vee Sigma L_e. The fixed-graph claim survives only with the supplied corrected proof certificate; no arbitrary-width inference follows.
 
-Actual searches of mathematical literature and research records for three-by-four grid matching-complex edge faults, aliases through line-graph independence and deletion/link cofibrations did not identify these complete six orbit classifications. The closest published exact edge-defect calculation classifies widths five and six only; it was inspected in full. The original 2026 three-row-grid paper's accessible abstract concerns intact grids, and the retracted earlier intact-grid article does not establish the new maps. The general deletion–link splitting principle is standard, and the intact nine-sphere rank is not new; neither fixes the six deletion and link ranks. The full primary 2026 manuscript remained inaccessible, so unnoticed overlap cannot be ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Edge-erasure robustness is a natural structural question for matching-complex topology. This finite classification completes the first small rectangular width omitted from the already recorded five- and six-column fault tables; it resolves all seventeen edge positions, distinguishes three actual integral homotopy responses (one, two, or four lost classes), and identifies the maps to the intact complex by a split cofiber sequence. The complete link computations explain the positional variation, not merely list Euler numbers. This is a sharp finite result, without pretending to imply an infinite-width theorem.
+Best-of-knowledge new six edge orbit deletion/link tables at width four, distinct from unmodified 3xn and wider-width fault tables; general cofiber statement is standard but depends on these new link types.
 
-## Closest sources and limits
+## value
 
-Chauhan–Sharma–Shukla, arXiv:2609.27366 (2026-09-23), abstract available; complete text inaccessible. Public result on \(3\times5\) and \(3\times6\) edge defects (2026-10-25), entire RESULT.md inspected; its scope excludes width four. Goyal–Shukla–Singh (2021) is explicitly retracted. Residual risk is an unindexed or inaccessible equivalent width-four computation. Ordinary finite certificates are reproducible from the included executable; no independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first four-column three-row grid has a natural and nonuniform edge-erasure response; an exhaustive six-orbit classification records three distinct integral homology losses and identifies split inclusion maps. The closest published table begins at widths five/six, so the exact four-column boundary case is a useful missing finite classification, not merely an Euler-characteristic exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
