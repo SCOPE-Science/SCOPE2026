@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The all-parameter proof first forces the scattered subsequence \\(b(a^{n-1}b)^{n-2}\\) in every reset word of the first factor by counting each initial trajectory’s special-state defect visits modulo the size. Relabeling produces the complementary required subsequence. Each common subsequence of these patterns obeys two precise run-skipping inequalities, giving an exact longest-common-subsequence length \\(2(n-2)\\). The common-supersequence lower bound is matched by explicit words for the three small sizes and by a closed-form all-size witness for sizes at least five. Each image-set invariant is calculated from the actual transition maps. Complete subset-pair BFS independently verifies the exact threshold for sizes two through nine, and direct transition plus LCS routines corroborate the symbolic steps through fifty and thirty states respectively. These experiments do not substitute for the universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fernau–Rystsov Proposition 3.4: \\(\\max\\{\\mathrm{rt}(A),\\mathrm{rt}(B)\\}\\leq\\mathrm{rt}(A\\times B)\\leq\\mathrm{rt}(A)+\\mathrm{rt}(B)\\); both components separately have threshold \\((n-1)^2\\).",
+        "2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4 proves single-factor letter-weight optimality but does not constrain simultaneous opposite-label actions tightly enough."
+      ],
+      "reasoning": "The claimed value \\(2(n^2-3n+3)\\) is strictly between the general endpoints for every size at least three. The general result and weighted single-factor facts therefore do not subsume it; the new exact LCS obstruction plus matching constructive upper bound is needed.",
+      "searches": [
+        "Fernau Rystsov 2026 product automata reset thresholds exact Cerny product",
+        "maximal synchronization cost direct product C_n with alphabet-permuted C_n",
+        "Fernau Rystsov arxiv:2611.09136 Proposition 3.4 Section 4",
+        "published-finding corpus 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.09136v1",
+      "https://arxiv.org/html/1405.3576v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+      "https://doi.org/10.1007/s10878-013-9682-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general product result proves synchronizability equivalence and bounds, not the exact minimizer length.",
+        "2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c proves that a single Černý reset word must contain a specific scattered subsequence and determines a first-excess count, but does not supply an LCS between opposite-label patterns or their simultaneous reset attainment.",
+        "Maslennikova arxiv:1405.3576 studies reset-language equality and related decision complexity, not the optimum intersection length for this family."
+      ],
+      "reasoning": "One-factor mandatory patterns imply a lower bound via shortest common supersequence only after a new exact LCS calculation. Conversely the existence of a minimum-length common supersequence does not by itself imply either factor resets. The explicit all-size witness is the independent substantive step that closes this gap. No inspected prior statement entails both necessary pieces.",
+      "searches": [
+        "crossed Cerny automata synchronized product shortest reset word one component swaps letters",
+        "synchronizing direct product two Cerny automata reversed alphabets shortest common reset word",
+        "longest common subsequence of Černý reset word and its letter complement",
+        "arxiv:2611.09136 Section 3 direct product lower and upper bounds",
+        "published-finding corpus 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fernau–Rystsov https://arxiv.org/html/2611.09136v1 identifies common product reset words with intersection of reset languages (Lemma 3.1), but states generic bounds rather than the exact opposite-label equal-size threshold.",
+        "2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598 treats common reset words with equal letter roles for different-size factors, not the equal-size swapped-letter intersection."
+      ],
+      "reasoning": "Compared the equivalent statement as shortest word in the intersection of two relabeled reset languages, or as reset threshold of a two-coordinate product whose a rotates only one factor and whose b rotates only the other. No inspected statement implies the exact polynomial by letter renaming or automaton isomorphism.",
+      "searches": [
+        "crossed Cerny automata synchronized product shortest reset word one component swaps letters",
+        "synchronizing direct product two Cerny automata reversed alphabets shortest common reset word",
+        "2(n^2-3n+3) reset threshold crossed Cerny automaton product opposite letter roles",
+        "oppositely labeled identical size Černý pair common synchronizing word shortest n",
+        "published-finding corpus 2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598 supplies an exhaustive 45-case table for \\(2\\le m<n\\le11\\) with identical letter roles.",
+        "The separate finite full-powerset computations for the new claim cover sizes two through nine, with exact lengths 2,6,14,26,42,62,86,114."
+      ],
+      "reasoning": "The published table excludes same-size pairs and changes neither input label. No inspected numerical table gives the new all-integer opposite-label threshold. Newly computed finite evidence is only corroboration of the symbolic proof.",
+      "searches": [
+        "2(n^2-3n+3) reset threshold crossed Cerny automaton product opposite letter roles",
+        "oppositely labeled identical size Černý pair common synchronizing word shortest n",
+        "published-finding corpus 2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+        "published-finding corpus exact common reset threshold Cerny crossed labels"
+      ]
+    },
+    "rationale": "The nearest November 2026 primary paper supplies a generic interval for product reset thresholds but no exact two-factor alphabet-exchanged Černý formula. Earlier individual Černý mandatory-subsequence and weighted-reset work supplies only single-factor restrictions, not the sharp LCS calculation or simultaneous realizing word. The existing simultaneous-reset table instead treats two unequal sizes with the same labeling and only finite sizes. An earlier equivalent not indexed remains possible.",
+    "residual_risks": [
+      "An earlier unindexed theorem or a different-labeling formulation may already give the same exact crossed-family expression.",
+      "The 2013 shortest-reset algorithms paper was available at abstract-level rather than fully read; no whole-document noncoverage conclusion is drawn.",
+      "An explicit common supersequence is not necessarily a common reset word; novelty and correctness assessments depend on the independently proved image-set witness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct product normalization and generic bounding framework match; no exact equal-size opposite-letter Černý threshold provided",
+        "evidence": "Lemma 3.1 identifies intersection of reset languages; Proposition 3.4 gives generic maximum-to-sum interval; Section 4 constructs single-factor Černý reset word; final questions ask when bounds are attained.",
+        "identifier_or_url": "https://arxiv.org/html/2611.09136v1",
+        "material_read": "Full accessible HTML, definitions, Sections 2–4 and conclusion, including Lemma 3.1, Proposition 3.4, Černý construction in Section 4, and concrete open questions",
+        "method": "Read primary arXiv HTML sections and searched document for opposite/swapped-label specialization",
+        "title": "Shortest Synchronizing Words on Product Automata",
+        "trigger": "Directly matching synchronous-product problem and November 2026 scientific context"
+      },
+      {
+        "assessment": "Complexity/equality and containment questions are distinct from exact common shortest word for swapped Černý automata",
+        "evidence": "Its language-equality focus does not specify either crossed two-factor construction or polynomial shortest intersection length.",
+        "identifier_or_url": "https://arxiv.org/html/1405.3576v1",
+        "material_read": "Accessible arXiv HTML introduction and mathematical results concerning synchronizing-language comparison",
+        "method": "Read relevant primary theoretical sections",
+        "title": "Complexity of checking whether two automata are synchronized by the same language",
+        "trigger": "Potential formulation in language intersection/equality of reset sets"
+      },
+      {
+        "assessment": "Explicitly credited structural lemma; supplies no opposite-factor LCS or matching common reset word",
+        "evidence": "Single-family statement: every reset word contains \\(b(a^{n-1}b)^{n-2}\\) as a subsequence; counts near-shortest words of one automaton.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+        "material_read": "Complete published RESULT.md, including proof and limitations",
+        "method": "Read full public scientific claim and proof",
+        "title": "A mandatory reset subsequence and exact one-step multiplicity for the Černý automata",
+        "trigger": "Uses the same forced scattered subsequence as first step of new proof"
+      },
+      {
+        "assessment": "45 cases with differently sized factors and matching label roles, excludes equal sizes and opposite label roles",
+        "evidence": "Table domain \\(2\\le m<n\\le11\\); two factors have the same cyclic letter a and defect letter b.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+        "material_read": "Complete published RESULT.md with table, assumptions, algorithm and limitations",
+        "method": "Read full public result and checked scope of every table row",
+        "title": "Exact simultaneous reset thresholds for pairs of Černý automata through eleven states",
+        "trigger": "Strongest same-alphabet pair closest to the new simultaneous reset problem"
+      },
+      {
+        "assessment": "Single-factor optimization under positive letter costs, not simultaneous opposite-labeled common reset threshold",
+        "evidence": "For a single factor the letter-count lower bounds are \\(\\#_a\\ge(n-1)(n-2),\\#_b\\ge n-1\\); these alone cannot yield the crossed exact threshold.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+        "material_read": "Complete published RESULT.md with inverse-preimage proof and limitations",
+        "method": "Read full public scientific result",
+        "title": "Uniform weighted-reset optimality in the Černý automata",
+        "trigger": "Potentially stronger all-word single-factor letter-count constraints"
+      },
+      {
+        "assessment": "No decisive direct equivalence found; incomplete material creates a bibliographic residual risk",
+        "evidence": "Abstract describes algorithms for searching shortest reset words, without an accessible inspected crossed Černý specialization.",
+        "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+        "material_read": "Abstract and bibliographic metadata only; no full text claim of noncoverage",
+        "method": "Public abstract-level check",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Foundational algorithms may contain alternate descriptions of intersection searches"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb6dcc52-0ec6-4f0c-8db7-1eac30f2f3e3",
+  "value": {
+    "rationale": "Synchronous-product shortest reset length is a natural invariant in automata and control of multiple devices. Swapping which input performs the rotation or defect destroys alignment of two individually extremal factors. This proof gives a sharp formula for every state size and a precise linear saving relative to the generic sum bound. The forced-pattern LCS lower bound plus all-size constructive attainment addresses a substantive joint-control gap, rather than a routine single-machine substitution or isolated numerical table.",
+    "status": "PASS"
+  }
+}
