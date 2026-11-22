@@ -1,0 +1,19 @@
+# Mathematical review: algebraic boundary of a five-vertex square pyramid
+
+## Correctness — PASS
+
+The proposed polygon is a full-dimensional square pyramid with zero arithmetic vertex mean and two tetrahedra of Euclidean volume \(10/3\) each. An elementary simplex exponential-integral identity yields the height-density formula and, through coarea, the exact area/normal-length identity (1) in `RESULT.md`. The five height signs divide the normal space into exactly nine open sectors above and nine below the base horizontal plane. The included `CERTIFICATE.json` gives every reduced rational function and a witness normal; the symbolic verifier rederives and checks all certificate entries from the formula, verifies the complete degree distribution \(8\) cubic, \(2\) quartic, \(8\) quintic and all \(153\) pairwise distinctions, and checks coprime homogeneous numerators and denominators. The primitive homogenization \(D-10wN\) proves irreducibility over \(\mathbb C\), not merely irreducibility over \(\mathbb Q\). Independent plane–edge intersections and convex-hull areas agree numerically in \(180\) chart-interior orientations. The analytic proof handles all directions, including limits on sign walls. The numerical checks alone do not prove the theorem; the exhaustive symbolic algebra and its derivation are the critical evidence.
+
+## Originality — PASS, subject to priority risk
+
+Berlow–Brandenburg–Meroni–Shankar (arXiv:2110.05996, 2021-10-12) prove semialgebraicity and a general component-degree bound and compute cubical, tetrahedral, icosahedral and four-dimensional examples. Their vertex-centered tetrahedron has cubic and quartic factors, not a five-vertex pyramid's complete three-degree list. Brandenburg–Meroni (arXiv:2302.11764, 2023-02-23) study translations and convexity rather than this exact degree census. The official MATHREPO companion algorithm and cubical notebooks were examined for a matching worked computation; the searched notebook content does not give a named pyramid classification. The accessible published published-finding corpus mathematical records retrieved for square-pyramid intersection bodies and central sections describe section-type probabilities or distinct polygonal/combinatorial invariants rather than irreducible boundary degrees. The result is a specified exact instance of the known general algorithm, not a claim of priority over that algorithm. Residual risk: an unindexed or unpublished exact pyramid computation might already determine this degree multiset.
+
+## Mathematical value — PASS
+
+The first non-simplicial three-dimensional vertex count is five. The centered tetrahedron's two nonlinear degrees (cubic/quartic) are known, whereas the present canonical five-vertex pyramid exhibits three distinct nonlinear degrees in an exact complete classification. Counting precisely the irreducible components is a natural invariant of a basic polytope's intersection body, and the total degree \(72\) and maximal component degree \(5\) sharpen the universal bound \(6\) for this eight-edge pyramid. This is not an arbitrary single parameter sample: it identifies the next vertex-complexity case where qualitatively new algebraic degree diversity occurs. It is not a classification of all five-vertex polytopes, of all origins, or of component intersection schemes.
+
+## Sources and limitations
+
+Primary scientific literature: https://arxiv.org/abs/2110.05996 ; https://arxiv.org/abs/2302.11764 ; https://mathrepo.mis.mpg.de/intersection-bodies/ . The exact, independently rerunnable finite certificate is `checker.py`; its dependencies are in `requirements.txt`. Priority is provisional pending a broader expert literature review. This mathematical review does not constitute independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
