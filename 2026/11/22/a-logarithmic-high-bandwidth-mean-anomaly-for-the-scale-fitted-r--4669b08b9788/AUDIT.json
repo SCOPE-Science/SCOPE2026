@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every fixed \\(n\\ge2\\), independent Rayleigh squares normalized by their sum are \\(\\operatorname{Dirichlet}(1,\\ldots,1)\\). This yields an exact linear-at-origin one-coordinate density with coefficient \\(c=(n-1)/n\\) and pair intersection \\(O(\\varepsilon^4)\\). The samplewise Laplace endpoint is \\(2/n\\) times the squared reciprocal-coordinate sum; a finite dependent one-large-coordinate argument gives tail coefficient \\(c/z\\) and the exact \\(q<1\\) moment boundary. Diagonal kernel second moments equal \\(ct^2\\log(1/t)+O(t^2)\\) while cross moments are \\(O(t^2)\\), giving \\(\\mathbb ER_{n,a}=(2c\\log a+O(1))/a^3\\). A standalone checker reproduced 25 independent deterministic quadrature, root and samplewise comparisons for the two-sample case. Finite experiments do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1810.06226",
+        "https://arxiv.org/abs/1806.06028",
+        "https://arxiv.org/abs/1803.07069",
+        "https://www.mdpi.com/2227-7390/10/8/1316"
+      ],
+      "reasoning": "The general Stein fixed-point characterizations subsume the test construction, not this fixed-n Rayleigh moment trichotomy. General Laplace/Abelian identities would turn an established small-t expansion into the mean coefficient but do not independently supply the model-specific diagonal logarithm, exact Dirichlet dependence, or one-large-coordinate tail constant. Gaussian and Gamma tests are not the same statistic after changing variables: their empirical score and scale normalization differ.",
+      "searches": [
+        "fixed point characterizations continuous univariate probability distributions L2 Gamma Rayleigh weighting bandwidth limit",
+        "Gamma distribution characterization goodness of fit tests 2018 Betsch Ebner small bandwidth",
+        "Rayleigh Stein goodness-of-fit logarithmic bandwidth mean asymptotics"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2227-7390/10/8/1316",
+      "https://arxiv.org/abs/1810.06226",
+      "https://arxiv.org/abs/1806.06028",
+      "https://arxiv.org/abs/1803.07069",
+      "https://doi.org/10.3390/math10081316"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.mdpi.com/2227-7390/10/8/1316",
+        "https://arxiv.org/abs/1810.06226",
+        "https://arxiv.org/abs/1803.07069",
+        "https://arxiv.org/abs/1806.06028"
+      ],
+      "reasoning": "The previously published statement n→∞ with positive a fixed neither implies nor excludes a→∞ with integer n fixed; these are distinct limits. Defining the finite-n statistic implies a formal pointwise Taylor/Laplace limit but not its exact z^-1 tail coefficient or logarithmic normalized mean. The 2018 characterization supplies an operator identity, while the new tail and mean results depend on the normalized Rayleigh marginal density f(y)~((n-1)/n)y and pairwise Dirichlet control. No compared source logically entails the complete conjunction without these additional computations.",
+      "searches": [
+        "Testing for the Rayleigh Distribution A New Test 2022 equation 5 theorem 1 bandwidth fixed n",
+        "Fixed point characterizations positive density empirical integral Stein goodness of fit 2018",
+        "Testing normality via distributional fixed point 2018 weighted L2 null"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grobler–Bothma–Allison (2022), equation (5), https://www.mdpi.com/2227-7390/10/8/1316",
+        "Betsch–Ebner (2018), Sections 5 and 7, https://arxiv.org/abs/1810.06226"
+      ],
+      "reasoning": "The relevant equivalent versions are the large-Laplace-parameter limit of an empirical fixed-point squared distance, an inverse-square tail for a reciprocal-Dirichlet sum, and a logarithmic expectation anomaly. The primary source defines the original statistic but treats fixed bandwidth as sample size grows. The broad fixed-point characterization contains no Rayleigh-specific reciprocal-Dirichlet endpoint coefficient. The pointwise Laplace normalization follows readily from the original formula, but the sharp tail and mean constants require new finite-sample null distribution and small-argument analyses.",
+      "searches": [
+        "Rayleigh Stein goodness-of-fit R_n,a high a normalized a^3 almost-sure heavy tail infinite mean coefficient log bandwidth",
+        "Rayleigh scale fitted empirical Stein fixed point statistic n integral psi_n(t)^2 exp(-at) small t log expectation asymptotics",
+        "Rayleigh goodness of fit Stein characterization scale estimated exponentially weighted statistic moments bandwidth endpoint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grobler–Bothma–Allison (2022), Section 4 reports Monte Carlo power at selected fixed bandwidths, not a high-bandwidth moment table.",
+        "https://www.mdpi.com/2227-7390/10/8/1316",
+        "https://arxiv.org/abs/1810.06226"
+      ],
+      "reasoning": "No exact high-bandwidth mean or endpoint-tail table was located in the inspected primary material. Searches against published research records yielded entries on other inverse-Rayleigh objects, critical Gaussian/spectral phenomena and fixed-point frameworks, not this scale-fitted statistic. This negative observation is not an exhaustive priority proof.",
+      "searches": [
+        "Rayleigh tests Grobler Bothma Allison 2022 high bandwidth moment asymptotics",
+        "Dirichlet normalized Rayleigh sample inverse sum square regularly varying tail t^-1 small coordinate",
+        "Rayleigh GoF scale adjusted Stein integral statistic asymptotic tuning parameter",
+        "\"Rayleigh\" \"Grobler\" \"Bothma\" \"large\" \"a\" \"R_n\""
+      ]
+    },
+    "rationale": "The original 2022 Rayleigh paper defines the statistic and treats \\(n\\to\\infty\\) at fixed bandwidth, not fixed \\(n\\) at large bandwidth. Broader Stein fixed-point and Gamma/normal-test papers give context but not the exact fitted-Rayleigh reciprocal-Dirichlet tail or logarithmic expectation. The samplewise Laplace limit is elementary from the definition; the new scientific contribution is the combined sharp infinite-mean tail and log-scale expectation. Searches against public literature and published research records found no directly covering result, with historical-priority risk stated.",
+    "residual_risks": [
+      "The general literature on Abelian/Tauberian integral asymptotics may abstract part of the Laplace step, though it cannot alone supply the exact fitted-Rayleigh constants.",
+      "A previously published specialized Rayleigh statistic calculation under a different name may exist outside the examined sources.",
+      "The paper on Gamma tests was inspected only in selected material and was not used as decisive whole-document negative evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the sample statistic and proves n-large fixed-bandwidth asymptotics; the relevant inspected analysis and conclusions do not provide the fixed-n a-large moment/tail theorem",
+        "evidence": [
+          "Eq. (5) defines R_{n,a} with e^{-at} and estimated Rayleigh scale; Section 3 Theorem 1 is n→infinity with bandwidth fixed; Section 4 uses fixed selected a values.",
+          "https://www.mdpi.com/2227-7390/10/8/1316"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/10/8/1316",
+        "material_read": "Publisher full-text HTML, with substantive reading of introduction, Section 2 equation (5), Section 3 Theorems 1–2/proofs, Section 4 calibration and power settings, conclusions and references",
+        "method": "Read accessible publisher full text with targeted section searches",
+        "title": "Testing for the Rayleigh Distribution: A New Test with Comparisons to Tests for Exponentiality Based on Transformed Data",
+        "trigger": "Exact same statistic and scale normalization, highest possible overlap priority"
+      },
+      {
+        "assessment": "General characterization and applications, including Gamma and Burr tests; the inspected relevant parts do not establish this Rayleigh score fixed-n high-bandwidth constant or tail classification",
+        "evidence": [
+          "https://arxiv.org/abs/1810.06226",
+          "General application section develops weighted empirical discrepancy tests and discusses tuning, without this Rayleigh endpoint computation."
+        ],
+        "identifier_or_url": "arxiv:1810.06226",
+        "material_read": "Available arXiv full-text representation: substantive review of Sections 1, 5, 7 and concluding discussion",
+        "method": "Read accessible arXiv extracted full text, searched Rayleigh, bandwidth and tuning sections",
+        "title": "Fixed point characterizations of continuous univariate probability distributions and their applications",
+        "trigger": "Earlier general Stein fixed-point framework that could subsume construction"
+      },
+      {
+        "assessment": "Different Gamma model/empirical score; limited inspection, not relied upon for a whole-document noncoverage claim",
+        "evidence": [
+          "https://arxiv.org/abs/1806.06028"
+        ],
+        "identifier_or_url": "arxiv:1806.06028",
+        "material_read": "Accessible arXiv abstract, introduction and extracted overview; not all technical details",
+        "method": "Read arXiv record and available text excerpts",
+        "title": "A new characterization of the Gamma distribution and associated goodness of fit tests",
+        "trigger": "Nearby positive-support fixed-point test with exponential weights"
+      },
+      {
+        "assessment": "Gaussian location-scale model with different support and score; cannot directly imply Rayleigh inverse-boundary coefficient",
+        "evidence": [
+          "https://arxiv.org/abs/1803.07069"
+        ],
+        "identifier_or_url": "arxiv:1803.07069",
+        "material_read": "Accessible arXiv abstract plus introduction and Sections 2–3 of extracted text",
+        "method": "Read arXiv record and targeted textual sections",
+        "title": "Testing normality via a distributional fixed point property in the Stein characterization",
+        "trigger": "Earlier weighted L2 fixed-point test and generic theoretical context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4669b08b-9788-4ab9-9efd-0bbd1086a6d2",
+  "value": {
+    "rationale": "For a published, used scale-invariant Rayleigh goodness-of-fit statistic, the finite-sample large-bandwidth regime has an unexpected disagreement between the almost-sure normalization and its mean. The exact heavy-tail constant, moment threshold and logarithmic expectation quantify calibration failure from extremely small fitted observations. This is a natural parameter endpoint of an existing test, rather than an arbitrary special sample size or routine numerical gain; no assertion about power or a full joint asymptotic theory is made.",
+    "status": "PASS"
+  }
+}
