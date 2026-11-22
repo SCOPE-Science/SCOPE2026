@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:17:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At simple two-point spectra, Df is the Hermitian Schur multiplier with coefficients u,v,w∈[0,1], including complex off-diagonal phase. Convexity reduces the induced spectral norm to eight binary masks; all but (1,0,1)/(0,1,1) have gain ≤1. Extreme Hermitian unitaries yield max_{0≤s≤1}(s+√(4−3s²))/2=2/√3. Integrate derivative along Hermitian segment, mollify nonsmooth monotone f and use positive-part perturbations near diag(1,−ε) for sharpness. L=0 and repeated eigenvalues covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aleksandrov–Peller develops broad operator-Lipschitz and Schur multiplier theory but scalar Lipschitz functions lack dimension-free operator Lipschitzness in general.",
+          "Carlsson arXiv:1811.08358 uses the Frobenius norm in its displayed sharp scalar function estimate."
+        ],
+        "reasoning": "Differentiation supplies a general framework, but neither inspected broad framework nor Frobenius norm bound dominates the sharp 2×2 spectral constant. The 2021 Carlsson journal full text was not obtained; priority risk is retained.",
+        "searches": [
+          "2x2 Hermitian nondecreasing Lipschitz functional calculus sharp spectral operator norm 2/sqrt3 positive part",
+          "two level Hermitian positive part sharp spectral operator Lipschitz universal",
+          "Aleksandrov Peller operator Lipschitz functions Schur multiplier two dimensional exact constant"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1611.01593",
+        "https://arxiv.org/abs/1811.08358",
+        "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-independent-entry-lipschitz-constants-for-2-times2-semidef--3b499f2228aa/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published prior e19c93a79149 computes spectral clipping outputs but its sharpness maximizes entrywise rows, yielding 3/2 and 9/8.",
+          "Audited proof optimizes Hermitian Schur masks over selfadjoint unitary extreme points and yields (s+√(4−3s²))/2 with optimum 2/√3."
+        ],
+        "reasoning": "One cannot convert those prior constants into 2/√3 by norm equivalence with sharpness; the all-functions bound requires a further convex vertex reduction, and a positive-part derivative realizes the exception.",
+        "searches": [
+          "2x2 Hermitian nondecreasing Lipschitz functional calculus sharp spectral operator norm 2/sqrt3 positive part",
+          "two level Hermitian positive part sharp spectral operator Lipschitz universal",
+          "operator norm sharp 2 sqrt3 spectral clipping matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive part map is PSD projection in Frobenius geometry but the norm here is the spectral induced matrix norm.",
+          "The full e19c93a79149 Resultary paper takes max of entries, not operator norm; its constants 3/2, 9/8 are inapplicable to unitary-invariant spectral norm."
+        ],
+        "reasoning": "No equivalence under a simple renaming: entrywise/coordinate norms change under rotations, whereas the proposed spectral norm is unitarily invariant and applies to all monotone Lipschitz transforms.",
+        "searches": [
+          "2x2 Hermitian nondecreasing Lipschitz functional calculus sharp spectral operator norm 2/sqrt3 positive part",
+          "two level Hermitian positive part sharp spectral operator Lipschitz universal",
+          "2 by 2 spectral norm Schur multiplier triangular projection positive semidefinite norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full published Resultary findings e19c93a79149 and 3b499f2228aa provide exact but differently normed positive-part constants.",
+          "The exact spectral norm 2/√3 is not their stated numerical table, nor is their result an all monotone-functional-calculus claim."
+        ],
+        "reasoning": "Actual prior exact tables cover other Banach norms; negative targeted searches alone do not prove absence of earlier same-norm results.",
+        "searches": [
+          "2x2 Hermitian nondecreasing Lipschitz functional calculus sharp spectral operator norm 2/sqrt3 positive part",
+          "two level Hermitian positive part sharp spectral operator Lipschitz universal",
+          "Resultary 2x2 PSD projection sharp independent entry constants"
+        ]
+      },
+      "rationale": "The exact spectral operator-norm universal coefficient 2/√3 for every monotone real scalar Lipschitz function on complex Hermitian 2×2 matrices is not implied by earlier full-text Resultary results using entrywise maximum and independent-coordinate norms, or by the sharp Frobenius estimate in Carlsson. Divided-difference Schur multipliers are known ingredients, but the induced two-level spectral norm, all-functions bound and fixed positive-part sharpness remain distinct in inspected statements.",
+      "residual_risks": [
+        "An older 2×2 spectral-norm triangular truncation or Schur multiplier calculation may yield the same optimal coefficient; no exhaustive historical priority check.",
+        "Carlsson 2021 follow-on journal paper examined at abstract/metadata level only; original related arXiv text was inspected.",
+        "The Aleksandrov–Peller survey was not fully read page by page; do not assert complete noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not implication-equivalent: constants 3/2 and 9/8 measure coordinate sensitivities, not spectral operator-norm gain",
+          "evidence": [
+            "RESULT.md norm definition and Steps 2–5"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149/RESULT.md",
+          "material_read": "Complete RESULT.md including hypotheses, proof, explicit perturbations, references and limits via pinned Resultary Git blob ca1e16a8a9292adc9cbb8ab87f7fc119be97b40b",
+          "method": "Direct comparison of entrywise max norm against unitarily invariant spectral operator norm",
+          "title": "Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection",
+          "trigger": "Same positive-part map/dimension and a plausible exact sharp constant"
+        },
+        {
+          "assessment": "Not covering; independent-entry ℓp norms are not spectral matrix operator norm, and only PSD projection is considered",
+          "evidence": [
+            "RESULT.md Finding, Assumptions, Sections 1–5"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-independent-entry-lipschitz-constants-for-2-times2-semidef--3b499f2228aa/RESULT.md",
+          "material_read": "Complete RESULT.md including full Lorentz-coordinate argument and independent-entry p-norm definitions, blob 0c33169e9a3ff3b40a003368aca3aa1f020cd808",
+          "method": "Compared precise Banach input/output norms and scope",
+          "title": "Sharp independent-entry Lipschitz constants for 2×2 semidefinite projection",
+          "trigger": "Related same matrix map exact classifications"
+        },
+        {
+          "assessment": "Sharp bound stated for Frobenius norms; not a spectral operator-norm bound",
+          "evidence": [
+            "arXiv:1811.08358, equation (1.4)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.08358",
+          "material_read": "Primary original arXiv preprint introductory norm statements and displayed bound (equation 1.4), inspected relevant pages",
+          "method": "Norm hypothesis and claim implication check",
+          "title": "A Daleskii–Krein theorem for Hermitian matrix-functions based on vector-fields",
+          "trigger": "Potential stronger general scalar Lipschitz estimate"
+        },
+        {
+          "assessment": "Framework not shown to contain this exact two-dimensional universal coefficient in inspected material; no claim of whole-document exclusion",
+          "evidence": [
+            "arXiv:1611.01593, original survey"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.01593",
+          "material_read": "Original archive abstract, introductory Schur-multiplier discussion and thematic section structure; not entire 97-page survey",
+          "method": "Checked conceptual inclusion and exact norm specificity",
+          "title": "Operator Lipschitz functions",
+          "trigger": "General foundational machinery potentially subsuming low-dimensional case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, natural dimension-two spectral stability coefficient for the whole monotone Lipschitz functional calculus quantifies real amplification missed by scalar and Frobenius contraction, with a fixed positive-part sharpness family. It is a reusable norm-geometry boundary rather than a coordinate norm recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hermitian complex 2×2, nondecreasing scalar f only; no higher-dimension operator norm assertion.",
+    "The optimum is a supremum approached by positive-part derivatives; no finite sharp pair is claimed.",
+    "An unindexed norm-specific calculation of the 2×2 Schur multiplier constant could affect originality.",
+    "An older 2×2 spectral-norm triangular truncation or Schur multiplier calculation may yield the same optimal coefficient; no exhaustive historical priority check.",
+    "Carlsson 2021 follow-on journal paper examined at abstract/metadata level only; original related arXiv text was inspected.",
+    "The Aleksandrov–Peller survey was not fully read page by page; do not assert complete noncoverage."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The standard divided-difference derivative of smooth Hermitian functional calculus has three scalar coefficients in \([0,1]\) when the function is nondecreasing and 1-Lipschitz. The convex cube reduces its spectral-norm bound to eight masks; all are contractive except two symmetric masks. Optimizing the exceptional mask over extreme Hermitian unitary inputs yields exactly \(2/\sqrt3\). Integration and nonnegative mollification remove smoothness. An explicit real-symmetric positive-part perturbation realizes the sharp derivative limit. The normalizations and repeated-eigenvalue case are covered. Finite checks corroborate but do not replace these steps.
+## correctness
 
-## Originality
-**PASS, qualified.** Aleksandrov–Peller establish general operator-Lipschitz and Schur multiplier machinery, not an identified universal sharp two-level spectral-norm coefficient for all nondecreasing scalar Lipschitz functions. Carlsson's inspected first-order work proves a different Frobenius-norm estimate. Closely relevant positive-semidefinite projection findings report entrywise maximum and independent-coordinate \(\ell_p\) constants, not the spectral-norm result. The 2021 Carlsson publication's abstract was accessible, while the 2018 arXiv precursor's applicable norm statement was directly inspected. An earlier norm-specific computation remains a real priority risk; no uniqueness of discovery is claimed.
+PASS
 
-## Value
-**PASS.** Operator-Lipschitz stability is sensitive to both spectral dimension and the matrix norm. The optimal constant gives a sharp universal guarantee for a natural nontrivial class of spectral clipping and monotone transform procedures, and it quantifies the first departure from scalar nonexpansivity even though Frobenius spectral calculus remains contractive. The same positive-part function approaches the worst case, making the coefficient operationally interpretable.
+At simple two-point spectra, Df is the Hermitian Schur multiplier with coefficients u,v,w∈[0,1], including complex off-diagonal phase. Convexity reduces the induced spectral norm to eight binary masks; all but (1,0,1)/(0,1,1) have gain ≤1. Extreme Hermitian unitaries yield max_{0≤s≤1}(s+√(4−3s²))/2=2/√3. Integrate derivative along Hermitian segment, mollify nonsmooth monotone f and use positive-part perturbations near diag(1,−ε) for sharpness. L=0 and repeated eigenvalues covered.
 
-## Limits
-Only complex Hermitian \(2\times2\) matrices, monotone scalar Lipschitz functions, and the spectral operator norm are covered. No independent mathematical audit has occurred. The supporting numerical checker is finite corroboration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact spectral operator-norm universal coefficient 2/√3 for every monotone real scalar Lipschitz function on complex Hermitian 2×2 matrices is not implied by earlier full-text Resultary results using entrywise maximum and independent-coordinate norms, or by the sharp Frobenius estimate in Carlsson. Divided-difference Schur multipliers are known ingredients, but the induced two-level spectral norm, all-functions bound and fixed positive-part sharpness remain distinct in inspected statements.
+
+## value
+
+PASS
+
+A sharp, natural dimension-two spectral stability coefficient for the whole monotone Lipschitz functional calculus quantifies real amplification missed by scalar and Frobenius contraction, with a fixed positive-part sharpness family. It is a reusable norm-geometry boundary rather than a coordinate norm recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
