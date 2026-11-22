@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The exact invariant axis \((0,0,z_0-bt)\) and its transverse Jacobian give a nonautonomous two-component linear system with increasing coefficient \(s=bt-z_0\). Writing the ratio \(r=u/v\) yields a Riccati equation whose sub- and supersolution barriers have common expansion \(a/(ks)+B/s^2+O(s^{-3})\). Integrating the scalar growth rate \(sr-c\) gives the slow exponent \(a/k-c\), the exact polynomial exponent \(B/b\) and the critical exponent \(-c^2/b\). A scalar second-order reduction and an exact Gaussian Wronskian furnish the independent fast mode and prove the splitting for every transverse perturbation. The finite-equilibrium calculation is checked independently and not asserted to be novel. SymPy checker `verify.py` passes on the packaged algebraic identities; asymptotic completeness rests on the proof, not finite experiments.
+
+## Originality — PASS within inspected evidence
+Dong (2022, DOI 10.3390/fractalfract6040190) defines the same system, explicitly solves its finite equilibria and examines forward chaotic attractors, but its publicly accessible full article does not report the asymptotic linear transverse splitting on the noncompact axial trajectory. Yang–Wei–Chen (2010, DOI 10.1142/S0218127410026320) is a predecessor without the \(kxz\) term, so its asymptotic transverse system is different. Actual published-finding corpus semantic searches found related results for different quadratic or planar systems, including a Gaussian proximity law in a planar transient center and transverse stability of a stationary equilibrium line; none of the inspected claims implies the present \(a/k-c\) stability boundary and \(t^{-c^2/b}\) critical decay in this specific flow. The closest accessible earlier finding on an axial Airy split concerns a flow with a coupling in the *third* equation, not the first. General Riccati comparison and Wronskian theory are known tools, not asserted as new. Risk: unindexed or inaccessible prior studies might contain an equivalent reduction, and the predecessor's full text was not inspected.
+
+## Value — PASS
+The positive-\(k\) continuation passes through the natural boundary where two finite equilibria escape to infinity. The same boundary yields an exact three-regime transition in transverse linear behavior: exponential growth, algebraic critical decay and exponential decay. This connection to an escape-to-infinity equilibrium event is a motivated structural problem, with quantitative critical exponent and exceptional Gaussian-fast direction, not an arbitrary numerical invariant or relabeling of an existing equilibrium calculation.
+
+## Limits and independent validation
+The theorem applies to linearized transverse equations only. Neither linear decay along a noncompact base orbit nor a decreasing finite-time perturbation guarantees nonlinear attraction, global stability or existence of an attractor. Publication priority remains provisional, and no independent mathematical review was performed.
+
+Self-review: passed. Independent audit: not yet performed.
