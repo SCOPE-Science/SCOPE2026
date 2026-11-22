@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:01:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the frozen tree 96a9fe26, reconstructed the orientation-bit convention and the unique source strongly connected component recurrence: each source component U contributes its signed internal strong-tournament sum and the forced outward cross-arc sign. An independent 2^15-orientation reachability enumeration followed by exact 15-bit integer Walsh transform reproduced 22,320 strong tournaments, the complete 12-level absolute coefficient distribution, 24,352 zero coefficients and 8,416 nonzeros. Independently enumerated all S_6 edge-support permutation orbits and orientation-reversal parity; obtained 156 orbits, two exceptional eight-edge zero orbits represented by 958 and 1883, 360 members each, and exactly 720 symmetry-unforced zeros. The inverse transform of nonzero-frequency support has absolute numerator sum 1,399,040 and hence projection norm 1,399,040/32768=5465/128. Translation averaging of arbitrary projections onto the invariant Fourier range proves unrestricted optimality. Actual code and certificates checked at the assigned Git tree: verify_tournament_enumeration.cpp, verify_tournament_scc.cpp, walsh_coefficients.txt (32,768 coefficients), tournament_support_orbits.tsv (156 rows). The statement classifies only the two specifically defined symmetry-forcing mechanisms, not all conceivable identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary record 2026/11/16/SCOPE-complete-walsh-recovery-and-sharp-projection-constant-for-regula--ec7080dc84e2, on 2,640 regular seven-vertex tournaments; separate no-Condorcet-winner record 107af1531557"
+        ],
+        "reasoning": "Regular tournaments on seven vertices and tournaments merely lacking a Condorcet winner are different vertex counts/properties. Neither theorem gives the exact strong-six orientation indicator, its 15-bit all-frequency table, or the two unforced orbits.",
+        "searches": [
+          "six vertex strongly connected tournament spectra Fourier sign subsets exceptional zeros",
+          "Resultary: regular-seven-vertex tournament and no-Condorcet-winner Fourier results"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1909.01550",
+        "https://oeis.org/A054946",
+        "Resultary search: strongly connected six-vertex tournament Walsh full spectrum zero multipliers 958 1883 5465/128",
+        "Resultary search: six vertex strongly connected tournament spectra Fourier sign subsets exceptional zeros"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Archer et al. source-component recurrence specializing to signed edge characters; present full enumeration supplies specific exceptional orbit representatives"
+        ],
+        "reasoning": "The source-component recurrence itself is not new; its general existence could reproduce the finite computation. The inspected prior theorem does not state or calculate the 24,352 zeros, two unforced orbit representatives, or sharp 5465/128 projection norm; implication requires evaluating the 15-dimensional spectrum, not mere substitution of their one-parameter descent variable.",
+        "searches": [
+          "strongly connected six-vertex tournament Walsh full spectrum zero multipliers 958 1883 5465/128",
+          "Archer et al. arXiv:1909.01550"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Archer–Gessel–Graves–Liang (arXiv:1909.01550), paper pp.1,3,4 and its univariate descent recurrence; source RESULT.md signed all-edge character formula"
+        ],
+        "reasoning": "The single descent-count variable weights aggregated ordered edge descents, not an independent 15-bit subset of signed edges. It does not characterize all Walsh zeros or S6 support orbits. Global arc reversal and parity-stabilizer vanishing are recognized existing symmetry mechanisms, and the claim concerns two additional zero orbits.",
+        "searches": [
+          "strongly connected six-vertex tournament Walsh full spectrum zero multipliers 958 1883 5465/128",
+          "six vertex strongly connected tournament spectra Fourier sign subsets exceptional zeros",
+          "Archer et al., arXiv:1909.01550, source-component descent polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical count of 22,320 strong six-vertex tournaments; Resultary first-nontrivial-walsh-singularity-of-complete-graph-forests--c987bb4dd1d8 treats undirected spanning forests"
+        ],
+        "reasoning": "A family-cardinality table cannot imply all 32,768 signed Fourier coefficients. The K6 forest indicator is on undirected edge subsets, not orientations of complete digraphs; no exact existing Walsh table with the two exception masks was located.",
+        "searches": [
+          "strongly connected six-vertex tournament Walsh full spectrum zero multipliers 958 1883 5465/128",
+          "OEIS A054946 strongly connected labeled tournaments",
+          "SCOPE K6 forests Walsh census"
+        ]
+      },
+      "rationale": "The edge-wise signed Fourier census and precise two unexpected zero orbits are not supplied by the classic enumeration of strong tournaments, by the source-component descent polynomial, or by distinct tournament subclasses in the indexed SCOPE comparisons. Best-of-knowledge priority with nonexhaustive historical records.",
+      "residual_risks": [
+        "A differently indexed complete signed-tournament spectrum or historic dissertation could have precomputed the two orbit representatives.",
+        "The SCC recurrence and relabeling forcing are classical, so originality attaches to the exact evaluated classification and projection constant, not to those general methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_RELEVANT_NOT_EXACT_COVERAGE",
+          "evidence": "It gives a descent-weighted SCC decomposition and the strong tournament total, but not independent edge-mask Walsh spectrum or exceptional support orbits. Relevant sections inspected; not claiming exhaustive line-by-line whole-paper exclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.01550",
+          "material_read": "PDF pp.1,3,4 including introduction and theorem/recurrent decomposition relevant to tournament descents",
+          "method": "Primary PDF page images and theorem text; checked its variable weights and source-component decomposition",
+          "title": "Counting Acyclic and Strong Digraphs by Descents",
+          "trigger": "Specific claim that descent-weighted source-component recurrence might dominate signed enumeration"
+        },
+        {
+          "assessment": "CONTEXT_ONLY",
+          "evidence": "Enumeration and the cardinality of strong tournaments are prior; a lack of full-text access remains a historical-priority risk.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500000914",
+          "material_read": "The cited bibliographic theorem and total-family context, not publisher full text",
+          "method": "Citation and contextual comparison only; no full-text read",
+          "title": "The number of irreducible tournaments (Wright, 1970)",
+          "trigger": "Classical irreducible/strong tournament enumeration referenced by finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strong connectivity is a basic tournament invariant, and the first moderate complete orientation cube where nontrivial symmetry-unforced cancellation can be classified is mathematically natural. Separating exactly 720 zeros in two eight-edge support orbits from 23,632 symmetry-forced zeros produces a structural, precisely reproducible boundary, while rank and sharp endpoint projection norm quantify Fourier recovery. The calculation is finite but not an arbitrary slice or merely reprinting the 22,320 tournament count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1909.01550",
+    "https://oeis.org/A054946",
+    "Resultary search: strongly connected six-vertex tournament Walsh full spectrum zero multipliers 958 1883 5465/128",
+    "Resultary search: six vertex strongly connected tournament spectra Fourier sign subsets exceptional zeros",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-walsh-cancellation-beyond-relabeling-symmetry-for-six-vert--f605ff3212f7"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact six-vertex strongly connected tournaments only; no all-n theorem.",
+    "Symmetry forcing refers only to global reversal and odd orientation-reversing stabilizer; some other algebraic explanations may exist.",
+    "Literature comparison is bounded; external independent verification is not claimed."
+  ],
+  "residual_risks": [
+    "A differently indexed complete signed-tournament spectrum or historic dissertation could have precomputed the two orbit representatives.",
+    "The SCC recurrence and relabeling forcing are classical, so originality attaches to the exact evaluated classification and projection constant, not to those general methods.",
+    "Exact six-vertex strongly connected tournaments only; no all-n theorem.",
+    "Symmetry forcing refers only to global reversal and odd orientation-reversing stabilizer; some other algebraic explanations may exist.",
+    "Literature comparison is bounded; external independent verification is not claimed."
+  ],
+  "schema_version": 1
+}

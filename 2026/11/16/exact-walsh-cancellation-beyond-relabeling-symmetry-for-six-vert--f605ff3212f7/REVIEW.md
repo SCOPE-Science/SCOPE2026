@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses exactly \(G=(\mathbb F_2)^{15}\) and counts precisely the strongly connected orientations of \(K_6\). Exhaustive independent methods agree on every one of the \(32,768\) signed coefficients: direct tournament reachability plus Walsh–Hadamard butterflies, and a separately implemented signed unique-source-SCC recurrence. Both recover \(22,320\) strong tournaments, the full magnitude histogram, Parseval equality, rank \(8,416\), nullity \(24,352\) and the sharp positive gap \(16\). All \(720\) vertex permutations were used for the \(156\) support orbits, with exact character action signs. Exactly two zero orbits (\(958\), \(1883\)) are not forced by total arc reversal or a sign-changing support stabilizer. The range-projector absolute kernel sum is \(1,399,040\), giving \(5465/128\). Translation averaging proves optimality among all endpoint projections, with no numerical optimization assumption.
+PASS
 
-## Originality — PASS under bounded comparison
+At the frozen tree 96a9fe26, reconstructed the orientation-bit convention and the unique source strongly connected component recurrence: each source component U contributes its signed internal strong-tournament sum and the forced outward cross-arc sign. An independent 2^15-orientation reachability enumeration followed by exact 15-bit integer Walsh transform reproduced 22,320 strong tournaments, the complete 12-level absolute coefficient distribution, 24,352 zero coefficients and 8,416 nonzeros. Independently enumerated all S_6 edge-support permutation orbits and orientation-reversal parity; obtained 156 orbits, two exceptional eight-edge zero orbits represented by 958 and 1883, 360 members each, and exactly 720 symmetry-unforced zeros. The inverse transform of nonzero-frequency support has absolute numerator sum 1,399,040 and hence projection norm 1,399,040/32768=5465/128. Translation averaging of arbitrary projections onto the invariant Fourier range proves unrestricted optimality. Actual code and certificates checked at the assigned Git tree: verify_tournament_enumeration.cpp, verify_tournament_scc.cpp, walsh_coefficients.txt (32,768 coefficients), tournament_support_orbits.tsv (156 rows). The statement classifies only the two specifically defined symmetry-forcing mechanisms, not all conceivable identities.
 
-The 1970 enumeration paper by Wright, the full relevant 2013 strong-tournament structural exposition by Kühn et al., and the full accessible 2019 enumeration-by-descents paper by Archer et al. were compared by implication. The latter's source-component decomposition gives a standard precursor of the signed recurrence, and its one-parameter descent polynomial includes the all-edge-sign specialization, but does not determine arbitrary-edge Walsh multipliers or the two exceptional zero-orbit shapes. The closest mathematical records for regular tournaments, fixed six-point binary spectra and tournaments without a Condorcet winner concern different indicator supports and do not imply the present exact classification. Searches also included irreducible tournaments, graph-support automorphisms, relabeling-forced Fourier zeros, and exact endpoint projection constants. Historical search is bounded and unindexed older results remain a priority risk. The full Wright article was not available as accessible HTML; the abstract/extract was compared but not treated as a full-text exclusion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Strong connectivity is a canonical invariant tournament property. The full Fourier zero locus has \(124\) natural unlabeled support-graph classes, of which only two (both at degree eight) exhibit cancellation not forced by the two explicit symmetries. This separates combinatorial symmetry from genuine arithmetic cancellation and provides a complete exact benchmark for Fourier-based deconvolution of a nontrivial labeled tournament family. The independently sharp range-projection constant records reconstruction instability and is not a restatement of the known total number of strong tournaments. It is an exact finite classification, not a claim about all orders.
+The edge-wise signed Fourier census and precise two unexpected zero orbits are not supplied by the classic enumeration of strong tournaments, by the source-component descent polynomial, or by distinct tournament subclasses in the indexed SCOPE comparisons. Best-of-knowledge priority with nonexhaustive historical records.
 
-## Boundaries and source comparison
+## value
 
-The result does not claim originality for source-component decomposition, for strong-tournament counts, or for the standard character-projection formula. Its new content is the evaluated complete six-vertex spectrum, exact zero-orbit/symmetry classification and sharp projection norm. Relevant sources: Wright (1970), Kühn et al. (arXiv:1303.4213v1), Archer et al. (arXiv:1909.01550), and OEIS A054946. An independently performed mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strong connectivity is a basic tournament invariant, and the first moderate complete orientation cube where nontrivial symmetry-unforced cancellation can be classified is mathematically natural. Separating exactly 720 zeros in two eight-edge support orbits from 23,632 symmetry-forced zeros produces a structural, precisely reproducible boundary, while rank and sharp endpoint projection norm quantify Fourier recovery. The calculation is finite but not an arbitrary slice or merely reprinting the 22,320 tournament count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
