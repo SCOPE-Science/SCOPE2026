@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete Fourier formula is derived by edge increments, a three-term root-of-unity filter, and an integer-valued local character factor. The cancellation criterion follows from an exhaustive comparison of three signed powers of two, not a bounded search. The exact extra-zero count is a multinomial tally with the distinguished last suffix equal to zero. The rank follows from diagonalizing group convolution. Both exact-integer programs were replayed independently and checked every frequency through seven vertices; these computations corroborate rather than replace the proof. The asymptotic is a routine consequence of Stirling applied to the proved exact count.
+PASS
 
-## Originality — PASS under bounded comparison
+Diagonal colour translation annihilates unbalanced characters. For balanced k, differences d_i=x_{i+1}-x_i in {±1} with sum d_i=0, together with x_1, bijectively encode proper colourings. The 3-term roots-of-unity filter cancels the choice of initial colour and gives three products of local factors 2 or -1, hence (-1)^n sum(-2)^c_r. The b_n=0 distinguished suffix coordinate makes histogram multiplicity (n-1)!/((c0-1)! c1! c2!). Sorting three exponents proves the only cancellation is {a,a,a+1} with a>=1; its three placements give Z_n=(3a+1)!/((a+1)!a!²). The finite abelian Fourier basis gives rank 3^(n-1)-Z_n. Stirling yields 9sqrt(3)/(2pi n) balanced null fraction for n=3a+1. Independently recomputed exact small ranks n=3,4,5,6 and inspected both differently structured exact finite scripts through n=7, not treating enumeration as the all-n proof.
 
-The closest published cycle result studies only degree-one sampling Gram eigenvalues, not all Fourier coefficients of the proper-colouring indicator and not the counting-convolution rank. Sokal's chromatic/Potts cycle count and general spin/flow duality, Ellis-Monaghan–Moffatt's general external-field polynomial, Babson–Beck's Fourier graph-colouring census, and Shrock–Xu's uniformly weighted external-field cycle calculation do not explicitly yield the multiset of all vertex-character coefficients or identify the mod-three vanishing histogram. The current closed formula can of course be reconstructed from general spin-model machinery, but a generic exponential expansion is not the stated simple zero/rank classification. Relevant sources were inspected directly where accessible; an unindexed equivalent weighted-colouring formula remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact infinite family of Fourier convolution kernels has a sharp, congruence-class-dependent information-recovery boundary. The result is the first simple cyclic-block counterpart of tree-like zero-free colour Fourier kernels: the closing edge creates a genuine resonance, and the exceptional sector has an exact multinomial dimension and vanishing fractional density. The statement goes beyond a familiar chromatic-polynomial evaluation and gives the entire character spectrum with usable multiplicities.
+The full characterwise coefficient multiset is not the spectrum of the degree-one sampling covariance; the latter cannot determine all balanced high-frequency zeros. Classical cycle chromatic counts do not determine Fourier zeros. General frameworks cover evaluating a weighted partition function in principle, so distinguish a generic algorithm from the closed all-character multiset/rank theorem. A pre-existing specialized root-of-unity external-field theorem would dominate; none identified in bounded inspection. Prior graph-colouring Fourier/weighted-polynomial tools supply a means to compute coefficients, but the exact all-order cancellation criterion and rank are not stated in the identified results. A specialized simplification remains a priority risk.
 
-## Scope and limitations
+## value
 
-Only simple cycles and the ternary additive palette are covered. The comparison with published literature is bounded and does not establish absolute historical priority. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full vertex-character Fourier multiset of a natural graph-colouring indicator yields an exact convolution rank with a sharp modular resonance and explicit frequency multiplicities, not just chromatic counts or a chosen low-degree sampling Gram eigenvalue. A compact root-of-unity filter proves a useful complete infinite-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:47:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonal colour translation annihilates unbalanced characters. For balanced k, differences d_i=x_{i+1}-x_i in {±1} with sum d_i=0, together with x_1, bijectively encode proper colourings. The 3-term roots-of-unity filter cancels the choice of initial colour and gives three products of local factors 2 or -1, hence (-1)^n sum(-2)^c_r. The b_n=0 distinguished suffix coordinate makes histogram multiplicity (n-1)!/((c0-1)! c1! c2!). Sorting three exponents proves the only cancellation is {a,a,a+1} with a>=1; its three placements give Z_n=(3a+1)!/((a+1)!a!²). The finite abelian Fourier basis gives rank 3^(n-1)-Z_n. Stirling yields 9sqrt(3)/(2pi n) balanced null fraction for n=3a+1. Independently recomputed exact small ranks n=3,4,5,6 and inspected both differently structured exact finite scripts through n=7, not treating enumeration as the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ellis-Monaghan–Moffatt arXiv:1005.5470 defines arbitrary local-field Potts evaluations and spanning-subgraph expansions; inserting roots of unity can compute particular W_n, but not an explicit global cancellation histogram or rank.",
+          "Babson–Beck arXiv:1204.1283 studies graph colouring via group-Fourier flow representation, a general framework."
+        ],
+        "reasoning": "General frameworks cover evaluating a weighted partition function in principle, so distinguish a generic algorithm from the closed all-character multiset/rank theorem. A pre-existing specialized root-of-unity external-field theorem would dominate; none identified in bounded inspection.",
+        "searches": [
+          "Ellis Monaghan Moffatt Tutte Potts external magnetic field vertex-dependent weights graph polynomial arxiv 1005.5470",
+          "Babson Beck Counting Group Valued Graph Colorings 1204.1283",
+          "three-color cycle vertex weighted chromatic polynomial root unity field"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0503607",
+        "https://arxiv.org/abs/1005.5470",
+        "https://arxiv.org/abs/1204.1283",
+        "https://arxiv.org/abs/1009.1182",
+        "Resultary proper-colouring degree-one Fourier sampling study and semantically related findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full Fourier transform determines the unweighted count by k=0, but the reverse implication fails because a single count cannot distinguish all weighted character sums.",
+          "The external-field polynomial is broad enough to specialize to every W_n; deriving a short signed-power criterion and exact cancellation is nontrivial additional work."
+        ],
+        "reasoning": "Prior graph-colouring Fourier/weighted-polynomial tools supply a means to compute coefficients, but the exact all-order cancellation criterion and rank are not stated in the identified results. A specialized simplification remains a priority risk.",
+        "searches": [
+          "Sokal multivariate Tutte polynomial Potts cycle 2005",
+          "Ellis Monaghan Moffatt generalized field vertex-dependent Tutte Potts 2010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sokal, arXiv:math/0503607, relates chromatic/Potts cycles and flow Fourier duality but standard unweighted cycle count is only the zero-frequency specialization.",
+          "Resultary published sharp universal Fourier sampling stability on proper colourings of cycles studies degree-one sampled Gram eigenvalues, not all characterwise Fourier multipliers."
+        ],
+        "reasoning": "The full characterwise coefficient multiset is not the spectrum of the degree-one sampling covariance; the latter cannot determine all balanced high-frequency zeros. Classical cycle chromatic counts do not determine Fourier zeros.",
+        "searches": [
+          "proper three-colourings cycle all Fourier coefficients vertex characters convolution rank 3-state Potts (Resultary)",
+          "graph colouring characters Fourier transform edge increment Z3 cycle weighted Potts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A prior published record gives only first-degree sampling Gram spectrum; standard chromatic polynomial tables list P(C_n,3)=2^n+2(-1)^n.",
+          "No pre-existing exact rank table / complete ternary zero-frequency multiset found in inspected data."
+        ],
+        "reasoning": "This is an exact analytic classification for all n, not a finite database recensus. Numerical small-n ranks n=4=15, n=7=519 follow from the proved formula; absence of a table is not proof of priority.",
+        "searches": [
+          "exact Fourier multiset of proper 3 colorings cycle histogram c0 c1 c2 zeros",
+          "Resultary sharp universal Fourier sampling stability on proper colourings cycle full spectrum"
+        ]
+      },
+      "rationale": "The full characterwise coefficient multiset is not the spectrum of the degree-one sampling covariance; the latter cannot determine all balanced high-frequency zeros. Classical cycle chromatic counts do not determine Fourier zeros. General frameworks cover evaluating a weighted partition function in principle, so distinguish a generic algorithm from the closed all-character multiset/rank theorem. A pre-existing specialized root-of-unity external-field theorem would dominate; none identified in bounded inspection. Prior graph-colouring Fourier/weighted-polynomial tools supply a means to compute coefficients, but the exact all-order cancellation criterion and rank are not stated in the identified results. A specialized simplification remains a priority risk.",
+      "residual_risks": [
+        "An older arbitrary vertex-field Potts specialization could hide the exact three-power cancellation and rank in an equivalent form.",
+        "No extension to q>3 or noncycle graph families.",
+        "No claim is made that Fourier duality or unweighted cycle colour counts are original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The unweighted chromatic count and framework are prior, not shown to state histogram/rank",
+          "evidence": "Cycle 3-colouring total 2^n+2(-1)^n is classical.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "Abstract and cited cycle/flow formalism; full PDF not independently reread in this run",
+          "method": "read arXiv scope and theorem citations",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "classical graph-colouring Potts/flow duality"
+        },
+        {
+          "assessment": "General local-field polynomial can express Fourier sums, but exact three-power cancellation not confirmed in material read; risk retained",
+          "evidence": "Do not claim a whole-document NOT_COVERING verdict from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.5470",
+          "material_read": "Abstract and identified Theorem 4.2/Corollary 4.3 descriptions; full primary not reread in this run",
+          "method": "source scope comparison via primary abstract and existing citations",
+          "title": "The Tutte-Potts connection in the presence of an external magnetic field",
+          "trigger": "arbitrary vertex-weighted graph colouring potentially dominating"
+        },
+        {
+          "assessment": "Potential broad framework, not found to supply this cycle ternary rank; requires deeper checking",
+          "evidence": "Use of Fourier methods for graph colouring is not new.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1283",
+          "material_read": "Abstract and bibliographic scope; full source not independently read",
+          "method": "arXiv abstract comparison",
+          "title": "Counting Group Valued Graph Colorings",
+          "trigger": "general abelian Fourier treatment of colourings"
+        },
+        {
+          "assessment": "Different matrix/invariant, first-degree sampling only; broad full coverage not asserted without complete text",
+          "evidence": "Its stated domain is first Fourier band of samples and degree-one Gram spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-universal-fourier-sampling-stability-on-proper-colourings--8dc8f90856db",
+          "material_read": "Full result-summary for degree-one sampling Gram spectrum from published search; complete RESULT.md not independently read this run",
+          "method": "Resultary semantic lookup and theorem-scope comparison",
+          "title": "Sharp universal Fourier sampling stability on proper colourings of cycles",
+          "trigger": "same combinatorial objects and Fourier terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full vertex-character Fourier multiset of a natural graph-colouring indicator yields an exact convolution rank with a sharp modular resonance and explicit frequency multiplicities, not just chromatic counts or a chosen low-degree sampling Gram eigenvalue. A compact root-of-unity filter proves a useful complete infinite-family classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0503607",
+    "https://arxiv.org/abs/1005.5470",
+    "https://arxiv.org/abs/1204.1283",
+    "https://arxiv.org/abs/1009.1182",
+    "Resultary proper-colouring degree-one Fourier sampling study and semantically related findings"
+  ],
+  "disposition": "passed",
+  "final_claim": "For proper 3-colourings of every simple cycle, all nonbalanced ternary Fourier characters vanish; each balanced coefficient is (-1)^n sum_{r=0}^2(-2)^{c_r} for suffix-sum histograms. Balanced zeros occur exactly for histograms {a,a,a+1}, yielding exact rank 3^(n-1)-Z_n with multinomial Z_n.",
+  "limitations": [
+    "General vertex-weighted Potts formula is prior art; originality of this specialization is best-of-knowledge, not a global priority guarantee."
+  ],
+  "residual_risks": [
+    "An older arbitrary vertex-field Potts specialization could hide the exact three-power cancellation and rank in an equivalent form.",
+    "No extension to q>3 or noncycle graph families.",
+    "No claim is made that Fourier duality or unweighted cycle colour counts are original."
+  ],
+  "schema_version": 1
+}

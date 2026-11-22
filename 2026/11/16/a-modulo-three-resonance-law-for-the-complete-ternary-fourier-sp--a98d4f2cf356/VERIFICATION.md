@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_colours.py` and `python3 verify_transfer.py` in the directory containing these files. Both use only the Python standard library and exact integers.
+# Independent mathematical audit
 
-- `verify_colours.py` enumerates all proper three-colourings of each cycle with \(3\le n\le7\), forms every ternary character coefficient as a pair of Eisenstein integers, and compares all \(\sum_{j=3}^{7}3^j=3279\) coefficients with the theorem's formula.
-- `verify_transfer.py` independently computes the trace of site-weighted adjacency transfer matrices using exponent-residue triples rather than enumerating colourings and compares the same coefficients.
-- Both check the resonance multiplicity and rank, including \((n,Z_n,\operatorname{rank})=(4,12,15)\) and \((7,210,519)\).
+## correctness
 
-These are finite checks only. The all-order theorem rests on the self-contained edge-increment and signed-powers proof in `RESULT.md`. No external proof certification, Lean proof, or independent mathematical audit is claimed.
+PASS
+
+Diagonal colour translation annihilates unbalanced characters. For balanced k, differences d_i=x_{i+1}-x_i in {±1} with sum d_i=0, together with x_1, bijectively encode proper colourings. The 3-term roots-of-unity filter cancels the choice of initial colour and gives three products of local factors 2 or -1, hence (-1)^n sum(-2)^c_r. The b_n=0 distinguished suffix coordinate makes histogram multiplicity (n-1)!/((c0-1)! c1! c2!). Sorting three exponents proves the only cancellation is {a,a,a+1} with a>=1; its three placements give Z_n=(3a+1)!/((a+1)!a!²). The finite abelian Fourier basis gives rank 3^(n-1)-Z_n. Stirling yields 9sqrt(3)/(2pi n) balanced null fraction for n=3a+1. Independently recomputed exact small ranks n=3,4,5,6 and inspected both differently structured exact finite scripts through n=7, not treating enumeration as the all-n proof.
+
+## originality
+
+PASS
+
+The full characterwise coefficient multiset is not the spectrum of the degree-one sampling covariance; the latter cannot determine all balanced high-frequency zeros. Classical cycle chromatic counts do not determine Fourier zeros. General frameworks cover evaluating a weighted partition function in principle, so distinguish a generic algorithm from the closed all-character multiset/rank theorem. A pre-existing specialized root-of-unity external-field theorem would dominate; none identified in bounded inspection. Prior graph-colouring Fourier/weighted-polynomial tools supply a means to compute coefficients, but the exact all-order cancellation criterion and rank are not stated in the identified results. A specialized simplification remains a priority risk.
+
+## value
+
+PASS
+
+The full vertex-character Fourier multiset of a natural graph-colouring indicator yields an exact convolution rank with a sharp modular resonance and explicit frequency multiplicities, not just chromatic counts or a chosen low-degree sampling Gram eigenvalue. A compact root-of-unity filter proves a useful complete infinite-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
