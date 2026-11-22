@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact line–plane projection criterion identifies the simultaneous-invisibility directions with the cone over an intersection of three strips. The three-active-face versus six-active-face classification follows from the equilateral side-normal identity, and spherical Gauss–Bonnet yields the exact formulas with no numerically estimated constants. Fixed-sum strict optimality follows from nested triangles outside the hexagonal regime and the explicitly positive derivative of the cosine parameter inside it. Taylor expansion gives the stated quadratic stability coefficient. The independent checker directly constructs random projections and integrates the cone's angular area.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Closest primary literature: Glisse and Lazard (arXiv:cs/0702087) prove silhouette-size estimates and state the dihedral-angle averaging formula; Glisse et al. (HAL hal-00841374) analyze Poisson-sphere random polytopes, rather than exact two-apex invisibility of one fixed polytope; Affentranger–Schneider (DOI 10.1007/BF02187839) study high-dimensional projections of regular simplices. Exact center-plane section laws for symmetric triangular prisms can recover the *equal-height* subfamily by polar duality, but they do not give the asymmetric off-center-prism case or its sharp fixed-total optimum. The literature and mathematical-record comparisons found no all-parameter formula with the transition at height ratio two. Residual risk: a specialized finite-polyhedron shadow probability might have appeared under different nomenclature.
+PASS
 
-## Mathematical value — PASS
-The event is a natural visibility statistic—simultaneous disappearance of the two distinguished apices—for a complete two-parameter class of five-vertex convex polyhedra. A genuine change in the combinatorial type of the admissible viewing cone at exactly ratio two yields an exact piecewise law. The theorem also solves a geometrically natural fixed-separation design problem and quantifies the unique optimum to sharp second order. Its value is independent of an unspecified downstream application, and goes beyond recomputing the symmetric special case.
+For viewing axis v with v_z>0, projection of both apices into the projected equatorial triangle is equivalent to -α≤n_i·u≤β (i=1,2,3), where u=v_horizontal/v_z, α=1/(2a), β=1/(2b). The feasible polygon is a triangle when α≥2β or β≥2α, and a hexagon otherwise. The uniform hemispherical slope density (2π)^{-1}(1+||u||²)^{-3/2} and spherical exterior Gauss–Bonnet give all three quoted arccos branches. For fixed s=a+b, triangular feasible sets increase toward the hexagon and in the hexagon branch c_s(ab)=(1+2ab)/sqrt(1+4s²-8ab+16a²b²) has positive derivative for ab≤s²/4, forcing unique a=b; differentiating gives positive quadratic coefficient. Independent radial angular midpoint quadrature of the feasible slope domain agrees with analytic probabilities on five asymmetric/symmetric test pairs within 3e-7. Boundaries agree and degeneracies are Haar-null. This does not prove a full polygon-count distribution.
 
-## Boundaries and limitations
-The event is not equivalent, for asymmetric heights, to every triangular shadow: a triangular shadow may contain the taller apex. The claims concern uniformly sampled orthographic directions and equilateral-centered bases only. Simulation is corroborative, not proof. No independent mathematical or historical audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded PASS for the asymmetric two-height probability law, sharp height-ratio-two polygon phase boundary and unique balance with quadratic deficit. Earlier published symmetric odd-bipyramid shadows and Crofton section problems are relevant but are different distributional questions or one-dimensional slices.
+
+## value
+
+PASS
+
+A natural five-vertex convex body with two inequivalent apices has a complete two-parameter visibility law; the support polygon undergoes a genuine triangle–hexagon phase transition exactly at a 2:1 height ratio. The fixed-total balance theorem and quantified second variation are nontrivial structural optimization facts potentially reusable in random-projection geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

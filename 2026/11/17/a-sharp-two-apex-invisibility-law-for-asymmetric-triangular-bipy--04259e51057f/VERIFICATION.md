@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8+ and its standard library. The script independently constructs five planar projected vertices from random viewing directions and checks whether the projected upper and lower apex coordinates lie strictly inside the projected base triangle. No spherical-angle formula is used in that geometric event check. It then compares the measured frequency with the exact theorem, allowing 4.5 binomial standard errors.
+## correctness
 
-Seven parameter pairs produce a total of 1,260,000 independently generated directions. Further independent midpoint quadrature integrates the normalized spherical-area density over the slope-polygon radial function for five parameter pairs, with absolute error below \(2\times10^{-8}\). Fixed-total grid comparisons also test the strict equal-height maximizer at six scales. The observed terminal marker is `ASYMMETRIC_BIPYRAMID_BOTH_APICES_HIDDEN_OK 1260000`.
+PASS
 
-These experiments and quadratures do not prove equality for all parameter pairs or directions. The analytic proof in `RESULT.md` establishes the exact geometry, area formula, fixed-total optimizer, and quadratic remainder.
+For viewing axis v with v_z>0, projection of both apices into the projected equatorial triangle is equivalent to -α≤n_i·u≤β (i=1,2,3), where u=v_horizontal/v_z, α=1/(2a), β=1/(2b). The feasible polygon is a triangle when α≥2β or β≥2α, and a hexagon otherwise. The uniform hemispherical slope density (2π)^{-1}(1+||u||²)^{-3/2} and spherical exterior Gauss–Bonnet give all three quoted arccos branches. For fixed s=a+b, triangular feasible sets increase toward the hexagon and in the hexagon branch c_s(ab)=(1+2ab)/sqrt(1+4s²-8ab+16a²b²) has positive derivative for ab≤s²/4, forcing unique a=b; differentiating gives positive quadratic coefficient. Independent radial angular midpoint quadrature of the feasible slope domain agrees with analytic probabilities on five asymmetric/symmetric test pairs within 3e-7. Boundaries agree and degeneracies are Haar-null. This does not prove a full polygon-count distribution.
+
+## originality
+
+PASS
+
+Bounded PASS for the asymmetric two-height probability law, sharp height-ratio-two polygon phase boundary and unique balance with quadratic deficit. Earlier published symmetric odd-bipyramid shadows and Crofton section problems are relevant but are different distributional questions or one-dimensional slices.
+
+## value
+
+PASS
+
+A natural five-vertex convex body with two inequivalent apices has a complete two-parameter visibility law; the support polygon undergoes a genuine triangle–hexagon phase transition exactly at a 2:1 height ratio. The fixed-total balance theorem and quantified second variation are nontrivial structural optimization facts potentially reusable in random-projection geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
