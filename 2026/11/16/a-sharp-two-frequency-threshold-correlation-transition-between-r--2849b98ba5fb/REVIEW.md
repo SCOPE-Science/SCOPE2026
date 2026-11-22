@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every continuous strictly decreasing antipodal wave, every real threshold-arc radius \(1/6\le r\le1/5\), and all distinct positive integer frequencies. The reduction to the arc indicator uses precisely the symmetry assumptions. The Fourier coefficient calculation yields an absolutely convergent Bernoulli identity in two parity cases after the common gcd is removed. On each of the two intervals divided at \(3/16\), the candidate minimum is an explicit affine function. The exact uniform gap \(8r^2-Q(r)\ge1/32\), together with the Bernoulli range bound, excludes all odd–odd pairs with frequency product at least \(16\) and all mixed-parity pairs with product at least \(4\). Only nine coprime pairs remain; their fractional-part branches yield affine differences, and all three-node values are nonnegative by exact arithmetic. The two exhibited pairs attain the respective branches. The standalone checker confirms the exceptional list and table, exact breakpoints, and separately computed geometric intersection probabilities. These finite checks supplement, but do not replace, the frequency-uniform proof.
+PASS
 
-## Originality — PASS relative to inspected published statements
+Exact Fourier/Bernoulli correlation identity for coprime frequency pairs and odd/odd versus mixed parity was reconstructed. Uniform 8r^2-Q(r)>=1/32 for r in [1/6,1/5] together with B(x)-B(y)>=-1/4 excludes ALL pairs with odd/odd ab>=16 and mixed parity ab>=4. Precisely nine small coprime pairs remain; their exact rational differences at 1/6,3/16,1/5 are nonnegative, with no other relevant interior branches. Independent exact-fraction rechecks of nine exceptions and 1004 radii confirm two candidate affine formulas and crosspoint. This is an all-frequency analytic proof, not bounded-frequency extrapolation.
 
-Giannitsi and Madrid (arXiv:2610.38135v1, 2026-10-28), full HTML text inspected, define the wave/threshold framework and give \(F_r(n)\ge4r^n\) and large-number-of-frequencies asymptotics. Their result does not imply the present sharp two-frequency minimum on a continuum of positive thresholds. The publicly indexed *Sharp reciprocal-threshold two-frequency cosine correlations* has been inspected in full; it gives exact values at \(r=1/m\) but explicitly leaves nonreciprocal radii outside its claim. The publicly indexed *Sharp radius scaling for simultaneous Fourier-threshold correlations* has also been inspected in full; its general monotonicity gives only \(F_r(2)\ge4r/5\) from the \(r=1/6\) endpoint, and it solves only \(r\ge1/5\). Zang, Zhao, Zhao and Zhou (arXiv:2610.33190v1), main theorems, relevant full-text correlation arguments and an appendix inspected, concerns zero-threshold sign correlations and does not establish the positive-threshold two-frequency law. Thus none of these inspected statements subsumes the new interval classification. Earlier unindexed equivalent extremal-pair results remain a residual risk; a failed search is not proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is the natural two-frequency restriction of the recently introduced positive-threshold common-sign problem. It is not an arbitrary test case: two reciprocal-radius endpoints were previously solved but did not determine the full interval between them. The exact continuous interpolation exhibits a genuine optimizer switch at the rational radius \(3/16\) between two arithmetically distinct primitive pairs. The result supplies an all-frequency sharp bound, with a clean infinite-to-finite reduction, applicable to every antipodal waveform rather than one chosen numerical profile. The switch and exact affine lower envelope are not immediate deductions of the previously published scaling inequality.
+Best-of-knowledge exact continuum optimization sharp switch at r=3/16 is not furnished by prior reciprocal endpoint formulas or the general radius monotonicity.
 
-## Closest literature, reproducibility and limits
+## value
 
-The proof uses classical Fourier-series and periodic Bernoulli identities, openly acknowledged. The primary source is Giannitsi and Madrid, arXiv:2610.38135v1. Closest indexed mathematical comparisons are *Sharp reciprocal-threshold two-frequency cosine correlations* and *Sharp radius scaling for simultaneous Fourier-threshold correlations* (both first indexed November 2026). The sign-only comparison is Zang et al., arXiv:2610.33190v1. The exact rational `CHECK.py` is dependency-free, replays the nine-pair table and independently measures arc intersections, but does not prove the theorem beyond the analytical cutoff. Neither a universal minimizing-pair classification nor a result outside the stated interval is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural sharp threshold correlation for two frequencies and a nonreciprocal continuous range, including a genuine optimizing-frequency switch. Uniform analytic exclusion of all larger frequency competitors resolves meaningful unsolved interval between previously known discrete radii.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
