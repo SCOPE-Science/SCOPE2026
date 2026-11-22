@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The exact pseudogradient is the gradient of a strictly convex quadratic potential; the transformed two-demand Beckmann optimizers are feasible because all parallel affine Wardrop link flows are nondecreasing in demand. This proves the universal identity and uniqueness including endpoints. The explicit two-road quadratic objective establishes the sharp threshold and cost gap. Independent exact-rational tests: 2100 general KKT instances and 1344 two-road identity instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nilsson et al. 2018 Proposition 2 supplies equilibrium uniqueness for nonlinear graphs, not an all-share explicit allocation; algorithms in Section III.",
+        "Toso et al. 2024 Theorem 2 proves weakly decreasing price of anarchy, not the exact vector identity.",
+        "Battifarano and Qian 2023 Proposition 2 of Section 5.1 is conditional on the aggregate assignment remaining at user equilibrium."
+      ],
+      "reasoning": "More general assumptions or monotonicity inequalities do not give an unconditional explicit decomposition or its exact threshold formula by their published conclusions. Their game definitions are acknowledged; the specific affine specialization is proved independently.",
+      "searches": [
+        "\"atomic splittable\" \"nonatomic\" \"parallel\" \"linear\" \"equilibrium\" \"closed form\" Wardrop demand",
+        "\"Assignment and control of two-tiered vehicle traffic\" full text pdf",
+        "Battifarano Qian impact optimized fleets transportation networks 2023 parallel equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2408.15742",
+      "https://doi.org/10.1287/trsc.2022.1189",
+      "https://www.merl.com/publications/docs/TR2018-171.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 in Toso et al. establishes only monotonicity of PoA for convex parallel roads.",
+        "Battifarano and Qian analyze maximal fleet share preserving selfish equilibrium and minimal share inducing social optimum.",
+        "Nilsson et al. prove strong equilibrium well-posedness and supply iterative algorithms."
+      ],
+      "reasoning": "Exact coordinate identities imply the existing special affine monotonicity and plateau assertions, but those weaker conclusions do not conversely determine every road and class flow. The new two-road cost gap is calculated explicitly after recovering the full class allocation. The new claim does not assert new general uniqueness or PoA monotonicity.",
+      "searches": [
+        "arXiv:2408.15742 Section IV-C Proposition 3, Proposition 4, Theorem 2",
+        "Battifarano Qian 2023 Section 5.1 Proposition 2 and Proposition 4",
+        "Nilsson Grover Kalabic 2018 Section III Proposition 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Toso et al. arXiv:2408.15742, model equations (3)–(12) and Section IV-C: marginal fleet delay and equilibrium monotonicity, not the demand-average representation.",
+        "Nilsson et al. TR2018-171 Sections II–III: same two-class game and optimization algorithms, no two independent Wardrop solutions."
+      ],
+      "reasoning": "The tested equivalent language is a sum/difference decomposition of the unique mixed class allocations into two ordinary Wardrop flows at distinct demands. No such equivalent assertion appears in the inspected material; generic existence and solver equations are not equivalent formulas without additional affine-parallel analysis.",
+      "searches": [
+        "\"coordinated fleet\" \"Wardrop\" \"average\" \"demand\" affine equilibrium",
+        "\"mixed equilibrium\" \"Wardrop flow\" \"half\" coordinated fleet",
+        "\"fleet\" \"Wardrop\" \"two\" \"demands\" \"average\" parallel affine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected works provide models, numerical figures, threshold bounds and generic VI algorithms rather than a parameterized table of all affine parallel-road mixed equilibria."
+      ],
+      "reasoning": "The statement applies to arbitrary finite link count, coefficients and fleet fractions; it is neither a finite table lookup nor a repeated numerical computation.",
+      "searches": [
+        "\"coordinated fleet\" \"Wardrop\" \"two\" \"demands\" \"average\" parallel affine",
+        "\"mixed equilibrium\" \"Wardrop flow\" \"half\" coordinated fleet"
+      ]
+    },
+    "rationale": "No exact shifted-demand symmetrization was identified in the three relevant inspected primary full texts or published mathematical-result similarity searches. The 2024 study gives monotonicity, the 2023 study gives restricted critical-fleet results, and the 2018 paper gives existence and solvers; those prior statements do not state or directly dominate the exact representation. The underlying game, strict convexity and Wardrop water filling are credited as prior art. Residual historical-priority uncertainty is explicitly disclosed.",
+    "residual_risks": [
+      "Historical equivalent closed forms might exist in older multi-class transportation-equilibrium theory (including Harker 1988 and Yang et al. 2007), which was not exhaustively inspected in primary full text.",
+      "The underlying pseudogradient and strict convexity are established; the proposed novelty is confined to exact shifted-demand decoupling and sharp all-share allocation formulas.",
+      "No external independent validation of the priority claim has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related and motivating; not directly covering exact two-demand Wardrop representation",
+        "evidence": [
+          "Model costs equations (3)–(10); Section IV-C Propositions 3–4 and Theorem 2; conclusion requesting precise threshold characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.15742",
+        "material_read": "Original arXiv HTML text, model and equilibrium definitions, Sections III and IV including proofs and all numbered propositions; examples and conclusions",
+        "method": "Read searchable full article text and compared equilibrium equations, fleet-share monotonicity and threshold statements",
+        "title": "On the impact of coordinated fleets size on traffic efficiency",
+        "trigger": "Same two-class coordinated-fleet traffic model; latest motivating source"
+      },
+      {
+        "assessment": "Restricted equilibrium-preserving formulas and critical sizes; no unconditional two-demand symmetrization detected",
+        "evidence": [
+          "Section 5.1 Proposition 2 conditions its formula on aggregate UE flow; Section 5.1 Proposition 4 gives all-fleet requirement for SO on parallels"
+        ],
+        "identifier_or_url": "https://par.nsf.gov/servlets/purl/10482295",
+        "material_read": "Full-text PDF extraction, background and Sections 3–5 with special focus on Section 5.1 Propositions 1–4 and their scopes",
+        "method": "Read published full-text relevant sections and compare equilibrium-preservation formulas and fleet critical size",
+        "title": "The Impact of Optimized Fleets in Transportation Networks",
+        "trigger": "Same nonatomic drivers and one optimized fleet; analytical parallel-network results"
+      },
+      {
+        "assessment": "Provides equivalent game setup and generic solution algorithms but not independent low/high-demand Wardrop water filling",
+        "evidence": [
+          "Section II objectives (1)–(2); Section III Propositions 1–2 on well-posedness and iterative assignment algorithms"
+        ],
+        "identifier_or_url": "https://www.merl.com/publications/docs/TR2018-171.pdf",
+        "material_read": "Full-text open report; Sections II–III problem, Propositions 1–3, algorithms and special examples",
+        "method": "Read full-text mathematical claims and inspected the report title-page image; compared potential KKT versus solution formulas",
+        "title": "Assignment and Control of Two-Tiered Vehicle Traffic",
+        "trigger": "Earliest highly relevant same-object optimization and graph-traffic solver"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8edc741a-9bb8-4e17-9786-c3f0b68a14d0",
+  "value": {
+    "rationale": "An arbitrary-link coupled mixed Wardrop/atomic-fleet game is reduced exactly to two scalar monotone Wardrop inversions. This resolves all fleet shares and support transitions, and yields a sharp intervention-size plateau and efficiency law in an interpretable two-road example. The target is motivated by published open questions about precise coordination thresholds, and is a structural formula rather than a routine numerical recalculation.",
+    "status": "PASS"
+  }
+}
