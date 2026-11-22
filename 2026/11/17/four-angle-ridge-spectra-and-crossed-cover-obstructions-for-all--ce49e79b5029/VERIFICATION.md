@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python order_ridge_checker.py` with Python 3 and NumPy. No random system entropy, network access, or external datasets are needed. This enumerates every naturally labeled poset of size two through six (obtained as all transitively closed subsets of the forward relations of a fixed total order), then independently checks the rank of the common tight-vertex set of every pair of facets and compares normal angles with the proposed local rule. It also checks the closed count identities. Two hundred seeded random naturally labeled examples each of sizes seven and eight are tested additionally.
+## correctness
 
-Observed output:
+PASS
 
-```text
-ALL_NATURALLY_LABELED_PASS n=2 posets=2
-ALL_NATURALLY_LABELED_PASS n=3 posets=7
-ALL_NATURALLY_LABELED_PASS n=4 posets=40
-ALL_NATURALLY_LABELED_PASS n=5 posets=357
-ALL_NATURALLY_LABELED_PASS n=6 posets=4824
-RANDOM_POSETS_PASS n=7 cases=200
-RANDOM_POSETS_PASS n=8 cases=200
-ORDER_RIDGE_ANGLE_PASS total_exhaustive=5230 random=400
-```
+For any finite poset with n>=2, the augmented Hasse covers give precisely the minimal facets (standard order-polytope theorem). Pairwise equalities on two distinct covers either create a single three-point block or two two-point blocks; contraction is exactly codimension two iff no extra forced equality/cycle. For consecutive edges a<b<c the only obstruction is a fourth interval point between a,c; for disjoint edges (a,b),(c,d), the only quotient cycle requires both cross comparisons a<d,c<b. Common-source/target edges are compatible. These cases give R=binom(F,2)-Bchain-Bcross. The outward normals e_a-e_b (formal bottom/top coordinates 0) have dot products yielding only pi/4,pi/3,pi/2,2pi/3 with the claimed Tboundary,Tinterior,U and remaining right-angle counts. I independently enumerated 1,098 increasing-labelled edge-mask posets n=2..5 and, for each, compared every facet pair against the rank of all tight 0/1 order-vertices, including the exact angle class; all passed. This finite check corroborates, but the cover-partition proof supplies the all-poset statement.
 
-The checker constructs independent-set-style order-preserving binary vertices directly from the partial order and measures the resulting affine rank. This is independent of the interval/crossing predicate used for its expected answers. All ranks are computed on small integral vectors. These are finite tests, not an exhaustive proof beyond size six and not an independent mathematical audit. The theorem's general proof is contained in `RESULT.md`. The formula applies only to the canonical Euclidean coordinate metric, and the two added marked extrema must be distinct new elements.
+## originality
+
+PASS
+
+The general connected-compatible face-partition theorem for order polytopes is classical, and a separately published rooted-tree case has the same four-angle alphabet. The additional all-poset statement explicitly isolates the crossed-cover versus long-two-step interval obstructions and gives exact angular multiplicities without enumerating vertices or faces. Pegel's full primary treatment was inaccessible by institutional access and a hidden equivalent theorem remains a specific residual priority risk; not an automatic mathematical FAIL.
+
+## value
+
+PASS
+
+All finite posets and their Euclidean order polytopes form a foundational natural class. A finite local Hasse-diagram recipe that simultaneously characterizes ridge nonincidence and four exact angle multiplicities is structural and useful for combinatorial and metric polyhedral questions, especially crossed-cover obstructions beyond tree or chain cases, rather than a routine single-instance numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

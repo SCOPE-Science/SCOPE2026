@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for every finite poset on at least two elements in the standard coordinate Euclidean metric. Every facet is indexed by an augmented Hasse cover. Two such covers collapse exactly two degrees of freedom if their quotient preorder remains antisymmetric; the proof classifies all possible failures for two covers into (i) an alternate element in a two-step interval and (ii) a crossed pair of disjoint covers. The outer-normal products then give all four angle classes and the multiplicities without statistical assumptions. The standalone checker independently determines actual facet-intersection ranks from all order-preserving binary vertices for all 5,230 naturally labeled posets of sizes two through six, and compares every facet pair with the formulas; 400 seeded examples at seven and eight elements also pass. The infinite result uses the combinatorial proof, not the finite runs. Boundary conventions and the dimension-two case were checked.
+PASS
 
-## Originality — PASS, with priority limitations
+For any finite poset with n>=2, the augmented Hasse covers give precisely the minimal facets (standard order-polytope theorem). Pairwise equalities on two distinct covers either create a single three-point block or two two-point blocks; contraction is exactly codimension two iff no extra forced equality/cycle. For consecutive edges a<b<c the only obstruction is a fourth interval point between a,c; for disjoint edges (a,b),(c,d), the only quotient cycle requires both cross comparisons a<d,c<b. Common-source/target edges are compatible. These cases give R=binom(F,2)-Bchain-Bcross. The outward normals e_a-e_b (formal bottom/top coordinates 0) have dot products yielding only pi/4,pi/3,pi/2,2pi/3 with the claimed Tboundary,Tinterior,U and remaining right-angle counts. I independently enumerated 1,098 increasing-labelled edge-mask posets n=2..5 and, for each, compared every facet pair against the rank of all tight 0/1 order-vertices, including the exact angle class; all passed. This finite check corroborates, but the cover-partition proof supplies the all-poset statement.
 
-Stanley's standard facet representation and Geissinger/Pegel's face-partition characterization are prior results, not contributions claimed here. In particular, Pegel's compatibility characterization gives a general decision method that could reconstruct incidences indirectly, so originality does not reside in inventing compatible partitions or in the elementary normal-inner-product identity. The new explicit assertion is that **only two named forbidden local patterns** suffice for every facet pair, together with a closed four-angle multiplicity spectrum for all standard order polytopes. The accessible full-text sections of Ahmad–Fourier–Joswig (2023), Pegel (2016), Freij-Hollanti–Lundström (2023), and Mori (2024) do not state these formulas. A previously known rooted-tree special case is subsumed, but not repeated as a new special-case finding. Semantic searches did not locate an equivalent formula; this cannot establish priority, and an implicit derivation in a prior source remains the leading risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete metric ridge classification applies to arbitrary finite posets rather than a sampled family, and turns the otherwise global compatible-partition test into local Hasse path/rectangle obstructions. The crossed-cover correction is essential: a four-element complete two-level poset already supplies a counterexample to the naive claim that all disjoint cover facets meet in ridges. The formula distinguishes whether a candidate ridge is acute, right or obtuse, provides exact multiplicities, and yields a closed calculation for complete two-level posets. These are natural codimension-two invariants in convex-polytope geometry, with direct potential for testing order/chain face-vector phenomena and metric realizations.
+The general connected-compatible face-partition theorem for order polytopes is classical, and a separately published rooted-tree case has the same four-angle alphabet. The additional all-poset statement explicitly isolates the crossed-cover versus long-two-step interval obstructions and gives exact angular multiplicities without enumerating vertices or faces. Pegel's full primary treatment was inaccessible by institutional access and a hidden equivalent theorem remains a specific residual priority risk; not an automatic mathematical FAIL.
 
-## Closest literature and limitations
+## value
 
-- C. Pegel, *The Face Structure and Geometry of Marked Order Polyhedra* (arXiv:1610.01393): Theorem 3.14 and facet correspondence, a broader prior combinatorial encoding but no explicit complete Euclidean dihedral-angle spectrum located in the inspected text.
-- I. Ahmad, G. Fourier, M. Joswig, *Order and chain polytopes of maximal ranked posets* (arXiv:2309.01626): Theorem 2.1 recalls the classical compatible-partition description; Theorem 4.1 treats face-vector comparisons in a special poset class.
-- R. Freij-Hollanti, T. Lundström, *f-vector inequalities for order and chain polytopes* (arXiv:2312.13890): broader face-vector inequalities via sums, but not the metric formula.
-- A. Mori, *Triangular faces of the order and chain polytope of a maximal ranked poset* (arXiv:2404.00263): triangular two-face counts, not codimension-two Euclidean dihedral classification.
+PASS
 
-The theorem does not address arbitrary affine scaling, general marked posets, or chain polytopes. Priority remains subject to further literature examination, especially the possibility of an equivalent unindexed consequence of the classical partition characterization.
+All finite posets and their Euclidean order polytopes form a foundational natural class. A finite local Hasse-diagram recipe that simultaneously characterizes ridge nonincidence and four exact angle multiplicities is structural and useful for combinatorial and metric polyhedral questions, especially crossed-cover obstructions beyond tree or chain cases, rather than a routine single-instance numerical computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
