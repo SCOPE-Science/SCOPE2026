@@ -1,19 +1,17 @@
-# Self-review
+# Scientific assessment of the narrowed Floquet statement
 
-## Correctness — PASS
+## Correctness
 
-The exact log-odds coboundary and instantaneous belief relation force the mean of every two-cycle to equal \(m\) and reduce all primitive two-cycles to one scalar equation. A strict integral-monotonicity proof establishes existence/uniqueness over the full stated parameter domain, including boundary equalities. Explicit cubic Taylor coefficients establish the square-root onset, and a directly factored two-step Jacobian plus strict Schur inequalities prove near-birth attraction for \(r<1/3\). The \(r>1/3\) non-attraction assertion uses the exact determinant. The symbolic checker reconstructs the Jacobian factors and all arithmetic witness identities; sampling is not substituted for proof.
+The exact logit coboundary and belief replacement reduce the two-cycle existence/count to the previously studied scalar model. For a genuine two-dimensional cycle the product Jacobian has trace 1-a(1+r)(s_++s_-)+a²s_+s_- and determinant a²r²s_+s_-. Strict convexity of logit derivative gives the exact Schur margin 1-T+D>0. Continuity and the equilibrium eigenvalues -1 and -2r/(1-r) establish the r=1/3 near-birth division on the stated strict parameter ranges. The double-critical equality is excluded. Symbolic and exact arithmetic checks provide corroboration, not a universal proof.
 
-## Originality — PASS within inspected literature
+## Originality and priority
 
-The initiating Metaxas–Sapsis preprint already proves the trajectory Cesàro mean equals the equilibrium; that mean identity is acknowledged as prior work. It also illustrates multiple period-two and resonance phenomena, but its inspected equations, narrative, bifurcation figures, and appendix do not give a global exact period-two census for the admissible maximal-response boundary \(k=1\). Earlier Chotibut–Falniowski–Misiurewicz–Piliouras work gives a one-dimensional periodic-orbit theory and a symmetric two-cycle result but has no dynamically lagged risk belief. Searches for the exact feedback product, exact period-two threshold, and equivalent scalar log-odds formulation located no stronger coverage in the inspected corpus. The published one-dimensional replicator-cycle works are not general theorems for this two-dimensional map. Historical priority remains provisional because not every conceivable publication or later revision was inspected.
+The scalar count and threshold are already implied by the general-target one-dimensional cycle theorem reported in Kryzhevich–Zhang–Chmara (2024), Lemma 3.1, and earlier sources; the symmetric scalar case is treated by Chotibut et al. (2018). These are credited explicitly. The surviving claim concerns the *transverse* two-dimensional Floquet multipliers, strict +1 exclusion along the entire orbit branch and the sharp local stability division at cp1=1/3. The full primary model paper of Metaxas–Sapsis (2026) discusses period-doubling and other bifurcations but does not establish these exact k=1 all-parameter Floquet statements. Relevant published same-map inverse-geometry studies do not imply them. Priority remains best-of-knowledge, not externally certified.
 
-## Mathematical value — PASS
+## Mathematical value
 
-The source's numerically rich two-dimensional parameter portrait motivates an exact benchmark. The theorem completely answers a natural first-periodic-orbit classification at a permitted, physically interpretable endpoint, proves that sufficiently strong endogenous feedback eliminates all primitive two-cycles at every learning rate, and identifies a sharp transverse stability split despite the universally supercritical algebraic orbit birth. These implications are not simply a substitution in the one-dimensional symmetric-cycle theorem.
+The extra belief variable can prevent a period-two branch known from scalar theory from being attracting. Determining the precise feedback threshold, and excluding any +1 Floquet crossing on that entire branch, supplies a natural exact dynamical invariant beyond scalar existence or finite bifurcation plots. No claim is made to a larger theory of all attractors.
 
-## Scope and review limits
+## Limits
 
-The classification covers primitive period two at \(k=1\) only. Global attraction, longer-period dynamics, and the codimension-two \(r=1/3\) nonlinear normal form remain unproved. Numerical and symbolic software checks corroborate the analytic argument; they are not an independent audit.
-
-Self-review: passed. Independent audit: not yet performed.
+The result is restricted to k=1, interior least-period-two states and the local stability regime near onset. r=1/3 is not classified, and no global attracting basin or higher-period census is asserted. Arithmetic checks are finite; exact inequalities in the proof carry the universal conclusions.
