@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact two-generator Hilbert-series identity gives every nontrivial root-of-unity value with exactly one removable generator factor. The discrete inverse transform of 1/(1-zeta^b) at d-th roots is ((d-1)/2 - rem_d(b^{-1}r)); genus changes by m(a-1)/2. Coprimality of d and e gives simultaneous CRT extremes. Nonresonant denominator moduli are >=4/m, so the residual Fourier range is <=m/2+m^2/4. The source-free DP checker verified 6,266 histograms, 4,383 steps in each direction and 340 progression cases; these are tests, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Komatsu–Zhang 2021 arxiv:2105.08274 Theorems 2 and 3 compute weighted Sylvester sums for nonresonant and resonant complex weights.",
+        "Komatsu–Zhang arxiv:2101.04298 §2 derives a weighted-sum formula for numerical-semigroup complements using Apéry sets."
+      ],
+      "reasoning": "These sources determine all individual Fourier samples, which is broader raw computability. The new theorem requires subtracting generator-shift configurations and optimizing a two-resonance CRT range uniformly in parameters. A general evaluating formula does not itself give the stated sharp parameter-growth coefficient; nevertheless, it raises a material implicit-coverage risk.",
+      "searches": [
+        "weighted Sylvester sums arbitrary roots of unity Fourier count gaps residue numerical semigroups 2021",
+        "generalized Sylvester sums exponential weights roots of unity Frobenius 2021 Komatsu Zhang",
+        "arxiv:2101.04298v3 sections 1–2",
+        "arxiv:2105.08274 Theorems 2 and 3",
+        "root of unity evaluation of two generator semigroup gap polynomial with noninvertible generators"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2101.01760v1 first public 2021-01-05, source primary number theory classification 11D04",
+      "arxiv:2105.08274v1 first public 2021-05-18, general complex-weight binary Frobenius sums",
+      "arxiv:2101.04298v1 first public 2021-01-12, weighted sums in more variables",
+      "Accessible same-category own ledger 157 claims, closest row 153 checked for statement implication",
+      "Published research comparison: \"Sharp residue balancing for interval-generated numerical semigroups\", related interval-semigroup result, differing family",
+      "Published research comparison: \"A sharp two-unit gap-residue discrepancy law for odd quotients of consecutive coin semigroups\", related quotient-semigroup result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shor arxiv:2101.01760 Corollary 5.5 characterizes equidistribution of two-generated semigroup gaps; zero discrepancy requires gcd(ab,m)=1.",
+        "Accessible prior claim in ledger row 153 proves bounded discrepancy for gcd(ab,m)=1, and hence makes no quantitative assertion in the nonunit regime.",
+        "Komatsu–Zhang includes resonant weighted sums but not a stated global CRT discrepancy maximization."
+      ],
+      "reasoning": "New work does not claim the known generating function, Sylvester genus, exact zero-discrepancy classification, or raw weighted summation. It classifies, for every nonunit pair, the additive response to each generator increment and the universal sharp principal growth of the maximum-minus-minimum residue count. The old unit case is subsumed in the broad hypothesis but is explicitly credited rather than claimed as a new standalone case.",
+      "searches": [
+        "binary numerical semigroup gaps modulo m arbitrary non-unit generators exact residue distribution linear drift sawtooth gcd(a,m) gcd(b,m) Fourier",
+        "exact generator shift formula gap residue counts N_r(a+m,b)-N_r(a,b) equals least residues modulo gcd(b,m)",
+        "sharp leading term ((gcd(a,m)-1)b+(gcd(b,m)-1)a)/m gap residue discrepancy of two generated numerical semigroups",
+        "arxiv:2101.01760 Corollary 5.5",
+        "arxiv:2105.08274 Theorems 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2101.01760 §§2–3: gap-polynomial and roots-of-unity criteria, no displayed generator-additive sawtooth law.",
+        "arxiv:2105.08274 §§1,4: explicit weighted sums at all complex weights, including root-of-unity resonance."
+      ],
+      "reasoning": "The same claim can be phrased as exact affine evolution of the full residue histogram on each admissible generator-residue lattice, or as a decomposition of the discrepancy into independent resonant sawteeth. Neither statement was found explicitly; broad weighted sums make an equivalent unlisted corollary a priority risk.",
+      "searches": [
+        "binary numerical semigroup gaps modulo m arbitrary non-unit generators exact residue distribution linear drift sawtooth gcd(a,m) gcd(b,m) Fourier",
+        "exact generator shift formula gap residue counts N_r(a+m,b)-N_r(a,b) equals least residues modulo gcd(b,m)",
+        "\"gaps\" \"a+m\" \"b\" \"numerical semigroup\" residue counts",
+        "\"counting gaps\" \"residue class\" two-generated \"quasipolynomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public result titled \"Sharp residue balancing for interval-generated numerical semigroups\" concerns interval-generated semigroups with modulus dividing interval width; it does not state the all-coprime-pair two-generator affine transfer.",
+        "Public result titled \"A sharp two-unit gap-residue discrepancy law for odd quotients of consecutive coin semigroups\" concerns quotient semigroups, not raw gap-residue counts of all coprime two-generator semigroups."
+      ],
+      "reasoning": "The searched mathematical records contain related restricted exact residue histograms, but no exact finite table or database entry for the universal nonunit generator-transfer and sharp two-term leading discrepancy. Absence in this search is not proof of uniqueness.",
+      "searches": [
+        "sharp leading term ((gcd(a,m)-1)b+(gcd(b,m)-1)a)/m gap residue discrepancy of two generated numerical semigroups",
+        "root of unity evaluation of two generator semigroup gap polynomial with noninvertible generators",
+        "\"numerical semigroup\" \"gaps\" \"Fourier\" residue class gcd arbitrary",
+        "two generator Frobenius gaps modular counts roots unity Sylvester sums periodicity discrepancy"
+      ]
+    },
+    "rationale": "Shor 2021 proves equidistribution criteria and Komatsu-Zhang 2021 provide weighted-Sylvester evaluation, including resonant Fourier cases. These establish raw Fourier data, not the all-parameter integer sawtooth transfer or the globally optimized additive leading coefficient for nonunit modular settings. Prior accessible own result covers gcd(ab,m)=1 and does not imply the nonunit law. An unstated/latent derivation in prior weighted-sum papers is a genuine priority risk.",
+    "residual_risks": [
+      "An explicit unstated generator-transfer corollary may be implicit in prior weighted-Sylvester Fourier formulas or recorded under alternate terminology.",
+      "Other older papers on periodic/quasipolynomial residue distributions of binary Frobenius gaps could supply equivalent sharp leading bounds.",
+      "A fully independent mathematical assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers zero-versus-nonzero balancing and root-of-unity setup, not the displayed nonunit sharp coefficients or affine transfer",
+        "evidence": [
+          "Corollary 5.5 two-generator zero-discrepancy criterion",
+          "Section 2.2 multiset generating functions",
+          "§3.1 root-of-unity criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.01760",
+        "material_read": "HTML introduction and generating-functions sections 2.2, 3.1, 5.2–5.3; PDF first page and page 15 visually inspected",
+        "method": "Open text and visual page inspection",
+        "title": "Equidistribution of numerical semigroup gaps modulo m",
+        "trigger": "Identical two-generator gap objects and modular residue-count question"
+      },
+      {
+        "assessment": "Provides weighted sums and resonant root-of-unity evaluations; no stated all-modulus sharp discrepancy-growth law or universal step formula; material latent-corollary risk",
+        "evidence": [
+          "Theorem 2 nonresonant evaluation",
+          "Theorem 3 resonant evaluation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.08274",
+        "material_read": "Complete accessible mathematical HTML including introduction and Sections 2–4, especially Theorems 2 and 3",
+        "method": "ArXiv full-text HTML mathematical comparison",
+        "title": "Weighted Sylvester sums on the Frobenius set",
+        "trigger": "Potentially dominating exact evaluation for all complex weights, including resonances"
+      },
+      {
+        "assessment": "Supplies raw weighted-sum machinery, not the optimized simultaneous-resonance discrepancy statement",
+        "evidence": [
+          "Section 1 weighted-sum definition and formula",
+          "Section 2 Eulerian/Apéry derivation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2101.04298v3",
+        "material_read": "Full-text Sections 1–2 and theorem setup, with references to two-generator prior evaluations",
+        "method": "ArXiv HTML source inspection",
+        "title": "Weighted Sylvester sums on the Frobenius set in more variables",
+        "trigger": "Broader weighted-Sylvester formula potentially covering two-generator cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "305af215-0821-4c93-b5bd-71a39ef2e47e",
+  "value": {
+    "rationale": "The natural, previously unresolved quantitative question is how residue imbalance changes when a generator is not a modular unit. The theorem proves a complete exact affine response for every valid generator increment and a sharp principal range coefficient for every modulus and generator pair; the two coprime resonance moduli contribute additively by CRT. This makes the bounded-versus-growing transition quantitative and handles both generators simultaneously, far beyond isolated numerical table values or a routine fixed-parameter recomputation.",
+    "status": "PASS"
+  }
+}
