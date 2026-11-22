@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:50:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the exact finite window g(j)=rho^j on Z_(qm), Fourier transform in the m modulation columns decomposes the Gabor synthesis into m q-by-q fibres. Writing t=ma+b gives fibre entries rho^((j-b) mod m) C_R[:,a+1_{b>j} mod q], R=rho^m, where C_R is invertible since its circular Fourier eigenvalues are (1-R^q)/(1-R exp(-2pi ik/q)). Thus rank equals the sum of distinct selected indices per fibre; full rank forces all remainders b_a equal, precisely the m coset masks. For each full-rank mask, diagonalization gives the full claimed lambda_(s,k), exact extrema, determinant and condition number. The derivative equation for optimal R is monotone and diverges at R->1, giving a unique global minimizing taper. Direct independent NumPy synthesis/SVD over all 20 q=3,m=2 masks at rho=.6 checked rank and exact squared spectrum; source checker covers more finite instances. Exact proof is all q,m>=2, not finite extrapolation. Verified Git tree and RESULT.md/check_geometric_masks.py blob identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The most relevant published broad theorem is block equivalence for arbitrary windows; specific retrieved SCOPE results concern Gabor intensity tomography, phase-rank strata or near-Parseval fixed-lattice windows."
+        ],
+        "reasoning": "A general reduction to blocks does not on its own state or imply a complete exact geometric-window rank spectrum and optimal taper, without proving the special circulant structure and mask combinatorics.",
+        "searches": [
+          "geometric window cyclic Gabor finite subgroup arbitrary translation masks rank spectrum optimal condition number",
+          "https://arxiv.org/abs/2605.16139",
+          "Resultary finite cyclic Gabor full spark geometric phase lifting"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.16139",
+        "https://arxiv.org/abs/2609.09614",
+        "Resultary query: geometric window cyclic Gabor finite subgroup arbitrary translation masks rank spectrum optimal condition number",
+        "SCOPE frozen RESULT.md/check_geometric_masks.py and assigned tree 4cfa72cdf30da144e340e2bcce9869d7b6d00f66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published block-equivalence gives a decomposition as reusable lemma; it does not specify C_R eigenvalues and circular binary-boundary collision forcing common residue b across all q translations."
+        ],
+        "reasoning": "Specializing a broad theorem still requires independent structural fibre analysis and optimization. No inspected prior has all four target implications.",
+        "searches": [
+          "https://arxiv.org/abs/2605.16139",
+          "geometric window cyclic Gabor finite subgroup arbitrary translation masks rank spectrum optimal condition number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asipchuk, De Carli and Rodriguez give Fourier/block-equivalence for general finite Gabor windows and translation blocks, but not the exact rank for geometric-window masks or their unique coset characterization."
+        ],
+        "reasoning": "General fibre decomposition is equivalent methodology and credited, but evaluating singular index maps a(t)+1_{b(t)>j} and proving all-mask coset rigidity are additional special-window calculations.",
+        "searches": [
+          "geometric window cyclic Gabor finite subgroup arbitrary translation masks rank spectrum optimal condition number",
+          "https://arxiv.org/abs/2605.16139"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact finite-mask count table contains exactly m full-rank translation masks of C(qm,q) for all q,m together with the displayed spectrum/determinant."
+        ],
+        "reasoning": "The result is a natural complete classification over all finite masks rather than extrapolation from observed small masks; the main theorem supplies the proof.",
+        "searches": [
+          "geometric window cyclic Gabor finite subgroup arbitrary translation masks rank spectrum optimal condition number",
+          "finite cyclic Gabor translation subset geometric window exact rank coset optimal taper"
+        ]
+      },
+      "rationale": "General subgroup block-equivalence of Gabor systems is prior art and supplies the fibre reduction. The specified positive geometric cyclic window forces an additional rigid complete mask classification, explicit all-eigenvalue formula, determinant and unique optimal taper. Relevant Resultary Gabor phase-retrieval and nonnegative-window records examine different operators or fixed sampling geometries, not the q-subset translation-mask classification; no stronger published implication found. Residual risk from other specialized circulant/finite Gabor literature remains.",
+      "residual_risks": [
+        "Full text of Li arXiv:2609.09614 was not inspected, so a hidden specialized comparison remains possible.",
+        "Older finite cyclic Gabor block-matrix or displacement-rank literature may predate this specific closed mask criterion.",
+        "Numerical SVD checks are finite corroboration, not proof across q,m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_METHODOLOGY_NOT_COVERING_EXACT_CLASSIFICATION",
+          "evidence": "Block decomposition generalizes fibre reduction but no geometric window coset-only criterion, full spectrum/determinant, optimal one-parameter taper in inspected result.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.16139",
+          "material_read": "Primary arXiv 2605.16139v2 PDF: statement of Theorem 1.1, structural setup and relevant Sections 3–5 on block equivalence, read in PDF/text/screenshot",
+          "method": "Open arXiv full text, targeted theorem/proof comparison",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Main candidate general theorem encompassing this translation/modulation subgroup"
+        },
+        {
+          "assessment": "FULL_TEXT_COMPARISON_INCOMPLETE",
+          "evidence": "Studies algebraic perturbations and full spark rather than explicit positive geometric masks; cannot rule out relevant theorem in unread body.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09614",
+          "material_read": "Public arXiv abstract and description only; full text not inspected",
+          "method": "Primary abstract lookup; access limitation stated",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Potential more general finite-window full-rank construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting q translation locations from qm coordinates is a mathematically natural finite-Gabor sampling-design problem. The unexpected rigidity that only subgroup cosets yield bases despite a nowhere-zero window, together with the exact rank for every mask, sharp frame spectrum and optimal taper, is a complete structural classification and reproducible exact design criterion. Its value is not contingent on a downstream general theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.16139",
+    "https://arxiv.org/abs/2609.09614",
+    "Resultary query: geometric window cyclic Gabor finite subgroup arbitrary translation masks rank spectrum optimal condition number",
+    "SCOPE frozen RESULT.md/check_geometric_masks.py and assigned tree 4cfa72cdf30da144e340e2bcce9869d7b6d00f66"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General windows, arbitrary modulation masks and continuous Gabor systems excluded.",
+    "Squared frame bounds are for unnormalized atoms; normalization rescales the spectrum.",
+    "Relevant Li paper full text uninspected; risk recorded."
+  ],
+  "residual_risks": [
+    "Full text of Li arXiv:2609.09614 was not inspected, so a hidden specialized comparison remains possible.",
+    "Older finite cyclic Gabor block-matrix or displacement-rank literature may predate this specific closed mask criterion.",
+    "Numerical SVD checks are finite corroboration, not proof across q,m."
+  ],
+  "schema_version": 1
+}

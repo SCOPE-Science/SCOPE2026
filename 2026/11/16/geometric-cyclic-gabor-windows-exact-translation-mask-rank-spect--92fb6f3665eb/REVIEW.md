@@ -1,15 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness
-PASS (self-review). The reduction by the modulation Fourier transform gives an orthogonal sum of \(q\times q\) fibers, each factoring as an invertible geometric circulant times a weighted column-selector. Its invertibility gives the rank count for every mask. In the full-rank case the cyclic binary-transition argument forces one translation from each equal-remainder coset, and the Fourier eigenvalues of the circulant supply all sharp spectrum and determinant claims. Strict monotonicity of the logarithmic-condition derivative, expressed as a product of two increasing functions, proves the unique taper optimum. The actual standalone numerical program checked 506 masks, 36 complete spectra/determinants and 42 optimum comparisons; finite tests are supplementary to the proofs.
+## correctness
 
-## Originality
-PASS relative to accessible evidence, not a proof of absolute priority. Exact searches compared geometric-window finite Gabor frames, critical subgroup modulation, arbitrary translation masks, Riesz basis and frame-bound aliases, and taper optimization against indexed mathematical records and primary literature. The closest primary paper, Asipchuk–De Carli–Rodriguez (arXiv:2605.16139), provides general subgroup block equivalence; it does not explicitly classify which arbitrary masks are invertible for this special geometric window or evaluate their optimal conditioning. The two closest published results read in full have a near-Parseval inverse problem or a full matrix-lifting problem, respectively. Li's related September 2026 manuscript was available only at abstract level and remains a residual priority risk. Classical Fourier diagonalization is fully credited as background, not a novelty claim.
+PASS
 
-## Value
-PASS. The natural experimental-design question is which \(q\) translations remain invertible when there are exactly \(m\) modulation channels, the minimal number of atoms for a basis. This theorem answers *all* masks (not an arbitrary slice) by an exact rank law, shows the severe and otherwise unsuspected rigidity that only \(m\) out of \(\binom{qm}{q}\) choices survive despite full coordinate support, and computes every singular-value scale for the survivors. The unique decay-rate minimizer gives an immediately usable conditioning design, not simply a determinant recomputation. Both singular limits \(\rho\downarrow0\) and \(\rho\uparrow1\) explain why a genuine interior optimum occurs.
+Using the exact finite window g(j)=rho^j on Z_(qm), Fourier transform in the m modulation columns decomposes the Gabor synthesis into m q-by-q fibres. Writing t=ma+b gives fibre entries rho^((j-b) mod m) C_R[:,a+1_{b>j} mod q], R=rho^m, where C_R is invertible since its circular Fourier eigenvalues are (1-R^q)/(1-R exp(-2pi ik/q)). Thus rank equals the sum of distinct selected indices per fibre; full rank forces all remainders b_a equal, precisely the m coset masks. For each full-rank mask, diagonalization gives the full claimed lambda_(s,k), exact extrema, determinant and condition number. The derivative equation for optimal R is monotone and diverges at R->1, giving a unique global minimizing taper. Direct independent NumPy synthesis/SVD over all 20 q=3,m=2 masks at rho=.6 checked rank and exact squared spectrum; source checker covers more finite instances. Exact proof is all q,m>=2, not finite extrapolation. Verified Git tree and RESULT.md/check_geometric_masks.py blob identities.
 
-## Closest literature and limits
-The claim does not exceed subgroup block diagonalization, classical discrete Fourier/circulant algebra, and finite-dimensional singular-value theory; these are prerequisites. Coverage risk remains for older equivalent finite-cyclic Zak-transform or geometric-window optimization results, and the full Li preprint could not be read. A peer evaluation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General subgroup block-equivalence of Gabor systems is prior art and supplies the fibre reduction. The specified positive geometric cyclic window forces an additional rigid complete mask classification, explicit all-eigenvalue formula, determinant and unique optimal taper. Relevant Resultary Gabor phase-retrieval and nonnegative-window records examine different operators or fixed sampling geometries, not the q-subset translation-mask classification; no stronger published implication found. Residual risk from other specialized circulant/finite Gabor literature remains.
+
+## value
+
+PASS
+
+Selecting q translation locations from qm coordinates is a mathematically natural finite-Gabor sampling-design problem. The unexpected rigidity that only subgroup cosets yield bases despite a nowhere-zero window, together with the exact rank for every mask, sharp frame spectrum and optimal taper, is a complete structural classification and reproducible exact design criterion. Its value is not contingent on a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
