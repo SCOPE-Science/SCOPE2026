@@ -1,0 +1,15 @@
+# Scientific review: distance-two ternary Hamming sphere shattering
+
+## Correctness (PASS)
+The statement fixes the full 27-point alphabet-three length-three Hamming space, all 27 centers, exact (not bounded) radius two, unordered supports, and mod-two coefficients for homology. The defining trace equivalence reduces every support of size at most four to a complete 27-center mask check. There are 27 distinct hypotheses, so no five-point support is shattered. The independent Python and C++17 checkers find face numbers (27,351,2808,3402), 540 exceptional maximal triples, exactly six group orbits with sizes (1296,1296,648,162,324,216), and binary boundary ranks (26,325,1913). Reconstructed rank-nullity gives exactly the claimed Betti ranks. All six orbit representatives are independently confirmed to have the stated orbit sizes and to be shattered. The Euler characteristic agrees. The finite programs are necessary to reproduce the exhaustive certificate; no extrapolation to other parameters is made.
+
+## Originality (PASS within inspected evidence)
+The exact binary-distance-two theorem covers binary alphabets only, while the complete q-ary open- and closed-neighborhood censuses cover distance one or inclusive radius one. The Adler–Benediktsson–Macpherson primary text establishes the distance-one result, not the exact-distance-two relation. Pseudorandom graph VC bounds do not enumerate the full 27-point system. Search comparisons explicitly included distance-two graph relations, exact Hamming spheres, coefficientwise counts, facet orbits and homology. Neither the inspected statements nor the accessible overlapping historical claims imply these six symmetry orbits or the two mod-two homology ranks. Priority in less-indexed literature cannot be guaranteed.
+
+## Value (PASS)
+The first genuinely ternary three-coordinate Hamming cube is a canonical finite distance-regular incidence model. Its complete face structure has a substantive feature invisible from the VC-dimension scalar alone: 540 maximal triples coexist with 3402 maximal quadruples, partitioned into six natural isometry types, and two distinct nonzero reduced homology degrees. This is a motivated full classification of the natural exact-distance-two Boolean relation, not a selected arbitrary support or an incremental parameter bound. The fact is self-contained and reproducible, with potential use as a benchmark for other finite distance-shell shattering complexes. No unproved general structural or downstream consequence is asserted.
+
+## Closest literature and limits
+Adler, Benediktsson and Macpherson, arXiv:2007.16042v1, Section 4 (distance-one Hamming graph VC). Public published-finding corpus findings on binary exact-distance-two spheres and all-q open/closed radius-one Hamming neighborhoods were compared via their complete RESULT.md files; related Vietoris–Rips and three-cut homology are invariants of different complexes. Only reduced mod-two homology is established; the finite computation and historical-priority limitations are explicit.
+
+Self-review: passed. Independent audit: not yet performed.
