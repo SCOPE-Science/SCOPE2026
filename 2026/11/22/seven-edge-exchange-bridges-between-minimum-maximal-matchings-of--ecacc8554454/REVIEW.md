@@ -1,0 +1,15 @@
+# Scientific review of seven-edge bridges in minimum maximal matchings of \(\operatorname{PG}(2,4)\)
+
+## Correctness — PASS
+For a maximal matching with \(k\) unmatched points on either shore, the incidence-free restriction and the first two design moments imply \(25k/(k+4)\le21-k\), hence \(k\le6\); equality identifies hyperovals. Hall's theorem gives a residual perfect matching. All remaining finite assertions, including the 48,384 optima and the 216 bridges across each of 3,360 hyperoval pairs, were exhaustively checked in two independently constructed coordinate systems, with complete source code supplied. The lower bound \(t\ge2(6-r)\) excludes cross-fiber moves of size at most seven whenever the intersection size \(r\le2\); exhaustive matching-pair comparisons exclude the borderline six-edge transition when \(r=3\). Both verifiers establish within-fiber and quotient connectivity, making seven the sharp threshold. Arithmetic of edge totals and degree distribution agrees with both exhaustive computations.
+
+## Originality — PASS, with a remaining priority risk
+Demange–Ekim–Tanasescu establish general minimum-maximal-matching context. The full Spiro–Adriaensen–Mattheus paper already proves the static order-four edge domination optimum 15, so that number alone is not new. A published hyperoval result already gives the 168 hyperovals and their 3-point exchange graph; another published enumeration already gives the 288 Tutte–Coxeter matchings and connectivity by four-edge flips. Both closest publicly available RESULT.md documents were inspected in full. Their statements, and the cited generic switch-chain research, do not imply the new **cross-fiber seven-edge bridges**, their constant multiplicity 216, or the 30/67/71 degree census. The possibility of a differently indexed historical exchange classification cannot be eliminated and warrants independent priority review. The 2013 source's full publisher text was inaccessible; its detailed contents therefore are not certified absent.
+
+## Value — PASS
+The optimum-solution space has two geometrically natural scales: a local 288-state perfect-matching fiber and a 168-state hyperoval quotient. The finding identifies the precise point at which exchange dynamics can overcome rigid unmatched-vertex constraints, and determines all cross-fiber bridge multiplicities and global local degrees. This is a natural complete reconfiguration classification for the first nonbinary even projective plane, not a tiny normalization check or arbitrary selected count.
+
+## Limits and closest literature
+The proof is finite and computer-assisted. It does not transfer to arbitrary finite planes or imply Markov-chain mixing results. Historical priority uncertainty and the inaccessible publisher full text remain risks. Primary references: Demange–Ekim–Tanasescu, doi:10.1080/00207160.2013.853052; Spiro–Adriaensen–Mattheus, doi:10.1002/jcd.21925; the two publicly published geometric and matching enumerations listed in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.
