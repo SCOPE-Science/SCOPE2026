@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The natural-scale reflecting-absorbing boundary problem reduces exactly to an integral of (1-x)/D(x). For every mean budget, pointwise strict convexity of (1-x)/d+d/c^2 over a compact interval supplies a global unique profile, and exact elementary integrals yield the two phases. The explicit derivative calculation gives matching F,F′,F′′ and unequal one-sided third derivatives. Packaged checker passed exact algebra and independent quadrature/optimization comparisons; finite checks are supplementary, not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Menon (2026), full HTML §§II, III.1, III.3, Appendix B: more general stochastic prescriptions and dimensions but no theorem under simultaneous strict positive floor and finite ceiling.",
+        "Tung and Lawley (2025), arXiv:2512.19646v1 abstract: general three-dimensional small-target asymptotics, not the simultaneous constrained diffusivity-resource problem."
+      ],
+      "reasoning": "More general dimension or noise interpretation is not broader coverage of the optimization problem with two hard pointwise bounds. The unbounded optimal value does not imply a bounded admissible optimizer when the unbounded optimum hits an excluded level.",
+      "searches": [
+        "spatial diffusivity optimization first passage time bounded diffusivity maximum minimum \"optimal profile\" reflecting absorbing",
+        "optimal design of diffusion coefficient bounded upper lower mean first passage time finite contrast stochastic particle",
+        "\"Escape from heterogeneous diffusion\" Tung Lawley optimal profile"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.17470v1",
+      "https://arxiv.org/pdf/2311.00818",
+      "https://arxiv.org/abs/2512.19646",
+      "https://arxiv.org/abs/2206.14229",
+      "https://journals.aps.org/prl/abstract/10.1103/ycjj-dwh3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper supplies the unconstrained α=0 optimizer but it tends to zero at absorption, violating a strictly positive floor.",
+        "Its variational equation applies on the free interior of a constrained optimum, but does not state the boundary Kuhn-Tucker inequalities nor solve two active-bound regions and the budget-dependent onset.",
+        "The earlier 2023 paper determines first-passage functionals, not resource-constrained designs."
+      ],
+      "reasoning": "The new conclusion is not a special case or corollary obtained by substituting parameters into the published optimizer: that optimizer is inadmissible under the current constraints. Deriving global optimality under a different feasible set, computing the upper saturation activation and C²/non-C³ value law require additional convex-analysis and algebraic arguments. General-purpose KKT theory is acknowledged as a standard method rather than a novel lemma.",
+      "searches": [
+        "site:arxiv.org \"optimal diffusivity\" \"bounded\" \"first passage\"",
+        "optimal diffusion coefficient bounded contrast fixed mean first passage minimization reflecting absorbing profile square root capped",
+        "\"Efficiency of random search with space-dependent diffusivity\" finite bounds optimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Menon (2026), arXiv:2611.17470v1, Eq. (32) optimizes without a finite ceiling; the numerical lower floor in Appendix B is not an exact two-sided cap theorem.",
+        "Menon et al. (2023), arXiv:2311.00818v1, §3.1 derives an equivalent first-passage functional for arbitrary diffusivity but does not optimize with two finite caps."
+      ],
+      "reasoning": "Reversing the coordinate in the 2023 paper converts its Itô mean-time integral to the functional used here, but not to the unique clipped optimizer or its two-bound active-set classification. Square-root interior allocation is known; it is not claimed as new independently of the bounded problem.",
+      "searches": [
+        "optimal diffusion coefficient bounded contrast fixed mean first passage minimization reflecting absorbing profile square root capped",
+        "optimal bounded diffusivity spatial profile mean first passage time fixed mean lower upper diffusivity cap",
+        "site:arxiv.org \"optimal diffusivity\" \"bounded\" \"first passage\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source tables/figures and full optimization sections do not tabulate the finite-ceiling critical budget or one-sided third derivative.",
+        "The accessible earlier full text presents linear and power-law profiles and the general first-passage integral, not a table of constrained global optimizers."
+      ],
+      "reasoning": "No exact formula/table with the claimed floor-ceiling phase diagram was identified in the inspected primary material or searches. Absence from searches is not proof of priority.",
+      "searches": [
+        "\"mean first passage\" \"diffusivity\" \"water filling\" optimization",
+        "\"Random-search efficiency in a bounded interval with spatially heterogeneous diffusion coefficient\" optimization bounded",
+        "\"Luiz Menon\" \"Optimal heterogeneous diffusivity profiles\" 2611.17470"
+      ]
+    },
+    "rationale": "The motivating 2026 full text gives the budgeted but unbounded optimal profile and generic variation, whereas the new theorem imposes simultaneous hard two-sided pointwise bounds and analytically classifies the upper-cap onset, complete optimal value and differentiability singularity. The 2023 primary text gives the general Itô first-passage integral but no bounded-resource optimum. The result is therefore a new constrained-design mathematical statement relative to the inspected primary sources, albeit based on well-known convex optimization and subject to priority risk from other literature.",
+    "residual_risks": [
+      "Generic bounded-resource convex allocation may have been solved in unindexed engineering or optimization literature with an equivalent formula.",
+      "The full text of Tung–Lawley (2025) was not inspected, so its abstract cannot certify noncoverage, although the geometries differ.",
+      "The exact active-set law is a new constrained extension of a known variational structure, not a claim to invent the general clipped Lagrange multiplier method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives unconstrained one-dimensional Itô allocation and numerical floor; no finite ceiling with analytic sharp upper-saturation threshold or third budget derivative discontinuity.",
+        "evidence": [
+          "Eq. (32) and (33): unbounded one-dimensional optimum and optimum value",
+          "Appendix B: discrete numerical lower positivity bound without a finite cap",
+          "§III.3: different problem of an interior initial location"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.17470v1",
+        "material_read": "Full accessible HTML, sections I–IV, especially §II equation (12), §III.1 equations (29)-(37), §III.3 equations (46)-(53), and Appendix B with numerical lower-floor constraint",
+        "method": "Direct full-text HTML inspection and claim/assumption comparison",
+        "title": "Optimal heterogeneous diffusivity profiles for mean first-passage minimization",
+        "trigger": "identical stochastic model and unconstrained fixed-average objective"
+      },
+      {
+        "assessment": "Gives Itô first-passage formula and comparisons of example profiles, not exact two-sided constrained designs or value regularity.",
+        "evidence": [
+          "§3.1 equations (24)–(26): weighted inverse diffusivity mean time",
+          "The paper investigates example linear and power-law profiles and stochastic prescription differences"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.00818",
+        "material_read": "PDF abstract, introduction, §3.1 on pp. 8–9, Appendix B and reference section, with page screenshots",
+        "method": "Direct PDF text and page-image inspection",
+        "title": "Random-search efficiency in a bounded interval with spatially heterogeneous diffusion coefficient",
+        "trigger": "same one-dimensional heterogeneous model and mean first-passage integral"
+      },
+      {
+        "assessment": "Concerns three-dimensional general domains and small targets; exact constrained design not identified in the abstract, but incomplete inspection remains a priority risk.",
+        "evidence": [
+          "Public abstract focuses on mean escape, splitting and interpretation in three-dimensional domains"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.19646",
+        "material_read": "Accessible public abstract only, not full text",
+        "method": "Abstract and metadata comparison; full-text non-coverage not asserted",
+        "title": "Escape from heterogeneous diffusion",
+        "trigger": "potential stronger general theory for spatially varying diffusivity and escape"
+      },
+      {
+        "assessment": "Analyzes first passage and inverse-time efficiency for prescribed diffusivity, not known to supply a bounded-cap optimizer; no full-text non-coverage claimed.",
+        "evidence": [
+          "Abstract describes prescribed power-law profiles and general interpretation effects"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.14229",
+        "material_read": "Abstract and bibliographic record",
+        "method": "Abstract inspection",
+        "title": "Efficiency of random search with space-dependent diffusivity",
+        "trigger": "earlier same-group background for interpretations and diffusivity dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f3ac015-53f0-4020-8652-8515d3c903ae",
+  "value": {
+    "rationale": "Physical lower/upper mobility bounds exclude the unbounded literature optimum and give a naturally motivated design constraint. A complete classification of all positive floor/mean/ceiling budgets, unique two-sided saturated optimal spatial profile, explicit optimum cost and sharp third-order nonsmoothness at cap activation is an interpretable quantitative engineering benchmark. The value is not asserted for unrelated models or mere finite numerical improvements.",
+    "status": "PASS"
+  }
+}
