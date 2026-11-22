@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Hilbert projection is onto an orthogonal two-vector space and equals a single complex-parameter objective. The Möbius modulus has a strictly preferred antipodal angle when the displaced zero is nonzero. Its radial logarithmic derivative is strictly decreasing across the entire disk, with opposite endpoint signs, so it has a unique global maximum. All coefficients and endpoints are computed with explicit normalization. Implicit differentiation gives both parameter monotonicities; the analytic implicit-function expansion produces the sharp two-term capture law. The packaged finite checker independently tests exact formulas and candidate optimization samples but is not treated as an infinite certificate.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The normalized Hardy H2 distance to analytic type-(1,1) rationals reduces by orthogonality to maximizing (1-|p|²)|p|^(2N-4)|(p-a)/(1-ap)|². For a>0, differentiation with respect to cos(arg p) is strictly negative, forcing p=-r, and the radial logarithmic derivative L(r) strictly decreases from positive to negative, ensuring a unique global maximizer. The displayed coefficient and exact squared error follow from projection. Differentiating L establishes dr/da<0 while the pointwise radial objective strictly increases with a. Independent symbolic expansion of L(1-1/(2N)+b/N²) gives b=-(9a+1)/(8(1+a)), matching the claimed second term; log capture gives 1/(eN) with stated first correction. At a=0 rotational degeneracy and r²=(N-1)/N are correct. The inspected CHECK.py runs only supplementary finite consistency checks, not the infinite proof.
 
-The inspected full-text passages of the motivating paper (Baratchart et al., arXiv:2603.16295, especially sections 4–6) supplies general lower bounds, an optimization framework, and numerical tests, but not the globally exact displaced-zero one-pole solution, unique pole geometry, monotonicity, or two-term asymptotic. Wang–Qian, arXiv:2012.06184, sections 1 and 2.1, supplies general kernel projection and existence, so those tools are explicitly treated as prior work rather than claimed innovations. Related one-state model reduction literature supplies general critical-point conditions, but no inspected result implies the precise antipodal maximization and explicit family law. Semantic-index searches covered one-pole approximation, Blaschke shifts, pure delays and model reduction; no matching stronger theorem was found. This is evidence of relative originality, not proof of universal publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A one-state stable rational model of a nearly pure delay is a basic and motivated approximation benchmark. The explicit solution gives the exact global performance, a unique geometric pole-placement rule despite complex degrees of freedom, strict sensitivity to a displaced Blaschke zero, and the optimal \(1/(eN)\) capture law with displacement-sensitive correction. The recent lower-bound paper explicitly highlights the difficulty of exact approximant computation. The derived finite-degree solution can calibrate approximate optimization algorithms and lower-bound quality; it is not merely a reparametrization of an already tabulated constant.
+Baratchart et al. (arXiv:2603.16295) treat lower H2 rational-approximation bounds and pure delays, not this exact globally optimized one-displaced-zero type-(1,1) family. Wang and Qian give existence and a general Szegő-kernel projection approach, but no family-specific antipodal pole and exact error in the inspected material. Search also surfaced a related opposite-pole one-state system with a different model; its title and snippet alone cannot rule out equivalence, retained as priority risk. Older control theory may contain equivalent calculations.
 
-## Closest work and residual risks
+## value
 
-The existence/variational structure is classical; the precise family-specific global optimization is the contribution. An equivalent unpublished or older special-case computation in rational system identification remains plausible. The result is restricted to a single movable zero, type-(1,1) stable rationals and scalar Hardy norm; its asymptotic is at fixed displacement. No human or independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-pole stable rational reduction of a delayed Blaschke transfer function is a motivated analytic benchmark. The uniquely determined global pole, exact error, movement under zero displacement and sharp 1/(eN) asymptotic calibrate one-state approximation beyond generic existence and lower estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
