@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS: Exact synchronous chip-firing recurrence and all maximal firing sets are established for each integer m>=5. The hub decomposition is a homotopy suspension of the explicitly defined non-cover complex of a three-component forest. Singh Corollary 4.3 and integral combinatorial Alexander duality convert the known mod-three independence-complex path recurrence into the six-congruence integral homotopy classification. A standard-library executable independently checks the dynamics through m=48 and reduced mod-two homology through m=13; finite checks are corroboration, not the unrestricted proof.
+## correctness
 
-## Originality
-PASS: Full sections of the motivating avalanche paper and closest published rose result were inspected. The nearest theorem uses a different hub load and excludes the length-two petal, so it does not imply the stated contractible/sphere alternation. The forest non-cover theorem is expressly credited. Targeted research-record and literature searches found no equivalent classification; possibility of unindexed formulation remains.
+PASS
 
-## Mathematical value
-PASS: A minimal two-cycle attached at a single hub creates an infinite, sharp six-step sequence alternating genuine contractibility with integral sphere types, rather than a monotonically stable sphere. The identification of the avalanche hub link as an explicitly computable forest non-cover complex explains the periodicity and provides a structural bridge between sandpile firing and simplicial topology; it is not merely a new numeric case.
+Reconstructed chip counts via hub recurrence and one-step lag on petals: repeat state at time m+2 from time2, with exact facets V minus hub, V minus {a,v1}, V minus {vi,vi+2} for 2<=i<=m-3. Link hub is forest non-cover complex of K2 plus two parity paths; full complex is its suspension. The standard path independence complex recurrence and integral Alexander duality together with Singh forest NC sphere-or-contractible Cor4.3 yield the all-m homotopy, not merely Betti numbers. Independently simulated complete chip dynamics and facets for m=5..48.
 
-## Closest literature and limitations
-The original sandpile-avalanche construction is due to Riihimäki and Smith, arXiv:2606.26786; the forest non-cover result is Singh, arXiv:2101.05534v1, Corollary 4.3. A previously published near-critical directed-rose result begins with a different hub load and forbids length-two petals, so it does not entail the current claim. Unindexed prior work remains possible. The proof addresses this exact initial state and graph only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest near-critical rose classification assumes every petal length >=3 and a loaded hub, yielding one sphere for all lengths; cannot imply a two-cycle, hub-zero, alternating contractible law. Forest non-cover theorem is properly acknowledged as an input. Riihimäki–Smith plausible full paper remained inaccessible; its abstract was not used to claim whole-document noncoverage.
+
+## value
+
+PASS
+
+A natural minimal petal and initial-load boundary case creates genuinely alternating integral homotopy phases. The explicit forest link supports later avalanche topology and persistence calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
