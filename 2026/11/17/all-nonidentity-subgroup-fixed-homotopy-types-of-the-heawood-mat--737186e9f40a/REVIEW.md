@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The 14-vertex Fano incidence model determines the full 336-element group by linear maps and polarity. The packaged verifier builds all 413 subgroups from their generators and conjugacy classes, directly compares invariant matchings with orbit-model simplices, verifies all elementary collapse pairs and the two exceptional involution complexes. The 21-subgroup class has a 2-sphere plus extra path, and the 28-subgroup class has a simply connected 2-complex of Euler characteristic five, proved by 23 elementary group-presentation eliminations. All other residual complexes are empty, discrete, contractible, or graphs. The proof covers exactly all 412 nonidentity subgroups; it does not extrapolate a finite sample to an infinite assertion.
+## correctness
 
-## Originality
-**PASS relative to inspected evidence.** The ordinary 16-four-sphere classification, 336-element rational automorphism character, and the single polarity-type 4-two-sphere fixed-locus calculation are previous results. This classification explicitly subsumes that covered polarity class without attributing novelty to it. The novel claim is the complete 22-class geometric fixed-space census, especially the other involution class with a nonzero first and second homotopy dimension. A rational character or a single involution calculation does not imply the other strict fixed-point homotopy types. Targeted searches over all-subgroup, fixed-orbit and Fano-incidence terminology did not locate a dominating result. An unindexed or equivalent previous enumeration remains a risk.
+PASS
 
-## Value
-**PASS.** This is a natural complete classification attached to a canonical finite-projective-plane incidence graph and its full symmetry group, not an arbitrary parameter slice or isolated Betti-number recomputation. It distinguishes seven different integral homotopy types and explicitly detects mixed-dimensional topology invisible to ordinary homology character tables. The census is reproducible and usable as a benchmark for general equivariant matching-complex methods, while the theorem does not claim any general all-incidence-graph classification.
+Complete group with 336 elements and 413 subgroups via generating-element closure; 22 nonidentity conjugacy representatives. Original ordinary matching faces are disjoint incidence edges, enumerated as 3462 including empty. Each admissible group edge orbit is itself a matching; unions of compatible orbits give precisely the PL geometric fixed simplex model. Inspected verify_fixed.py checks exhaustive orbit-model faces versus independently invariant original faces, records every elementary collapse, verifies the special 21-involution-class remaining eight-triangle suspension of C4 (S2) with an extra path attached between sphere points (adds S1), and in the known 28-polarity case reduces a 23-generator pi1 presentation using 23 triangle-relator single-letter eliminations before using free H2 rank four. Independently generated all 413 subgroups and F2 fixed-space homology ranks for all 22 representatives, reproducing counts: empty46, zero105, H0:140+30 distinction by component counts, H1^2:42, H2^4:28, H1+H2:21. Finite exact exhaustive group enumeration plus explicit topological reductions prove the finite theorem; F2 alone is not the integral proof.
 
-## Closest literature and limitations
-The foundational 1994 matching-complex paper supplies context; the three directly relevant published Heawood calculations were inspected in complete accessible text. The 28 polarity involutions are known, and the present claim does not reassert their isolated result as new. The 21 order-two subgroups of the other conjugacy type have a different, mixed-dimensional fixed space. The principal publication-priority limitation is possible prior all-subgroup classification under different indexing. All computational certificates are finite and the global proof depends on their exact exhaustive replay.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge substantive comparison with exact mathematical statements and implications, not matching wording. Compare the same ordinary 21-incidence-edge matching complex, not its perfect- or strong-matching subcomplex. The existing Fano polarity involution fixed locus precisely equals the 28-subgroup four-S2 entry; that entry is not new. The 21-element collineation involution class yields a different S1∨S2 model and the full 412-subgroup table is stronger.
+
+## value
+
+PASS
+
+The 21-subgroup involution class has a mixed S1∨S2 fixed locus absent from earlier single-polarity calculations. A full 412-subgroup/22-class census is a useful exact equivariant classification of the canonical Heawood ordinary matching complex and distinguishes strict fixed topology from rational character traces; the already known 28-polarity class is expressly excluded from novelty attribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
