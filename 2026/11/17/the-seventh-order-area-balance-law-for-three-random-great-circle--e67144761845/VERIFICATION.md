@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-Running `python check_random_great_circles.py` with NumPy and SymPy tests the following independently of the main algebraic derivation:
+## correctness
 
-1. Directly constructs the three pairwise great-circle intersection vertices of each of eight chambers, and evaluates their areas via the spherical solid-angle identity. On 80 independent normal triples, all chamber areas agree with the signed arcsine formula to within \(2\times10^{-10}\), as do the exact area range and total surface area \(4\pi\).
-2. Symbolically integrates the ordered positive polytope octant and confirms \(\operatorname{vol}(\mathcal B)=2\) and \(\int_{\mathcal B}\sum_{i<j}u_i^2u_j^2\,du=7/120\). The leading and seventh-order coefficients are evaluated exactly.
-3. Compares 2,500,000 random triples with the two-term small-spread probability. Observed probabilities at \(\varepsilon=0.30,0.45,0.65\) were respectively 0.0005260, 0.0017996, 0.0054936, compared with expansions 0.0005371519, 0.0018129420, 0.0054643797. Each standardized deviation is under 0.8.
-4. Integrates the exact Gram density on a fundamental ordered cone by 32-point-per-coordinate Gauss–Legendre quadrature. At thresholds 0.20, 0.50 and 1.00 the exact probabilities are approximately 0.0001591551761, 0.0024869412483, and 0.0199145281395. The discrepancies from the two-term expansion are positive, respectively about \(9.20\times10^{-13}\), \(3.60\times10^{-9}\), and \(2.03\times10^{-6}\), consistent with a ninth-order remainder. The quadrature is diagnostic, not interval-certified.
+PASS
 
-Expected standard-output markers: `DIRECT_SPHERICAL_TRIANGLE_GEOMETRY_OK`, `EXACT_ASYMPTOTIC_COEFFICIENTS_OK`, `RARE_EVENT_MONTE_CARLO_OK`, `SEVENTH_ORDER_QUADRATURE_DIAGNOSTICS_OK`.
+For three independent isotropic oriented normals to great circles, Girard’s excess yields exactly A_sigma=π/2+σ1σ2t1+σ2σ3t2+σ3σ1t3 with t_i=asin(dot pair), so the cell area range R=2 max_(i<j)(|t_i|+|t_j|). The angular Gram density g(t)=prod cos(t_i)/(4π sqrt(1-sum sin²t_i+2 prod sin t_i)) has sign-symmetrization 4π gbar=1+(sum_(i<j)t_i²t_j²)/2+O(||t||^6). Independently expanded this density symbolically, verifying absence of quadratic terms, an odd cubic -t1t2t3 which integrates to zero, and quartic coefficient 1/2. Independently integrated over B=max pair |u_i|+|u_j|<1 to get vol(B)=2 and integral sum u_i²u_j²=7/120. Scaling t=(ε/2)u yields ε³/(16π)+7 ε^7/(122880π)+O(ε^9), without ε^4,ε^5,ε^6,ε^8 terms. Uniform density convergence on compact B proves total-variation uniform marked limit; gauge homogeneity gives Beta(3,1) range. Valid as ε↓0, not a global distribution.
 
-**Limits.** Simulation and numerical quadrature are finite checks, not independent mathematical proof. The analytic derivation supplies the limiting theorem. Historical-priority review is provisional.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for this all-eight-cell area RANGE near its balanced configuration and the nonzero seventh-order correction/conditional polytope shape. Known single spherical-triangle density, conical tessellation moment laws, and the distinct same-day minimum-small-cell and maximum-large-cell extremes do not imply the near-equal-area expansion at the orthogonality locus.
+
+## value
+
+PASS
+
+The near-equal-area event for a canonical random spherical tessellation has a surprising cancellation of four intermediate powers, a sharp positive seventh-order correction and a universal conditional uniform polytope shape. This is an exact nontrivial rare-event invariant beyond marginal moments; its geometry can calibrate more general balanced tessellation asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
