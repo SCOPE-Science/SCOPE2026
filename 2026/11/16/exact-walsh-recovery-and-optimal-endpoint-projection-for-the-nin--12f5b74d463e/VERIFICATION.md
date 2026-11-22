@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-## Reproduction
-Use Python 3 with no third-party packages:
+# Independent mathematical audit
 
-```
-python3 verify_enumeration.py
-python3 verify_determinant.py
-```
+## correctness
 
-The first script exhausts all \(\binom{12}{8}=495\) candidate eight-edge masks, uses exact connectivity tests to identify \(192\) trees, and then computes the full integer Walsh spectrum by a butterfly transform. The second script independently evaluates \(4096\) signed, weighted Laplacian cofactors by exact fraction-free elimination. Each script asserts the complete magnitude histogram, nonzero minimum, rank and projection-kernel absolute sum. On the reviewed package, both passed without errors. The finite exhaustive argument applies only to the stated nine-vertex grid.
+PASS
 
-## Boundaries
-The consistency of these two computations checks different arithmetic implementations but is not an external audit. The weighted matrix-tree theorem supplies the mathematical bridge between the signed determinants and Fourier coefficients. Claims about larger grids or historic priority beyond the inspected sources are not established.
+The nine labelled vertices and twelve nearest-neighbour edges define a 12-bit cube; spanning trees are precisely connected acyclic 8-edge subsets. I independently generated all C(12,8)=495 candidate subsets and found 192 trees, four center-adjacent edge incidences 112 and eight perimeter incidences 136. An integer 12-stage Walsh transform over all 4096 sign patterns gave precisely the stated 15 absolute-value frequencies: zeros=1186, nonzeros=2910, minimum positive 4, maximum 192. The parity identity N_odd(S) congruent to sum over included-edge tree counts mod 2 proves 4-divisibility; mask 116 attains W=4, giving sharp condition number 192/4=48. A second complete Walsh transform of the nonzero-support indicator gave kernel numerator L1 sum 40976 and ratio 40976/4096=2561/256. General averaging of any projection over 4096 translations preserves the invariant range, the idempotency on that range and does not increase endpoint norm, producing the unique Fourier support projector; hence global minimality. This is exact finite verification, not a higher-grid-size theorem.
+
+## originality
+
+PASS
+
+Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.
+
+## value
+
+PASS
+
+The first genuinely two-dimensional free-boundary square grid with an interior vertex gives a natural finite benchmark beyond width-two ladders. Its exact 1186-dimensional nullspace, sharp deconvolution gap and optimal endpoint amplification are intrinsic, linked recovery invariants not implied by the classical 192 spanning-tree count. Full census is meaningful for this canonical smallest interior-grid case; it makes no extrapolation to all square grids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

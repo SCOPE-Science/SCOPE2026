@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:06:22.041538Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nine labelled vertices and twelve nearest-neighbour edges define a 12-bit cube; spanning trees are precisely connected acyclic 8-edge subsets. I independently generated all C(12,8)=495 candidate subsets and found 192 trees, four center-adjacent edge incidences 112 and eight perimeter incidences 136. An integer 12-stage Walsh transform over all 4096 sign patterns gave precisely the stated 15 absolute-value frequencies: zeros=1186, nonzeros=2910, minimum positive 4, maximum 192. The parity identity N_odd(S) congruent to sum over included-edge tree counts mod 2 proves 4-divisibility; mask 116 attains W=4, giving sharp condition number 192/4=48. A second complete Walsh transform of the nonzero-support indicator gave kernel numerator L1 sum 40976 and ratio 40976/4096=2561/256. General averaging of any projection over 4096 translations preserves the invariant range, the idempotency on that range and does not increase endpoint norm, producing the unique Fourier support projector; hence global minimality. This is exact finite verification, not a higher-grid-size theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shrock–Wu (2000), §1 and lattice enumeration sections gives counts/entropies for graph families, not an explicit all-sign Fourier spectrum.",
+          "Goodall-style Fourier diagonalization and weighted matrix-tree theorem determine coefficients in principle, but without the new enumeration do not determine the zero support and projection L1."
+        ],
+        "reasoning": "General Tutte and weighted matrix-tree formulas are stronger in *generality* of generating formalism, but do not logically supply the claimed numeric full support and norm without an additional computation. Similar hypercube or ladder matroids have different edge-incidence sets; no matching dominating instance was located.",
+        "searches": [
+          "3x3 square grid spanning tree incidence Walsh spectrum Fourier convolution rank zero frequencies projection constant 2561/256",
+          "Shrock Wu spanning trees graphs lattices dimensional formula",
+          "finite grid signed tree Tutte polynomial complete Fourier"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen result 220731b4162624f11a82a46e1d919c46135b76b1 and certificate scripts verify_enumeration.py, verify_determinant.py read in full; exact source tree adc89f495103021fafe92a8de1adb98cbb0f2d94.",
+        "https://arxiv.org/pdf/cond-mat/0004341",
+        "https://arxiv.org/pdf/1903.03575",
+        "Resultary semantic search query: 3x3 square grid spanning tree incidence Walsh spectrum Fourier convolution rank zero frequencies projection constant 2561/256"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the 3-cube, 384 trees, 1522 zero coefficients and projection norm 14243/1024, not an isomorphic 3-by-3 grid.",
+          "General weighted-Laplacian evaluation can compute each coefficient, but no published source inspected gives 1186 zeros or 40976 support kernel sum."
+        ],
+        "reasoning": "A generic determinant identity is a computational route, not an evaluated theorem implying specific complete histogram without executing additional finite work. Different graph families have no simple implication under a matroid isomorphism.",
+        "searches": [
+          "3x3 square grid spanning tree incidence Walsh spectrum Fourier convolution rank zero frequencies projection constant 2561/256",
+          "Klee Stamps Linear Algebraic Techniques for Weighted Spanning Tree Enumeration",
+          "Resultary three-cube spanning-tree Fourier projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier coefficient is exactly a signed weighted spanning-tree polynomial, equivalent to a matrix-tree Laplacian cofactor at each sign assignment.",
+          "Shrock and Wu 2000 treat unsigned grid spanning-tree numbers; Klee and Stamps 2019 give general weighted matrix-tree machinery."
+        ],
+        "reasoning": "Signed tree-character sums and weighted Laplacian cofactors are equivalent formulations, so determinant computations are correctly treated as known technique rather than novel identity. Neither inspected source states the complete 4096-sign coefficient histogram, projection kernel or sharp value.",
+        "searches": [
+          "3x3 square grid spanning tree incidence Walsh spectrum Fourier convolution rank zero frequencies projection constant 2561/256",
+          "square-grid signed spanning-tree polynomial Walsh Hadamard rank",
+          "Klee Stamps weighted matrix tree theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Shrock–Wu lattice-tree counts include the unsigned grid total as known background.",
+          "Resultary search matched the target record itself and a 3-cube spanning-tree Walsh theorem with different graph and numbers."
+        ],
+        "reasoning": "Known exact table of unsigned spanning-tree counts is not the 4096-entry signed spectrum. No independent pre-existing exact table for this identical object was found in bounded sources; absence is not proof of priority.",
+        "searches": [
+          "3x3 square grid spanning tree incidence Walsh spectrum Fourier convolution rank zero frequencies projection constant 2561/256",
+          "3x3 spanning tree signed weights histogram 1186 2561/256",
+          "square grid spanning tree enumerator tables matrix tree"
+        ]
+      },
+      "rationale": "Compared the actual theorem and its implications against the listed primary source material and published mathematical records, including aliases and substantially broader methods. No decisive prior coverage was found in the accessible evidence; this is a bounded best-of-knowledge originality finding, with residual risks explicitly documented.",
+      "residual_risks": [
+        "Possible unindexed signed-grid spanning-tree polynomial tables or stronger evaluations not located by bounded searches.",
+        "Exact finite result only for this 3-by-3 graph; no all-size rank statement.",
+        "Independent source scripts were source-inspected; mathematically separate enumeration was executed, not the original Python scripts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical unweighted grid-tree counts and lattice entropy; no complete 3-by-3 signed Walsh spectrum or projection norm in inspected relevant material.",
+          "evidence": "R. Shrock and F. Wu (2000), §§1,4,6; published arXiv cond-mat/0004341.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0004341",
+          "material_read": "29-page source opened; abstract/introduction and grid enumeration sections including lattice-tree formula on p.6",
+          "method": "PDF text and visual screenshot page 6",
+          "title": "Spanning Trees on Graphs and Lattices in d Dimensions",
+          "trigger": "Same graph-family finite-grid enumeration; original potential stronger counts"
+        },
+        {
+          "assessment": "Verifies coefficient equality with weighted Laplacian minor; does not provide the evaluated 4096-character distribution or min-norm projection.",
+          "evidence": "Klee–Stamps (2019), §1 and weighted matrix-tree theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.03575",
+          "material_read": "12-page article opened; §1 and weighted matrix-tree formula and graph-family discussion",
+          "method": "PDF text and visual screenshot of theorem page 1",
+          "title": "Linear Algebraic Techniques for Weighted Spanning Tree Enumeration",
+          "trigger": "General weighted determinant theorem could dominate via specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first genuinely two-dimensional free-boundary square grid with an interior vertex gives a natural finite benchmark beyond width-two ladders. Its exact 1186-dimensional nullspace, sharp deconvolution gap and optimal endpoint amplification are intrinsic, linked recovery invariants not implied by the classical 192 spanning-tree count. Full census is meaningful for this canonical smallest interior-grid case; it makes no extrapolation to all square grids.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible unindexed signed-grid spanning-tree polynomial tables or stronger evaluations not located by bounded searches.",
+    "Exact finite result only for this 3-by-3 graph; no all-size rank statement.",
+    "Independent source scripts were source-inspected; mathematically separate enumeration was executed, not the original Python scripts."
+  ],
+  "schema_version": 1
+}
