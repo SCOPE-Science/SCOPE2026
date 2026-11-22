@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:56:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit ball of the real ℓ1 zero-sum hyperplane is the convex hull of ±(e_i−e_j)/2; hence any R represented by n target vectors v_i has norm diam(v_i)/2. Any extension from ℓ1^n has columns v_i−c for a common center c and norm max_i||v_i−c||_1. Thus the universal loss is exactly 2r/D. The arithmetic mean gives r≤(n−1)D/n for every set of n points. For even n=2k, take target coordinates indexed by all C(n,k) balanced subsets and vectors ±1 depending on membership; each target coordinate has k plus and k minus entries, forcing max_i ||v_i−c||_1≥m at every center. The zero center attains r=m, while each pair has D=4 C(n−2,k−1)=nm/(n−1). Therefore the claimed sharp value holds simultaneously for all even n, including the n=2 factor 1, without finite extrapolation. Independent integer subset checks for n=2,4,6,8,10 verified pairwise distances, zero sums and exact ratios.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pariente–Tradacete Theorem 1.3 characterizes order continuity by existence of some POE-p constant; this does not fix its optimal size for H_n⊂ℓ1^n.",
+          "General ℓ1 Jung bounds such as 2r/D≤2 and Bonenblust 2m/(m+1) are weaker or have different ambient-dimensional hypotheses."
+        ],
+        "reasoning": "Broad qualitative operator-extension theory and Jung bounds do not imply the exact even-n factor without the balanced-subset sharpness construction; fully checked Castillo–Papini material supports different coverage.",
+        "searches": [
+          "Resultary semantic: relative operator extension zero sum hyperplane ell1 n point Jung ratio balanced subsets norm inflation 2(n-1)/n",
+          "arXiv:2611.00451v1 Theorem 1.3 POE-p",
+          "arXiv:2210.00614 free Banach lattices POE",
+          "Castillo Papini 2024 Jung constants"
+        ]
+      },
+      "checked_sources": [
+        "Pariente-Martín and Tradacete arXiv:2611.00451v1 full HTML relevant sections",
+        "Castillo and Papini 2024 full OA HTML relevant sections, DOI 10.1007/s43037-024-00341-1",
+        "Dolnikov 1987 primary Mathnet PDF theorem and screenshot",
+        "Oikhberg et al arXiv:2210.00614 bibliographic citation (full text not read)",
+        "Resultary search n-point Jung/POE"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dolnikov Theorem: J_{ℓ1^m}=m/(m+1) (radius/diameter convention) under existence of Hadamard matrix of order m+1; fixed ambient dimension m, potentially arbitrarily many points.",
+          "Here target m=C(n,n/2), fixed cardinality n and the ratio (n−1)/n is achieved by balanced subsets; no matching Hadamard existence hypothesis."
+        ],
+        "reasoning": "Known statements cannot simply be specialized by replacing target dimension with number of points. The full text of 2024 Jung source and 1987 primary theorem were inspected; 1987 Russian text may conceal other equivalences and remains a risk.",
+        "searches": [
+          "Resultary semantic: relative operator extension zero sum hyperplane ell1 n point Jung ratio balanced subsets norm inflation 2(n-1)/n",
+          "Dolnikov 1987 Hadamard Jung ℓ1 dimension",
+          "Castillo Papini J_f J_s 2024",
+          "Pariente Tradacete POE-p inclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator extension norm reduces *exactly* to a fixed-n-point Chebyshev radius/diameter ratio, so the Jung alias is not a different contribution.",
+          "Castillo–Papini defines J_f(X)=sup over all finite cardinalities; the present sharp factor fixes n points while allowing any finite target dimension.",
+          "Dolnikov studies J(ℓ1^m), with fixed ambient dimension m, and a Hadamard condition for dimension-dependent maximality."
+        ],
+        "reasoning": "Checked the mathematical quantifiers and normalizations. Neither a dimension-m Jung constant nor an unrestricted-cardinality supremum immediately computes the exact n-point constant over arbitrary finite ℓ1 targets. Any earlier exact fixed-cardinality result would cover the claim and remains the main risk.",
+        "searches": [
+          "Resultary semantic: relative operator extension zero sum hyperplane ell1 n point Jung ratio balanced subsets norm inflation 2(n-1)/n",
+          "fixed-n-point Jung ratio ℓ1 target maximum Chebyshev radius diameter",
+          "Castillo Papini 2024 finite Jung constants",
+          "Dolnikov 1987 Jung ℓ1^n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite n=2,4,6,8,10 exact independent witness table, not evidence of general prior publication.",
+          "No same-parameter fixed-number-of-points exact table appeared in the queried Resultary sources; other POE finite examples target Hilbert spaces."
+        ],
+        "reasoning": "The theorem is infinite in even n and the values are a closed formula; finite tables merely corroborate. The original classical n-point Jung literature may use alternative notation, which is separately flagged.",
+        "searches": [
+          "Resultary semantic: relative operator extension zero sum hyperplane ell1 n point Jung ratio balanced subsets norm inflation 2(n-1)/n",
+          "balanced subsets ±1 n even Jung radius diameter exact",
+          "n point ℓ1 Jung maximal ratio 2(n−1)/n"
+        ]
+      },
+      "rationale": "The POE-p definition and structural extension requirement are known (Pariente-Martín–Tradacete 2026, Theorem 1.3 and Section 4); the new claimed object is a sharp quantitative factor for this particular canonical hyperplane inclusion. Full text of Castillo–Papini (2024) treats the *unrestricted-cardinality* finite Jung constant, with no explicit n-point cardinality bound for arbitrary ℓ1 targets in the inspected discussion. Dolnikov (1987) gives the *dimension-m* Jung constant of ℓ1^m and a Hadamard equality criterion, not a universal target-dimension-independent fixed number-of-points n constant. These aliases and their different quantifiers were compared. Residual priority risk from older n-point radius/extension results remains.",
+      "residual_risks": [
+        "Older fixed-cardinality Jung inequalities or extension constants for ℓ1 could state exactly this ratio under another name; priority provisional.",
+        "Full foundational arXiv:2210.00614 and the remaining Russian text of Dolnikov (1987) not inspected in full; do not draw whole-document absence conclusions.",
+        "Even n only, finite real ℓ1 targets; odd n and Banach targets left open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes qualitative POE-p criterion but not the even-n sharp factor in material read",
+          "evidence": "Introduction defines existence C for extension from T(F) to ℓp^n; Theorem 1.3 gives iff order-continuity criterion.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00451v1",
+          "material_read": "Full accessible HTML abstract, Introduction, Theorems 1.1–1.3 and Section 4 operator-extension criterion",
+          "method": "Primary arXiv HTML substantive text",
+          "title": "Order continuity of induced homomorphisms between free Banach lattices",
+          "trigger": "Definition of POE-p and possible exact special hyperplane"
+        },
+        {
+          "assessment": "Studies sup J(A) over finite sets without fixing |A|=n; does not give the specific all-target n-point ℓ1 extremal factor in inspected results",
+          "evidence": "Definition J(A)=2r/diam and J_f=sup over all finite A, Section 3 Kottman/Jung relations.",
+          "identifier_or_url": "https://doi.org/10.1007/s43037-024-00341-1",
+          "material_read": "Full accessible Springer HTML introduction, definitions, Sections 2–4 and inequalities, cardinality conventions",
+          "method": "Primary lawful open HTML reading",
+          "title": "The finite Jung constant in Banach spaces",
+          "trigger": "Highly relevant fixed-cardinality geometry alias"
+        },
+        {
+          "assessment": "Main theorem is ambient-dimensional Jung constant m/(m+1) iff Hadamard order m+1, rather than arbitrary-target fixed-n-point result; remaining body/translation priority risk kept",
+          "evidence": "Dolnikov (1987), Theorem on p.520, Hadamard necessary/sufficient for J_{ℓ1^m}=m/(m+1).",
+          "identifier_or_url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=mzm&option_lang=eng&paperid=5015&what=fullt",
+          "material_read": "Primary Russian-language PDF abstract/introduction and Theorem on p.2, selected subsequent proof and lemmas; visual PDF page 2 inspected; not a complete translated whole-paper reading",
+          "method": "Lawful Mathnet primary PDF text plus page screenshot",
+          "title": "Jung constant in ℓ1^n",
+          "trigger": "Potential decisive old equivalent exact radius result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical codimension-one hyperplane of ℓ1^n, the norm inflation under all finite real ℓ1 targets is a natural quantitative operator-extension invariant, refining the qualitative POE property. Its exact value and explicit finite balanced-subset extremizers are not a mere mean-center inequality: they establish optimal obstruction at every even n, with asymptotic limit two. Future operator-extension and finite-metric Jung analyses can use the exact factor.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pariente-Martín and Tradacete arXiv:2611.00451v1 full HTML relevant sections",
+    "Castillo and Papini 2024 full OA HTML relevant sections, DOI 10.1007/s43037-024-00341-1",
+    "Dolnikov 1987 primary Mathnet PDF theorem and screenshot",
+    "Oikhberg et al arXiv:2210.00614 bibliographic citation (full text not read)",
+    "Resultary search n-point Jung/POE"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every even n≥2 the optimal real-linear extension factor from H_n={sum_i x_i=0}⊂ℓ1^n to arbitrary finite ℓ1 targets equals 2(n−1)/n, attained by balanced-subset sign vectors; equivalent sharp n-point Jung-radius ratio.",
+  "limitations": [
+    "Even dimensions n≥2, real scalar operators, finite-dimensional real ℓ1 targets; no odd n or arbitrary Banach target claim.",
+    "Exact n-point Jung formulation is a true equivalent, so prior fixed-cardinality result would be decisive if found."
+  ],
+  "residual_risks": [
+    "Older fixed-cardinality Jung inequalities or extension constants for ℓ1 could state exactly this ratio under another name; priority provisional.",
+    "Full foundational arXiv:2210.00614 and the remaining Russian text of Dolnikov (1987) not inspected in full; do not draw whole-document absence conclusions.",
+    "Even n only, finite real ℓ1 targets; odd n and Banach targets left open."
+  ],
+  "schema_version": 1
+}
