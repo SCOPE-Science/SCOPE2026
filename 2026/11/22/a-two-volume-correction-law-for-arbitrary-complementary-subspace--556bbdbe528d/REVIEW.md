@@ -1,0 +1,19 @@
+# Mathematical review
+
+## Correctness — PASS
+The stated domain includes arbitrary nonempty compact convex sets, even of deficient dimension. The proof first handles full-dimensional polytopes by showing that adjoining the origin produces an ordinary centered free sum with the exact Dirichlet factorial coefficient. If an origin is already present in a factor, the correction product vanishes. Otherwise the cones over the visible facets of the factor bodies account exactly for the differences between their origin-adjoined volumes and ordinary volumes. Every visible facet of the combined hull is precisely the join of one visible facet from each factor, and its cone volume factorizes with the same Dirichlet coefficient. Subtraction gives the identity, and Hausdorff continuity gives the lower-dimensional cases. Independence justifies the expected-volume product. Three exact rational interval cases and all 512 square–pentagon deletion cases were executed successfully; finite checks supplement rather than prove the general result. The main limitations are complementary orthogonal subspaces, product-volume normalization, and factor independence for the expectation corollary.
+
+## Originality — PASS (historical priority provisional)
+The closest primary result, Chen–Davis (arXiv:1711.11130v2, Theorem 1.2), only asserts the normalized volume product when both factors contain the origin and explicitly says that an uncorrected product fails for exterior placements. The new formula supplies the missing two-volume correction in all dimensions and for any number of factors. Medgyes (arXiv:2611.10078v1, Sections 2.4 and 3) studies the volume of a specific four-dimensional polygon join type with the origin inside both factors; that algebraic factorization does not give the arbitrary origin-exterior correction or factorized random-deletion volume. Closest published-finding corpus entries about the same fixed four-polytope, its Hessian, normal angles and simplex spectrum likewise have strictly narrower and different assertions. Semantic searches for exterior free sums, signed cone-volume products, arbitrary translated factors and orthogonal convex hulls found no covering statement. Search limitations and unindexed general convex geometry literature remain residual historical-priority risks, not proof of uniqueness.
+
+## Mathematical value — PASS
+The theorem resolves the natural failure mode of the familiar free-sum volume product when summands miss their common origin, with a universal correction depending only on two intrinsic scalar volumes per factor. This structural dependence remains exact with lower-dimensional random remnants. Its independent-factor expectation specialization reduces a high-dimensional random convex-hull-volume calculation to a few lower-dimensional expectations, illustrated by a fully evaluated nontrivial nine-vertex square–pentagon deletion law. The result is not a renaming of the centered free-sum formula or just a finite table.
+
+## Sources and limitations
+- T. Chen and R. Davis, *A Product Formula for the Normalized Volume of Free Sums of Lattice Polytopes*, https://arxiv.org/html/1711.11130v2 , complete relevant introduction and proof read; theorem's origin-containment hypothesis is decisive.
+- C. Medgyes, *The inscribed 4-polytope of maximal volume with nine vertices*, https://arxiv.org/html/2611.10078v1 , relevant sections on direct sums, signed volume and joins read.
+- M. Freyer, M. Henk and S. Kipp, *Affine subspace concentration conditions for centered polytopes*, https://doi.org/10.1112/mtk.12189 , cone-volume background only.
+
+The examples and scripts do not provide an independent mathematical audit, formal proof assistant verification or exhaustive literature priority search. Neither independence from all unknown work nor global optimality of any randomly retained hull is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
