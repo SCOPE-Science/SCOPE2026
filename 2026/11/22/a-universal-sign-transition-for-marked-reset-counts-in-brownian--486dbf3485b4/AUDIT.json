@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Regenerative path decomposition proves the multivariate PGF; exact mixed differentiation yields covariance; an elementary strict increasing ratio establishes the unique sign crossing; Taylor expansions handle exact geometry boundaries; 184 independent exact-rational finite-state tests, 3297 comparisons, were reproduced using the bundled standard-library checker. Finite tests are diagnostic rather than infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2206.14387 proves a general renewal/survival product and total reset-count law for changing position distributions",
+        "arxiv:2311.11897 derives two-site mean first-passage law and its optimization transitions"
+      ],
+      "reasoning": "General renewal frameworks cover the excursion decomposition and may yield the marked PGF as a specialization, but the examined statements do not establish the geometric sign classification: for each pair, all rate choices, all independent mixture weights, one simple necessary/sufficient distance condition, and a unique crossing. There is an explicit risk that the extension is viewed as immediate from existing machinery.",
+      "searches": [
+        "multinomial geometric restart counts of different reset sites competing renewal covariance threshold x0 > xi + xj",
+        "counting statistics reset destination conditioned on absorption distributed resetting",
+        "arxiv:2206.14387 Eq. 9 arbitrary sequence of resetting distributions",
+        "arxiv:2311.11897 Sections III–VI"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.14387 (full arXiv text: sections I–V, reset-cycle probability law Eq. 9, mean reset count Eq. 10)",
+      "arxiv:2311.11897 (full HTML: Sections II–VI and equations 1–4 and references)",
+      "arxiv:2304.09348 (full HTML: Sections 1–7, especially Section 2 joint time/count/cost transform)",
+      "arxiv:2401.01125 (full arXiv text: introduction, first-passage and fluctuation sections)",
+      "2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b (published complete RESULT.md inspected)",
+      "2026/11/8/SCOPE-sharp-fixed-mean-first-passage-laplace-and-variance-envelopes-fo--acf0d7ce781d (published complete RESULT.md inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 two-site mean first-passage formula is (1-g0)/(rG); it depends only on a weighted mean G and does not determine separate labelled counts",
+        "The 2022 unmarked count distribution yields no direct sign rule for Cov(N_i,N_j)",
+        "The 2023 one-site joint cost/count transform has no competing resetting labels"
+      ],
+      "reasoning": "The new result is not a mere relabeling of a prior mean passage time or total-count formula. Taking the mixed second derivative of an explicitly marked multi-site renewal PGF and proving the unique global sign crossing are additional arguments. General marked renewal extensions could nonetheless subsume the PGF; this remains a documented priority risk.",
+      "searches": [
+        "Brownian first passage with two stochastic reset destinations joint marked reset count generating function covariance sign reversal initial position exceeds sum of target distances",
+        "multinomial geometric restart counts of different reset sites competing renewal covariance threshold x0 > xi + xj",
+        "arxiv:2311.11897 Eq. 4",
+        "arxiv:2206.14387 Eqs. 9–10",
+        "arxiv:2304.09348 Eqs. 10–11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Toledo-Marín–Boyer (2022): product formula for unmarked number of resets, Eq. 9",
+        "Sunil et al. (2023): generating function of total reset count and cost at a single reset site, Eq. 10"
+      ],
+      "reasoning": "A destination-labelled bivariate count is not equivalent to the total number of resets: summing labels loses cross-derivatives, and single-site reset costs do not compare competing labels. The full multivariate PGF could be derived by marking cycles, but the sharp covariance sign threshold is not stated in those inspected works.",
+      "searches": [
+        "Brownian first passage with two stochastic reset destinations joint marked reset count generating function covariance sign reversal initial position exceeds sum of target distances",
+        "two resetting points Brownian number resets to each location joint distribution",
+        "negative correlation reset counts destination labels stochastic resetting first passage",
+        "arxiv:2206.14387 Section II Eq. 9",
+        "arxiv:2304.09348 Section 2 Eq. 10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published searchable record: 2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b concerns total reset count jointly with local time",
+        "Published searchable record: 2026/11/8/SCOPE-sharp-fixed-mean-first-passage-laplace-and-variance-envelopes-fo--acf0d7ce781d concerns fixed-mean first-passage laws",
+        "No table of competing destination-count covariances identified in actual retrieved records"
+      ],
+      "reasoning": "These related indexed results use different observables or mark one spatial point by local time; no exact two-reset-site destination-count covariance table was located. Search exhaustiveness and uniqueness are not asserted.",
+      "searches": [
+        "reset destinations count covariance before absorption sign independent of reset probability rates",
+        "two resetting points Brownian number resets to each location joint distribution",
+        "two-site stochastic resetting joint probability generating function number of resets until target absorption"
+      ]
+    },
+    "rationale": "The closest original articles furnish random-reset first-passage renewal theory, total reset counts, and the mean first-passage law for two resetting sites, but none of the inspected primary statements includes the pairwise covariance of destination-labelled reset counts or a complete single-crossing and threshold-graph classification. The distinction is observable-level and mathematical; a generic marked-renewal construction may imply the PGF, which is a residual priority risk.",
+    "residual_risks": [
+      "Renewal machinery for marked discrete reset destinations may implicitly imply the multivariate PGF and the sign classification in unindexed literature; no claim of exhaustive novelty",
+      "Published closely related mathematical treatments were read in full; their renewal methods might be generalizable to jointly marked resetting, leaving implicit coverage risk",
+      "An independent publication-priority evaluation remains needed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General unmarked count distribution and mean are present; no joint label-count covariance, single pair threshold or monotone negative graph stated",
+        "evidence": [
+          "Eq. 9 gives total resets: survival product times final success",
+          "Eq. 10–12 give mean total reset count and MFPT"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.14387",
+        "material_read": "arXiv full accessible text Sections I–V, especially Section II reset-cycle probabilities (Eqs. 4, 9–12), later entropy analysis and examples",
+        "method": "read and term-search for individual destinations, count and covariance",
+        "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+        "trigger": "Arbitrary independent reset-position laws and number of resets"
+      },
+      {
+        "assessment": "Same model but computed observable is first passage time and its optimal resetting rate, not counts by reset destination",
+        "evidence": [
+          "Section III Eq. 4 gives mean first-passage time (1-g0)/(rG)",
+          "Section IV addresses discontinuous optimum-resetting-rate transitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.11897v4",
+        "material_read": "full HTML Sections II–VI and Equations 1–4, figures and references",
+        "method": "read model, renewal derivation, rate-optimization analysis, conclusions; text-search for number of resets",
+        "title": "Diffusion with two resetting points",
+        "trigger": "Exact same two-site resetting geometry, positive reset rates"
+      },
+      {
+        "assessment": "One fixed reset location, total count and additive cost; no competition between counts to two sites",
+        "evidence": [
+          "Section 2 Eq. 10 is a total-count/time/cost transform for fixed reset point",
+          "Eq. 21 is geometric distribution for the total reset count"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.09348v2",
+        "material_read": "full HTML, especially Section 2, Eqs. 10–13, Section 7 conclusion and appendices",
+        "method": "read underlying model and count transform",
+        "title": "The cost of stochastic resetting",
+        "trigger": "General joint transform of first passage time and total reset counts with additive cost"
+      },
+      {
+        "assessment": "First-passage time distributions and fluctuations, not destination-labelled reset counts or pair covariance thresholds",
+        "evidence": [
+          "Abstract describes mean and variance and an equivalent reset point for first-passage distribution",
+          "No destination-count covariance reported in inspected main sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "full arXiv accessible text, introduction, reset-position averaging and first-passage fluctuation sections",
+        "method": "read section headings and first-passage moment derivations, search for reset-number discussion",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Another general independent-reset-position primary paper"
+      },
+      {
+        "assessment": "The proof and theorem concern a single reset site a and occupation local time at the same point; count N is unmarked, with no competing destinations or pair-count covariance.",
+        "evidence": [
+          "Full Section Finding: E[e^{-sL}z^N]=h/(1+sG-(1-h)z) for a single reset location a; Section Limitations explicitly does not extend to spatially distributed resets."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b",
+        "material_read": "complete published RESULT.md read, including theorem, assumptions, proof, prior-work comparisons and limitations",
+        "method": "searched semantic index and read full published scientific article via read-only repository access",
+        "title": "Joint local-time and reset-count conjugacy before absorption in one-dimensional diffusion",
+        "trigger": "Closest published unmarked reset-count result"
+      },
+      {
+        "assessment": "The full statement optimizes and identifies first-passage-time transforms over random reset-position distributions; it does not track multiple labelled destination counts or their covariance.",
+        "evidence": [
+          "Full theorem: (r+s)I(r+s)/(s+rI(r+s)) controls first-passage time, with sharp convex-order envelopes at fixed mean; it does not mark reset destination counts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-mean-first-passage-laplace-and-variance-envelopes-fo--acf0d7ce781d",
+        "material_read": "complete published RESULT.md read, including theorem, assumptions, proof, prior-work comparisons and limitations",
+        "method": "searched semantic index and read full published scientific article via read-only repository access",
+        "title": "Sharp fixed-mean first-passage Laplace and variance envelopes for distributed Brownian resetting",
+        "trigger": "Related distributional resetting results with stronger stochastic orders"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "486dbf34-85b4-4d23-9f6e-38f59e6b5b97",
+  "value": {
+    "rationale": "Two separately labelled reset destination counts measure how a search allocates repeated relocation attempts. Their sign of dependence is a natural distinct observable from the total resets or mean completion time. The exact sharp geometric criterion, independence from all mixing weights, unique global transition, and nesting threshold graphs are nontrivial complete classifications for any finite collection of reset sites. Prior renewal identities give a route to derive such results but do not directly provide this classification.",
+    "status": "PASS"
+  }
+}
