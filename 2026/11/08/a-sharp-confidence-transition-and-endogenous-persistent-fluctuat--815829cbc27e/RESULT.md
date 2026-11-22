@@ -1,92 +1,72 @@
-# A sharp confidence transition and endogenous persistent fluctuations in neighborhood Deffuant–Weisbuch stars
+# Exact endogenous freezing and biased stationary laws on binary neighborhood-confidence stars
 
 ## Finding
 
-**Theorem (sharp three-agent threshold and frozen binary stars).** Consider the pure neighborhood Deffuant–Weisbuch (NDW) opinion model on a fixed finite unweighted undirected graph. Each discrete time step selects one edge uniformly and independently; endpoints simultaneously make their directed confidence decisions using pre-interaction opinions. Each receptive endpoint moves a fraction \(\rho\in(0,1/2]\) toward the selected neighbor. A directed confidence distance compares the endpoint's opinion with the *mean opinion of its selected neighbor's neighbors*, and receptiveness requires that distance be strictly less than \(\varepsilon>0\).
+**Theorem (binary-star freezing boundary and induced stationary law).** Consider the pure neighborhood Deffuant–Weisbuch (NDW) rule on the fixed unweighted star \(K_{1,m}\), \(m\ge3\), with one uniformly independently selected edge per discrete step, symmetric pre-interaction opinions used in the two *separate directed* confidence tests, strict tolerance \(\varepsilon>0\), and compromise fraction \(0<\rho\le1/2\). Of the \(m\) leaves, exactly \(k\in\{1,\ldots,m-1\}\) start at opinion 1 and the remaining \(m-k\) at opinion 0; the hub starts at arbitrary \(z\in[0,1]\). Put \(p=k/m\) and \(q=1-\rho\).
 
-**(a) Three-vertex path.** Put opinions \(x_L(0)=0\), \(x_R(0)=1\), and \(x_C(0)=z\in[0,1]\) on the leaves and center of the path \(L-C-R\). For \(0<\varepsilon\le1/2\), both leaves stay fixed for all times, and the center has the exact recursion
+The exact condition under which **every leaf is permanently unreceptive** is
 \[
-H_{t+1}=(1-\rho)H_t+\rho B_t,\qquad
-\Pr(B_t=0)=\Pr(B_t=1)=\tfrac12,
+             0<\varepsilon\le \varepsilon_*(m,k):=\min\{p,1-p\}.
 \]
-with independent inputs. Its distributions converge to the unique stationary law of \(\rho\sum_{j=0}^{\infty}(1-\rho)^jB_j\), whereas almost surely
-\[
-\liminf_{t\to\infty}H_t=0,\qquad \limsup_{t\to\infty}H_t=1.
-\]
-In particular, when \(\rho=1/2\), the limiting law is uniform on \([0,1]\), even though almost-sure convergence fails.
+More precisely, under this condition both directed leaf gates stay closed forever for every possible edge-selection history; for \(\varepsilon>\varepsilon_*\), at least one leaf changes opinion almost surely, so the fully frozen-leaf phase fails. The latter statement does **not** classify the eventual behavior above this boundary.
 
-For \(\varepsilon>1/2\), every edge interaction is a two-sided compromise and all three opinions converge almost surely to their preserved mean \((1+z)/3\). If \(V_t\) is their sum of squared deviations from that mean, then
+Within the frozen phase the hub has the exact i.i.d. recursion
 \[
-\mathbb E[V_{t+1}\mid X_t]\le(1-\rho(1-\rho))V_t.
+H_{t+1}=qH_t+\rho B_t,\qquad B_t\sim\operatorname{Bernoulli}(p),
 \]
-Thus the confidence boundary is sharp, including equality in the nonconvergent regime.
+with independent inputs. Its law converges at \(W_1\)-rate at most \(q^t\) to the unique stationary law
+\[
+\mu_{\rho,p}=\mathcal L\Bigl(\rho\sum_{j=0}^\infty q^jB_j\Bigr),
+\]
+where the \(B_j\)'s are i.i.d. Bernoulli\((p)\). The moment identities are
+\[
+\mathbb E H_t=p+q^t(z-p),\qquad
+\operatorname{Var}(H_t)=\frac{\rho p(1-p)}{2-\rho}(1-q^{2t}),
+\]
+\[
+\mathbb E_{\mu}H=p,\qquad \operatorname{Var}_{\mu}H=\frac{\rho p(1-p)}{2-\rho}.
+\]
+For almost every edge sequence \(\liminf H_t=0\) and \(\limsup H_t=1\): stationary convergence in law does not imply a pathwise limit.
 
-**(b) Binary stars.** Let the graph be \(K_{1,m}\), where \(m\ge2\), the center starts from any \(z\in[0,1]\), and exactly \(k\in\{1,\ldots,m-1\}\) leaves start at opinion \(1\) and the other leaves at \(0\). Write \(p=k/m\). If \(0<\varepsilon\le\min\{p,1-p\}\), every leaf remains fixed forever, and the center evolves as
+At exact half compromise \(\rho=1/2\), \(\mu_{1/2,p}\) has full topological support \([0,1]\). It is Lebesgue-uniform precisely when the leaf populations are balanced \((2k=m)\). If \(2k\ne m\), it is singular and has Hausdorff dimension
 \[
-H_{t+1}=(1-\rho)H_t+\rho B_t,\qquad B_t\overset{\mathrm{iid}}\sim\operatorname{Bernoulli}(p).
+\dim_{\rm H}(\mu_{1/2,p})=\frac{-p\log p-(1-p)\log(1-p)}{\log 2}<1.
 \]
-Its unique stationary law \(\mu_{\rho,p}\) has
-\[
-\mathbb E_{\mu}[H]=p,\qquad
-\operatorname{Var}_{\mu}(H)=\frac{\rho p(1-p)}{2-\rho},
-\]
-and the finite-time quantities are
-\[
-\mathbb E[H_t]=p+(1-\rho)^t(z-p),\qquad
-\operatorname{Var}(H_t)=\frac{\rho p(1-p)}{2-\rho}\bigl[1-(1-\rho)^{2t}\bigr].
-\]
-There is distributional convergence to \(\mu_{\rho,p}\) at Wasserstein-1 distance at most \((1-\rho)^t\), but no almost-sure convergence: the pathwise liminf and limsup are \(0\) and \(1\). At \(\rho=1/2\), \(\mu_{\rho,p}\) is the binary digit measure with iid \(\operatorname{Bernoulli}(p)\) digits. It is Lebesgue-uniform if and only if \(p=1/2\); for \(p\ne1/2\) it is singular with Hausdorff dimension
-\[
-\dim_{\mathrm H}(\mu_{1/2,p})=\frac{-p\log p-(1-p)\log(1-p)}{\log2}.
-\]
-Here dimension of a probability measure means the infimum of the Hausdorff dimensions of its full-measure Borel sets.
-
-Among connected graphs, two vertices cannot exhibit these persistent fluctuations in the pure NDW model; the path on three vertices is the minimal witness.
+This is the classical biased binary Bernoulli-product dimension, here linked to the exact confidence-driven endogenous freezing criterion. The nonuniform leaf-balance law and its sharp freezing boundary are the subject of the result; previously published three-vertex path theorems and general stubborn-agent perpetuity theory are **not** claimed as new.
 
 ## Assumptions and scope
 
-The graph is static (no rewiring), all node and edge weights are one, and only one edge is sampled per time step. For a vertex \(i\) and selected neighbor \(j\), its directed confidence distance is
+For adjacent vertices \(i,j\), the pure neighborhood directed distance is
 \[
-d_{\mathrm{NBC}}(i,j)=\left|x_i-\frac{1}{\deg(j)}\sum_{v\sim j}x_v\right|.
+d_{\mathrm{NBC}}(i,j)=\left|x_i-\frac1{\deg(j)}\sum_{v\sim j}x_v\right|.
 \]
-The selected endpoints use the same old-state opinions to compute both directed confidence indicators; an endpoint that is not receptive does not move. The mixing parameter is exactly \(\sigma=0\) in Eq. (3) of Krishnagopal and Porter, arXiv:2402.05368v2. The one-edge rule is an allowed sampling choice in that model, corresponding to \(f=1\). These claims do not concern the adaptive rewiring model, arbitrary intermediate \(\sigma\), or general graphs beyond the stated cases.
+Upon selecting \(\{i,j\}\), each endpoint with distance strictly below \(\varepsilon\) moves \(\rho\) toward the other's *old* opinion; unreceptive endpoints do not move. Exactly one uniformly selected edge acts per time step, with no rewiring and no direct-distance mixture (\(\sigma=0\)). No claim is made for mixed confidence, arbitrary initial leaf opinions, or the high-tolerance dynamics of stars with three or more leaves. The claim concerns all integer \(m\ge3\), all \(1\le k\le m-1\), all \(z\in[0,1]\), and the given real parameter ranges.
 
 ## Proof
 
-**Directed thresholds and invariant stars.** Each leaf \(j\) of a star has unique neighbor the center \(C\), so the center sees the average of the neighbors of \(j\), which is exactly its own opinion: \(d_{\mathrm{NBC}}(C,j)=0\). Thus the center always updates. A leaf at opinion \(b\in\{0,1\}\) sees the average of the center's neighbor opinions, namely \(p\), whence \(d_{\mathrm{NBC}}(j,C)=|b-p|\in\{p,1-p\}\). Under \(\varepsilon\le\min\{p,1-p\}\), the strict confidence condition fails for every leaf. Induction freezes every leaf and leaves each random edge selection an independent Bernoulli input for the center. The P3 low-confidence regime is the special case \(m=2,p=1/2\).
+**Exact directed confidence gate.** For any star state the hub's distance toward each selected leaf vanishes, since that leaf's only neighbor is the hub. If the leaves still have their initial binary values, their mean is \(p\). Each zero leaf's distance towards the hub is then \(p\), and each one leaf's distance is \(1-p\), independent of the hub state. Because the gate is *strict*, all leaf gates are closed exactly for \(\varepsilon\le\min(p,1-p)\). Induction proves permanent closure, while the hub always responds. Consequently an independent uniformly sampled edge exposes the hub to value 1 with probability \(k/m=p\) and to 0 otherwise.
 
-**Stationarity, moments, and sample paths.** Put \(q=1-\rho\in[1/2,1)\). Iterating gives
+Conversely suppose \(\varepsilon>\min(p,1-p)\). At least one of the two binary leaf populations is then receptive at time zero as long as the leaves stay binary. If the hub initially equals the opinion of that population, selecting a leaf of the **opposite** population first moves the hub strictly away, because \(0<\rho\). Selecting a receptive leaf afterward changes its opinion strictly. If the hub opinion initially differs from a receptive leaf's opinion, selecting that receptive leaf changes it immediately. Thus from every \(z\) a prescribed one- or two-edge word has positive probability of changing a leaf. In fact, the chance that no leaf ever moves is zero: as long as leaves have not moved, the two relevant gates remain constant; independent edge sampling visits both populations and a receptive leaf infinitely often, while the hub cannot remain forever equal to the receptive population's opinion. Hence permanent complete leaf freezing fails almost surely. This assertion is only about whether the leaves ever change; it does not assert eventual consensus for \(\varepsilon>\varepsilon_*\).
+
+**Recursion and stationary statistics.** Under the frozen condition the hub recursion has \(q=1-\rho\) and independent Bernoulli inputs. Unrolling gives
 \[
 H_t=q^tz+\rho\sum_{j=0}^{t-1}q^{t-1-j}B_j.
 \]
-The input sum has the same distribution as the first \(t\) terms of \(\rho\sum_{j\ge0}q^jB_j\), whose infinite series converges absolutely. The update map contracts pairs of trajectories driven by the same inputs by \(q\), proving uniqueness of its invariant law and Wasserstein-1 convergence with bound \(q^t\) (couple two initial values in \([0,1]\)). Taking expectations and variances of the independent inputs proves the stated formulas.
+The finite input word is exchangeable under reversal, so its law is that of the first \(t\) terms of the absolutely convergent infinite series. Coupling a solution started from \(z\) and one started from the stationary initial law with the same future inputs gives \(|H_t-H'_t|\le q^t\), proving the \(W_1\) bound and uniqueness. Summing independent expectations and variances gives the formulas, using \(1-q=\rho\) and \(1-q^2=\rho(2-\rho)\).
 
-For every integer \(M\), infinitely many pairwise-disjoint length-\(M\) input blocks are all zero, and infinitely many are all one, almost surely, by independence and the second Borel–Cantelli lemma. On a zero block the end opinion is at most \(q^M\) because all opinions remain in \([0,1]\); on a one block it is at least \(1-q^M\). Intersect over \(M\in\mathbb N\) to obtain the pathwise liminf and limsup, hence nonconvergence.
+For every fixed length \(M\), an iid Bernoulli word with \(0<p<1\) contains infinitely many disjoint all-zero and all-one runs of length \(M\) almost surely. Each all-zero run ends with \(H\le q^M\) and each all-one run with \(H\ge1-q^M\), since the hub always lies in \([0,1]\). Taking the countable intersection over \(M\) proves \(\liminf H_t=0\) and \(\limsup H_t=1\).
 
-**Exact law at half compromise.** With \(\rho=q=1/2\), the stationary series is \(\sum_{j\ge0}2^{-j-1}B_j\). Every dyadic cylinder interval determined by \(a\) digits equal to one and \(b\) digits equal to zero has mass \(p^a(1-p)^b\), up to a null set of dyadic-boundary ambiguities. For \(p=1/2\), its mass equals its length, so the distribution is Lebesgue-uniform. For \(p\ne1/2\), its typical digit frequency is \(p\), whereas Lebesgue-almost every number has digit frequency \(1/2\); the measures are mutually singular. By the strong law, the local exponent of a typical depth-\(n\) dyadic cylinder is \(h(p)/\log2\). Standard cylinder covering and the mass-distribution argument give the same upper and lower Hausdorff dimension of the full-measure typical-digit set, proving the exact dimension stated. This last dimension step is a classical Bernoulli-product fact, not presented as an independent new theorem.
+**Exact half-compromise law.** When \(\rho=1/2\), the stationary variable is \(\sum_{j\ge0}2^{-j-1}B_j\). Each binary cylinder of depth \(n\), with \(a\) ones and \(n-a\) zeros, has probability \(p^a(1-p)^{n-a}\). Because \(0<p<1\), all cylinders have positive mass and the support is all \([0,1]\). For \(p=1/2\), their probabilities are their Lebesgue lengths. For \(p\ne1/2\), the strong law gives typical digit frequency \(p\), whereas Lebesgue-typical sequences have frequency \(1/2\), proving singularity. The almost-sure local dyadic exponent is \(-[p\log p+(1-p)\log(1-p)]/\log2\). The standard Bernoulli-product cylinder covering and mass-distribution bounds give the asserted dimension (with dyadic expansion ambiguities confined to a null set). These coding facts are classical; the new model-specific step is their generation by an exact frozen-leaf threshold in stars beyond the three-vertex path.
 
-**High-confidence P3 consensus.** Suppose \(\varepsilon>1/2\). Initially the center lies between the two leaf opinions. At every edge selection both endpoints update: the center sees distance zero, while each selected leaf sees half the current leaf-to-leaf distance, bounded by \(1/2\) as long as the order is maintained. A simultaneous convex compromise at weight \(\rho\le1/2\) preserves the order \(x_L\le x_C\le x_R\); no opinion leaves the current opinion interval, so its width cannot increase. Thus the two-sided update condition holds inductively forever. The mean \(\bar x=(1+z)/3\) is conserved. A two-sided update on an edge with difference \(d\) reduces \(V=\sum(x_i-\bar x)^2\) by exactly \(2\rho(1-\rho)d^2\). Uniform selection of the two edges yields
-\[
-\mathbb E[V_{t+1}\mid X_t]=V_t-\rho(1-\rho)\left[(x_L-x_C)^2+(x_C-x_R)^2\right].
-\]
-The edge-square sum exceeds or equals \(V_t\), since their difference is \((x_L+x_R-2x_C)^2/3\). Hence \(\mathbb EV_t\le[1-\rho(1-\rho)]^tV_0\). Markov's inequality and summability give \(V_t\to0\) almost surely, hence consensus at the conserved mean. At equality \(\varepsilon=1/2\), the leaf distances are exactly the threshold, so the low-confidence proof applies instead.
+## Independent reproducibility targets and limitations
 
-**Minimality.** On the connected two-node graph, every neighbor's only neighbor is the updating vertex itself, so both directed neighborhood-confidence distances are zero. Every update reduces the opinion difference by \(1-2\rho\in[0,1)\), yielding deterministic consensus for any positive threshold. Thus P3 is minimal.
+For each \(m\) and \(k\), checking both actual directed distances before a chosen interaction validates the two gate values \(p\) and \(1-p\), not merely the scalar recursion. For example, \(m=3,k=1\) has sharp full-freezing tolerance \(1/3\); at \(\rho=1/2\) the resulting stationary law is fully supported but singular with dimension \(h(1/3)/\log2\). Exact arithmetic tests can confirm the gate and finite-time moments for finitely many \(m,k\) but do not establish the all-integer and almost-sure claims; those come from the proof above.
 
-## Verification
-
-Execute `python verify.py` using Python's standard library. The checker reconstructs each asymmetric directed step directly from the defining rule, checks exact-rational frozen-star invariance, the high-confidence conditional variance identity and contraction, finite dyadic distributions and moments, and biased Bernoulli moment recurrences. It reports 7,057 successful exact checks. The infinite statements follow from the mathematical proof; no bounded enumeration is used as an infinity certificate.
-
-## Relationship to prior work
-
-Krishnagopal and Porter, arXiv:2402.05368 (first public v1 on 2024-02-08; consulted revised v2, Section III.1), introduce NDW directed confidence based on the neighbor's mean and investigate many regimes by simulations. The present theorem resolves a specific exact three-agent threshold and a binary-star family analytically; it is not a claim about the paper's rewiring outcomes. Acemoglu, Como, Fagnani and Ozdaglar, arXiv:1009.2653 (2010), already establish persistent fluctuations from *exogenously stubborn* agents and describe stationary laws in that setting. The affine perpetuity after leaf freezing, and its Bernoulli digit structure, are consequently not asserted to be new in isolation; the NDW mechanism here makes the leaves **endogenously** unreceptive under an exact sharp confidence bound, while selecting consensus on the opposite side. Chu and Porter, arXiv:2409.15148, study randomized interaction times in different bounded-confidence dynamics and do not supply this fixed-graph pure-neighborhood threshold. This literature comparison does not amount to a comprehensive priority guarantee.
-
-## Limitations
-
-All topology and sample-path claims concern fixed stars with the stated binary leaf configurations; the high-confidence consensus classification is proved for P3, not for larger stars or arbitrary graphs. The dimension formula uses classical iid Bernoulli coding. At low confidence the law approaches stationarity but the center does not converge on almost every realized sample path. Numerical checks supplement, but do not replace, exact proofs. Possible unindexed or inaccessible equivalent source results remain a scientific-priority risk. No independent external audit has occurred.
+The earlier three-vertex NDW threshold and uniform limiting law were proved in the published 2026-10-25 result *A sharp three-agent confidence threshold between consensus and persistent opinion fluctuations*, with further mixed-neighborhood extension in the 2026-11-02 published result *Uniform stationary volatility in a three-vertex neighborhood-confidence path*. Their statements cover the \(m=2\) case, which is deliberately **excluded from this theorem**. Acemoglu, Como, Fagnani, and Ozdaglar (2010/2013), especially §2.1, prove the perpetuity and fluctuation mechanism for **exogenously stubborn** vertices; that theory describes the hub after the NDW confidence gate has closed, but does not derive the endogenous star gate. The stationary biased binary entropy/dimension law is also standard and is not asserted as a new theorem in probability. Literature coverage beyond the cited results is not guaranteed.
 
 ## References
 
-1. S. Krishnagopal and M. A. Porter, *Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects*, arXiv:2402.05368v1 (2024-02-08) and v2 (2025-05-22), https://arxiv.org/html/2402.05368v2 . Especially corrected Eq. (3), Section III.1.
-2. D. Acemoglu, G. Como, F. Fagnani and A. Ozdaglar, *Opinion fluctuations and disagreement in social networks*, arXiv:1009.2653 (2010), https://arxiv.org/abs/1009.2653 .
-3. Y. Chu and M. A. Porter, *Bounded-confidence opinion models with random-time interactions*, arXiv:2409.15148 (2024), https://arxiv.org/html/2409.15148v1 .
+1. S. Krishnagopal and M. A. Porter, *Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects*, arXiv:2402.05368v2, 2025, §III.1 Eq. (3). https://arxiv.org/html/2402.05368v2
+2. *A sharp three-agent confidence threshold between consensus and persistent opinion fluctuations*, published 2026-10-25: https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-three-agent-confidence-threshold-between-consensus-and-p--28a3aef41d87/RESULT.md
+3. *Uniform stationary volatility in a three-vertex neighborhood-confidence path*, published 2026-11-02: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-uniform-stationary-volatility-in-a-three-vertex-neighborhood-con--37b276c8f32e/RESULT.md
+4. D. Acemoglu, G. Como, F. Fagnani and A. Ozdaglar, *Opinion fluctuations and disagreement in social networks*, Mathematics of Operations Research 38 (2013), 1–27, §2.1. https://arxiv.org/abs/1009.2653

@@ -1,19 +1,24 @@
-# Scientific review
+# Scientific assessment of the binary-star freezing theorem
 
-## Correctness — PASS
+## Correctness
 
-The central mechanism is algebraic: on a star, a center's directed neighborhood distance is identically zero, while each binary leaf's directed distance is exactly \(p\) or \(1-p\). Strict confidence at the stated bounds therefore makes all leaves unresponsive without assuming stubbornness. This generates an iid Bernoulli affine recursion with exact contraction, moments and nonconvergent sample-path extrema. The P3 high-confidence half is a symmetric two-endpoint compromise with a conserved mean and strict quadratic-energy contraction. The 7,057 exact-rational checker assertions agree with these identities. Classical Bernoulli-product cylinder arguments justify the fractal dimension; the computation is not an infinite proof.
+**PASS for the revised star theorem.** With \(m\ge3\), the hub's directed neighborhood distance to a chosen leaf is zero, while a binary leaf's directed distance to the hub is exactly \(p\) or \(1-p\). Therefore the strict all-leaf-freezing boundary is \(\varepsilon_* = \min(p,1-p)\). If \(\varepsilon>\varepsilon_*\), an initially receptive leaf moves on an edge-selection word of length at most two, and under independent uniform selections some leaf almost surely moves. In the frozen regime the exact i.i.d. hub recursion gives the stated finite-time moments, distributional limit, full sample-path oscillation and biased binary digit law. A separate exact-fraction implementation reproduced 26,928 gate and moment identities for representative star sizes \(3\le m\le10\) and positive rational parameters; these checks corroborate, but do not replace, the analytic proof.
 
-## Originality — PASS, with stated residual risk
+## Originality
 
-The initiating neighborhood-confidence publication, Krishnagopal–Porter (arXiv:2402.05368v1/v2, especially v2 Section III.1), defines the directed neighborhood criterion and reports numerical qualitative behavior but does not in its inspected analysis provide this sharp P3 \(\varepsilon=1/2\) phase classification or frozen binary-star threshold. A serious antecedent is Acemoglu–Como–Fagnani–Ozdaglar, arXiv:1009.2653: exogenous stubborn agents already generate nonconvergent affine opinions and stationary distributions. The claimed original step is the exact confidence-driven *endogenous* freezing and its sharp contrast with ordinary P3 consensus, not a rediscovery of stubborn-agent perpetuities or binary coding. Chu–Porter (arXiv:2409.15148) considers different random-time update mechanisms. Targeted mathematical-research searches and claims of 98 accessible previous findings did not identify a covering result. Failed searches do not demonstrate uniqueness; unindexed equivalent results remain possible.
+**PASS only for the revised, properly delimited star statement, with qualification.** The earlier published *A sharp three-agent confidence threshold between consensus and persistent opinion fluctuations* (2026-10-25) already proves the entire \(m=2\) consensus/nonconvergence dichotomy, contraction bound, stationary law, and half-compromise uniformity. The later *Uniform stationary volatility in a three-vertex neighborhood-confidence path* (2026-11-02) includes broader mixed-neighborhood parameters. These results are fully credited and \(m=2\) is outside the revised claim. Acemoglu–Como–Fagnani–Ozdaglar (2010/2013) give the stochastic-gossip law with **externally specified** stubborn agents. The binary-product Hausdorff dimension is classical probability. The model-specific surviving fact is the exact all-leaf-freezing boundary \(\min(k/m,1-k/m)\), and its induced group-balance-dependent statistics on NDW stars with \(m\ge3\). These steps are not asserted to discover new perpetuities or entropy formulas. Literature searches do not establish exhaustive priority.
 
-## Value — PASS
+## Mathematical value
 
-The smallest connected social network exhibits a rigorous, parameter-sharp transition from almost-sure persistent fluctuations to almost-sure consensus under the same directed neighborhood confidence rule, with equality assigned precisely. The binary-star extension shows that the effect is structurally robust and links group imbalance to singular stationary statistics. These mechanisms are motivated by why transitive confidence differs from direct confidence, not by an arbitrary finite enumeration. The isolated perpetuity/dimension identities are classical and are included for a complete description of the NDW phenomenon, not counted as separately novel.
+**PASS, limited to the natural star-family invariant.** The threshold gives a sharp, explicit classification of full endogenous unresponsiveness for every two-population binary star, beyond the three-vertex path. At exact compromise, minority fraction controls whether a stationary law is absolutely continuous or singular with full support. This connects graph-population balance, directed confidence, and a rigorous stationary-measure geometry. It does not prove global consensus at larger confidence radii and does not supply an unrelated new probability theorem.
 
-## Scope and scientific limitations
+## Scope and residual risks
 
-Only one selected edge per step, static unweighted stars, and pure transitive confidence are covered. The high-confidence proof is for P3 alone. Although the code is exact, it checks finite cases, not the infinite parameter space or the distributional limit. Human independent validation and exhaustive literature priority verification have not occurred.
+The analysis assumes one uniformly independently sampled edge, a fixed unweighted star, \(\sigma=0\), strict tolerance, binary initial leaves, \(0<\rho\le1/2\), and \(m\ge3\). Its sharpness is for permanent full leaf freezing, not for full global dynamics at higher tolerances. Older source material or an unindexed publication might give the same multi-leaf gate. No statement of external formal certification is made.
 
-Self-review: passed. Independent audit: not yet performed.
+### References
+
+- https://arxiv.org/html/2402.05368v2
+- https://arxiv.org/abs/1009.2653
+- https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-three-agent-confidence-threshold-between-consensus-and-p--28a3aef41d87/RESULT.md
+- https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-uniform-stationary-volatility-in-a-three-vertex-neighborhood-con--37b276c8f32e/RESULT.md
