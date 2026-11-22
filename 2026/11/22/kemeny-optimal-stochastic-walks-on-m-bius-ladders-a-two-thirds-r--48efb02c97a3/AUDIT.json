@@ -1,0 +1,174 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=2 and unrestricted irreducible symmetric stochastic supported matrix, strict trace-inverse convexity plus rotation averaging gives a unique global invariant optimizer. Removing invariant holding strictly decreases the objective, then exact Fourier eigenvalues and an absolutely convergent Poisson-kernel identity give F_m. Finite-sum strict convexity, explicit F_m′(0)<0 and F_m(1-)=infinity establish a unique interior root, with special cases and F_m′(1/3)>0 for m>=4. Uniform scaled-derivative convergence brackets the root and gives b_m~(3/(2m))^(2/3), the exact second-order cost coefficient and the ratio 3/2. The standalone checked code passes 417 assertions including independent fraction-matrix inversions and the unweighted table; no finite tests are substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel–Agharkar–Bullo gives convex/SDP global optimization in general without a graph-specific formula",
+        "Durastante–Gnazzo–Meini provides sparse constrained numerical optimizers, not this exact two-thirds scaling",
+        "The two Möbius fastest-mixing records optimize SLEM with rung m^-2 and positive holding"
+      ],
+      "reasoning": "General convex programs cover the problem as an algorithmic instance but do not themselves state or analytically imply the exact root and asymptotic characterization. SLEM optimizer and weighted spanning-tree optimum solve different cost functions.",
+      "searches": [
+        "Kemeny optimization Möbius ladder trace inverse antipodal chord stochastic minimum expected hitting time O(n^-2/3) rung transition",
+        "minimal Kemeny reversible symmetric stochastic cycle with perfect matching opposite vertices Möbius ladder",
+        "2026 reversible Kemeny structure-preserving perturbations",
+        "published-finding corpus fastest mixing Möbius ladder"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://www.mathnet.ru/links/60f09bf37b455e6840140f491c0b8e4f/semr1158.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-parity-sharp-fastest-mixing-on-m-bius-ladders--ad268224b267",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-rung-deletion-prices-and-critical-scale-d-optimality-on-m--00e372929d94",
+      "https://link.springer.com/article/10.1007/s10543-026-01152-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2007 symmetry paper derives an averaging method for SLEM, not a Kemeny optimum",
+        "2015 Kemeny paper proves a generic convex program, not the spectral closed sum on Möbius ladders",
+        "2019 Kirchhoff theorem is reproduced exactly only at b=1/3",
+        "2019 proof is Chebyshev sum for fixed weights; the new optimal scaling needs derivative and strict convexity",
+        "2026 numerical Kemeny paper does not exhibit the family-specific law"
+      ],
+      "reasoning": "The prior general convex and Fourier facts are legitimate inputs, and the unweighted theorem is exactly subsumed as a specialization. None of the closest inspected statements entails both the unique optimum against asymmetric designs and the sharp asymptotic coefficient, even after normalization or replacing Kemeny by total resistance. Claims of universal uniqueness are proved separately by strict trace-inverse convexity.",
+      "searches": [
+        "Kemeny constant minimizing symmetric stochastic Markov walk on Möbius ladder with antipodal rungs exact optimal transition probabilities",
+        "Kemeny optimization Möbius ladder trace inverse antipodal chord stochastic minimum expected hitting time O(n^-2/3) rung transition",
+        "minimal Kemeny reversible symmetric stochastic cycle with perfect matching opposite vertices Möbius ladder",
+        "Kemeny random walk cyclic antipodal edges optimal non-lazy Markov trace Laplacian",
+        "Fastest Mixing Markov Chain on Graphs with Symmetries arxiv 0709.0955",
+        "Robotic surveillance Markov chains minimal weighted Kemeny 2015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baigonakova–Mednykh Theorem 1 is at fixed unit conductance, matching F_m(1/3), not a free optimal rung law",
+        "Patel–Agharkar–Bullo Theorem 4 gives generic convexity rather than the ladder optimizer"
+      ],
+      "reasoning": "Kemeny on a symmetric uniform-stationary walk equals a normalized trace of a pseudoinverse or Kirchhoff index; the fixed unweighted invariant is a single point of the present objective. Fourier/Chebyshev equivalence is acknowledged, but a parameterized minimizer is not implied by evaluating only b=1/3.",
+      "searches": [
+        "Kemeny constant minimizing symmetric stochastic Markov walk on Möbius ladder with antipodal rungs exact optimal transition probabilities",
+        "Kemeny optimization Möbius ladder trace inverse antipodal chord stochastic minimum expected hitting time O(n^-2/3) rung transition",
+        "Kemeny random walk cyclic antipodal edges optimal non-lazy Markov trace Laplacian",
+        "Kemeny constant optimization reversible circulant Möbius ladder",
+        "Baigonakova Mednykh Kirchhoff index Möbius ladder theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Baigonakova–Mednykh Table 1 gives exact equal-unit-edge Kirchhoff values, independently checked by rational matrix inversions",
+        "Closest published-finding corpus same-graph IDs 2026/11/2/...8814c6f5058b and 2026/10/26/...ad268224b267 are fastest mixing not Kemeny"
+      ],
+      "reasoning": "Known tables compute the unweighted case b=1/3, which is nonoptimal for m>=4; no inspected table lists the optimizing variable rung, a minimal trace objective, or its m^-2/3 law.",
+      "searches": [
+        "Möbius ladder Kemeny constant optimal transition probabilities edge weights Markov chain",
+        "Möbius ladder minimize Kemeny constant weighted random walk",
+        "Möbius ladder Kirchhoff index weight antipodal edges optimum conductance",
+        "published-finding corpus Möbius ladder Kemeny optimization",
+        "Baigonakova Mednykh Möbius ladder Kirchhoff table"
+      ]
+    },
+    "rationale": "Searches across semantic mathematical records, published graph-family results and primary papers identify generic Kemeny optimization, unweighted Möbius-ladder Kirchhoff indices, and a different SLEM optimum. The exact unrestricted minimizing rung probability, unique interior root and two-thirds asymptotic law do not follow from their inspected statements without new spectral and convex analysis. This is a qualified best-knowledge assessment; an unindexed or uninspected equivalent could still exist.",
+    "residual_risks": [
+      "Unindexed weighted-circulant/Kemeny-specific formulas may contain equivalent minimizers or scalings.",
+      "The published determinant-design Möbius-ladder record was compared by searchable summary rather than full primary proof; it optimizes a different objective.",
+      "Methods in general Kemeny convex optimization imply numerical solvability and may permit an independent derivation, although an explicit closed all-size result was not located.",
+      "No independent mathematical review or certified publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general convex symmetry reduction for SLEM, not the Kemeny reciprocal eigenvalue objective, rung optimizer, or asymptotic law",
+        "evidence": [
+          "arXiv:0709.0955v1 publicly dated 2007-09-06; fastest-mixing SLEM objective, not Kemeny"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Introduction; graph-symmetry and invariant-matrix optimization methodology; selected graph examples, with first-public preprint date checked",
+        "method": "Public arXiv preprint text and first-page image",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry averaging and two edge orbits on a transitive graph"
+      },
+      {
+        "assessment": "Generic convex/SDP formulation for fixed stationary distribution; no ladder-specific optimizer or scaling in material checked",
+        "evidence": [
+          "Theorem 4 establishes convexity of Kemeny minimization with prescribed stationary law; no Möbius text match"
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "First page, Section II Kemeny trace formula, Theorems 1,2,4, optimization/SDP equations, and descriptions of applications",
+        "method": "Open author PDF text and first-page image, term and theorem location inspection",
+        "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+        "trigger": "Closest general reversible Kemeny optimization framework"
+      },
+      {
+        "assessment": "Exact Kf for unit-resistance Möbius ladder; gives only equal-edge walk Kemeny after regular normalization. It does not vary edge-class probabilities or optimize them. Used as an independent specialization check",
+        "evidence": [
+          "Theorem 1 gives Kf(M_m)=(m^3-m)/6+m^2 tanh((m/2)arccosh 2)/sqrt(3), at equal unit edge conductance"
+        ],
+        "identifier_or_url": "https://www.mathnet.ru/links/60f09bf37b455e6840140f491c0b8e4f/semr1158.pdf",
+        "material_read": "Sections 1–3, Theorem 1 and proof, Chebyshev eigenvalue calculation, Table 1 and asymptotics",
+        "method": "Open-access full text, theorem and table inspected",
+        "title": "Elementary formulas for Kirchhoff index of Möbius ladder and Prism graphs",
+        "trigger": "Same graph and Kemeny-related resistance invariant; possible exact-table coverage"
+      },
+      {
+        "assessment": "Minimizes SLEM; optimal rung b~3*pi^2/(4m^2) with positive holding. Neither the objective nor optimizer matches the current Kemeny claim",
+        "evidence": [
+          "Explicit Fourier SLEM objective max absolute nontrivial eigenvalues; optimal rung order m^-2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b",
+        "material_read": "Complete publicly available RESULT.md including finding, hypotheses, Fourier proof, limitations and prior work",
+        "method": "Read full public repository result file",
+        "title": "Exact fastest-mixing probabilities on Möbius ladders",
+        "trigger": "Exact same graph family and optimization of a stochastic matrix"
+      },
+      {
+        "assessment": "Same graph but SLEM, not sum of reciprocal Laplacian eigenvalues. Cannot imply Kemeny optimum without a distinct optimization",
+        "evidence": [
+          "Paritied SLEM minimizer with positive holding; contrasts with holding-free Kemeny optimum"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-parity-sharp-fastest-mixing-on-m-bius-ladders--ad268224b267",
+        "material_read": "Complete publicly available RESULT.md, including full proof and scope",
+        "method": "Read full public repository result file",
+        "title": "Parity-sharp fastest mixing on Möbius ladders",
+        "trigger": "Possible second independent derivation subsuming a new graph-family result"
+      },
+      {
+        "assessment": "General algorithms for reversible sparse perturbation; illustrative experiments are generic sparse and power-network graphs, not Möbius ladders; no exact m-dependent formula found",
+        "evidence": [
+          "Published 2026-09-23; Sections 1,2,5 describe general constrained/Riemannian numerical optimizers"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-026-01152-6",
+        "material_read": "Public full-text introduction, definitions, theoretical formulation, conclusions and numerical-examples subsection",
+        "method": "Open-access publisher HTML; inspected graph and example descriptions",
+        "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+        "trigger": "Contemporary algorithms for exactly the same Kemeny objective under sparsity"
+      },
+      {
+        "assessment": "Optimizes a spanning-tree determinant with price budget; no direct implication to row-stochastic Kemeny optimum is established in the summary",
+        "evidence": [
+          "Summary states rung-price support cutoff and determinant objective; detailed full-text comparison remains a residual risk"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-rung-deletion-prices-and-critical-scale-d-optimality-on-m--00e372929d94",
+        "material_read": "Public published-finding corpus summary with optimization objective, threshold and large-size law; full proof not inspected",
+        "method": "published-finding corpus published summary query result",
+        "title": "Sharp rung-deletion prices and critical-scale D-optimality on Möbius ladders",
+        "trigger": "Same graph family and two edge weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "48efb02c-97a3-4ed2-964b-95d9f4f6ae06",
+  "value": {
+    "rationale": "A natural infinite family of trivalent bottleneck networks, not an arbitrarily selected finite example, admits an exact unrestricted stochastic design. The sharp b~m^(-2/3) law and second-order Kemeny value separate average-hitting-time design from fastest-SLEM design (which invests m^-2 in rungs); keeping conventional equal edge probabilities loses 50% asymptotically. The exact scalar root enables independently reproducible optimal design and benchmark construction.",
+    "status": "PASS"
+  }
+}
