@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T05:15:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive 2D Ricker map, one step bounds total T=x+y by L=2 e^{h-1}; crowding loads are at most T so T_next>=T e^{h-T}, which ensures after some finite N a lower mass floor m>0. The exact log ratio update u_next=u-(1-c)T tanh(u/2)=[1-(1-c)T p(u)]u, p(u)=tanh(u/2)/u with p(0)=1/2, is strict non-expansion because 0<(1-c)T p(u)<(1-c)e^{h-1}<2 from n>=1. This bounds the entire subsequent |u| by its first bounded-iterate magnitude, so p(u)>=p(|u_1|)>0. Combining lower T=m with the upper bound produces a strict geometric multiplier q<1 after N and thus x/y->1, |x-y|->0 for every positive seed. At h=3,c=0.9, longitudinal fixed-point eigenvalue 1-h=-2 despite the sufficient contraction condition. Five distinct parameter/seed 1200-iteration checks confirmed the analytic inequality and relaxation; source checks/check.py was read. Finite checks not the all-positive proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General planar Ricker global fixed-point theorems require a stable coexistence point; assigned h=3 example excludes that",
+          "Wu–Wong 2015 doi 10.3934/dcdsb.2015.20.3255; 2022 Kulakov; 2026 Goldar"
+        ],
+        "reasoning": "A global fixed-point theorem cannot imply a diagonal attraction result in a regime where that fixed point has eigenvalue -2. No prior general diagonal theorem with this interval verified.",
+        "searches": [
+          "Resultary actual query: two species Ricker competition global diagonal synchronization arbitrary positive initial despite unstable fixed point h c sufficient condition",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-diagonal-synchronization-beyond-coexistence-equilibrium-i--6d7033a91727/RESULT.md",
+          "https://doi.org/10.3390/math10071076"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-diagonal-synchronization-beyond-coexistence-equilibrium-i--6d7033a91727/RESULT.md",
+        "https://doi.org/10.3390/math10071076",
+        "https://doi.org/10.3934/dcdsb.2015.20.3255",
+        "https://doi.org/10.1007/BF00275495",
+        "Goldar et al 2026 doi:10.1155/ddns/7255117 local phase/bifurcation results",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-asymmetric-critical-synchronization-and-logarithmic-relaxation-i--fbde7aa617eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A strict transverse eigenvalue at one fixed point is insufficient for global synchronization; exact full-orbit mass and gap inequalities are additionally needed",
+          "Assigned global log ratio recurrence and h=3, c=0.9 unstable longitudinal eigenvalue versus Wu–Wong 2015"
+        ],
+        "reasoning": "The new conclusion covers all positive seeds even when diagonal dynamics need not approach a fixed point; this is logically different and survives the inspected prior implications.",
+        "searches": [
+          "Resultary actual query: two species Ricker competition global diagonal synchronization arbitrary positive initial despite unstable fixed point h c sufficient condition",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-diagonal-synchronization-beyond-coexistence-equilibrium-i--6d7033a91727/RESULT.md",
+          "https://doi.org/10.3390/math10071076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact exchange-symmetric two-species Ricker map can be written in total mass and log ratio; attraction to diagonal is not attraction to coexistence fixed point",
+          "Assigned u_next=u-(1-c)T tanh(u/2); Kulakov et al. same exchange-symmetric model"
+        ],
+        "reasoning": "This coordinate transformation exposes a global contraction property; the claimed all-seed inequality goes beyond known local stationary stability.",
+        "searches": [
+          "Resultary actual query: two species Ricker competition global diagonal synchronization arbitrary positive initial despite unstable fixed point h c sufficient condition",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-diagonal-synchronization-beyond-coexistence-equilibrium-i--6d7033a91727/RESULT.md",
+          "https://doi.org/10.3390/math10071076"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bifurcation diagrams and synchronization indices are not a whole-positive-quadrant basin certificate",
+          "Kulakov et al 2022 tables/plots and Goldar et al 2026 local stability data"
+        ],
+        "reasoning": "No exact known table lists the global contraction condition (1-c)e^{h-1}<2 as a theorem; empirical synchronization alone does not entail the claimed quantifier.",
+        "searches": [
+          "Resultary actual query: two species Ricker competition global diagonal synchronization arbitrary positive initial despite unstable fixed point h c sufficient condition",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-diagonal-synchronization-beyond-coexistence-equilibrium-i--6d7033a91727/RESULT.md",
+          "https://doi.org/10.3390/math10071076"
+        ]
+      },
+      "rationale": "Wu–Wong global fixed-point attraction does not cover the h=3 counterexample because the diagonal coexistence fixed point is longitudinally unstable. Goldar et al. 2026 and Kulakov–Neverova–Frisman 2022 study fixed point/bifurcation/multistability and synchronization patterns, not the same uniform all-seed sufficient diagonal-attraction inequality across fixed-point instability. Related planar Ricker results for intrinsic 2 cannot dominate arbitrary h>0, and no equivalent global transverse contraction criterion was found in the actual published Results search.",
+      "residual_risks": [
+        "Jiang–Rogers 1987 full text and Wu–Wong 2015 full text were not read; priority risk for a same-model global synchronization criterion remains.",
+        "This condition is sufficient, not sharp, and no common population limit or orbit synchronization phase is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explores fixed-point/cyclic modes and synchronization indicators; did not find a rigorous all-positive-seed analytic diagonal attraction bound across h>2",
+          "evidence": "2022 dynamics/multistability analysis, distinct quantifiers",
+          "identifier_or_url": "https://doi.org/10.3390/math10071076",
+          "material_read": "Full MDPI HTML sections on modes, multistability and synchronization indexes",
+          "method": "Lawful open primary full text",
+          "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+          "trigger": "Same symmetric Ricker model with possible in-phase global synchronization"
+        },
+        {
+          "assessment": "The conclusion is convergence to fixed point and cannot cover the h=3,c=0.9 unstable-equilibrium witness",
+          "evidence": "Theorem advertised global asymptotic stability of coexistence fixed point",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2015.20.3255",
+          "material_read": "Accessible paper abstract and bibliographic description; full article not inspected",
+          "method": "Public abstract/indexed text",
+          "title": "Global asymptotical stability of the coexistence fixed point of a Ricker-type competitive model",
+          "trigger": "Potential global attraction result for exact 2D Ricker model"
+        },
+        {
+          "assessment": "Coverage of all-seed exponential attraction to diagonal at longitudinally unstable parameters is unverified, retained priority risk",
+          "evidence": "1987 same-model title/abstract relevance, no full theorem verified",
+          "identifier_or_url": "https://doi.org/10.1007/BF00275495",
+          "material_read": "Paper bibliographic and abstract-level material only; full text not obtained",
+          "method": "Public metadata and citation abstracts",
+          "title": "The discrete dynamics of symmetric competition in the plane",
+          "trigger": "Plausible early same-model primary work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Global attraction to the synchronization diagonal with an explicit parameter guard despite coexistence-equilibrium instability is a structural distinction between synchronized and stationary dynamics. The sharp counterexample h=3,c=0.9 makes that conceptual separation mathematically motivated even though the sufficient condition is not optimal.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/global-diagonal-synchronization-beyond-coexistence-equilibrium-i--6d7033a91727/RESULT.md",
+    "https://doi.org/10.3390/math10071076",
+    "https://doi.org/10.3934/dcdsb.2015.20.3255",
+    "https://doi.org/10.1007/BF00275495",
+    "Goldar et al 2026 doi:10.1155/ddns/7255117 local phase/bifurcation results",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-asymmetric-critical-synchronization-and-logarithmic-relaxation-i--fbde7aa617eb"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Jiang–Rogers 1987 full text and Wu–Wong 2015 full text were not read; priority risk for a same-model global synchronization criterion remains.",
+    "This condition is sufficient, not sharp, and no common population limit or orbit synchronization phase is asserted.",
+    "Originality is a bounded best-of-knowledge judgment. Finite symbolic/numerical tests are not universal proofs.",
+    "Confidentiality transport hold on all public packages."
+  ],
+  "residual_risks": [
+    "Jiang–Rogers 1987 full text and Wu–Wong 2015 full text were not read; priority risk for a same-model global synchronization criterion remains.",
+    "This condition is sufficient, not sharp, and no common population limit or orbit synchronization phase is asserted."
+  ],
+  "schema_version": 1
+}
