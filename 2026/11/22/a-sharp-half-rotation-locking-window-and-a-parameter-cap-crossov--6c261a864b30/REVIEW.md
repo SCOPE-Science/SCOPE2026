@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The critical local identity for the second iterate is a uniform second-order Taylor expansion of the actual circle lift; its harmonic coefficient was checked symbolically by direct composition, with zero residual. Positivity of the one-step increments and monotonicity in the gain give a unique parameter profile; uniform derivative estimates and the nondegenerate first resonant harmonic establish exactly four critical points. The commutation of the map with its square pairs profile extrema, yielding precisely one attracting and one repelling primitive period-two orbit inside the parameter window and one nondegenerate neutral orbit at either boundary. The physical-cap crossover is a nondegenerate implicit root in the forcing parameter. The exact symmetric slice follows by the half-turn quotient. The accompanying checker independently solves the full unexpanded recurrence and reports 93 passed finite consistency checks; it does not replace the proof.
+
+## Originality — PASS within inspected literature
+The 2022 originating article develops the map and numerical phase behavior, but its analytic bifurcation conditions are for period-one saddle-node curves, not a full half-rotation locking window or the gain-cap threshold. Three highly related published mathematical reports were inspected in full: the same-map global fold classification tests spatial derivative zeros rather than period-two resonances; the complementary-two-harmonic result assumes denominator at least three and distinct harmonic frequencies; the standard sine-map half-tongue result does not include the intrinsic quadratic second harmonic and physical parameter cap. Thus none of their stated conclusions implies the explicit coefficient and gain-cap crossover here. Classical perturbative tongue theory provides general background and may contain methods from which these formulas can be derived. A 2025 nontwist map article was available only in abstract form and is retained as a material coverage risk; the absence of an indexed equivalent is not a proof of priority.
+
+## Mathematical value — PASS
+The exact restricted-model locking window answers a natural finite-time dynamical question suggested by the originating period-two and multistability diagrams. Its coefficient separates direct second-harmonic forcing from the resonant quadratic effect of the first harmonic, and the physical upper bound produces a new sharp nonempty locking region past the zero-coupling critical frequency. Complete local orbit counts, stability and nondegenerate boundaries make the result more than an arbitrary series coefficient or a simple substitution into a single-harmonic normal form.
+
+## Limitations
+Only sufficiently weak forcing is treated, and the gain-cap crossover is local near its threshold. No assertion is made about other rotation numbers, stronger forcing, physical basins or all historically unindexed literature. Numerical checks do not independently certify an infinite theorem.
+
+Self-review: passed. Independent audit: not yet performed.
