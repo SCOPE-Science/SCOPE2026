@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify_transfer.py` with SymPy 1.14 to reconstruct the full 18-by-18 transfer matrix directly from the two local blocking rules, compute the complete symbolic bivariate determinant, check the integer characteristic polynomial, and reproduce the exact trace values for physical circumferences 3 through 9. The program additionally checks the two weighted determinant derivatives that produce the limiting stationary occupation densities.
+## correctness
 
-Build and execute `g++ -O3 -std=c++17 verify_bruteforce.cpp -o verify_bruteforce && ./verify_bruteforce`. This independently simulates both original traffic substeps on **every** three-state input at widths 3, 4 and 5; its totals agree with the transfer traces. The stored `transfer_output.txt` and `bruteforce_output.txt` are outputs of those exact scripts.
+PASS
 
-The transfer reduction proves correctness for every width; finite exhaustive simulation by itself proves nothing about larger widths. Numerical root approximations supplement, but do not establish, the strict Rouché/Cauchy spectral-gap argument in `RESULT.md`. The expectation limit follows from an isolated simple leading spectral root and the exact displayed derivatives. No proof is claimed about recurrent-but-nonstationary configurations, transient attraction basins or phase transitions. The publication-priority review is not independently certified.
+PASS: In a full-step fixed state, an east car moving into a previously empty site cannot be replaced by a north car as an east-labelled occupant; so there are no east movements, then no north movements. Thus the exact local east and north blocking predicates characterize fixedness in both directions. Vertically legal columns are exactly 18 of 27 ternary triples; the cross-column east predicate builds an 18x18 weighted adjacency with a bijection between labelled configurations and length-n closed walks. The trace/log-det identity yields the whole bivariate law for arbitrary n. I independently enumerated all 18 columns and computed the exact integer characteristic polynomial t^10 times the two claimed quartics and traces n=3..9=1686,19988,237828,2829334,33652161,400231244,4759942476. Rouché on |t|=11 singles out the first quartic root in (11,12); the second quartic roots have modulus<=10 by Cauchy, establishing unique spectral dominance. Numerical perturbation of the weighted matrix independently reproduced species means ~1.28838 and ~1.29490 per column, giving the stated occupied fraction. The finite transfer matrix is an exact all-n reduction, unlike a sample-based extrapolation.
+
+## originality
+
+PASS
+
+PASS (qualified): The full original Biham–Middleton–Levine 1992 model paper and accessible subsequent jamming studies concern traffic-flow phases, random initial states and threshold criteria; they do not count labelled 3-by-n fixed states by both species. A published exact two-row BML result gives a seven-column transfer with a cubic growth base 5.278..., which does not imply the 18-column three-row zeta or two quartics because the vertical blocking alphabet changes. Other Rule184 and 3-row majority fixed-state enumerators concern different local rules. No covering same-object n-family formula was found; an unindexed classical strip-transfer census remains a residual bibliographic risk.
+
+## value
+
+PASS
+
+PASS: The complete two-species fixed-state count for the first nontrivial non-aliased three-row BML strip is a natural invariant of deterministic traffic jamming. The all-n bivariate generating function determines every east/north density sector, and the two-quartic reduction yields exact frozen-state entropy and a nonobvious high-density conditional occupation law. The result does not confuse stationary microstate count with random-initial jamming likelihood.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: three-row BML stationary microstates
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is exact for all labelled \(3\times n\) fully periodic grids with \(n\ge3\), for the standard east-then-north two-substep BML dynamics. A full-step fixed point cannot contain an east-stage move because east cars only enter sites empty at the beginning of that stage, and north movement does not affect east cars. With the east stage unchanged, an analogous argument eliminates north-stage moves. The resulting east and north blocking predicates define an exhaustive 18-column alphabet and an explicit cyclic compatibility matrix. This yields a genuine bijection between fixed states and closed transfer walks, not an empirical extrapolation. Symbolic determinant and characteristic-polynomial identities were recomputed from the displayed entries, and a separate direct simulator enumerated all initial ternary configurations at widths three, four and five. A strict root-modulus gap proves the claimed entropy; implicit differentiation of the simple dominant root proves the stationary-ensemble means. Computation is only used for finite exact determinant algebra and independent finite checks.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-The verified original public source is Biham–Middleton–Levine (arXiv:cond-mat/9206001, 2 June 1992). Its full accessible text describes the model and large-lattice jamming but does not count width-three stationary states. Angel–Holroyd–Martin (arXiv:math/0504001), Austin–Benjamini (arXiv:math/0607759), and D'Souza (arXiv:cond-mat/0402351) were inspected for implications: they concern asymptotic blocking, existence thresholds on square tori, or intermediate dynamical phases, respectively. None provides a complete exact two-species, all-circumference three-row stationary generating function, nor does any displayed theorem imply its two quartic factors or density. A prior two-row BML calculation concerns a different vertical circumference and its smaller column language; it does not imply the width-three recurrence or population. Database searches used BML aliases, fixed/frozen/jammed terminology, transfer matrices, dimensions and numerical invariants. No covering finding was identified. This does not prove universal bibliographic uniqueness; unindexed and inaccessible work may exist.
+PASS
 
-## Value — PASS
-Three rows form the first simple vertically non-aliased narrow BML torus after the exceptional two-row circumference, and the fully labelled stationary microstate population is a natural dynamical invariant of traffic jamming. The complete bivariate generating function determines every east/north particle-content sector for every circumference, not merely a table or a hand-picked occupancy slice. Its reduction to two quartics yields the exact frozen-state entropy and a nontrivial high-density conditional occupation law, sharpening the distinction between static-state counting and the much harder probability of eventual jamming from randomly initialized traffic. This is a meaningful natural infinite-family enumeration independent of a broader conjecture.
+PASS: In a full-step fixed state, an east car moving into a previously empty site cannot be replaced by a north car as an east-labelled occupant; so there are no east movements, then no north movements. Thus the exact local east and north blocking predicates characterize fixedness in both directions. Vertically legal columns are exactly 18 of 27 ternary triples; the cross-column east predicate builds an 18x18 weighted adjacency with a bijection between labelled configurations and length-n closed walks. The trace/log-det identity yields the whole bivariate law for arbitrary n. I independently enumerated all 18 columns and computed the exact integer characteristic polynomial t^10 times the two claimed quartics and traces n=3..9=1686,19988,237828,2829334,33652161,400231244,4759942476. Rouché on |t|=11 singles out the first quartic root in (11,12); the second quartic roots have modulus<=10 by Cauchy, establishing unique spectral dominance. Numerical perturbation of the weighted matrix independently reproduced species means ~1.28838 and ~1.29490 per column, giving the stated occupied fraction. The finite transfer matrix is an exact all-n reduction, unlike a sample-based extrapolation.
 
-## Limits and priority risk
-The result concerns already stationary configurations only and does not determine transient absorption probabilities or the BML jamming transition. Full-text accessible primary studies were compared on their actual theorems; undetected prior enumerations remain a possibility. No independent external audit or automated proof certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The full original Biham–Middleton–Levine 1992 model paper and accessible subsequent jamming studies concern traffic-flow phases, random initial states and threshold criteria; they do not count labelled 3-by-n fixed states by both species. A published exact two-row BML result gives a seven-column transfer with a cubic growth base 5.278..., which does not imply the 18-column three-row zeta or two quartics because the vertical blocking alphabet changes. Other Rule184 and 3-row majority fixed-state enumerators concern different local rules. No covering same-object n-family formula was found; an unindexed classical strip-transfer census remains a residual bibliographic risk.
+
+## value
+
+PASS
+
+PASS: The complete two-species fixed-state count for the first nontrivial non-aliased three-row BML strip is a natural invariant of deterministic traffic jamming. The all-n bivariate generating function determines every east/north density sector, and the two-quartic reduction yields exact frozen-state entropy and a nonobvious high-density conditional occupation law. The result does not confuse stationary microstate count with random-initial jamming likelihood.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

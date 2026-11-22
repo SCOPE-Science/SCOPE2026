@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In a full-step fixed state, an east car moving into a previously empty site cannot be replaced by a north car as an east-labelled occupant; so there are no east movements, then no north movements. Thus the exact local east and north blocking predicates characterize fixedness in both directions. Vertically legal columns are exactly 18 of 27 ternary triples; the cross-column east predicate builds an 18x18 weighted adjacency with a bijection between labelled configurations and length-n closed walks. The trace/log-det identity yields the whole bivariate law for arbitrary n. I independently enumerated all 18 columns and computed the exact integer characteristic polynomial t^10 times the two claimed quartics and traces n=3..9=1686,19988,237828,2829334,33652161,400231244,4759942476. Rouché on |t|=11 singles out the first quartic root in (11,12); the second quartic roots have modulus<=10 by Cauchy, establishing unique spectral dominance. Numerical perturbation of the weighted matrix independently reproduced species means ~1.28838 and ~1.29490 per column, giving the stated occupied fraction. The finite transfer matrix is an exact all-n reduction, unlike a sample-based extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General jamming and threshold theorems concern large square tori, density regimes or existence conditions; they do not display an all-n bivariate finite transfer enumerator for height three."
+        ],
+        "reasoning": "Broad dynamical statements neither count every fixed configuration on 3xn nor imply the factorization or species-mean constants.",
+        "searches": [
+          "Resultary query: Biham Middleton Levine traffic model stationary configurations fixed states 3 by n torus transfer matrix generating function",
+          "arXiv:cond-mat/9206001 BML original",
+          "arXiv:math/0504001 jammed phase",
+          "arXiv:math/0607759 car thresholds"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 frozen RESULT.md, verify_transfer.py and verify_bruteforce.cpp",
+        "https://arxiv.org/abs/cond-mat/9206001",
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.46.R6124/fulltext",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-exact-density-resolved-frozen-state-law-for-two-row-biham-mid--6c74ba337528/RESULT.md",
+        "https://arxiv.org/abs/math/0504001",
+        "https://arxiv.org/abs/math/0607759"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 2-row column must avoid (N,0) and (0,N), giving 7 allowed columns; a 3-row column must avoid N followed by empty cyclically, giving 18 columns and distinct transition matrix. Neither source yields its characteristic polynomial by substitution."
+        ],
+        "reasoning": "The implication comparison is structural and numerical: prior phase/2-row facts do not determine all width-three stationary species counts.",
+        "searches": [
+          "Resultary query: Biham Middleton Levine traffic model stationary configurations fixed states 3 by n torus transfer matrix generating function",
+          "Biham–Middleton–Levine 1992 original",
+          "Resultary 2026/11/17/SCOPE-an-exact-density-resolved-frozen-state-law-for-two-row-biham-mid--6c74ba337528/RESULT.md",
+          "arXiv:cond-mat/0402351"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen/jammed/immediate fixed point of east-then-north BML is equivalent to all cars locally blocked, but the claimed uniform ensemble is over all fixed labelled configurations, not eventual jammed attractors."
+        ],
+        "reasoning": "Same-update and fixed-state aliases were checked, with care to distinguish immediate fixedness from eventual blocking and from two-row geometry.",
+        "searches": [
+          "Resultary query: Biham Middleton Levine traffic model stationary configurations fixed states 3 by n torus transfer matrix generating function",
+          "Biham–Middleton–Levine 1992 model original",
+          "Resultary 2026/11/17/SCOPE-an-exact-density-resolved-frozen-state-law-for-two-row-biham-mid--6c74ba337528"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previous two-row transfer gives J_n and a different degree-three growth root and vacancy fraction 0.1527133; current three-row transfer gives two quartics, lambda 11.8929 and occupied fraction 0.8610902."
+        ],
+        "reasoning": "Matching BML terminology or small fixed-state samples does not cover the full three-row bivariate determinant. No checked table has its 1686,19988,237828,... sequence as an all-length theorem.",
+        "searches": [
+          "Resultary query: Biham Middleton Levine traffic model stationary configurations fixed states 3 by n torus transfer matrix generating function",
+          "Resultary 2026/11/17/SCOPE-an-exact-density-resolved-frozen-state-law-for-two-row-biham-mid--6c74ba337528",
+          "BML 1992 original"
+        ]
+      },
+      "rationale": "PASS (qualified): The full original Biham–Middleton–Levine 1992 model paper and accessible subsequent jamming studies concern traffic-flow phases, random initial states and threshold criteria; they do not count labelled 3-by-n fixed states by both species. A published exact two-row BML result gives a seven-column transfer with a cubic growth base 5.278..., which does not imply the 18-column three-row zeta or two quartics because the vertical blocking alphabet changes. Other Rule184 and 3-row majority fixed-state enumerators concern different local rules. No covering same-object n-family formula was found; an unindexed classical strip-transfer census remains a residual bibliographic risk.",
+      "residual_risks": [
+        "Unindexed older transfer enumeration for a three-row BML cylinder or torus might overlap; no global novelty certificate is claimed.",
+        "The asymptotic species densities condition on uniformly chosen already-fixed configurations, not uniform initial states or eventual jamming phase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS definition and phases; no 3-by-n labelled fixed-state bivariate zeta in material read",
+          "evidence": "1992 original explicitly studies square-lattice dynamics and low/high-density moving and stopped regimes",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9206001",
+          "material_read": "Original primary article full available text incl. square-lattice model I dynamics, traffic light update, jamming regimes and numerical measurements",
+          "method": "Full accessible public original article/PDF text and first-page image",
+          "title": "Self-organization and a dynamical transition in traffic-flow models (Biham–Middleton–Levine)",
+          "trigger": "Original deterministic BML two-stage automaton"
+        },
+        {
+          "assessment": "NOT_COVERING: two-row n tori with 7 vertical columns, not three-row 18-column torus",
+          "evidence": "Prior denominator (1-uz)[1-(1+u+u^2+2uv+v^2)z+...-u^3 z^3] differs from two quartics",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-exact-density-resolved-frozen-state-law-for-two-row-biham-mid--6c74ba337528/RESULT.md",
+          "material_read": "Entire prior published RESULT.md with 7-column alphabet, cubic transfer polynomial, weighted law and proofs",
+          "method": "Full GitHub public result text",
+          "title": "An exact density-resolved frozen-state law for two-row Biham–Middleton–Levine traffic",
+          "trigger": "Same BML dynamics and fixed states, adjacent height"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete two-species fixed-state count for the first nontrivial non-aliased three-row BML strip is a natural invariant of deterministic traffic jamming. The all-n bivariate generating function determines every east/north density sector, and the two-quartic reduction yields exact frozen-state entropy and a nonobvious high-density conditional occupation law. The result does not confuse stationary microstate count with random-initial jamming likelihood.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 frozen RESULT.md, verify_transfer.py and verify_bruteforce.cpp",
+    "https://arxiv.org/abs/cond-mat/9206001",
+    "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.46.R6124/fulltext",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-exact-density-resolved-frozen-state-law-for-two-row-biham-mid--6c74ba337528/RESULT.md",
+    "https://arxiv.org/abs/math/0504001",
+    "https://arxiv.org/abs/math/0607759"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the classic synchronous east-then-north BML traffic rule on every labelled periodic 3-by-n torus (n>=3), all immediate stationary configurations have an exact 18-state bivariate zeta, the unweighted determinant factors into two quartics, fixed-state growth is lambda^n with lambda=11.8929366011799... and the uniform-fixed-state limiting occupied fraction equals 0.8610902482461... .",
+  "limitations": [
+    "Only labelled 3xn periodic tori for n>=3, immediate two-stage fixed points and their uniform conditional ensemble.",
+    "No claim on 2D large-square jam transition, transient basins or probability of freezing under random initialization."
+  ],
+  "residual_risks": [
+    "Unindexed older transfer enumeration for a three-row BML cylinder or torus might overlap; no global novelty certificate is claimed.",
+    "The asymptotic species densities condition on uniformly chosen already-fixed configurations, not uniform initial states or eventual jamming phase."
+  ],
+  "schema_version": 1
+}
