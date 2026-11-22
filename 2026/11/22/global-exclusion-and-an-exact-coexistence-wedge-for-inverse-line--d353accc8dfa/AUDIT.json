@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For the published three-species recurrence with zero adult-prey carryover and negative-binomial shape-one escape, \\(x_{t+1}=R_Jx_th_{t+1}\\), while \\(y_{t+1}=R_Ay_th_t/(1+y_t)\\). Therefore \\(q_t=h_ty_t/x_t\\) obeys \\(q_{t+1}=(R_A/R_J)q_t/(1+y_t)\\). The capacity bound gives \\(x_t\\le R_J\\) after one generation, and \\(y_t=R_Jx_{t-1}q_t\\). For \\(R_A<R_J\\), the ratio decays geometrically; at \\(R_A=R_J\\), either the ratio tends to zero or its positive limit forces \\(\\sum_t\\log(1+y_t)<\\infty\\). Both prove adult predator extinction. For Beverton–Holt, interior fixed points force \\(h=1/R_J\\), \\(y=R_A/R_J-1\\), and \\(x=rR_J/(R_A+r-1)-1\\), yielding precisely the strict two-sided wedge and direct substitution. The exact-rational checker exercised 630 transitions; finite tests do not establish the all-time limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Seno–Goyal (2026), Theorem 1, treats each predator basic reproduction parameter at or below one; it does not cover exclusion when both replacements exceed one and R_A<=R_J.",
+        "Seno–Goyal (2026), Lemma 6, excludes positive coexistence equilibria when R_A<=R_J, not positive compact recurrent dynamics or all positive-orbit extinction.",
+        "The 1981 sequential-parasitoid model discussed as equation (14) in Seno–Goyal has different host-stage timing and recruitment, so cannot directly dominate the present recurrence."
+      ],
+      "reasoning": "The new universal positive-orbit extinction result is strictly stronger than equilibrium nonexistence in the matching model, and its special escape function changes the consequences of positive adult-stage reproduction. No identified published general theorem encompasses these exact assumptions and global conclusion.",
+      "searches": [
+        "Nicholson Bailey host parasitoid two sequential life stage parasitoids hyperbolic escape threshold periodic exclusion",
+        "\"stage-specific\" \"predators\" \"competitive exclusion\" \"negative binomial\" \"Beverton-Holt\"",
+        "\"two parasitoids\" \"geometric\" escape \"competitive exclusion\" stage-specific"
+      ]
+    },
+    "checked_sources": [
+      "Seno and Goyal, J. Math. Biol. 93 (2026) article 11, DOI 10.1007/s00285-026-02427-w",
+      "Marcinko and Kot, J. Biol. Dyn. 14 (2020), DOI 10.1080/17513758.2020.1783005 (accessible abstract and excerpt only)",
+      "Source article discussion of May and Hassell (1981) and May et al. (1981) differently ordered parasitoid stage models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source equation (13) defines the three-species model; equation (8) lists the allowed negative-binomial escape family; Lemma 6 states only a necessary coexistence equilibrium ordering; concluding remarks leave coexistence analysis open.",
+        "Marcinko–Kot (2020) formulations (3),(5),(39) show a two-dimensional host–single-parasitoid system, for which replacement-order comparison between two specialists is inapplicable."
+      ],
+      "reasoning": "The source weak statement \"no positive equilibrium if R_A<=R_J\" does not preclude positive cycles and cannot imply convergence of the adult-specific predator to zero on every positive orbit. The second component, a sharp sufficient-and-necessary two-sided positive equilibrium wedge, specializes the source model with shape-one escape and resolves a natural previously untreated subcase.",
+      "searches": [
+        "Discrete-time exploitative competition model different stage specific predators Seno Goyal 2026 Lemma 6 coexistence",
+        "A comparative analysis of host parasitoid models with density dependence preceding parasitism Marcinko Kot 2020",
+        "stage-specific juvenile and adult predators negative binomial escape k=1 coexistence exact wedge population"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source negative-binomial family (equation (8)) includes the shape-one reciprocal escape function; its explicit detailed example is the exponential limit, not shape one.",
+        "Marcinko–Kot (2020) equation (5) describes one host and one parasitoid, not simultaneous juvenile and adult specialists."
+      ],
+      "reasoning": "Rescaling predator densities converts the shape-one member to the stated rational map, but the baseline source Lemma 6 only excludes interior fixed points under one parameter ordering; this does not logically imply global extinction for every oscillatory trajectory. No compared same-model equation establishes q_{t+1}=(R_A/R_J)q_t/(1+y_t).",
+      "searches": [
+        "two predators one prey juvenile adult inverse linear escape h=1/R_J equilibrium coexistence",
+        "stage-specific juvenile and adult predators negative binomial escape k=1 coexistence exact wedge population",
+        "\"inverse-linear\" \"juvenile\" \"adult\" parasitoid \"coexistence\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly available 2026 source full text explicitly leaves analytic coexistence characterization for further work, even for its exponential-escape example.",
+        "Indexed nearby predator-cycle and host–parasitoid results address different equations or one predator, and supply neither this exact fixed-point triple nor this global ratio invariant."
+      ],
+      "reasoning": "This is an exact rational-equilibrium parameter classification, not a previously tabulated finite numerical invariant. Search absence is not proof of priority; the assessment relies on comparing the actual equations and claims.",
+      "searches": [
+        "stage-specific juvenile and adult predators negative binomial escape k=1 coexistence exact wedge population",
+        "two predators one prey juvenile adult inverse linear escape h=1/R_J equilibrium coexistence",
+        "\"Seno\" \"Goyal\" \"negative binomial\" 2026 coexistence"
+      ]
+    },
+    "rationale": "Seno and Goyal (2026) introduce the general model and establish only equilibrium-level necessary replacement ordering (Lemma 6); their main fully inspected article neither establishes global adult-stage extinction on arbitrary positive trajectories nor derives the exact complete coexistence wedge for the shape-one negative-binomial specialization. The distinctive multiplicative q identity uses a particular escape law and is not implied by their exponential detailed model. Earlier one-parasitoid Beverton-Holt/negative-binomial analyses have fewer interacting species and are not implication-level coverage. Priority remains limited by inaccessible or unindexed older work.",
+    "residual_risks": [
+      "A full copy of the older Marcinko–Kot (2020) article could not be retrieved due to a 403, but its exposed two-dimensional model differs decisively.",
+      "An older multi-parasitoid study not indexed in the searched sources might contain an equivalent shape-one ratio identity.",
+      "No independent historical-priority review performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_MODEL_BUT_NOT_COVERING_GLOBAL_EXCLUSION_OR_SHAPE_ONE_WEDGE",
+        "evidence": "Equation (13) is the recurrence; Lemma 6 only establishes no positive equilibrium in the excluded order, while the conclusion explicitly leaves analytic coexistence analysis for later work.",
+        "identifier_or_url": "https://doi.org/10.1007/s00285-026-02427-w",
+        "material_read": "Accessible complete web article: modeling assumptions, equations (8), (13), (18)–(19), Theorems 1–5, Lemma 6, Sections 6–7 and reference context",
+        "method": "Full HTML, direct comparison of normalized recurrence, fixed-point statements and conclusions",
+        "title": "Discrete-time exploitative competition model of different stage-specific predators",
+        "trigger": "Identical three-species stage-specific ecological dynamics and both admissible escape functions"
+      },
+      {
+        "assessment": "ONE_PARASITOID_NOT_DIRECT_COVERAGE_WITH_ACCESS_LIMIT",
+        "evidence": "The described state vector consists of host N and parasitoid P and the analysis concerns single-parasitoid responses, unlike a simultaneous three-population stage-specific competition map.",
+        "identifier_or_url": "https://doi.org/10.1080/17513758.2020.1783005",
+        "material_read": "Search-indexed expanded article excerpt, including abstract and equations (3), (5), (39), discussion; direct full-text reopening returned a 403 access error",
+        "method": "Scientific comparison of exposed model definitions, not a claim of inspecting inaccessible full text",
+        "title": "A comparative analysis of host–parasitoid models with density dependence preceding parasitism",
+        "trigger": "Beverton–Holt and negative-binomial escape are both used in an older model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d353accc-8dfa-410c-a24a-654c713b660b",
+  "value": {
+    "rationale": "Competition between juvenile-stage and adult-stage predators is biologically consequential, including under non-equilibrium recurrent fluctuations. The exact multiplicative ratio law gives a global exclusion decision even if the surviving community cycles. A complete nonempty, sharp two-sided equilibrium existence wedge for natural Beverton-Holt recruitment shows that both too little and too much adult predator reproduction obstruct three-species steady coexistence. These are structural properties of natural model parameters, not isolated calculations.",
+    "status": "PASS"
+  }
+}
