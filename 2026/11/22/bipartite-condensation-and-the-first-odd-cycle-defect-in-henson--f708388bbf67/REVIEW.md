@@ -1,0 +1,19 @@
+# Scientific review: bipartite condensation of Henson tuple types
+
+## Correctness — PASS
+The all-order proof derives tuple diagrams from the triangle-free extension property and counts their base-neighbourhood assignments by a product of independent-set counts on the two possible shore labels. Empty-neighbourhood overcount is bounded by \(O_r(2^{(r-1)n})\); nonproper two-colour assignments have strictly smaller exponential base, at most \((3/4)2^r\). For non-bipartite internal graphs, precisely one monochromatic edge attains this base; every assignment with two or more monochromatic edges has base at most \((5/8)2^r\). Summing such single-defect assignments defines an exact all-fixed-arity leading constant \(A_r\), with \(A_5=120\) and \(A_6=6120\) independently enumerated. Proper-colouring summation gives the exact normalization \(\Theta_r\). The 32 shore colourings of a prescribed pentagon have bases \(24\) (ten assignments), \(16\) (ten), \(15\) (ten), and \(11\) (two). Inclusion-exclusion supplies every coefficient of the exact exponential polynomial, and independent direct enumeration validates small parameter sizes. Conditioning on one of the ten dominant assignments yields the claimed \(1/3\)-versus-\(1/2\) neighbourhood density mixture by independent old-vertex trials. No finite computation is used in place of the infinite-asymptotic proof.
+
+## Originality — PASS, with residual historical-priority risk
+Conant's 2014 arXiv paper (Section 3) establishes the homogeneous graph and type-diagram setting, not these conditional tuple-pattern limits. The published 2026 higher-arity Henson counting result provides more general exact enumeration machinery and may indirectly recover some finite sums, but its indexed statement does not assert the chromatic-weighted limiting law, the sharp all-arity odd-cycle rate and its leading constants, or the conditional small-neighbourhood edge. Other compared records concern pair types or different parameter bases. Searches for equivalent two-colouring, pentagon-defect and biclique-conditioned formulations did not locate an explicit matching theorem. The most relevant 2026 published RESULT.md was read in full. Further historical completeness and independent priority are not claimed.
+
+## Mathematical value — PASS
+The Henson graph permits induced odd cycles, but increasingly large complete bipartite named bases make such cycles exponentially rare among uniformly counted fixed-arity types. The limiting law is completely identified at every fixed arity by a classical invariant, the proper two-colouring count. Five is the smallest arity where non-bipartite internal graphs are permitted. The universal exact leading coefficient for every fixed larger arity, the optimal decay \((3/4)^n\), the first prefactor \(60/721\), and the conditional density defect describe an entire rarity mechanism rather than an isolated exception. The theorem is not simply a finite table or a reparametrization of a previously known exact sequence.
+
+## Closest literature and limitations
+- Gabriel Conant, *Forking and dividing in Henson graphs*, arXiv:1401.1570v1 (2014-01-08), full text Section 3 consulted.
+- *Higher-arity Henson type enumeration and exact-counting hardness*, published 2026 research record, complete RESULT.md consulted. Its exact product-count formula subsumes the finite special case; the new asserted conclusions are asymptotic/conditional laws not asserted there.
+- Earlier type-count research on ordered pairs in Henson graphs or distinct parameter geometries does not itself specify the present all-fixed-arity limit or five-cycle conditional structure.
+
+Scope is fixed tuple arity, individually named balanced biclique bases and uniform complete injective types. The proof does not address growing arity, general old bases or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
