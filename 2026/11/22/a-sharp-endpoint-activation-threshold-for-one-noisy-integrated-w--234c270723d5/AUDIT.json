@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Gaussian conditioning reduces risk to 1/12 - C(t)/(eta+t^3/3) with exact C(t). Exact symbolic calculation verifies C, C prime, E stationary noise function, its derivative factorization, E(1)=8/273 and E prime(1)=264/1183. On (0,1], H<0 and C prime>0; U is increasing with one root t0 in (2/3,1); J<0 and G>0 on [t0,1] prove E strictly increasing. The sign of F prime changes exactly once for eta<8/273 and never changes otherwise. Thus uniqueness and full all-positive-eta classification follow without relying on finite samples. Code and proof scope match.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "H. Ji and H.-G. Müller, Optimal Designs for Longitudinal and Functional Data, arXiv:1604.05375 (2016), https://anson.ucdavis.edu/~mueller/f-optdes23.pdf, section 2, equations (6), (8), (10)",
+        "B. Mukherjee, Optimal designs for estimating the path of a stochastic process, Purdue University dissertation catalog, https://docs.lib.purdue.edu/dissertations/AAI3043760/"
+      ],
+      "reasoning": "The general Gaussian trajectory-recovery criterion allows arbitrary covariance kernels but stops at a global argmax prescription; it does not identify the optimizer or certify unique endpoint activation for this covariance. Mukherjee emphasizes product-form covariance and general asymptotics; once-integrated Brownian covariance is a non-product ordered polynomial, but dissertation full text remains uninspected.",
+      "searches": [
+        "Optimal Designs for Longitudinal and Functional Data Ji Müller arxiv 2016 pdf",
+        "integrated Wiener process noisy observation optimal location prediction integrated mean square error one point design"
+      ]
+    },
+    "checked_sources": [
+      "H. Ji and H.-G. Müller, Optimal Designs for Longitudinal and Functional Data, arXiv:1604.05375 (2016), https://anson.ucdavis.edu/~mueller/f-optdes23.pdf, section 2, equations (6), (8), (10)",
+      "M. Abundo, On the representation of an integrated Gauss–Markov process, arXiv:1307.5970 (2013), https://arxiv.org/abs/1307.5970, section 3, Example 1",
+      "B. Mukherjee, Optimal designs for estimating the path of a stochastic process, Purdue University dissertation catalog, https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+      "AMS MSC2020: 90C30 is nonlinear programming, https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=90Cxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "H. Ji and H.-G. Müller, Optimal Designs for Longitudinal and Functional Data, arXiv:1604.05375 (2016), https://anson.ucdavis.edu/~mueller/f-optdes23.pdf, section 2, equations (6), (8), (10)",
+        "M. Abundo, On the representation of an integrated Gauss–Markov process, arXiv:1307.5970 (2013), https://arxiv.org/abs/1307.5970, section 3, Example 1",
+        "B. Mukherjee, Optimal designs for estimating the path of a stochastic process, Purdue University dissertation catalog, https://docs.lib.purdue.edu/dissertations/AAI3043760/"
+      ],
+      "reasoning": "The new claim requires showing a specific rational stationary-noise function is strictly increasing on an explicit interval and yields an exact endpoint transition at 8/273. Neither Abundo’s single-time variance nor Ji–Müller’s model-agnostic argmax implies these inequalities or phase location without further exact calculation. The unresolved dissertation is acknowledged.",
+      "searches": [
+        "Gauss Markov process integrated Brownian time 2013 Abundo trajectory recovery Gaussian measurement",
+        "optimal designs integrated wiener stochastic process trajectory recovery one observation noisy covariance",
+        "noise phase transition sensor placement integrated Brownian process observation at endpoint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "H. Ji and H.-G. Müller, Optimal Designs for Longitudinal and Functional Data, arXiv:1604.05375 (2016), https://anson.ucdavis.edu/~mueller/f-optdes23.pdf, section 2, equations (6), (8), (10)",
+        "M. Abundo, On the representation of an integrated Gauss–Markov process, arXiv:1307.5970 (2013), https://arxiv.org/abs/1307.5970, section 3, Example 1",
+        "B. Mukherjee, Optimal designs for estimating the path of a stochastic process, Purdue University dissertation catalog, https://docs.lib.purdue.edu/dissertations/AAI3043760/"
+      ],
+      "reasoning": "The target is equivalently single-site integrated posterior variance minimization or maximization of integrated squared cross-covariance divided by observation variance. Ji–Müller display the general objective but no explicit once-integrated-Wiener critical threshold; Abundo studies the process representation. The catalog-only dissertation cannot exclude hidden equivalent statements.",
+      "searches": [
+        "integrated Wiener process optimal single sensor observation location integrated mean square prediction noisy",
+        "integrated Brownian motion one noisy point observation optimal integrated posterior variance terminal boundary phase transition 8/273",
+        "noisy one sensor integrated Brownian covariance cubic one point integrated variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "M. Abundo, On the representation of an integrated Gauss–Markov process, arXiv:1307.5970 (2013), https://arxiv.org/abs/1307.5970, section 3, Example 1",
+        "H. Ji and H.-G. Müller, Optimal Designs for Longitudinal and Functional Data, arXiv:1604.05375 (2016), https://anson.ucdavis.edu/~mueller/f-optdes23.pdf, section 2, equations (6), (8), (10)"
+      ],
+      "reasoning": "No exact critical-variance or optimal-location table was found among the inspected primary sources; the literal searches did not identify a competing exact table. A negative search alone does not certify novelty.",
+      "searches": [
+        "integrated Wiener posterior global trajectory single observation endpoint noise variance transition 8 273",
+        "integrated Brownian motion optimal design single observation location posterior variance integrated Wiener 0.8018",
+        "integrated Brownian motion one point optimal sampling 0.801818 time posterior smoothing optimal sensor"
+      ]
+    },
+    "rationale": "An exact global optimizer, positive rational endpoint-activation variance, and boundary-slope classification were not implied by the inspected general criterion, the integrated-process representation, or accessible exact-design catalog descriptions. Prior source claims were compared by logical implication rather than title matching. A catalog-only older dissertation and unindexed work leave a specific residual priority risk; this pass is based on inspected evidence, not a claim of exhaustive uniqueness.",
+    "residual_risks": [
+      "Mukherjee dissertation full text is inaccessible in this run; its broader-covariance discussion may contain a specialized related design result.",
+      "Unindexed older one-point optimal experimental design literature may contain equivalent threshold or a theorem directly implying it.",
+      "Source-framework generic optimum equations can be specialized, but no inspected source carries out the required global polynomial sign classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_CLASSIFICATION",
+        "evidence": "Section 2 equations (6), (8), (10) give generic minimization/argmax formulas; no integrated-Brownian critical-variance or one-site endpoint classification appears in inspected material.",
+        "identifier_or_url": "https://anson.ucdavis.edu/~mueller/f-optdes23.pdf",
+        "material_read": "Abstract and relevant sections 1–3 of the available author manuscript; full-document text searches for Brownian and integrated-Wiener specializations; page image inspected",
+        "method": "PDF page inspection and extracted full-text examination",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "Exact same integrated trajectory posterior-variance criterion with independent noisy point observations"
+      },
+      {
+        "assessment": "PROCESS_BACKGROUND_NOT_SENSOR_DESIGN",
+        "evidence": "Example 1 reports variance t^3/3 of integrated Brownian motion; the main results analyze representation and first-passage rather than optimal noisy site placement.",
+        "identifier_or_url": "https://arxiv.org/abs/1307.5970",
+        "material_read": "Full arXiv HTML text, sections 1–3, especially Example 1 and process representations",
+        "method": "Open-access arXiv full-text examination",
+        "title": "On the representation of an integrated Gauss-Markov process",
+        "trigger": "Once-integrated Brownian model and variance normalization"
+      },
+      {
+        "assessment": "UNRESOLVED_POSSIBLE_OVERLAP",
+        "evidence": "Abstract explicitly treats Brownian, bridge and OU product covariances and broader-process asymptotic design; no precise integrated-Wiener noisy threshold visible in abstract. Full text not examined.",
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Institutional catalog title and full abstract only; dissertation text not available",
+        "method": "Institutional catalog inspection and searches for an open full text; no dissertation full text retrieved",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Plausible older exact optimal path reconstruction design literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "234c2707-23d5-4a82-80a9-f1630d5fbb1b",
+  "value": {
+    "rationale": "The natural one-measurement integrated Gaussian-path recovery design is completely classified for all known positive observation-noise variances. The exact finite noise threshold at which the optimal site activates the terminal boundary, strict optimizer uniqueness, and linear activation law provide a nontrivial benchmark for smoothing/sensor scheduling. These are neither table recomputation nor an arbitrary tiny adjustment: the endpoint-support phase is a qualitative global optimization feature absent from generic design formulas.",
+    "status": "PASS"
+  }
+}
