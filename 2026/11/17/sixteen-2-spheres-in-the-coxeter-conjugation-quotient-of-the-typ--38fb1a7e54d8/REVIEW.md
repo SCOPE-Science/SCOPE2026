@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses a faithful exact \(\mathbb Z[\varphi]\) reflection representation, exhaustive group enumeration, Carter reflection length and absolute order, then combines the published EL-shellability result with the two complementary stabilizer orders \(3\) and \(5\). Armstrong's theorem gives a trivial fundamental group. Both orbit-cell and Burnside fixed-set computations yield Euler characteristic \(17\); Whitehead's theorem proves the sixteen-sphere wedge. The standalone checker recomputes the exact count and chain complex. The finite arithmetic is exhaustive for the fixed group and makes no extrapolation to an infinite family.
+## correctness
 
-## Originality
-**PASS relative to accessible inspected evidence.** Athanasiadis–Brady–Watt settle unquotiented shellability; Bessis–Reiner settle fixed-element cyclic sieving; Reading settles unsymmetrized chain enumeration; Reiner–Ripoll–Stump settle structural properties of Coxeter elements. None of the inspected material supplies the stated quotient homotopy type. Earlier independent calculations for other Coxeter types do not imply the type-\(H_4\) enumeration. Equivalent results in unindexed papers or equivalent topological models remain possible and require independent literature review.
+PASS
 
-## Value
-**PASS.** The full homotopy type of a canonical nonfree symmetry quotient in the exceptional noncrystallographic type \(H_4\) is natural, complete, and not determined solely by the known Coxeter–Catalan number or cyclic sieving on individual elements. The complementary stabilizer mechanism explains simple connectivity even though the effective group action is nontrivial; the result can serve as a calibration example for other exceptional-type quotient questions.
+Frozen exact Z[φ] group traversal code constructs all 14,400 H4 matrices; a separate numerical-rank matrix BFS independently reproduced the 280-element absolute-order interval with ranks (1,60,158,60,1) and rank-two orbit sizes 3 and 5, plus 15-orbits 4+10+4. The inspected exact script checks modular screening followed by exact minor ranks, comparabilities, quotient orbit cells (20,93,90), ∂1∂2=0 and Burnside counts. ABW shellability makes the proper-part complex simply connected; no simplex inversions and C3,C5 stabilizers generating C15 allow Armstrong, hence π1 quotient 0. Euler χ=17 implies H2 free of rank16, and simply connected finite 2-complex Whitehead yields wedge of 16 S². Numerical BFS corroboration is not the exact proof; the exact certificate algorithm was semantically inspected, not blindly relied upon.
 
-## Scope and evidence
-The central computational facts are \((1,60,158,60,1)\) noncrossing ranks, \((20,93,90)\) quotient simplex orbits, and exceptional rank-two orbit sizes \(3\) and \(5\). The proof supplies a closed homotopy classification, but does not assert a universal classification or independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General H4 noncrossing shellability and cyclic sieving provide the covering sphere wedge and action on elements, but not the orbit-space fundamental group or precise 16-sphere homotopy. Type F4 quotient twelve-sphere classification and B4 torsion example address other Coxeter types. No identified theorem covering H4 quotient; possible unindexed orbit-space computations remain a risk.
+
+## value
+
+PASS
+
+Natural full homotopy classification of a canonical exceptional Coxeter nonfree quotient. The complementary 3/5 vertex stabilizers kill C15, a useful mechanism not implied by noncrossing Catalan counts or unsymmetrized shellability; the exact 16 summands provide a finite benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
