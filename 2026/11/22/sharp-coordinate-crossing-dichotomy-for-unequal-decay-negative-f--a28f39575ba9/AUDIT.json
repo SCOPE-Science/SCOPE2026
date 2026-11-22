@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The secant gain representation is exact for each pair of solutions. A mean-damping integrating factor and diagonal gain balance give theta_prime=d cos^2(theta)+c sin^2(theta)+delta sin(2theta), bounded by Omega+delta sin(2theta). Every coordinate equality is transverse. When |delta|<Omega, integrating the reciprocal majorant over one half-turn proves the universal pi/sqrt(Omega^2-delta^2) gap; at |delta|>=Omega a scalar barrier precludes the next half-turn. Explicit bounded strictly monotone C1 responses coincide with the critical affine system in a small invariant neighborhood, attaining the gap. The independent finite checker exercises exact coefficients, numerical angle integrals, and time-dependent secants without replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical scalar Sturm theory supplies closely related zero-separation ideas but typically involves fixed/self-adjoint scalar reductions and does not directly state the family-wide unequal diagonal decay and arbitrary continuous secant gain bound.",
+        "The sharp affine case has frequency sqrt(AB-delta^2); the nonlinear proof uses phase majorization."
+      ],
+      "reasoning": "A general oscillation comparison theorem may subsume the proof, and originality should be reevaluated against complete historical literature. No decisive direct coverage was identified in the material read.",
+      "searches": [
+        "nonlinear two dimensional oscillator with unequal diagonal damping angular phase upper comparison arctan, alias sampling threshold",
+        "sharp nonaliasing observation window for planar nonlinear negative-feedback systems using angular-speed comparison, secant bounds",
+        "Sturm comparison disconjugacy damped two-dimensional systems variable positive off diagonal coefficients"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.17232v1, full source sections and appendices",
+      "Guo 2005 abstract (not full text)",
+      "Chatzis–Maes–Lombaert 2025 abstract and excerpt (not full text)",
+      "General two-dimensional observer and oscillator literature in source searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Belgacem, arXiv:2611.17232v1, Sec. 3, reconstructs states from output and derivative rather than giving any two-time coincidence bound.",
+        "Guo 2005 studies non-equispaced sampled observability at general structural level, without the inspected abstract supplying a sharp nonlinear crossing/no-crossing transition.",
+        "The already-known equal-decay angle bound yields pi/sqrt(AB) only when gamma1=gamma2; the unequal-decay sharp bound is strictly larger, and the overdamped regime permits at most one crossing."
+      ],
+      "reasoning": "Neither instantaneous inversion nor the equal-decay special case implies the mismatch-dependent period and barrier. Other generic observer results do not by themselves imply this exact inequality without extra dynamics.",
+      "searches": [
+        "Belgacem Luenberger observers two-gene system instantaneous output derivative state reconstruction",
+        "two-sample observability of negative feedback nonlinear two-state system unequal decay rates sharp node-focus transition",
+        "sharp nonaliasing observation window for planar nonlinear negative-feedback systems using angular-speed comparison, secant bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "First-output difference is the first coordinate of a cooperative/competitive secant difference ODE after an exponential gauge and diagonal similarity.",
+        "The source uses (x_1,dot x_1) at one instant, which is mathematically distinct from two x_1 observations."
+      ],
+      "reasoning": "An equivalent description may be an oscillation/separation theorem for time-varying planar negative-feedback systems; comparisons searched both crossing and observability language. No inspected cited result gives the sharp full class, although generic Sturm comparison remains a priority risk.",
+      "searches": [
+        "sharp unequal degradation two gene negative feedback planar nonlinear flow first-coordinate zero return separation pi/sqrt(AB-(gamma1-gamma2)^2/4) no returns when damping mismatch >=2sqrt AB",
+        "two-sample observability of negative feedback nonlinear two-state system unequal decay rates sharp node-focus transition",
+        "nonlinear two-dimensional feedback trajectory coordinate crossing zero-count disconjugacy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is a universal analytic sharp bound, not a finite database/table value.",
+        "No matching exact table or formula was found in inspected source statements."
+      ],
+      "reasoning": "There is no fixed finite parameter table to match; meaningful equivalence is a general analytic comparison theorem.",
+      "searches": [
+        "sharp unequal degradation two gene negative feedback planar nonlinear flow first-coordinate zero return separation pi/sqrt(AB-(gamma1-gamma2)^2/4) no returns when damping mismatch >=2sqrt AB",
+        "two-sample observability of negative feedback nonlinear two-state system unequal decay rates sharp node-focus transition",
+        "negative feedback two gene exact minimal two output crossing separation threshold"
+      ]
+    },
+    "rationale": "The source proves instantaneous observability via first-output derivative, whereas the present theorem is a sharp, globally uniform *two-trajectory coordinate-crossing* result with exact mismatch-dependent spacing and a no-second-crossing transition. Equal-decay crossing bounds do not entail the sharp unequal-decay barrier or factor sqrt(AB-delta^2). The literature inspected contains generic sampling and disconjugacy methods but no statement covering this full feedback class with sharp local bounded-response attainment. Historical priority remains provisional.",
+    "residual_risks": [
+      "Historical scalar Sturm–Picone comparison and disconjugacy may yield an equivalent general theorem in a different language.",
+      "Full text of Guo 2005 and Chatzis et al. 2025 was not materially inspected; no whole-document noncoverage claim is made.",
+      "The sharp formula is established for a class of bounded response functions, not arbitrary fixed Hill or logistic nonlinearities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp two-time zero separation; first derivative of output recovers hidden state immediately",
+        "evidence": "The observability theorem in section 3 uses the output and its derivative at one time.",
+        "identifier_or_url": "https://arxiv.org/html/2611.17232v1",
+        "material_read": "Full accessible HTML, model setup, observability and observer sections, Appendix A",
+        "method": "Direct reading of mathematically relevant statements and comparison to exact two-trajectory secant equation",
+        "title": "Luenberger observers for two-gene regulatory networks with sigmoidal regulation: explicit observability conditioning, polytopic convergence certificates, and a logistic–Hill comparison",
+        "trigger": "Original recent negative-feedback two-gene ODE and instantaneous observability"
+      },
+      {
+        "assessment": "No direct coverage identified in the abstract; full text remains unassessed",
+        "evidence": "Paper addresses nonequidistant sampling and system observability rather than a class-specific nonlinear zero-separation threshold.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1934-6093.2005.tb00409.x",
+        "material_read": "Abstract and bibliographic metadata; full text not inspected",
+        "method": "Compared the published abstract statement to the specific nonlinear crossing claim",
+        "title": "Systems with nonequidistant sampling: controllable? observable? stable?",
+        "trigger": "Potential earlier sampled-observation coverage"
+      },
+      {
+        "assessment": "No direct coverage in accessible material; remaining full-text comparison is uncertain",
+        "evidence": "The paper addresses observability of nonlinear discrete-time systems with unmeasured inputs.",
+        "identifier_or_url": "https://doi.org/10.1016/j.ymssp.2025.113142",
+        "material_read": "Abstract and accessible excerpts, not complete article",
+        "method": "Checked whether discussed constructive observability machinery directly implies the sharp continuous-time feedback-class bound",
+        "title": "Observability of nonlinear discrete-time systems with unmeasured inputs",
+        "trigger": "Potential nonlinear observer statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a28f3957-5ba9-4e1c-a1c8-5f691a30cf8b",
+  "value": {
+    "rationale": "A natural projected trajectory-identification problem in inhibitory gene feedback acquires a complete sharp qualitative transition at |gamma1-gamma2|=2sqrt(AB), separating arbitrarily many possible first-output coincidences (with a sharp universal minimum gap) from at-most-one coincidence. This bound is robust under all admissible nonlinear gain profiles, identifies an exact observability-spacing limit and sharp bounded-response examples; it is more than a renaming of the equal-decay formula.",
+    "status": "PASS"
+  }
+}
