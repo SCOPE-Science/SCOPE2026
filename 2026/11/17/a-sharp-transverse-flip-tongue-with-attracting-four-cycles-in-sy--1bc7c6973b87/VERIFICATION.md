@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python verify.py` after installing `requirements.txt` with Python 3.11 or later. All source files needed for the calculations are in this package; no external data file is required. The checker derives the rational/exponential Taylor coefficients of the symmetric competition map in the scaled even/odd coordinates, reduces the closed cubic constant symbolically, then computes nearby positive four-cycles satisfying the exact exchange equation and checks full-plane return multipliers numerically.
+# Independent mathematical audit
 
-Observed output for the packaged checker:
+## correctness
 
-```
-EXACT_TAYLOR_OK identities=4
-CUSP_OK d0= 1.7627471740391 gamma= 2.18375756345 tangent= -0.878524321539
-EXCHANGE_4_OK delta_d= 0.0001 v= 0.00804723667364 return_radii= 0.7712157472,0.999434262
-EXCHANGE_4_OK delta_d= 0.001 v= 0.0254431035106 return_radii= 0.7659148964,0.9943378796
-EXCHANGE_4_OK delta_d= 0.01 v= 0.080314961424 return_radii= 0.713125606,0.9428955579
-VERIFY_OK exact_taylor=4 local_orbits=3
-```
+PASS
 
-The exact symbolic equalities corroborate the algebraic normal-form reduction. Numerical root and multiplier calculations are finite examples, not a proof of the neighborhood-uniform theorem. The theorem follows from the analytic implicit-function theorem together with strict inequalities whose defining expressions are given in RESULT.md; independent audit has not been performed.
+In symmetric mean/difference coordinates s,v the equal-growth two-species Ricker map has even s and odd v components. The synchronous two-cycle a=h(d)-d,b=h(d)+d is exact and positive; longitudinal multiplier m=1-2h+Q has |m0|<1 at d0=2arsinh(1). The transverse multiplier mu=1-2kh+k^2Q obeys mu+1=-Delta, with Delta=sinh^2(d/2)-1-Q(k-k*)^2. Its zero set gives both physical square-root branches. For G=F^2, solving G(s,v)=S(s,v) using the even-coordinate implicit function gives the reduced odd equation -Delta+gamma(d,k)v^2+O(v^4)=0. Explicit composition gives gamma0≈2.18375756345>0; hence unique nearby exchange-related v=±sqrt(Delta/gamma0)[1+o(1)] precisely when Delta>0. This produces one primitive four-cycle by phase separation and G switching the unequal states. The derivative of H=S∘G has slow eigenvalue 1-2Delta+o(Delta) and fast eigenvalue ->m0, proving local attraction. Finite numeric examples corroborate but do not prove the IFT classification.
+
+## originality
+
+PASS
+
+Earlier Ricker competition work includes period-four out-of-phase mode plots and a general synchronous-cycle Floquet reduction, which covers qualitative phenomena and exact linear multipliers. The present nonlinear analytic codimension-two cusp, gamma0 sign, local uniqueness/supercriticality and exact square-root tongue width require new higher-order calculations not supplied by the inspected numerical modes or linear spectral theorem.
+
+## value
+
+PASS
+
+Resolves the local bifurcation type and stability of an observed dynamical mode using a nontrivial explicit cubic coefficient; produces an exact two-parameter tongue, sharp square-root opening and local uniqueness. These explain whether the synchronous attractor is replaced by an attracting off-diagonal primitive-four orbit, a motivated dynamical question unanswerable from linear Floquet data alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
