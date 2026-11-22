@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all positive β,γ,N,φ and every point in the closed population simplex, s_+ and i_+ are nonnegative. The residual \\(r_+\\) is strictly decreasing in s at fixed i, hence minimal on the \\(r=0\\) face. There \\(r_+=\\frac{\\tau i[1+\\tau\\rho-\\tau\\rho^2 i(1-i)]}{(1+\\tau)(1+\\tau\\rho i)}\\). Maximizing \\(i(1-i)\\) at \\(i=1/2\\) proves the iff bound \\(\\tau\\rho(\\rho-4)\\le4\\), including equality; solving the quadratic proves the exact unsafe interval. Exact witness \\((\\rho,\\tau,s,i)=(5,1,1/2,1/2)\\) yields \\((1/7,7/8,-1/56)\\). The standalone stdlib-only checker passed 15,981 exact-rational assertions; finite checks are supplemental, not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 vaccination NSFD scheme uses a gain \\(\\beta S_{n+1}I_n\\) in its infected-state update, not \\(\\beta \\(S_n I_n\\)\\), and evolves R directly.",
+        "The inspected 2021 and 2022 SIR NSFD schemes use nonlocal/flux-preserving or predictor–corrector formulas different from the diagonal old-state gain in the 2026 source."
+      ],
+      "reasoning": "Unconditional positivity or conservation for those different maps cannot imply positivity of a residual component under the specified fixed diagonal gain/loss map. The classification is not a corollary of their distinct numerical updates, although the general idea of nonnegative transfer flux is established.",
+      "searches": [
+        "https://link.springer.com/article/10.1186/1687-1847-2014-172 (Section 3, equations 3.1–3.2)",
+        "https://www.mdpi.com/2227-7390/10/18/3299 (Sections 3 and 6)",
+        "https://doi.org/10.3390/math9233082 (author-posted text, Sections 3–4)",
+        "\"positive\" \"recovered\" \"NSFD\" \"beta\" \"gamma\" epidemic scheme maximum principle"
+      ]
+    },
+    "checked_sources": [
+      "Zinihi–Ehrhardt–Sidi Ammi (2026), arXiv:2607.10858v1, Sections 2–5 and Remark 2.",
+      "Cui et al. (2014), DOI 10.1186/1687-1847-2014-172, Section 3.",
+      "Efficient Numerical Solutions to a SIR Epidemic Model (2022), DOI 10.3390/math10183299, Sections 3 and 6.",
+      "Nonstandard Finite Difference Schemes for an SIR Epidemic Model (2021), DOI 10.3390/math9233082, author-posted text Sections 3–4."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 2 establishes nonnegative individually updated states; source Remark 2 disclaims nonnegativity of reconstructed R.",
+        "The 2014 infected gain \\(\\beta S_{n+1}I_n\\) cancels the susceptible transfer, unlike the present \\(\\beta \\(S_n I_n\\)\\) source input; its unconditional positivity assertion applies to a different map."
+      ],
+      "reasoning": "The published source has no theorem asserting simplex preservation of the unmodified recovered-as-residual SIR step for all inputs. Prior conservative schemes neither imply the exact threshold nor rule out the explicit \\((\\rho,\\tau)=(5,1)\\) negative witness. The new claim is a complete sharp condition on this fixed update, not a new flux-preserving algorithm.",
+      "searches": [
+        "exact SIR gain loss neural ODE sequential rational susceptibility update infected current S positive recovered R negative reproduction number four",
+        "two-compartment gain loss diagonally semiimplicit infection recovery update S/(1+h beta I), I(1+h beta S)/(1+h gamma) simplex invariant",
+        "https://arxiv.org/abs/2607.10858",
+        "https://link.springer.com/article/10.1186/1687-1847-2014-172"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source writes a diagonal old-state gain/new-state loss step and notes that algebraically reconstructed R can be negative, but does not state a necessary-and-sufficient population-simplex criterion.",
+        "The exact map is equivalent to checking \\(s_++i_+\\le1\\) for every \\(s+i\\le1\\), a one-dimensional boundary inequality involving i(1-i)."
+      ],
+      "reasoning": "Equivalences through probability-simplex invariance, gain/loss decomposition, and R as a residual were checked by reducing their claims to the same fixed map. Nothing in the located primary text gives the sharp parameter condition or the unsafe interval. Known nonnegative orthant invariance of S and I alone does not imply full simplex preservation.",
+      "searches": [
+        "Zinihi Ehrhardt Sidi Ammi 2607.10858 recovered recovered R nonnegative SIR NSFD positivity reproduction number threshold 4 h",
+        "exact SIR gain loss neural ODE sequential rational susceptibility update infected current S positive recovered R negative reproduction number four",
+        "threshold phi gamma R0(R0-4) <=4 invariant population simplex nonstandard SIR scheme recovery positivity",
+        "two-compartment gain loss diagonally semiimplicit infection recovery update S/(1+h beta I), I(1+h beta S)/(1+h gamma) simplex invariant",
+        "https://arxiv.org/abs/2607.10858 (Section 3; Section 5 Remark 2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source contained a numerical table or theorem with the exact condition \\(\\tau\\rho(\\rho-4)\\le4\\) or its unsafe interval.",
+        "The closest paper explicitly leaves the residual-component guarantee open rather than offering a parameter table."
+      ],
+      "reasoning": "The result is a symbolic all-real-parameter criterion, not a finite lookup or experimentally inferred pattern. Searches and inspected tables are incomplete evidence of absence; no inference of novelty rests on a failed query alone.",
+      "searches": [
+        "Zinihi Ehrhardt Sidi Ammi 2607.10858 recovered recovered R nonnegative SIR NSFD positivity reproduction number threshold 4 h",
+        "threshold phi gamma R0(R0-4) <=4 invariant population simplex nonstandard SIR scheme recovery positivity",
+        "\"S/(1+h beta I)\" \"I\" \"gamma\" \"positivity\" nonstandard recovered",
+        "\"R0(R0-4)\" \"SIR\" numerical positivity",
+        "https://arxiv.org/abs/2607.10858 (keywords: nonnegative recovered, Remark 2, bound, simplex)"
+      ]
+    },
+    "rationale": "The 2026 source explicitly states the diagonal gain/loss map and warns that reconstructed R may fail nonnegativity, but does not derive the sharp quantitative global physical-rate criterion. Inspected older SIR schemes use different, often sequential conservative update rules, whose claims do not imply this same-map necessary-and-sufficient condition. Multiple literature and research-record queries sought aliases, parameter inequalities and the explicit negative witness; no covering theorem was identified. Historical priority remains qualified.",
+    "residual_risks": [
+      "A mathematically equivalent old-state gain/loss SIR positivity classification may exist in uncatalogued or inaccessible texts.",
+      "Uncertainty is greater for the 2021 original publisher version, where direct full publisher access was rate-limited; the available author-posted text was inspected.",
+      "The result is a sharp elementary specialization of a published algorithm, not a new general nonlinear positivity theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact fixed map originates here; sharp physical-rate simplex threshold and unsafe interval not given in inspected text.",
+        "evidence": "Equation (2), Section 5, Remark 2; first public 2026-07-12, primary MSC 65L05.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.10858",
+        "material_read": "Abstract; Sections 2–5 with equations, theorem on positive modeled coordinates, Remark 2 and numerical SIR setup/results.",
+        "method": "Open-access original full-text HTML, checked the update and recovered-state remark against the claim.",
+        "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+        "trigger": "Defines the same componentwise gain/loss step and the reduced SIR recovered-state concern."
+      },
+      {
+        "assessment": "Different model with demographic terms and a sequential updated-susceptible gain, so no direct implication.",
+        "evidence": "Equation (3.1): infection gain uses \\(S_{n+1}I_n\\) and R is updated directly.",
+        "identifier_or_url": "https://doi.org/10.1186/1687-1847-2014-172",
+        "material_read": "Open-access full-text introduction, model, and Section 3 equations (3.1)–(3.2) with positivity discussion.",
+        "method": "Direct publisher full-text HTML; compared the occurrence of updated versus previous susceptible states in infection transfer.",
+        "title": "An NSFD scheme for SIR epidemic models of childhood diseases with constant vaccination strategy",
+        "trigger": "Prior SIR scheme with claims of unconditional nonnegativity and physical consistency."
+      },
+      {
+        "assessment": "Numerical methods differ; no same-map sharp all-data residual-sign threshold found in material read.",
+        "evidence": "Mathematics 2022, 10(18), 3299, Sections 3 and 6.",
+        "identifier_or_url": "https://doi.org/10.3390/math10183299",
+        "material_read": "Published full-text Sections 3 and 6 containing the described numerical update families.",
+        "method": "Open journal HTML; contrasted schemes with the old-state diagonal gain/loss equation.",
+        "title": "Efficient Numerical Solutions to a SIR Epidemic Model",
+        "trigger": "Existing numerical SIR predictor–corrector and positivity methods."
+      },
+      {
+        "assessment": "Related SIR NSFD construction but not the identical rational old-state gain rule; full original publisher text not independently available.",
+        "evidence": "Mathematics 2021, 9(23), 3082; alternative schemes in Sections 3–4.",
+        "identifier_or_url": "https://doi.org/10.3390/math9233082",
+        "material_read": "Author-posted text containing Sections 3–4, including the distinct update formulas; direct publisher access limited.",
+        "method": "Read accessible lawful author-posted text, compared susceptibility evaluation and recovery handling.",
+        "title": "Nonstandard Finite Difference Schemes for an SIR Epidemic Model",
+        "trigger": "A plausible general NSFD SIR source with positive state preservation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c36ca1b-b120-4ab0-ae9c-7cf3914847d2",
+  "value": {
+    "rationale": "The motivating source calls out the missing guarantee for the algebraically recovered population. This complete globally sharp invariant-simplex classification gives an actionable exact parameter/denominator threshold and unsafe initial-state geometry rather than an isolated counterexample or a generic orthant-positive statement. It directly separates a physical exact-rate scheme from independent fitted networks and prevents unsafe denominator selection when \\(\\beta N/\\gamma>4\\). The restriction to exact physical rates is central and explicitly stated; no downstream training-performance or broader control guarantee is claimed.",
+    "status": "PASS"
+  }
+}
