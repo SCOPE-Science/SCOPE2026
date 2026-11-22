@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The central claim is exact *local* sixth-power distance-energy minimality of a regular Euclidean hexagon among nearby convex hexagons with all interior angles less than \(\pi\), modulo direct similarities. The normalization uses the fifth power of area, matching the tenth-order scaling of the double integral. A six-triangle moment formula produces the exact area and energy, and a symbolic first derivative vanishes. The exact rational Hessian of the log-normalized functional has a fourth-order zero characteristic factor and four positive quadratic factors, with every nonzero root positive. Explicit similarity vectors span the kernel; a smooth eight-dimensional transverse slice yields strict local minimality by Taylor's theorem. The packaged exact checker reproduced the matrix and factorization and an independent polynomial-exact numerical quadrature corroborated the base energy and twelve Hessian directions. Unproved limits: global minimality, other numbers of sides and other powers.
+
+## Originality — PASS, with priority qualification
+Bogosel, Bucur and Fragalà (arXiv:2302.11677, Section 3.1) previously *reported numerically* that the full Hessian has only similarity-related zero modes and positive transverse modes for this same six-vertex sixth-power setting. They did not claim an exact, rigorous factorization or a proved local theorem for that setting, and their theorem for low powers covers only the second and fourth powers. The new contribution is the exact rational spectral certificate and rigorous local consequence, **not** discovery of the numerical positivity pattern. Bonacini, Cristoferi and Topaloglu (arXiv:2103.06657) prove interaction inequalities for three and four vertices only. Relevant published searchable records and accessible earlier claims did not provide an equivalent exact certification. Unindexed or later exact proofs are a real remaining priority risk.
+
+## Mathematical value — PASS
+The sixth-power case is the first even exponent beyond the globally resolved second and fourth powers in the cited polygonal Riesz-energy problem. A fully rigorous, full-tangent-space local theorem is a natural limited step toward identifying exponents for which regular polygons are optimal. It improves a published numerical-only positivity observation, distinguishes genuine polygon-shape modes from similarity modes and delivers a reusable rational certificate. This is not asserted to settle the global conjecture or to cover a larger family.
+
+## Closest work and limits
+Primary sources: arXiv:2302.11677 (Sections 2–3, Appendix 9.3); arXiv:2103.06657 (introduction and stated triangle/quadrilateral conclusions). The full text of the relevant primary sources was accessible in its HTML rendition for the assessed portions. The result has not received an independent mathematical audit, and the originality assessment cannot exclude all unpublished or unindexed exact certifications.
+
+Self-review: passed. Independent audit: not yet performed.
