@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "In the canonical 0/1 Euclidean embedding, the squared distance is the cardinality of the symmetric difference. The published adjacency criterion is a single alternating path/cycle. Four disjoint classes are exhaustively counted with factors for pair selection, orientation, ordering and reversal, yielding the displayed polynomial for every n>=2, 0<=k<=floor(n/2). With A_{k,j}=C(k,j)2^{j-1}j!, the exact identity A_{k,k-r}/A_{k,k}=1/(2^r r!) and a cycle-to-path ratio 1/j yield Poisson(1/2) plus an independent three-point type shift at fixed uncovered count. The cycle mass is bounded by O(1/k) plus a vanishing factorial tail. A separate connectivity-based enumeration reproduced every squared-length coefficient for 34 finite matching-size strata, n=2,...,10. Neither numerical approximations nor failed tests are used as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chvátal (1975), as cited and stated in arXiv:1701.06210, Theorems 1.1–1.2: edge adjacency iff symmetric difference forms one alternating path or cycle.",
+        "Abreu et al. (2017), Theorem 2.3: a general scalar degree is the number of good paths plus good cycles; Theorem 3.1 gives monotonicity.",
+        "Merino–Mütze (2023), Section 7: polynomial-delay listing by exchanges of at most three graph edges, not local uniform-neighbor frequencies."
+      ],
+      "reasoning": "The broad adjacency criterion and general degree identity are essential prior lemmas and already imply the decomposition of possible edge *types*. However neither evaluates the coefficient counts in K_n, and neither provides (or bounds) the factorially concentrated distribution and the Poisson defect in the fixed-s high-rank regime. The result does not claim novelty for the general criterion or for scalar degree monotonicity.",
+      "searches": [
+        "Complete graph matching polytope vertex degree distribution matching size k basis exchange graph adjacency alternating paths cycles formula regularity high-dimensional",
+        "matching polytope vertices adjacent iff symmetric difference single alternating path cycle matching edge adjacency",
+        "https://arxiv.org/abs/1701.06210",
+        "https://arxiv.org/abs/2304.08567"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1701.06210",
+      "https://arxiv.org/abs/2304.08567",
+      "https://doi.org/10.1137/23M1612019",
+      "https://arxiv.org/abs/1907.01700",
+      "2026/10/11/SCOPE-exact-rank-stratified-vertex-degrees-of-rectangular-matching-pol--9771e7447af5",
+      "2026/11/8/SCOPE-exact-vertex-inertia-spectrum-and-square-root-anisotropy-of-comp--baebdc2b5663",
+      "2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph--68b58451aad7",
+      "2026/10/18/SCOPE-exact-gaussian-cone-angle-spectra-and-competing-poisson-laws-for--7a211bcc14eb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the 2023 traversal source, the short-exchange Hamilton existence theorem is compatible with, but does not imply, a long-edge-dominated uniform-neighbor law.",
+        "Ito et al. (2019), Section 1 and complexity results: minimum number of alternating-cycle flips for two perfect matchings; no Euclidean length distribution.",
+        "The proof explicitly introduces the new complete-graph factorial enumeration and independent Poisson type/depth analysis."
+      ],
+      "reasoning": "The new law is neither a rescaling of a radius or covariance formula nor a specialization of the rectangular matching degree theorem. While it is derived from the earlier path/cycle theorem, the published statements do not supply the asserted finite coefficients or the nontrivial fixed-s asymptotic implication.",
+      "searches": [
+        "Matching polytope complete graph metric edge length spectrum alternating path cycle by matching rank explicit generating polynomial",
+        "Complete graph matching polytope Euclidean edge lengths paths alternating cycles Poisson limiting law",
+        "matching polytope complete graph \"edge length\" \"degree\" adjacent matchings alternating paths Poisson",
+        "https://arxiv.org/abs/1907.01700"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abreu et al., arXiv:1701.06210, Sections 1–2: general path/cycle criterion and scalar degree counts; no per-edge squared Euclidean distribution.",
+        "Merino–Mütze, arXiv:2304.08567, Table 2 and Section 7: matching-polytope edges represented by alternating exchanges; Hamilton listing uses only short exchanges.",
+        "No exact-match record in the returned published-finding corpus comparison set for the complete-graph incident-edge squared-length enumerator or the fixed-defect Poisson law."
+      ],
+      "reasoning": "Renaming distance as Hamming symmetric-difference size does not erase the claim: that equality is used explicitly, and the new assertion is the evaluated complete-length enumerator and limiting distribution. No source read supplies these statements after this equivalence.",
+      "searches": [
+        "Matching polytope complete graph metric edge length spectrum alternating path cycle by matching rank explicit generating polynomial",
+        "Complete graph matching polytope Euclidean edge lengths paths alternating cycles Poisson limiting law",
+        "matching polytope complete graph \"edge length\" \"degree\" adjacent matchings alternating paths Poisson",
+        "\"matching polytope\" \"squared lengths\" \"adjacency\" \"complete graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest title/summary: exact rank-stratified vertex degrees of *rectangular* bipartite matching polytopes; no complete-graph alternating even-cycle family.",
+        "published-finding corpus closest title/summary: complete-graph matching-polytope covariance eigenspaces, i.e. a vertex-uniform inertia statistic, not adjacency length counts.",
+        "published-finding corpus closest title/summary: complete-graph matching-polytope Euclidean in/circumradii and tangent facets, not the metric spectrum of incident edges.",
+        "The 2017 paper reports generic counts and minimum-degree results but no table matching the all-k local length polynomial."
+      ],
+      "reasoning": "An exact table for a distinct polytope or a different statistic does not dominate the exact enumerator here. Unindexed tables remain a historical risk.",
+      "searches": [
+        "Matching polytope complete graph metric edge length spectrum alternating path cycle by matching rank explicit generating polynomial",
+        "Matching polytope of K_n asymptotic edge length distribution Poisson defects near perfect matchings degree",
+        "Complete graph matching polytope Euclidean edge lengths paths alternating cycles Poisson limiting law",
+        "2026/11/8/SCOPE-exact-vertex-inertia-spectrum-and-square-root-anisotropy-of-comp--baebdc2b5663",
+        "2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph--68b58451aad7"
+      ]
+    },
+    "rationale": "The 2017 primary work supplies a universal adjacency/degree count by alternating paths and cycles, not the evaluated complete-graph squared-Euclidean length histogram nor the high-rank independent Poisson-plus-three-point limit. The 2023 traversal paper constructs short-edge Hamilton listings, a distinct universal-existence statement; the 2019 reconfiguration work optimizes sequences between perfect matchings. Indexed nearby records concern rectangular partial matching degrees, complete-graph matching vertex covariance, or Euclidean radii, which have no implication giving the present metric adjacency law. Historical priority is provisional, not independently certified.",
+    "residual_risks": [
+      "An unindexed article or table might already evaluate the complete-graph incident-length distribution and its high-rank limit; search cannot certify global uniqueness.",
+      "The generic 2017 good-path counting theorem reduces the finite problem substantially; historical priority attaches principally to the explicit all-length formula and its Poisson law, not the general decomposition.",
+      "The published-finding corpus record comparisons for four nearby published items relied on their indexed scientific summaries; no claim that their full text was read is made.",
+      "The cited 1975 primary original adjacency source was checked through accurately stated later primary expositions, not fully reread."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general alternating path/cycle characterization and scalar degree, not the evaluated complete-graph Euclidean length coefficients or a probabilistic high-rank limit.",
+        "evidence": [
+          "arXiv HTML Theorem 2.3 states degree equals good-path plus good-cycle count.",
+          "Theorem 3.1 states degree monotonicity.",
+          "No complete-graph exact length polynomial appears in the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.06210",
+        "material_read": "Full arXiv HTML, Sections 1–4, including Theorems 1.1, 1.2, 2.3, 3.1 and degree formulas.",
+        "method": "Read the primary text and searched for complete-graph specializations and metric length distributions.",
+        "title": "On the vertex degrees of the skeleton of the matching polytope of a graph",
+        "trigger": "Direct general theorem on exactly the same matching-polytope adjacency and degree objects."
+      },
+      {
+        "assessment": "Establishes Hamilton listings using bounded-length exchanges, not uniform-neighbor metric laws, which may give a sharp contrasting geometry.",
+        "evidence": [
+          "arXiv HTML lines near Table 2 identify alternating path/cycle adjacency.",
+          "arXiv HTML Section 7 states a listing using alternating paths of length at most three.",
+          "SIAM DOI 10.1137/23M1612019 gives MSC 52B05 first."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.08567",
+        "material_read": "Full arXiv HTML; Introduction, Table 2, matching-polytope algorithm and application in Section 7, concluding discussion.",
+        "method": "Read matching-specific statements and inspected their relation to exchange lengths; cross-checked primary classification on the SIAM journal page.",
+        "title": "Traversing combinatorial 0/1-polytopes via optimization",
+        "trigger": "Primary MSC2020 52B05 source treating matching-polytope skeleton edges, including local versus long exchanges."
+      },
+      {
+        "assessment": "Studies shortest reconfiguration sequences and computational complexity, not the number or metric size of one-step neighbors at a complete-graph matching.",
+        "evidence": [
+          "Section 1.1 defines alternating-cycle flip adjacency for perfect matchings.",
+          "Main theorems concern polynomial-time and NP-hardness of shortest sequence problems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+        "material_read": "Full arXiv HTML, Introduction/reconfiguration model, Section 3 statements and later complexity sections.",
+        "method": "Compared graph-shortest-path flip sequence costs with Euclidean lengths of individual geometric edges.",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Same alternating-cycle adjacency when no graph vertices are uncovered."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2781d915-40ed-48fe-83fb-e20d09e0d486",
+  "value": {
+    "rationale": "Determines a natural complete Euclidean local invariant of the classical K_n matching polytope and its rank-wise metric spectrum for all dimensions, not merely a relabeling of degree. The sharp fixed-uncovered-count Poisson defect makes a substantive distinction between almost-all extremely long edges at a near-perfect matching and the published existence of a global Hamilton traversal using only length-at-most-three edits. This contrast motivates both the exact histogram and the limiting distribution. The result is self-contained conditional on the explicitly credited classical adjacency theorem.",
+    "status": "PASS"
+  }
+}
