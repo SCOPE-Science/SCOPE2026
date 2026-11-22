@@ -1,15 +1,21 @@
-# Review of the critical-energy Chazy classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof explicitly covers every point of the conserved level, including \(x=0,y=0\), by the polynomial parametrization and uses uniqueness of the locally Lipschitz original vector field. Direct symbolic differentiation proves the semiconjugacy for all integers \(q\ge2\). Scalar monotonicity, convergent comparison integrals, linearization away from the origin and explicit integration at \(c=0\) prove the complete two-sided time classification. Exact rational-algebra checks and symbolic substitutions supplement, rather than substitute for, the argument.
+## correctness
 
-## Originality
-PASS within the inspected evidence. Llibre–Novaes–Valls (2023) focus on negative levels and periodic cylinders, with only the common first integral used here; Zhuang–Liu–Luo (2024) analyze periodic orbits, while the inspected abstract supplies no complete zero-level time classification. Géronimi–Leach–Feix (2001) give general quadratures for a broad symmetry class, but their displayed formulas and examples do not imply the complete critical surface dynamics, both completeness directions, singular-plane tangencies and the two contrasting sharp relaxation laws without a separate specialization and analysis. Queries for aliases, one-dimensional reduction, boundary energy and finite-past blow-up gave no direct equivalent finding. Uninspected parts of the 2024 source and older singularity-analysis literature leave residual publication-priority risk.
+PASS
 
-## Mathematical value
-PASS. The critical energy is the natural exact boundary between known negative-energy periodic cylinders and positive-energy escape. Determining the full critical phase portrait, original-time one-sided completeness, universal finite-past blow-up and a transition from exponential to algebraic attraction resolves a structurally motivated missing energy level, not an arbitrary parameter or table entry. No theorem about nonzero energy is attributed to the present contribution.
+PASS: differentiate x=σr², y=2σr(c−r^{2q+1}/(2q+1)), z=2σ(u²−r^{2q+1}u) to recover original ODE and H=0 exactly. For x=0, H forces y=0; z≠0 is represented by r=0 and σc²=z/2, while origin is an equilibrium. The scalar autonomous equation is strictly decreasing with one root; monotonicity and separation imply all non-equilibria are forward complete, backward blow up at sharp rate, with exponential convergence for nonzero terminal root and exact algebraic law for c=0. Symbolic identities independently checked for q=2,3,4,5 and both signs, but all-q conclusions follow algebraic differentiation and monotone comparison.
 
-## Evidence and limitations
-The relevant equations, statements, negative-energy reduction and appendix scope of the 2023 primary preprint, and Section 3 of the 2001 open preprint, were inspected. The 2024 article abstract and bibliographic records were inspected, but its full text remained unavailable. The standalone script provides reproducible finite checks; the infinite-parameter proof remains analytical. Claims of independent review and publication priority beyond the checked evidence are not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Llibre–Novaes–Valls derived the first integral and periodic cylinders on negative levels; positive-level Resultary escape also excludes H=0. General Lie-parametric methods do not state the global zero-energy completeness/blowup/relaxation classification. The 2024 periodic-orbit article could not be inspected beyond abstract; Oxford access returned VPN disconnected, retained as priority risk, not automatically as FAIL.
+
+## value
+
+PASS
+
+PASS: a global sharp classification of a singular invariant energy surface, including the x=y=0 fold, all backward/forward lifespans and exact relaxation rates, is structurally useful to understand the boundary between known negative-energy periodic and positive-energy escape regimes. It is not the mere substitution ω=0 into a theorem whose hypotheses require ω>0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

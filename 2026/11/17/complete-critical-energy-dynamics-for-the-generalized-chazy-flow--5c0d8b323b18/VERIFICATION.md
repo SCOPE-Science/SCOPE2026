@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The scalar-to-vector-field transformation is explicit in `RESULT.md`. The script `verify_chazy_zero.py` uses the Python standard library, requires no network access and was executed with output `CHAZY_ZERO_ENERGY_ALGEBRAIC_CHECK_OK`. It checks the vector field, zero energy and exact origin-relaxation algebra in several representative integer cases. An additional exact-symbolic calculation verified the identities for \(q=2,3,4\). The proof for all \(q\ge2\) is the unrestricted derivative identity and scalar monotonicity argument; finite checks alone are not an infinite-parameter proof.
+# Independent mathematical audit
 
-Original-time asymptotics were obtained analytically from the scalar equation, not by fitting numerical trajectories. A self-review assesses correctness, originality within inspected literature, and mathematical value. No independent mathematical audit has been performed. Older singularity-method articles and a relevant later periodic-orbit paper could not all be checked in full, so independent priority verification is still needed.
+## correctness
+
+PASS
+
+PASS: differentiate x=σr², y=2σr(c−r^{2q+1}/(2q+1)), z=2σ(u²−r^{2q+1}u) to recover original ODE and H=0 exactly. For x=0, H forces y=0; z≠0 is represented by r=0 and σc²=z/2, while origin is an equilibrium. The scalar autonomous equation is strictly decreasing with one root; monotonicity and separation imply all non-equilibria are forward complete, backward blow up at sharp rate, with exponential convergence for nonzero terminal root and exact algebraic law for c=0. Symbolic identities independently checked for q=2,3,4,5 and both signs, but all-q conclusions follow algebraic differentiation and monotone comparison.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Llibre–Novaes–Valls derived the first integral and periodic cylinders on negative levels; positive-level Resultary escape also excludes H=0. General Lie-parametric methods do not state the global zero-energy completeness/blowup/relaxation classification. The 2024 periodic-orbit article could not be inspected beyond abstract; Oxford access returned VPN disconnected, retained as priority risk, not automatically as FAIL.
+
+## value
+
+PASS
+
+PASS: a global sharp classification of a singular invariant energy surface, including the x=y=0 fold, all backward/forward lifespans and exact relaxation rates, is structurally useful to understand the boundary between known negative-energy periodic and positive-energy escape regimes. It is not the mere substitution ω=0 into a theorem whose hypotheses require ω>0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
