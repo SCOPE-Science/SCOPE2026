@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof covers each complex coefficient pair except zero, all regular grids with at least two equally weighted nodes, and all exponents \(2<p<4\). The Chebyshev–Rodrigues representation gives the exact alternating signs of every aliased Fourier coefficient \(k\ge2\). A nontrivial normalized-coefficient inequality, \(\partial_r\log(|c_k(r)|/c_0(r))\ge k/[r(1+r)]>0\), identifies balanced coefficients as the unique modulus extremizers. Fourier alias phases attain the upper bound only when a sampling node is a zero, and the positive second alias excludes equally large negative error. Exact beta–Gamma identities and a summable Gamma-ratio asymptotic establish the displayed constant and decay; a sine-cubed identity establishes the cubic cotangent formula. Supplementary checker: `SUPERQUADRATIC_CIRCLE_SAMPLING_DIAGNOSTIC_OK 3307`. Finite checks are not presented as universal proof.
+
+## Originality — PASS, qualified
+The closest public mathematical research record, *Sharp two-mode \(L^p\) circle sampling distortion and zero-on-grid extremizers* (2026, publicly available in published-finding corpus), covers **only** \(1<p<2\), with underestimation and declining constant Fourier coefficient. It does not imply the new \(2<p<4\) branch, where that Fourier coefficient increases and the sharp normalized-growth argument must change. Dai–Kosov (arXiv:2611.05930v1; 4 November 2026) and Dai–Kosov–Murasko (arXiv:2611.08896v1; 6 November 2026) treat random sampling, with the latter covering \(p>2\) and providing only sample-complexity bounds plus unrelated discrete-coordinate sharpness examples, not the present fixed-grid exact constant. The complete original 2009 Marzo–Seip paper on regular roots-of-unity Marcinkiewicz–Zygmund inequalities was also inspected: its degree-uniform bounds and perturbation threshold are not exact two-mode constants. The closest full relevant published result and key primary material were read; the structured originality report records actual searches and implication comparisons. Residual risk: an unindexed theorem or uninspected classical quadrature subsection might cover the same formula; negative searches are not conclusive novelty certificates.
+
+## Mathematical value — PASS
+The theorem determines a natural exact moment-discretization invariant for every superquadratic exponent in a full interval and every regular sample count, with its complete equality geometry, sharp asymptotic rate, explicit cubic closed form and an exact two-versus-three-node quartic endpoint transition. It provides a quantitative benchmark for fixed deterministic sampling, not just a single numerical constant or a routine normalization change.
+
+## Limits
+The result does not concern arbitrary grids or weights, higher-degree trigonometric polynomials, the one-node grid, or the exponent interval above four. The independent scientific review and external publication-priority determination remain outside this report.
+
+Self-review: passed. Independent audit: not yet performed.
