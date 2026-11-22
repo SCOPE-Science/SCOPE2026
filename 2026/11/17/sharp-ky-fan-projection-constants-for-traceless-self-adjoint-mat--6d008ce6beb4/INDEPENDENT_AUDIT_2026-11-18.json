@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:11:59.100275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalization reduces the operator norm to N_k(x)=top-k sum of |x_i|. The polar ball is {||b||_infty<=1, ||b||_1<=k}; for integral k its vertices are exactly signed k-coordinate supports. Dual evaluation of Fb=b-(sum b)/n gives max of infinity branch 1+(k-2)/n and l1/k branch 1+d(n-k-d)/(nk), where d is the parity-constrained sign sum. Discrete difference and monotonicity split exactly at n=3k-2. Rank-one spike and (when n>=2k) k-positive/(n-k)-negative spectrum realize branches. Averaging arbitrary real-linear projection under conjugation fixes traceless matrices and kills scalar I, yielding trace centering as the minimizer. Endpoint cases n=2,k=1,n and nonexpansive rank list checked. Independent enumeration of 35 (n,k) combinations n=2..8 and all dual sign vertices matches the formula, distinct from universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucart Corollary 4 bounds intermediate Ky Fan norm by 2-2/n for full matrices, not exact except k endpoints.",
+          "Published full 3x3 nonnormal projection theorem computes 1/2+sqrt6/4 and contrasts selfadjoint Ky Fan2=1."
+        ],
+        "reasoning": "The more general input space does not offer an exact all-rank formula; selfadjoint restriction changes the operator norm, so the full matrix bound cannot subsume this exact answer.",
+        "searches": [
+          "Ky Fan k norm trace zero projection traceless Hermitian matrices norm trace centering symmetric gauge",
+          "doi:10.1080/01630563.2015.1091014",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://foucart.github.io/publi/CompMinExt.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 from Foucart implies centering minimal but leaves its Ky Fan norm to compute; Corollary 4 does not give equality.",
+          "At (3,2) full 3x3 norm exceeds one, whereas the selfadjoint new formula gives exactly one, demonstrating essential domain distinction."
+        ],
+        "reasoning": "Subtract prior minimality and endpoint cases; the new analytical contribution is the rank-sensitive exact selfadjoint constant and crossover, not a covered corollary.",
+        "searches": [
+          "Ky Fan k norm trace zero projection traceless Hermitian matrices norm trace centering symmetric gauge",
+          "doi:10.1080/01630563.2015.1091014",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucart studies arbitrary trace-zero projection in unitarily invariant norms and identifies canonical centering.",
+          "Spectral reduction of selfadjoint matrices gives finite symmetric-gauge N_k, while the n=3 nonnormal result does not reduce to selfadjoint by conjugation."
+        ],
+        "reasoning": "Minimality of the projector is prior; the sharp N_k spectral norm value is an additional finite symmetric-gauge calculation not implied by naming the map.",
+        "searches": [
+          "Ky Fan k norm trace zero projection traceless Hermitian matrices norm trace centering symmetric gauge",
+          "doi:10.1080/01630563.2015.1091014",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The read primary article records endpoint Schatten values and a Ky Fan bound, no n=3k-2 two-phase table.",
+          "The 3x3 nonnormal result supplies one selfadjoint calibration only."
+        ],
+        "reasoning": "No complete table for all selfadjoint n and k in searched sources; nonmatches do not establish historical uniqueness.",
+        "searches": [
+          "Ky Fan k norm trace zero projection traceless Hermitian matrices norm trace centering symmetric gauge",
+          "doi:10.1080/01630563.2015.1091014",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md"
+        ]
+      },
+      "rationale": "Foucart 2016 proves minimality of trace centering and exact Schatten endpoint bounds, with intermediate Ky Fan upper bound 2-2/n. It does not supply rank-dependent sharp constants on the real selfadjoint domain. Published 3x3 nonnormal Ky Fan-2 theorem gives a larger constant for all matrices, explicitly identifies selfadjoint (3,2)=1 but not the complete all-n,k phase boundary. Thus the sharp selfadjoint two-branch norm and classifications survive.",
+      "residual_risks": [
+        "Historical finite symmetric-gauge/Lorentz-sequence norm tables may encode same two-branch formula without naming Ky Fan matrices.",
+        "No general assertion for nonnormal matrix spaces; exact n,k equality requires selfadjoint spectral structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: general minimality and endpoint values; not exact intermediate selfadjoint spectrum",
+          "evidence": "Corollary 4 has upper bound 2-2/n for Ky Fan k; proof does not determine the claimed max of two branches",
+          "identifier_or_url": "https://foucart.github.io/publi/CompMinExt.pdf",
+          "material_read": "Author full PDF §4.2 including Theorem 1, Theorem 3 and Corollary 4",
+          "method": "PDF text with visual screenshots of pages 13 and 16",
+          "title": "Computation of Minimal Projections and Extensions",
+          "trigger": "Exactly same norm-minimal projection family"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING at (n,k)=(3,2) selfadjoint calibration only",
+          "evidence": "Full 3x3 norm is 1/2+sqrt6/4 whereas selfadjoint subspace Ky Fan2 norm equals one",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md",
+          "material_read": "Full RESULT.md proof including rank-one nonnormal witness and §6 selfadjoint comparison",
+          "method": "GitHub complete full text",
+          "title": "The sharp nonnormal Ky Fan-two projection constant in dimension three",
+          "trigger": "Most closely related published formula for identical projection but nonselfadjoint domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural projection-constant problem for two standard finite-dimensional Banach matrix spaces; the sharp rank-dependent phase transition, exact norming spectra, and full nonexpansivity classification distinguish real-linear selfadjoint stability from broad full-matrix upper bounds. This is a meaningful exact operator-norm invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://foucart.github.io/publi/CompMinExt.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-sharp-nonnormal-ky-fan-two-projection-constant-in-dimension--d4d996b0e07c/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4/check_kyfan.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only selfadjoint real symmetric or complex Hermitian spaces, treated as real Banach spaces; not nonnormal n×n matrices.",
+    "Historical exact selfadjoint Ky Fan projection norms have not been exhaustively bibliographically classified.",
+    "Historical finite symmetric-gauge/Lorentz-sequence norm tables may encode same two-branch formula without naming Ky Fan matrices.",
+    "No general assertion for nonnormal matrix spaces; exact n,k equality requires selfadjoint spectral structure."
+  ],
+  "schema_version": 1
+}
