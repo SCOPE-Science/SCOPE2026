@@ -1,15 +1,21 @@
-# Scientific review: prime rotational quotients of associahedral spheres
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for every odd prime \(p\ge5\) and specifically separates the one-dimensional case \(p=5\). The known secondary-polytope description is equivariant under regular polygon rotations. Three explicit affine identities imply the polytope's translation space is the orthogonal complement of the real Fourier modes zero and one; full affine dimension follows from the standard secondary-polytope theorem. Orthogonal radial projection identifies the boundary of the dual polytope with the unit sphere in the remaining representation. Its weights are precisely \(2,3,\ldots,(p-1)/2\), so the cyclic action is free and the quotient has the stated weighted lens homeomorphism type. The integer chain verifier independently checks two small primes and checks integral torsion for the seven-gon, not the full infinite-family proof. The universal-cover and fundamental-group statements require \(p\ge7\), as stated.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Reiner's **Proposition 4.2** describes the invariant-subpolytope geometry for every dihedral subgroup of a regular polygon and establishes the closest underlying equivariant source. It does not identify the **quotient of the entire boundary** under a prime-order cyclic action, nor give its Fourier weights or weighted lens homeomorphism type; an invariant slice is not an orbit-space quotient. Fomin–Zelevinsky establish type-A associahedral simplicial spheres but no such orbit-space theorem. A previously indexed result for cyclic quotients of the **cycle graph-associahedron (cyclohedron)** derives lens spaces from a different representation with the first Fourier mode retained; it neither determines nor includes the smaller-dimensional type-A quotient treated here. No directly equivalent or dominating result was located by searches for cyclic associahedral quotients, secondary-polytopal quotient lens spaces and prime Fourier weights. Residual risk: the conclusion follows from classical convexity and lens-space machinery plus an explicit Fourier-mode calculation, and a preexisting short corollary could have gone unindexed or appeared in different language. Absence of search hits is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-The object is the natural full rotational quotient of the well-studied noncrossing-diagonal sphere, not an arbitrary size slice. Naming the weighted lens space determines substantially more than homology: it fixes the homeomorphism class (and, in dimension three, distinguishes lens spaces with equal homology). The result exhibits cyclic torsion of unbounded prime order, in a growing sequence of odd degrees, created by a free symmetry quotient of a torsion-free sphere. The exact omitted-first-harmonic weight pattern is specific to the polygonal secondary-polytope affine constraints and is not the cyclohedral family covered previously. This is a motivated complete classification of a natural quotient family, not an isolated computational datum.
+The polygonal secondary polytope is a (p−3)-dimensional convex associahedron and the cyclic action permutes its area-coordinate vertices. Triangle-area incidence gives fixed affine constraints on the sum and first cosine/sine harmonics. Dimension implies its translation representation is exactly W_p=R^p minus Fourier modes 0 and 1. Choose an invariant interior center and take polar dual; radial projection is a C_p-equivariant homeomorphism of the simplicial boundary to the unit sphere S(W_p). Its real Fourier summands are weights 2,...,(p−1)/2; all are nonzero modulo prime p, making the sphere action free and exactly the specified weighted lens quotient. Classical lens-space cellular chain yields Z/p in each lower odd degree and top Z for p≥7. The p=5 dimension-one quotient is S1 with π1=Z, correctly excepted. Independent noncrossing simplex orbit enumerations returned p5 (5→1,5→1) and p7 (14→2,56→8,84→12,42→6) across dimensions. Finite face checks do not alone imply homeomorphism for all primes.
 
-## Sources and limitations
-The closest fully inspected primary work is V. Reiner, *Equivariant fiber polytopes* (2002), specifically Section 4.1 and Proposition 4.2, which analyzes fixed secondary polytopes. Fomin–Zelevinsky, *Y-systems and generalized associahedra* (first posted 2001-11-06), supplies the simplicial sphere context. The *Encyclopedia of Mathematics* lens-space article supports the standard weighted quotient and homological interpretation. The comparative literature also includes a previously indexed cyclohedral prime rotation quotient result. The assertion is limited to odd prime orders and topological homeomorphism; it does not address integral cohomology operations or other subgroups. Reproducible checks at \(p=5,7\) are corroborating evidence only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Reiner 2002 establishes a general equivariant secondary-polytope framework and classifies invariant subpolytopes, which are not orbit-space quotients. The indexed cycle graph-associahedron/cyclohedron result retains the first Fourier mode and has a different dimensional weight set; neither implies the present type-A polygonal weighted lens quotient.
+
+## value
+
+PASS
+
+Classifies the complete topological homeomorphism type of a canonical prime cyclic quotient of the natural type-A associahedral sphere, including precise lens weights and integral torsion. The exact missing first Fourier mode distinguishes it from the well-studied cyclohedron; it is a motivated topology result rather than merely quoting known lens homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

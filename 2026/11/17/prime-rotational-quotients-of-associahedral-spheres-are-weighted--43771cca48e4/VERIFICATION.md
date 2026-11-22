@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The verifier `verification/verify_prime_associahedral_quotient.py` is self-contained apart from the open-source SymPy Python package. Execute it with `python verification/verify_prime_associahedral_quotient.py` and compare the complete output to `verification/verified_output.txt`. It enumerates every simplex of each diagonal complex at the two tested prime sizes, applies all rotations to oriented simplices, and forms the cellular boundaries of the free face-orbit quotient, with permutation signs. It checks the chain identities and computes integer Smith invariants.
+# Independent mathematical audit
 
-For the seven-gon it verifies 14 original vertices, 56 edges, 84 triangular faces and 42 tetrahedral facets; quotient cell counts are 2, 8, 12 and 6. The reduced first boundary has Smith invariants 1,1,1,1,1,1,7, confirming the cyclic first homology of order seven. All five nonzero Smith invariants of the third boundary are units, excluding hidden second-homology torsion once the rational ranks agree. The fifth polygon quotient is a circle.
+## correctness
 
-The general proof instead uses the classical secondary-polytope model, its explicit three affine relations, the full Fourier decomposition of the remaining real representation and standard weighted-lens-space topology. Computations of two polygons do not imply the infinite-prime statement. The complete homeomorphism claim has not been independently audited.
+PASS
+
+The polygonal secondary polytope is a (p−3)-dimensional convex associahedron and the cyclic action permutes its area-coordinate vertices. Triangle-area incidence gives fixed affine constraints on the sum and first cosine/sine harmonics. Dimension implies its translation representation is exactly W_p=R^p minus Fourier modes 0 and 1. Choose an invariant interior center and take polar dual; radial projection is a C_p-equivariant homeomorphism of the simplicial boundary to the unit sphere S(W_p). Its real Fourier summands are weights 2,...,(p−1)/2; all are nonzero modulo prime p, making the sphere action free and exactly the specified weighted lens quotient. Classical lens-space cellular chain yields Z/p in each lower odd degree and top Z for p≥7. The p=5 dimension-one quotient is S1 with π1=Z, correctly excepted. Independent noncrossing simplex orbit enumerations returned p5 (5→1,5→1) and p7 (14→2,56→8,84→12,42→6) across dimensions. Finite face checks do not alone imply homeomorphism for all primes.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Reiner 2002 establishes a general equivariant secondary-polytope framework and classifies invariant subpolytopes, which are not orbit-space quotients. The indexed cycle graph-associahedron/cyclohedron result retains the first Fourier mode and has a different dimensional weight set; neither implies the present type-A polygonal weighted lens quotient.
+
+## value
+
+PASS
+
+Classifies the complete topological homeomorphism type of a canonical prime cyclic quotient of the natural type-A associahedral sphere, including precise lens weights and integral torsion. The exact missing first Fourier mode distinguishes it from the well-studied cyclohedron; it is a motivated topology result rather than merely quoting known lens homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
