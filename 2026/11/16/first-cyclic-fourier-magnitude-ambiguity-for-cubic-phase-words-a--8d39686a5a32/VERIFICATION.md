@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python check.py` and `python crosscheck.py` in the directory containing these files, using Python 3 only. Both emit a terminal `PASS`; any unexpected result raises an assertion. Every signal is a tuple of exponents in \(\{0,1,2\}\), with the initial exponent set to zero for the unique global-phase representative.
+## correctness
 
-`check.py` uses difference-class counts and a closed form for every orbit element. `crosscheck.py` uses exact arithmetic in the Eisenstein integer basis and a generator-based orbit traversal; it independently checks all periodic spectra and fiber partitions. Both explore the *full* finite domain at lengths one through six, not a sample or probabilistic test.
+PASS
 
-The exact spectral class counts are \(1,2,4,7,13,30\); the orbit counts are \(1,2,4,7,13,32\). At length six the only nontrivial intensity class comprises 18 normalized words in three orbits of six. Its exact autocorrelation is \((6,0,0,3,0,0)\), so the complete unscaled Fourier intensity vector is \((9,3,9,3,9,3)\).
+The stated finite domain n=1..6 contains 1+3+9+27+81+243=364 global-phase-normalized cubic-phase words. Reconstructed exact cyclic autocorrelation over Z[omega], where each coefficient key is (c0-c2,c1-c2), and proved Fourier inversion equates intensity equality with key equality. Independent integer enumeration and orbit normalization agree with check.py and ring/orbit crosscheck.py: intensity fibers (1,2,4,7,13,30), equivalence classes (1,2,4,7,13,32), only one ambiguous triple orbit at n=6, each with 6 normalized words; C=(6,0,0,3,0,0), hence intensities (9,3,9,3,9,3). Classification makes no assertion for n>6 or aperiodic intensities.
 
-The checks neither establish novelty against unpublished tables nor extend the theorem to lengths beyond six; independent audit has not been performed.
+## originality
+
+PASS
+
+This finite first-failure and exact 3-orbit fiber is not a consequence of published generic-alphabet partition difference-set results: fixed omega satisfies a cyclotomic dependence and the witnesses have distinct phase compositions. No inspected primary source tabulates this particular root-of-unity cyclic fiber. Bounded priority conclusion only.
+
+## value
+
+PASS
+
+The first loss of uniqueness in fully sampled finite-alphabet cyclic Fourier phase retrieval and explicit failure of phase-composition identifiability are natural sharp boundary facts. Exact complete small classification is independently useful, not merely the basic Wiener–Khinchin identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
