@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The distance-gauging system is reconstructed from Euclidean vertex chords, solved exactly, and has a strictly positive denominator on its whole domain. The proof separately maximizes the negative mass in the two-negative and one-negative sectors, including sharp equality and nonattainment arguments. An exact derivative comparison establishes the integer breakpoint at five. The standalone symbolic and full-distance-matrix verifier passed 1,862 assertions. Numerical samples are corroboration only.
+## correctness
 
-**Originality — PASS, provisionally.** The complete 2026 source by Roff and Willerton (arXiv:2607.05349v2) provides the general microscopic-weight theory, not the bipyramid extremal-mass classification. Kamiyama's full 2026 paper (arXiv:2606.00707v1) concerns different cyclic two-chunk distance structures and limiting magnitude, not the two-height Euclidean optimization. A separate published regular-bipyramid theorem determines mechanical equilibrium counts for the identical two-height geometry; it gives no distance-matrix microscopic weighting or negative-mass extremal principle. The closest published geometric negative-weight result concerns staggered planar polygon orbits (published-finding corpus record 9ce6bbdc7f59), not an asymmetric-to-symmetric switch in globally maximal negative mass of genuine three-dimensional bipyramids. Relevant mathematical-record and literature searches found no dominating claim. Other literature could exist under alternate terminology.
+PASS
 
-**Mathematical value — PASS.** This is a natural exact extremal question for the signed canonical measure introduced in a recent metric-geometry paper. The optimizing geometry changes discontinuously in kind between four and five equatorial vertices: a degenerate asymmetric limit versus a unique nondegenerate symmetric maximizer. The result determines sharp values, weights, extremizers and nonattainment throughout an infinite family of exposed-vertex configurations, rather than just displaying negative signs.
+Rotational symmetry and strict negative type reduce the constant-distance-potential mass-one equation Dw=lambda 1 to three masses. Substitutions x=sqrt(1+u²)-u,y=sqrt(1+v²)-v give H=1+x²+xy+y²-a(x+y)>0, equator mass (x+y)²/(2nH), apex masses (1+y²-a(x+y))/(2H), (1+x²-a(x+y))/(2H). Independently verified normalization, both distance-potential equalities and derivative dp/dy=x(2xy+y²-1)/(2H²) symbolically. If both apices negative, d² term in H decreases their total negative mass and symmetric z=1/a attains C=(a²-1)/(3-a²). For one negative apex, minimizing p over y at sqrt(1+x²)-x and then x at boundary1 gives B=(a+2-2sqrt2)/(2(2sqrt2-1-a)). Verified exact n=4/n=5 sign crossing with monotone C-B derivative, yielding nonattained n=3,4 vs unique symmetric positive-height maximizer n>=5. Finite distance-matrix tests in source verify individual instances, not the continuum optimization.
 
-The method uses Euclidean chord distance, not intrinsic graph or polyhedral-surface distance. It does not classify arbitrary polyhedra. No historical-priority guarantee or independent mathematical certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete published same-object symmetric-height microscopic bipyramid formula is stronger background than a generic negative-mass example; it covers the u=v slice but does not optimize over two independent heights. The new candidate is the asymmetric sharp global optimizer and n=5 attainment transition; residual unread Roff–Willerton full text remains a priority risk.
+
+## value
+
+PASS
+
+Identifies a sharp geometry-dependent optimization phase: negative-mass supremum is attained symmetrically exactly for n>=5 but only approached through apex degeneration for n=3,4, despite every point being exposed. This is a natural signed-invariant extremal problem, beyond the pre-existing symmetric-height sign threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
