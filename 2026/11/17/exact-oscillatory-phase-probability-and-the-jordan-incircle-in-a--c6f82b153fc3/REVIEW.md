@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses fix a genuine quadratic stochastic map and strictly positive invariant fibers. Substitution produces the displayed three-by-three matrix; its characteristic polynomial factors exactly. The real/complex boundary is an incircle. A positive stationary projector and Cayley–Hamilton show that its double critical eigenvalue is defective, with an exact all-integer Jordan-power identity. The Dirichlet aggregation and centered-disk Jacobian give the exact probability by elementary polar integration. The accompanying rational checker exercises the original nonlinear recurrence as well as matrix powers; finite checks supplement rather than replace the proof.
+## correctness
 
-## Originality — PASS within checked sources
-The originating many-loci paper establishes the nonlinear-to-linear fiber reduction and convergence, and its printed three-locus example is symmetric. The public directed-cycle equilibrium-selection study already addresses the same asymmetric coefficient choice and computes an unrelated growing-locus Dirichlet central limit law; it does not give finite-three-locus spectral phase probabilities. General three-state Markov spectra and nonsemisimple transitions are prior art; neither Guerry's complete accessible manuscript on stochastic matrix roots nor the inspected continuous-time three-site thermodynamic study states this five-simplex probability or the particular nonlinear fiber incircle. Thus originality rests on the **natural induced probability and complete sharp phase classification for this model**, not on a claim to invent Jordan blocks or Dirichlet integration. Unindexed equivalent analyses remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The invariant mass triple is a directly observable conserved parameter of the biological dynamics; its spectral type decides whether convergence is monotone-mode or spiral-mode. Uniform initial sampling of the original probability simplex, rather than an arbitrary spectral distribution, induces a nonuniform Dirichlet mass law. The exact numerical prevalence \(25\pi/(54\sqrt3)\), plus a geometric critical locus and exact critical relaxation law, answers a natural quantitative question not addressed by the existing deterministic equilibrium classifications.
+Original six-coordinate quadratic rule preserves three pair masses c_i and gives exact u'=B_c u with B=( [1-c2,c1,0],[0,1-c3,c2],[c3,0,1-c1] ). Direct determinant computation yields (t-1)(t^2-t+s), s=c1c2+c2c3+c3c1. The discriminant 1-4s=2sum(c_i^2)-1 gives a genuine incircle of radius squared 1/6 in the conserved-mass simplex. Positive masses make eigenvalue 1 simple, and Pi=c(c3,c1,c2)/s is the stationary projection. On the critical circle N=(B-I/2)(I-Pi) is square-zero but nonzero because B13=0 whereas Pi13/2>0, yielding B^n=Pi+2^-n E+n2^-(n-1)N. The Dirichlet(1^6) push-forward gives Dirichlet(2,2,2) density 120c1c2c3. In orthonormal planar coordinates the Jacobian is 1/sqrt3, the odd cubic term integrates to zero over the centered incircle and exact integration is 25pi/(54sqrt3)=0.839721927886212. Independent SymPy symbolic determinant/Jordan and exact-rational original evolution checks corroborate; the proof is algebraic for all strictly positive c, not an inference from finite rational grids. Boundaries with zero mass excluded from Jordan statement, probability-zero circle/tangencies correctly treated. RESULT.md blob 2a1878c466b9d7611029301f645d73deb0acf631 and checks/verify.py blob 87ad30b82068d8defed4fe7902a2af2f9d0c46f9 read.
 
-## Scope and residual risks
-Only the directed unit-edge three-locus class is covered. The Jordan formula excludes zero-mass boundaries; initial points in its stationary or special eigensubspaces do not exhibit the generic transient. Prior-art comparison used the originating full HTML article, two relevant full public findings, Guerry's accepted manuscript, and targeted indexed searches. No claim of exhaustive publication-priority proof is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The incircle/Jordan exceptional boundary and its uniform-six-simplex spectral prevalence are a precise integrated statement not supplied by the prior original fiber reduction or the published same-directed-cycle many-locus equilibrium-selection CLT.
+
+## value
+
+PASS
+
+The sharp exceptional-point incircle separates real monotone from complex oscillatory relaxation within a natural conserved-mass triangle; the nonzero nilpotent term supplies the actual polynomial-transient law. Weighting this phase diagram by the canonical uniform six-coordinate simplex measure gives a nontrivial exact probability needed for random-initial-state interpretation of this QSO. This is a motivated natural invariant, not a free choice of prior or a textbook discriminant alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

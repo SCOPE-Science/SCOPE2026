@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact three-by-three matrix and stationary left and right vectors were reconstructed directly from the six-coordinate quadratic recurrence. The polynomial identity \((B-\Pi)^2-(B-\Pi)+s(I-\Pi)=0\) was checked in exact rational arithmetic over positive rational mass grids with common denominators from three to thirteen. The critically defective identity was checked using the exact mass triple \((1/6,1/6,2/3)\), including ten iterates of the original nonlinear map. The independent polar-integral coefficient calculation is an exact rational identity \(120((1/6)/27-(1/6)^2/12)=25/54\).
+## correctness
 
-Execute `python checks/verify.py` using Python's standard library. The checker was run successfully with three success lines beginning `FIBER_SPECTRUM_EXACT_OK`, `DIRICHLET_DISK_INTEGRAL_OK`, and `ORIGINAL_QSO_JORDAN_EXACT_OK`. It does not explore all real parameter values; the universal matrix, Jordan and integration arguments are established symbolically in RESULT.md. The public literature may contain an equivalent unindexed result. Independent audit is not performed.
+PASS
+
+Original six-coordinate quadratic rule preserves three pair masses c_i and gives exact u'=B_c u with B=( [1-c2,c1,0],[0,1-c3,c2],[c3,0,1-c1] ). Direct determinant computation yields (t-1)(t^2-t+s), s=c1c2+c2c3+c3c1. The discriminant 1-4s=2sum(c_i^2)-1 gives a genuine incircle of radius squared 1/6 in the conserved-mass simplex. Positive masses make eigenvalue 1 simple, and Pi=c(c3,c1,c2)/s is the stationary projection. On the critical circle N=(B-I/2)(I-Pi) is square-zero but nonzero because B13=0 whereas Pi13/2>0, yielding B^n=Pi+2^-n E+n2^-(n-1)N. The Dirichlet(1^6) push-forward gives Dirichlet(2,2,2) density 120c1c2c3. In orthonormal planar coordinates the Jacobian is 1/sqrt3, the odd cubic term integrates to zero over the centered incircle and exact integration is 25pi/(54sqrt3)=0.839721927886212. Independent SymPy symbolic determinant/Jordan and exact-rational original evolution checks corroborate; the proof is algebraic for all strictly positive c, not an inference from finite rational grids. Boundaries with zero mass excluded from Jordan statement, probability-zero circle/tangencies correctly treated. RESULT.md blob 2a1878c466b9d7611029301f645d73deb0acf631 and checks/verify.py blob 87ad30b82068d8defed4fe7902a2af2f9d0c46f9 read.
+
+## originality
+
+PASS
+
+The incircle/Jordan exceptional boundary and its uniform-six-simplex spectral prevalence are a precise integrated statement not supplied by the prior original fiber reduction or the published same-directed-cycle many-locus equilibrium-selection CLT.
+
+## value
+
+PASS
+
+The sharp exceptional-point incircle separates real monotone from complex oscillatory relaxation within a natural conserved-mass triangle; the nonzero nilpotent term supplies the actual polynomial-transient law. Weighting this phase diagram by the canonical uniform six-coordinate simplex measure gives a nontrivial exact probability needed for random-initial-state interpretation of this QSO. This is a motivated natural invariant, not a free choice of prior or a textbook discriminant alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
