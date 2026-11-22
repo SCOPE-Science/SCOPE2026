@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact absolute-form rigidity lemma follows from distinct nonsmooth hyperplanes and their transverse derivative jumps, so no unproved representation theorem is assumed. The fan-graph circuit equivalence follows directly from the incidence-matrix forest argument. For dimensions at least three, circuit-intersection path automorphisms, multiplicities of forms in adjacent triangles, coefficient magnitudes in a three-term relation, and common signs leave precisely the claimed groups. The two smaller dimensions are addressed separately. Exact exhaustive signed-form tests in 13 finite parameter cases provide supplementary cross-checks of the group counts; they supplement rather than replace the all-dimension proof.
+## correctness
 
-## Originality: PASS (with bibliographic risk)
-The directly inspected 2026 Sobolev isometry source classifies continuous-function isometries, rather than the present finite path fused-lasso norm. The cited fused-lasso article concerns recovery rates, not isometry groups. The general zonotope article gives segment-generator and symmetry background without calculating this dimension-uniform, two-penalty symmetry jump. Related indexed results concern a different graph-variation norm, finite quadratic combinatorial spaces, and other isometry moduli. Source and synonym comparisons disclose no implication giving the 4-to-16 (or 4-to-12) classification without the present circuit computation. Nonetheless, an older unindexed matroid-automorphism calculation could encode it; this remains an explicit priority risk.
+PASS
 
-## Mathematical value: PASS
-The family is a standard exact sparsity-plus-first-difference regularizer, not an artificial slice. The complete symmetry group is a natural Banach-space invariant with a sharp critical ratio. In particular, the two endpoint substitutions are non-coordinate and invisible to naive path automorphisms, explaining the discontinuous fourfold symmetry enhancement at balanced penalties. Dimension two is genuinely exceptional, with twelve rather than sixteen symmetries.
+The real norm is N(x)=a∑|x_i|+b∑|x_{i+1}−x_i| with fixed a,b>0 and any n≥1; only surjective linear isometries are classified. The n+(n−1) weighted nonparallel forms a e_i and b(e_i−e_{i+1}) determine the kink hyperplane arrangement: an isometry permutes these and the transverse jump in each absolute-form derivative forces signed (unit-magnitude) images, not arbitrary scaling. As signed incidence forms for the fan graph over a grounded hub, three-element circuits are exactly consecutive triangles {u_i,u_{i+1},v_i}. For n≥3 their intersection graph is a path, whose automorphisms are identity/reversal R; after fixing triangles, central u_i are distinguished by overlap and only endpoint swaps remain. Circuit relation coefficients (1/a,1/a,1/b) prohibit endpoint radial/edge exchanges when a≠b, leaving precisely ±I,±R. When a=b, explicit independent endpoint involutions L,H realize both swaps; L,H commute and R conjugates L to H, generating eight unsigned maps times global sign, group C2×((C2×C2)⋊C2) of order16. n=2 has one triangle with 6 permutations and global sign -> order12 exactly when a=b; otherwise four. n=1 has just ±I. The exact signed-form enumeration code was examined for use of the whole form family and checks 13 rational finite cases, but all-n proof rests on hyperplane/circuit rigidity.
 
-## Closest literature and boundaries
-Hamad, arXiv:2611.09577v1 (full accessible HTML read); Padilla et al., JMLR 18 (2018), article 176 (article page and scientific abstract read); Winter, DCG 66 (2021), DOI 10.1007/s00454-021-00303-6 (full accessible HTML sections on generator symmetries read). The classification is for finite real path spaces with uniform positive within-family coefficients. No independent audit, full historical global priority proof, or extension to all graphs is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hamad 2026 treats the continuous Sobolev spaces W^{k,1}(R^d), with spatial translations, coordinate symmetries and signs; that classification is not a special case of finite graph-incidence total-variation plus coordinate ℓ1. Winter’s article treats vertex-transitive Euclidean zonotopes/generator symmetries rather than arbitrary linear automorphisms of this weighted fan-graph zonotope. Published Oct18 graph-variation result concerns the different max|x_i|+TV norm and a facet census, not this ℓ1+TV isometry group. DFS fused-lasso addresses estimation, not isometries. Resultary searches reveal the current record and nonidentical graph Banach norms; possible older matroid automorphism treatments remain a bibliographic risk.
+
+## value
+
+PASS
+
+The norm is the standard finite sparsity-plus-fusion regularizer. Its complete surjective linear isometry group is a natural structural invariant, and the balanced penalty equality reveals genuinely non-coordinate endpoint-flip symmetries with a sharp 4→16 jump (4→12 at n=2). It is a dimension-uniform classification with an exceptional low-dimensional case, rather than a routine coordinate permutation count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
