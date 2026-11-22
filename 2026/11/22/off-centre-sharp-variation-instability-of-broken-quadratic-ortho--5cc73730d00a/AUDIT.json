@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The polynomial p_s satisfies all three L2 moment equations, and distributional variation counts both cell-end jumps plus the interior |p_s derivative|. Exact factored derivatives and sign intervals prove the unique off-centre optimizer modulo reflection. The Stieltjes derivative decomposition proves the universal BV estimate on any locally finite mesh, and an interval-indicator with endpoints in separate cells attains it. CHECKER.py reproduces exact moment and stationary identities plus independent stress tests; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Crouzeix–Thomée (1987), DOI:10.2307/2007825, abstract/introduction: Lp and W1p stability of continuous FEM L2 projections.",
+        "Kristensen–Rindler (2016), DOI:10.1007/s00211-015-0721-x, abstract: BV approximation by mesh-adapted piecewise affine functions."
+      ],
+      "reasoning": "General projection stability in other norms, or BV approximability, is insufficient to determine the exact sharp BV norm of the discontinuous degree-two projector; the boundary jump terms change the operator.",
+      "searches": [
+        "piecewise polynomial L2 projection variation bounded BV unstable sharp",
+        "discontinuous finite element elementwise L2 projection total variation diminishing 1D degree 2",
+        "Crouzeix Thomee 1987 Lp Wp1 projection finite element stability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1211.1069v1",
+      "Crouzeix–Thomée 1987, DOI:10.2307/2007825",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-vertex-centroid-positivity-loss-separation-for-quadratic-simplex--0384e0a4defc",
+      "arxiv:1804.07477"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-vertex-centroid-positivity-loss-separation-for-quadratic-simplex--0384e0a4defc",
+        "arXiv:1211.1069v1"
+      ],
+      "reasoning": "A global polynomial range bound does not bound the total variation of separately projected cells and does not encode interface jumps. A point-evaluation norm does not determine the total variation norm. The averaged Q1 TVD operator differs from the L2-orthogonal P2 projector. No stronger known statement implies the theorem by restriction or duality; residual uninspected literature is recorded below.",
+      "searches": [
+        "quadratic symmetric Jacobi least squares monotone range envelope offcentre step result",
+        "linear spline projection total variation sharp degree two discontinuous jump"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nochetto–Salgado, arXiv:1211.1069v1: a continuous Q1 averaged interpolant with contraction, not a discontinuous orthogonal projector.",
+        "Local step response F(s) includes two interface jump terms absent from intrinsic single-interval Legendre variation."
+      ],
+      "reasoning": "Any equivalent formulation must reproduce both cell-end jumps and the operator norm over BV(R); neither an internal polynomial seminorm nor an L-infinity projection norm implies the calculated constant.",
+      "searches": [
+        "elementwise discontinuous piecewise quadratic L2 Legendre projection bounded variation sharp 2.0698386 offcenter step s=0.255843",
+        "DG P2 local orthogonal projection total variation sharp jump amplification broken polynomial 1D",
+        "\"orthogonal projection\" \"total variation\" \"piecewise\" quadratic polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result on degree-two Jacobi projection identifies a monotone range envelope for one global polynomial fit; no matching sharp BV constant or off-centre jump cell fraction was returned.",
+        "Additional indexed local quadratic simplex projection concerns sharp point-evaluation norm, not a BV gain."
+      ],
+      "reasoning": "Search coverage is not a uniqueness certificate; comparison is by the underlying projector, domain and variation functional rather than decimal matching.",
+      "searches": [
+        "piecewise polynomial projection single jump oscillation maximal BV degree 2 L2",
+        "elementwise discontinuous piecewise quadratic L2 Legendre projection bounded variation sharp 2.0698386 offcenter step s=0.255843",
+        "\"L2 projection\" \"total variation\" \"discontinuous Galerkin\" step"
+      ]
+    },
+    "rationale": "Direct comparisons of the sharp operator statement with archived sources and indexed related results found no implication of the broken P2 BV coefficient. Known continuous/averaged TVD interpolants, continuous FE Lp/W1p estimates, global quadratic monotone range estimates and pointwise local projector bounds have different operators or functionals. Historical full-text gaps leave material priority uncertainty but no decisive covering result has been found.",
+    "residual_risks": [
+      "Full Crouzeix–Thomée text was not checked page by page; available abstract/intro concern different continuous spaces and Sobolev norms.",
+      "Full DG finite-element discrete total-variation source arxiv:1804.07477 could not be retrieved; indexed abstract treats a distinct quadrature-based DTV.",
+      "Indexed quadratic range and simplex-pointwise results could not be opened to full text; mathematical objects/functionals differ, but priority is not independently certified.",
+      "An unindexed earlier discontinuous Legendre-projection BV calculation may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: its continuous Q1 locally averaged TVD interpolant is not broken P2 L2 projection",
+        "evidence": [
+          "arXiv:1211.1069v1, pp.1–3, definition (3.3) and (3.4), TVD inequality"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.1069",
+        "material_read": "Original v1 PDF pages 1–3 including definitions, operator formula and statements; arXiv date banner",
+        "method": "Read PDF text and first-page image, compare space, operator and TV normalization",
+        "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+        "trigger": "Closest archival BV finite-element interpolation construction"
+      },
+      {
+        "assessment": "Does not establish exact distributional BV gain or the broken quadratic interface-jump formula; full-text priority risk remains",
+        "evidence": [
+          "Crouzeix–Thomée, Math. Comp. 48 (1987) 521–532, abstract and introduction"
+        ],
+        "identifier_or_url": "https://www.ams.org/mcom/1987-48-178/S0025-5718-1987-0878688-2/S0025-5718-1987-0878688-2.pdf",
+        "material_read": "Indexed abstract and introductory discussion; PDF full rendering unsuccessful",
+        "method": "Compared projection continuity assumptions and target norm in available scientific text",
+        "title": "The Stability in Lp and Wp1 of the L2-Projection onto Finite Element Function Spaces",
+        "trigger": "Classical stronger-sounding L2 projection stability reference"
+      },
+      {
+        "assessment": "Not implied by the indexed result: global range extrema do not capture output interface jumps; inaccessible full details remain a risk",
+        "evidence": [
+          "Indexed result: global degree-two symmetric Jacobi projector, exact monotone range envelope"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a",
+        "material_read": "Indexed title and precise result summary; full source unavailable",
+        "method": "Mathematically compared global quadratic monotone range constraint to broken-space BV norm",
+        "title": "Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection",
+        "trigger": "Closest public indexed quadratic projection and monotone-step extremizer"
+      },
+      {
+        "assessment": "Indexed result does not imply sharp BV gain",
+        "evidence": [
+          "Indexed result: local quadratic simplex pointwise norm at vertex and centroid"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-vertex-centroid-positivity-loss-separation-for-quadratic-simplex--0384e0a4defc",
+        "material_read": "Indexed title and mathematical summary; full source unavailable",
+        "method": "Compared evaluation L-infinity functional to full total-variation functional",
+        "title": "Vertex–centroid positivity-loss separation for quadratic simplex projection",
+        "trigger": "Local quadratic L2 projector comparison"
+      },
+      {
+        "assessment": "Potentially related but uses a distinct discrete variation notion; full-text access risk",
+        "evidence": [
+          "arXiv:1804.07477 abstract, piecewise polynomial DG/CG discrete TV"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.07477",
+        "material_read": "Accessible abstract only; full PDF retrieval failed",
+        "method": "Compared described discrete TV quadrature and duality with exact continuous distributional TV",
+        "title": "Discrete Total Variation with Finite Elements and Applications to Imaging",
+        "trigger": "Discontinuous finite-element variation and limiter-adjacent historical coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5cc73730-d00a-42ce-9668-7c0fdfefb943",
+  "value": {
+    "rationale": "The canonical broken quadratic L2 projector has an explicit, sharp mesh-independent BV seminorm strictly above 2, attained by compact step data. Its genuinely off-centre extremizer and exact branch transition diagnose a nontrivial oscillation mechanism. This yields a natural reference bound for high-order discontinuous polynomial reconstruction and variation-limiter design, not a renamed or arbitrary special case.",
+    "status": "PASS"
+  }
+}

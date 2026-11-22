@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The moment equations for the shifted Legendre basis reconstruct the cellwise quadratic response to one jump. Its total distributional variation explicitly includes both jumps at the cell boundaries. Four rational branches and their factored derivatives establish the exact global optimum. A Stieltjes jump decomposition extends the estimate to every real \(BV\cap L^2\) input; a compact interval indicator achieves equality, including on irregular grids. Symbolic identities and independent tests are supplied in `CHECKER.py`.
+
+**Originality — PASS, with limited historical-priority confidence.** The publicly accessible Nochetto–Salgado preprint constructs a continuous, averaged, total-variation-diminishing interpolant, not a broken quadratic \(L^2\) projector. Crouzeix–Thomée analyze \(L^p\) and Sobolev stability of continuous finite-element projections. The closest indexed quadratic-Jacobi result concerns global polynomial range overshoot rather than the total variation of a broken projection, whose interface jumps are essential here. Searches by operator, endpoint-jump response, degree and sharp constant did not identify an equivalent result. A missing historical full text or unindexed DG literature could affect priority; absence of a search hit is not treated as proof of novelty.
+
+**Mathematical value — PASS.** This computes an unknown sharp stability invariant of the canonical local quadratic \(L^2\) reconstruction used in discontinuous polynomial approximation. The maximizing jump is strictly away from the midpoint, and the attained gain exceeds two; the sharp constant is unchanged by arbitrary mesh grading. It provides a precise baseline against which variation limiters or modified local reconstruction operators can be compared, rather than a generic numerical approximation or arbitrary parameter slice.
+
+**Scientific limitations.** The result does not cover continuous splines, degrees above two, multidimensional grids, weighted variation, time-dependent DG methods or independent historical-priority certification. The checker covers finite tests only; the proof carries all universal quantifiers.
+
+Self-review: passed. Independent audit: not yet performed.
