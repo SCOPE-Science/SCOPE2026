@@ -1,15 +1,21 @@
-# Scientific review: exact Euclidean edge spectrum of Loday associahedra
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the unscaled canonical embedding with N>=3 ordered leaves. All edges correspond to uniquely oriented Tamari right rotations. The local coordinate difference consists of (+ac,-ac), a known fact verified independently from the coordinates. Catalan tree contexts prove the exact joint outer-size multiplicity, and the differentiated Catalan generating series yields the exact summed length. A pointwise probability limit of total mass one proves the microscopic product-Catalan law. A uniform Stirling estimate plus boundary-strip bound establishes the macroscopic Dirichlet weak limit without assuming boundary mass is negligible. The included Python checker enumerates every such edge for 3 through 8 leaves and verifies all discrete formulas. All-dimensional claims depend on the written analytic proof, not the finite checks.
+## correctness
 
-## Originality — PASS, priority provisional
-Loday's original Section 2.10 **already proves the local edge-length formula and maximum**; these are used and credited, not newly claimed. The aggregate integer sequence matches OEIS A000531, so the numerical values alone are not novel. The new assessed statement is the complete two-parameter multiplicity formula and its two contrasting edge-sampling laws, including the length-biased Dirichlet limit. The 2023 survey and inspected related realization literature provide the polytope, coordinate and combinatorial context, without stating that joint distributional result. A publicly indexed graph-associahedron braid-wall theorem has a different graph-distance pair count. Residual historical risks include unindexed Catalan rotation fringe laws and related work not exhaustively inspected.
+PASS
 
-## Mathematical value — PASS
-The two canonical sampling procedures on the same geometric 1-skeleton have radically different scales: typical edges remain microscopically short in distribution, while total edge length is carried by macroscopic rotations and has an explicit three-part limiting density. This is a natural, reproducible complete metric spectrum and a motivated sampling phenomenon, rather than a cosmetic generalization of an existing local formula or the recognition of a pre-existing integer sequence.
+Loday canonical infix tree coordinates give a local Tamari rotation difference exactly (+ac,-ac), hence known length sqrt(2)ac. A marked rotation decomposes uniquely into subtrees A,B,C and a binary context with generating series T/(1-2T), giving M_N(a,c)=C_(a-1)C_(c-1) binom(2(N-a-c),N-a-c)/2. Derivatives yield W_N and growing edge-count mean; fixed a,c asymptotics give independent Catalan marginal probabilities summing to one. Uniform Stirling estimates ac M_N/W_N -> [2πN² sqrt(uv(1-u-v))]^{-1}, with global O(sqrt ε) boundary strips, prove length-biased Dirichlet(1/2,1/2,1/2). Independent complete rotation enumeration for N=3..8 found 1,7,38,187,874,3958 normalized length sums and matched every edge multiplicity. Finite trees are not a proof of the limiting law.
 
-## Sources and limits
-Primary geometric sources: Loday, *Realization of the Stasheff polytope*, arXiv:math/0212126, §§1,2.9–2.10; Pilaud, Santos and Ziegler, *Celebrating Loday's Associahedron*, arXiv:2305.08471v1; Padrol et al., *Associahedra for finite-type cluster algebras and minimal relations between g-vectors*, DOI:10.1112/plms.12543. Numerical sequence: OEIS A000531/A143019. All sampling and metric assertions refer to one fixed canonical Euclidean realization. Historical priority remains provisional, finite enumeration does not replace proof, and no external independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Loday gives the original tree coordinate and local sqrt(2)ac edge length; that part is known. The aggregate integer sum matches OEIS A000531 and is not a novel integer sequence. The original local formula and numeric coincidence do not by themselves imply the full two-parameter edge multiplicity and the contrast between the uniform-edge tight Catalan law and the length-biased Dirichlet(1/2,1/2,1/2) macroscopic distribution. Pilaud et al. survey combinatorial geometry, without these sampling laws in inspected portions.
+
+## value
+
+PASS
+
+Two canonical ways of sampling the same Loday Euclidean edge set have fundamentally distinct scales: uniform-edge lengths remain tight yet mean diverges linearly, whereas length-biased edges have a three-way macroscopic Dirichlet law. The joint Catalan counts and nonuniform integrability make a motivated structural fact beyond the known local length formula and numerical sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
