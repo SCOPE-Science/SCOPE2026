@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:55:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive shift weights (j+1)^(-beta), a generalized Aluthge transform averages log weights between j and j+1, so n iterates at common t_n equal expectation of log(j+1+Bin(n,t_n)). For m_n=n t_n approaching finite lambda, binomial-to-Poisson convergence and uniform integrability plus summable majorant (j+1)^(-beta*r) for beta*r>1 prove Schatten r convergence. For m_n→infinity, concentration at m and a Chernoff lower-tail bound give locally uniform scaled weights and summable tail domination; a Riemann-sum proof yields Schatten mass m^(1-beta*r)/(beta*r−1). The Frullani representation yields a positive Levy jump kernel alpha(1−u)^j/[−log(1−u)] du and hence strictly completely monotone trace F_r(lambda). Poisson independent increments give the nonlinear positive-weight semigroup. Independent numerical binomial/Poisson first-weight convergence was reproduced for n=200, mean=2, j=0,1,5,20. Finite calculations were supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published regular-variation theorem explicitly fixes 0<t<1 throughout and has n w_n^p t^(1-alpha)/(alpha−1), which for power weights is (nt)^(1-alpha)/(alpha−1) in that regime.",
+          "The assigned theorem is not claiming this fixed-parameter case as novel; it quantifies over arbitrary sequences t_n including t_n→0 and proves positive finite-Poisson boundary and strict CM trace."
+        ],
+        "reasoning": "The fixed-parameter theorem implies part of the alpha>1 diverging-mean formula only along constant t, not all variable t_n nor the semigroup properties.",
+        "searches": [
+          "Resultary A universal linear singular-value boundary layer for regularly varying Aluthge shifts 2026-11-17",
+          "arxiv:2611.07728 singular values of compact operators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and spectral formula, independent arithmetic Poisson/binomial checks",
+        "Resultary full prior regular-variation Aluthge RESULT.md",
+        "Stanković arXiv:2611.07728 abstract and explicit source-attributed Proposition 5.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed t has m=nt→infinity; t_n~lambda/n gives nonzero Poisson shifts and a trace F(lambda), outside constant-t hypothesis.",
+          "The Levy integral defines an infinitely divisible variable for each j and supports strict derivatives of all orders, not supplied by old fixed-t statements."
+        ],
+        "reasoning": "Some fixed-t macroscopic formula is covered and credited, but not the full claimed boundary or variable parameter quantification.",
+        "searches": [
+          "Resultary regular varying Aluthge shift fixed-t theorem",
+          "Stanković fixed-parameter generalized Aluthge theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stanković abstract states fixed 0<t<1 iterates converge to eigenvalue moduli; exact binomial weights are explicitly credited."
+        ],
+        "reasoning": "A fixed positive t forces nt→infinity and misses finite-m Poisson limits; knowing the binomial identity alone does not supply claimed sharp trace and strict complete-monotonicity conclusion.",
+        "searches": [
+          "arXiv:2611.07728 Stanković Prop 5.8 binomial Aluthge shifts",
+          "Resultary Poisson Aluthge generalized parameter thinning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned source is a direct database hit; published regular-variation result has macroscopic rank counting for constant t, not the finite Poisson trace family."
+        ],
+        "reasoning": "No table exactly determines the lambda continuum/complete monotonicity, though classical Poisson smoothing is prior.",
+        "searches": [
+          "Resultary Poisson–Bernstein Aluthge sharp trace polynomial weights",
+          "Stanković arxiv 2611.07728v1 Proposition 5.8"
+        ]
+      },
+      "rationale": "Stanković 2026 established fixed-parameter singular-value convergence and the exact weighted-shift binomial identity. The published regularly varying Aluthge shift result provides a fixed interior t macroscopic profile and Schatten coefficient, not the shrinking t_n Poisson window or Levy complete-monotonicity law. Hence their stronger fixed-t assumptions do not imply the critical variable-parameter theorem.",
+      "residual_risks": [
+        "Stanković full primary proof/appendix was not retrieved; a hidden stronger parameter-uniform result cannot be excluded.",
+        "An older Poisson/Bernstein semigroup trace theorem for polynomial shift weights may give equivalent formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS fixed-t special case but NOT finite-Poisson or variable t_n",
+          "evidence": "The statement requires fixed t in (0,1); no uniformity as t→0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-linear-singular-value-boundary-layer-for-regularly-v--948fb95b2a1e",
+          "material_read": "Entire RESULT.md: hypotheses, all five proof steps, exact Schatten and counting laws, limitations",
+          "method": "published result full frozen GitHub text",
+          "title": "A universal linear singular-value boundary layer for regularly varying Aluthge shifts",
+          "trigger": "stronger regularly varying weights and full Schatten asymptotics"
+        },
+        {
+          "assessment": "Full text not independently read, genuine priority risk",
+          "evidence": "Abstract states fixed t, compact-operator eigenvalue-modulus and Ky Fan convergence, not variable t_n Poisson boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07728",
+          "material_read": "Primary arXiv abstract and published task source quotation of Proposition 5.8; HTML/PDF direct retrieval unavailable",
+          "method": "arXiv primary metadata/abstract; not full material",
+          "title": "Singular values of iterated Aluthge transforms of compact operators",
+          "trigger": "same operator family and potentially dominating general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shrinking-iteration-parameter boundary is a naturally distinguished nonvanishing/vanishing crossover for compact shift iterates, with a sharp Schatten decay constant and a new positive semigroup/complete-monotonicity interpretation of a spectral trace.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and spectral formula, independent arithmetic Poisson/binomial checks",
+    "Resultary full prior regular-variation Aluthge RESULT.md",
+    "Stanković arXiv:2611.07728 abstract and explicit source-attributed Proposition 5.8"
+  ],
+  "disposition": "passed",
+  "final_claim": "Poisson-thinning boundary of iterated generalized Aluthge transforms of polynomial weighted unilateral shifts",
+  "limitations": [
+    "Stanković full primary proof/appendix was not retrieved; a hidden stronger parameter-uniform result cannot be excluded.",
+    "An older Poisson/Bernstein semigroup trace theorem for polynomial shift weights may give equivalent formulation.",
+    "The private review does not constitute a publication or external research certification. Source text was evidence, not workflow instruction."
+  ],
+  "residual_risks": [
+    "Stanković full primary proof/appendix was not retrieved; a hidden stronger parameter-uniform result cannot be excluded.",
+    "An older Poisson/Bernstein semigroup trace theorem for polynomial shift weights may give equivalent formulation."
+  ],
+  "schema_version": 1
+}

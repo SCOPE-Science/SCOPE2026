@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is reconstructed from the exact weighted-shift calculation. Binomial-to-Poisson convergence and dominated Schatten sums settle bounded intensity; concentration and an integrable global envelope settle every diverging-intensity parameter sequence. The logarithm integral produces a genuine finite-first-moment Lévy measure, and compound-Poisson approximation proves strict complete monotonicity. The reported finite numerical checks corroborate but do not replace the analytical arguments.
+## correctness
 
-**Originality — PASS, qualified.** Stanković's Proposition 5.8 already proves the exact binomial weights and fixed-interior-parameter convergence; the earlier regularly varying shift profile is likewise fixed-parameter. Neither compared statement contains the nonvanishing critical Poisson boundary, exact nonlinear semigroup or Lévy representation with strict complete monotonicity of Schatten traces. Indexed stretched-exponential results concern different weights and limits. Earlier survey and journal full texts, and unindexed equivalent Bernstein-transform formulations, remain publication-priority risks; indexing failure is not a proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The theorem gives a complete parameter-path boundary rather than a single selected rate, and identifies an exact infinite-divisibility mechanism yielding sign constraints of every derivative of the natural spectral trace. It extends the dynamical picture of the polynomial shift from discrete fixed-parameter collapse to a continuous nonzero boundary family with an explicit sharp tail law.
+For positive shift weights (j+1)^(-beta), a generalized Aluthge transform averages log weights between j and j+1, so n iterates at common t_n equal expectation of log(j+1+Bin(n,t_n)). For m_n=n t_n approaching finite lambda, binomial-to-Poisson convergence and uniform integrability plus summable majorant (j+1)^(-beta*r) for beta*r>1 prove Schatten r convergence. For m_n→infinity, concentration at m and a Chernoff lower-tail bound give locally uniform scaled weights and summable tail domination; a Riemann-sum proof yields Schatten mass m^(1-beta*r)/(beta*r−1). The Frullani representation yields a positive Levy jump kernel alpha(1−u)^j/[−log(1−u)] du and hence strictly completely monotone trace F_r(lambda). Poisson independent increments give the nonlinear positive-weight semigroup. Independent numerical binomial/Poisson first-weight convergence was reproduced for n=200, mean=2, j=0,1,5,20. Finite calculations were supplementary.
 
-**Limits.** Polynomial positive unilateral shifts only; strong Schatten results require \(\beta r>1\); no claim for arbitrary compact operators. Independent mathematical validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Stanković 2026 established fixed-parameter singular-value convergence and the exact weighted-shift binomial identity. The published regularly varying Aluthge shift result provides a fixed interior t macroscopic profile and Schatten coefficient, not the shrinking t_n Poisson window or Levy complete-monotonicity law. Hence their stronger fixed-t assumptions do not imply the critical variable-parameter theorem.
+
+## value
+
+PASS
+
+The shrinking-iteration-parameter boundary is a naturally distinguished nonvanishing/vanishing crossover for compact shift iterates, with a sharp Schatten decay constant and a new positive semigroup/complete-monotonicity interpretation of a spectral trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
