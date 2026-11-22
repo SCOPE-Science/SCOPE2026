@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact incomplete-gamma parent tail expansion; logarithmic maximum-CDF expansion; global exponential-tail and derivative bounds give uniform approximations. Exact floor shift provides lattice term. At alpha=1 H_n=G_1 identically; for alpha<1 the binomial term dominates; alpha>1 lattice plus tail term dominates. All suprema are computed analytically and matched by gridpoint lower bounds. Numerical standalone checker passes 4 models with 3 sample sizes each, but is explicitly noncertifying.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davis 1982 abstract announces general pointwise and possible uniform rates, without accessible explicit inverse-gamma floor constants.",
+        "Shimura 2012 abstract concerns preservation of max-domain properties by discretization.",
+        "Costacèque–Privault 2026 abstract concerns Stein-method bounds for regular variation; it does not state the model-specific lattice supremum constants."
+      ],
+      "reasoning": "General domain-of-attraction criteria, inequalities, or a nonsharp rate do not logically entail these exact three numerical constants. The closest general methods may be adaptable to this model; the specific full-inference comparison of inaccessible works remains a residual priority risk.",
+      "searches": [
+        "\"rate of convergence in distribution of the maxima\" Davis 1982",
+        "\"discretization of distributions in the maximum domain of attraction\" Shimura 2012",
+        "\"Fréchet convergence rates second-order regular variation\" Costacèque Privault 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1707.05033 (full HTML)",
+      "doi:10.1371/journal.pone.0285183 (full HTML)",
+      "doi:10.1007/s10687-011-0137-7 (abstract; full unavailable)",
+      "doi:10.1111/j.1467-9574.1982.tb00772.x (abstract)",
+      "arXiv:2608.17562 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hitz et al. establish D-MDA and tail-exceedance approximations, which are qualitatively weaker than a model-specific uniform-in-x first-order asymptotic with constants.",
+        "Nadarajah–Lyu give a discrete inverse-gamma distribution and fitted risk models, but no maximum-sample error limit.",
+        "Shimura describes general floor-discretization maximal domain conditions, not this sharp constant as far as the accessible abstract shows."
+      ],
+      "reasoning": "Knowledge that a law belongs to a Fréchet domain only proves convergence, and generic order-of-magnitude bounds need not yield constants. The 1/alpha vs 1 dominance and exact alpha=1 cancellation require the inverse-gamma expansion plus a one-sided floor displacement; these details are not implied by the compared known statements.",
+      "searches": [
+        "Hitz–Davis–Samorodnitsky Theorems 2.1–2.5 and Section 3.1",
+        "Nadarajah–Lyu Sections 3.4, 4–6",
+        "Shimura 2012 DOI abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hitz–Davis–Samorodnitsky (2017), Section 1 defines the floor extension and Section 3.1 explicitly simulates floor inverse-gamma, but treats exceedance estimators and domain of attraction.",
+        "PLOS ONE 2023 Section 3.4 discusses discrete inverse-gamma as a transformed-gamma special case."
+      ],
+      "reasoning": "The equivalent object is not original; the compared known assertions are about first-order extremes, exceedance conditioning, or distribution fitting. None of the materially inspected text gives the uniform maximum-CDF Kolmogorov equivalents or their shape-one cancellation.",
+      "searches": [
+        "\"discrete inverse gamma floor maxima Fréchet Kolmogorov rate constant\"",
+        "\"rounded inverse gamma extreme value second order lattice\"",
+        "arXiv:1707.05033, Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Neither inspected full source contains a table or exact formula for these global error constants.",
+        "No exact matching entry appeared in the targeted mathematical-record searches; nearest entries concern unrelated lattice or extreme-value objects."
+      ],
+      "reasoning": "This is a continuum-parameter asymptotic constant classification, not a finite tabulation. Negative searches are supporting risk analysis, not a novelty proof.",
+      "searches": [
+        "\"discretized inverse-gamma maxima sharp Kolmogorov constant\"",
+        "\"floor inverse gamma Fréchet approximation exact error\"",
+        "arXiv:1707.05033 and doi:10.1371/journal.pone.0285183 full text"
+      ]
+    },
+    "rationale": "Exact floor inverse-gamma object and domain of attraction are known, but full inspections of the originating discrete-extremes source and discrete-inverse-gamma paper do not cover this three-shape Kolmogorov-equivalent theorem. The sharp lattice/tail competition, cancellation at alpha=1, and exact constants are genuinely different from the inspected first-order/exceedance claims. Inaccessible older full texts create a stated historical-priority risk.",
+    "residual_risks": [
+      "Full Shimura 2012 article was inaccessible; available abstract and Hitz reference cannot decisively exclude an unindexed sharp second-order proposition.",
+      "Earlier maxima rate literature, including Davis 1982, was abstract-accessible only; a full historical-priority verification remains valuable.",
+      "General second-order extreme-value methodology might derive this specific theorem with additional work; method reuse is distinguished from an already-stated sharp model-specific claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes object and domains and compares threshold-exceedance methods, not sample-maximum exact Kolmogorov constants",
+        "evidence": [
+          "Section 3.1 explicitly Y~IG(2,1), X=floor(Y).",
+          "Theorem 2.1 concern D-GPD approximation for conditional exceedances and related theorems concern regular variation/extension."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1707.05033",
+        "material_read": "Full accessible article: introduction, mathematical theory Section 2, inverse-gamma simulation Section 3.1, results/discussion and references",
+        "method": "HTML article read and searched for sample maxima, Kolmogorov error, rate and floor inverse-gamma; comparison of Theorems 2.1–2.5 with new claim",
+        "title": "Discrete Extremes",
+        "trigger": "Exact floor inverse-gamma variable used in Section 3.1 and theory of discrete max-domain"
+      },
+      {
+        "assessment": "Distribution, tail and fit known; no maximum-normalization uniform Kolmogorov equivalent identified",
+        "evidence": [
+          "Published May 5 2023; Section 3.4 contains discrete inverse-gamma special case; Section 6 concerns MLE simulations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0285183",
+        "material_read": "Complete accessible HTML article sections 1–6; Section 3.4 family definition and Section 4 tail behavior emphasized",
+        "method": "Read primary open-access article and searched model, maximal statistic, and convergence terms",
+        "title": "New discrete heavy tailed distributions as models for insurance data",
+        "trigger": "Named discrete inverse-gamma distribution and applied risk modeling"
+      },
+      {
+        "assessment": "Domain-of-attraction comparison supported at abstract level only; exact-rate priority comparison remains limited",
+        "evidence": [
+          "Published 2012; Hitz et al. attribute long-tail characterization of floor discretizations to Shimura."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10687-011-0137-7",
+        "material_read": "Public abstract and secondary statement in Hitz et al., not full original text",
+        "method": "Searched for OA/preprint and attempted authorized institutional access; full text not available due VPN disconnection",
+        "title": "Discretization of distributions in the maximum domain of attraction",
+        "trigger": "Closest early general floor-discretization/domain-of-attraction theorem"
+      },
+      {
+        "assessment": "A general rate method is plausible; no exact inverse-gamma lattice formula available from inspected material",
+        "evidence": [
+          "Abstract states pointwise maxima rates and a route toward a uniform rate, without model-specific constants."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9574.1982.tb00772.x",
+        "material_read": "Accessible abstract, not full article",
+        "method": "Examined abstract and relevance of generic pointwise/uniform rate framework",
+        "title": "The rate of convergence in distribution of the maxima",
+        "trigger": "Potentially broadly dominant maxima rate theorem"
+      },
+      {
+        "assessment": "Potential method-level overlap, but does not state an exact floor inverse-gamma Kolmogorov constant",
+        "evidence": [
+          "Abstract describes Fréchet convergence rate bounds and second-order regular variation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.17562",
+        "material_read": "Accessible preprint abstract only",
+        "method": "Compared stated types of bounds (second-order regular variation and density) against discrete lattice exact constants",
+        "title": "Convergence rates for the extreme value theorem via Stein’s method",
+        "trigger": "Recent general Fréchet quantitative approximation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5cce6e7-a751-419f-9047-50be39e09111",
+  "value": {
+    "rationale": "A naturally motivated complete shape classification for accuracy of a Fréchet approximation under integer-recorded heavy-tailed observations. It supplies exact nonzero rate constants, separates two physical error mechanisms (sampling versus rounding), and reveals a critical exact cancellation at shape one, rather than merely repeating a distribution definition, finite computation or general first-order extreme-value theorem.",
+    "status": "PASS"
+  }
+}
