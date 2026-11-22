@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:04:37.527960Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The spherical addition theorem with probability area normalization yields Gram entries P_l(v_i·v_j). Five-fold geometry has ±1/√5 off diagonal; Legendre parity makes G_even=(1-q)I+qJ (one plus four eigenvalues). Odd signed cycle circulant yields 1 and 1±q twice, where q=5^((l mod2)/2)P_l(1/√5). Independent exact Fraction recurrence gave q_2=-1/5,q_3=-1,q_4=q_8=q_14=-1/5 and verified all ranks/eigenvalue bounds/equality degrees 0..19. Published Bernstein bound at x=1/√5 shows P_l²<√5/[π(l+1/2)]<=1/26 for l>=19 using √5<9/4, π>3, so even |q|<1/5 and odd |q|<√5/5<5/7; both yield strict inequalities. The proof combines exhaustive finite degrees with an all-degree analytic tail. Full row rank means interpolation of five data values, NOT recovery of all 2l+1 harmonic coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zandieh–Han–Avron arXiv:2202.12995 Theorem 1 is randomized recovery from O(dim log dim) sphere samples, not fixed five axes.",
+          "Resultary records for icosidodecahedron 15 representatives, dodecahedron 10 axes, Wigner icosahedral rotations have different sampling points or representation spaces."
+        ],
+        "reasoning": "Their broad sampling framework does not give this deterministic 5-by-5 exact degree-wise Gram result or four equality degrees; same icosahedron terminology alone does not imply it.",
+        "searches": [
+          "icosahedron five vertices axes harmonic interpolation Legendre Gram matrix all degrees sharp condition number",
+          "Resultary harmonic sampling dodecahedral axes icosidodecahedral vertices"
+        ]
+      },
+      "checked_sources": [
+        "Five-point frozen RESULT.md, exact checker verify.py, SLOGAN, metadata at tree 783460a47b0f2618615370c833d820d39000f419",
+        "https://arxiv.org/pdf/0706.0088 Proposition 1",
+        "https://arxiv.org/pdf/1803.00336 Lemma 2.1",
+        "https://arxiv.org/html/2202.12995v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hitchin Proposition 1 states four-dimensional space of cubic harmonics vanishing at full icosahedron, already subsuming l=3 rank issue.",
+          "Wang 2018 Lemma2.1 is a strict Legendre bound; applied only for l>=19 with finite recurrence checking."
+        ],
+        "reasoning": "The combination of prior cubic obstruction, standard addition theorem and Bernstein bound permits reconstructing the new theorem, but none individually states its sharp all-degree 5-axis interpolation conditioning; the exact finite recurrences and comparison are the asserted finding.",
+        "searches": [
+          "icosahedron five vertices axes harmonic interpolation Legendre Gram matrix all degrees sharp condition number",
+          "arxiv:0706.0088 spherical harmonics icosahedron proposition 1 cubic",
+          "arxiv:1803.00336 Legendre Bernstein lemma 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hitchin 2007 Proposition 1 establishes nontrivial cubic harmonic vanishings on icosahedral vertices; the obstruction at l=3 predates this claim.",
+          "Wang 2018 Lemma 2.1 supplies the same Bernstein tail bound, already cited."
+        ],
+        "reasoning": "The signed pentagonal circulant with q_l is an equivalent formulation of these five Gram eigenvalues, but Hitchin cubic result and classical Legendre bound do not alone assert the complete uniform sharp constant with exceptional l={2,4,8,14}.",
+        "searches": [
+          "icosahedron five vertices axes harmonic interpolation Legendre Gram matrix all degrees sharp condition number",
+          "five equiangular lines icosahedron Legendre Gram exact harmonic condition number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary has the current self-hit and distinct spherical sampling grids; no 5-axis all-degree spectral table independently identified.",
+          "Exact rational Legendre q_l sequence from recurrence is a finite table only through l=18."
+        ],
+        "reasoning": "The uniform all-degree bound and equality classification combine an exact finite table with an analytic Bernstein tail and are not merely lookup of a finite table; an unindexed specialist harmonic-design table is a residual risk.",
+        "searches": [
+          "icosahedron five vertices axes harmonic interpolation Legendre Gram matrix all degrees sharp condition number",
+          "icosahedron Legendre P_l(1/sqrt5) exceptional degree 2 4 8 14 rank 5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on the explicit all-degree stability and four sharp equality degrees. The older rank obstruction for l=3 is explicitly Hitchin prior art, and the sharp Legendre Bernstein bound is Wang prior art. Related stochastic sphere sampling, Wigner icosahedral rotations, dodecahedral and icosidodecahedral sampling all have distinct point sets and theorems.",
+      "residual_risks": [
+        "Unindexed deterministic-icosahedral-design computations might already provide the sharp five-axis conditioning table.",
+        "Finite arithmetic checked independently, infinite tail specifically requires published strict Bernstein inequality, not empirical extrapolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cubic degree obstruction is covered by this source, not new.",
+          "evidence": "Proposition 1: 4D cubics vanish at full icosahedron.",
+          "identifier_or_url": "https://arxiv.org/pdf/0706.0088",
+          "material_read": "Introduction and Proposition 1 including four-dimensional cubic vanishing space; inspected PDF screenshot of relevant proposition",
+          "method": "arXiv PDF text + rendered page",
+          "title": "Spherical harmonics and the icosahedron",
+          "trigger": "Exactly same underlying icosahedral geometry and cubic rank exception"
+        },
+        {
+          "assessment": "Provides analytic tail inequality used verbatim as prior input; does not calculate five-axis Gram equality list.",
+          "evidence": "Lemma 2.1: (1-x²)^(1/4)|P_l(x)|<sqrt(2/[pi(l+1/2)]).",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.00336",
+          "material_read": "Lemma 2.1 strict Bernstein inequality and adjacent assumptions, rendered PDF page inspected",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "A new and sharper bound for Legendre expansion of differentiable functions",
+          "trigger": "Potential dominating all-degree Legendre estimate"
+        },
+        {
+          "assessment": "Random uniform sample recovery of bounded-degree expansion; does not supply exact five-axis pure-degree conditioning.",
+          "evidence": "Theorem 1 randomized O(beta_q,d log beta_q,d) sample guarantee.",
+          "identifier_or_url": "https://arxiv.org/html/2202.12995v1",
+          "material_read": "Full accessible HTML introduction, Theorems 1–2 and sampling/regression sections, addition theorem overview",
+          "method": "arXiv HTML direct reading",
+          "title": "Near Optimal Reconstruction of Spherical Harmonic Expansions",
+          "trigger": "General sphere sampling/recovery might dominate special deterministic grid"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical geometrically forced spherical grid, exact data-interpolation obstructions and the uniform worst-case stability constant are a motivated answer for all harmonic degrees. Four separated saturation degrees and the distinction between data interpolation and full harmonic reconstruction are substantively informative, not a generic rebranding of Legendre recurrence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed deterministic-icosahedral-design computations might already provide the sharp five-axis conditioning table.",
+    "Finite arithmetic checked independently, infinite tail specifically requires published strict Bernstein inequality, not empirical extrapolation."
+  ],
+  "schema_version": 1
+}
