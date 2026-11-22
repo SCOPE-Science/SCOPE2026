@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The exact proof is in RESULT.md. In a local run `python verification/check.py` reported 134 supplementary checks passed and a representative four-site Fourier curvature crossing near \(t=0.340208834388\). The test compares finite differences with the full Fourier-residue Taylor coefficient for several N and diffusion times. Its finite truncation and decimal root are not an infinite-sum proof or a certified threshold. No independent validation or external audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For each fixed N>=4 and t>0, expand E_t=sum_n exp(-2tn^2)|F_n|^2 at regular N-gon. Residue frequencies k give the exact Hessian 2(S_k-S_0)/N, with rotation k=0 null. Poisson summation for x^2 exp(-2tx^2) yields leading t^(-5/2) exp[-pi^2/(2N^2t)] (1-cos(2pi k/N)) with prefactor pi^2 sqrt(pi/2)/(2N^3), positive and uniquely weakest k=1,N-1 at small time. Shortest integer in residue k gives large-time factor c_k k^2 exp(-2tk^2) with c_k=2 only at even Nyquist, and the weakest is the highest k=floor(N/2). Nonzero curvatures are positive in both extreme regimes, and continuity forces a tie somewhere intermediate without proving unique crossing. Independent check: Independently summed exact integer residue spectra for N=5,6 and heat times 0.01,0.012,0.15,2; first and highest soft modes exchange. Re-derived both Poisson prefactor and Hessian normalization; these tests corroborate but do not prove all-N statements.
+
+## originality
+
+PASS
+
+Best-of-knowledge: examined primary source evidence, actual same-object implications, and published mathematical findings. Earlier constructions, generic formulas and independent source results are credited; the surviving quantitatively specified theorem is not implied by the directly inspected antecedents. No certification of absolute historical priority is asserted.
+
+## value
+
+PASS
+
+The least positive angular Hessian eigenvalue determines sensitivity of a natural geometric effective sample-size configuration under point motion. Switching the weakest mode between two different Fourier frequencies as heat resolution varies is structurally nontrivial; the exact prefactor controls exponentially small fine-scale stability. This is not a routine restatement of gESS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
