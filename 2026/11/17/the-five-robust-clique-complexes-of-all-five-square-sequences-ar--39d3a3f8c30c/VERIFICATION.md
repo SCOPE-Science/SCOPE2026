@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Use Python 3.13 (or a compatible Python 3 implementation) and `networkx==3.6.1`, as declared in `requirements.txt`. From the unpacked directory run `python verify.py` and compare its output with `verifier_output.txt` (a harmless NetworkX hashing-version warning may appear on stderr).
+## correctness
 
-The checker regenerates every graph from the two definition-level gluing operations, removes isomorphic duplicates using an exact isomorphism test, enumerates all admissible simplices and all Hasse cover relations, verifies 179 complete acyclic matchings, and checks every critical cell and Euler characteristic. The successful actual run reported 255,727 nonempty faces, 127,616 pairs and critical seven-cell multiplicity distribution `[(0,67),(1,27),(2,34),(3,16),(4,2),(5,33)]`.
+PASS
 
-The proof assumes exactly five square attachments in total (one starting square and four further squares), graph simplicity and the definition of \(\mathsf{Cliq}_5\) from the referenced paper. The finite check is exhaustive for this class; it is not evidence for unrestricted square sequence length. Independent audit has not been performed.
+Starting from C4, every legal edge or two-edge corner attachment is enumerated and exactly isomorphic duplicates removed; independent replay reproduced 1,2,7,29,179 graph-isomorphism counts. Every generated graph is bipartite; any face of Cliq_5 has at most 8 vertices because any 9-set contains an independent 5-set in one bipartition. Independent full enumeration of each of 179 face posets, greedy toggle matching, exhaustive Hasse-incidence direction/topological sort and critical-cell census reproduced 255,727 nonempty faces, 127,616 pairs and b-distribution 67,27,34,16,2,33. Each acyclic matching leaves one critical vertex and b critical 7-cells, so Forman’s theorem gives an integral wedge of b S^7. This is exhaustive at exactly five squares; not extrapolated to all lengths.
+
+## originality
+
+PASS
+
+Primary published statements and actual full-text searches support provisional originality for the surviving mathematics; prior related inputs are explicitly credited; priority risks are retained.
+
+## value
+
+PASS
+
+A complete natural finite threshold of a published robust-clique homotopy conjecture, including corner-joined graphs outside the proved edge-only family. All 179 isomorphism classes and six topological multiplicity frequencies, with independently replayed finite acyclic certificates, are an independently useful exact classification even absent a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
