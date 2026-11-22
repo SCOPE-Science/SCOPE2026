@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For an arbitrary sequence of nonnegative curvatures bounded by L, assuming divergent variation forces eventual normalized steps in [0,1]. Telescoping descent makes the sum of squared gradients divided by adaptive weights finite; the bound w_n<=C+2sqrt(sum g_j^2) and the sqrt-telescoping lower bound contradict any divergent sum g_j^2. The resulting finite variation plus infinitely many Bernoulli zero-to-active transitions forces strict terminal stability; the strong law and scalar product yield almost-sure exponential contraction and the exact rate. Finite rational/trajectory tests verify implementation but not the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rodomanov–Jiang–Stich, arXiv:2406.06398, Sections 2–3 and convergence table specify a bounded feasible-set diameter and expected objective bounds.",
+        "Bojović–Salzo–Pontil, arXiv:2602.13112, Theorem 3.8 covers stochastic accumulation bounds involving iterate-size quantities; its theorem on iterate convergence is deterministic."
+      ],
+      "reasoning": "The inspected broader-looking adaptive stochastic convergence results do not establish almost-sure finite squared gradient variation for this unbounded-domain difference metric, nor the strict terminal weight or its pathwise exponent. A deterministic finite-variation statement alone cannot be substituted for a gradient that resamples at a fixed point.",
+      "searches": [
+        "UniSgd variation adaptive stochastic optimization unconstrained gradient differences finite variation",
+        "arxiv:2406.06398, Sections 2 and 3; main algorithm and diameter assumption",
+        "AdaGrad-Diff stochastic interpolation finite variation iterate convergence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.13112 (primary full relevant material)",
+      "arxiv:2406.06398 (primary full relevant material)",
+      "arxiv:1806.01811 (abstract only)",
+      "Published mathematical records on AdaGrad-Norm, diffGrad, and stochastic reflected-gradient stability (summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct 2026 preprint states finite difference-memory for deterministic Lipschitz smooth optimization, but discusses stochastic interpolation summability as a future problem.",
+        "The related 2024 UniSgd work uses a diameter-dependent normalization and expected terminal guarantees."
+      ],
+      "reasoning": "Neither deterministic finite variation under an exact gradient nor an expected error bound for a diameter-controlled method logically implies a pathwise finite-variation statement for independent gradient samples with no feasible diameter. The new proof provides a deterministic nonnegative-curvature lemma plus an infinite recurrence argument; the log-rate conclusion is beyond finite-time expected objective bounds.",
+      "searches": [
+        "arxiv:2602.13112, Theorem 3.8 / Theorem 3.12 / Section 6",
+        "arxiv:2406.06398, UniSgd expected-rate theorem",
+        "AdaGrad-Diff finite summability stochastic interpolation Bernoulli multiplicative quadratic 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.13112, Algorithm 3.6 accumulates sampled gradient differences; Section 6 explicitly singles out stochastic interpolation summability as unresolved.",
+        "arXiv:1806.01811 uses ordinary AdaGrad-Norm rather than the squared-difference metric."
+      ],
+      "reasoning": "The original source algorithm matches the new theorem; ordinary AdaGrad, momentum/friction methods and current-iterate gradient difference proxies do not give equivalent updates. The new claim explicitly includes a probabilistic zero-curvature oracle, not the previously established deterministic smooth-gradient setting.",
+      "searches": [
+        "AdaGrad-Diff stochastic interpolation almost sure summability squared gradient differences Bernoulli dropout quadratic coordinatewise accumulator",
+        "AdaGrad Diff deterministic pathwise summability stochastic gradients quadratic nonnegative random coefficient",
+        "arxiv:2602.13112, Algorithm 3.6 and Future work"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published related records concern AdaGrad-Norm terminal steps, stochastic reflected gradients, and difference-friction optimizers; these update different states or accumulate different quantities.",
+        "No exact Bernoulli-interpolated AdaGrad-Diff terminal-weight-rate entry was located in the checked mathematical-record queries."
+      ],
+      "reasoning": "No exact theorem/database formula was found among the queried records. This absence is used only as an overlap check, not a mathematical proof of historical uniqueness.",
+      "searches": [
+        "AdaGrad-Diff",
+        "AdaGrad-Diff stochastic interpolation almost sure summability squared gradient differences Bernoulli dropout quadratic coordinatewise accumulator",
+        "stochastic interpolation gradient differences memory finite"
+      ]
+    },
+    "rationale": "Full relevant primary source sections identify general stochastic interpolation summability as open while proving only deterministic finite-variation. This proves a narrowly specified and nontrivial stochastic subclass plus exact random rate, not stated or implied by the inspected comparison results. Historical priority remains uncertain and has not been independently checked.",
+    "residual_risks": [
+      "Searches do not exhaust all adaptive stochastic approximation literature.",
+      "A later or less discoverable source may prove a stronger result implying this special case.",
+      "The direct primary preprint has a second version; the exact source statement is version-specific and its future-work passage was checked in v2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The same update is studied, but finite variation and iterate convergence are established deterministically, while the stochastic interpolation finite-variation question is explicitly identified as open. The special Bernoulli claim is not shown covered.",
+        "evidence": "arxiv:2602.13112, displayed equations (18)-(19), Theorem 3.8, Section 4.3 and Section 6 future work.",
+        "identifier_or_url": "https://arxiv.org/html/2602.13112",
+        "material_read": "Algorithm 3.6; adaptive accumulator definition; Theorems 3.8 and 3.12; convergence analysis of Section 4; stochastic experiment oracle; Section 6 conclusion and future work.",
+        "method": "Read relevant primary arXiv HTML theorem, proof, update and discussion text; checked v1 first public timestamp separately.",
+        "title": "AdaGrad-Diff: a Corrected Version of the Adaptive Gradient Algorithm for Composite Optimization",
+        "trigger": "Exact algorithm and primary potential coverage"
+      },
+      {
+        "assessment": "General stochastic adaptation covers expected optimization criteria on bounded feasible domains; the claimed unbounded Bernoulli pathwise variation and exponent are not inferred.",
+        "evidence": "arxiv:2406.06398, Sections 1–3, bounded domain assumption and UniSgd convergence table.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.06398",
+        "material_read": "Problem setup and finite-diameter hypothesis; primary UniSgd algorithm and stochastic convergence guarantees; relevant overview and convergence-rate table.",
+        "method": "Read arXiv textual full-paper extraction and the main algorithm/assumption discussion.",
+        "title": "Universality of AdaGrad Stepsizes for Stochastic Optimization: Inexact Oracle, Acceleration and Variance Reduction",
+        "trigger": "The direct paper identifies this as the closest variation-adaptive stochastic predecessor."
+      },
+      {
+        "assessment": "Uses AdaGrad-Norm magnitude accumulation instead of sampled gradient-difference accumulation; not treated as a whole-document novelty exclusion.",
+        "evidence": "arxiv:1806.01811, abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/1806.01811",
+        "material_read": "Abstract and stated method class.",
+        "method": "Read public abstract only.",
+        "title": "AdaGrad Stepsizes: Sharp Convergence Over Nonconvex Landscapes",
+        "trigger": "Possible stronger classical AdaGrad convergence theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12cc5d25-b8ad-449a-9aae-5a125f057178",
+  "value": {
+    "rationale": "The motivating paper explicitly isolates stochastic-interpolation finite-variation and iterate convergence as a meaningful unresolved gap. The theorem provides a rigorous unbounded-domain strongly convex stochastic test case, arbitrary tuning parameters, a self-bounding deterministic curvature lemma, a sharp strict terminal stability condition and a pathwise quantitative rate; it is not a textbook fixed-gradient recurrence or a numerical-only observation.",
+    "status": "PASS"
+  }
+}
