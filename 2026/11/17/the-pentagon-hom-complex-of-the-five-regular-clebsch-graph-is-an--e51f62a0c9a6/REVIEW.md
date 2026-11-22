@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies Hom vertices with based permutations of five independent-up-to-one-relation Cayley generators. Its adjacency swaps and commuting square relations rule out higher cells. Every vertex link is a circle, the complex is connected, and the compatible orientation plus Euler characteristic identifies the closed orientable genus-\(241\) surface. The standalone full finite checker independently verifies all nine thousand one hundred twenty cells, their incidences, orientability and the affine orientation character. The graph ambiguity is resolved by specifying the five-regular folded cube rather than its complement.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The closest published square-free codomain theorems of Fujii–Kimura–Nozaki and Matsushita do not apply to a target containing four-cycles, and their outputs have no second homology. Csorba–Lutz and Schultz treat complete-graph targets or general Hom definitions, not this finite graph. The closest found prior graph-Hom calculations for the Grötzsch and Chvátal targets do not imply the Clebsch case. Direct name, numerical, equivalence and parameters searches found no exact covering assertion. The original papers were inspected at their relevant definitions and theorems, but bibliographic uniqueness is not independently guaranteed.
+PASS
 
-## Value — PASS
-This supplies a complete surface homeomorphism classification, integral fundamental group and homology, and a nontrivial orientation character for the canonical five-regular folded cube. It is a structurally different high-genus, two-dimensional outcome beyond recently classified square-free targets, and not merely another circle-bouquet count. The cyclic commuting-transposition description explains the manifold structure and may inform further non-square-free Hom calculations. The fact is specific to the five-regular Clebsch graph; it does not give a universal extension of square-free classification.
+The frozen RESULT.md specifies the even-weight F2^5 Cayley graph and polyhedral Hom cells. Its five generators have unique nonzero F2 relation (1,1,1,1,1), forcing each closed 5-step walk to use each generator once, giving 16*5!=1920 vertices. Recoloring directions correspond to adjacent generator swaps; only nonadjacent source positions commute. The 2D cubical f-vector (1920,4800,2400), local C5 links, two squares per edge and connectedness from generator swaps and weight-two translations establish a closed surface. The signed incidence propagation in inspected verify.py provides coherent orientation, hence chi=-480 and genus 241. The affine S5 action changes permutation parity, giving the claimed sign orientation representation. An independent combinatorial calculation recovered 1920 walks, 2400 squares, chi and genus. The test alone is not an infinite theorem; this is a finite exact object with exhaustive enumeration specified.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Direct Hom(C5,five-regular Clebsch) genus and affine sign representation are not implied by square-free-target Hom theorems or by topology of independence/neighborhood complexes of the same graph. This is qualified priority, not a global novelty proof.
+
+## value
+
+PASS
+
+The folded five-cube is a natural symmetric strongly regular graph; its ordinary pentagon Hom complex is a nontrivial, explicit high-genus orientable graph-coloring manifold with an informative integral orientation character, a structural invariant not a renamed textbook exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-`verify.py` contains a complete, standard-library-only finite check of the graph, all polyhedral Hom cells, their cover incidences, local links, connectedness, signed integral orientation cycle and affine target symmetry character. Run `python3 verify.py` in the directory containing the file. The program uses two descriptions of Hom vertices: all five-step closed graph walks and all generator permutations. It expands faces only through valid common-neighbor additions and checks that no dimension greater than two occurs. Every two-cell is checked to be a square with four distinct edges and four corners. Vertex links and one-cell incidences are checked independently of genus.
+## correctness
 
-The purely mathematical proof of the generator relation, equivalence of adjacent recoloring with label-swaps, circle links, connectedness, and classification of surfaces is in `RESULT.md`. The finite enumeration confirms the special graph identities, incidence counts and global orientation signs but cannot prove any generalized folded-cube claim. `verification_output.txt` is captured execution output. No independent human audit or separate external validation has been performed.
+PASS
+
+The frozen RESULT.md specifies the even-weight F2^5 Cayley graph and polyhedral Hom cells. Its five generators have unique nonzero F2 relation (1,1,1,1,1), forcing each closed 5-step walk to use each generator once, giving 16*5!=1920 vertices. Recoloring directions correspond to adjacent generator swaps; only nonadjacent source positions commute. The 2D cubical f-vector (1920,4800,2400), local C5 links, two squares per edge and connectedness from generator swaps and weight-two translations establish a closed surface. The signed incidence propagation in inspected verify.py provides coherent orientation, hence chi=-480 and genus 241. The affine S5 action changes permutation parity, giving the claimed sign orientation representation. An independent combinatorial calculation recovered 1920 walks, 2400 squares, chi and genus. The test alone is not an infinite theorem; this is a finite exact object with exhaustive enumeration specified.
+
+## originality
+
+PASS
+
+Direct Hom(C5,five-regular Clebsch) genus and affine sign representation are not implied by square-free-target Hom theorems or by topology of independence/neighborhood complexes of the same graph. This is qualified priority, not a global novelty proof.
+
+## value
+
+PASS
+
+The folded five-cube is a natural symmetric strongly regular graph; its ordinary pentagon Hom complex is a nontrivial, explicit high-genus orientable graph-coloring manifold with an informative integral orientation character, a structural invariant not a renamed textbook exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
