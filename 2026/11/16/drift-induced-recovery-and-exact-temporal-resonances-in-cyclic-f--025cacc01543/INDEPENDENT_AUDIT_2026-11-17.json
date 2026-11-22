@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:52:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unitary cyclic Fourier downsampling folds k and k+N/2 into Q_k=(1/√2)[[1,1],[exp(-τλ_k),exp(-τλ_(k+N/2))]]. Equal magnitudes force cos(2πk/N)=0, unique k=N/4 only for N≡0 mod4; at that alias equality of phases is sin(δτ)=0. Thus one deficient rank-one block exactly. Its Gram determinant e^(-2τ)sin²(δτ) and trace 1+e^(-2τ) give explicit least eigenvalue a(δ,τ), with compact convergence a/δ²→τ²/(1+e^(2τ)). A Rayleigh test bounds the global least eigenvalue by δ²τ²e^(-2τ) at all delays, preventing maximizer escape. The unique critical point solves τ=1+e^(-2τ), proving optimized asymptotic and convergence of maximizing times.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General dynamical sampling and graph Paley–Wiener spaces provide Fourier/polyphase observability criteria."
+        ],
+        "reasoning": "General sampling criteria could lead to the result after calculation, but their cited statements do not specifically imply the exact drift/time classification and sharp limit.",
+        "searches": [
+          "directed cycle two-time dynamical heat sampling drift alias resonance singular values",
+          "https://arxiv.org/abs/1312.3203",
+          "https://arxiv.org/abs/2609.25472"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-blind-spots-and-an-optimal-two-time-heat-sampling-del--36b6900e59dd",
+        "https://arxiv.org/abs/1312.3203",
+        "https://arxiv.org/abs/2609.25472"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric-cycle Fourier critical alias has two equal real decays, leaving permanent nullity, whereas δ≠0 makes the phases differ except sin(δτ)=0.",
+          "The normalized integer-line h(τ) has same optimum but no directed phase."
+        ],
+        "reasoning": "The new exact resonance/nonresonance classification is not a corollary of reversible theorems alone.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-blind-spots-and-an-optimal-two-time-heat-sampling-del--36b6900e59dd",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier integer-line paper has the identical optimization function h(τ)=τ²/(1+e^(2τ)), but a reversible spectral-notch setting.",
+          "Current finite directed cycles have phase-dependent resonance sin(δτ)."
+        ],
+        "reasoning": "The scalar optimal constant is covered and excluded from independent novelty; the new phase singular set is not equivalent to the reversible blind spot.",
+        "searches": [
+          "directed cycle two-time dynamical heat sampling drift alias resonance singular values",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary supplies exact reversible-cycle blind-spot table and an integer-line reversible best-gap formula; no directed δτ phase table in these full inspected sources."
+        ],
+        "reasoning": "The no-drift and continuum results are boundary/comparison cases, not a complete finite directed resonance table.",
+        "searches": [
+          "directed cycle two-time dynamical heat sampling drift alias resonance singular values",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-blind-spots-and-an-optimal-two-time-heat-sampling-del--36b6900e59dd"
+        ]
+      },
+      "rationale": "Earlier symmetric finite-cycle paper establishes permanent blindness when 4|N only for zero drift; integer-line reversible spectral-gap theorem already supplies exactly the 0.1207075 best-time constant and is credited. Neither determines drift-induced recovery or the discrete sin(δτ)=0 resonances. General polyphase dynamical-sampling theory offers a reduction not the exact all-N directed theorem. Recent graph sampling preprint full text unavailable: bounded risk, not automatic failure.",
+      "residual_risks": [
+        "Full text of Cabrelli et al. (2026), arXiv:2609.25472, not available; could contain a relevant directed specialization.",
+        "Small-drift asymptotic is fixed N; no uniform joint N–δ bound or nonnormal perturbation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Boundary δ=0 covered; not δ≠0 phase resonance",
+          "evidence": "Four-divisible cycles unobservable for every delay under symmetric Laplacian.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arithmetic-blind-spots-and-an-optimal-two-time-heat-sampling-del--36b6900e59dd/RESULT.md",
+          "material_read": "Full RESULT.md: finding, alias-block proof, exact lower/upper bound, asymptotic, limitations",
+          "method": "GitHub read-only raw RESULT.md",
+          "title": "Arithmetic blind spots and an optimal two-time heat-sampling delay on cycles",
+          "trigger": "closest finite cycle theorem"
+        },
+        {
+          "assessment": "COVERS scalar limiting constant but not directed finite-cycle phase classification",
+          "evidence": "t_0=1.1088575528 and h(t_0)=0.1207075197 are explicitly prior.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d/RESULT.md",
+          "material_read": "Full RESULT.md: Fourier fiber, normalized graph Laplacian, h(t) and unique maximizer",
+          "method": "GitHub read-only raw RESULT.md",
+          "title": "Exact two-time diffusion frame bounds and optimal blind-spot scaling on the integer line",
+          "trigger": "same universal time-optimization constant"
+        },
+        {
+          "assessment": "Priority uncertainty, not claimed whole-document NOT_COVERING",
+          "evidence": "Abstract discusses graph normalized-Laplacian Fourier sampling; full text not verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "Accessible abstract/references only; full article inaccessible",
+          "method": "arXiv abstract and lawful access attempt context",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "plausible recent graph-specific source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact effect of directed transport on an otherwise irrecoverable alias is a natural structural dynamical-sampling question. Complete classification of exceptional observation times and sharp small-drift noise penalty meaningfully informs sampling design, beyond the known reversible constant alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-time-diffusion-frame-bounds-and-optimal-blind-spot-sca--60ea36e5831d/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-blind-spots-and-an-optimal-two-time-heat-sampling-del--36b6900e59dd",
+    "https://arxiv.org/abs/1312.3203",
+    "https://arxiv.org/abs/2609.25472"
+  ],
+  "disposition": "passed",
+  "final_claim": "On an even cyclic directed nearest-neighbor Markov heat semigroup, alternate-site snapshots at 0 and τ recover exactly when N=2 mod4 or N divisible by4 with nonzero drift δ and nonresonant δτ∉πZ; otherwise nullity one. For each fixed N multiple of4, optimized least Gram eigenvalue is asymptotic δ²·0.120707519697..., with universal best delay ≈1.10885755.",
+  "limitations": "N even≥4, |δ|<1, τ>0, fixed N multiple of4 in limit; exactly two snapshots, normal homogeneous generator.",
+  "residual_risks": [
+    "Full text of Cabrelli et al. (2026), arXiv:2609.25472, not available; could contain a relevant directed specialization.",
+    "Small-drift asymptotic is fixed N; no uniform joint N–δ bound or nonnormal perturbation is claimed."
+  ],
+  "schema_version": 1
+}
