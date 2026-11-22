@@ -1,11 +1,21 @@
-# Self-review: Sharp one-quarter partition criterion and order-sensitive two-cycles for geometric quadratic population operators
+# Independent mathematical audit
 
-**Correctness: PASS.** The countable-state measure map reduces exactly to one scalar quadratic with geometric set mass \(q_R\). The prior published quadratic discriminant dichotomy is used only as a lemma. A direct supremum argument proves \(\sup\Delta=5-4\inf q_R\); strictness handles the boundary \(m_R=1/4\). The total-variation lifting follows from the three-term mixture, and a derivative argument proves \(m_R=m/k\) for initial residues. For the order-sensitive example, rational comparisons \(q_{R_1}(7/8)<6/25\), \(q_{R_1}(1/1000)>999/1000\), \(q_{R_1}(1/2000)>1999/2000\) yield \(\Delta>4\) without floating-point assumptions. The included checker independently evaluates these rational comparisons. Risk: the scalar global-attraction implication relies on the cited classical published theorem, whose hypotheses agree here.
+## correctness
 
-**Originality: PASS (within inspected sources).** The closest paper is Karim--Hamzah--Ganikhodjaev (2022), which establishes the entire unrestricted scalar discriminant test and hence must be cited rather than claimed as new. Its explicit results are not a geometric residue-specific classification: the sharp constrained supremum, the universal quarter-minimum test and same-density order effect require separate statements and strict inequalities. Karim et al. (2020) prove regularity for a different restricted-rate class. Targeted mathematical literature and published-result searches yielded no exact equal-density order contrast. Risk: a rediscovery or alternative formulation in unindexed work remains possible; a general scalar condition is substantial prior coverage and sharply narrows the novelty claim.
+PASS
 
-**Value: PASS.** The result answers a natural structural question for a countably infinite QSO: which infinite periodic partitions can produce oscillatory population measures when all offspring laws are geometric? The sharp density ratio for initial residue intervals and the explicit 14-class comparison show that mere cardinality/density does not determine the existence of a two-cycle. This is a global parameter-family classification and an order-sensitive boundary counterexample, not just numerical substitution into one published example. Limitation: the scalar bifurcation mechanism itself is not new, and the comparison does not claim a classification of all residue-set minimizers in closed form.
+The geometric mass of periodic residues is exactly q_R(r)=sum_{j in R}r^j/sum_{j=0}^{k-1}r^j. The block mass follows f(x)=ax²+2bx(1-x)+c(1-x)² and its fixed-point discriminant is Delta=1+4(b²-b+c(1-a)). Reconstructed fixed point multiplier 1-sqrt(Delta), two-cycle multiplier 5-Delta and the sharp upper envelope sup Delta=5-4m_R (unattained). Strict boundary Delta<4 when m_R>=1/4 and open-region Delta>4 when m_R<1/4. Total-variation Lipschitz lift follows finite mixture continuity. Initial contiguous residue block has monotone mass and inf=m/k; exact Fraction check for R={0,11,12,13} mod 14 yields a≈0.2376252658566 and Delta≈4.0439781871. General one-dimensional quadratic convergence is a published premise; accessible source extraction of its theorem was incomplete, but the multiplier and fixed/two-cycle algebra were reconstructed independently.
 
-Closest primary source: Karim, Hamzah and Ganikhodjaev (2022), DOI: 10.47836/mjms.16.4.06; previous restricted-rate work DOI: 10.11113/mjfas.v16n3.1737. The publisher issue lists publication on 23 December 2022. No external independent assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022 geometric-QSO paper already gives the three-rate scalar reduction and Delta criterion, so none of that is original. The novel candidate is the exact optimization over constrained modular geometric offspring distributions, the k>4m cutoff for initial blocks and equal-density order contrast. These do not follow solely by quoting the abstract quadratic-cycle condition. Passed best of knowledge with possible differently formulated residue-partition classifications outstanding.
+
+## value
+
+PASS
+
+A sharp all-periodic-partition criterion for whether a countable-state quadratic stochastic operator admits two-cycles, together with an explicit counterexample to residue-density sufficiency, is a motivated classification relevant to nonlinear population dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
