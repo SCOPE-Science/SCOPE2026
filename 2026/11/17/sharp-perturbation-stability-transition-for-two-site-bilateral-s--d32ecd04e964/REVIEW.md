@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is exactly a mean-preserving two-site contrast transform. The necessary-and-sufficient kernel criterion is obtained without derivatives; differentiation of the inverse-power and Gaussian contrast functions then determines their unrestricted global moduli. Explicit derivatives and unique maxima are verified analytically. Every coordinate \(\ell^q\) norm follows from a swap-matrix decomposition; the finite checker independently corroborates the constants and tests. Nonattainment in the amplified regime follows from isolation of the derivative maximizer.
+## correctness
 
-## Originality — PASS, qualified
-The closest examined literature is Tomasi–Manduchi (1998), Pianykh (arXiv:1007.1016v1), and Pan–An–He (2014). Pianykh's Abs/Frac/Quad/Exp kernels directly match exponent-one, exponent-two, exponent-four and Gaussian affinities; his response statistic is a one-input deviation ratio for modeled distributions, not the sharp two-input perturbation quotient proved here. Tomasi–Manduchi supplies the foundational filter definition; Pan–An–He treats fast computation for arbitrary kernels. published-finding corpus and accessible record-overlap queries did not identify a theorem covering the sharp all-exponent and Gaussian conclusions. This is evidence of an unresolved gap, not proof that no earlier unindexed result exists.
+PASS
 
-## Mathematical value — PASS
-The exact if-and-only-if criterion and sharp critical power-tail exponent \(p=1\) distinguish kernels that are genuinely nonexpansive under adversarial perturbations from kernels that merely reduce each signal's contrast. The closed sharp amplification factor and Gaussian maximizer give precise worst-case benchmarks for natural nonlinear edge-preserving filters. The two-site restriction is an explicit boundary, not a claim about complete images.
+Exact averaging/contrast reduction gives F_w(m,d)=(m,phi(d)) with phi(d)=d(1-w(|d|))/(1+w(|d|)). Monotonicity of w ensures phi is odd and increasing; ||phi||Lip<=1 iff H(s)=s*w/(1+w) nondecreasing. Every two-input quotient in coordinate ℓq equals the swap-symmetric matrix A_theta with eigendirections common mean and contrast; induced ℓq norm is max(1,theta). For inverse powers direct differentiation in z=(s/sigma)^p yields derivative peak z=(1+c)(p+1)/(p-1) only if p>1, giving 1+c(p-1)^2/(2p(1+c)); p<=1 sup=1 at infinity only. Gaussian stationary equation 2u(1-v)=3(1+v) has a unique root because the bracket decreases; substitution gives 1+2v(2+v)/(1-v^2). Finite distinct secants cannot equal isolated derivative maxima. Independently recomputed power-law peaks for c=0.1,0.7,1 and p=0.4,1,1.5,3 and Gaussian roots at c=0.1 and 1.
 
-## Limitations and historical-priority risk
-The proof applies to symmetric unit-self-weight bilateral filtering of two real observations after one simultaneous update. Unequal self-weights and larger grids remain open in this treatment. The nearest historical paper already explores the same kernel families for a different observable; an unindexed exact derivative analysis could overlap the result. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pianykh and the original bilateral-filter papers concern range weighting and one-input variance/edge preservation, while the current quantitative question is worst-case differences of two filtered inputs in arbitrary ℓq norms. Search found no prior full two-pixel contrast criterion or sharp power/Gaussian amplification constants; full historical priority remains qualified where original literature was not read exhaustively.
+
+## value
+
+PASS
+
+The two-site system is the minimal nontrivial bilateral-filter model and exactly separates one-input smoothing from two-input instability; p=1 is an interpretable tail-decay threshold, with quantitatively sharp worst-case response for standard rational and Gaussian kernels. This precise stability boundary is useful even though it does not generalize automatically to full images.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

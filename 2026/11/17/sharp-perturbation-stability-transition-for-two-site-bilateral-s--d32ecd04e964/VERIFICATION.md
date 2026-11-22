@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 check_bilateral.py` with the Python standard library. The program checks the original two-output normalized filter against its mean/contrast reduction, computes the two power-family derivative and Gaussian derivative expressions by symmetric finite differences, compares many secants with the proved bounds, tests maximizing contrasts and the unique Gaussian scalar root, and compares 90,000 pairs in several coordinate norms.
+## correctness
 
-The standalone script prints `ALL_TWO_SITE_BILATERAL_CHECKS_PASS` and `DIRECT_ALL_ELL_Q_PAIR_BOUNDS_PASS_90000` when its tests succeed. The unrestricted mathematical assertions are proved in `RESULT.md` and are not inferred from finite random testing. A failed checker must be investigated before relying on any numerical evidence.
+PASS
 
-# Scope of verification
+Exact averaging/contrast reduction gives F_w(m,d)=(m,phi(d)) with phi(d)=d(1-w(|d|))/(1+w(|d|)). Monotonicity of w ensures phi is odd and increasing; ||phi||Lip<=1 iff H(s)=s*w/(1+w) nondecreasing. Every two-input quotient in coordinate ℓq equals the swap-symmetric matrix A_theta with eigendirections common mean and contrast; induced ℓq norm is max(1,theta). For inverse powers direct differentiation in z=(s/sigma)^p yields derivative peak z=(1+c)(p+1)/(p-1) only if p>1, giving 1+c(p-1)^2/(2p(1+c)); p<=1 sup=1 at infinity only. Gaussian stationary equation 2u(1-v)=3(1+v) has a unique root because the bracket decreases; substitution gives 1+2v(2+v)/(1-v^2). Finite distinct secants cannot equal isolated derivative maxima. Independently recomputed power-law peaks for c=0.1,0.7,1 and p=0.4,1,1.5,3 and Gaussian roots at c=0.1 and 1.
 
-The tests use finite random sampling and finite precision, so they do not establish global maximality, uniqueness, or the if-and-only-if criterion by themselves. Those are proved by reduction to a scalar contrast map and analytic maximization. Absolute and relative numerical tolerances are used only for comparing independently evaluated formulas. No external validation is asserted.
+## originality
+
+PASS
+
+Pianykh and the original bilateral-filter papers concern range weighting and one-input variance/edge preservation, while the current quantitative question is worst-case differences of two filtered inputs in arbitrary ℓq norms. Search found no prior full two-pixel contrast criterion or sharp power/Gaussian amplification constants; full historical priority remains qualified where original literature was not read exhaustively.
+
+## value
+
+PASS
+
+The two-site system is the minimal nontrivial bilateral-filter model and exactly separates one-input smoothing from two-input instability; p=1 is an interpretable tail-decay threshold, with quantitatively sharp worst-case response for standard rational and Gaussian kernels. This precise stability boundary is useful even though it does not generalize automatically to full images.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

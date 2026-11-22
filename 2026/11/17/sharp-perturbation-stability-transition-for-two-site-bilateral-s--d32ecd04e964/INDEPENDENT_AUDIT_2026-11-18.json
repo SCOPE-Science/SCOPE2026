@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:58:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact averaging/contrast reduction gives F_w(m,d)=(m,phi(d)) with phi(d)=d(1-w(|d|))/(1+w(|d|)). Monotonicity of w ensures phi is odd and increasing; ||phi||Lip<=1 iff H(s)=s*w/(1+w) nondecreasing. Every two-input quotient in coordinate ℓq equals the swap-symmetric matrix A_theta with eigendirections common mean and contrast; induced ℓq norm is max(1,theta). For inverse powers direct differentiation in z=(s/sigma)^p yields derivative peak z=(1+c)(p+1)/(p-1) only if p>1, giving 1+c(p-1)^2/(2p(1+c)); p<=1 sup=1 at infinity only. Gaussian stationary equation 2u(1-v)=3(1+v) has a unique root because the bracket decreases; substitution gives 1+2v(2+v)/(1-v^2). Finite distinct secants cannot equal isolated derivative maxima. Independently recomputed power-law peaks for c=0.1,0.7,1 and p=0.4,1,1.5,3 and Gaussian roots at c=0.1 and 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original bilateral work introduces Gaussian spatial and range normalization on general image grids.",
+          "Pan–An–He gives arbitrary-kernel computational acceleration rather than this all-ℓq sharp stability criterion."
+        ],
+        "reasoning": "The broader number of sites in those papers is not broader mathematical coverage of the two-input sharp norm; no dominating theorem was identified in material actually inspected.",
+        "searches": [
+          "Tomasi Manduchi ICCV 1998 Bilateral Filtering for Gray and Color Images",
+          "Pan An He 2014 optimal O1 bilateral filter arbitrary range kernels",
+          "two site bilateral two input stability Lipschitz general kernel"
+        ]
+      },
+      "checked_sources": [
+        "Frozen bilateral RESULT blob 0ae957cf3b6cb654752b55d66cc2723a97e003a9",
+        "Pianykh arxiv:1007.1016 PDF targeted original sections",
+        "Tomasi–Manduchi DOI:10.1109/ICCV.1998.710815; Pan et al DOI:10.1155/2014/289517 metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monotonicity of w gives |phi(d)|<=|d| for every one input.",
+          "For sw(s)->0 and w>0 somewhere, H(s) must decrease eventually, producing a finite pair with slope >1."
+        ],
+        "reasoning": "The one-input reduction theorem does not imply two-input nonexpansivity and cannot dominate the sharp p=1 or Gaussian derivative conclusions.",
+        "searches": [
+          "bilateral filter one input variance reduction versus two input perturbation amplification",
+          "scalar contrast monotonicity test range filter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same two-observation bilateral formula collapses to the scalar odd contrast phi(d), whose Lipschitz constant controls all two-point perturbations.",
+          "Pianykh studies single-input local standard-deviation behavior for Gaussian and power range filters."
+        ],
+        "reasoning": "One-input variation shrinkage |phi(d)|<=|d| is strictly weaker than the two-input Lipschitz property |phi(d)-phi(e)|<=|d-e|. The prior study is not an equivalent sharp perturbation theorem.",
+        "searches": [
+          "two point bilateral Gaussian inverse power range affinities exact sharp Lipschitz contrast nonexpansivity",
+          "Pianykh bilateral filters what they can and cannot do 1007.1016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic Resultary search returned this target and otherwise unrelated TV-filter maps; no independent table of the c,p sharp two-input gains.",
+          "The Gaussian unit-coupling peak is L=1.6016389300117 from root u*=1.98035827977, not a quoted one-input variance ratio."
+        ],
+        "reasoning": "A known bilateral range-kernel catalogue does not specify the two-point difference Lipschitz constants or the nonattainment classification.",
+        "searches": [
+          "Resultary sharp perturbation two site bilateral smoothing Gaussian 1.60163893",
+          "Pianykh inverse power range kernel p threshold two-pixel table"
+        ]
+      },
+      "rationale": "Pianykh and the original bilateral-filter papers concern range weighting and one-input variance/edge preservation, while the current quantitative question is worst-case differences of two filtered inputs in arbitrary ℓq norms. Search found no prior full two-pixel contrast criterion or sharp power/Gaussian amplification constants; full historical priority remains qualified where original literature was not read exhaustively.",
+      "residual_risks": [
+        "An unindexed paper could phrase the same result as derivative bounds for a scalar bilateral contrast map.",
+        "For general monotone continuous w, regularity beyond continuity is not required; no claim for three-site or asymmetric filters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes one-input standard-deviation reduction, different from an all-pair Lipschitz norm; cannot assert whole-document not covering.",
+          "evidence": "Pianykh (2010), functional families Abs/Frac/Quad/Exp and local analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1007.1016",
+          "material_read": "Paper introduction and page 4 descriptions/comparisons of single-input contrast distributions; full article not exhaustively read",
+          "method": "arXiv PDF targeted page screenshot",
+          "title": "Bilateral filters: what they can and cannot do",
+          "trigger": "Highly relevant rational/Gaussian range functions and smoothing claims"
+        },
+        {
+          "assessment": "Foundational Gaussian range weighting is credited; no full-source novelty conclusion.",
+          "evidence": "Tomasi–Manduchi ICCV (1998).",
+          "identifier_or_url": "https://doi.org/10.1109/ICCV.1998.710815",
+          "material_read": "Published method/abstract and identifying mechanism; complete text not independently verified this run",
+          "method": "Primary bibliographic/source identification",
+          "title": "Bilateral Filtering for Gray and Color Images",
+          "trigger": "Primary source for the normalized bilateral operator"
+        },
+        {
+          "assessment": "Approximation algorithms are distinct, but full appendices remain a residual risk.",
+          "evidence": "Pan–An–He (2014).",
+          "identifier_or_url": "https://doi.org/10.1155/2014/289517",
+          "material_read": "Paper topic and abstract-level methodological focus; no full paper read this execution",
+          "method": "Indexed abstract / literature result",
+          "title": "Optimal O(1) Bilateral Filter with Arbitrary Spatial and Range Kernels Using Sparse Approximation",
+          "trigger": "Potential general-kernel coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-site system is the minimal nontrivial bilateral-filter model and exactly separates one-input smoothing from two-input instability; p=1 is an interpretable tail-decay threshold, with quantitatively sharp worst-case response for standard rational and Gaussian kernels. This precise stability boundary is useful even though it does not generalize automatically to full images.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen bilateral RESULT blob 0ae957cf3b6cb654752b55d66cc2723a97e003a9",
+    "Pianykh arxiv:1007.1016 PDF targeted original sections",
+    "Tomasi–Manduchi DOI:10.1109/ICCV.1998.710815; Pan et al DOI:10.1155/2014/289517 metadata"
+  ],
+  "disposition": "passed",
+  "final_claim": "For symmetric two-site bilateral smoothing, two-input path-TV and every coordinate-ℓq nonexpansivity are equivalent to monotonicity of H(s)=s w(s)/(1+w(s)); inverse-power kernels have a sharp p=1 transition with explicit global gain, and Gaussian kernels have a unique sharp amplified derivative maximum.",
+  "limitations": [
+    "An unindexed paper could phrase the same result as derivative bounds for a scalar bilateral contrast map.",
+    "For general monotone continuous w, regularity beyond continuity is not required; no claim for three-site or asymmetric filters."
+  ],
+  "residual_risks": [
+    "An unindexed paper could phrase the same result as derivative bounds for a scalar bilateral contrast map.",
+    "For general monotone continuous w, regularity beyond continuity is not required; no claim for three-site or asymmetric filters."
+  ],
+  "schema_version": 1
+}
