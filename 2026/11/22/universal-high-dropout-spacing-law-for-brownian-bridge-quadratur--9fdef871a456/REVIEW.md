@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness (PASS)
+Equation (1) is the Gaussian conditional variance obtained by independent bridge gaps. Strict convexity on the full closed ordered simplex follows from the all-surviving event's positive probability and strict convexity of the sum of cubed gaps. Reflective invariance then forces a symmetric unique minimizer. For fixed finite sensor number, the singleton term forces every minimizing location to be within \(O(1-q)\) of the midpoint. The locally uniform third-order high-dropout expansion has the strictly convex limiting energy \(\frac14\sum_i y_i^2-\frac1{16}\sum_{i<j}(y_j-y_i)\), uniquely minimized at \(y_i=(2i-n-1)/8\). The two-sensor exact result is the unique positive root of the stated quadratic. The standalone verifier reproduces independent covariance conditioning and small-dimensional numerical optimizations. No extrapolation from finite numerical checks is used as proof.
+
+## Originality (PASS, with residual risk)
+The published bridge quadrature and interpolation works of Friedrich et al. (2020), Pronzato--Zhigljavsky (2018), and Santin (2022) do not state the independent-dropout high-failure spacing theorem in the inspected material. The robust sensor-placement literature of Krause et al. (2008) treats mutual information on discrete sets; Frasca et al. (2014) treats maximum-distance coverage loss with the *opposite* high-failure behavior (exact co-location), not Bayes integral variance. The checked mathematical-search records describing randomized Brownian-bridge nodes, stratified Brownian nodes, and OU quadrature address different design models. No dominating or equivalent statement was identified. Publication priority remains provisional because the complete historical literature has not been exhaustively verified.
+
+## Value (PASS)
+Missing measurements are a basic experimental-design constraint. An exact and general small-survival law for any fixed sensor count, with universal node spacing and a closed two-sensor formula, gives a nontrivial calibration for robust Bayesian quadrature. It distinguishes a limiting collapse from exact co-location and exhibits sensitivity to the loss functional relative to geometric coverage. These structural statements are not merely a finite numerical table.
+
+## Limitations and source comparison
+Known endpoints, bridge covariance, fixed finite \(n\), exact surviving samples, independent identical dropout and observation of failure indicators are essential. Multiple other stochastic processes, conditional sensor dropout, and arbitrary sensing criteria are outside scope. Frasca et al. (arXiv:1404.7711, §5) is the closest failure-model comparison; the different objective invalidates transfer of their clustering theorem. Friedrich et al. (arXiv:2005.07591), Pronzato--Zhigljavsky (arXiv:1808.10722), Santin (arXiv:2210.15959) and Krause et al. (JMLR 9, 2008) provide context but no identified implication of the final result. Independent mathematical and priority audits are still needed.
+
+Self-review: passed. Independent audit: not yet performed.
