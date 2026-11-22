@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Starting from both bulk first-passage backward equations and wall-bound competing-exponential equations, solve the affine heading difference and quadratic mean and recover the exact mean for all positive parameters. For fixed K, derivative numerator G is strictly increasing because G_prime=A(c+h*delta)/2>0 and its values at delta=-K and +K have strict opposite signs. Hence a unique strict global interior optimum, including endpoint launches. Implicit differentiation of H(t,K), where H_t>0 and H_K has the opposite sign at its root, proves strict budget ordering. Taking K to zero and infinity, and an interior uniform expansion, proves both sharp limits, positive remote fraction, and optimized mean expansion. The standard-library checker separately solves boundary equations and passes 600 exact-rational plus 840 numerical/limit checks; finite tests are not the global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff (2023) supplies the kinetic equations and first-passage framework; its formulas make constrained optimization possible but the exact global split and strong-budget law are not theorems found there.",
+        "Published Brownian Robin optimization has a remote-wall fraction tending to zero at boundary start; here that fraction stays positive.",
+        "The indexed sticky-wall result varies alpha at equal reactivities."
+      ],
+      "reasoning": "Known first-passage transforms are broader descriptions of the stochastic law, yet do not by themselves assert or establish constrained global optimizer uniqueness, monotonicity and sharp limits; the new proof supplies nontrivial derivative and boundary analysis. Brownian and identical-reactivity results cannot dominate this physically distinct optimization statement.",
+      "searches": [
+        "run-and-tumble asymmetric wall trapping target reactivity design strict unique optimal splitting fixed budget",
+        "\"sticky\" \"run and tumble\" \"optimal\" \"two\" absorption rates boundary",
+        "arxiv:2302.01158",
+        "2026/10/26/SCOPE-optimal-allocation-of-two-reactive-brownian-boundaries-a-unique--562e72eb5093",
+        "2026/11/8/SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.01158",
+      "https://doi.org/10.1140/epje/s10189-023-00402-7",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-optimal-allocation-of-two-reactive-brownian-boundaries-a-unique--562e72eb5093",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-boundary-capture-allocation-transition-and-variance-selection-fo--61f92a1dbbba",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The all-parameter positive fraction at x=0 contrasts with the Robin strong-budget remote-wall fraction converging to zero.",
+        "Instantaneous RTP capture has phase-dependent boundary or balanced allocations, including zero reactivity, whereas the new sticky RTP has strictly positive two-wall optimal rates for all K.",
+        "Both-wall equal rate optimization of the tumble clock contains no variable for unequal reactivity allocation."
+      ],
+      "reasoning": "Differences concern fundamental generator boundary kinetics and budget variables, not merely titles or numerical parameters; applying the older theorems does not yield the current constrained optimizer or its asymptotic. The Bressloff model is the scientific premise, not an already stated allocation theorem.",
+      "searches": [
+        "arxiv:2302.01158",
+        "2026/10/26/SCOPE-optimal-allocation-of-two-reactive-brownian-boundaries-a-unique--562e72eb5093",
+        "2026/11/2/SCOPE-boundary-capture-allocation-transition-and-variance-selection-fo--61f92a1dbbba",
+        "2026/11/8/SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae",
+        "active telegraph particle interval sticky boundary absorption fastest absorption optimal allocation wall reactivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sticky-wall rate boundary condition is (beta+kappa_j)m_out=1+beta m_in, unlike instantaneous capture probability q_j at a collision.",
+        "The exact fixed-sum objective is a rational function of delta=kappa0-kappaL with a strictly one-crossing derivative."
+      ],
+      "reasoning": "Equivalent scalar Robin or Bernoulli-reflection parametrizations would have to preserve physical residence times and a linear *sum of killing rates*. The closest instantaneous-encounter allocation does neither and has incompatible bang-bang outcomes.",
+      "searches": [
+        "run and tumble particle sticky walls distinct partial absorption reactivities optimize allocation fixed total absorption budget minimize mean first passage time",
+        "active telegraph particle interval sticky boundary absorption fastest absorption optimal allocation wall reactivity",
+        "arxiv:2302.01158",
+        "2026/11/2/SCOPE-boundary-capture-allocation-transition-and-variance-selection-fo--61f92a1dbbba"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-database semantic hits for Brownian Robin allocation, finite-speed per-collision allocation and identical sticky-wall fluctuation control were read in full; none equals the current claim.",
+        "Direct comparisons of three closest published full mathematical statements and the source sticky-wall first-passage equations found no equivalent fixed-sum killing-rate allocation theorem."
+      ],
+      "reasoning": "No exact indexed theorem or tabulated parameter formula for this physical killing-rate budget was located. Search incompleteness is explicitly recorded and not treated as proof of novelty.",
+      "searches": [
+        "run and tumble particle sticky walls distinct partial absorption reactivities optimize allocation fixed total absorption budget minimize mean first passage time",
+        "run-and-tumble asymmetric wall trapping target reactivity design strict unique optimal splitting fixed budget",
+        "published-finding corpus semantic search: sticky reactive walls fixed budget allocation",
+        "2026/10/26/SCOPE-optimal-allocation-of-two-reactive-brownian-boundaries-a-unique--562e72eb5093",
+        "2026/11/2/SCOPE-boundary-capture-allocation-transition-and-variance-selection-fo--61f92a1dbbba",
+        "2026/11/8/SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae"
+      ]
+    },
+    "rationale": "The 2023 source supplies sticky-wall first-passage physics, but the theorem solves a new constrained two-reactive-wall rate-allocation optimization with one strict interior global optimum at every positive finite parameter choice, strictly monotone budget ordering and a strictly positive distant-wall fraction under strong killing. Full published closely related optimization texts were compared mathematically: Brownian Robin walls, instantaneous probabilistic collision killing and symmetric sticky-wall tumbling optimization have different boundary laws, decision variables, and sometimes incompatible asymptotics. Unindexed priority and implicit exact-transform derivability remain risks; no uniqueness of publication is asserted.",
+    "residual_risks": [
+      "Bressloff and other first-passage formulas implicitly determine the mean; algebraically derivable but unpublished constrained optimization may exist.",
+      "An unindexed equivalent sticky-wall allocation theorem or alternative physical budget parametrization may have escaped retrieval.",
+      "The Angelani source comparison focused on its relevant accessible model and optimization material rather than separately auditing all historical citations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes sticky attachment, release, wall absorption and transforms; the present global fixed-sum killing-rate allocation, sharp optimizer, budget monotonicity and remote-wall positive-share asymptotic were not established in the inspected material.",
+        "evidence": [
+          "arxiv:2302.01158, sections 2 and 5: wall-state absorption/release equations and two reactive walls",
+          "Present proof differentiates a new fixed-sum killing-rate quotient and proves strict global optimizer and budget asymptotics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.01158",
+        "material_read": "Accessible 27-page arXiv full text; model and backward/forward boundary material, especially sections 2 and 5 and discussion of distinct wall rates; first public posting date crosschecked against arXiv record",
+        "method": "Read source PDF text and inspected an original PDF page image; compared model equations and optimization statements",
+        "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+        "trigger": "Closest original sticky-wall model, including different wall reactivities and first-passage equations"
+      },
+      {
+        "assessment": "Optimizes active-escape dynamics, especially bulk tumbling and wall release; it does not state the fixed-sum two-wall killing allocation law. Some less-relevant portions were not separately audited.",
+        "evidence": [
+          "Angelani (2024), Optimal escapes in active matter, one-wall escape control and tumbling-rate optimization",
+          "Present objective is a constrained split of two independent wall killing hazards."
+        ],
+        "identifier_or_url": "https://doi.org/10.1140/epje/s10189-023-00402-7",
+        "material_read": "Open-access article accessible introductory and relevant model/optimization passages on bulk tumbling and wall kinetics; compared the optimization variable and wall configuration",
+        "method": "Web article inspection and statement-level mathematical comparison",
+        "title": "Optimal escapes in active matter",
+        "trigger": "Potentially competing optimization of active-particle escapes and wall reactivity"
+      },
+      {
+        "assessment": "Brownian Robin diffusion has no finite-speed sticky waiting states; its distant-wall fraction vanishes at a boundary start as budget grows. Does not imply the present strictly positive distant-wall share for finite tumbling speed.",
+        "evidence": [
+          "Published RESULT.md shows at boundary launch distant Robin rate scales as the square root of total budget",
+          "Present rate-controlled sticky RTP has distant rate asymptotically proportional to the total budget."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-optimal-allocation-of-two-reactive-brownian-boundaries-a-unique--562e72eb5093",
+        "material_read": "Entire public RESULT.md, including theorem, exact Robin mean, algebraic optimum and large-budget endpoint expansion",
+        "method": "Read original published RESULT.md and compared generators and high-budget optimal fractions",
+        "title": "Optimal allocation of two reactive Brownian boundaries: a unique interior split and sharp budget laws",
+        "trigger": "Same fixed-sum reactive endpoint optimization in a different transport process"
+      },
+      {
+        "assessment": "Instantaneous collision absorption with probability budget differs from sticky residence with exponential killing-rate budget. Its bang-bang/equal phase transition cannot imply strict interior optimality in the present parameter family.",
+        "evidence": [
+          "Published RESULT.md boundary rule m^out=(1-q)m^in has zero sticky residence time",
+          "Present boundary equation (beta+kappa)m^out=1+beta m^in includes residence-time hazard and fixed total kappa."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-boundary-capture-allocation-transition-and-variance-selection-fo--61f92a1dbbba",
+        "material_read": "Entire public RESULT.md, including backward equations, collision boundary rules and fixed-probability-budget phase diagram",
+        "method": "Read original published RESULT.md and compare boundary rule, resource constraint and implications",
+        "title": "Boundary-capture allocation transition and variance selection for a persistent particle",
+        "trigger": "Finite-speed particle optimizing two absorbing boundary channels"
+      },
+      {
+        "assessment": "Keeps wall rates identical and optimizes tumbling for relative capture-time variance, not the allocation of a fixed sum of unequal wall-killing rates for minimum mean time.",
+        "evidence": [
+          "Published finding treats kappa0=kappaL and alpha as variable",
+          "Present theorem fixes alpha, permits different kappa rates and optimizes mean time."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae",
+        "material_read": "Entire public RESULT.md with identical-wall Laplace transform and coefficient-of-variation minimization",
+        "method": "Read original published RESULT.md and compare symmetric-rate assumption and decision variable",
+        "title": "Sharp fluctuation-optimal tumbling threshold for sticky reactive run-and-tumble walls",
+        "trigger": "Same sticky model with two walls and an optimization conclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64d37101-341a-4ee7-ab34-75014b7c6403",
+  "value": {
+    "rationale": "Dividing a total reaction-capacity budget between sticky wall channels is a natural experimentally interpretable design question. The fully quantified unique optimizer and all-parameter strict interiority distinguish rate-controlled finite-speed transport from instantaneous capture; the nonzero optimal distant-wall share under arbitrarily strong killing is a qualitative, physically motivated transport effect. Sharp weak/strong allocation laws, strict budget ordering and the leading optimized mean give useful structural answers beyond evaluating an already known first-passage formula.",
+    "status": "PASS"
+  }
+}
