@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "PASS: For arbitrary a.s. finite threshold law, stop at first boundary contact in the open state. The strong Markov property factors the no-reset Laplace transforms as h_j=c_j Φ with identical Φ>0. Solving the two-state backward ODE gives c_0,c_1 explicitly. The surviving gate-state kernel R=(I-he_1^T)(rI-Q)^(-1) is derived by decomposing at absorption, and 2x2 inversion gives a delay ratio independent of Φ, strictly positive. The Robin specialization matches an independent coupled finite-difference generator solve at five parameter points; symbolic identities and ten further arbitrary-threshold matrix checks pass. The finite tests supplement, not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff 2022 arXiv:2203.04868 treats arbitrary local-time threshold resetting versus position-only resetting, without the two-state independent gate protocol difference.",
+        "Scher–Reuveni 2021 develops general gated-reaction transforms for network search, but no identified reset-protocol invariance for arbitrary local-time threshold laws."
+      ],
+      "reasoning": "General renewal formulas can supply the tools, but their published conclusions do not directly assert an invariant comparison between two distinct gate-reset kernels after independently refreshing chemical progress. A stronger unlocated general theorem remains a residual priority risk.",
+      "searches": [
+        "arxiv:2203.04868 Sections 2–3 position/local-time resetting",
+        "arxiv:2101.05124 gated reactions on networks",
+        "Published mathematical-record search: renewal non-renewal resetting reactive gate memory penalty does not depend on partial reactivity gamma threshold random local time"
+      ]
+    },
+    "checked_sources": [
+      "Mercado-Vásquez & Boyer 2021, arxiv:2107.02148 Eq.(49): exact instantaneous-absorption special case, prior",
+      "Bressloff 2022, arxiv:2205.13985: arbitrary reaction threshold with full gate refresh, prior",
+      "Bressloff 2022, arxiv:2203.04868: threshold resetting/progress retention without separate two-state gate",
+      "Published finding: Strict two-geometric reset-count law for a Brownian search with an independently switching gate",
+      "Published finding: Power-law survival versus exponential rescue for retained and refreshed surface-reaction thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 result proves the right side for a perfectly absorbing open target (zero contact threshold), and therefore covers that special case exactly.",
+        "2022 result includes arbitrary threshold distributions only for full gate/contact reset. The target statement compares two gate-reset protocols at every threshold law."
+      ],
+      "reasoning": "The 2021 result neither states nor implies independence from a newly introduced arbitrary threshold law; the 2022 result does not give the missing gate-retained MFPT. The additional implication follows only after a further conditional factorization and a nonrenewal gate-state reset kernel. This is a structural extension, not a claim that the special-case gap is new.",
+      "searches": [
+        "arxiv:2107.02148 Appendix B Eq. (49)",
+        "arxiv:2205.13985 Section 4 Eq. (4.10), Section 5.2",
+        "Published mathematical-record search: stochastically switching target boundary local time arbitrary threshold Poisson reset retaining gate but refreshing surface reaction progress mean time invariance independent threshold distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mercado-Vásquez–Boyer 2021 Eq. (49) is identical to the formula for perfect open-gate absorption.",
+        "Bressloff 2022 considers gamma and more general local-time reaction laws with gate-state refreshing; its stated reset rule renews gate and local times."
+      ],
+      "reasoning": "The known perfect-absorption delay is openly attributed; only invariance under arbitrary freshly redrawn threshold laws is asserted as additional. The 2022 arbitrary-threshold refreshed-gate MFPT is not a retained-gate comparison. An inverse-local-time and Markov-renewal derivation proves their combined extension rather than renaming an old numerical formula.",
+      "searches": [
+        "Published mathematical-record search: stochastically switching target boundary local time arbitrary threshold Poisson reset retaining gate but refreshing surface reaction progress mean time invariance independent threshold distribution",
+        "arxiv:2107.02148 Appendix B Eq. (49)",
+        "arxiv:2205.13985 Sections 4–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published record titled Strict two-geometric reset-count law for a Brownian search with an independently switching gate concerns reset-count statistics for a perfectly absorbing boundary, not arbitrary reaction thresholds.",
+        "A published record titled Power-law survival versus exponential rescue for retained and refreshed surface-reaction thresholds varies whether the reaction threshold is retained, whereas both protocols here refresh it."
+      ],
+      "reasoning": "Published searchable research records and the close articles do not supply an exact tabulation of the arbitrary-threshold gate-protocol delay; no claim of globally exhaustive search is made.",
+      "searches": [
+        "Published mathematical-record search: stochastically gated first passage contact time threshold gamma distribution reset gate retained versus resampled asymmetry universal delay",
+        "Published mathematical-record search: gate-preserving versus gate-refreshing Poisson reset Brownian partially absorbing boundary mean capture time exact exp square root switching rate independent κ",
+        "arxiv:2205.13985 Section 5.2 finite-reactivity MFPT"
+      ]
+    },
+    "rationale": "PASS (qualified): The instantaneous-absorption formula is explicitly published by Mercado-Vásquez & Boyer (2021, Appendix B Eq.49), so that numerical equality is not claimed original. Bressloff (2022) permits general contact-threshold distributions under complete refresh, but does not compare retaining versus resampling gate state at such thresholds. The added assertion is a nontrivial law-universality across all finite threshold distributions, established by a common hitting-transform factor and a separate gate-state renewal kernel. Close and broad possible implicit coverage is disclosed.",
+    "residual_risks": [
+      "The perfect-absorber formula is already published verbatim in 2021; only the arbitrary threshold-law invariance is assessed as additional.",
+      "An abstract Markov-renewal theorem or inverse-local-time result could implicitly subsume the extension even if the searched papers do not state it.",
+      "Nonexponential reaction laws require resetting threshold/contact progress on both protocols; retaining the threshold changes the model and may break the identity.",
+      "Independent publication-priority and proof audits remain necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers perfect-absorption gap exactly; does not state nonexponential threshold-law invariance",
+        "evidence": [
+          "Appendix B Eqs. (48)–(49) gives same positive delay for instant absorption, explicitly comparing gate-refreshed and gate-retained protocols.",
+          "Appendix A Eqs. (46)–(47) gives retained-gate equations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+        "material_read": "Full arXiv HTML, definitions, main result, Appendix A backward equations, Appendix B comparison and exact Eq. (49)",
+        "method": "Read primary HTML text, compared protocol and all parameters algebraically",
+        "title": "Search of stochastically gated targets with diffusive particles under resetting",
+        "trigger": "Exact gate-retained first-passage time with position resetting; strongest direct priority threat"
+      },
+      {
+        "assessment": "Establishes general-threshold full refresh, not the gate-retained vs refreshed comparison",
+        "evidence": [
+          "Section 4, Eq. (4.10) explicitly resets gate, position, and local times.",
+          "Section 5.2 Eqs. (5.18)–(5.27) treats generalized absorbing-state contact thresholds and refreshed-gate MFPT."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.13985",
+        "material_read": "Full arXiv HTML, Sections 3–5, reset rule Eq. (4.10), flux and MFPT formulas in Section 5.2, inverse local-time setup and examples",
+        "method": "Read accessible full text; compare reset state and threshold assumptions",
+        "title": "Stochastically switching diffusion with partially reactive surfaces",
+        "trigger": "Same switching boundary with general local-time reactivity and Poisson renewal"
+      },
+      {
+        "assessment": "Establishes gate refresh with perfect absorption, no arbitrary threshold universality",
+        "evidence": [
+          "Intro describes necessity of resetting the gate conformation; 2021 Appendix B confirms difference from retained gate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+        "material_read": "Full arXiv HTML, assumptions and reset protocol, renewal MFPT approach, half-line limits as discussed in 2021 comparison",
+        "method": "Read full HTML and matched renewal protocol",
+        "title": "Diffusive search for a stochastically-gated target with resetting",
+        "trigger": "Original refreshed-gate protocol"
+      },
+      {
+        "assessment": "No independently switching two-state reactive gate is included in the specific protocol comparison",
+        "evidence": [
+          "Section 2 contrasts resetting and retaining local-time progress; present result holds both protocols at refreshed progress and changes only gate retention."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.04868v2",
+        "material_read": "Full arXiv HTML, introduction, Sections 2.1–2.3 including distinctions between refreshing and retaining contact progress",
+        "method": "Examined model and protocol assumptions in full HTML",
+        "title": "Threshold surface reactions and local time resetting",
+        "trigger": "Competing treatment of arbitrary contact thresholds and reset memory"
+      },
+      {
+        "assessment": "General background on gated reactions; residual possibility of implicit coverage retained",
+        "evidence": [
+          "Describes gated-reaction times in terms of ungated first-passage and return-time laws; no directly matched reset-protocol threshold-invariance statement identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2101.05124v1",
+        "material_read": "Accessible HTML abstract and methodological discussion of gated versus ungated first-passage laws; relevant framework and scope reviewed",
+        "method": "Checked model description and general transform scope, without claiming exhaustive theorem coverage",
+        "title": "A Unified Approach to Gated Reactions on Networks",
+        "trigger": "Potentially dominating general gated-reaction identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "26c7f1eb-dda1-4173-8b30-0c7d1c404d09",
+  "value": {
+    "rationale": "PASS: A physically motivated mechanistic distinction between conformational memory and chemical contact progress yields a sharp, positive reset penalty that is invariant under the entire (including non-Markovian) surface reaction threshold law. This shows that altering surface chemistry changes each first-passage mean but not their difference. It generalizes a known perfectly reactive observation into a structural independence principle and identifies precisely which reset protocol features can affect it.",
+    "status": "PASS"
+  }
+}
