@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "An arbitrary unordered cut corresponds bijectively to a cyclic outer edge-transition word with even parity, no adjacent ones, and a forced inner-layer word satisfying exact local equations. The length-(2k+2) overlap graph encodes these constraints at every vertex. Exhaustive Tarjan computation over every window for k=4..7 yields no recurrent SCC except the enumerated 1-,2-,5-cycles; all internal degrees equal one. Two-cycle words require n multiple of four for parity, five-cycle words have even transition parity automatically. A separate direct-graph predicate enumeration for every admissible n<=24 matches these counts. The mathematical reduction, state construction, independent direct test and explicit output are included; direct tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Le–Telle 2021 sections 2–5 concern complexity, general exact branching and polynomial classes, and expressly propose counting/enumeration as a further question.",
+        "Bouquet–Picouleau 2024 first-online full-text sections 1–7 prove existence/complexity statements and a bounded-treewidth recognition algorithm, not per-family cardinality formulas.",
+        "Dudek arXiv:1412.3531 analyzes spectra of P(n,k), and Naz et al. 2014 analyzes P(n,4) metric dimension."
+      ],
+      "reasoning": "A decision procedure for perfect matching cuts does not logically yield counts or disjoint primitive-word classification. The published P(n,2),P(n,3) results do not establish statements over new steps, although P(16,5) is isomorphic to P(16,3) and P(20,7) to P(20,3), covering those finite instances.",
+      "searches": [
+        "published-finding corpus: generalized Petersen k=4 k=5 k=6 k=7 all perfect matching cuts modular 4 5 periodic patterns",
+        "web: \"perfect matching cut\" \"P(n,k)\" classification",
+        "full text of Le–Telle arXiv:2107.06399v1 and Bouquet–Picouleau doi:10.1002/jgt.23167"
+      ]
+    },
+    "checked_sources": [
+      "Le and Telle, arXiv:2107.06399v1 (relevant manuscript sections)",
+      "Bouquet and Picouleau, doi:10.1002/jgt.23167 (open HTML relevant sections)",
+      "Naz et al., doi:10.1007/s10114-014-2372-8 (abstract/partial text)",
+      "Dudek, arXiv:1412.3531 (accessible introduction/theorems)",
+      "Two exact published mathematical records on P(n,2) and P(n,3) (complete RESULT.md)",
+      "Published mathematical-index searches for predicate, graph family, aliases and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P(n,2): 1+5·1_(5|n), proof based on 7-bit colors and restricted to k=2.",
+        "P(n,3): 1+2·1_(4|n)+5·1_(5|n), proof based on 9-bit colors and restricted to k=3.",
+        "Our new fixed-jump cases require complete recurrent-subgraph certificates of 180,720,2880,11520 admissible local windows."
+      ],
+      "reasoning": "Identical period terms in different k do not imply the new assertions, since the adjacency relation v_i v_(i+k) changes. Ordinary P(n,k) graph isomorphisms to earlier jumps explain certain isolated small orders but do not cover infinitely many n at any new fixed k. Both rigid steps and their exhaustive uniqueness require new state-graph elimination.",
+      "searches": [
+        "published-finding corpus: For generalized Petersen graphs GP(n,4), unique perfect matching cut or 1-limited partition",
+        "published-finding corpus: perfect matching cuts of generalized Petersen graph GP(n,2) exact enumeration",
+        "published-finding corpus: perfect matching cuts of P(n,3) two nonspoke resonance periods",
+        "full published P(n,2) and P(n,3) RESULT.md files read through GitHub connector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Le–Telle, arXiv:2107.06399v1, introduction: a perfect matching cut is an exact one-opposite-neighbor bipartition; merely disconnected perfect matchings can be different.",
+        "Published jump-two and jump-three RESULT.md texts explicitly use the identical cut predicate and exact modulo-four/five formulas."
+      ],
+      "reasoning": "The cut is equivalent to a binary shore assignment giving every vertex exactly one opposite-color neighbor, or to a bipartition into two induced degree-two subgraphs of a cubic graph. Our counting is of exact cut edge sets; it is not subsumed by general disconnected-perfect-matching/2-factor existence. The same predicate in earlier jump-two and jump-three papers only covers different fixed k.",
+      "searches": [
+        "published-finding corpus: Generalized Petersen P(n,4) P(n,5) P(n,6) P(n,7) exact perfect matching-cut counts, cut edge sets that form a perfect matching",
+        "published-finding corpus: Generalized Petersen P(n,k) vertex 2-colourings with exactly one neighbor of opposite color, partition into two induced 2-factors, disconnected 2-factors",
+        "web: \"perfect matching cut\" \"generalized Petersen\" k 4",
+        "web: \"generalized Petersen\" \"disconnected 2-factor\" perfect matching cut"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results were the published exact jump-two record 07ff361ad99e and jump-three record 71466def2f69.",
+        "The two closest published records treat k=2 and k=3; neither includes an exact database or table for k=4,5,6,7."
+      ],
+      "reasoning": "No exact four-jump classification, table or equivalent consequence was found in the inspected accessible sources. The absence of a matching database hit is not a novelty proof, and additional unindexed tables remain possible.",
+      "searches": [
+        "published-finding corpus search for k=4..7 perfect matching cut counts and 2-factor cut partitions",
+        "web: \"perfect matching cut\" \"P(n,7)\" \"P(n,4)\""
+      ]
+    },
+    "rationale": "The two closest full mathematical records calculate precisely the jump-two and jump-three families, and their fixed-jump theorems do not imply the uniform assertions for k=4,5,6,7. General perfect-matching-cut literature provides recognition and complexity results, not all-order exact counts in these four families. An exact local finite-state reduction supplies new coverage and identifies the rigidity and period-four/five reappearance. Priority is conditional on the accessible and indexed record, and isolated small graph isomorphisms are explicitly excepted as old instances.",
+    "residual_risks": [
+      "The 2014 step-four metric-dimension full article was not available as a complete directly inspected text; only abstract and excerpt were seen, although its predicate is different.",
+      "An unindexed or unknown older exact enumeration of equivalent step-four through step-seven cuts may exist.",
+      "Sporadic graph isomorphisms to earlier fixed-step families cover isolated parameter values, and those finite instances are not new.",
+      "The 2016 matching-cut algorithms paper full text could not be fetched; its abstract describes decision algorithms, not a complete four-step cut classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact modulo-five count for k=2 does not cover k=4..7.",
+        "evidence": [
+          "The theorem explicitly fixes k=2 and excludes any other jump in its limitations."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-all-perfect-matching-cuts-of-generalized-petersen-graphs-with-se--07ff361ad99e/RESULT.md",
+        "material_read": "Full RESULT.md: definitions, theorem, proof, cyclic core, limitations, references.",
+        "method": "Fetched repository file content and compared quantifiers and primitive periodic words.",
+        "title": "All perfect matching cuts of generalized Petersen graphs with second jump two",
+        "trigger": "same predicate, same generalized Petersen family, step two"
+      },
+      {
+        "assessment": "General technique analogous; k=3 theorem itself does not imply new steps.",
+        "evidence": [
+          "Scope section requires n>=7 and fixes k=3; explicit limitations do not assert arbitrary jump."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-perfect-matching-cuts-of-p-n-3-two-nonspoke-resonance-periods--71466def2f69/RESULT.md",
+        "material_read": "Full RESULT.md: proof and its nine-bit automaton, exact cyclic core, counting, relationship, limitations.",
+        "method": "Fetched repository file content and compared graph inner step, cut counts and isomorphism implications.",
+        "title": "Perfect matching cuts of P(n,3): two nonspoke resonance periods",
+        "trigger": "closest earlier 4- and 5-period cut classification"
+      },
+      {
+        "assessment": "Does not enumerate perfect matching cuts of generalized Petersen families.",
+        "evidence": [
+          "Introduction distinguishes disconnected perfect matchings; conclusion explicitly proposes counting and enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2107.06399v1",
+        "material_read": "Full accessible HTML paper sections including introduction, exact branching algorithm, special classes, conclusion and references, with relevant results inspected.",
+        "method": "HTML source examination for definitions, exact count claims, general theorems and explicit future work.",
+        "title": "The Perfect Matching Cut Problem Revisited",
+        "trigger": "primary same-predicate general complexity reference"
+      },
+      {
+        "assessment": "Provides decision/complexity claims, not the counts or four-step periodic classification.",
+        "evidence": [
+          "Theorem 7.1 is polynomial solvability on bounded-treewidth graphs, not an enumerative theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.23167",
+        "material_read": "Open-access article abstract, introduction, sections on bounded treewidth and final results, plus search through body for Petersen.",
+        "method": "Inspected publisher full-text HTML, compared implications of general recognition algorithm.",
+        "title": "The complexity of the perfect matching-cut problem",
+        "trigger": "relevant later open-access same-predicate paper"
+      },
+      {
+        "assessment": "Spectral-gap statements do not settle perfect matching cut enumeration.",
+        "evidence": [
+          "Main theorems bound spectral gap, eigenvalue counts and Cayley-proportion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.3531",
+        "material_read": "Accessible HTML introduction and statements of Theorems 1.1–1.4; not the whole proof.",
+        "method": "Examined the stated objects and eigenvalue invariants.",
+        "title": "On the Spectrum of the Generalised Petersen Graphs",
+        "trigger": "archival all-jump generalized Petersen family source"
+      },
+      {
+        "assessment": "Different invariant. Inaccessibility of remaining full text is a residual priority risk, not a claim of whole-text noncoverage.",
+        "evidence": [
+          "Published online 2014-06-15; abstract gives only metric-dimension results."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10114-014-2372-8",
+        "material_read": "Published abstract, first paragraphs and accessible HTML excerpt; complete article not inspected.",
+        "method": "Compared the metric-dimension formulation to perfect matching cut census.",
+        "title": "On the Constant Metric Dimension of Generalized Petersen Graphs P(n,4)",
+        "trigger": "precise archival step-four family and verified public date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ada0ebce-4f2a-470d-b553-0d27ccfe35b7",
+  "value": {
+    "rationale": "The exact four-step all-order classification answers a natural gap after known k=2,3 results and reveals a nonmonotone rigid–resonant sequence: k=4 and k=6 force only the spoke cut, k=5 admits the period-four family, and k=7 admits both period-four and period-five families. This classifies all valid bipartitions into induced two-regular shores joined by a perfect matching, not simply the existence of the universal spoke cut. It is a structural obstruction and complete census for natural fixed families, supported by reproducible automaton certificates rather than arbitrary isolated graph counts.",
+    "status": "PASS"
+  }
+}
