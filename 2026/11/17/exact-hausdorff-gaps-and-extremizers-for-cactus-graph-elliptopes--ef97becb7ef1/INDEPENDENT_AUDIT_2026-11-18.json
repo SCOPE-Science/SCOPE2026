@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:18:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an odd-parity signed cycle, the antiperiodic signed adjacency has top eigenvalue 2cos(pi/n), of multiplicity two. The PSD trace bound is attained by a planar Gram matrix, and n>=3 unit-diagonal constraints force unique edge coordinates. For arbitrary weights w, separating m=min|w_i| from residual coefficients bounds the support gap by m(n cos(pi/n)-n+2), with equality only at constant magnitudes; the nearest cut point is ((n-2)/n)xi. One-vertex unions of cactus blocks give exact Cartesian products, whose squared Euclidean distances add. Independent eigenvalue and barycenter checks passed n=3..11; these diagnostics alone do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Laurent–Varvitsiotis Theorem 3.4 covers all K5-minor-free graph multiplicative constants by girth; one-vertex products are known, but the full farthest-point locus and nearest-point projection are not given in that theorem."
+        ],
+        "reasoning": "The larger graph class pertains to a different invariant; basic products imply the cactus reduction conditional on a new cycle metric and classification.",
+        "searches": [
+          "Resultary: Hausdorff distance cut polytope elliptope cycle cactus graphs extremal metric projection",
+          "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf",
+          "https://arxiv.org/abs/2604.16735"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf",
+        "https://arxiv.org/abs/2604.16735",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-hausdorff-gaps-and-extremizers-for-cactus-graph-elliptopes--ef97becb7ef1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior cycle ratio=nt/(n-2) with t=cos(pi/n); target additive delta=(nt-n+2)/sqrt(n), plus all extremal x=t xi and projections y=(n-2)xi/n."
+        ],
+        "reasoning": "Numerical delta can be recovered once the uniform direction is known; proving this direction is globally dominant for all unit directions and classifying all equality cases is extra work. Cactus sums then follow from prior product identities.",
+        "searches": [
+          "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf",
+          "https://arxiv.org/abs/2604.16735",
+          "Resultary: cactus elliptope signed cycle metric projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laurent–Varvitsiotis Theorem 3.3 computes cycle Grothendieck ratio and the signed uniform support n cos(pi/n); the assigned claim uses edge-correlation Euclidean Hausdorff distance and classifies projections."
+        ],
+        "reasoning": "Multiplicative dilation and additive Euclidean offset are distinct norms and optima; familiar uniform support plus a strict all-direction bound is required.",
+        "searches": [
+          "Resultary: Hausdorff distance cut polytope elliptope cycle cactus graphs extremal metric projection",
+          "Laurent–Varvitsiotis 2011 Theorem 3.3",
+          "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact cycle SDP support is not an exact numerical table of Euclidean cactus projection extremizers."
+        ],
+        "reasoning": "No exact table in inspected source establishes the complete package; absence from searches is not novelty proof.",
+        "searches": [
+          "Resultary: cactus elliptope cut polytope Euclidean Hausdorff extremizers",
+          "arXiv:2604.16735"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the cycle signed SDP support n cos(pi/n) and Grothendieck ratio n cos(pi/n)/(n-2) are earlier results, and one-vertex graph-body products are also earlier. The new full claim concerns additive Euclidean Hausdorff metric, all maximizing directions, every farthest elliptope point and its unique metric projection, and the cactus square-sum composition. The multiplicative formula does not by itself determine all Euclidean minimizing projections or equality classifications.",
+      "residual_risks": [
+        "The additive gap follows from a concise support argument given the earlier signed-cycle optimum; priority of that optimized additive formulation remains unexhausted.",
+        "Avis–Devroye–Deza (2026) full text was not directly read in this execution; its exact one-vertex metric consequences remain a priority caveat."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers multiplicative Grothendieck ratio and the signed uniform support; no complete additive Hausdorff farthest-point locus in read results.",
+          "evidence": "Theorem 3.3: kappa(C_n)=n cos(pi/n)/(n-2), SDP uniform signed support n cos(pi/n); Theorem 3.4: K5-minor-free girth formula.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf",
+          "material_read": "PDF pages 1–4, especially Lemma 2.1, Theorems 3.2–3.4 and cycle proof",
+          "method": "full-text PDF extraction plus PDF page screenshot",
+          "title": "Computing the Grothendieck constant of some graph classes",
+          "trigger": "same graph-body pair and exact signed-cycle SDP support"
+        },
+        {
+          "assessment": "No whole-document noncoverage assertion; product-decomposition antecedent credited and residual priority recorded.",
+          "evidence": "arXiv:2604.16735; cited products are not treated as novel here.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.16735",
+          "material_read": "abstract/identifier only; full primary text not retrieved",
+          "method": "arXiv bibliographic access",
+          "title": "On the volumes of the elliptope, metric polytope, and cut polytope",
+          "trigger": "one-vertex products of graph bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact metric distortion of a canonical SDP relaxation and full extremizer geometry quantify an optimization relaxation beyond its known multiplicative integrality ratio. The cactus Pythagorean rather than max law and freely varying bridge coordinates give a natural complete classification, not an arbitrary finite example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf",
+    "https://arxiv.org/abs/2604.16735",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-hausdorff-gaps-and-extremizers-for-cactus-graph-elliptopes--ef97becb7ef1/RESULT.md",
+    "https://optimization-online.org/wp-content/uploads/2011/06/3060.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite diagnostics do not prove unrestricted all-parameter or infinitely many iterate claims; the proofs were assessed at their stated domain.",
+    "Originality is a best-of-knowledge comparison, not exhaustive historical priority.",
+    "Scientific assessment complete; public publication is withheld for metadata confidentiality, not marked scientifically failed."
+  ],
+  "residual_risks": [
+    "The additive gap follows from a concise support argument given the earlier signed-cycle optimum; priority of that optimized additive formulation remains unexhausted.",
+    "Avis–Devroye–Deza (2026) full text was not directly read in this execution; its exact one-vertex metric consequences remain a priority caveat.",
+    "Public metadata confidentiality hold blocks import, not scientific assessment."
+  ],
+  "schema_version": 1
+}
