@@ -1,21 +1,21 @@
-# Scientific review: parity jump for the \(K_{2,n}\) spanning-tree convolution range
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(n\ge2\), the proposed signed spanning-tree formula follows from an exact bijection between trees and a unique two-edge column plus one selected edge in each other column. Its cancellation classification yields a radius-one disagreement support, punctured at balanced agreeing signs only in even dimension. The calculation of the puncture transform is supported by the exact identity \(\sum_r\binom{2m}{r}B_r z^r=\binom{2m}{m}(1-z^2)^m\). The diagonal sign calculation explicitly uses \(\binom{n}{n/2}<2^n\), avoiding an absolute-value sign error. The resulting sharp endpoint norms follow from the actual convolution kernel with the correct \(2^{-2n}\) normalization. The multiplier distribution, previously established for this family, is rederived as an input rather than presented as a new discovery. The standalone checker reconstructs every tree without assuming the structural classification and verifies all Fourier coefficients and norms through \(n=8\), plus balanced transforms through \(n=50\). No finite computation is used as a substitute for the all-dimensional proof.
+## correctness
 
-## Originality — PASS under bounded literature comparison
-Aalipour–Duval–Kook–Lee–Martin (arXiv:1510.00033, Section 4, Theorem 1.2) provides degree-weighted enumerators for complete multipartite graphs, not independent edge-sign Fourier support or the norm of the support projection. Liu–Huang (Ars Combinatoria 97, pp. 289–300) counts rooted forests of complete bipartite graphs, not signed cancellation or range projection. Dong–Ge (arXiv:2103.05294, Sections 1 and 3–5) gives containing-forest counts, from which individual signed sums could be obtained via inclusion–exclusion, but does not state the structural support or exact all-dimensional projection norm. The closest searched published mathematical records on \(K_{3,n}\) spanning-tree Fourier projections concern the **tree-incidence frequency set**, whereas this theorem concerns the **nonzero transform support**. Records on affine-parity Fourier projections and Hamming-shell analysis use different supports or norms. The parity-exponential contrast is not asserted to be a new general Krawtchouk identity: the classical binomial identities are acknowledged inputs, and the object-specific spectral-support geometry is the evaluated contribution. The search cannot exclude an earlier equivalent formula under alternative terminology.
+PASS
 
-## Mathematical value — PASS
-The range of convolution by a graph's spanning-tree indicator is an intrinsic translation-invariant subspace. Its sharp \(\ell^1\)/\(\ell^\infty\) Fourier projection norm measures amplification when retaining exactly the observable frequencies and is not specified by the ordinary spanning-tree count or by rank alone. The exact support classification yields a natural complete invariant for an infinite family. The growth dichotomy—\(\sqrt{n}\) along odd orders versus \(2^{n/2}/\sqrt n\) along even orders—shows a substantial stability transition despite a small difference in support membership, and the entire nonzero singular-value profile follows simultaneously. The result is not motivated by an arbitrarily selected coordinate slice; it examines the full convolution range of a standard graph family.
+Each K2n spanning tree has one degree-two column and exactly one selected edge elsewhere, yielding W=sum_j sj tj product_{i != j}(si+ti). For disagreement count >=2 the multiplier vanishes; count one gives magnitude 2^(n-1), and count zero gives 2^(n-1)|sum si|. Thus the support is the radius-one disagreement mask minus a balanced binomial shell when n is even. The full mask Fourier kernel is 2^n 1_(u=v)(n+1-2|v|). The deleted shell Krawtchouk generating identity yields binom(n,2j)|B_2j|=binom(n,n/2)binom(n/2,j), and diagonal sign is unchanged by subtracting C because n+1-2|v| is odd and C<2^n. Summing absolute values proves the exact endpoint formulas and Stirling limits. Independent direct Walsh summations for n=2..8 gave norms 7/4,3/2,183/64,15/8,1095/256,35/16,106295/16384, matching formulas; finite checks do not establish all n.
 
-## Closest sources and residual limitations
-- Aalipour et al., arXiv:1510.00033 (initial release 2015-09-30), full HTML Sections 1, 3, 4, especially Remark 4.4; degree-weighted vs independent edge signs.
-- Liu and Huang, *Enumeration for no-trivial spanning forests of complete bipartite graphs*, Ars Combinatoria 97 (2010), first-page and pp. 291, 294, 297, 299 of full scanned article; rooted forest numbers vs Walsh support.
-- Dong and Ge, arXiv:2103.05294 (initial release 2021-03-09), full HTML Sections 1–5, including Theorems 4–6; containing-forest counts vs exact range-projection norm.
-- An earlier exact-spectrum result for the same \(K_{2,n}\) family covers the multiplier distribution and rank, but computes the norm for a **different** Fourier projection indexed by tree-incidence vectors.
-- Related mathematical records: *The optimal bipartite shape for one-edge Walsh sampling on uniform spanning trees* and *A four-phase parity defect in sharp affine Fourier projection norms*; comparison was possible at the published abstract/summary level, not primary files. Unavailable full material remains a specific historical-priority risk.
+## originality
 
-The result does not generalize to thicker \(K_{m,n}\), does not calculate endpoint inverse norms, and has not been independently validated. Historical novelty is a bounded, non-exhaustive assessment. These limits do not alter the exact mathematical statement being reviewed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The indexed prior same-K2n result gives the identical W spectrum/rank but computes the Fourier projection onto the TREE-VECTOR frequency set, with norm n/2+n*binom(n-1,floor((n-1)/2))/2^n. Here the projection is onto support(W), a different mask; the punctured radius-one Walsh absolute kernel sum and its exponential-even parity transition do not follow as an equality from the prior endpoint norm. Weighted matrix-tree enumerators count trees but do not give this projection norm in inspected sections.
+
+## value
+
+PASS
+
+The exact sharp l1/linfty amplification of the range projection distinguishes identifiable spectral subspace from the tree incidence set and establishes an unexpected polynomial-versus-exponential parity instability across the entire natural K2n family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

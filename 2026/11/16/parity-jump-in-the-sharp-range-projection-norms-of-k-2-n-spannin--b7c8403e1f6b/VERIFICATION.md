@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The previously known exact identity for the unnormalized signed spanning-tree enumerator of \(K_{2,n}\) is rederived by classifying spanning trees by the unique double-incident right vertex. The nonzero multiplier support is a radius-one disagreement set, with a balanced-sign slice deleted when \(n\) is even. The deleted slice has Fourier coefficients obtained from the identity \(\sum_r\binom{2m}{r}B_r z^r=\binom{2m}{m}(1-z^2)^m\), which supplies the **new range-projection norm formula** after summing absolute kernel values.
+# Independent mathematical audit
 
-Run `python3 check.py` from this directory. The checker constructs the graph and independently enumerates **all** spanning trees as connected acyclic subsets for \(2\le n\le8\), then evaluates every Walsh coefficient and every Fourier multiplier of the range projection using exact integer arithmetic. It verifies the norms as reduced rational numbers and checks balanced-slice Fourier values through dimension 50. The final marker is `K2N_TREE_SUPPORT_EXACT_CHECKS_PASS`.
+## correctness
 
-These finite checks do not establish an infinite theorem on their own; the proof covers every integer \(n\ge2\). Independent mathematical validation and exhaustive historical-priority search have not been performed.
+PASS
+
+Each K2n spanning tree has one degree-two column and exactly one selected edge elsewhere, yielding W=sum_j sj tj product_{i != j}(si+ti). For disagreement count >=2 the multiplier vanishes; count one gives magnitude 2^(n-1), and count zero gives 2^(n-1)|sum si|. Thus the support is the radius-one disagreement mask minus a balanced binomial shell when n is even. The full mask Fourier kernel is 2^n 1_(u=v)(n+1-2|v|). The deleted shell Krawtchouk generating identity yields binom(n,2j)|B_2j|=binom(n,n/2)binom(n/2,j), and diagonal sign is unchanged by subtracting C because n+1-2|v| is odd and C<2^n. Summing absolute values proves the exact endpoint formulas and Stirling limits. Independent direct Walsh summations for n=2..8 gave norms 7/4,3/2,183/64,15/8,1095/256,35/16,106295/16384, matching formulas; finite checks do not establish all n.
+
+## originality
+
+PASS
+
+The indexed prior same-K2n result gives the identical W spectrum/rank but computes the Fourier projection onto the TREE-VECTOR frequency set, with norm n/2+n*binom(n-1,floor((n-1)/2))/2^n. Here the projection is onto support(W), a different mask; the punctured radius-one Walsh absolute kernel sum and its exponential-even parity transition do not follow as an equality from the prior endpoint norm. Weighted matrix-tree enumerators count trees but do not give this projection norm in inspected sections.
+
+## value
+
+PASS
+
+The exact sharp l1/linfty amplification of the range projection distinguishes identifiable spectral subspace from the tree incidence set and establishes an unexpected polynomial-versus-exponential parity instability across the entire natural K2n family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
