@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact checks and scope
+# Independent mathematical audit
 
-The standalone Python 3 verifier `VERIFY.py` is dependency-free. Run `python3 VERIFY.py` in the directory containing the extracted artifacts. It reconstructs all \(2^n-2\) orientations of \(C_n\) for \(3\le n\le12\), all \(2n\) elements of the vertex-dihedral group, and each action on oriented reference edges, then counts invariant acyclic orientations directly. It independently obtains each orientation sign by counting inversions in the vertex permutation. Separately, it forms the vertex-orbit quotient graph for each symmetry, detects equalities within a vertex orbit, enumerates its acyclic orientations, and compares its fixed-arrangement Euler characteristic to the Lefschetz expression \(1+(-1)^{n-3}\chi_n(g)\). It also verifies that every averaged invariant Betti rank is a nonnegative integer. The 150 independent group-element cases pass.
+## correctness
 
-The file `verification_output.txt` records the exact reproducible output including all per-size invariant dimensions and the terminal success marker. No Smith-normal-form code is needed because the written long-exact-sequence proof identifies the homology module over \(\mathbb Z\) directly. These finite checks are not claimed to prove statements beyond order 12: the all-size conclusions rest on the geometric chamber argument and uniform orbit counting in `RESULT.md`.
+PASS
 
-No independent audit has been performed. An unindexed mathematical equivalence remains possible; the proof does not calculate integral homology of the full geometric quotient.
+The Steingrimsson complex is the link of the graphical arrangement in the mean-zero unit sphere, not the similarly named cyclic coloring complex. Each acyclic orientation corresponds to one convex spherical chamber; the relative top homology H_{n-2}(S_n,X_n;Z) is its integral orientation-twisted free chamber lattice. The ambient sphere class embeds as the primitive diagonal sum, yielding a torsion-free coaugmentation *quotient*, not the generally nonisomorphic augmentation kernel. A rotation fixes 2^d-2 chamber orientations, and a reflection fixes 0 or 2^{n/2} according to its edge-orbit reversals; multiply the resulting count minus 1 by the vertex-permutation sign. For fixed loci, coordinate equality inside a vertex orbit forces the entire fixed sphere into the arrangement; otherwise the orbit graph is C_d or a path, giving the asserted spherical wedges. The quotient rank is the rational average. Independently enumerated every acyclic orientation and all dihedral vertex maps for n=3..12 and verified both axis sign patterns and character averages, including n=8 invariant rank 13. No integral quotient homology is inferred from rational transfer.
+
+## originality
+
+PASS
+
+Ordinary homotopy concentration and number of acyclic orientations are classical from Jonsson and Hersh–Swartz; the entire signed dihedral integral lattice, reflection-fixed geometry and full quotient ranks are separate. Hanlon 2008 Hodge decomposition partitions top homology by chromatic-polynomial coefficients, but accessible abstract/secondary article does not state a polygon-label permutation module or fixed subspace classification; complete text remains inaccessible. Macauley–Mortveit use source-to-sink equivalence on orientations, not the relabeling action on chamber chains. Braun–Crown Rundell have signed-graph hyperoctahedral Hodge operators on chain slots, not this D_n label action. The natural arrangement chamber argument makes the statement plausible and relatively elementary, but an explicit integral full-family representation remains a meaningful exact refinement; an older equivariant statement is a material residual priority risk.
+
+## value
+
+PASS
+
+The explicit integral Z[D_n]-module holds for a canonical infinite graph family and retains extension information that is lost under rationalization. The fixed point loci depend sharply on the axis type (at n=8 S^2 versus a wedge of 15 copies), a distinction not determined by ordinary sphere rank. Uniform full quotient rational Betti counts offer a useful symmetry invariant. It is more than renaming a standard chamber count because it identifies the actual integral equivariant cokernel and fixed geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
