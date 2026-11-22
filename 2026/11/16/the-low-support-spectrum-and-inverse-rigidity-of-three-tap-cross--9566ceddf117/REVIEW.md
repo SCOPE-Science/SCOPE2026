@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every prime \(p\ge7\), prime Fourier-minor uncertainty bounds each nonzero STFT row by \(p+1-k_x\) frequency samples. The nine support intersections give the exact bound \(S\ge|F-G|(p+1)-9\). Cauchy–Davenport separates five active delays from six or more; Vosper's inverse theorem forces both three-point supports to be progressions with the same step at five delays. The five exact row polynomials have zero-count capacity \(0+1+2+1+0=4\), yielding the complete five-value low spectrum. The displayed coefficient witnesses attain all five values, and a six-delay witness attains \(6p-3\). Vieta's formula rigorously identifies the minimum and the exceptional three-cancellation equality case. The complete analytical reasoning is in RESULT.md; `verify.py` was run separately and corroborates the formulas on prime orders 7, 11, 13, 17, 23, 31 and all support-pair geometries on orders 7, 11, 13.
+## correctness
 
-## Originality — PASS with residual historical risk
-Krahmer–Pfander–Rashkov, arXiv:math/0611493, Proposition 4.4, already gives the numerical \(5p-4\) lower bound and the active-delay counting mechanism. Neither is claimed new. The distinct candidate assertion is the *complete low-support spectrum and gap*, the exact next attainable level, inverse progression rigidity for all three-point support pairs, and coefficient-level classification including cross-window levels \(5p-1\) and \(5p-3\). Nicola, arXiv:2204.14176, addresses global minimal \(p\)-support STFT equality, not exact three-by-three cross sparsity. The published self-ambiguity three-tap classification has different hypotheses \(f=g\) and forbids those two extra odd-prime levels; the published two-sparse trichotomy uses only two nonzero entries per input. Statement-level searches returned no covering published-finding corpus finding. Source comparisons used actual primary-text sections and recorded database statements rather than absence-of-search as proof. Unindexed specialist derivations remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem supplies the entire natural first stratum of a fixed-sparsity time-frequency support spectrum, an \(O(p)\)-length forbidden interval, a sharp onset, and inverse geometry plus coefficient characterizations of the extremizers. It addresses the canonical two-input three-tap generalization beyond the known lower bound, clarifies the difference between self-ambiguity and cross-STFT constraints, and does not rely on arbitrary sliced parameters or routine numerical enumeration. It does not solve composite orders or the entire upper spectrum.
+For p>=7 and exactly three nonzero entries in each input, prime Fourier row uncertainty gives p+1-k_x surviving frequencies for each active delay. Summing overlap sizes 9 yields S >= |F-G|(p+1)-9. Cauchy-Davenport forces >=5 delays, and >=6 forces S>=6p-3. Vosper applies when |F-G|=5<=p-2, forcing two common-step 3-term progressions. On normalized supports 0,1,2 the outer STFT rows have no zeros, two adjacent linear rows each have at most one and the central quadratic at most two; the precise count 5p-1_{r_- in mu_p}-1_{r_+ in mu_p}-h follows. Vieta gives z1z2=r_-r_+, excluding three cancellations from two distinct central roots with one side root; hence the 5p-3 double-root classification. Explicit nonzero coefficient witnesses attain every 5p-4..5p and 6p-3. The finite floating-point checker was inspected but tolerance-based detections are only consistency checks, not exact or unbounded proof.
 
-## Verification and limitations
-The supplied checker implements finite exact-geometry enumeration and floating-point Fourier consistency tests, not a computer-assisted proof of all primes. The universal conclusion uses standard published theorems (Cauchy–Davenport, Vosper and the prime Fourier uncertainty principle) and exact finite-degree algebra. Residual risk includes an unindexed alternative formulation of three-sparse cross-STFT equality conditions. Independent verification has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison: The phase-only three-tap optimizer-topology theorem uses the same 5-delay polynomial representation but enforces unit-modulus amplitudes; its support set {5p,5p-1,5p-2} and topology do not determine unrestricted amplitude low levels 5p-3 or 5p-4 or inverse geometry for arbitrary supports. Krahmer-Pfander-Rashkov Proposition 4.4 covers the numerical 5p-4 bound, and prime-order Fourier uncertainty/Cauchy-Davenport/Vosper yield ingredients; their compared statements do not enumerate all five low levels, the gap onset 6p-3, or this coefficient equality characterization. The searched phase-only three-tap and two-sparse STFT tables concern restricted coefficient classes or two supports, so none gives the requested arbitrary six nonzero coefficients. A hidden historical full table remains a priority risk.
+
+## value
+
+PASS
+
+The complete low-support spectrum and growing forbidden gap, Vosper inverse support rigidity and exact coefficient-level extremizer classification answer a natural fixed-sparsity discrete time-frequency question beyond the known minimum; the two independent-window levels are not captured by phase-only/self-window results. This is an all-prime structural theorem, not a tiny negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

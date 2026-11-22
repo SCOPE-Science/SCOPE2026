@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Running `python3 verify.py` against the supplied standalone implementation completed successfully with the terminal marker `THREE_TAP_CROSS_STFT_PASS`.
+# Independent mathematical audit
 
-The checker tested coefficient witnesses for the five support levels and one sharp six-row onset at primes 7, 11, 13, 17, 23, 31. It also exhaustively considered 1,225, 27,225 and 81,796 ordered pairs of three-point support sets at primes 7, 11 and 13, respectively, and verified the predicted active-delay geometry.
+## correctness
 
-The proof for every prime at least seven does not rest on numerical enumeration. Its nontrivial external inputs are the prime Fourier uncertainty bound, Cauchy–Davenport, and Vosper's inverse theorem. Its remaining steps are five-row Fourier polynomial algebra, a root-of-unity product identity, and explicit coefficient witnesses. The finite checks provide independent implementations of examples and finite combinatorial geometry, not an independent mathematical audit of the general theorem.
+PASS
 
-The numerical support-count checker uses an absolute tolerance on complex entries, so its floating-point zero decisions do not establish exact zero locations. Exact root locations and the entire infinite-prime theorem are established symbolically in RESULT.md. No independent audit, external certification, or guarantee of historical priority is asserted.
+For p>=7 and exactly three nonzero entries in each input, prime Fourier row uncertainty gives p+1-k_x surviving frequencies for each active delay. Summing overlap sizes 9 yields S >= |F-G|(p+1)-9. Cauchy-Davenport forces >=5 delays, and >=6 forces S>=6p-3. Vosper applies when |F-G|=5<=p-2, forcing two common-step 3-term progressions. On normalized supports 0,1,2 the outer STFT rows have no zeros, two adjacent linear rows each have at most one and the central quadratic at most two; the precise count 5p-1_{r_- in mu_p}-1_{r_+ in mu_p}-h follows. Vieta gives z1z2=r_-r_+, excluding three cancellations from two distinct central roots with one side root; hence the 5p-3 double-root classification. Explicit nonzero coefficient witnesses attain every 5p-4..5p and 6p-3. The finite floating-point checker was inspected but tolerance-based detections are only consistency checks, not exact or unbounded proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison: The phase-only three-tap optimizer-topology theorem uses the same 5-delay polynomial representation but enforces unit-modulus amplitudes; its support set {5p,5p-1,5p-2} and topology do not determine unrestricted amplitude low levels 5p-3 or 5p-4 or inverse geometry for arbitrary supports. Krahmer-Pfander-Rashkov Proposition 4.4 covers the numerical 5p-4 bound, and prime-order Fourier uncertainty/Cauchy-Davenport/Vosper yield ingredients; their compared statements do not enumerate all five low levels, the gap onset 6p-3, or this coefficient equality characterization. The searched phase-only three-tap and two-sparse STFT tables concern restricted coefficient classes or two supports, so none gives the requested arbitrary six nonzero coefficients. A hidden historical full table remains a priority risk.
+
+## value
+
+PASS
+
+The complete low-support spectrum and growing forbidden gap, Vosper inverse support rigidity and exact coefficient-level extremizer classification answer a natural fixed-sparsity discrete time-frequency question beyond the known minimum; the two independent-window levels are not captured by phase-only/self-window results. This is an all-prime structural theorem, not a tiny negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
