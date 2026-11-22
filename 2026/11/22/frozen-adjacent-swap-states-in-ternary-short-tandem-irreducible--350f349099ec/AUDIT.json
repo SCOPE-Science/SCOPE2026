@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "A bijection with first letter and nonzero ternary signs, exact forbidden-alternating-triple criterion, and direct adjacent-swap sign-flip case analysis prove the frozen iff endpoint runs are singleton and internal runs are length two/four. Fibonacci compositions yield exact all-length counts; the independent checker corroborates lengths 3..19 by sign cases and 3..11 by literal word enumeration. No finite experiment is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/2307.01648",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.33/LIPIcs.ISAAC.2025.33.html",
+        "The unrestricted permutation graph is Hamiltonian; the restricted odd-length graph has multiple isolates."
+      ],
+      "reasoning": "The 2024 result covers larger unrestricted fixed-Parikh vertex sets and all pair swaps; restricting to an induced forbidden-pattern language destroys its Hamiltonicity. The 2025 path proper-coloring result has a weaker edge constraint; a proper-preserving swap can create abab.",
+      "searches": [
+        "Exact number of legal adjacent transpositions exchanging neighboring symbols in ternary words avoiding squares of length one and two (aa, abab), full degree distribution, Eulerian distribution",
+        "Induced adjacent-transposition graph on ternary short-tandem-duplication irreducible words avoiding aa and abab; component classification and detection codes",
+        "arxiv:2307.01648",
+        "doi:10.4230/LIPIcs.ISAAC.2025.33"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1801.02310 (full-text relevant Sections I-II)",
+      "arxiv:2307.01648 (PDF introduction and graph definitions)",
+      "doi:10.4230/LIPIcs.ISAAC.2025.33 (HTML sections 4.1.1–4.1.2)",
+      "published-finding corpus queries isolated vertices adjacent swap graph short tandem irreducible ternary squarefree length one two avoid aa abab Fibonacci 6F and frozen word composition",
+      "published-finding corpus queries adjacent transposition no equal adjacent symbols no abab connected components isolated proper ternary words",
+      "published-finding corpus queries Exact number of legal adjacent transpositions exchanging neighboring symbols in ternary words avoiding squares of length one and two (aa, abab), full degree distribution, Eulerian distribution",
+      "published-finding corpus queries Induced adjacent-transposition graph on ternary short-tandem-duplication irreducible words avoiding aa and abab; component classification and detection codes",
+      "published-finding corpus queries full frozen Gray code obstructions restricted adjacent transposition on square-free ternary words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own same-language result e1dd2f70-f4bd-485a-8d5a-d12c5312327a concerns substitutions, not adjacent swaps",
+        "Own proper adjacent-swap result 8cf86924-31c0-46ab-9f0a-34b750a1f563 requires aa avoidance only",
+        "Example: 0102101 is isolated here but movable in proper-only graph"
+      ],
+      "reasoning": "The known count of all irreducible words says nothing about how many legal adjacent transpositions survive the additional output restriction. Neither a substitution graph nor unrestricted transposition graph determines this induced edge set. Proper-only swap rigidity is not equivalent: its moving vertices may become frozen here.",
+      "searches": [
+        "adjacent transposition no equal adjacent symbols no abab connected components isolated proper ternary words",
+        "Exact number of legal adjacent transpositions exchanging neighboring symbols in ternary words avoiding squares of length one and two (aa, abab), full degree distribution, Eulerian distribution",
+        "arxiv:1801.02310",
+        "arxiv:2307.01648",
+        "doi:10.4230/LIPIcs.ISAAC.2025.33"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matched forbidden-aa/abab adjacent-swap isolate count in retrieved published-finding corpus records",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.33/LIPIcs.ISAAC.2025.33.html",
+        "The sign-run theorem differs from proper-only rigidity"
+      ],
+      "reasoning": "Aliases checked include isolated/frozen/rigid word, adjacent swap/transposition, proper coloring and tandem irreducible. The relevant proper-only theorem cannot imply the present frozen count without the extra abab admissibility test.",
+      "searches": [
+        "isolated vertices adjacent swap graph short tandem irreducible ternary squarefree length one two avoid aa abab Fibonacci 6F and frozen word composition",
+        "adjacent transposition no equal adjacent symbols no abab connected components isolated proper ternary words",
+        "full frozen Gray code obstructions restricted adjacent transposition on square-free ternary words",
+        "arxiv:1801.02310",
+        "doi:10.4230/LIPIcs.ISAAC.2025.33"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest retrieved items concern constrained binary median swap graphs, ternary profile spectra, and short-tandem-irreducible encoders, not this count",
+        "Related adjacent-swap degree polynomial concerns proper-only words: 8cf86924-31c0-46ab-9f0a-34b750a1f563"
+      ],
+      "reasoning": "No exact table, sequence or complete characterization of the stricter graph appeared in inspected records; this is evidence of no identified coverage, not a uniqueness proof.",
+      "searches": [
+        "isolated vertices adjacent swap graph short tandem irreducible ternary squarefree length one two avoid aa abab Fibonacci 6F and frozen word composition",
+        "Exact number of legal adjacent transpositions exchanging neighboring symbols in ternary words avoiding squares of length one and two (aa, abab), full degree distribution, Eulerian distribution",
+        "Induced adjacent-transposition graph on ternary short-tandem-duplication irreducible words avoiding aa and abab; component classification and detection codes",
+        "full frozen Gray code obstructions restricted adjacent transposition on square-free ternary words"
+      ]
+    },
+    "rationale": "Closest related findings (including unrestricted adjacent-swap radius-two formulas), published-finding corpus, 2018 tandem-irreducible, 2024 unrestricted-transposition and 2025 proper-only path-color-swap claims were compared by implication. None examined states or implies the stricter output-constrained isolated count; a concrete ternary word distinguishes proper-only and target operations. Historical priority remains nonzero.",
+    "residual_risks": [
+      "Equivalent frozen-vertex classification may appear under unsearched names or outside indexed published-finding corpus/public web",
+      "Not every page of the 2024 2-swap article was material-read; the checked graph definition already demonstrates its unrestricted scope",
+      "The proper-only path-coloring result of 2025 is later than the 2018 guiding source but scientifically adjacent"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The all-word recurrence and encoding algorithm do not state adjacency-swap isolated-vertex count",
+        "evidence": [
+          "https://www.researchgate.net/publication/322329144_Efficient_EncodingDecoding_of_Irreducible_Words_for_Codes_Correcting_Tandem_Duplications",
+          "Corollary 1 gives I_2(n,q) recurrence, not restricted swap graph"
+        ],
+        "identifier_or_url": "arxiv:1801.02310",
+        "material_read": "Author-uploaded preprint text: introduction, irreducible definitions, Section II recurrence and listed contributions; searched page for swap/transposition",
+        "method": "Read public full-text HTML extraction and compared stated recurrence/algorithmic results to isolated-state claim",
+        "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+        "trigger": "Same exact irreducible language and q=3 Fibonacci enumeration"
+      },
+      {
+        "assessment": "Graph contains all fixed-Parikh words and all distinct-symbol transpositions, unlike locally constrained adjacent swaps",
+        "evidence": [
+          "https://arxiv.org/pdf/2307.01648",
+          "Definition 2 V(P) is the entire fixed-Parikh set"
+        ],
+        "identifier_or_url": "arxiv:2307.01648",
+        "material_read": "PDF abstract, introduction, scope, Definition 1 and Definition 2; PDF page screenshots for first and fourth pages",
+        "method": "Compared graph vertices and edge definitions and reachability assumptions",
+        "title": "Structural and Combinatorial Properties of 2-swap Word Permutation Graphs",
+        "trigger": "Same transposition operation on words, possibly stronger connectivity"
+      },
+      {
+        "assessment": "Requires proper output only; a length-four square may be created and is not excluded, so its rigidity assertion is different",
+        "evidence": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol359-isaac2025/html/LIPIcs.ISAAC.2025.33/LIPIcs.ISAAC.2025.33.html",
+          "Observation 9 and Theorem 15",
+          "0102101 has proper swaps but none preserving abab avoidance"
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.ISAAC.2025.33",
+        "material_read": "Open HTML sections 4.1.1–4.1.2 including Observation 9 and Theorem 15",
+        "method": "Compared valid-output requirement and local swap criteria; tested a concrete word distinguishing channels",
+        "title": "Coloring Reconfiguration Under Color Swapping",
+        "trigger": "Includes rigid proper ternary path colorings under adjacent swaps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "350f3490-99ec-451c-95fd-4e7d02cb10cd",
+  "value": {
+    "rationale": "A complete, natural all-length isolated-state classification for adjacent-swap reconfiguration of the short-tandem-irreducible ternary language. The even/odd phase change and Fibonacci growth give a decisive Gray-listing obstruction at every odd length and quantify immobility beyond proper-only color swaps. Avoids arbitrary slices and does not claim code capacity or even-length connectivity.",
+    "status": "PASS"
+  }
+}
