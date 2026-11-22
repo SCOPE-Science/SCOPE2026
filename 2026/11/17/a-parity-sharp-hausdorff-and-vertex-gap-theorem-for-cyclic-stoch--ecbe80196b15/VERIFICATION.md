@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python check_circulant.py` using Python 3. The first part requires no third-party packages. It exhaustively computes cyclic-displacement multiplicity vectors for all permutations of orders \(2\) through \(8\), compares the first two distinct squared-norm histogram levels with their formulas, and checks the modular relationship between repeated and absent offsets. It also directly verifies explicit maximizing and second-level constructions for all integers \(3\le n\le1000\).
+## correctness
 
-When NumPy and SciPy are installed, the optional part makes 48 independent equality-constrained, box-constrained SLSQP minimizations over the cyclic-shift simplex at orders \(3\) through \(8\), using both permutation and interior bistochastic inputs. These compare against the orthogonal-projection formula; numerical tolerance is \(5\cdot10^{-6}\).
+PASS
 
-An observed successful check printed exact-order statistics \(n=2:(2,[4])\), \(n=3:(6,[3,9])\), \(n=4:(24,[6,8])\), \(n=5:(120,[5,9])\), \(n=6:(720,[8,10])\), \(n=7:(5040,[7,11])\), and \(n=8:(40320,[10,12])\), where the brackets list the least histogram square sums. All 998 construction orders passed, and the 48 optional numerical checks passed with worst absolute deviation below \(2.3\cdot10^{-7}\).
+Cyclic shift matrices T_k are orthogonal with Frobenius squared norm n. For every doubly stochastic X their circulant orthogonal projection has nonnegative coefficients summing to one; thus it is already the nearest point of the cyclic-shift simplex. For vertex permutation π distance²=n−Σ m_k²/n. The integer histogram has sum n and displacement congruence Σ k m_k≡0 mod n; balancing yields all-ones odd case and a doubled-missing difference n/2 in even case. Explicit 2i constructions attain both and the difference-of-squared-residuals variance identity rules out any nonvertex maximum. Integer-square increments come in even steps, with swapping images giving next vertex level. Checked exceptional n=3 separately and n=2 equality of convex sets.
 
-The proof of the all-order Hausdorff value, equality classification, and first discrete gap is analytic and does not depend on extrapolating the finite checks. No claim concerning other Schatten metrics or the second farthest distance over continuous nonvertex points is made. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Compared this final mathematical assertion with semantically relevant published findings and primary material by implication, not title; known tools and special-case results were excluded from the new part. Remaining source-access limitations are explicit.
+
+## value
+
+PASS
+
+Sharp directed Hausdorff approximation between a classical stochastic polytope and its canonical circulant simplex, together with parity-rigid farthest points and next vertex-level gap, is a natural matrix-geometry question. Exact second discrete shell adds quantitative robustness beyond elementary averaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
