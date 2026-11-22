@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Reconstructs the exact parity rule for all independent edge families and checks the distinct 2-edge, proper-star, full-star, triangle, and singleton cases. At most one full star, so optimizing colors reduces exactly to a maximum edge-disjoint triangle packing on K_n or K_(n-1); Schönheim leave sizes give all six residues and the n=6 tie. The C++ exhaustive exact colored partition DP n=5,6,7 and a separate MILP-based construction plus direct parity verification n=5..10 agree; finite checks do not substitute for the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro et al. 2025, Theorem 16: an exact criterion for alpha_od(KG(n,k))=alpha(KG(n,k)) according to binomial parity.",
+        "The 2024 Kwon–Park work focuses on sparse graphs; Caro et al. 2024 provides planar/other families and graph-product bounds, with no matching Kneser assertion."
+      ],
+      "reasoning": "Knowing a largest permissible class, even exactly, does not determine whether large classes partition the graph or force the complete optimal-class structure. Neither broader theorem implies the claimed four-case chi_so formula.",
+      "searches": [
+        "arXiv:2509.20763 Theorem 16 Kneser odd independence",
+        "arXiv:2401.11653 full text Kneser",
+        "arXiv:2410.02336 full text Kneser"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2401.11653",
+      "https://arxiv.org/abs/2410.02336",
+      "https://arxiv.org/abs/2509.20763",
+      "https://faculty.etsu.edu/gardnerr/Design-Theory/notes-Design-Theory-LR2/Design-Theory-LR2-4-2.pdf",
+      "published-finding corpus semantic results on strong odd Kneser and graph color classes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schönheim gives exact values P(n) and leave types, not an identification of permissible strong-odd color classes with triangles or stars.",
+        "Proposition 14 of arXiv:2509.20763 proves chi_so(KG(5,2))=6, credited as known boundary.",
+        "Theorem 16 of arXiv:2509.20763 proves a maximum odd independence criterion for KG(n,k); it does not classify minimum partitions."
+      ],
+      "reasoning": "The new nonstandard lemma identifies all class possibilities. This lemma plus classical packing theory implies the infinite formula and forced full-star classification. The isolated known case n=5 does not subsume n>=6.",
+      "searches": [
+        "Schönheim 1966 maximum systems of k-tuples triangle packings leave",
+        "Caro et al 2025 Petersen chi_so=6 Proposition 14",
+        "arXiv:2509.20763 Theorem 16 Kneser graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In KG(n,2), color classes correspond to intersecting-edge families of K_n subject to odd disjointness counts; the alternate language is a partition into odd independent sets.",
+        "The rank-two graph is the complement of the triangular graph, so the same problem can be phrased on the complement of a line graph."
+      ],
+      "reasoning": "The current proof treats these equivalent translations, not just phrase matches. Semantic result searches did not return an exact rank-two Kneser strong-odd partition theorem.",
+      "searches": [
+        "strong odd coloring Kneser two-subset graphs decomposition triangles odd-independent classes",
+        "odd-independent color partition Kneser graph KG(n,2) exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ID 2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248 concerns crown graphs, not Kneser graphs.",
+        "published-finding corpus ID 2026/10/12/SCOPE-strong-odd-chromatic-number-of-complete-multipartite-graphs--0c97f3a5ea07 concerns complete multipartite graphs.",
+        "published-finding corpus ID 2026/10/26/SCOPE-all-inclusion-minimal-dominating-sets-of-the-rank-two-kneser-gra--5d12bf126372 concerns ordinary domination, not coloring."
+      ],
+      "reasoning": "No exact database entry with equivalent strength was seen. The absence of a search hit is not used as proof of novelty.",
+      "searches": [
+        "strong odd chromatic number Kneser KG(n,2) triangle packing Steiner systems full stars",
+        "strong odd coloring Kneser two-subset graphs decomposition triangles odd-independent classes",
+        "odd-independent color partition Kneser graph KG(n,2) exact",
+        "strong odd chromatic number Kneser KG(n,2) line graph of complete graph complement",
+        "strong odd coloring triangular graph J(n,2) exact chromatic number"
+      ]
+    },
+    "rationale": "The initial 2024 strong-odd papers introduce and bound the invariant without computing the infinite rank-two Kneser family. The 2025 general Kneser odd-independence theorem only specifies maximum single-class sizes and its Petersen proposition gives the previously known n=5 value. The classical maximum triangle-packing theorem supplies the packing leaves, but not the parity-based classification of all coloring classes or the forced-star transition. Relevant published research-record hits do not imply the new full formula. Priority risk from unindexed work is explicitly retained.",
+    "residual_risks": [
+      "Historical priority may be affected by unindexed or unpublished conversions of maximum partial triple systems into strong-odd colorings.",
+      "The original 1966 paper was not directly obtained; an accessible detailed construction-based university exposition supplies its stated maximum-packing theorem.",
+      "The 2025 Petersen instance is preexisting and is excluded from the claim of genuinely new rank-two family results.",
+      "No external independent audit of the new proof has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines chi_so and sparse graph bounds but does not supply KG(n,2) classification",
+        "evidence": [
+          "ArXiv public initial date 2024-01-22; abstract and Introduction define all used colors odd in each open neighborhood.",
+          "No Kneser occurrence in full arXiv HTML search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+        "material_read": "Public arXiv HTML abstract, introduction, theorem summaries, full-text search for Kneser and relevant graph classes",
+        "method": "Read actual arXiv HTML text and searched within full document",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "earliest public definition of the invariant"
+      },
+      {
+        "assessment": "Product and sparse/planar families do not give the claimed rank-two Kneser exact classification",
+        "evidence": [
+          "ArXiv first version 2024-10-03; authors describe graph products and tree/unicyclic graph bounds.",
+          "No Kneser occurrence in full arXiv HTML search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+        "material_read": "ArXiv abstract, Introduction and relevant family/product coverage, full-text search for Kneser",
+        "method": "Inspected text and within-document search",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "plausible stronger coloring results for graph products"
+      },
+      {
+        "assessment": "Petersen value n=5 is covered and credited; general Kneser odd-independence result is not a strong-odd chromatic-number or optimizer theorem",
+        "evidence": [
+          "Proposition 14: Petersen alpha_od=3, chi_so=6; all nontrivial odd independent sets are neighborhoods.",
+          "Theorem 16: alpha_od=alpha iff a binomial coefficient is odd, not a coloring partition theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.20763",
+        "material_read": "Full HTML; Proposition 14 and its proof, Kneser Theorem 16 and its proof (Section 3.3), introduction and stated scope",
+        "method": "Read and directly compared the stated results and implications",
+        "title": "The odd independence number of graphs, I: Foundations and classical classes",
+        "trigger": "highly relevant 2025 paper with Kneser section and strong odd chromatic parameter"
+      },
+      {
+        "assessment": "Exactly supplies maximum triangle packing leave sizes and existence, all credited; does not cover Kneser graph coloring",
+        "evidence": [
+          "Theorem 4.2.A leaves: 1-factor for v≡0,2; 4-cycle for v≡5; tripole with (v+2)/2 edges for v≡4; empty for v≡1,3 mod 6.",
+          "The notes attribute the original theorem to J. Schönheim (1966)."
+        ],
+        "identifier_or_url": "https://faculty.etsu.edu/gardnerr/Design-Theory/notes-Design-Theory-LR2/Design-Theory-LR2-4-2.pdf",
+        "material_read": "Pages 1–5 including constructions 4.2.A–C and Theorem 4.2.A on page 5, inspected both text and the actual rendered theorem page",
+        "method": "Read PDF text and page image for the case-by-case leave sizes",
+        "title": "4.2. Maximum Packings (construction notes citing Schönheim 1966)",
+        "trigger": "necessary classical exact triangular packing values for the proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c7089565-d41d-4733-b946-754fda0d7d9f",
+  "value": {
+    "rationale": "A complete infinite-family graph-coloring invariant and all optimal color partition structures are obtained. The parity-induced transition from triangle-only partitions at odd orders to a forced full-star color at even n>=8, with n=6 tied families, is structurally meaningful and connects graph coloring to partial Steiner triple systems; no arbitrary finite cutoff or mere published table recalculation.",
+    "status": "PASS"
+  }
+}
