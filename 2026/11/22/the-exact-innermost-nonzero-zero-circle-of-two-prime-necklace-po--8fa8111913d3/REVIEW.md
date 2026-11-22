@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The Möbius formula at \(n=p^a q^b\) has exactly four monomials and reduces to \(M_{pq}(z^t)\). The factorization \(pqM_{pq}(z)=z(1-z^{p-1})(1-H_{p,q}(z))\) is an exact telescoping identity. A unique positive \(\rho\) satisfies \(H(\rho)=1\); the triangle inequality excludes all smaller nonzero roots. Its equality case forces both phase orders \(p-1\) and \(q-1\), hence exactly their gcd many roots, each simple by direct positive derivative. Substitution lifts them by \(t\) and establishes zero multiplicity \(t\). The logarithmic substitution \(u=-(q-1)\log\rho\), two-sided bounds on \(u\), and a controlled exponential expansion prove the stated Lambert-\(W\) error at fixed \(p\). The supplied standard-library checker reproduces 36 coefficient identities and nine asymptotic examples; none is used as an infinite proof.
+
+## Originality — PASS, subject to stated residual risk
+Hyde's 2018 preprint (same polynomial, same two-prime objects) addresses unit-circle cyclotomic factors, not the inner nonzero zero circle. The 2026 analytic paper addresses \(x\ge1\) and local behavior at one, rather than the complete smallest complex-root radius and angular multiplicity for \(p^a q^b\). The two closest accessible public records concern two-adic images and real integer-alphabet necklace-count ratios. Their assertions neither imply nor subsume the claimed complex root classification or Lambert-\(W\) boundary layer. Searches for minimal modulus, interior positive roots, renewal factorization, root-angle multiplicity, and Lambert-\(W\) necklace asymptotics found no matching theorem. The main remaining risk is an unindexed older result deriving the same two-prime positive-factor circle; absence of a search hit alone would not settle it.
+
+## Value — PASS
+Necklace polynomials encode primitive necklaces and irreducible finite-field polynomials and have a rich cyclotomic factor theory. This theorem supplies a structurally different invariant of their complex roots: an exact maximal zero-free punctured disk, a complete arithmetic classification of its boundary roots and their multiplicities for all prime-power exponents, plus a quantified logarithmic boundary layer when one prime grows. The arithmetic angular factor \(\gcd(p-1,q-1)\) and Lambert-\(W\) scale explain phenomena not supplied by the known unit-circle divisibility and real monotonicity results. It is not a finite table or a rephrased standard necklace count.
+
+## Limits and literature
+Primary input: T. Hyde, arXiv:1811.08601v1 (first public 2018-11-21), primary MSC 11C08. Most relevant follow-up: Chebolu–Mináč–Nguyen–Tân, arXiv:2605.11445 (2026), especially Remark 4.6. Two public result records on necklace-polynomial two-adic fibers and fixed-alphabet count ratios were materially inspected for implication. The argument makes no claim for lengths having three or more distinct prime factors and no claim to list all exterior roots.
+
+Self-review: passed. Independent audit: not yet performed.
