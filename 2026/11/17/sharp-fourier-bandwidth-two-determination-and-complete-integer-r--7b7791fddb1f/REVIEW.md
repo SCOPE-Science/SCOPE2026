@@ -1,19 +1,21 @@
-# Scientific review: finite Fourier determination of axis-parallel boxes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The exact product factorization is a direct Fubini calculation. The first nonzero coordinate Fourier coefficient distinguishes positive-integer from noninteger widths. For a noninteger width, the absolute second-to-first coefficient ratio is exactly the absolute cosine of the width angle, and the normalized first coefficient fixes the sine magnitude divided by width. The Pythagorean identity gives a unique positive width; its known signed sinc then gives the center phase. These steps prove complete Fourier-spectrum determination and the equivalence class of aliased boxes, not just empirical accuracy. The first-bandwidth counterexample uses two widths with equal normalized sinc values and offsets their first phases, and differentiates them at the second harmonic. The strict sinc monotonicity needed for uniqueness of its smaller width is proved analytically. The separate standard-library checker passed 43,460 supplementary comparisons in dimensions one through four; numerical checks are not used for universal assertions.
+PASS
 
-## Originality
+The integral over the product box factors into normalized sinc(πkL)/(πkL) terms. For noninteger width, b1!=0, |b2/b1|=|cos(πL)| and πL|b1|=|sin(πL)| recover the unique positive width; b1 divided by signed sinc recovers exp(-2πic). An integer width has b1=0 and all other nonzero integer samples vanish. The recovered factors and common volume imply complete-spectrum equality iff identical integer-width axis set and noninteger widths/center residues, with arbitrary integer-side centers and product-preserving integer widths. The first-frequency-cube counterexample uses λ∈(1/2,1) with sinc(λ)=2/(3π), swapping λ and 3/2 and shifting centers by half. It agrees on the entire frequency-1 cube but not at 2e1. The strict sinc monotonicity for widths in (0,1) proves the special case. Independent floating-point reproduction checked 9360 samples, witness λ≈0.816725605 and nonzero second gap ≈0.218057. No finite test proves all d.
 
-**PASS relative to the checked literature, with residual priority risk.** Asipchuk–Robins (2026, arXiv:2608.29217) characterizes agreement of *all* lattice Fourier coefficients by translation equidecomposability. Its inspected central statements do not supply the finite axial cutoff, exact sinc inversion, or complete width-and-center alias fibers for arbitrarily long Cartesian boxes. Mao (2011, arXiv:1104.0446), Theorem II.5, reconstructs periodic binary one-dimensional signals with few jumps from low frequencies; Ongie–Jacob (2016, arXiv:1510.00384), §2–3, studies two-dimensional piecewise constant images whose support is within a unit square and whose edges obey annihilation relations. These are genuine related reconstruction methods, but their inspected statements do not imply the *specific* width-unbounded, sharp maximum-coordinate-frequency-two theorem. Searches for boxcar sinc moment inversion, integer-side resonance aliases, and finite Fourier box determination did not locate a covering published theorem. A prior equivalent elementary calculation may exist, and some later sections of the most directly motivating manuscript were unavailable during inspection. These limitations prevent any claim of exhaustive historical novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a natural exact classification for canonical geometric indicators at a fixed Fourier sampling lattice. The unrestricted side-length range creates a qualitatively different problem from small nonaliasing boxes: first-harmonic samples no longer suffice, while just one additional harmonic per coordinate determines the entire infinite sampled spectrum. The theorem gives a sharp bandwidth boundary, an explicit universal reconstruction algorithm, and an exact classification of the irreducible integer-width ambiguities, including nonrecoverable locations and positive-integer factorization freedoms. These are useful for exact shape-identifiability tests and for recognizing intrinsic aliasing before attempting inverse reconstruction. The work does not claim a global noise guarantee, arbitrary-shape extension, or minimality of the raw sample cardinality.
+The exact first-two-axial-sample finite reconstruction and complete multiwrap aliases were not implied by the inspected general Fourier lattice equidecomposability or unit-cell finite-rate-of-innovation theories. The sinc inversion is elementary, and unindexed earlier interval inversion remains possible. The submitted mathematical claim retains an original finite spectral determination theorem with sharp bandwidth cutoff.
 
-## Closest comparisons and limitations
+## value
 
-The nonaliasing result of Asipchuk–Robins does not cover multiply wrapping integer-width coordinates, while its all-sample equivalence does not automatically establish a finite sharp cutoff. The low-frequency one-dimensional binary signal theory applies to a different periodic signal class; the two-dimensional annihilating-filter approach treats a more general shape class but different geometry, assumptions, and sample patterns. The interval transform itself is standard; the exact combination and global alias classification are the assessed contribution. Poor conditioning near integer widths, undetected centers along such widths, and incomplete bibliographic coverage remain genuine limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Knowing whether a *finite* fixed set of lattice Fourier samples suffices to determine an unlimited box’s entire sampled spectrum is a motivated inverse-problem and alias-identifiability question. A sharp bandwidth threshold and complete integer-resonance classification are useful exact structural facts, despite poor noise conditioning and classical component integrals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

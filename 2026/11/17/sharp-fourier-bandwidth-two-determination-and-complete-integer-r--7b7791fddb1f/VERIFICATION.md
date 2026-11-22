@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof uses the exact Fourier transform of one interval, Cartesian factorization, the double-angle identity, \(\sin^2 u+\cos^2 u=1\), and strict monotonicity of \(\sin u/u\) on \((0,\pi)\). These establish the all-dimensional reconstruction theorem, exact integer-side alias classification, first-bandwidth special case, and sharp bandwidth-two counterexample.
+## correctness
 
-A separate Python standard-library script is available at `verification/check.py`. From the package root execute `python3 verification/check.py`. The script directly evaluates Fourier transforms of randomly generated boxes, reconstructs their integer-frequency coefficients using only the prescribed samples, and checks a planar first-frequency-cube ambiguity witness. On the saved candidate source it reported 43,460 passing numerical assertions, including the positive frequency-two separation of the witness. The script is supplementary, not an exhaustive mathematical certificate; the infinite claims rest on the written analytic proof.
+PASS
 
-There is no independent external audit. No numerical noise-stability guarantee is asserted, and no uniqueness is asserted for unknown centers on integer-width axes. The analysis concerns exact complex measurements and fixed axis coordinates only.
+The integral over the product box factors into normalized sinc(πkL)/(πkL) terms. For noninteger width, b1!=0, |b2/b1|=|cos(πL)| and πL|b1|=|sin(πL)| recover the unique positive width; b1 divided by signed sinc recovers exp(-2πic). An integer width has b1=0 and all other nonzero integer samples vanish. The recovered factors and common volume imply complete-spectrum equality iff identical integer-width axis set and noninteger widths/center residues, with arbitrary integer-side centers and product-preserving integer widths. The first-frequency-cube counterexample uses λ∈(1/2,1) with sinc(λ)=2/(3π), swapping λ and 3/2 and shifting centers by half. It agrees on the entire frequency-1 cube but not at 2e1. The strict sinc monotonicity for widths in (0,1) proves the special case. Independent floating-point reproduction checked 9360 samples, witness λ≈0.816725605 and nonzero second gap ≈0.218057. No finite test proves all d.
+
+## originality
+
+PASS
+
+The exact first-two-axial-sample finite reconstruction and complete multiwrap aliases were not implied by the inspected general Fourier lattice equidecomposability or unit-cell finite-rate-of-innovation theories. The sinc inversion is elementary, and unindexed earlier interval inversion remains possible. The submitted mathematical claim retains an original finite spectral determination theorem with sharp bandwidth cutoff.
+
+## value
+
+PASS
+
+Knowing whether a *finite* fixed set of lattice Fourier samples suffices to determine an unlimited box’s entire sampled spectrum is a motivated inverse-problem and alias-identifiability question. A sharp bandwidth threshold and complete integer-resonance classification are useful exact structural facts, despite poor noise conditioning and classical component integrals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

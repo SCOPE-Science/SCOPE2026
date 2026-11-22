@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:09:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-fourier-bandwidth-two-determination-and-complete-integer-r--7b7791fddb1f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-fourier-bandwidth-two-determination-and-complete-integer-r--7b7791fddb1f/verification/check.py"
+      ],
+      "rationale": "The integral over the product box factors into normalized sinc(πkL)/(πkL) terms. For noninteger width, b1!=0, |b2/b1|=|cos(πL)| and πL|b1|=|sin(πL)| recover the unique positive width; b1 divided by signed sinc recovers exp(-2πic). An integer width has b1=0 and all other nonzero integer samples vanish. The recovered factors and common volume imply complete-spectrum equality iff identical integer-width axis set and noninteger widths/center residues, with arbitrary integer-side centers and product-preserving integer widths. The first-frequency-cube counterexample uses λ∈(1/2,1) with sinc(λ)=2/(3π), swapping λ and 3/2 and shifting centers by half. It agrees on the entire frequency-1 cube but not at 2e1. The strict sinc monotonicity for widths in (0,1) proves the special case. Independent floating-point reproduction checked 9360 samples, witness λ≈0.816725605 and nonzero second gap ≈0.218057. No finite test proves all d.",
+      "residual_risks": [
+        "Exact noiseless samples only; ill-conditioned near integral/large widths; sample cardinality optimality not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ongie–Jacob 2016 describes finite sampling for piecewise-constant images in a unit cell using annihilating curves.",
+          "Asipchuk–Robins treats general bounded sets but under full lattice data, not arbitrary-size box finite determination."
+        ],
+        "reasoning": "Generality in object class with access to infinitely many coefficients does not dominate the present finite-measurement result; bounded unit-cell assumptions do not cover integer-side resonances.",
+        "searches": [
+          "Fourier coefficients lattice sampling rectangular box integer side width two sinc phase aliasing reconstruction finite spectral determination",
+          "https://arxiv.org/abs/2608.29217",
+          "https://arxiv.org/abs/1510.00384"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-fourier-bandwidth-two-determination-and-complete-integer-r--7b7791fddb1f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-fourier-bandwidth-two-determination-and-complete-integer-r--7b7791fddb1f/verification/check.py",
+        "https://arxiv.org/abs/2608.29217",
+        "https://arxiv.org/abs/1104.0446",
+        "https://arxiv.org/abs/1510.00384"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete-spectrum equivalence as in Asipchuk–Robins can classify aliases without yielding a 2d+1 finite-measurement uniqueness bound.",
+          "Unit-cell finite-rate-of-innovation methods are not equivalent to the explicit width formula with unrestricted positive widths."
+        ],
+        "reasoning": "Prior general results do not logically produce the stated finite cutoff, sharp counterexample, or exact integer-factorization cases from their documented hypotheses.",
+        "searches": [
+          "Fourier coefficients lattice sampling rectangular box integer side width two sinc phase aliasing reconstruction finite spectral determination",
+          "https://arxiv.org/abs/2608.29217",
+          "https://arxiv.org/abs/1104.0446",
+          "https://arxiv.org/abs/1510.00384"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asipchuk–Robins 2026 studies all-lattice Fourier equivalence through measurable lattice-translation equidecomposability; the finite 2d+1 axial determination and inversion are not stated in the abstract read.",
+          "Mao 2011 uses periodic binary signals/jump models; original PDF introduction and Theorem II.5 inspected."
+        ],
+        "reasoning": "Different hypotheses and output: a statement about full-data alias classes or periodic image recovery does not itself specify the sharp finite sample set.",
+        "searches": [
+          "Fourier coefficients lattice sampling rectangular box integer side width two sinc phase aliasing reconstruction finite spectral determination",
+          "https://arxiv.org/abs/2608.29217",
+          "https://arxiv.org/abs/1104.0446"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search surfaced the assigned record and different Fourier interpolation/reconstruction findings; no preexisting axis-parallel multiwrap width/center alias table was identified."
+        ],
+        "reasoning": "This continuous arbitrary-d theorem and its sharp frequency requirement are not a lookup of precomputed dimensions; lack of matches is not proof of priority.",
+        "searches": [
+          "Fourier coefficients lattice sampling rectangular box integer side width two sinc phase aliasing reconstruction finite spectral determination"
+        ]
+      },
+      "rationale": "The exact first-two-axial-sample finite reconstruction and complete multiwrap aliases were not implied by the inspected general Fourier lattice equidecomposability or unit-cell finite-rate-of-innovation theories. The sinc inversion is elementary, and unindexed earlier interval inversion remains possible. The submitted mathematical claim retains an original finite spectral determination theorem with sharp bandwidth cutoff.",
+      "residual_risks": [
+        "Full Asipchuk–Robins primary text was not available to compare every proposition.",
+        "Exact noiseless samples only; ill-conditioned near integral/large widths; sample cardinality optimality not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but no full-text NOT_COVERING conclusion; finite sampling priority uncertain",
+          "evidence": [
+            "General lattice Fourier equivalence/equidecomposability, different finite-data question"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.29217",
+          "material_read": "Title, abstract and available summary; full original paper not accessible in this run",
+          "method": "arXiv record and search summary",
+          "title": "Fourier sampling on a lattice",
+          "trigger": "Closest full-lattice alias theory"
+        },
+        {
+          "assessment": "Unit-periodic signal/jump recovery regime, not arbitrary positive real multiwrap box alias theorem",
+          "evidence": [
+            "Uses finite-dimensional periodic binary recovery conditions; arbitrary integer-width invisible axes not shown"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.0446",
+          "material_read": "Original PDF introduction and theorem statements including Theorem II.5",
+          "method": "public PDF opened and rendered",
+          "title": "Reconstruction of Binary Functions and Shapes from Incomplete Frequency Information",
+          "trigger": "Finite Fourier reconstruction of binary shapes"
+        },
+        {
+          "assessment": "Cannot exclude any uninspected appendix; stated unit-cell annihilating-curve setting differs",
+          "evidence": [
+            "Image-domain unit-cell/support assumptions exclude unrestricted interval-wrap aliases"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.00384",
+          "material_read": "Abstract and indexed theorem summary, not full text",
+          "method": "arXiv/SIAM bibliographical pages",
+          "title": "Off-the-Grid Recovery of Piecewise Constant Images from Few Fourier Samples",
+          "trigger": "Related finite Fourier samples for rectangular indicator images"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-fourier-bandwidth-two-determination-and-complete-integer-r--7b7791fddb1f/RESULT.md",
+        "https://arxiv.org/abs/2608.29217",
+        "https://arxiv.org/abs/1104.0446"
+      ],
+      "rationale": "Knowing whether a *finite* fixed set of lattice Fourier samples suffices to determine an unlimited box’s entire sampled spectrum is a motivated inverse-problem and alias-identifiability question. A sharp bandwidth threshold and complete integer-resonance classification are useful exact structural facts, despite poor noise conditioning and classical component integrals.",
+      "residual_risks": [
+        "Exact noiseless samples only; ill-conditioned near integral/large widths; sample cardinality optimality not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Asipchuk–Robins primary text was not available to compare every proposition.",
+    "Exact noiseless samples only; ill-conditioned near integral/large widths; sample cardinality optimality not claimed."
+  ],
+  "schema_version": 1
+}
