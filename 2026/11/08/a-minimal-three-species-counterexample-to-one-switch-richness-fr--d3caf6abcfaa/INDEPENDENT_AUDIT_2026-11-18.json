@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T23:04:59.724480Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa/RESULT.md (Git blob 243b0e3cb9c5ce6cab6e3539fdc36f080ff9105b)",
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa/verify.py (Git blob 3141f3e3be28a215fe6141185e4341eb9e30e1b3)",
+        "Independent direct exact multinomial moments with Python Fraction; 153 three-category compositions; 16 covariances and four other exact profiles."
+      ],
+      "rationale": "For iid categorical draws Y_1,...,Y_n with all p_i>0 and sum p_i=1, let N_i be counts, K=sum_i 1[N_i>0], F_r=sum_j 1[N_j=r] for 1<=r<=n. The diagonal term Cov(1[N_j>0],1[N_j=r])=P(N_j=0)P(N_j=r); for i!=j, Cov(1[N_i>0],1[N_j=r])=P(N_i=0)P(N_j=r)-P(N_i=0,N_j=r). Multinomial probabilities yield the stated binomial-coefficient sum exactly, including r=n via the conventional zeroth power/event probability. I independently enumerated all 153 integer triples (a,b,c)>=0 with a+b+c=16, weighted by exact 16!/(a!b!c!) (7/10)^a(1/5)^b(1/10)^c, checked total probability 1 and computed E[K], E[F_r], E[K F_r] directly for r=1,...,16. The 16 signs are +++++-++++++---- with exactly three changes (5/6, 6/7, 12/13); fractions at 5,6,7,12,13 reproduce all five displayed exact rational values. Reconstructed the universal covariance formula independently, then checked additional exact rational profiles (1/3,1/3,1/3;n=6), (1/2,3/10,1/5;n=8), (1/2,1/4,1/8,1/8;n=5), (2/3,1/3;n=9) against multinomial enumeration. For two categories, when 1<=r<n, K F_r=2F_r pointwise since F_r vanishes when K=1, so Cov(K,F_r)=P(K=1)E[F_r]>0. For r=n, F_n=1[K=1], yielding Cov=-P(K=1)P(K=2)<0. A single category has constant K and no switches. Thus three categories are the least support for three sign reversals. These exact finite checks establish the particular witness, not a general maximum number of reversals or minimum sample size among three-category laws.",
+      "residual_risks": [
+        "The example makes no claim that 16 is the smallest sample depth for any three-species law.",
+        "No upper bound on number of changes for larger alphabets follows from this witness.",
+        "Finite cross-checks corroborate but do not prove the general covariance identity; the indicator derivation supplies that proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sagitov arXiv:2604.15152v2, Lemma 1 (equations for E[N_r N_t]), gives exact finite joint count moments for arbitrary multinomial weights; Theorem 1 addresses large-n approximations and requires max p<=1/4 for remainder bounds.",
+          "Barbour–Gnedin arXiv:0809.4387v1 Theorem 3.1 is an infinite-frequency, variance-divergent CLT, not a finite three-category sign theorem.",
+          "Resultary 2026-10-18 richness–trait theorem uses hypergeometric sampling without replacement and varies sample size with a different response variable."
+        ],
+        "reasoning": "Generic exact moment identities cover the algebraic evaluation but do not explicitly imply that a single three-category law attains three strict sign reversals or prove the two-category obstruction. The homogeneous sign theorem does not dominate heterogeneous models. Other cited results have incompatible model, statistic or limiting hypotheses.",
+        "searches": [
+          "Resultary: nonuniform multinomial occupancy richness observed species frequency of frequencies F_r covariance multiple sign changes three species counterexample",
+          "Resultary: occupancy frequency counts K occupied boxes Cov(K,F_r) inequality arbitrary unequal box probabilities sign variation one switch",
+          "Web: multinomial unequal urn occupancy covariance number occupied boxes with frequency count r sign changes",
+          "https://arxiv.org/pdf/0809.4387",
+          "https://arxiv.org/pdf/2604.15152",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-variation-diminishing-law-for-richness-trait-covariance--06fbb44caf3a/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+        "https://arxiv.org/pdf/0809.4387",
+        "https://arxiv.org/pdf/2604.15152",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-variation-diminishing-law-for-richness-trait-covariance--06fbb44caf3a/RESULT.md",
+        "Resultary source searches of same model, broader occupancy covariance, and exact finite 3-box sign pattern (target result excluded as independent prior)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform one-switch proof gives exactly one sign change for p_i=1/m; it does not cover unequal p_i.",
+          "Sagitov Lemma 1 implies the universal covariance identity after K=m-F_0, and substituting the explicit rational vector yields the reported 16 signs; Sagitov does not state the counterexample or minimal support bound.",
+          "Barbour–Gnedin imposes infinitely many positive box frequencies, whereas the target has exactly three positive boxes."
+        ],
+        "reasoning": "The formula aspect is directly implied by older general moment results and is not counted as original; the qualitative minimal-alphabet obstruction to extending the strict homogeneous sign theorem is the surviving claim. No inspected source already supplies that witness or equivalent minimality result.",
+        "searches": [
+          "Resultary: nonuniform multinomial occupancy richness observed species frequency of frequencies F_r covariance multiple sign changes three species counterexample",
+          "Resultary: fixed sample finite occupancy three boxes covariance richness number boxes with r balls sign changes",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "https://arxiv.org/pdf/2604.15152",
+          "https://arxiv.org/pdf/0809.4387",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-variation-diminishing-law-for-richness-trait-covariance--06fbb44caf3a/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For m fixed, K=m-F_0, so Cov(K,F_r)=-Cov(F_0,F_r) for r>=1; Sagitov 2026 Lemma 1 gives exact general F_0/F_r covariances.",
+          "The uniform Resultary 2026-10-04 theorem takes p_i=1/m and proves a unique threshold using two common bases q,s; p=(7/10,1/5,1/10) does not satisfy it."
+        ],
+        "reasoning": "The target is a qualitative multiple-switch witness and minimal support, not an unfamiliar name for the general occupancy covariance. Its covariance table can be calculated from known joint-count identities, but those identities alone do not present or classify the constructive failure of the uniform sign law.",
+        "searches": [
+          "Resultary: nonuniform multinomial occupancy richness observed species frequency of frequencies F_r covariance multiple sign changes three species counterexample",
+          "Resultary: occupancy frequency counts K occupied boxes Cov(K,F_r) inequality arbitrary unequal box probabilities sign variation one switch",
+          "https://arxiv.org/pdf/2604.15152",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three targeted Resultary queries returned this same 2026-11-08 target and nearest homogeneous/different-statistic findings, but no independent exact 16-draw (7/10,1/5,1/10) sign table.",
+          "Sagitov Lemma 1 provides all exact joint count moments in general symbolic form, not a listed table or specific three-reversal example."
+        ],
+        "reasoning": "No exact prior table for the claimed strict sign vector was located in the accessed indexed records or primary papers; this is not evidence of exhaustive absence. Algebraic reproducibility from a general multinomial formula is explicitly acknowledged as prior groundwork.",
+        "searches": [
+          "Resultary: nonuniform multinomial occupancy richness observed species frequency of frequencies F_r covariance multiple sign changes three species counterexample",
+          "Resultary: occupancy frequency counts K occupied boxes Cov(K,F_r) inequality arbitrary unequal box probabilities sign variation one switch",
+          "Resultary: fixed sample finite occupancy three boxes covariance richness number boxes with r balls sign changes",
+          "Web: species richness frequency spectrum covariance heterogeneous probabilities singleton doubleton counterexample",
+          "Resultary: 2026/10/4 one-switch occupancy richness frequency counts",
+          "arXiv:2604.15152"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct mathematical counterexample to extending the published homogeneous one-switch law to unequal sampling weights. A source-complete review of the published equal-box result shows its q=(m-1)/m, s=(m-2)/m derivation requires every p_i=1/m; its unique switch does not constrain a profile (0.7,0.2,0.1). Sagitov 2026 Lemma 1 gives a genuinely broader exact joint-occupancy-count moment/covariance identity for arbitrary q_i, and since K=m-F_0 this mechanically determines Cov(K,F_r) after substitution, so neither a general covariance identity nor numerical evaluation alone is claimed as new. The particular constructive three-reversal pattern and sharp minimal positive support under a natural challenged one-switch generalization are not stated or proved in the inspected prior work. Barbour-Gnedin 2008 proves asymptotic joint approximations for infinitely many positive frequencies with diverging variances, not a fixed three-box finite sign spectrum. The sharp rarefaction richness-trait variation-diminishing theorem involves without-replacement sampling and an individual trait mean, not F_r under iid with-replacement multinomial draws. Resultary searches returned the target itself (excluded as independent prior), the uniform one-switch result, and these neighboring but mathematically distinct results. Search nonappearance is not proof of novelty; historical exact finite covariance tables and older urn-theory texts may have equivalent examples.",
+      "residual_risks": [
+        "A non-indexed classical occupancy covariance table or mathematical exercise may already present the same multiple-switch rational witness or a stronger construction.",
+        "Sagitov and the older Kolchin–Sevastyanov–Chistyakov exact moment formulas make this numeric example straightforward to verify algebraically; the priority claim is restricted to the explicit qualitative counterexample and support minimality.",
+        "An exhaustive historical-priority survey of monographs and unpublished theses was not conducted; no independence or external attestation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-switch conclusion is proved only for all equal probabilities; neither its formula nor threshold applies to heterogeneous vector.",
+          "evidence": [
+            "Finding formula (1) and strict threshold (3)-(7)",
+            "Assumptions explicitly require p_i=1/m",
+            "Limitations explicitly note lack of common q/s under nonuniform probabilities."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "material_read": "Full published RESULT.md: theorem, assumptions, indicator expansion, switch threshold proof, limitations, prior-work discussion",
+          "method": "Read full Resultary GitHub RESULT.md at blob 8838c14cbce160e36ffc784101b18b821bbc369a",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Closest exact sign law with same K and F_r statistics"
+        },
+        {
+          "assessment": "Theorems give distributional approximations and moment/correlation limits for infinitely many positive box frequencies; no three-category fixed-n sign-reversal result seen.",
+          "evidence": [
+            "Introduction defines K_n=sum_r X_{n,r} and focuses on joint normal approximation",
+            "Theorem 3.1 assumes each Var X_{n,r} tends to infinity",
+            "Section 6 analyses covariance limits/regular variation rather than fixed support."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+          "material_read": "Full-text accessible PDF text examined across introduction, §§2-4, regular-variation and limiting-correlation discussion in §§5-6, references; page images of pp.1,13",
+          "method": "arXiv PDF parsed full-text navigation and visual screenshots of primary pages",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Older primary treatment of nonuniform occupancy frequency counts and richness"
+        },
+        {
+          "assessment": "Lemma 1 gives precise exact joint-count probabilities sufficient to derive the generic covariance by K=m-F_0. The paper does not exhibit this three-reversal witness or classify switches as r varies; the main approximation bounds require max p<=1/4, violated here by p1=0.7.",
+          "evidence": [
+            "Lemma 1 gives E[N_r N_t] for r!=t using binomial/multinomial factors",
+            "Theorem 1 is an asymptotic estimate with a q1<=1/4 bound condition",
+            "No asserted occupancy richness-frequency sign phase classification in theorem statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.15152",
+          "material_read": "Full-text accessible 8-page article: introduction, Theorem A, Theorem 1, Lemma 1 exact joint moments, its proof, remainder estimates and references; screenshots of pages 1 and 4",
+          "method": "arXiv 2604.15152v2 PDF parsed text, visual page inspection",
+          "title": "The Multinomial Allocation Model and the Random Box Load",
+          "trigger": "Direct 2026 primary paper with exact heterogeneous occupancy covariance formulas"
+        },
+        {
+          "assessment": "Different law for sampling without replacement and covariance with individual-weighted trait mean as sample depth varies; no implication for iid multinomial Cov(K,F_r) varying frequency r at fixed n.",
+          "evidence": [
+            "Sampling without replacement from finite N individuals; T_m is mean trait",
+            "The sign-variation index is sample size m, while the target varies frequency r at n=16."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-variation-diminishing-law-for-richness-trait-covariance--06fbb44caf3a/RESULT.md",
+          "material_read": "Full published RESULT.md including exact covariance expression and all-level variation-diminishing proof",
+          "method": "Read Resultary GitHub RESULT.md at blob 299da673f32c394cc0fa2b2e843c39b6ffc235c7",
+          "title": "A sharp variation-diminishing law for richness–trait covariance under finite rarefaction",
+          "trigger": "Resultary neighborhood suggests a stronger sign-variation theorem involving richness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa/RESULT.md",
+        "SCOPE-Science/SCOPE2026@3285a1744f5600128a1c74c65c4bca4aae6a999b:2026/11/08/a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa/verify.py",
+        "https://arxiv.org/pdf/2604.15152"
+      ],
+      "rationale": "The same natural statistics K (observed richness) and F_r (exact-frequency spectrum) have a rigorously established single sign switch under homogeneous occupancy; the exhibited rational heterogeneous law forces three reversals at fixed sample size, showing genuine qualitative fragility, not merely rounding noise or a parameter renaming. Two positive species provably cannot have more than one switch for any sampling weights or sample size; hence m=3 is the sharp natural alphabet boundary. The finite exact witness is a motivated obstruction for attempts to extend uniform covariance phase laws to biodiversity and inhomogeneous balls-in-boxes settings. It is not a new covariance identity, not a classification of three-species models, and makes no arbitrary claim of minimal sample size n=16.",
+      "residual_risks": [
+        "The exact 16-draw witness alone does not bound maximal oscillations for m>3 or identify the smallest n at m=3.",
+        "Its importance is a sharp minimal-alphabet counterexample; no general theorem about all heterogeneous weight vectors is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Three positive-probability categories minimal in alphabet size; no minimal n or maximum higher-m switch count established.",
+    "This is a scientific judgment under accessible literature, not a priority guarantee or external certification.",
+    "Source metadata first_public_date=2008-09-25 appears to refer to Barbour–Gnedin source, not the research result published 2026-11-08; public dating cannot be silently corrected without provenance review."
+  ],
+  "schema_version": 1
+}
