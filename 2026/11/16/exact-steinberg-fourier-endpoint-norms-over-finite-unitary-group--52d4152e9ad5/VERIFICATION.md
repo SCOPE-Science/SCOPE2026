@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python CHECK.py` using Python 3 and its standard library. It outputs `UNITARY_STEINBERG_EXACT_CHECKS_PASS` after exact rational coefficient calculations for fields of orders 2, 3, 4, 5; direct enumeration of the 648 unitary matrices in \(U_3(2)\); the distribution of Steinberg character values through the action on nine isotropic projective lines; and the sharp norm \(112/27\) obtained without using the centralizer product.
+# Independent mathematical audit
 
-The arbitrary-rank result is proved analytically from the classical Steinberg character-value theorem and semisimple unitary centralizer classification. Exhaustive enumeration of a finite matrix group is not a proof of the general result. The checker needs no datasets or third-party packages. Independent external validation has not been performed.
+## correctness
+
+PASS
+
+For every q a prime power (including 2) and n>=1 in the FULL U_n(q), convolution by the central Steinberg idempotent K(g)=D St(g^-1)/|G| has sharp l1 and linfty norm sum |K(g)|. The standard Steinberg value theorem restricts the normalized absolute class sum to semisimple classes weighted |C(g)|_p/|C(g)|. Eigenvalue orbits under lambda -> lambda^(-q) have N_d=1/d sum_{e|d}mu(d/e)(q^e-(-1)^e); odd d centralizer U_m(q^d) and even d GL_m(q^d) give 1/product_j(q^(dj)-(-1)^(dj)). Product of independent orbit multiplicities yields H_q formal coefficients. Using sum_{d|k}dN_d=q^k-(-1)^k factors H_q=(1+z/q)R_q/(1-z). The tail of log R_q is summable for |z|<sqrt(q), so each coefficient converges to positive C_q at O_{q,rho}(rho^-n) for 1<rho<sqrt(q). One must not replace the external Steinberg theorem by numerical checks.
+
+## originality
+
+PASS
+
+The final operator/character claim, not solely its background classification, was compared against the actual published statements and selected primary sources. Bounded checked literature yields no identified covering prior theorem or table for the final new invariant, with explicit remaining priority risks. Exact Steinberg Fourier endpoint norms over finite unitary groups.
+
+## value
+
+PASS
+
+The exact sharp noncommutative Fourier projection norm for the full unitary family and an explicit positive large-rank normalization address a natural operator invariant. Twisted semisimple eigenvalue orbits give genuinely different behavior from GL_n, including a2(2)=2/3 versus a3(2)=14/27; an explicit exponential limit is useful for harmonic analysis of finite classical groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
