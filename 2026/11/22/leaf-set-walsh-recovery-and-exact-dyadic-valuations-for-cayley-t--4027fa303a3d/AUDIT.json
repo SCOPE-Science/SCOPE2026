@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The Prüfer bijection and character product expansion yield an exact inclusion-exclusion sum for every n>=2 and every Walsh character. At even n>=4 the j=1 term is a 2-adic unit times 2k; the binomial valuation inequality and the even-factor bound place every remaining term one power deeper, including the j=0 term. The n=2 empty-code boundary and odd n parity are handled explicitly. This proves every eigenvalue nonzero and the complete stated valuation distribution. The gcd follows using weight-zero and weight-one coefficients; parity of the integer determinant gives the 2-adic invertibility assertion. The included standard-library verifier passed 18,541 exact tests using three constructions, with finite checks explicitly not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 full-text https://arxiv.org/abs/1009.2060 counts every fixed leaf set but pursues ranking/unranking algorithms, not an arithmetic Fourier classification.",
+        "The public edge-incidence result https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-sharp-nonzero-walsh-gaps-for-complete-graph-spanning-trees--e2c0b7b0a6e5 concerns characters on edge subsets of K_n; the leaf-set pushforward is nonlinear in those coordinates.",
+        "The public arborescence result https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4 concerns rooted edge-incidence signings, not degree-one vertex incidence."
+      ],
+      "reasoning": "General exact counting of leaf profiles is stronger at the raw enumeration level, but a table or formula for individual multiplicities does not provide the uniform all-dimensional nonvanishing and exact dyadic spectrum. Fourier results on signed edge sets are not sufficient to recover signs indexed by leaves, a nonlinear statistic. The statement is not obtained by restricting those known edge-frequency results.",
+      "searches": [
+        "Cayley tree leaves parity Fourier coefficients exact 2-adic divisibility Walsh emptiness set 2010",
+        "Prüfer tree leaf set Fourier transform spectral convolution occupancy signed counts",
+        "fixed prescribed leaf set of spanning trees K_n; characters (-1)^{number of leaves in selected set}; parity spectra"
+      ]
+    },
+    "checked_sources": [
+      "Remmel and Williamson, arxiv:1009.2060 (full text inspected)",
+      "Lennon, arxiv:0802.3514 (full text inspected)",
+      "Public index: sharp nonzero Walsh gaps for complete-graph spanning trees, https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-sharp-nonzero-walsh-gaps-for-complete-graph-spanning-trees--e2c0b7b0a6e5 (indexed abstract/summary; linked full text not obtained)",
+      "Public index: sharp dyadic Fourier gaps for complete rooted arborescences, https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4 (indexed abstract/summary only)",
+      "Mathematical Subject Classification 2020, code 43A25, https://mathscinet.ams.org/mathscinet/msc/msc2020.html?btn=Current&t=43A20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full text https://arxiv.org/abs/1009.2060, §1: exact (n-r)! S(n-2,n-r) prescribed-leaf-set counts; no direct valuation theorem.",
+        "Full text https://arxiv.org/abs/0802.3514, abstract/introduction and proof sections: locality asymptotics rather than characters of leaf sets.",
+        "Public index https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-sharp-nonzero-walsh-gaps-for-complete-graph-spanning-trees--e2c0b7b0a6e5 proves distinct edge-incidence spectrum facts whose even-order singularity differs from present leaf-profile full invertibility."
+      ],
+      "reasoning": "One can derive the signed transform from prior counting data by applying the Krawtchouk transform, so the transform formula itself is not asserted as a new enumerative discovery. The claim tested for originality is the exact formula ν2(Λ)=1+ν2(k) at every nontrivial even-order character, together with all-order nonvanishing and its integral parity consequences. Neither inspected primary paper asserts nor immediately specializes to those results without the additional 2-adic congruence argument. There remains a real risk that a different signed occupancy paper already proved the same arithmetic conclusion.",
+      "searches": [
+        "Prüfer tree leaf set Fourier transform spectral convolution occupancy signed counts",
+        "weighted Prüfer tree degree-one indicator Fourier transform exact divisibility and nonvanishing",
+        "Fourier coefficients vacant boxes occupancy distribution Walsh characters exact sign probability random balls"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Remmel and Williamson (2010), https://arxiv.org/abs/1009.2060, §1 equations (3)-(5): prescribed leaf-set count is (n-r)! S(n-2,n-r); the character sum is not assessed there.",
+        "Lennon (2008), https://arxiv.org/abs/0802.3514, introduction and §§1-4: Prüfer-code bijection and mutation locality, not signed occupancy character sums."
+      ],
+      "reasoning": "The equivalent occupancy formulation uses n-2 independent symbols in n boxes, with the leaf set equal to the empty-box set. The prior exact occupancy/leaf multiplicity determines every Fourier coefficient as a finite sum but does not establish their uniform exact 2-adic valuations as n and k vary. The new proof is a uniform valuation comparison, not a rebadged counting formula.",
+      "searches": [
+        "\"Walsh\" \"leaf\" \"Prüfer\" \"tree\" spectrum",
+        "\"leaf set\" \"Walsh transform\" labelled trees",
+        "empty-box occupancy signs Fourier transform n-2 balls into n bins Walsh valuation",
+        "All Walsh eigenvalues of counting kernel of leaf sets of labeled Cayley trees; n−2 occupancy vacancies; 2-adic valuation 1+v2(k) for even n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Remmel and Williamson (2010), https://arxiv.org/abs/1009.2060, Table 1 and equations (4)-(5), provide Stirling numbers and tree totals by leaf count, not tables of Walsh valuations.",
+        "Public-index nearest hit on complete-graph spanning-tree Fourier spectra https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-sharp-nonzero-walsh-gaps-for-complete-graph-spanning-trees--e2c0b7b0a6e5 is exact for edge-incidence frequencies but is not the leaf-profile distribution."
+      ],
+      "reasoning": "Existing finite Stirling tables and formulas encode the original multiplicity distribution. They are mathematically sufficient for computing any individual Fourier coefficient but do not tabulate or classify the asserted valuation law across all n and weights. This result is a nontrivial infinite arithmetic property of that known distribution, not a numerical table recomputation.",
+      "searches": [
+        "Walsh spectrum of Prüfer sequence leaf sets of Cayley trees, exact 2-adic valuation convolution no zeros",
+        "ranking unranking prescribed leaf sets Stirling numbers Cayley trees",
+        "empty-box occupancy signs Fourier transform n-2 balls into n bins Walsh valuation"
+      ]
+    },
+    "rationale": "The principal prior source already supplies exact prescribed-leaf-set multiplicities for all n. The new assertion is not those multiplicities, but the uniform all-character dyadic valuation and zero-free Fourier theorem, whose proof needs a separate binomial-adic argument. The inspected primary texts do not state that arithmetic theorem. Public index searches returned edge-incidence tree spectra and code locality but no equivalent leaf-profile valuation result. This is bounded scientific originality rather than a claim of exhaustive priority.",
+    "residual_risks": [
+      "An unindexed earlier signed occupancy or prescribed-leaf-set generating-function result could prove the identical exact valuations.",
+      "The classical exact leaf-set distribution already determines every individual character sum; priority is claimed only for the uniform valuation and invertibility theorem, not for the distribution itself.",
+      "Related indexed edge-incidence source full text was not accessible during this comparison; available summary is on a different encoding, and the limitation is not treated as full-text exclusion.",
+      "No independent historical-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives exact original distribution f_n(L)=(n-|L|)!S(n-2,n-|L|) but not all-character valuation or nonvanishing classification",
+        "evidence": [
+          "2010-09-10 first public posting; https://arxiv.org/abs/1009.2060 §1 equations (3)-(5)",
+          "Full-text searches for Fourier, Walsh, spectral produced no matching use"
+        ],
+        "identifier_or_url": "arxiv:1009.2060 https://arxiv.org/abs/1009.2060",
+        "material_read": "Full HTML rendering with abstract, §§1-2 including equations (1)-(5) and the degree-preserving bijection, and later ranking/unranking sections (sections 4-5); exact text searched for Fourier, Walsh, spectral",
+        "method": "Read displayed original-source prose and formulas and compare the fixed-set-count statement and its implications to every claimed Walsh valuation",
+        "title": "Ranking and unranking trees with a given number or a given set of leaves",
+        "trigger": "Precisely the same Cayley-tree leaf-set statistic, and therefore the most important possible dominating enumeration source"
+      },
+      {
+        "assessment": "Bijection and locality properties are background only; no equivalent dyadic Fourier result identified",
+        "evidence": [
+          "2008-02-24 initial public posting; https://arxiv.org/abs/0802.3514 introduction and main results",
+          "Search of full rendered text for Fourier found no match"
+        ],
+        "identifier_or_url": "arxiv:0802.3514 https://arxiv.org/abs/0802.3514",
+        "material_read": "Full HTML rendering, abstract/introduction, decoding §§1-2, locality probability proof sections and later lemmas",
+        "method": "Read original definitions, coding statements and main conclusions, compare to the requested signed leaf-frequency arithmetic",
+        "title": "On the locality of the Prüfer code",
+        "trigger": "Earlier dated direct account of the complete Prüfer correspondence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4027fa30-3a3d-4945-8304-002a6f5a4c22",
+  "value": {
+    "rationale": "Cayley-tree leaf sets are a natural, dependent, multiplicity-weighted vertex statistic with forbidden binary profiles, so complete nonvanishing of the Walsh transform is not automatic. The exact valuation of every character for every tree order gives a quantitative arithmetic spectral stratification: all 2^n modes are retained in characteristic zero, exactly 2^{n-1} have valuation one at each even n>=4, and all odd-order convolution matrices are invertible over Z_2. These properties are intrinsic to deconvolution and modular recovery of leaf-profile distributions. The theorem has an infinite all-order scope and is not a finite table or a minor numerical improvement. No unproved Smith-invariant or sharp real spectral-gap consequence is asserted.",
+    "status": "PASS"
+  }
+}
