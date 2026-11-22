@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:52:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Simplex KKT gives P_r(x)_i=(x_i-tau)_+, and each nonempty support S of size k occurs on a strict open affine cell. Its Jacobian is mean-centering on S and zero outside, annihilating constants. Coarea shows its induced complete-pair Gini norm is maximized by a binary cut T. If a=|S∩T|, b=k-a, c=n-k and u=|T\\S|, the output has values b/k, -a/k, 0 with exact dispersion ab(1+2c/k), and the input has (a+u)(b+c-u). Concavity of the denominator in u makes an endpoint optimal; monotonicity in the smaller active group gives a=1, b=k-1. The resulting support norm (k-1)(2n-k)/(k(n-1)) is attained by one-coordinate perturbations inside its strict cell. The forward difference -1+2n/[k(k+1)] proves the exact maximizing support inequalities and the asymptotic 2-2sqrt(2/n)+O(1/n). Fixed-input contraction is a separate 1-Lipschitz threshold map statement. Independently enumerated all 2..8 support subsets and proper binary cuts with exact fractions, recovering every claimed finite n norm.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duchi/Condat simplex algorithms and the sparsemax active Jacobian provide the KKT structure. A known Jacobian does not determine its induced norm in all-pair Gini variation without separate coarea and cardinality optimization.",
+          "Published general graph-edge variation simplex bounds depend on connectivity; that different theorem gives no sharp all-pairs specialization by parameter implication as stated, and its result is controlled by graph cuts, not the exact complete-graph support formula."
+        ],
+        "reasoning": "The stronger/general cited conclusions have different operators or norms, or cover only common prerequisites; the final sharp constant and classifications are not an implication of them.",
+        "searches": [
+          "Resultary query: Euclidean simplex projection sharp Gini mean difference complete pair variation Lipschitz optimal 2",
+          "Resultary alias: sparsemax projection onto simplex Gini distance sensitivity operator norm complete graph",
+          "https://proceedings.mlr.press/v48/martins16.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v48/martins16.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-graph-variation-instability-of-simplex-projection-under-ed--af98be3387d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact cyclic-variation norm does not imply an exact Gini norm: the two seminorms are not isometric and their n-dependences diverge.",
+          "The general active Jacobian and support formula are necessary prerequisites but do not imply the newly optimized Gini coefficient absent the cut counting argument."
+        ],
+        "reasoning": "The mathematical premises and invariant were compared, not only titles or matching parameter symbols; the cited theorems do not determine the new exact output without the reconstructed arguments.",
+        "searches": [
+          "Resultary query: Euclidean simplex projection sharp Gini mean difference complete pair variation Lipschitz optimal 2",
+          "Resultary alias: sparsemax projection onto simplex Gini distance sensitivity operator norm complete graph",
+          "https://proceedings.mlr.press/v48/martins16.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sparsemax is exactly Euclidean projection onto the unit simplex and its Jacobian has the same active-set mean-centering structure; Martins–Astudillo state those facts, not this pairwise Gini operator norm.",
+          "The prior cyclic-variation simplex-projection finding has the same nonlinear map but a cyclic-edge seminorm with growth of order n, rather than the complete-pair seminorm and bounded limit 2."
+        ],
+        "reasoning": "Alias/equivalence checks separate exact operators, semigroup/proximal maps, and the defined seminorm; no inspected alternate formulation already states the complete result.",
+        "searches": [
+          "Resultary query: Euclidean simplex projection sharp Gini mean difference complete pair variation Lipschitz optimal 2",
+          "Resultary alias: sparsemax projection onto simplex Gini distance sensitivity operator norm complete graph",
+          "https://proceedings.mlr.press/v48/martins16.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary simplex Gini query and alias search found this current result and related cyclic or graph-TV simplex findings, not an independently prior identical dimension/support Gini formula.",
+          "The Martins–Astudillo accessible main text reports projection/Jacobian formula but no table of exact complete-pair Gini Lipschitz constants."
+        ],
+        "reasoning": "A factual result-set search plus source-specific table check was performed. Search misses alone are not a novelty certificate; no exact prior table was identified in the inspected material.",
+        "searches": [
+          "Resultary query: Euclidean simplex projection sharp Gini mean difference complete pair variation Lipschitz optimal 2",
+          "Resultary alias: sparsemax projection onto simplex Gini distance sensitivity operator norm complete graph",
+          "https://proceedings.mlr.press/v48/martins16.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+        ]
+      },
+      "rationale": "PASS (bounded best-of-knowledge). Sparsemax is exactly Euclidean projection onto the unit simplex and its Jacobian has the same active-set mean-centering structure; Martins–Astudillo state those facts, not this pairwise Gini operator norm. The general active Jacobian and support formula are necessary prerequisites but do not imply the newly optimized Gini coefficient absent the cut counting argument. Material full texts and relevant primary sections checked; remaining historical-equivalence risks retained.",
+      "residual_risks": [
+        "An older Gini mean difference/sparsemax sensitivity inequality may provide the same factor in unindexed terminology.",
+        "The inspected 2016 primary paper establishes the Jacobian; novelty is only the Gini-specific exact optimization, not the projection formula itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States KKT threshold and active support Jacobian, but no complete-pair Gini norm or support-size optimization in examined proof",
+          "evidence": "Proposition 1 gives (z_i-tau(z))_+, and Eq. (14) the support mean-subtraction Jacobian.",
+          "identifier_or_url": "arxiv:1602.02068; https://proceedings.mlr.press/v48/martins16.pdf",
+          "material_read": "Accessible primary PDF: Sections 2.1–2.3, Proposition 1 threshold formula and Jacobian Eq. (14), Section 3 context; pages inspected visually",
+          "method": "Primary conference PDF parsed text plus screenshot",
+          "title": "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
+          "trigger": "Same exact simplex projection and Jacobian"
+        },
+        {
+          "assessment": "Its O(n) cyclic variation bound is not equivalent to the bounded complete-pair Gini factor",
+          "evidence": "The prior sharp factor is floor((n+2)^2/8)/ceil((n+2)/2), using interval rather than arbitrary-cut norming tests.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+          "material_read": "Published full RESULT.md: main formula, cyclic-interval reduction and equality construction",
+          "method": "Direct published scientific file",
+          "title": "Sharp cyclic-variation amplification of Euclidean simplex projection",
+          "trigger": "Same projection but alternative variation seminorm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simplex projection is ubiquitous in optimization and sparse probability transformations. The contrast between fixed-input dispersion contraction and two-input expansion, the precise first dimension, the optimal active support near sqrt(2n) and the approach to factor 2 quantify a genuine and useful perturbation-stability gap in a natural seminorm. The all-dimensional classification is stronger than a routine KKT restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.mlr.press/v48/martins16.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-graph-variation-instability-of-simplex-projection-under-ed--af98be3387d4"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite independent rational checks corroborate unrestricted analytical arguments. Best-of-knowledge originality is not an exhaustive historical priority certificate; no repository writes or independent expert/formal verification were performed.",
+  "residual_risks": [
+    "An older Gini mean difference/sparsemax sensitivity inequality may provide the same factor in unindexed terminology.",
+    "The inspected 2016 primary paper establishes the Jacobian; novelty is only the Gini-specific exact optimization, not the projection formula itself."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The simplex threshold KKT conditions yield every affine support Jacobian and guarantee that every support occurs on an open cell. A sorted-level decomposition of complete-graph Gini variation reduces each Jacobian operator norm to cut indicators. Counting its three output value levels gives an exact rational cut expression, whose minimum denominator occurs at an endpoint in the inactive-cut count. Maximization at one selected active coordinate yields the formula, and strict-support base points furnish genuine attaining input pairs. The consecutive-support comparison and asymptotic follow by exact algebra. The standalone rational checker independently evaluates active cuts and actual simplex projections. Finite verification supplements, but does not replace, the complete proof.
+## correctness
 
-## Originality — PASS (qualified)
-Duchi et al. and Condat cover projection algorithms, not two-input Gini variation. Martins–Astudillo compute the same local Jacobian but do not determine its sharp Gini operator norm. The directly relevant cyclic-variation mathematical result uses only adjacent-edge differences and has different sharp order and optimizer geometry; its theorem does not imply the all-pairs constant. Searches of mathematical records and accessible historical claims did not reveal an equivalent all-pairs formula, including under pairwise dispersion and Gini mean difference aliases. These searches do not establish exhaustive publication priority: an unindexed older inequality or operator-norm result remains possible.
+PASS
 
-## Mathematical value — PASS
-The exact invariant measures robustness of simplex-normalized signals under the canonical permutation-invariant pairwise-difference seminorm. The result separates single-signal contraction from two-signal amplification, identifies the first unstable dimension, and gives an unexpectedly sublinear (square-root) size for extremizing active supports, in contrast with the different cyclic-variation behavior. It is an all-dimension sharp classification with explicit witnesses, not an arbitrary finite input table.
+Simplex KKT gives P_r(x)_i=(x_i-tau)_+, and each nonempty support S of size k occurs on a strict open affine cell. Its Jacobian is mean-centering on S and zero outside, annihilating constants. Coarea shows its induced complete-pair Gini norm is maximized by a binary cut T. If a=|S∩T|, b=k-a, c=n-k and u=|T\S|, the output has values b/k, -a/k, 0 with exact dispersion ab(1+2c/k), and the input has (a+u)(b+c-u). Concavity of the denominator in u makes an endpoint optimal; monotonicity in the smaller active group gives a=1, b=k-1. The resulting support norm (k-1)(2n-k)/(k(n-1)) is attained by one-coordinate perturbations inside its strict cell. The forward difference -1+2n/[k(k+1)] proves the exact maximizing support inequalities and the asymptotic 2-2sqrt(2/n)+O(1/n). Fixed-input contraction is a separate 1-Lipschitz threshold map statement. Independently enumerated all 2..8 support subsets and proper binary cuts with exact fractions, recovering every claimed finite n norm.
 
-## Closest literature and limitations
-See the source comparisons and references in RESULT.md, particularly the 2016 sparsemax Jacobian paper and the published cyclic-variation theorem. The constant is not asserted for weighted complete graphs or non-Euclidean projections. Historical priority and independent validation remain unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded best-of-knowledge). Sparsemax is exactly Euclidean projection onto the unit simplex and its Jacobian has the same active-set mean-centering structure; Martins–Astudillo state those facts, not this pairwise Gini operator norm. The general active Jacobian and support formula are necessary prerequisites but do not imply the newly optimized Gini coefficient absent the cut counting argument. Material full texts and relevant primary sections checked; remaining historical-equivalence risks retained.
+
+## value
+
+PASS
+
+Simplex projection is ubiquitous in optimization and sparse probability transformations. The contrast between fixed-input dispersion contraction and two-input expansion, the precise first dimension, the optimal active support near sqrt(2n) and the approach to factor 2 quantify a genuine and useful perturbation-stability gap in a natural seminorm. The all-dimensional classification is stronger than a routine KKT restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
