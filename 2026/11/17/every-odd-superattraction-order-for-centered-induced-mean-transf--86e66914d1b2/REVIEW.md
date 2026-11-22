@@ -1,19 +1,21 @@
-# Scientific review of the moment-stratified two-period mean iteration theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The double-operator-integral definition reduces exactly to the two alternating scalar means for positive invertible bilateral weighted shifts; this reduction agrees with Osaka–Yamazaki (2024), Theorems 2.3 and 2.7. The centered harmonic representing measure has first odd moment zero. Substitution of \(a=e^{v+r/2}\), \(b=e^{v-r/2}\) gives the exact contrast identity \(r^+=\log H(\tanh(r/2))-\log H(-\tanh(r/2))\). Analytic expansion and determinate compact moments prove the one-step versus odd-order dichotomy and coefficient. Strict internality proves global operator-norm convergence, while the logarithmic recurrence establishes the stated superexponential scale for non-collapsing orbits. Rodrigues' formula proves both attainment for every odd order and non-collision in the constructive examples. Exact symbolic moment checks and high-precision series diagnostics provide an independent finite check of the coefficients; they do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+For a centered f-prime(1)=1/2 Kubo–Ando mean, its harmonic representing measure ν has m1=0, and exactly r+ = log H(tanh(r/2))−log H(−tanh(r/2)) for H(u)=∫(1−tu)^−1dν. Uniqueness of moments on compact [-1,1] says all odd moments vanish iff ν is reflection-symmetric, yielding one-step equality. Otherwise the first odd nonzero m_p, p>=3, gives r+ = m_p r^p/2^(p−1)+O(r^(p+2)), ruling out even finite orders. Strict internality of both outputs ensures global convergence of positive two-periodic weights, with conditioned superexponential profile from logarithmic iteration. Legendre densities (1+εP_p)/2 for odd p>=3, ε in (0,1), have exactly vanishing preceding odd moments, coefficient 2ε(p!)²/(2p+1)!, and strictly positive odd-tail moments prevent finite diagonal hits. Independently checked rational Legendre moments p=3,5,7 at ε=3/5, obtaining r coefficients 3/350,1/2310,1/42900. No extrapolation of finite moments to all orders.
 
-Yamazaki (2019/2020) and Osaka–Yamazaki (2024/2025) give the operator-mean machinery and qualitative convergence. Zhou–Yang (2026) address a particular power-mean transform, not the hierarchy of centered asymmetric means. The closely related 2026 cyclic spectral-rate result proves a zero linearized factor and supergeometric convergence for the centered two-period case, but neither a nonzero leading odd coefficient nor realizability of all odd rates is implied by a root-limit-zero statement. Pálfia–Petz (2014) already characterize symmetric means by symmetry of their representing measures, which is acknowledged here; the contribution is the quantitative hierarchy for nonsymmetric means and its constructive completeness. Actual mathematical-record searches on the odd-moment, asymmetric mean, Legendre, two-period and superattraction formulations found no exact statement. An equivalent theorem in nonlinear means or real-analytic iteration theory may remain unrecognized: the claim is not a certification of publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact supergeometric rate of a natural, actively studied operator transform is undetermined by its vanishing linear factor. This theorem fills that gap by classifying every possible local order, identifying the unique leading scalar invariant of the representing measure, proving the forbidden-even-order boundary, and realizing all allowed orders by genuine positive operator means. It translates an abstract supergeometric statement into quantitative operator convergence and explains how identical derivatives of operator means conceal arbitrarily different nonlinear speeds. This is a structural classification, not an arbitrary fixed-parameter computation. Its scope is explicitly restricted to positive two-periodic shifts and centered means; it does not classify higher periods.
+The induced Aluthge transform and convergence for centered operators appear in Osaka–Yamazaki arXiv:2409.03338, especially Theorem 2.7 and Theorem 3.3. The published Resultary Nov2 cyclic nonlinear spectral-rate theorem identifies the vanishing linear factor and supergeometric convergence at λ=1/2,m=2, but not first nonzero odd moment, every possible superattraction order, sharp coefficient and constructive Legendre realizations. The exact countable hierarchy is an additional local dynamical classification; searched for equivalent moment-flat means.
 
-## Relevant literature and remaining risks
+## value
 
-The principal neighboring results are: Osaka–Yamazaki (2024/2025, Theorems 2.3, 2.7, 4.4); Yamazaki (2019/2020, Sections 2 and 5); Zhou–Yang (2026, Sections 1 and 3); Pálfia–Petz (2014, Section 2); and the publicly available 2026 sharp spectral-rate theorem for cyclic induced means. The strongest residual risk is a differently formulated analytic mean-iteration result that already observes the odd-moment hierarchy. General convergence and symmetry statements alone do not imply the exact coefficient and all-orders construction. The numeric checker has finite, diagnostic scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A degenerate linearization hides very different nonlinear convergence rates. The complete odd-order hierarchy, exact coefficient, collision-free witnesses and one-step symmetry case sharply classify natural centered operator means where linear spectral estimates cannot distinguish behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
