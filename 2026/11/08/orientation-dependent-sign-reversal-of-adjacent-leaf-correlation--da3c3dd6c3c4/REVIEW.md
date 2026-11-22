@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim uses one specified unweighted prism and one uniform spanning tree. Leaf deletion gives factors three and four; the prism tree count follows from its Laplacian spectrum, and deleted-vertex tree counts follow from an explicitly reproducible five-state forest transfer. Its annihilating polynomial proves the all-size formulas from five consecutive exact initial values. Displayed rational enclosures of \(\sqrt3\) and explicit quartic coefficients establish the sign for every \(m\ge5\), with the two smaller orders verified by exact fractions. The independent finite determinant diagnostics do not replace the analytic proof.
+## correctness
 
-**Originality — PASS, qualified.** Section 4 of Azimi and Farrokhi Derakhshandeh Ghouchan (arXiv:2306.10497) gives the known total-prism spanning-tree formula and resistance/pseudoinverse formulas, but not the claimed signed covariances of two leaf indicators. Nachmias and Peres (arXiv:2011.08833) treats high-degree regular graphs; fixed cubic prisms violate its growing-degree assumption. The open ladder rung-kernel record concerns edge correlations in open weighted ladders rather than a two-vertex leaf-event sign transition on cyclic prisms. Historical priority cannot be guaranteed, particularly because the resistance formulas can be used to reconstruct related correlations.
+PASS
 
-**Value — PASS.** Neighboring leaf events in uniform spanning trees need not inherit a single correlation sign even on a cubic vertex-transitive graph. The exact first sign transitions and opposite nonzero limiting signs give a structural, directly testable distinction between two geometrically natural types of nearest-neighbor pairs, not an arbitrary isolated numerical comparison.
+For every integer m>=3 in the simple unweighted cubic graph G_m=C_m square K2, leaf-grafting bijections give one-vertex count 3*tau(G-v) and adjacent two-leaf count 4*tau(G-{u,v}). Independent Kirchhoff cofactors verify tau(G), tau(G-v), tau(G-{rail endpoints}) and tau(G-{rung endpoints}) for m=3..10 exactly. Separately reconstructed all five frontier forest-state transition entries from every local edge subset, the two initialization vectors and closure vector, and verified (M-I)(M^2-4M+I)^2=0. These establish the Chebyshev H,C counts from initial values and recurrence for every m>=3. Independent SymPy expansion reduces the entire claimed rail and rung quartic coefficient identities modulo q^2-3 to zero; rational endpoint bounds are certified as shifted-polynomial coefficient inequalities for all m>=5, with strict tail margins. The m=3,4 exceptions and infinite limiting constants follow from exact ratios and leading terms. Finite cofactors are diagnostics; recurrence plus symbolic inequalities are all-m proof.
 
-**Scientific limitations:** The proof is for simple unweighted \(C_m\square K_2\) with \(m\ge3\); no generalization to arbitrary graphs, weights, or nonadjacent pairs is claimed. The related circular-ladder pseudoinverse literature substantially overlaps the underlying combinatorial computations; only the stated joint-leaf sign law is claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full-size prism joint-leaf sign classification is not supplied by inspected same-graph pseudoinverse and total-count work, open-ladder edge-kernel literature, or related wheel/crown computations. The cube m=4 boundary case is covered; the surviving all-m orientation-dependent transition m>=5 required new joint-leaf enumeration and strict quartic estimates. Historical priority is qualified by general transfer-current derivability and an uninspected 2026 correction notice.
+
+## value
+
+PASS
+
+Uniform-spanning-tree leaf indicators are a natural nonmonotone local observable; two inequivalent adjacent-pair orientations coexist on the same connected, cubic vertex-transitive graph. Proving sharp opposite signs for every m>=5 with the m=3,4 transitions, and distinct nonzero asymptotic limits, resolves a structural dependence phenomenon that does not follow from edge negative association or total tree counts. The exact all-size classification is not an arbitrary small numerical slice and has a clear diagnostic role for UST local correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
