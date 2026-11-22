@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T09:53:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob f5396c5ec3627095a7130e6131eb3b7144625c65, all proof steps",
+        "Frozen checker.py blob 950c90077d3cc3bb845b5069f04e8f70943dfee4, read as evidence but not used as correctness oracle",
+        "Fresh independent_checks.py, 40,940 exact word criteria, 10 transformation-monoid minimizations and 37,667 witness pairs",
+        "Seven Git object entries reconstruct exact tree 476575ab984bb0d8ac1f55fda80daa8a0fc158c0"
+      ],
+      "rationale": "The source defines L_b as the upward principal scattered-subsequence ideal for 00 1^b and root via concatenation w w, b any integer >=1, binary alphabet, complete DFAs. Direct embedding analysis gives: zero zeros => reject; one zero in 1^p01^t => accept iff t>=b; >=2 zeros with first two in 1^p01^h0u => accept iff p+h+2|u|_1 >= b. The leading p ones in the second copy are correctly included. For any suffix, this yields exactly quotient types P_p (0<=p<=b), Q_(alpha,beta) (1<=alpha<=b, 0<=beta<=alpha), R_j (1<=j<=ceil b/2), and absorbing A, with the sole identification Q_(1,1)=R_1. Prefix witnesses 1^p, 1^(alpha-beta)01^(b-alpha), 00 followed by ones, and 01^b establish reachability. The exact distinguishing suffixes in RESULT.md separate A, all P, all Q by alpha or beta, all R by j, and Q/R (including alpha=beta=j>=2 via 01^ceil(j/2)), proving minimality by Myhill–Nerode, not by finite extrapolation. Their count is (b+1)+(b(b+3)/2-1)+ceil(b/2)+1=ceil(b^2/2)+3b+1, including b=1. The sequential-matching complete DFA of the original pattern 00 1^b has b+3 distinct stages. The actual seven Git blob identities recombine to the assigned tree SHA. Fresh separate code tested 40,940 direct doubled-word instances against the two-zero criterion for b<=20, independently minimized the true transformation-monoid root automaton for b<=10, and verified 37,667 Myhill–Nerode distinguishing-pair witnesses for b<=14. The finite tests are corroboration of the explicit universal proof.",
+      "residual_risks": [
+        "No formal proof assistant or expert channel is asserted; the mathematical proof is human-level combinatorial reasoning.",
+        "Finite test coverage stops at the stated b and word lengths and does not establish universal correctness by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guyot Proposition 2.3 is kappa(root of up(V_n)) >=2^n for n distinct letters, Appendix Proposition A.5 gives about 0.46(2.41)^n; neither fixes a two-letter family.",
+          "Guyot Proposition 2.6 gives n^2-n+3 for the root of down((a1...an)^3), a finite downward-closed language over n distinct letters.",
+          "Onishchenko Theorem 3 establishes sharp n^3 worst-case NFA root complexity using an alphabet indexed by Q^3, not a DFA count for this family.",
+          "Brzozowski–Jiraskova–Zou 2009 studies closures, Boolean operations, concatenation, star and reversal, rather than root."
+        ],
+        "reasoning": "Worst-case NFA growth, a distinct-letter upward-family lower bound, and a downward-closed exact formula have different object or quantifiers. None is a dominating theorem yielding the exact deterministic formula by specialization.",
+        "searches": [
+          "https://arxiv.org/pdf/2605.02957",
+          "https://jerome-guyot.github.io/files/papier_lncs.pdf",
+          "https://arxiv.org/pdf/0912.1034",
+          "Resultary: square root of subword closed languages principal ideals state complexity Guyot Onishchenko"
+        ]
+      },
+      "checked_sources": [
+        "https://jerome-guyot.github.io/files/papier_lncs.pdf",
+        "https://arxiv.org/pdf/2605.02957",
+        "https://arxiv.org/pdf/0912.1034",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-parity-automaton-square-root-state-complexity-n-3-n-2-n--087cc2ea55ea/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-quotient-complexity-for-a-prescribed-number-of-scattered-0--983ea3737952/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parity-automaton root theorem counts dimension of F2 Hankel representations under symmetric-difference path acceptance; the target counts Myhill–Nerode classes of a Boolean complete DFA.",
+          "The scattered-01 theorem fixes the exact number of embedded 01 pairs; target tests existence of a 00 1^b embedding after doubling.",
+          "Guyot Prop 2.6 concerns down((a1...an)^3) and yields n^2-n+3, no implication for up(00 1^b).",
+          "Onishchenko Theorem 3 builds worst-case NFAs with a many-letter alphabet to prove n^3 sharpness, not a binary exact-DFA count."
+        ],
+        "reasoning": "These are genuine related operations/statistics but the hypotheses and acceptance semantics differ. In particular, no substitution of their parameters converts either prior theorem into the claimed all-b fixed-binary quadratic expression; original root quotient analysis is needed.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-parity-automaton-square-root-state-complexity-n-3-n-2-n--087cc2ea55ea/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-quotient-complexity-for-a-prescribed-number-of-scattered-0--983ea3737952/RESULT.md",
+          "https://jerome-guyot.github.io/files/papier_lncs.pdf",
+          "https://arxiv.org/pdf/2605.02957"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guyot 2024 Prop 2.2 uses exactly the k-root operation on subsequence-upward ideals; Prop 2.3 and Appendix A study the distinct-letter generator a1...an (https://jerome-guyot.github.io/files/papier_lncs.pdf, pp.7,22-24).",
+          "Current claim is a left-quotient count of the word-squaring preimage of the principal filter generated by repeated-letter 00 1^b, not a pattern-counting or NFA claim."
+        ],
+        "reasoning": "Synonyms superword-closed/principal subsequence ideal/scattered superword filter, square-root/word-squaring preimage, minimal DFA/left quotient complexity were checked. The closest full primary result has a distinct-letter generator with growing alphabet; its lower bounds and minimal generators do not supply this exact binary repeated-letter count.",
+        "searches": [
+          "Resultary semantic: square root of a binary scattered-subsequence upward closed ideal 00 1^b exact complete deterministic quotient complexity minimal DFA quadratic b",
+          "Resultary semantic: regular language word square root w such that ww contains 001^b as a scattered subsequence, Myhill Nerode state complexity",
+          "web: square root upward closed language binary fixed alphabet deterministic state complexity subsequence ideals",
+          "web: quotient complexity word square root subword closed language binary 001^n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct literal/formula and parameter-sequence queries returned no scientifically identified pre-existing root-language table; unrelated sequence matches are not considered prior art.",
+          "Resultary located the SAME audited target entry (2026/11/8, c2c292048dbb) and several distinct language-complexity findings, not a prior identical table."
+        ],
+        "reasoning": "No covering published exact table or database entry was identified in these bounded searches. The target entry itself cannot establish pre-existing independent priority; absence of matches is only a residual-risk observation.",
+        "searches": [
+          "web: \"ceil(b^2/2)+3b+1\" square root state complexity binary",
+          "web: \"5, 9, 15, 21, 29, 37, 47\" square root automata",
+          "web: site:oeis.org \"5,9,15,21,29,37,47\" language automata",
+          "Resultary semantic: exact minimal complete DFA number ceil(b squared divided two)+3b+1 for square root of upward subsequence ideal generated by 00 followed by b ones"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as the all-b fixed-alphabet complete-DFA quotient count for the square root of the binary principal superword ideal generated by 00 1^b. Guyot gives an exponential lower bound for varying-alphabet distinct-letter upward generators and an exact quadratic count for a DIFFERENT downward-closed cyclic family. Onishchenko gives the n^3 NFA worst-case for arbitrary regular languages with growing alphabet, without this concrete deterministic binary family. Two nearby published exact state-complexity results count an F2 parity automaton root or words with exactly k scattered 01 occurrences, neither of which implies the present quotient count. An unindexed equivalent special-family enumeration could remain; unsuccessful search is not priority proof.",
+      "residual_risks": [
+        "Older or unindexed state-complexity literature may hide equivalent binary principal-ideal or word-root state enumeration; bounded primary and semantic searches do not establish historical priority.",
+        "A repeated-letter extension of generic square-root cut-and-shuffle presentations could mechanically imply the formula via an unpublished additional count, but no inspected theorem gives the exact count.",
+        "Resultary indexes the audited target itself; that target hit is explicitly excluded as independently prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING target count: upward family is V_n with distinct letters and variable alphabet; quadratic exact count uses downward closure of repeated distinct-letter cycles",
+          "evidence": [
+            "Propositions 2.2-2.3, 2.5-2.6, A.3-A.7; p.7 explicitly assumes alphabet with >=n distinct letters",
+            "https://jerome-guyot.github.io/files/papier_lncs.pdf"
+          ],
+          "identifier_or_url": "https://jerome-guyot.github.io/files/papier_lncs.pdf",
+          "material_read": "Full mathematical text of Section 2.1 (pp.7), Section 2.2 (pp.8-10), and Appendix A relevant root propositions (pp.22-24); checked definitions and distinct-letter hypotheses",
+          "method": "Primary lawful open-access author PDF, extracted text and page screenshots",
+          "title": "On the State Complexity of Square Root and Substitution for Subword-Closed Languages",
+          "trigger": "Same square-root operation and subsequence-upward-closed languages, plus quadratic neighboring theorem"
+        },
+        {
+          "assessment": "NOT_COVERING target deterministic binary family; its theorem is worst-case ordinary NFA complexity across general alphabets and n-state sources",
+          "evidence": [
+            "Theorem 2 general n^3 upper NFA construction; Definition 3 and Theorem 3 with alphabet indexed by Q^3, pp.3-5",
+            "https://arxiv.org/pdf/2605.02957"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.02957",
+          "material_read": "Entire five-page arXiv v1 primary paper, including NFA construction, n^3 fooling-set theorem and references",
+          "method": "Lawful open arXiv PDF; extracted text and page screenshots",
+          "title": "Nondeterministic state complexity of square root",
+          "trigger": "2026 primary full text on exactly the root operation"
+        },
+        {
+          "assessment": "BACKGROUND, NOT A ROOT RESULT in surveyed scope; no whole-document priority claim based on an abstract alone",
+          "evidence": [
+            "Abstract enumerates closure, Boolean, concatenation, star, reversal rather than word root",
+            "https://arxiv.org/pdf/0912.1034"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0912.1034",
+          "material_read": "Abstract, introduction, terminology and operations list in the publicly accessible arXiv manuscript; checked for square-root theorem",
+          "method": "Lawful open arXiv PDF, extracted text and title-page screenshot",
+          "title": "Quotient Complexity of Closed Languages",
+          "trigger": "Earlier foundational quotient-complexity bounds for subsequence-closed languages"
+        },
+        {
+          "assessment": "NOT_COVERING ordinary deterministic binary scattered-subsequence ideal: parity-weighted path semantics and worst-case dimension differ",
+          "evidence": [
+            "Finding states all-XNFA F2 sharp bound n^3-n^2+n; assumptions explicitly exclude DFAs",
+            "GitHub Resultary 2026/10/18 entry"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-parity-automaton-square-root-state-complexity-n-3-n-2-n--087cc2ea55ea/RESULT.md",
+          "material_read": "Entire published RESULT.md statement, proof, limitations and references",
+          "method": "Read primary published record through GitHub",
+          "title": "Exact parity-automaton square-root state complexity n^3-n^2+n",
+          "trigger": "Published exact square-root automaton state-count theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: exact counts of embedded 01 pairs, not square-root membership of a 001^b upward ideal",
+          "evidence": [
+            "Theorem counts 3+floor((k+1)^2/4) states for words with exactly k embedded 01 occurrences",
+            "GitHub Resultary 2026/10/26 entry"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-quotient-complexity-for-a-prescribed-number-of-scattered-0--983ea3737952/RESULT.md",
+          "material_read": "Entire published RESULT.md theorem, quotient proof, scope and prior comparisons",
+          "method": "Read primary published record through GitHub",
+          "title": "Sharp quotient complexity for a prescribed number of scattered 01 occurrences",
+          "trigger": "Published exact fixed-binary scattered-subsequence quotient enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Current RESULT.md theorem and Myhill–Nerode quotient classification",
+        "Guyot 2024 arXiv:2407.10355 Section 2 and Appendix A, complexity motivation",
+        "Onishchenko 2026 arXiv:2605.02957, root complexity setting"
+      ],
+      "rationale": "The state complexity of a fixed binary principal superword ideal under the standard language-square-root operator is a natural structural invariant in finite-state descriptional complexity. Exact all-parameter quadratic growth from b+3 to ceil(b^2/2)+3b+1, with a canonical four-type quotient DFA and the nontrivial Q_(1,1)=R_1 merger, is a motivated sharp fixed-alphabet complexity separation. It is not a textbook parameter substitution from Guyot’s growing-alphabet lower bounds nor a recomputation of a known table. It offers an explicit useful benchmark family and a complete threshold-classification proof. Does not claim worst-case optimality across all upward-closed languages, all alphabets, higher roots or NFAs.",
+      "residual_risks": [
+        "The example is a specialized family rather than a general bound; its relevance is to fixed-alphabet parametric structure and benchmark construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific acceptance does not establish historical priority definitively; residual O risks above remain.",
+    "No transport-ready confidentiality-safe public update is supplied: publication_plan.status=not_ready.",
+    "No GitHub writes, dispatcher closeout, second assignment, external expert attestation or formal proof assistant certification."
+  ],
+  "schema_version": 1
+}
