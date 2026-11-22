@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with Python 3.8 or later. The checker uses only the Python standard library. It checks direct graph enumeration versus signed transfer traces at all sign patterns for \(3\le n\le10\), runs complete integer Walsh--Hadamard transforms through \(n=16\), verifies five zero seeds and the sharp positive seeds, and verifies the characteristic-two seven-step and modulo-four fourteen-step transfer identities. It enumerates all 128 seven-sign blocks, identifying fourteen whose transfer matrices square to the identity and confirming all corresponding fourteen-sign extensions. It also checks the modulo-four count and vertex-marginal obstruction in lengths 6, 13, 20, 27, 34, and 41.
+## correctness
 
-A passing run prints `CYCLE_SQUARE_FOURIER_EXACT_PASS`. Integer checks at finite lengths are not a proof of an unrestricted classification. The all-length proof depends on the explicit identities, recurrence, and witnesses given in `RESULT.md`; the standalone checker audits their finite prerequisites. The zero-frequency count is a lower bound, not a complete nullity census. Independent mathematical audit has not been performed.
+PASS
+
+The cyclic exclusion of ones within graph distance two has a three-state transfer matrix T(t)=[[1,t,0],[0,0,1],[1,0,0]], giving W_n=tr product exactly including the n=3,4,5 complete-graph boundary. Q=T(1) satisfies Q^7=I mod2 and Q^14=I mod4. Mod2 period gives L_n odd outside n mod7 in {3,5,6}; for n=6 mod14, L_n=2 mod4 and the vertex marginal a_{n-5} is even by its mod2 seven-period recurrence, hence all signs give W=2 mod4 and no zero. For n=13 mod14 all W=0 mod4. All 14 listed seven-sign transfer products square to I exactly; each appended double block is identity and propagates seed zeros and seed sharp nonzeros to every n in that residue. Base n=3..16 have explicit zero witnesses/positive witnesses, and parity/mod4 supplies global lower bounds. An independent bounded enumeration of all sign patterns n=3..13 and independent set sums n=3..10 matched transfer traces and predicted gaps; listed 14 blocks verified by integer matrix multiplication. Fourier characters diagonalize the convolution, so reciprocal nonzero spectral gap is its operator inverse/pseudoinverse norm. Finite checks are certificates of finite identities only; all-n proof is transfer replication and congruence.
+
+## originality
+
+PASS
+
+The claim is a complete signed-Walsh zero and exact gap law for the entire independence complex of C_n^2, not the usual independence polynomial, independence-complex topology or single-frequency counts. Best-of-knowledge comparisons did not find a dominating all-character Fourier classification; unknown specialist signed hard-core-transfer results remain priority risk.
+
+## value
+
+PASS
+
+Spectral invertibility of a graph-independent-set convolution is a natural mathematical invariant, and the exact 14-periodic singular/non-singular boundary includes a nontrivial even zero-free class and sharp inverse-conditioning values. An explicit 14^k distinct zero-frequency lower bound is independently useful; not merely a rephrasing of the independent set count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

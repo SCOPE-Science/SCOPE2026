@@ -1,15 +1,21 @@
-# Scientific review: fourteen-periodic squared-cycle Walsh law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A three-state transfer matrix gives the exact Walsh transform at every sign pattern, including small complete-graph cases. The scalar identity of fourteen-sign blocks is verified by explicit integer matrices, giving all-length propagation. Parity of the unweighted cycle-square independent-set count excludes zeros in the odd classes; the modulo-four argument excludes the otherwise exceptional even class \(n\equiv6\pmod{14}\) and forces a four-unit gap in class thirteen. Exhaustive explicit base witnesses establish each remaining zero and sharp positive gap. The Fourier diagonalization gives the inverse and pseudoinverse norms without additional spectral assumptions. The standalone integer checker independently compares graph enumeration with the trace model, and verifies all finite seed and transfer identities.
+## correctness
 
-## Originality
-**PASS within the identified evidence, with residual historical-priority risk.** Adamaszek (arXiv:1106.6250, 2011) develops homotopy decompositions for independence complexes of the same distance-two cycle powers; it does not classify signed vertex-weight partition functions, all-frequency zeros, or the exceptional modulo-four nonvanishing. The published full text of *Complete regular-set orbit classification for squares of cycles* describes equitable two-cell partitions, not Fourier transforms of all independent sets. The related Fourier results for ordinary-cycle independent sets, squared-path independent sets, and cyclic maximal independent sets have different indicator supports and do not logically imply the squared-cycle criterion. The 2009 Bohman--Holzman--Natarajan result uses strong graph products, a distinct meaning of graph power. Sign-specific hard-core transfer identities might have appeared under alternative vocabulary; priority is not independently established.
+PASS
 
-## Mathematical value
-**PASS.** Fourier invertibility of an independent-set indicator is a natural spectral invariant of a graph-incidence family. The complete fourteen-class transition, the zero-free *even* family, exact smallest positive multipliers and an explicit exponential supply of vanishing frequencies together describe the operator's stability and singularity boundary. These are more informative than an ordinary count of independent sets and are not a routine restatement of homotopy results.
+The cyclic exclusion of ones within graph distance two has a three-state transfer matrix T(t)=[[1,t,0],[0,0,1],[1,0,0]], giving W_n=tr product exactly including the n=3,4,5 complete-graph boundary. Q=T(1) satisfies Q^7=I mod2 and Q^14=I mod4. Mod2 period gives L_n odd outside n mod7 in {3,5,6}; for n=6 mod14, L_n=2 mod4 and the vertex marginal a_{n-5} is even by its mod2 seven-period recurrence, hence all signs give W=2 mod4 and no zero. For n=13 mod14 all W=0 mod4. All 14 listed seven-sign transfer products square to I exactly; each appended double block is identity and propagates seed zeros and seed sharp nonzeros to every n in that residue. Base n=3..16 have explicit zero witnesses/positive witnesses, and parity/mod4 supplies global lower bounds. An independent bounded enumeration of all sign patterns n=3..13 and independent set sums n=3..10 matched transfer traces and predicted gaps; listed 14 blocks verified by integer matrix multiplication. Fourier characters diagonalize the convolution, so reciprocal nonzero spectral gap is its operator inverse/pseudoinverse norm. Finite checks are certificates of finite identities only; all-n proof is transfer replication and congruence.
 
-## Scope and risk
-The result concerns all independent sets of a single distance-two cycle, with unnormalized binary Walsh transform. It does not give exact nullity, higher graph powers or sharp endpoint inverse norms. The finite exact checks support, but do not replace, the supplied all-length argument. The historical comparison is bounded by inspected sources and related indexed findings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is a complete signed-Walsh zero and exact gap law for the entire independence complex of C_n^2, not the usual independence polynomial, independence-complex topology or single-frequency counts. Best-of-knowledge comparisons did not find a dominating all-character Fourier classification; unknown specialist signed hard-core-transfer results remain priority risk.
+
+## value
+
+PASS
+
+Spectral invertibility of a graph-independent-set convolution is a natural mathematical invariant, and the exact 14-periodic singular/non-singular boundary includes a nontrivial even zero-free class and sharp inverse-conditioning values. An explicit 14^k distinct zero-frequency lower bound is independently useful; not merely a rephrasing of the independent set count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
