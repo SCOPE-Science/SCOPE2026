@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted harmonic Fourier basis gives an exact coefficient-by-coefficient computation of both Toeplitz products. Their subtraction has orthogonal input/output modes, so its coefficients are precisely all singular values. The gamma-moment bounds and a uniform one-sided edge estimate justify the Riemann-sum, dominated-convergence and logarithmic threshold regimes for every fixed exponent. Independent finite calculations check the exact formula for six weights, including the complete unweighted rational second moment. Limitations include the lack of uniform double-scaling claims; numerical testing is not a proof of a limit.
+PASS
 
-## Originality — PASS (qualified)
+Direct projection of normalized signed harmonic monomials gives a single frequency shift for T_(z^r). Comparing T_z T_(z^m) with T_(z^m) T_z leaves precisely the m input modes -m through -1, with coefficients beta*mu_m*(m+1-2q)/[(q+beta)(m-q+1+beta)*sqrt(mu_q*mu_(m-q+1))]. Distinct orthogonal inputs/outputs yield the full singular-value list, including a zero for odd m. Gamma-ratio bounds supply the bulk density beta*(1-2t)[t(1-t)]^(beta/2-1), the two summable endpoint sequences, and the harmonic logarithm exactly when p=2/(1-alpha). Fixed beta and p are essential. Independent direct coefficient calculations for beta=.5,1,3 and m<=11 corroborated this reduction; the proof's summation estimates, not the finite computations, establish all-degree limits.
 
-The November 2026 finite-rank classification by Cui et al. is about symbol conditions and nilpotency, not growing-degree weighted Schatten masses. Dong–Zhou's 2014 unweighted canonical decompositions contain the finite-rank structural mechanism but not the beta-weighted three-regime large-degree asymptotic. Relevant research-record checks found fixed-degree self-commutator spectra and growing-degree functional-calculus defects, which concern different operators and do not imply this claim. The 2013 general rank article was accessible through its abstract, not full text; equivalent earlier spectral formulas cannot be categorically excluded. These are priority risks, not reasons to alter the mathematical statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The critical exponent distinguishes bulk from boundary concentration of singular-value mass in an operator family made natural by a recent complete finite-rank classification. The exact beta-function bulk amplitude, harmonic logarithmic residue and edge-series constant answer a genuine quantitative question that rank formulas alone do not decide. The fact that individual commutators are finite rank is expressly distinguished from a Schatten membership threshold.
+The subject is a two-analytic-monomial finite-rank commutator with one growing degree, not an analytic/coanalytic mixed or self-commutator. Cui–Huang–Lu–Zu's 2026 structural classification gives square-zero finite rank but not beta-weight-dependent p-mass limits; Dong–Zhou's unweighted canonical decomposition gives part of the finite formula but does not state the three weighted m-asymptotics. The nearest published result on TWO simultaneously growing monomial degrees assumes a fixed nonzero degree ratio, which does not include the present ratio 1/m->0. Strong related literature reduces priority confidence, but no inspected prior statement entails this entire transition.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural higher-degree magnitude of a finite-rank monomial Toeplitz commutator is not determined by rank. A sharp bulk-to-boundary threshold p_c=2/(1-alpha), explicit beta-integral bulk profile, logarithmic critical coefficient and edge summable limit answer an analytically motivated spectral concentration question across all radial beta weights. This is a sharp asymptotic classification rather than a trivial membership test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
