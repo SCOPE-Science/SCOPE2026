@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers are covered by a four-step analytic proof: explicit normalized star entries, exact Jacobian absolute row sums, monotone reduction to one free spoke, and scalar critical-point analysis. The \\(m=18\\) polynomial factorization with a positive squares decomposition proves uniform optimality at all lower degrees; a strict rational \\(m=19\\) witness plus monotonicity of normalized comparison in leaf count proves the switch; derivative sign and radical roots establish the unique heavy-spoke branch. Interior directional derivatives approximate boundary optima, while convex-line integration proves the full two-input coefficient. The limit follows by radical asymptotics. Standalone checker passed 14,202 counted supplementary tests; tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gama–Bruna–Ribeiro (2019), Theorem 1 and Appendix B, bounds filter differences in spectral operator norm from an absolute graph-shift matrix error with a nonsharp eigenbasis term.",
+        "Geisler et al. (NeurIPS 2024), Appendix H.5, imposes both lower and upper degree bounds to derive stability of spectral positional encodings; no sharp star-specific coefficient is calculated in the material read.",
+        "The nearest returned published-finding corpus star heat and Hodge claims concern heat-semigroup gradient or projection norms, not the map of raw weights to symmetric normalized adjacency.",
+        "Closest published ids: 2026/11/2/SCOPE-a-degree-smoothing-phase-law-for-fractional-gradients-on-finite--e75ced03a5cc (fractional graph incidence gradients); 2026/11/1/SCOPE-two-conductance-stars-exact-heat-lipschitz-norm-slow-edge-rigidi--20e568f24dba (weighted heat semigroup gradients); 2026/10/18/SCOPE-degree-normalization-reverses-sharp-heat-gradient-ordering-on-co--90f889565d65 (normalized heat gradients), all distinct matrix maps and error gauges."
+      ],
+      "reasoning": "General filter perturbation bounds in the operator norm do not imply equality of the conductance-coordinate max norms, their sharp optimizing profiles, or the unbounded hub-degree asymptotic. The inspected bounded-degree stability result excludes the unlimited hub degrees allowed here and concerns a different composite spectral encoding.",
+      "searches": [
+        "weighted star graph symmetric normalized adjacency S(w) derivative conductance edge weights sharp entrywise max norm Lipschitz phase threshold 18 19 leaves",
+        "star normalized adjacency matrix square-root conductance proportions eigenprojector sensitivity strong edge imbalance",
+        "arxiv:1905.04497 Theorem 1 graph perturbation",
+        "Spatio-Spectral Graph Neural Networks degree normalization weighted adjacency Lipschitz bounded degrees"
+      ]
+    },
+    "checked_sources": [
+      "Levie–Isufi–Kutyniok, arXiv:1901.10524, Theorem 2 and Sections 2–5",
+      "Gama–Bruna–Ribeiro, arXiv:1905.04497, Section II-B and Appendix B",
+      "Geisler et al., NeurIPS 2024, relevant extracted text of Appendix H.5, visual/full-text access limited",
+      "Published published-finding corpus top-100 ranked claim summaries for exact normalized-star adjacency query",
+      "Accessible own ledgers from 2026-11_week2 and 2026-11_week3, recoverable finding claims/IDs for deduplication",
+      "Relevant public record IDs for nonimplication: 2026/11/2/SCOPE-a-degree-smoothing-phase-law-for-fractional-gradients-on-finite--e75ced03a5cc; 2026/11/1/SCOPE-two-conductance-stars-exact-heat-lipschitz-norm-slow-edge-rigidi--20e568f24dba; 2026/10/18/SCOPE-degree-normalization-reverses-sharp-heat-gradient-ordering-on-co--90f889565d65; 2026/11/2/SCOPE-weighted-wheel-heat-flow-a-contractivity-boundary-and-a-sharp-st--cec0303daea0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Levie–Isufi–Kutyniok compares g(Delta) and g(Delta+E) with Delta/E as operator inputs.",
+        "Gama–Bruna–Ribeiro controls graph-filter operator differences by shift perturbations and spectral misalignment.",
+        "Previously recorded star Tikhonov smoothing concerns the inverse (I+sum_i w_i b_i b_i^T)^{-1} at a uniform baseline and does not contain degree normalization; prior normalized random-walk results address graph-distance transport, not matrix-entry perturbations.",
+        "Public 2026/10/18/SCOPE-degree-normalization-reverses-sharp-heat-gradient-ordering-on-co--90f889565d65 uses normalized graph-heat spatial gradients, not entrywise perturbation of degree-normalized adjacency as a function of all spoke weights."
+      ],
+      "reasoning": "No inspected stronger source or earlier own claim directly implies the exact two-input map coefficient for every lower-bounded weighted star. The central difference is both the nonlinear degree normalization of the input conductances and the absolute-entrywise norm, which produce a new scalar extremization and the discrete switch. This is a best-knowledge priority assessment, not a proof of uniqueness.",
+      "searches": [
+        "weighted star graph symmetric normalized adjacency S(w) derivative conductance edge weights sharp entrywise max norm Lipschitz phase threshold 18 19 leaves",
+        "degree-normalized adjacency weighted star: sharp global Lipschitz constant map from positive edge conductances w_i>=a, maximum entry norm, dimensional phase transition at nineteen leaves",
+        "arxiv:1901.10524 Theorem 2",
+        "arxiv:1905.04497 Theorem 1 and Appendix B",
+        "own ledger claims: sharp edge-weight sensitivity of star-graph Tikhonov smoothing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Symmetric normalized Laplacian equals I minus the normalized adjacency used here; the entrywise difference norms coincide.",
+        "Levie–Isufi–Kutyniok (2019), Section 2.1 and Section 4: normalized Laplacian considered as graph shift, spectral filter stability for its perturbations.",
+        "No returned published finding in the queried published-finding corpus set states the exact conductance-to-normalized-adjacency profile or nineteen-leaf threshold."
+      ],
+      "reasoning": "The normalized-Laplacian formulation and its negative adjacency shift are exact equivalents. The primary source measures perturbations after forming the shift rather than in the raw vector of conductances, so its general functional-calculus estimate does not compute the sharp weighted-star map constant. A matrix-entry normalizer derivative is an equivalent calculus starting point, but none of the inspected sources optimizes it over the unbounded star weights.",
+      "searches": [
+        "normalized graph adjacency stability under absolute edge weight perturbation, two-level extremizer, eigenvalues 1 -1 zero",
+        "degree-normalized adjacency weighted star: sharp global Lipschitz constant map from positive edge conductances w_i>=a, maximum entry norm, dimensional phase transition at nineteen leaves",
+        "\"normalized adjacency\" \"star\" \"Lipschitz\" \"edge weights\" sensitivity",
+        "arxiv:1901.10524 normalized Laplacian and ChebNet operator stability",
+        "public record 2026/10/18/SCOPE-degree-normalization-reverses-sharp-heat-gradient-ordering-on-co--90f889565d65"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic query for the exact conductance-to-matrix stability and nineteen-leaf phase transition returned star-heat, Hodge, weighted-degree and projection results, with no direct formula in its top 100 ranked hits.",
+        "Web searches for normalized star adjacency and conductance perturbation found graph-shift stability literature but no explicit table containing the sharp switch at eighteen to nineteen leaves.",
+        "Closest published-finding corpus ids examined for implication: 2026/11/2/SCOPE-a-degree-smoothing-phase-law-for-fractional-gradients-on-finite--e75ced03a5cc; 2026/11/1/SCOPE-two-conductance-stars-exact-heat-lipschitz-norm-slow-edge-rigidi--20e568f24dba; 2026/11/2/SCOPE-weighted-wheel-heat-flow-a-contractivity-boundary-and-a-sharp-st--cec0303daea0."
+      ],
+      "reasoning": "This is not a conventional precomputed combinatorial table: the invariant is a global real-parameter Lipschitz supremum, with a unique radical optimizer. Search nonreturns are only negative evidence; a specialist formula outside indexed records could still predate it.",
+      "searches": [
+        "degree-normalized adjacency weighted star: sharp global Lipschitz constant map from positive edge conductances w_i>=a, maximum entry norm, dimensional phase transition at nineteen leaves",
+        "\"normalized adjacency\" \"star\" \"Lipschitz\" \"edge weights\" sensitivity",
+        "sharp perturbation bounds symmetric normalized adjacency weighted star graph conductance edge weights",
+        "star graph normalized adjacency perturbation edge weights sensitivity matrix 19 threshold"
+      ]
+    },
+    "rationale": "The raw-weight-to-symmetric-normalized-adjacency sharp entrywise global coefficient and nineteen-leaf optimizer switch were compared to primary graph-shift/filter stability papers and ranked published records. Their claims use different input perturbations, norms or composite operations; no inspected theorem dominates the exact scalar optimization. Nonindexed historical priority remains possible.",
+    "residual_risks": [
+      "Historical equivalent local-normalization sensitivity formulas may exist outside searched indexes.",
+      "The indexed PDF text of Geisler et al. was only partially inspected; no complete visual-page inspection was possible.",
+      "Sharpness of the exact maximum norm is established by derivatives approaching boundary weights; distinct finite input pairs are not claimed to attain the ratio."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact raw-conductance-to-normalized-star max-entry Lipschitz optimization in the relevant theorem or examples",
+        "evidence": [
+          "Section 2.1: normalized Laplacian defined I-D^{-1/2}WD^{-1/2}",
+          "Theorem 2: perturbation control of g(Delta) from operator norm E",
+          "Section 4: polynomial/ChebNet graph-filter example"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.10524",
+        "material_read": "Full accessible arXiv HTML rendering, especially Sections 2.1, 3.2, 4, Theorem 2 and proof section 5",
+        "method": "Read accessible publisher-independent HTML text, compared theorem assumptions, norms and inputs",
+        "title": "On the Transferability of Spectral Graph Filters",
+        "trigger": "Graph shift robustness; explicit symmetric normalized Laplacian formulation"
+      },
+      {
+        "assessment": "Operator-norm filter perturbation theorem is not the claimed exact raw-conductance maximum-entry stability formula",
+        "evidence": [
+          "Section II-B, Theorem 1, bounds operator filter distance using eigenvector misalignment",
+          "Appendix B, first-order expansion of polynomial graph shift filters"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.04497",
+        "material_read": "Accessible arXiv full-text HTML, Sections I–II and Appendix B, including Theorem 1 and derivative expansion",
+        "method": "Read primary HTML text and compared graph input representation and matrix/operator norm in theorem",
+        "title": "Stability Properties of Graph Neural Networks",
+        "trigger": "Potentially stronger stability theorem for normalized graph-shift and graph filter perturbations"
+      },
+      {
+        "assessment": "Bounded-degree spectral-encoding stability is different from sharp normalized adjacency on arbitrarily large hub degrees; full-text access limitation is a residual priority risk",
+        "evidence": [
+          "Appendix H.5 equation (25) assumes bounded minimum and maximum degrees",
+          "Equations (28)–(30) address a composite positional-encoding stability inequality"
+        ],
+        "identifier_or_url": "https://openreview.net/pdf/3a46231cf042909d550605fa8da48926f0cf53e3.pdf",
+        "material_read": "Extracted text of definitions and Appendix H.5 around pages 31–33 (lines 958–1000); a later page-image request encountered an access challenge, so visual inspection was unavailable",
+        "method": "Relevant primary PDF extracted text supplied by indexed renderer, not a verified full visual-page examination",
+        "title": "Spatio-Spectral Graph Neural Networks",
+        "trigger": "Specialized 2024 treatment of stability of normalized graph matrices with weighted edges"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd7224d5-0581-4529-896d-2a1ae72ff21c",
+  "value": {
+    "rationale": "The invariant is the exact worst-case robustness coefficient of a canonical symmetric graph shift under directly specified per-edge absolute errors, not an arbitrary coordinate slice. It isolates a discrete geometry transition at nineteen leaves and a positive limiting sensitivity that would be hidden by restricting spoke imbalance to a fixed ratio. The full all-degree closed formula and sharp asymptotic are natural baseline data for stability of normalized spectral graph operators; this value does not depend on extrapolating a theorem to arbitrary graphs.",
+    "status": "PASS"
+  }
+}
