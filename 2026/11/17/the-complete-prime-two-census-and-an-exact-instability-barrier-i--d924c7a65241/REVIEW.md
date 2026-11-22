@@ -1,11 +1,21 @@
-# Review of the prime-two census
+# Independent mathematical audit
 
-**Correctness — PASS.** The period-two equations exhaust all real orbits, with a nonzero-coordinate split, a strict discriminant inequality, exact count including boundary cases, and a symbolic two-step Jacobian determinant identity. Exact symbolic algebra and an independent rational witness checked the critical equations.
+## correctness
 
-**Originality — PASS with identified priority risk.** The exact same quadratic normal form and local flip/pitchfork scenario are published by Gonchenko and collaborators. Gonchenko's accessible 2024 PDF was inspected at its normal-form and bifurcation sections and does not state the all-real strict two-cycle census or the uniform instability barrier. Direct examination of the 2023 originating full text was unavailable, so equivalent unseen earlier results remain a material priority risk. published-finding corpus semantic searches found analogous classifications for different maps, not this one.
+PASS
 
-**Value — PASS.** This is a complete global orbit count for a natural 3D polynomial normal form, with two non-obvious thresholds and a precise exclusion of sinks for an entire paired branch. The motivation is a full account of primitive period-two dynamics rather than a handpicked numerical parameter.
+Two-cycle p,q equations split exactly into p²=q² and pq=(1+b)(1+c), with p²+q²=-mu(1-c²)/c in the non-antipodal case; discriminant and sign constraints yield the strict counts, equality collisions and c=1/3 order. Independently formed one-step Jacobian J(y,z) and symbolic K=J(p,z1)J(q,z0); SymPy factors det(I-K)+2c/(1+c)(p²-q²)² to identically zero, ensuring h(1)<0 and a positive real root >1. Source checker.py inspected; no finite extrapolation.
 
-**Limits:** No claims about higher periods, basin structure or global attractors. Publication precedence is provisional pending full-text comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete real primitive period-two census and c=1/3 threshold ordering are NOT original by themselves: the prior 2026-11-17 T_- census and Gonchenko 2024 square-map duality imply them after ν1=-b, ν2=-μ, ν3=c and fixed-point subtraction. The surviving independently checked exact det(I-J2)=-2c/(1+c)(p²-q²)²<0 for all off-antipodal two-cycles, hence positive real Floquet multiplier >1, is an additional meaningful global dynamical instability obstruction not supplied by the earlier census. This composite claim remains correct and has a substantive original component; no claim of novelty for the count alone. Priority risk remains.
+
+## value
+
+PASS
+
+The exact global obstruction to attraction of the off-antipodal symmetry-broken primitive period-two cycles is a structurally significant Floquet invariant for a natural axial-symmetry quadratic family, strengthening mere orbit counts with a universal instability assertion; no novelty/value credited to already dual-covered census alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
