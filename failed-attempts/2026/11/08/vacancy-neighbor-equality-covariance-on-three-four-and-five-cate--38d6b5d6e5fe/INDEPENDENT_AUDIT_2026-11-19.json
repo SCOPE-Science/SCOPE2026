@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T21:47:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/vacancy-neighbor-equality-covariance-on-three-four-and-five-cate--38d6b5d6e5fe/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/vacancy-neighbor-equality-covariance-on-three-four-and-five-cate--38d6b5d6e5fe/verify.py",
+        "/mnt/data/scope_worker02_run_20261119T214300Z/independent_checks.py"
+      ],
+      "rationale": "For each r>=3 and n>=0, B_r(n)=binom(n+r-1,r-1) counts the exact uniform weak-composition sample. Z has expectation r B_{r-1}(n)/B_r(n). If H_r(n)=sum_{j=0}^{floor(n/2)}B_{r-2}(n-2j), the neighboring equal-pair mean is r H_r(n)/B_r(n). The r cyclic edges each have two marked adjacent vacancy indices, contributing 2 B_{r-2}, and r-2 other indices each contributing H_{r-1}, so E[ZE]=r(2B_{r-2}+(r-2)H_{r-1})/B_r. Subtracting means proves the exact general formula, including r=3, n=0 and n=1. Explicit parity expansions for H_2,...,H_5 in RESULT.md reproduce the six displayed rational expressions. A separately written exhaustive enumerator checked cyclic and linear covariances for r=3,4,5 and n=0..14; the general published all-k coefficient identity was independently specialized and checked against the six expressions for r=3,4,5 and n=0..500 (1593 exact comparisons in all). The universal proof rests on exact counting and algebra, not finite extrapolation. Seven real source blobs and the Git tree were inspected; the independent Git-tree hash reconstructed to the assigned f4fc205359ed8462f6f991c6a4b94f7b06f2c035.",
+      "residual_risks": [
+        "The independent checks are corroborative finite arithmetic; no claim of formal verification or external expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The predecessor theorem covers every k>=3 and all positive composition totals N>=k, with an exact coefficient expression for Cov(U,A).",
+          "The submitted problem is only k=3,4,5, N=n+k under a symmetric coordinate shift and one exchangeable closing edge."
+        ],
+        "reasoning": "The prior all-number-of-parts result strictly dominates the submitted three selected category counts. The method covers the cyclic statistic exactly by linearity and exchangeability, with no distinct enumeration or new invariant required.",
+        "searches": [
+          "Resultary semantic search returned 2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/METADATA.json"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/METADATA.json",
+        "https://arxiv.org/pdf/math/0310197",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/vacancy-neighbor-equality-covariance-on-three-four-and-five-cate--38d6b5d6e5fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 25 RESULT.md defines U=sum 1{Y_i=1} and A=sum_{i=1}^{k-1}1{Y_i=Y_{i+1}}, and explicitly proves the all-k covariance formula.",
+          "Submitted result counts cyclic i=1,...,r edges with nonnegative parts.",
+          "By full coordinate exchangeability, Cov(U,sum_{i=1}^{k}I_{i,i+1})=k/(k-1)*Cov(U,sum_{i=1}^{k-1}I_{i,i+1})."
+        ],
+        "reasoning": "Write n for the nonnegative total and r for the number of labeled coordinates. Adding one to every coordinate maps the submitted uniform weak compositions to the uniform positive compositions of N=n+r into k=r parts used by the published October 25 theorem. The vacancy count Z becomes its unit-part count U. For each i, the indicator of equal neighboring coordinates is unchanged. Since the law is exchangeable and Z is permutation-invariant, Cov(Z,1{X_i=X_j}) is the same for every pair of distinct coordinates, including the closing edge (r,1). Thus the covariance with the r cyclic edges is exactly r/(r-1) times the prior covariance with its r-1 linear edges, for every n>=0 and r>=3. This is an immediate implication of the published all-k exact coefficient identity, not merely matching qualitative signs. With m=n and D=binom(n+r-1,r-1), the previous theorem gives Cov(Z,E_cycle) = 2r * ((r-3)*h_{n-2}^{(r)}-h_{n-3}^{(r)})/((n+r-1)*D), where h_j^{(r)}=[z^j](1-z)^(-(r-3))(1-z^2)^(-2). For r=3,4,5 the coefficient evaluations reproduce all six submitted rational formulas exactly. The older record labels its date October 25, 2026 and its GitHub content was modified on November 1, preceding the submitted November 8 record.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md",
+          "https://arxiv.org/pdf/math/0310197",
+          "Resultary search returned the current 2026/11/8 SCOPE-vacancy-neighbor-equality-covariance record (self, not prior)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive-part bijection Y_i=X_i+1 sends Z to the prior unit-part count U and preserves equalities.",
+          "The published October 25 exact U-versus-linear-level-count covariance is a general all-k formula."
+        ],
+        "reasoning": "The circular closure is the addition of one statistically exchangeable pair to r-1 identical pair-covariance contributions. For the covariance statistic the old and new formulations differ by the exact nonzero factor r/(r-1); the new six formulas are simple specializations.",
+        "searches": [
+          "Resultary query: uniform weak compositions covariance number of zero parts and equal adjacent parts on cycles; Dirichlet-multinomial counts parity",
+          "Resultary query: Pólya urn neighboring category equality counts zeros covariance exact 3 4 5 categories",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published RESULT.md provides a closed coefficient expression rather than merely a numeric table; it determines all six rational functions for r=3,4,5.",
+          "All 1,503 closed-versus-covered rational pairs for 0<=n<=500, r in {3,4,5}, agreed under exact arithmetic."
+        ],
+        "reasoning": "An exact table is not needed because a more powerful earlier symbolic theorem supplies every entry. A database search failure cannot rescue a corollary already implied by that theorem.",
+        "searches": [
+          "Resultary semantic search for zero parts, adjacent equal parts, covariance and Dirichlet multinomial",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md",
+          "web search: covariance zeros adjacent equalities uniform weak compositions cycle stars bars Pólya urn"
+        ]
+      },
+      "rationale": "Decisive stronger prior coverage. Write n for the nonnegative total and r for the number of labeled coordinates. Adding one to every coordinate maps the submitted uniform weak compositions to the uniform positive compositions of N=n+r into k=r parts used by the published October 25 theorem. The vacancy count Z becomes its unit-part count U. For each i, the indicator of equal neighboring coordinates is unchanged. Since the law is exchangeable and Z is permutation-invariant, Cov(Z,1{X_i=X_j}) is the same for every pair of distinct coordinates, including the closing edge (r,1). Thus the covariance with the r cyclic edges is exactly r/(r-1) times the prior covariance with its r-1 linear edges, for every n>=0 and r>=3. This is an immediate implication of the published all-k exact coefficient identity, not merely matching qualitative signs. With m=n and D=binom(n+r-1,r-1), the previous theorem gives Cov(Z,E_cycle) = 2r * ((r-3)*h_{n-2}^{(r)}-h_{n-3}^{(r)})/((n+r-1)*D), where h_j^{(r)}=[z^j](1-z)^(-(r-3))(1-z^2)^(-2). For r=3,4,5 the coefficient evaluations reproduce all six submitted rational formulas exactly. The older record labels its date October 25, 2026 and its GitHub content was modified on November 1, preceding the submitted November 8 record. Hence no originality of the stated result survives; a mere change from a path to a cycle adds only one exchangeable edge. The published predecessor was inspected in full, not inferred from a title or abstract.",
+      "residual_risks": [
+        "Exact earliest public release time of the October 25 record was not independently established; its recorded publication date is 2026-10-25 and GitHub last-modified timestamp 2026-11-01T22:21:08Z, preceding the November 8 submission.",
+        "The 2003 literature might already imply even more; irrelevant to this decisive 2026 prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERING: complete all-r weak/cyclic covariance follows algebraically via exchangeability; no need for matching circular wording.",
+          "evidence": "Published boxed formula 2(k-1)/((N-1)D)*((k-3)h_{m-2}-h_{m-3}); shift N=n+r and multiply by r/(r-1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, exact coefficient identity, generating-function proof, k=3 and k=4 parity derivations, k>=5 positivity and all boundary cases; METADATA.json publication date and REVIEW.md were also read.",
+          "method": "Read actual complete public GitHub primary result and its metadata with GitHub connector.",
+          "title": "Complete covariance-sign classification for unit parts and adjacent equalities in uniform compositions",
+          "trigger": "The Resultary search returned an earlier all-k theorem on the exact same pair of statistics after the positive-to-weak shift."
+        },
+        {
+          "assessment": "General generating function counts levels but was not needed for covering mixed covariance. The later October 25 theorem supplies the explicit mixed U,A covariance.",
+          "evidence": "Theorem 2.1 tracks rises, levels, drops and number of parts; formula (3.5) tracks levels.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0310197",
+          "material_read": "Original 22-page arXiv full text: introduction and definitions; Theorem 2.1 and its proof in Section 2, Section 3.1 including formula (3.5) and its level-count specialization; inspected source page images on pages 2 and 9.",
+          "method": "Read original arXiv PDF text and page screenshots, not merely an abstract.",
+          "title": "Counting rises, levels, and drops in compositions",
+          "trigger": "Primary foundation for linear adjacent-level statistics and potentially broader exact generating functions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-covariance-sign-classification-for-unit-parts-and-adjac--370d2debd244/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/vacancy-neighbor-equality-covariance-on-three-four-and-five-cate--38d6b5d6e5fe/RESULT.md"
+      ],
+      "rationale": "The cyclic vacancy/equality covariance is a naturally interpretable statistic, but its complete six-case rational formula and phase behavior are straightforward reindexings and constant multiples of an already published all-k positive-composition covariance theorem. The new circular edge introduces no additional dependence structure because the vacancy statistic and the underlying law are exchangeable; every distinct unordered pair has the same mixed covariance. Consequently there is no independently useful new mathematical invariant, boundary or structural method after excluding covered content. A simpler presentation does not rescue scientific value as an original research result.",
+      "residual_risks": [
+        "The finding can still have expository or pedagogical utility; that is not a new independent scientific contribution under the stated value standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Decisive prior coverage makes the originality and incremental-value failures independent of historical searches beyond the covering publication.",
+    "The scientific correctness proof is exact, but only selected finite cases were independently enumerated.",
+    "This review does not claim public publication or external formal proof."
+  ]
+}
