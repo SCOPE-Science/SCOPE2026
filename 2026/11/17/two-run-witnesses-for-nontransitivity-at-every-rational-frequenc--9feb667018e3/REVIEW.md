@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. With integer discrepancy \(H=aN_0-bN_1\), the original transition rule is exactly equivalent to the sign test after a one. The induction on completed one-runs is valid for \(a>b\): after each closed run \(-b\le H\le-1\), and an intervening zero ensures the next run begins positive. The witness \(0^b1^{a+1}0^m1^q0\) is admissible; the complete alternative-position analysis leaves only a possible preceding zero-run of length \(b+1\). That imitation leaves residual discrepancy strictly greater than \(-b\), and the congruence for \(m\) forces its next one-run to have length \(q+1\), not \(q\). The language closure then forbids every return word. The proof handles \(b=1\), strict inequality endpoints, and all coprime denominators. Finite automaton checks corroborate but do not replace the proof.
+PASS
 
-## Originality
+PASS. The original binary successor rule is equivalent to the integer discrepancy H=a*N_0-b*N_1; a 1 forces next 1 iff H>=0. Every completed 1-run closes with -b<=H<=-1, because the next forced 0 occurs just after crossing zero. When a>b, adding even one intervening zero makes the next starting discrepancy positive. In the explicit prefix 0^b 1^(a+1) 0^m 1^q 0, m is the unique residue 1..b with a*m≡b-1 (mod b) and q=(a*m-b+1)/b. Any later attempted match of the first run must have b+1 zero predecessors; at exactly b the preceding closed-run negative residue prevents length a+1, and elsewhere the run length falls outside. That possible imitation leaves a residual differing from the initial -b by an integer δ in [1,b-1] (none at b=1). The modularly selected second gap then forces q+1 ones, not q. The marker occurs as a legal generating prefix and no shift contains it twice, so no language connector joins it to itself. Language closure converts cylinder membership into a finite generating factor. Independent six-pair bounded state enumerations corroborated nonreturn but do not prove unbounded nontransitivity.
 
-PASS, with historical-priority qualification. Reyes (arXiv:2611.10995v1) derives the governing recurrence and treats integer ratios, explicitly leaving the general classification open. Previously accessible related work already covers rational parameters with numerator at least twice the complementary denominator through a single-run marker, and another result covers smaller-than-half rational frequencies by transitivity; neither proves the new interval \(1/2<c<2/3\). This result adds a second-run modular witness that closes the entire previously untreated rational interval. The founding Becker–Baraviera 2023 article was available only in an introductory preview and metadata, so there is residual risk of an overlooked statement in inaccessible pages. Bounded-density shifts are not equivalent to this history-dependent successor shift.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Transitivity versus nontransitivity is a primary structural question posed explicitly for this family. The theorem resolves an infinite, dense rational set in a whole open parameter interval, not an arbitrary finite sample, and isolates a reusable arithmetic memory mechanism: one run can be imitated after a shift but a second congruence-selected run cannot. It does not answer the irrational case, the uniqueness-of-maximal-entropy question, or shortest-witness optimization.
+PASS on the final claim: published single-run marker theorem covers rational c>=2/3, and Reyes 2026 covers integer odds a/b but neither covers the entire interval 1/2<c<2/3 (e.g. reduced a=3,b=2). The two-run modular obstruction supplies the missing interval. The foundational 2023 article was not fully accessible; this is a documented historical-risk limitation, not a proof of novelty. Best-of-knowledge assessment relies on full Reyes text, published same-object proof, exact statement/implication comparison and independent arithmetic, not on search failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. The topological-transitivity classification is an explicit open structural problem for frequency shifts. A single uniform construction resolves all rational thresholds >1/2, including infinitely many rationals in a nontrivial interval not addressed by one-run arguments. Its two-memory-block obstruction is a meaningful symbolic-dynamics mechanism, not a finite parameter census or a tautological restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

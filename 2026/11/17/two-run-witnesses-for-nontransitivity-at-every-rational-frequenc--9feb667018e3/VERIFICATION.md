@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof is self-contained after the stated digit-transition rule and uses exact integers; it does not infer infinite behavior from finite samples. The critical assertions are: (i) residual discrepancy after every completed run is between negative denominator and negative one; (ii) the first marker run requires exactly its specified initial zero count, except for one possible shifted imitation; (iii) the modular choice of the second zero count forces that imitation to produce a one-run longer by exactly one.
+## correctness
 
-The standalone Python 3 file `check_marker.py` uses only the standard library. Run `python3 check_marker.py` in the package directory. It constructs the witness for coprime pairs and independently enumerates all reachable transition-rule states, tracking marker occurrences by a prefix automaton. Each test is bounded to 150 symbols, and it verifies witness admissibility and absence of later marker occurrences within that bound. It prints the cases and ends with `All passed` on success. These are finite consistency checks, not an exhaustive certificate of the theorem for all parameters or lengths.
+PASS
 
-Primary source checks: the exact successor rule, run formula and language closure were read in Reyes (2026), especially Lemmas 2.4, 2.5 and 2.7. No proof dependency relies on the unavailable full text of Becker–Baraviera (2023). Independently replicated checks by other researchers have not been performed.
+PASS. The original binary successor rule is equivalent to the integer discrepancy H=a*N_0-b*N_1; a 1 forces next 1 iff H>=0. Every completed 1-run closes with -b<=H<=-1, because the next forced 0 occurs just after crossing zero. When a>b, adding even one intervening zero makes the next starting discrepancy positive. In the explicit prefix 0^b 1^(a+1) 0^m 1^q 0, m is the unique residue 1..b with a*m≡b-1 (mod b) and q=(a*m-b+1)/b. Any later attempted match of the first run must have b+1 zero predecessors; at exactly b the preceding closed-run negative residue prevents length a+1, and elsewhere the run length falls outside. That possible imitation leaves a residual differing from the initial -b by an integer δ in [1,b-1] (none at b=1). The modularly selected second gap then forces q+1 ones, not q. The marker occurs as a legal generating prefix and no shift contains it twice, so no language connector joins it to itself. Language closure converts cylinder membership into a finite generating factor. Independent six-pair bounded state enumerations corroborated nonreturn but do not prove unbounded nontransitivity.
+
+## originality
+
+PASS
+
+PASS on the final claim: published single-run marker theorem covers rational c>=2/3, and Reyes 2026 covers integer odds a/b but neither covers the entire interval 1/2<c<2/3 (e.g. reduced a=3,b=2). The two-run modular obstruction supplies the missing interval. The foundational 2023 article was not fully accessible; this is a documented historical-risk limitation, not a proof of novelty. Best-of-knowledge assessment relies on full Reyes text, published same-object proof, exact statement/implication comparison and independent arithmetic, not on search failure.
+
+## value
+
+PASS
+
+PASS. The topological-transitivity classification is an explicit open structural problem for frequency shifts. A single uniform construction resolves all rational thresholds >1/2, including infinitely many rationals in a nontrivial interval not addressed by one-run arguments. Its two-memory-block obstruction is a meaningful symbolic-dynamics mechanism, not a finite parameter census or a tautological restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
