@@ -1,0 +1,15 @@
+# Scientific review: four-frequency Cantor volume
+
+## Correctness — PASS
+The frequency universe has exactly \(\binom94=126\) distinct subsets, partitioned into fourteen translation orbits of size nine. The standard alternant factorization for exponents \(\{0,1,3,4\}\) is independently checked by direct twenty-four-term Leibniz determinants in the sixth-degree cyclotomic integer quotient. The exact integer arithmetic classifies all fourteen orbits, yielding the five squared-volume values and their multiplicities without numerical tolerance. Algebraic ordering follows from \(3/2<t<8/5\). The digit-tower comparison is independently checked on all four designs. The exhaustive certificate is finite and does not claim any infinite assertion.
+
+## Originality — PASS, subject to bibliographic risks
+The most relevant published finite-tower determinant result optimizes only the binary frequency-digit subclass at arbitrary depth. This work optimizes the *unrestricted* four-character class at depth two, exhibits a strictly better non-tower volume and classifies all determinant strata. A published result on the row pattern \(\{0,1,3,4\}\) proves a full-spark criterion and uses the same alternant, but does not supply this complete ninth-grid volume census. A general cyclic four-frequency determinant optimum covers consecutive spatial rows \(\{0,1,2,3\}\), not the present Cantor rows. The motivating July 2026 odd-base Cantor theorem rules out infinite Fourier frames, so it neither implies nor rules out an exact finite-stage D-optimal design. All four substantive comparisons were checked against available full published results or, for the July 2026 paper, the original abstract and a mathematical overview; original full text of the latter was unavailable. An older unindexed equivalent finite determinant table remains possible.
+
+## Value — PASS
+The four-point second Cantor approximation is the first nontrivial setting in which a frequency-digit tower is a constrained class rather than an unrestricted choice. The finite D-optimality question tests whether the natural recursive construction maximizes the determinant among *all* integer-grid designs. Its answer is no, with exact optimum, full multiplicity census, and complete maximizer classification. These are natural numerical and structural invariants for finite-stage sampling geometry, not an arbitrary small example or a mere reformulation of the alternant factorization. No multilevel or infinite-dimensional implication is asserted.
+
+## Residual limitations
+Only four integer frequencies modulo nine and equal spatial weights are treated. The result is determinant optimality, not optimal condition number or an infinite Fourier frame. An equivalent older finite-design table under other terminology remains a risk. The closely related odd-base infinite-frame paper was verified through its dated arXiv record and scientific synopsis, but its primary full text was not obtained during the comparison.
+
+Self-review: passed. Independent audit: not yet performed.
