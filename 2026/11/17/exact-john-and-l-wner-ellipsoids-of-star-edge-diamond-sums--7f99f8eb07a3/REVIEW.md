@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the Minkowski sum from its coordinate diamond summands, yielding the complete \(2m+2^{m+1}\)-facet representation for each \(m\ge2\). Independent coordinate-sign symmetry and uniqueness reduce both unrestricted ellipsoid problems to one hub semiaxis and one leaf semiaxis. The inner problem is an exact one-variable maximization with strict derivative sign on the full allowed interval, and the outer problem has lower bounds on both semiaxes attained simultaneously, as certified on every vertex orbit. Each contact list is the complete equality set of an explicit support or ellipsoid-gauge inequality. Exact rational finite checks were replayed for \(m=1,\ldots,8\). No infinite conclusion is inferred from these checks alone.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2026 cross-polytope-sum source supplies general descriptions and lattice enumerations but no John–Löwner classification. Its general halfspace statement is credited, not presented as independent novelty. The closest indexed cycle edge-diamond result concerns cycles and round ellipsoids, while the complete-multipartite edge-diamond result concerns Euclidean circumballs, not minimum-volume ellipsoids. A star PQ-adjacency polytope result concerns a different convex body. Searching clipped cross-polytopes, star-indexed coordinate diamond sums, and unrestricted canonical ellipsoids did not identify an equivalent or stronger theorem. Some indexed related full texts were inaccessible: different nomenclature for the exact same clipped \(\ell_1\)-ball is a residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The exact two-sided ellipsoid classification addresses a natural, high-dimensional subfamily of newly investigated cross-polytope Minkowski sums. It exhibits a structural asymmetry: every exponentially many facet is tangent to the largest inscribed ellipsoid, while an exponentially vanishing fraction of vertices touches the smallest enclosing ellipsoid. The exponentially growing volume quotient quantifies this geometry. These are genuine metric invariants and global contact classifications, not simply consequences of the lattice-point or Euclidean-circumball results.
+From each diamond |a_j|+|x_j|<=1, summing central contributions yields exact P_m={|x_j|<=1, |z|+sum|x_j|<=m}; every listed slab and sign inequality is a genuine facet. Independent coordinate sign and leaf-permutation symmetries force centered axis-ellipsoids by uniqueness. For the inner ellipsoid, constraints b<=1 and a²+mb²<=m² maximize a b^m at b=1 for m>=2, giving a²=m(m-1). For the outer ellipsoid, poles force A>=m and all leaf-sign corners force B>=sqrt(m); A=m,B=sqrt(m contains every vertex orbit with gauge (m-k)^2/m²+k/m<=1. This yields full contacts and the ratio. Independently generated all vertex orbits for m=2..5: 14/46/146/454 vertices and 6/10/18/34 outer contacts, all matching 2*3^m-2^m and 2+2^m; the arbitrary-dimension proof rests on support functions and symmetry, not this enumeration.
 
-## Scope and risks
-The claim is restricted to unit star edge-diamond sums in their standard orthonormal coordinate realization. Historical priority is provisional; indexed summaries of some related published findings were accessible, but their full texts were not. The proof is self-contained; independent external audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang et al. introduce coordinate cross-polytope Minkowski sums and general halfspaces/Ehrhart enumerations. The John/Löwner ellipsoids of the star section and all contacts/volume ratio remain distinct from the prior Euclidean circumball, cycle geometry and PQ-adjacency polytopes.
+
+## value
+
+PASS
+
+Star edge-diamond sums are a basic high-dimensional family in the graph-indexed cross-polytope construction. Their exact inner and outer ellipsoids exhibit a non-obvious contact sparsity dichotomy, and the ratio quantifies Euclidean convex-geometric shape beyond prior lattice enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

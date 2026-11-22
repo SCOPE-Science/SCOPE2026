@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility
-The proof in `RESULT.md` gives exact facet inequalities, extremal-ellipsoid semiaxis optimizations, vertex orbit classifications, and contact certificates for every integer dimension parameter. Run `python star_edge_diamond_verify.py` under standard Python 3 to replay the independent exact-rational finite consistency checks for parameters one through eight. The checks inspect the complete explicit vertex orbit list and all described contact equalities; they do not prove the unrestricted theorem by enumeration.
+# Independent mathematical audit
 
-The outer geometry is certified analytically by the one-variable convexity identity on each vertex orbit. The inner geometry is certified analytically by the exact signed-facet support function and strict one-variable volume derivative. Classical existence and uniqueness of both extremal ellipsoids justify reduction to the invariant family without excluding tilted or shifted competing ellipsoids.
+## correctness
 
-The historical comparison uses the publicly posted 2026 manuscript and indexed mathematical records. Full text of every related indexed record was not available, so absolute historical priority is not claimed. Independent mathematical audit has not been performed.
+PASS
+
+From each diamond |a_j|+|x_j|<=1, summing central contributions yields exact P_m={|x_j|<=1, |z|+sum|x_j|<=m}; every listed slab and sign inequality is a genuine facet. Independent coordinate sign and leaf-permutation symmetries force centered axis-ellipsoids by uniqueness. For the inner ellipsoid, constraints b<=1 and a²+mb²<=m² maximize a b^m at b=1 for m>=2, giving a²=m(m-1). For the outer ellipsoid, poles force A>=m and all leaf-sign corners force B>=sqrt(m); A=m,B=sqrt(m contains every vertex orbit with gauge (m-k)^2/m²+k/m<=1. This yields full contacts and the ratio. Independently generated all vertex orbits for m=2..5: 14/46/146/454 vertices and 6/10/18/34 outer contacts, all matching 2*3^m-2^m and 2+2^m; the arbitrary-dimension proof rests on support functions and symmetry, not this enumeration.
+
+## originality
+
+PASS
+
+Wang et al. introduce coordinate cross-polytope Minkowski sums and general halfspaces/Ehrhart enumerations. The John/Löwner ellipsoids of the star section and all contacts/volume ratio remain distinct from the prior Euclidean circumball, cycle geometry and PQ-adjacency polytopes.
+
+## value
+
+PASS
+
+Star edge-diamond sums are a basic high-dimensional family in the graph-indexed cross-polytope construction. Their exact inner and outer ellipsoids exhibit a non-obvious contact sparsity dichotomy, and the ratio quantifies Euclidean convex-geometric shape beyond prior lattice enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
