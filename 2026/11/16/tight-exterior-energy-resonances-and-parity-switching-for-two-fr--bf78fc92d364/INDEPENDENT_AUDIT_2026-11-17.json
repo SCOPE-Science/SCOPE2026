@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:09:36.802065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Removing a unit-modulus common carrier writes f=A cos(dt/2)+B sin(dt/2). Both symmetric I and E_h kill all even/odd cross terms for arbitrary complex coefficients; exactly integrating gives diagonal input weights 1±s(d) and output h±q_h(d). Since |sin d|<d for d>0, generalized Rayleigh quotient is the larger of two ratios, with complete equality directions. Their deviations from h are (q_h-hs)/(1+s) and -(q_h-hs)/(1-s), so at least one is >=h, and both equal h exactly when F_h(d)=sin((1+h)d)-(1+h)sin d=0. At successive (n+1/2)pi, F_h has strict alternating sign because 1+h>1; therefore every intervening gap interval has a root and winner parity changes. Expanding sin produces odd-branch limit h(h²+3h+3) and coefficient -h(h+1)^3(h+2)/20 at d². Independently recomputed the two ratios for h=.4,1.2,2.3 and d=.3,1.7,5; each max exceeds h away from a root. This is supplementary; analytic parity/IVT establishes infinite sharp set.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang 2026 full primary PDF pp.29-30: Gamma_k(delta) <= L_k(delta) <= C(1+k sqrt delta) exp(Ck sqrt delta), with matching exponential lower bound over variable frequencies; not an exact two-tone fixed-gap spectrum or its minimum over d."
+        ],
+        "reasoning": "A bound on sup_gap T_h(d) cannot be specialized into inf_gap T_h(d)=h or the equality gaps. The paper is highly relevant but its theorem does not dominate the opposite optimization.",
+        "searches": [
+          "two-frequency Fourier sums exterior energy extrapolation tight resonance equalized generalized eigenvalues gap",
+          "arXiv:2607.10501v2 Proposition 5.6 and Corollary 5.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, METADATA.json, AUDIT.json, VERIFICATION.md",
+        "Resultary query two-frequency Fourier sums exterior energy extrapolation tight resonance equalized generalized eigenvalues gap",
+        "Zhang arXiv:2607.10501v2 full primary PDF §5.3/Prop 5.6/Cor 5.7",
+        "Prior two-frequency point leverage Resultary entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang gives asymptotic k-dependent *global* upper/lower bounds and a prediction guarantee, whereas the package proves exact two-dimensional parity diagonalization and identifies infinitely many *minimizing* gaps."
+        ],
+        "reasoning": "The novel implication direction is from symmetry/diagonalization to gap equalization; neither prior global transfer inequalities nor single-point leverage imply these zeros and switches.",
+        "searches": [
+          "Zhang 2026 Proposition 5.6/Corollary 5.7",
+          "two-frequency Fourier sums exterior energy extrapolation tight resonance equalized generalized eigenvalues gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same object is the largest generalized eigenvalue of exterior and interior 2x2 Gram matrices for fixed gap; tightness means the matrices coincide up to scalar h.",
+          "Zhang defines Gamma_k(delta) with *normalized* E_{[-1,1]} in the denominator, so the corresponding fixed-gap ratio is twice the present unnormalized energy ratio."
+        ],
+        "reasoning": "Normalization and direction of optimization were reconciled: the package minimizes over gap the fixed-gap worst-case gain, whereas the broad Fourier transfer constant takes a supremum across frequency choices.",
+        "searches": [
+          "two-frequency Fourier sums exterior energy extrapolation tight resonance equalized generalized eigenvalues gap",
+          "two atom exterior frame tightness cosine sine parity",
+          "arXiv:2607.10501 Proposition 5.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published two-frequency point-leverage constant depends on observation point x and sinc gap; integrating sharp pointwise bounds generally fails to preserve one common coefficient maximizer across x."
+        ],
+        "reasoning": "No earlier exact integrated gap-by-gap transfer eigenvalue table or resonance-root classification found in checked published summaries; pointwise table is not identical.",
+        "searches": [
+          "two-frequency Fourier sums exterior energy extrapolation tight resonance equalized generalized eigenvalues gap",
+          "Resultary 2026/11/1/SCOPE-sharp-two-frequency-exterior-fourier-leverage-and-the-quadratic--517d41b07a68"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after separate formulation/implication comparisons, published-result search, and bounded primary-literature inspection; not a certification of absolute historical priority. The novel implication direction is from symmetry/diagonalization to gap equalization; neither prior global transfer inequalities nor single-point leverage imply these zeros and switches.",
+      "residual_risks": [
+        "Specialized historical 2x2 windowed-frame equalization or time-frequency concentration literature may contain equivalent resonance identity under another normalization.",
+        "Zhang 2026 treatment has variable global frequencies whereas present result is only two terms; does not bound the global sup over d."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING exact opposite gap-optimization claim in examined section",
+          "evidence": "Proposition 5.6 supplies two-sided Chebyshev-scale bounds on supremal Gamma_k, not the minimum over fixed gaps or equalizing rank-two Gram matrices.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2607.10501v2.pdf",
+          "material_read": "Primary full-text Section 1, §5.3 pp.29-30 including definitions Gamma_k,L_k, Proposition 5.6 and Corollary 5.7; PDF screenshots p.30 and p.31 used",
+          "method": "Accessible lawful OA complete PDF (41 pages) through alphaXiv, detailed reading of relevant section",
+          "title": "Optimal Extrapolation Bounds for Sparse Fourier Sums",
+          "trigger": "Same exterior region and sparse Fourier L2 transfer"
+        },
+        {
+          "assessment": "NOT SAME integrated functional",
+          "evidence": "The evaluation-point optimizing vector is not required to remain optimal after integration over E_h.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-frequency-exterior-fourier-leverage-and-the-quadratic--517d41b07a68",
+          "material_read": "Published Resultary abstract identifying sharp pointwise leverage and collision defect",
+          "method": "Resultary semantic search",
+          "title": "Sharp two-frequency exterior Fourier leverage and the quadratic collision defect",
+          "trigger": "Same two-frequency space but point-evaluation norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The integrated two-frequency exterior energy transfer is a natural stability object in sparse Fourier extrapolation. In contrast to a point-evaluation bound, its sharp entire generalized spectrum, exact gap-wise infimum, infinite perfectly equalized resonance gaps, and mandatory parity switching form a motivated sharp design theorem, even if its diagonalization is elementary after finding the right parity basis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unnormalized L² energies; h>0 equal symmetric adjacent exterior intervals and precisely two distinct frequencies. No one-sided or unequal exterior windows, no global worst-gap supremum, no one-root-per-bracket assertion.",
+    "Specialized historical 2x2 windowed-frame equalization or time-frequency concentration literature may contain equivalent resonance identity under another normalization.",
+    "Zhang 2026 treatment has variable global frequencies whereas present result is only two terms; does not bound the global sup over d."
+  ],
+  "schema_version": 1
+}
