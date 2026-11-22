@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite binomial matrix has exactly two absorbing endpoint classes; a uniform geometric transient bound applies at each fixed degree. The exact binomial exponential moment yields an equivalence between super/subharmonicity of exponential distribution functions and a scalar comparison of their normalized derivatives. The logarithmic derivative ratio has sign \(d-c/(1+cx)\), which is rigorously nonnegative for \(d\ge c\) and nonpositive for \(d\le c/(1+c)\). Both normalized functions have the same endpoint values, giving strict interior upper/lower barriers. A direct conditional-expectation derivative computes a global Lipschitz bound of \(1\) in the exponential parameter, proving the explicit \(\beta^2/(n+\beta)\) uniform error. The multiplication conjugacy then yields the operator limit, and one-step uniform convergence yields the reverse order. The checker additionally tests finite matrices and scalar inequalities; it is not substituted for proof. The boundaries \(n=1\), \(x=0,1\), and \(\mu>0\) were considered explicitly.
+PASS
 
-## Originality — PASS, qualified
+For n≥1 and 0<β<1, a_n(x)=ln(1+βx/n)/ln(1+β/n) defines finite absorbing binomial chain on nodes j/n with endpoints absorbing; from any interior node one-step absorption has strictly positive probability, ensuring uniform geometric long-iteration limit. For Φγ(x)=(1−e^(−γx))/(1−e^(−γ)), exact binomial moment P_n e^(−γ·)=[1−a_n(1−e^(−γ/n))]^n yields super/subharmonicity equivalent to comparing a_n against normalized exponential F_{γ/n}. The logarithmic derivative ratio has derivative γ/n−(β/n)/(1+(β/n)x). At γ=β/(1+β/n) and β its signs force strict interior lower/upper Φ barriers; iteration preserves inequalities. ∂γΦγ is difference of conditional and unconditional means in [0,1], hence uniform error β²/(n+β). Multiplication by ln(1+μ+x) conjugates the original operator. n=1 endpoints, μ>0, x=0,1 and order-of-limits example are covered. Independent 15 node-system solutions and 75 interior inequalities corroborate but do not prove universality.
 
-The closest primary work [1] gives the logarithmic kernel, its preservation law and one-step convergence but does not determine its absorbing iterates. General Bernstein-iteration sources [2–5] do not present the specific finite-degree exponential sandwich and noncommuting limits in this logarithmic setting in the material inspected. Searches for source identifiers, explicit comparison parameters, absorption, and equivalent diffusion-scale formulas yielded no dominating statement. This is not a proof of absolute priority; older iteration papers with limited full-text access remain a residual risk. A diffusion approximation alone could suggest the limiting \(\Phi_\beta\), but does not imply the strict valid-for-each-\(n\) barriers.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The long-time behavior of a newly proposed positive approximation operator is a natural structural question, distinct from its known one-step approximation behavior. The exact, explicit bounds give a nontrivial computable replacement for solving an \((n-1)\)-dimensional linear system at every degree, with a rigorous global error bound. They identify the limiting fixation profile and a concrete failure of commuting approximation and iteration limits. No optimal \(1/n\) constant or general King-family extension is claimed.
+Angeloni–Costarelli–Darielli 2026 introduces exactly the logarithm-preserving Bernstein operator and establishes one-step approximation and saturation; its accessible primary HTML Sections 2–7 do not formulate finite-n absorbing iterates or the explicit strict two-exponential sandwich. Ordinary Bernstein iteration and general diffusion models give qualitative/contextual limits, not the parameter-dependent barriers. Related SCOPE records use different Bernstein families. Bounded originality PASS with older generalized-iterate access risk.
 
-## Literature and remaining limits
+## value
 
-[1] Angeloni–Costarelli–Darielli, arXiv:2602.06168, Sections 2–7, inspected accessible HTML full text. [2] Classical Kelisky–Rivlin ordinary-Bernstein result. [3] Adell–Badía–de la Cal (1997) accessible citation/abstract only. [4] Hirano–Namba, arXiv:2310.13983, available primary HTML sections examined for overlap. [5] Gavrea–Ivan (2011), available HTML examined. Remaining priority risk is an earlier implicit generalized-operator comparison. Independent external verification has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Long-time iteration at fixed degree is a natural dynamical property of a newly introduced operator; explicit global finite-n harmonic barriers replace a degree-sized linear-system solve, quantify the deviation from a diffusion-scale limit and identify noncommuting iteration/approximation limits. Not claiming optimal n^{-1} constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
