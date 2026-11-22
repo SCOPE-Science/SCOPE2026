@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed \(\alpha=2\), the four affine formulae, lift convention, critical parameter and orbit cuts are explicitly specified. Each of the five interior five-step itineraries has unit spatial slope for all nearby parameters; symbolic differentiation gives the exact constant drifts, all strictly negative. The five positive sector lengths sum to one and give the identical signed passage-time contribution \(3-7\sqrt5/5\). The standard rotation-number passage-time lemma, also proved in [1, Section 8], applies to a finite piecewise-linear family with moving breakpoints and uniformly nonvanishing drift. Dividing the fifth-return rotation by five gives \(-(15+7\sqrt5)/100\). The packaged exact-algebra checker reproduced all five coefficient identities. Risk: exact orbit endpoints must be handled as moving transitional regions, not assumed to share the interior derivative; the proof does this.
+PASS
 
-## Originality — PASS (best-knowledge, not priority certification)
+The package gives a continuous lift, exact five sectors and itineraries with product slope one. Independent symbolic substitution of all five affine branch words gives five negative first-order return translations and reciprocal passage sum T=15-7sqrt(5). Each breakpoint moves Lipschitzly with beta and nonzero drift ensures bounded crossing errors; the rigorous local rotation-number perturbation theorem in Glendinning–Ma–Montaldi, Sec. 8, supplies the two-sided limit. Since rotation of F^5-4 equals 5rho(F)-4, derivative is 1/(5T)=-(15+7sqrt(5))/100. The finite symbolic recomposition validates algebra only; the passage-time theorem is indispensable.
 
-The primary source [1] studies exactly these maps and the \(4/5\) critical point, but its Section 10 supplies a numerical regression near \(-0.312\) and explicitly says that it has not compared that slope to the analytical derivative formula. The published March 2026 article retains that statement. The related general theorem [2] gives an integral expression but does not calculate this five-interval algebraic coefficient. Targeted public and mathematical-record queries for the exact \(\sqrt5\)-constant and the five-way equality returned no matching statement. Nearby contracted-rotation results use a different, non-invertible model and do not imply the coefficient. Risk: inaccessible earlier doctoral-thesis pages could contain equivalent calculations; unindexed priority is not excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact susceptibility is a natural scalar invariant in a specific geometric-optics example singled out in the source for an uncomputed regression coefficient. It permits quantitative calibration and improves a numerical approximation, while the five-sector equal-time identity reveals the structural cancellation behind the coefficient. The conclusion is narrower than a general circle-map theory but is a motivated exact evaluation of an identified gap, not arbitrary parameter selection.
+The exact evaluated constant and five-way exact passage balance are not the general perturbation formula or published numerical regression. The full source computes a slope numerically and discusses leaving the special evaluation undone; another paper gives general scaling. This is a focused explicit parameter susceptibility, not a new general theorem.
 
-## Remaining limitations
+## value
 
-The result is first-order and local to the fixed-\(\alpha=2\) slice. The numerical regression in [1] samples a wide parameter interval and is not claimed to converge to its local derivative. The inaccessible thesis and unindexed related work remain priority risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the natural rational conjugacy point in an optical refraction family, an exact sensitivity constant resolves a quantitative gap in the motivating primary work, and the equal passage-time contributions reveal a nonobvious structural identity among five distinct sectors. Researchers analyzing detuning can use this precise closed constant and branch balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The exact checker `verify.py`, using Python 3 and SymPy, reconstructs the five branch itineraries at their interior midpoints, symbolically composes them, checks unit spatial slopes and zero unperturbed fifth-return displacements, differentiates each in the parameter, and verifies all five equal crossing times and the final closed form. The checked output is reproduced below.
+## correctness
 
-```text
-VERIFY_OK exact_itineraries=5 exact_unit_slopes=5 algebraic_drifts=5 equal_crossing_times=5 derivative= -7*sqrt(5)/100 - 3/20 decimal= -0.3065247584249853
-```
+PASS
 
-A numerical orbit count at small nonzero parameter perturbations independently supported convergence to the indicated slope but is not used as proof. The dynamical derivative uses a mathematical crossing-time limit; finite symbolic algebra alone does not certify its applicability. Source and publication comparisons are same-model reviews. Independent validation has not been performed.
+The package gives a continuous lift, exact five sectors and itineraries with product slope one. Independent symbolic substitution of all five affine branch words gives five negative first-order return translations and reciprocal passage sum T=15-7sqrt(5). Each breakpoint moves Lipschitzly with beta and nonzero drift ensures bounded crossing errors; the rigorous local rotation-number perturbation theorem in Glendinning–Ma–Montaldi, Sec. 8, supplies the two-sided limit. Since rotation of F^5-4 equals 5rho(F)-4, derivative is 1/(5T)=-(15+7sqrt(5))/100. The finite symbolic recomposition validates algebra only; the passage-time theorem is indispensable.
+
+## originality
+
+PASS
+
+The exact evaluated constant and five-way exact passage balance are not the general perturbation formula or published numerical regression. The full source computes a slope numerically and discusses leaving the special evaluation undone; another paper gives general scaling. This is a focused explicit parameter susceptibility, not a new general theorem.
+
+## value
+
+PASS
+
+At the natural rational conjugacy point in an optical refraction family, an exact sensitivity constant resolves a quantitative gap in the motivating primary work, and the equal passage-time contributions reveal a nonobvious structural identity among five distinct sectors. Researchers analyzing detuning can use this precise closed constant and branch balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
