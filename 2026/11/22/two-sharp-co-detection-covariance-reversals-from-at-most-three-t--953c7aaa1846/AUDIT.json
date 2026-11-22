@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact multinomial exclusion gives \\(C(t)=G(1-2t)-G(1-t)^2=t^2F(t)\\). For \\(N\\le3\\), \\(v\\ge w\\ge0\\) makes \\(F\\) strictly concave when \\(\\Pr(N\\ge2)>0\\) on \\(0<t<1/2\\), forcing at most two zeros. For \\(N\\le2\\), \\(F(t)=2c-(b+2c-ct)^2\\) increases strictly if \\(c>0\\), forcing at most one. Exact rational three-copy masses \\((1/4,7/16,1/32,9/32)\\) give negative-positive-negative signs at \\(1/12,1/8,2/5\\); the first root is \\(1/9\\) and the second lies in \\((3/8,2/5)\\). All definitions and quantifiers were checked against the proof; `check.py` passed 102356 supplementary exact-rational assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour and Gnedin (2009), doi:10.1214/EJP.v14-608, study occupancy-count limit distributions; full text was not verified.",
+        "Jacobs et al. (2014), doi:10.1186/1471-2105-15-283, investigate digital PCR variance under dilution, measurement errors, and Poisson counting.",
+        "The known fixed-size occupancy association principle applies conditional on N; mixing over N can alter the covariance sign."
+      ],
+      "reasoning": "A general conditional multinomial inequality cannot imply a distribution-free sign-switch bound for heterogeneous random \\(N\\); the conditional sign and covariance of conditional means compete. Described two-switch windows for exact-one occupancy counts change draw count or cell count, not aliquot fraction for two nonempty indicators.",
+      "searches": [
+        "two switch dependence window isolated occupancy boxes random allocations",
+        "Small counts in the infinite occupancy scheme Barbour Gnedin 2009",
+        "Impact of variance components on reliability of absolute quantification using digital PCR covariance"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1101/2024.03.27.586987",
+      "https://doi.org/10.1007/s10651-024-00632-8",
+      "https://doi.org/10.1177/2472630317705680",
+      "https://doi.org/10.1186/1471-2105-15-283",
+      "https://doi.org/10.1214/EJP.v14-608"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Augustine et al. (2024), published full text Secs. 4.2.3, 4.3 and 6: Poisson replicate counts, detection conditioned on copies, and discussion of overdispersion; finite common-extract cross-replicate covariance reversals are not stated.",
+        "Basu (2017), doi:10.1177/2472630317705680: partitioning/Poisson statistics, not three-copy sign phases.",
+        "Jacobs et al. (2014), doi:10.1186/1471-2105-15-283: dilution and variation simulations, not a universal convexity/concavity root bound."
+      ],
+      "reasoning": "The inspected papers supply physical and statistical motivation and standard underlying formulas, but neither directly states nor clearly implies the sharp three-copy two-reversal bound with arbitrary input probability law. The result follows from an additional factorial-moment curvature inequality not used in those comparisons.",
+      "searches": [
+        "randomized occupancy positive negative covariance nonempty urn counts random number of balls",
+        "PCR aliquot two replicate covariance sign changes as aliquot volume increases random molecule counts",
+        "Digital Assays Part I Partitioning Statistics and Digital PCR Basu 2017"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity G(1-2t)-G(1-t)^2 is elementary inclusion-exclusion for nonempty cells; Basu (2017), doi:10.1177/2472630317705680, explains ordinary digital partition occupancy.",
+        "No inspected statement bounds the number of its zeros as the fraction t varies under a random stock supported on 0..3."
+      ],
+      "reasoning": "Generic random-occupancy descriptions, Bernoulli detection, and empty-bin covariance are equivalent formulations of the initial identity. What needs novelty comparison is the sharp zero-number theorem and minimal molecular support, not the identity or names.",
+      "searches": [
+        "covariance of occupancy indicators random number of balls generating function probability empty two cells",
+        "random number of balls boxes occupancy indicator positive negative covariance sign pgf sample size",
+        "binomial splitting random total count probability generating function G(1-2p)-G(1-p)^2 and sign phase"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Augustine et al. (2024), doi:10.1101/2024.03.27.586987, explicitly use a Poisson model for each replicate count in their Eq. (10).",
+        "The checked published full texts contain no tabulation of the exact four-mass witness or the two sign-change bound."
+      ],
+      "reasoning": "The result is a continuous-parameter sign theorem, not a recomputation of a known finite table. Search nonmatches do not prove nonexistence of an older table; that remains a residual risk.",
+      "searches": [
+        "PCR aliquots DNA molecules distribution partition correlated detection positive negative replicate counts",
+        "PCR technical replicate dependence finite input pool binomial partition negative positive negative covariance threshold",
+        "finite random total count up to three copies nonempty occupancy two labelled boxes conditional multinomial binary indicator covariance volume p sharp two sign reversals"
+      ]
+    },
+    "rationale": "The particular finite common-extract, three-template co-detection covariance sign-phase theorem and sharp minimum are not found in the inspected primary eDNA/digital-PCR full texts. The PGF and multinomial methods themselves are recognized as standard. Similar fixed-count urn results concern different statistics/control variables, do not automatically imply this two-aliquot random-stock law; residual historical coverage cannot be ruled out.",
+    "residual_risks": [
+      "Unknown older equivalent finite-urn covariance theorem not indexed in inspected results.",
+      "Barbour–Gnedin 2009 was inspected by abstract only; no whole-document noncoverage assertion.",
+      "Field PCR workflows can violate the ideal disjoint-allocation and perfect-detection assumptions; novelty is purely for the specified mathematical model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_SHOW the specific sharp covariance theorem in the relevant full-text model, results or discussion; conditional Poisson replicate counts differ from a finite shared-pool aliquoting scheme.",
+        "evidence": [
+          "Augustine et al., Equation (10): \\(N_{ijk}\\sim\\mathrm{Poisson}(\\lambda_{ij}^{\\mathrm{rep}})\\); Equation (11) conditions detection on copy count.",
+          "Their Discussion focuses on ecological transport, inhibitors and extra-Poisson variability rather than two-aliquot covariance sign phases."
+        ],
+        "identifier_or_url": "https://doi.org/10.1101/2024.03.27.586987",
+        "material_read": "Preprint full-text introduction, replication-process model, observation equations and discussion; journal manuscript abstract, pages 1 and 10 and parsed sections 4.2.3, 4.3 and 6",
+        "method": "Full-text scientific reading of lawful preprint and journal manuscript",
+        "title": "A hierarchical model for eDNA fate and transport dynamics accommodating low concentration samples",
+        "trigger": "Primary 2024 motivating low-copy eDNA and technical PCR-replicate paper"
+      },
+      {
+        "assessment": "BACKGROUND: gives ordinary occupancy machinery but not the arbitrary finite random-input three-copy sharp reversal theorem in inspected material",
+        "evidence": [
+          "Basu (2017) describes fixed or Poisson template occupancy, endpoint detection, and partition sampling."
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/2472630317705680",
+        "material_read": "Full available article abstract and sections on partitioning, detection from target molecules and Poisson/binomial statistics",
+        "method": "Open full journal HTML text and compare the probability statements",
+        "title": "Digital Assays Part I: Partitioning Statistics and Digital PCR",
+        "trigger": "General established occupancy/Poisson model most likely to subsume a simple two-bin statement"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected work: precision and bias of concentration estimators, not universal root counts for binary covariance under a common finite molecule stock",
+        "evidence": [
+          "Jacobs et al. (2014) simulate Poisson partitions, pipette errors and binary misclassification over dilution levels; their target statistic is estimation precision."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1471-2105-15-283",
+        "material_read": "Full available journal HTML including Background, dPCR workflow, Methods, simulated technical variation and conclusions",
+        "method": "Read original full-text article and check the varied dilution statistics",
+        "title": "Impact of variance components on reliability of absolute quantification using digital PCR",
+        "trigger": "Potentially stronger analysis of dilution and technical replicate variation"
+      },
+      {
+        "assessment": "UNRESOLVED historical-priority risk; abstract does not settle whether a deeper implication is present",
+        "evidence": [
+          "Barbour and Gnedin (2009) analyze joint limit approximation for counts of boxes with given occupancy, rather than this finite input volume-sign claim at abstract level."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/EJP.v14-608",
+        "material_read": "Publisher abstract and bibliographic description only; full text not inspected",
+        "method": "Read accessible abstract and identify its asymptotic occupancy focus",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Classical occupancy theory may contain a general equivalent law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "953c7aaa-1846-49e5-bbd5-b6561d24e66f",
+  "value": {
+    "rationale": "PCR technical replicates with low template count are a motivated setting where the sign of co-detection association may guide overdispersion and error interpretations. This theorem provides an exact sharp minimal copy count for two successive sign reversals and a universal two-reversal upper bound over all allowed distributions, not an arbitrary parameter slice. It demonstrates that unchanged extract heterogeneity plus changed aliquot volume alone can produce negative–positive–negative covariance. The result is self-contained, has concrete inference caveats and does not claim field calibration.",
+    "status": "PASS"
+  }
+}
