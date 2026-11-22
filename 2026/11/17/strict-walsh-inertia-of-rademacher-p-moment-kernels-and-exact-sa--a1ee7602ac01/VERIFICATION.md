@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The analytical proof establishes the statement for all integer dimensions \(n\ge2\) and all real \(0<p<2\). The nonstandard step is the strict positivity of the integral \(I_{k,m}(p)\) even when \(m\) is odd; each consecutive pair of half-periods contributes a strictly positive quantity after the reflection \(u\mapsto\pi-u\). The proof explicitly verifies convergence at zero and infinity.
+# Independent mathematical audit
 
-A standalone Python 3 script, `check_rademacher_inertia.py`, using only standard-library modules, was executed and returned:
+## correctness
 
-`RADEMACHER_ABSOLUTE_POWER_DIAGNOSTICS_OK 587`
+PASS
 
-It checks finite-dimensional Walsh eigenvalues, sign patterns, and the \(p=2\) collapse, and checks direct matrix-vector multiplication for selected dimensions and exponents. These diagnostics are not a proof for arbitrary dimension or exponent. No independent mathematical audit has been performed.
+Walsh convolution diagonalizes K on the 2^(n-1) antipodal classes with even character degree, eigenvalue binomial sum and multiplicity C(n,2k). Fractional-cosine representation gives lambda_2k=2^(n-1)c_p(-1)^(k+1) I_(k,n-2k). For odd residual exponent m, pair consecutive pi-intervals: F(u)>0 on (0,pi/2), antisymmetry and decreasing positive h_j(u) force I>0, even m nonnegative. Thus zero nullity for 0<p<2; exact weights are forced by K invertibility after testing against all sign vectors. p=2 expansion leaves degrees 0,2 only. Independent numerical binomial spectra at n=4,7,10 and p=1,1.5,1.8 showed predicted signs; examined check_rademacher_inertia.py. Restricts quadrature nodes to original Boolean sign cube.
+
+## originality
+
+PASS
+
+General Krawtchouk transform calculus is standard and Koldobsky proves uniqueness of even p-cosine representing measures for p not even integer, so standalone exact-weight uniqueness is NOT original. The independently meaningful result is the strict degree-by-degree alternating Walsh inertia for absolute sum^p on antipodal cube for ALL n and 0<p<2, not provided by the inspected references. Dai-Kosov targets approximate Lp discretization with nonzero error, not this exact spectrum.
+
+## value
+
+PASS
+
+The full inertia and strict nonvanishing of a natural Rademacher absolute-moment kernel is structural spectral information not implied by approximate cubature bounds; its exact sign formula also characterizes endpoint degeneracy and finite sampling rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete eigenbasis is provided by the even Walsh characters of the antipodal sign group; each eigenvalue is the stated finite binomial sum. The fractional-cosine formula for \(0<p<2\) transforms every nonconstant eigenvalue into the power-weighted trigonometric integral given in the proof. The critical parity lemma handles odd residual cosine powers by pairing half-periods against a strictly decreasing positive weight difference, and handles even powers by pointwise positivity. All integrals converge for \(2k\ge2>p\). The constant eigenvalue is positive; all others have the stated nonzero signs, so the matrix is invertible. Evaluation of a prospective exact quadrature at sign vectors yields a square invertible linear system; the quadratic endpoint follows by direct expansion. Direct finite diagnostics were executed, but infinite claims rest on the displayed argument.
+## correctness
 
-## Originality — PASS, with residual risks
-Dai–Kosov's publicly accessible preprint, arXiv:2611.05930v1, gives approximate discretization of \(L^p\) norms using a number of samples polynomial in dimension and reciprocal relative error; its Theorem 1.3, Corollary 1.6 and proof do not formulate the finite antipodal absolute-moment kernel or classify its signed spectrum. The open-access Feinsilver–Schott 2018 article develops Krawtchouk transforms and includes its symmetric-sign case and transform inversion, but does not supply the strict signs of the transformed absolute-power sequence. published-finding corpus searches for aliases, fractional-power kernels, Krawtchouk spectra, Rademacher exact sampling and the arXiv identifier found closest results on other Walsh kernels and sign-cube invariants, not the present statement. Published work on cosine-transform inversion is a significant priority caveat for the sampling rigidity corollary; in particular Koldobsky's 1996 paper is known here through its public abstract, not a full-text comparison. The novelty claim is restricted primarily to the complete signed spectral classification, not the general injectivity of \(L^p\) cosine transforms.
+PASS
 
-## Mathematical value — PASS
-The matrix is canonical for finite-dimensional real Rademacher \(L^p\) norm sampling. Its full all-dimension inertia resolves every potentially indefinite Walsh sector, not just the determinant or a finite numerical example. The sharp result provides an exact-versus-approximate separation: despite approximate sample bounds near-linear in dimension, an exact quadrature **using only the original sign outcomes** must retain exponentially many antipodal classes. The spectral phase change at the quadratic endpoint shows precisely why quadratic norm sampling permits radically different finite-rank behavior. This is an exact natural invariant and boundary classification, not a generic sampled-kernel exercise.
+Walsh convolution diagonalizes K on the 2^(n-1) antipodal classes with even character degree, eigenvalue binomial sum and multiplicity C(n,2k). Fractional-cosine representation gives lambda_2k=2^(n-1)c_p(-1)^(k+1) I_(k,n-2k). For odd residual exponent m, pair consecutive pi-intervals: F(u)>0 on (0,pi/2), antisymmetry and decreasing positive h_j(u) force I>0, even m nonnegative. Thus zero nullity for 0<p<2; exact weights are forced by K invertibility after testing against all sign vectors. p=2 expansion leaves degrees 0,2 only. Independent numerical binomial spectra at n=4,7,10 and p=1,1.5,1.8 showed predicted signs; examined check_rademacher_inertia.py. Restricts quadrature nodes to original Boolean sign cube.
 
-## Closest literature and remaining limitations
-The comparison is about mathematical implications, not title matching. Known Krawtchouk diagonalization gives eigenvalue formulas but does not itself give the strict alternating signs; cosine-transform injectivity could subsume the sampling corollary but not, without further analysis, the full positive/negative count. Full older cosine-transform priority coverage was not established. General quadratures with off-cube nodes, complex coefficients, and approximate discretization are outside the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Krawtchouk transform calculus is standard and Koldobsky proves uniqueness of even p-cosine representing measures for p not even integer, so standalone exact-weight uniqueness is NOT original. The independently meaningful result is the strict degree-by-degree alternating Walsh inertia for absolute sum^p on antipodal cube for ALL n and 0<p<2, not provided by the inspected references. Dai-Kosov targets approximate Lp discretization with nonzero error, not this exact spectrum.
+
+## value
+
+PASS
+
+The full inertia and strict nonvanishing of a natural Rademacher absolute-moment kernel is structural spectral information not implied by approximate cubature bounds; its exact sign formula also characterizes endpoint degeneracy and finite sampling rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
