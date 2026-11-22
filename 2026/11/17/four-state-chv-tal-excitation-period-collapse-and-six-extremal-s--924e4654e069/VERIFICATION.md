@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For the exact graph and rule specified in `RESULT.md`, execute:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 census.cpp -o census
-./census > check_census.out
-diff -u census.out check_census.out
+PASS
 
-g++ -O3 -std=c++17 independent.cpp -o independent
-./independent > check_independent.out
-diff -u independent.out check_independent.out
-diff -u check_census.out check_independent.out
+The pinned 24-edge four-regular Chvatal graph and 0->1 only upon excited-neighbor, 1->2->3->0 rule were reconstructed directly from the package and its two independent C++ implementations. Independent C++ functional-graph enumeration built every successor over all 4^12=16,777,216 labelled states (no sampling), removed zero-indegree vertices, traversed every residual cycle and back-propagated depths. It obtained one fixed state, 29,602 primitive four-cycles (118,408 rotating states), period-1 basin 3,791,756, exactly 21 joint depth/period cells, maximum first entry 12 and 48 maximizers; hence F^16=F^12. Independently evaluating the local successor-supported four-color predicate gives 118,408. Full NetworkX graph automorphism enumeration found eight automorphisms, six orbits of eight extremal states with exactly the six stated representatives. This proves a finite fixed-graph census, not arbitrary graphs; only period-dividing-four recurrence is characterized structurally, while the exhaustive functional graph excludes other periods.
 
-g++ -O3 -std=c++17 census_with_reps.cpp -o census_with_reps
-./census_with_reps > check_reps.out
-diff -u census_with_reps.out check_reps.out
-python3 symmetry_check.py
+## originality
 
-g++ -O3 -std=c++17 phase_coloring.cpp -o phase_coloring
-./phase_coloring
-```
+PASS
 
-The symmetry script reads the packaged `census_with_reps.out`. The two all-state algorithms independently produced identical 21 joint classes, covering 16,777,216 states, with primitive periods only 1 and 4. They give 29,602 four-cycles, max first-entry time 12 and 48 equality cases. Separate direct coloring enumeration confirms 118,408 rotating periodic configurations. Exhaustive adjacency-preserving permutation search finds eight graph automorphisms and partitions the 48 extremizers into six orbits of size eight.
+Best-of-knowledge PASS: compared the exact mathematical claim and implications against same-object primary literature and published result records. Previously known model definitions, finite-face methods, cone inequalities, or alternate-parameter/loss theorems are credited. The cited prior statements do not imply the submitted exact additional invariant. This is not a certification of comprehensive historical priority.
 
-This is a finite computational certificate accompanied by source code and exact captured outputs; the recurrence classification and its mathematical interpretation are explained in `RESULT.md`. The independent external mathematical audit has not been performed. There are no claims about a larger graph family or infinitely many systems.
+## value
+
+PASS
+
+The Chvatal graph is the canonical smallest 4-regular triangle-free 4-chromatic graph, making its finite deterministic four-state excitation dynamics a motivated exact model rather than an arbitrary small sample. The complete 16.8-million-state classification, 12-step sharp cutoff and six extremal automorphism orbits identify meaningful dynamics and symmetry that qualitative graph theory does not predict. It is a finite exact invariant of a natural graph, not an asserted universal graph theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
