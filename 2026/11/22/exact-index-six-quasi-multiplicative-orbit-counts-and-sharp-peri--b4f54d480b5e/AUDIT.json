@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The count is reduced, by the exact fixed-point formula of Fan, to finite integer congruence counts. The standalone checker verifies all 72 prime-field interpolation points by exhaustive modular Burnside enumeration, and independently checks 12 extra prime-field values and three complete small orbit sets. Fan Theorem 4.5 supplies the rigorous degree-five/quasi-period-twelve statement; equality at six primes in each residue proves the infinite formula by polynomial identity. Distinct residues yield incompatible coefficients and, by CRT plus Dirichlet primes, establish least period twelve even on the prime-power domain. The general theorem is an explicitly cited premise.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fan, arXiv:2611.16944v1, Theorem 4.2, gives an arbitrary-index finite Burnside/Mobius computation.",
+        "Fan, arXiv:2611.16944v1, Theorem 4.5, implies the degree-five twelve-period upper bound for index six, not that the bound is attained.",
+        "Fan, arXiv:2611.16944v1, index-four formula has a smaller minimal period than its even-index upper bound."
+      ],
+      "reasoning": "The source contains a universal method capable of computing this special case, but neither its general period-divisibility theorem nor its explicit index-four and odd-prime cases logically establishes the sharp minimal period for index six. The present proof performs and validates the nontrivial finite computations the general theorem leaves open; methodological overlap and dependence are explicit.",
+      "searches": [
+        "sharpness of 2ell period for even-index finite field permutation polynomial equivalence orbit counts",
+        "quasi-multiplicative equivalence index six permutation polynomials count classes"
+      ]
+    },
+    "checked_sources": [
+      "X. Fan, arXiv:2611.16944v1, Theorems A, B, C, 2.3, 4.2, 4.5, full text.",
+      "K. Garg, S. Ul Hasan, C. Li, H. Kumar, M. Pal, arXiv:2503.20982v3, Introduction and Section 5, full HTML.",
+      "Indexed related records: A universal sign bias for classified finite-field permutation binomials; Collision rigidity and exact enumeration for coprime-index permutation binomials (statement-level comparison)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.5 of Fan: period divides twelve; Theorem C of Fan: explicit cases at odd primes and four.",
+        "The six prime-field exact evaluations per residue in checker.py, combined with Fan degree-at-most-five theorem, determine the claimed constituent polynomials.",
+        "The constituent polynomials for residue six and twelve differ, as do those for residue four and twelve, yielding minimal period twelve."
+      ],
+      "reasoning": "Prior theorem implies an algorithm and upper bound, not the evaluated lower-order coefficients or exact sharpness at composite index six. The present theorem is not a relabeling or assertion of the already known upper bound: it shows the bound cannot be lowered and specifies the entire orbit-count function. It does rely on the prior result and is a strengthening within its scope.",
+      "searches": [
+        "Permutation sign parity of cyclotomic mappings of finite fields index ell, induced permutation, fiber affine, Jacobi symbol",
+        "Quasi-multiplicative equivalence permutation polynomials sign parity invariant even odd finite fields",
+        "sixth index finite field permutation polynomial classes quasi multiplicative equivalent sharp period 12 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fan, arXiv:2611.16944v1, Theorem B and Theorem 4.5, establishes a period dividing twelve but leaves the six-index constituent polynomials unspecified.",
+        "Fan, arXiv:2611.16944v1, Theorem C, gives formulas only for odd prime indices and index four."
+      ],
+      "reasoning": "The same quantity is also the orbit count of normalized cyclotomic root-value vectors under a finite affine group. The explicit six-branch formula and its minimal period are not identified in the inspected primary source. The general exact-counting algorithm is acknowledged as prior work; the new assertion is a closed evaluation together with sharpness, rather than a new algorithm.",
+      "searches": [
+        "\"Q_6\" \"quasi-multiplicative\" \"permutation\" polynomial",
+        "index 6 cyclotomic permutation polynomial quasi multiplicative classes formula 10s5 and corrections",
+        "exact minimal quasi-polynomial period 12 for index six quasi-multiplicative equivalence classes permutation polynomials finite field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The index-six phase formulas were not found in the relevant fully read sections of Fan, arXiv:2611.16944v1.",
+        "Garg et al., arXiv:2503.20982v3, Section 5, compare particular low-term quadratic-extension permutation families rather than give counts for all exact-index-six functions.",
+        "The indexed records closest to these queries concern finite-field permutation binomial sign bias and coprime-index collision counts, not complete six-index quasi-multiplicative orbit counts."
+      ],
+      "reasoning": "Searches for exact tables, equivalent names, and six-index closed formulas located no table with the six case expressions or minimal period twelve; negative search evidence alone is not treated as a novelty proof.",
+      "searches": [
+        "index six exact zero constant term permutation polynomials orbits Burnside count s congruences",
+        "\"index 6\" \"permutation polynomials\" \"equivalence classes\" 2026"
+      ]
+    },
+    "rationale": "Fan supplies the covering framework but only a nonsharp-in-general period upper bound; the explicitly evaluated index-six six-phase formula and exact minimal period are not found in the primary theorem or a relevant prior table. The closest alternative treatments cover restricted binomial or low-term families. Indexed semantic and exact-phrase searches and a per-claim check of accessible earlier work did not reveal an implication to the sharpness statement. A possible unindexed independent index-six computation remains a risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible earlier closed-form index-six calculation could contain the same minimal-period result.",
+      "The novelty is in the fully evaluated natural special case and sharpness of period, not in the source general orbit-count algorithm or general quasi-polynomial bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_GENERAL_METHOD_NOT_EXACT_SHARPNESS",
+        "evidence": [
+          "General exact formula (Theorem 4.2) for any index.",
+          "Degree at most five and period dividing twelve at index six (Theorem 4.5).",
+          "Closed formulas listed only for odd primes and index four (Theorem C)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.16944v1",
+        "material_read": "Complete abstract, definitions, statements and proof portions covering Sections 1 through 4, including exact-index criterion, normalized action, fixed-point Lemma 4.1, Theorems 4.2 and 4.5, and index-four/odd-prime formulas; supporting concluding passages.",
+        "method": "Direct reading of full-text HTML and comparison of the quantified claim and explicit cases with the new six-index claim.",
+        "title": "Permutation polynomials of given index up to quasi-multiplicative equivalence",
+        "trigger": "Direct source: identical equivalence relation and index-dependent orbit-count invariant."
+      },
+      {
+        "assessment": "NOT_COVERING_COMPLETE_EXACT_INDEX_SIX_OR_PERIOD",
+        "evidence": [
+          "The paper treats explicitly constructed low-term families over quadratic extensions, not every exact-index-six function.",
+          "Its equivalence results establish inequivalence of specific construction families, not global six-index orbit-count quasi-polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.20982v3",
+        "material_read": "Full-text introduction, definitions, construction summaries and Section 5 discussion of quasi-multiplicative inequivalence among selected binomials, quadrinomials and pentanomials.",
+        "method": "Direct HTML inspection of definitions, scope and equivalence theorems.",
+        "title": "Permutation polynomials with a few terms over finite fields",
+        "trigger": "Quasi-multiplicative equivalence and finite-field polynomial constructions could dominate the present classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4f54d48-0b5e-4964-a63b-42ccf059090c",
+  "value": {
+    "rationale": "The first squarefree composite index is a natural structurally different test case for the newly developed general orbit classification. The result gives the complete six-phase closed formula and shows that the universal 2ell even-index period bound is genuinely sharp here, whereas the previously evaluated index-four case has a smaller period. The exact period is a motivated arithmetic invariant, not an arbitrary small finite statistic; the complete formulas apply to infinitely many finite fields.",
+    "status": "PASS"
+  }
+}
