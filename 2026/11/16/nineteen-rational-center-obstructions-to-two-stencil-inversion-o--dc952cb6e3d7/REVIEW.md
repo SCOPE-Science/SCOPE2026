@@ -1,19 +1,21 @@
-# Review of the nineteen-pair two-stencil classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Both convolution symbols follow by substituting complete finite Fourier characters. Their simultaneous zeros have scalars satisfying the same monic rational quadratic, and integrality of rational algebraic integers forces integer gains. Reducible quadratics yield exactly fifteen unordered pairs of integer cosine values between negative two and two. Irreducible quadratics require primitive orders with real-cyclotomic degree two, exactly \(5,8,10,12\), giving four exceptional gain pairs and exactly eight ordered modes whenever both periods are divisible by the primitive order. Distinct frequency characters are linearly independent, so the formulas give exact complex dimensions without enumeration assumptions. The exact finite checker and numerical comparisons passed; they supplement rather than replace the proof.
+PASS
 
-## Originality
+Complete character basis gives multipliers alpha+u+v and beta+uv. Rational symmetric sums/products of algebraic integers force integer alpha,beta. The common monic quadratic t²+alpha t−beta either splits rationally, giving integer real cosine roots u,v in {-2,-1,0,1,2}, or is irreducible of degree 2, requiring phi(q)=4 with exactly q=5,8,10,12. The four minimal polynomials yield four listed pairs; each conjugate takes two primitive frequencies per divisible coordinate, hence 8 modes. The explicit c_m formula accounts for orders 1,2,3,4,6 including endpoint n=3. Exhaustive root-degree reasoning is unbounded; the 3..14 cyclotomic and 3..60 numerical diagnostics are finite supplements, not infinite proof. Git source RESULT.md, verification code and metadata were read at assigned tree; separate SymPy cyclotomic polynomial reproduction confirms the four quadratic cases.
 
-PASS with bounded historical-priority risk. Christie's, Dykema's and Klep's root-of-unity classification supplies broader arithmetic background; the relevant read sections do not state a joint axial/diagonal convolution theorem. You's and Yang's graph-filter-bank work treats generalized sampling, critically sampled reconstruction and filter design, not the same full-resolution two-stencil family or its nineteen integer gain pairs. General torus Fourier-symbol formulas yield an algebraic reduction, but neither those formulas nor the cited papers themselves state the complete exceptional parameter and multiplicity classification. Search comparisons for simultaneous lattice stencils, rational parameters, and toroidal filter zeros found no exact predecessor. Historical specialized convolution classifications remain a possible priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The two complementary radius-one lattice measurements are canonical and have independently nontrivial zero sets. The all-torus rational-gain classification identifies precisely which parameter choices can lose information in both channels, and all exact loss multiplicities, rather than treating one grid or a generic nonzero condition. The finiteness of the universal obstruction set and four purely quadratic resonance families give a meaningful arithmetic boundary. The theorem does not claim practical conditioning benefits.
+No matching all-rational-centers nineteen-pair common-kernel theorem identified beyond this same result; cyclotomic degree and Fourier diagonalization are expressly old ingredients, and priority remains bounded.
 
-## Scope and risk
+## value
 
-The claims concern only two unsampled channels with rational center gains and equal unit off-center taps. Distinguishing this from standard downsampled two-channel perfect-reconstruction systems is essential. The classical arithmetic ingredients and possible inaccessible historical tables limit any assertion of priority; there is no external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The axial and diagonal cross stencils are natural complementary local measurements; a finite universal exceptional rational-center set and exact all-rectangular-torus common-loss dimensions answer a concrete rank/injectivity problem beyond a textbook statement that Fourier modes diagonalize convolution. The distinction from downsampling and condition-number optimization is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

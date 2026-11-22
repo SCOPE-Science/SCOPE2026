@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytic argument is in `RESULT.md` and applies to every \(m,n\ge3\) and every rational \((\alpha,\beta)\). The code `verify_two_stencils.py` checks the *finite* sample grids and is not an infinite proof.
+## correctness
 
-Run `python verify_two_stencils.py` with Python 3.10 or later, SymPy and NumPy installed. It independently uses exact reduction modulo cyclotomic polynomials to classify the rational gains and exact multiplicities for all \(3\le m,n\le14\) (144 grids). It additionally checks all 19 exceptional gains at all \(3\le m,n\le60\) (63,916 floating-point comparisons). The floating tests use a \(10^{-8}\) zero tolerance and are explicitly noncertifying outside these grids.
+PASS
 
-The checker reports `PASS` on completion. No formal proof assistant, human referee, external certification or independent mathematical audit is claimed. The proof's critical unbounded step is the standard degree formula \(\varphi(q)/2\) for the real subfield of a cyclotomic field, together with enumeration of \(\varphi(q)=4\).
+Complete character basis gives multipliers alpha+u+v and beta+uv. Rational symmetric sums/products of algebraic integers force integer alpha,beta. The common monic quadratic t²+alpha t−beta either splits rationally, giving integer real cosine roots u,v in {-2,-1,0,1,2}, or is irreducible of degree 2, requiring phi(q)=4 with exactly q=5,8,10,12. The four minimal polynomials yield four listed pairs; each conjugate takes two primitive frequencies per divisible coordinate, hence 8 modes. The explicit c_m formula accounts for orders 1,2,3,4,6 including endpoint n=3. Exhaustive root-degree reasoning is unbounded; the 3..14 cyclotomic and 3..60 numerical diagnostics are finite supplements, not infinite proof. Git source RESULT.md, verification code and metadata were read at assigned tree; separate SymPy cyclotomic polynomial reproduction confirms the four quadratic cases.
+
+## originality
+
+PASS
+
+No matching all-rational-centers nineteen-pair common-kernel theorem identified beyond this same result; cyclotomic degree and Fourier diagonalization are expressly old ingredients, and priority remains bounded.
+
+## value
+
+PASS
+
+The axial and diagonal cross stencils are natural complementary local measurements; a finite universal exceptional rational-center set and exact all-rectangular-torus common-loss dimensions answer a concrete rank/injectivity problem beyond a textbook statement that Fourier modes diagonalize convolution. The distinction from downsampling and condition-number optimization is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
