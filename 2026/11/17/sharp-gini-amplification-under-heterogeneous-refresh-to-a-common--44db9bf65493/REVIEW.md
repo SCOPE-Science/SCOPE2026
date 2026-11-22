@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns a finite real quotient seminorm and an explicitly specified family of row-stochastic operators. The proof checks the binary-cut reduction by a positive-layer decomposition, maximizes convex cut outputs over the full refresh-rate cube, derives the three-valued output count exactly, and optimizes two independent concave integer quadratics. Separate even/odd monotonicity arguments establish the singleton extremizer, so the result is not extrapolated from the accompanying finite computations. The strictly positive counterexample uses the exact decomposition \(P_a=\varepsilon J_n+(1-\varepsilon)P_b\), with \(0<\varepsilon<1-M_n^{-1}\). The checker corroborates the central identity, all-rate bound, and witnesses using exact rational arithmetic. No probabilistic or numerical approximation is needed for the unrestricted theorem.
+PASS
 
-## Originality — PASS, with residual historical risk
+Coarea reduces the norm of every constant-preserving linear operator to cut indicators; convexity of each cut output Gini in the independent rate vector sends global maxima to cube vertices. For a k-versus-m binary input and r selected/s unselected refreshed sites, direct three-level counting gives G(P1_S)=km+[ks(m-k-s)+mr(k-m-r)]/n. For k<=m the r-term is nonpositive and optimizing integer s yields floor((m-k)^2/4); parity-aware comparison across k proves k=1 is optimal, giving M_n=1+floor((n-2)^2/4)/[n(n-1)]. Singleton and endpoint rate witnesses attain the bound. Blending a maximizing rate vector with epsilon>0 uniform refresh gives an all-positive transition matrix and still has amplification if (1-epsilon)M_n>1. Correct n=2,3 equality, n>=4 amplification, and unattained n->infinity 5/4.
 
-Gaubert and Qu (arXiv:1302.5226; arXiv:1307.4649) determine Hopf-oscillation contraction and its dual total-variation coefficient, not the complete-pair Gini norm of signals. Their stronger-looking generality is about a different norm; indeed an entrywise-positive member of the present family increases Gini variation while strictly decreasing oscillation. Boyd et al. (DOI 10.1109/TIT.2006.874516) analyze doubly stochastic pairwise gossip and spectral averaging time, not the heterogeneous rank-one refresh kernel or its sharp Gini bound. Accessible related Gini calculations concern other graph kernels and do not imply this maximum over arbitrary independent refresh rates. Actual literature searches for the kernel aliases, exact factor, and equivalent seminorm were performed; absence of indexed overlap does not prove worldwide priority. A differently worded or unindexed calculation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact family-wide sharp bound is nontrivial: it changes from one to greater than one at the minimal four-site threshold, rises to an unattained limiting \(5/4\), and is attained at every fixed size by an explicit polarized refresh scheme. The strictly positive-kernel counterexample separates a familiar robust Markov contraction criterion from dispersion contraction, even in the simplest shared-mean update model. This supplies a useful precise boundary for interpreting contraction estimates in heterogeneous consensus and Markov averaging rather than a routine formula for a single hand-picked matrix.
+The global Gini amplification over all independently chosen common-mean refresh probabilities, including a strictly positive Markov counterexample, is not implied by Dobrushin oscillation contraction or spectral mixing of doubly-stochastic gossip. Similar published Gini records concern different kernels.
 
-## Scope and risks
+## value
 
-The claim does not address other reset distributions, nonuniform signal weights, multiple steps, or arbitrary stochastic matrices. General results for oscillation and total variation cannot be cited as direct evidence for this Gini norm. Unindexed historical priority and extension to larger kernel classes are open matters. Verification is analytical with independently reproducible exact finite diagnostic checks, not external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural distributed averaging family that is positive and unital can increase complete-pair dispersion despite strict Doeblin positivity. The sharp all-n 5/4 envelope and first amplifying size distinguish two inequivalent stability notions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

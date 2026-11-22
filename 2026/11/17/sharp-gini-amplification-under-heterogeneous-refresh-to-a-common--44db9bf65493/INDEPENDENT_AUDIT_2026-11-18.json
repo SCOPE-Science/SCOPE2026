@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:00:27.432296Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coarea reduces the norm of every constant-preserving linear operator to cut indicators; convexity of each cut output Gini in the independent rate vector sends global maxima to cube vertices. For a k-versus-m binary input and r selected/s unselected refreshed sites, direct three-level counting gives G(P1_S)=km+[ks(m-k-s)+mr(k-m-r)]/n. For k<=m the r-term is nonpositive and optimizing integer s yields floor((m-k)^2/4); parity-aware comparison across k proves k=1 is optimal, giving M_n=1+floor((n-2)^2/4)/[n(n-1)]. Singleton and endpoint rate witnesses attain the bound. Blending a maximizing rate vector with epsilon>0 uniform refresh gives an all-positive transition matrix and still has amplification if (1-epsilon)M_n>1. Correct n=2,3 equality, n>=4 amplification, and unattained n->infinity 5/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+          "Boyd, Ghosh, Prabhakar, Shah, Randomized Gossip Algorithms, IEEE IT 2006, DOI 10.1109/TIT.2006.874516, Section I and convergence setting",
+          "Resultary:2026/11/17/SCOPE-sharp-classwise-gini-dissipation-for-complete-split-random-walks--12d24e75867b"
+        ],
+        "reasoning": "Dobrushin formulas measure oscillation or dual total variation, and gossip covers pair-averaging/spectral convergence. Complete-split and cyclic kernels do not contain independent full-mean refresh as a specialization.",
+        "searches": [
+          "heterogeneous refresh common mean independent site rates Gini variation exact operator amplification"
+        ]
+      },
+      "checked_sources": [
+        "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+        "Boyd, Ghosh, Prabhakar, Shah, Randomized Gossip Algorithms, IEEE IT 2006, DOI 10.1109/TIT.2006.874516, Section I and convergence setting",
+        "Resultary:2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829",
+        "Resultary:2026/11/17/SCOPE-sharp-classwise-gini-dissipation-for-complete-split-random-walks--12d24e75867b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+          "Boyd, Ghosh, Prabhakar, Shah, Randomized Gossip Algorithms, IEEE IT 2006, DOI 10.1109/TIT.2006.874516, Section I and convergence setting"
+        ],
+        "reasoning": "Doeblin positivity implies strict oscillation contraction but cannot imply complete-pair Gini contraction, as the explicit n=4 epsilon construction gives ratio (1-epsilon)13/12>1. Hence stronger known Markov mixing results do not logically settle this statement.",
+        "searches": [
+          "heterogeneous refresh common mean independent site rates Gini variation exact operator amplification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+          "For a fixed n the mean-refresh kernel is I-diag(a)+(1/n)a1^T; positive row stochastic but generally not doubly stochastic"
+        ],
+        "reasoning": "The Gini operator norm is a Lorenz/majorization stability question, not Dobrushin max-min contraction; heterogeneous rates prevent reduction to a single scalar gossip matrix.",
+        "searches": [
+          "heterogeneous refresh common mean independent site rates Gini variation exact operator amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-gini-amplification-under-heterogeneous-refresh-to-a-common--44db9bf65493",
+          "Resultary:2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829"
+        ],
+        "reasoning": "The first is the same record under audit, not independent prior coverage. The second optimizes a different local cyclic operator and rate perturbation radius; no inspected prior exact Gini table gives M_n.",
+        "searches": [
+          "heterogeneous refresh common mean independent site rates Gini variation exact operator amplification"
+        ]
+      },
+      "rationale": "The global Gini amplification over all independently chosen common-mean refresh probabilities, including a strictly positive Markov counterexample, is not implied by Dobrushin oscillation contraction or spectral mixing of doubly-stochastic gossip. Similar published Gini records concern different kernels.",
+      "residual_risks": [
+        "Unindexed stability results for heterogeneous rank-one mean refresh could contain this cut optimization",
+        "Initial finite endpoint exhaustive tests cover n<=7 only; analytic convexity/monotonicity supplies all dimensions"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_SEMINORM_NOT_COVERING",
+          "evidence": [
+            "The Dobrushin/Hopf oscillation norm is max-min, and dual TV acts on probability measures; neither equals unweighted complete-pair Gini on signal coordinates",
+            "Positive stochastic kernels can be oscillation-contracting but amplify Gini"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649",
+          "material_read": "Introduction and main operator contraction formulas for Hopf oscillation and dual total variation",
+          "method": "Accessible primary author PDF text, relevant theorem passages, page-image inspected",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones",
+          "trigger": "Potential stronger sharp contraction theorem for positive averaging operators"
+        },
+        {
+          "assessment": "DISTINCT_KERNEL_AND_METRIC",
+          "evidence": [
+            "Gossip updates are pairwise doubly stochastic and analyzed for mean-square and mixing-time convergence",
+            "Heterogeneous common-mean refresh is generally only row stochastic and has different Gini metric"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "material_read": "Main definitions and convergence setup for randomized pair-averaging, including doubly-stochastic update setting",
+          "method": "Primary accessible PDF introduction and technical context, page-image inspected",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "Potential stronger averaging stability and spectral mixing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural distributed averaging family that is positive and unital can increase complete-pair dispersion despite strict Doeblin positivity. The sharp all-n 5/4 envelope and first amplifying size distinguish two inequivalent stability notions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One step only; uniform common mean and independent a_i in [0,1]",
+    "Not an all-positive attained maximum: positive kernels can approach sharp bound while amplifying"
+  ],
+  "schema_version": 1
+}
