@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:08:49.486634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A minimal dominating set in K_{m,n}, m,n>=2, is exactly one whole shore or one cross-shore two-set: any mixed larger set has a redundant vertex, while proper single-shore subset fails to dominate vertices on its own shore. The cross-shore signed sum factorizes into (m-2i)(n-2j), and full shores contribute the two parity signs. For odd-odd, product is odd, parity addition even => no zero. For even-even, product divisible by four, signs cancel only at i+j odd with one central Hamming weight; inclusion-exclusion yields the exact count. Even-odd, equal-sign case imposes product of absolute value two with a unique valid neighbor-center weight pair; opposite-sign case imposes central even-shore weight; binomial counts add. This proves all-parameter formulas. The trivial frequency maximizes absolute coefficient mn+2; parity plus near-center weight witnesses give sharp min |W|. I independently exhaustively summed binomial-weighted frequencies for all 576 parameter pairs 2<=m,n<=25, verifying zero formulas, gap 1/2 and max mn+2. Checks corroborate an elementary all-parameter proof, rather than extrapolate from finite sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General complete multipartite domination polynomial and chordal bipartite enumeration include K_mn combinatorially but do not directly give Boolean convolution multiplier parity zeros."
+        ],
+        "reasoning": "Graph class inclusion does not imply Fourier formula coverage; an all-graph algorithm to enumerate supports could compute these values after fresh work but it does not state the closed form parity nullity and gap.",
+        "searches": [
+          "complete bipartite minimal dominating sets Walsh transform parity zero coefficients convolution invertible",
+          "arXiv:1303.5999",
+          "arXiv:1407.2053",
+          "Golovach et al. 2016"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1303.5999",
+        "https://doi.org/10.1016/j.dam.2014.12.010",
+        "https://arxiv.org/abs/1407.2053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Support classification can be derived from standard domination definitions; exact Walsh zeros require signed factorization and parity/weighted multiplicity analysis."
+        ],
+        "reasoning": "Standard support enumeration alone gives the set but does not explicitly imply the proved invertibility iff both sides odd, closed binomial nullity, or sharp min nonzero multiplier without the novel Fourier analysis.",
+        "searches": [
+          "complete bipartite minimal dominating sets Walsh transform parity zero coefficients convolution invertible",
+          "arXiv:1303.5999",
+          "arXiv:1407.2053"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unsigned domination polynomial counts dominating sets by cardinality; source claim takes signed Walsh transform of only inclusion-minimal dominating sets in the full vertex Boolean cube."
+        ],
+        "reasoning": "Neither ordinary domination-set counting nor output-sensitive listing of minimal dominating sets is equivalent to all signed Fourier coefficient cancellations, since cardinality totals omit frequency-specific signs.",
+        "searches": [
+          "complete bipartite minimal dominating sets Walsh transform parity zero coefficients convolution invertible",
+          "Anthony-Picollelli 2013 domination polynomial",
+          "Kanté-Limouzy-Mary-Nourine 2014 minimal dominating sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing published graph domination polynomial counts and different biclique Walsh spectra for sink-free orientations/edge matchings, not minimal vertex domination supports."
+        ],
+        "reasoning": "These tables have different ground-set coordinates/families and cannot be transcribed into the m,n all-parameter minimal-domination spectrum. No identical prior table was located; historical priority remains bounded.",
+        "searches": [
+          "complete bipartite minimal dominating sets Walsh transform parity zero coefficients convolution invertible",
+          "https://doi.org/10.1016/j.dam.2014.12.010",
+          "Resultary biclique orientations and K3n matchings"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. Standard support enumeration alone gives the set but does not explicitly imply the proved invertibility iff both sides odd, closed binomial nullity, or sharp min nonzero multiplier without the novel Fourier analysis.",
+      "residual_risks": [
+        "Earlier multivariate minimal domination polynomial may specialize to the same Fourier formula; not conclusively excluded by searched indexed sources.",
+        "The 2016 chordal-bipartite article was reviewed through accessible HTML, not every publisher PDF appendix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING signed minimal-support transform in examined statements",
+          "evidence": "Univariate domination polynomial counts all dominating sets by cardinality, not 2^(m+n) signed character sums restricted to minimal supports.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.5999",
+          "material_read": "Full primary PDF available, introductory and main unsigned domination polynomial sections inspected with screenshots",
+          "method": "Primary PDF text and page screenshots",
+          "title": "Complete r-partite graphs determined by their domination polynomial",
+          "trigger": "Same K_mn graph class, potential stronger domination polynomial"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING Walsh closed form",
+          "evidence": "Output-sensitive enumeration algorithm, no cited all-frequency rank/nullity or convolution spectral gap.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.12.010",
+          "material_read": "Accessible full publisher HTML/indexed paper sections and enumeration theorem",
+          "method": "Web primary source text inspection",
+          "title": "Enumerating minimal dominating sets in chordal bipartite graphs",
+          "trigger": "Class contains all complete bipartite graphs"
+        },
+        {
+          "assessment": "BROADER_ENUMERATION_NOT_SPECTRUM",
+          "evidence": "Characterizes enumeration complexity, not the exact per-weight signed spectrum; undiscovered multivariate generating function remains risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2053",
+          "material_read": "Accessible indexed primary abstract and stated scope; full paper not inspected",
+          "method": "Web search and abstract",
+          "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+          "trigger": "Aliases and known listing reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete all-parameter parity classification of Fourier information loss and sharp inverse norm for the natural minimal-dominating-set incidence family K_{m,n}. The cancellation formula and balanced singular-to-full rank alternation are precise invariants useful for Boolean convolution and domination sampling, not merely a rename of known unsigned domination polynomial enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Both shore sizes at least two; not weighted or other graph families.",
+    "Bounded originality search may miss equivalent signed multivariate domination polynomial.",
+    "The parity-case cancellation analysis and exact all-parameter formula prove more than the 576 finite check cases."
+  ],
+  "schema_version": 1
+}

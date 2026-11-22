@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the minimal-domination Fourier classification
+# Independent mathematical audit
 
-Use `python3 check.py` from the same directory. The program requires only Python 3's standard library.
+## correctness
 
-The finite exact test first enumerates all dominating sets on \(K_{m,n}\), checks minimality by deleting each selected vertex, and compares the resulting supports with the two entire shores and all cross-shore pairs. For each \(2\le m,n\le6\), it then computes the Walsh sum over those independently enumerated supports at every character and compares with the closed formula. It also verifies the exact zero counts, least nonzero multiplier, and maximal multiplier. This comprises 15,376 distinct integer Walsh coefficients.
+PASS
 
-A second check uses independent binomial-weighted frequency summation, without enumerating supports, to test the exact nullity and gap formulas for all 1,521 ordered pairs \(2\le m,n\le40\). The test emits `MINIMAL_DOMINATION_BICLIQUE_WALSH_PASS` if every assertion succeeds.
+A minimal dominating set in K_{m,n}, m,n>=2, is exactly one whole shore or one cross-shore two-set: any mixed larger set has a redundant vertex, while proper single-shore subset fails to dominate vertices on its own shore. The cross-shore signed sum factorizes into (m-2i)(n-2j), and full shores contribute the two parity signs. For odd-odd, product is odd, parity addition even => no zero. For even-even, product divisible by four, signs cancel only at i+j odd with one central Hamming weight; inclusion-exclusion yields the exact count. Even-odd, equal-sign case imposes product of absolute value two with a unique valid neighbor-center weight pair; opposite-sign case imposes central even-shore weight; binomial counts add. This proves all-parameter formulas. The trivial frequency maximizes absolute coefficient mn+2; parity plus near-center weight witnesses give sharp min |W|. I independently exhaustively summed binomial-weighted frequencies for all 576 parameter pairs 2<=m,n<=25, verifying zero formulas, gap 1/2 and max mn+2. Checks corroborate an elementary all-parameter proof, rather than extrapolate from finite sizes.
 
-These tests are finite and do not prove the result for untested orders. The general proof is an exact support classification and arithmetic case division. No independent mathematical validation is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. Standard support enumeration alone gives the set but does not explicitly imply the proved invertibility iff both sides odd, closed binomial nullity, or sharp min nonzero multiplier without the novel Fourier analysis.
+
+## value
+
+PASS
+
+This gives a complete all-parameter parity classification of Fourier information loss and sharp inverse norm for the natural minimal-dominating-set incidence family K_{m,n}. The cancellation formula and balanced singular-to-full rank alternation are precise invariants useful for Boolean convolution and domination sampling, not merely a rename of known unsigned domination polynomial enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
