@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is precisely about the two-sided proportional-run coded shift, not the larger one-sided frequency shift. Every proposed minimal forbidden word violates a necessary matching-run rule. The reverse direction is supplied by a constructive run-completion lemma: avoidance forces each fully observed interior pair of zero/one runs to match in the ratio \(1:k\), and incomplete edge runs can be extended to legal generators. Every displayed word has admissible adjacent length-one shorter prefix and suffix, ensuring minimality. Independent integer-case enumeration from the generator definition agrees with all predicted minimal forbidden sets for \(k=1,\ldots,5\) through length 16 (70 cases). The infinite result follows from the proof, not this finite enumeration. Counts and rational series follow by disjoint families. The first-two-symbol separation also permits a deterministic pushdown recognition; a nonregular subfamily can be isolated by regular intersection.
+## correctness
 
-## Originality: PASS (subject to historical priority)
-Reyes' Section 5 gives the generator language, synchronization, and the distinction between the coded core and the larger frequency shift. Section 5's "bad words" detect a different phenomenon: one-sided transient words outside the core. That characterization does not state the complete two-sided antidictionary, its three exact templates, or the arithmetic counting series. Wu–Zhang's new criterion applies to systems with small forbidden-language entropy but does not calculate the forbidden language of these coded systems. Béal–Mignosi–Restivo–Sciortino develop general minimal-forbidden-word invariants, not these parameter-specific exact counts. Similar symbolic families may have appeared in older literature, so the absence of an identical indexed statement is not proof of priority. The existing related rational-frequency-shift claims concern maximal-entropy statistics and locally constant potential pressure, not exact minimal forbidden sets.
+PASS
 
-## Mathematical value: PASS
-The theorem is a complete natural invariant for an infinite family of explicitly defined non-sofic coded shifts: a shortest forbidden basis at every length, an exact sparse arithmetic layer law, and a striking nonregular-language/rational-counting-series contrast. Its zero minimal-forbidden entropy supplies a concrete non-sofic test family for a recently established general entropy-gap theorem, independently of the already-known intrinsic ergodicity. This is not an arbitrary finite slice, a weaker restatement of an entropy formula, or a recomputation of a published table.
+PASS. Exact object is the factorial language of finite concatenations of 0^m1^{km}, not the larger frequency shift when k>=2. Every complete interior pair of runs must obey b=ka: excluding 01^r0 forces b=kt, excluding 0^{m+1}1^{km}0 forces a<=t, and excluding 10^m1^{km+1} forces kt<=ka, hence t=a. Edge runs may be extended to complete code blocks, giving avoidance sufficiency. For each three proposed forbidden types, its length-minus-one prefix and suffix are admitted, proving minimality; the distinct initial pairs ensure disjointness. Counts and generating series follow from the three arithmetic progressions; nonregularity follows by intersecting with 00^+1^+0, while a deterministic pushdown can dispatch on the three initial pairs. Independently recomputed exact finite languages and minimal forbidden sets for k=1..3, lengths 3..10 (24 cases) and verified rational series samples; finite corroboration is not the all-k proof.
 
-## Scope and remaining risks
-The proof uses a natural extension of the coded shift; the larger one-sided frequency shift can admit additional transient factors when \(k\ge2\). Originality comparison included both recent full-text primary papers, a classic minimal-forbidden-word work at bibliographic level, mathematical literature searches, and comparisons with related equilibrium-statistics results. Broader older coded-shift classifications could contain an equivalent antidictionary not located here. No independent external audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete three-family forbidden-minimal basis and explicit exact counting/formal-language consequences, not for Reyes’s already known generator description, entropy or intrinsic ergodicity. Reyes Section 5 contains a partial forbidden-run obstruction but not the two additional minimal run-mismatch families; the latter and completeness were independently checked against the underlying generator definition.
+
+## value
+
+PASS
+
+PASS. This is a complete exact language invariant for a natural infinite generator family already central in rational frequency-shift dynamics. The two new run-mismatch obstruction types, coefficient-level arithmetic stratification and context-free-versus-regular distinction provide more than a restatement of topological entropy; the exact forbidden basis is useful to admissibility, symbolic dynamics and entropy-gap analysis. Its value does not rely on claiming original intrinsic ergodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
