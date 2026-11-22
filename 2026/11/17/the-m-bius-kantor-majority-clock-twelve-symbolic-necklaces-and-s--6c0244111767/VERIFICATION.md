@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_shores.py` and `python3 verify_full.py` with Python 3 and its standard library. The programs are standalone, present in the same package, and contain the complete definitions they check.
+## correctness
 
-`verify_shores.py` evaluates all \(256\) eight-bit words using the Boolean majority polynomial, verifies the full-power identities and the \(72\) stable symbols, derives the \(12\) rotational classes and all retraction fiber weights, and checks the resulting exact orbit, basin, and entrance-time counts. The recorded successful stdout is `verify_shores_output.txt`.
+PASS
 
-`verify_full.py` independently constructs the sixteen-node LCF graph from edges and updates all \(65{,}536\) complete labelled configurations. It checks the universal three-step bound, an explicit sharpness witness, both eventual-period populations, the full first-entry-time table, and the attraction-basin distribution without using the shore-map formulas. The recorded successful stdout is `verify_full_output.txt`.
+The actual graph LCF [5,-5]^8 decomposes into two eight-bit shores with explicitly defined majority polynomials f and g. The source’s full 256-word tables certify h³=h² and k³=k² plus f k²=f k and g h²=g h, giving F^5=F^3, and 72 stable shore symbols on each side with f,g mutually inverse in the core. The periodic map swaps ordered pairs of 72 symbols: 72 fixed and C(72,2)=2556 genuine temporal 2-cycles. Exact retraction-fiber weights 22×1, 48×2, 2×69 yield fixed basin sizes 1(22),4(48),4761(2) and two-cycle basins 2(231),4(1056),8(1128),138(44),276(96),9522(1). The source lists twelve complete necklace reps. An independent explicit graph-level full 65,536-state enumeration, not just stored log, reproduced every orbit, basin and sharp entrance-time layer (5184,15552,22528,22272). This exhaustive finite proof covers precisely this fixed finite graph.
 
-These exhaustive finite tests support the exact claim for the defined finite graph; they do not establish any statement on graph families or an independent audit. The original Goles–Olivos full text was not available for full historical-priority comparison.
+## originality
+
+PASS
+
+Goles–Olivos general symmetric-threshold dynamics implies period <=2 but not a sharp settling time or any individual graph basin table. The 2026 Heawood and Pappus incidence-graph complete censuses use the same general core-swap paradigm but have 58 and 92 symbols and distinct basin distributions; neither implies this exact 72-symbol Möbius-Kantor classification. No indexed matching same-graph majority-dynamics table was located; this is a qualified, best-of-knowledge original exact finite classification.
+
+## value
+
+PASS
+
+The Möbius–Kantor graph is a canonical highly symmetric cubic graph and its exact sharp three-step cutoff, isolated recurrent orbits and exceptional 9522-state basin are natural and striking dynamical invariants. A complete labelled 65,536-state basin classification with transparent 8-bit reduction is meaningful finite mathematics and not a random unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
