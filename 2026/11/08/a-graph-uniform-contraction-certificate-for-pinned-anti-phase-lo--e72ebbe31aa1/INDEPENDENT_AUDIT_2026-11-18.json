@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T22:14:57Z",
+  "axes": {
+    "correctness": {
+      "proof_paths": [
+        "RESULT.md §Finding and Assumptions",
+        "RESULT.md Proof Steps 1–5",
+        "check.py symbolic identities and ten example graphs (source inspected; its claimed logs not treated as independent proof)",
+        "/mnt/data/scope_worker10_independent_check.py (fresh independent symbolic and exact C6/K3,3 checks)"
+      ],
+      "rationale": "Reconstructed the claimed branch on all finite simple connected d-regular undirected bipartite graphs, d≥1, with output coupling F=C f_mu. Adding two-color swap equations yields mu=(4t+2)/(4t+1-4t²); subtracting yields (1-2epsilon)mu(t-1/2)=1 and epsilon=(4t²-2t-1)/(4t²-1). The t interval ((1+sqrt5)/4,(3+sqrt17)/8] follows from epsilon>0 and mu≤4; epsilon<1/2 and points remain in (0,1). At p, f'(t)=c<0 and f'(1/2)=0. For normalized shore adjacency R with all row and column sums 1, the full two-step derivative is triangular with upper block epsilon²c² RR^T, and top singular value R=1, proving radius v² exactly, not merely on the color subspace. Squaring gives nonnegative 4-iterate blocks with exact row sums v^4 and v³(v+2), since w=(1-epsilon)mu(2t-1)=v+2. Symbolic differentiation confirms v increasing; endpoint yields v=(sqrt17-3)/2 and exact maximum (71-17sqrt17)/2<1/2. Global cube derivative bounds ||DF||∞≤4 and ||D²F||∞≤8 produce B_4≤43520 by chain rule; delta=1/174080 gives derivative ≤3/4 on a convex ball strictly inside the forward-invariant cube, hence uniform F^4 contraction and convergence of intermediate phases. Equal shore cardinality gives directional-sign cancellation, and exact t=7/8 witness has mu=88/23, epsilon=5/33, v=10/23. Independently built SymPy/rational block Jacobians on C6 and K3,3 confirm spectra and fourth-iterate norms, all rational coefficients and Hessian bounds. Finite checks corroborate only; the symbolic algebra and stochastic-matrix argument establish the universal quantified result.",
+      "status": "PASS",
+      "verified_limits": [
+        "Finite connected undirected simple d-regular bipartite G with d≥1; nonbipartite or irregular cases not claimed.",
+        "Output diffusion with 0<epsilon<1/2, mu in (0,4], t high color value with one color fixed at logistic critical point 1/2.",
+        "Local four-iterate attraction only; no global basin, all-attractor classification or epsilon=0.4 ordering-transition claim.",
+        "q and p have primitive period two because t>1/2; lower t endpoint excluded, upper included.",
+        "Finite matrix checks are not universal proofs; no formally verified Lean or external expert attestation."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amritkar et al. 1991 full paper: rigorous ring-block spectral reduction and stable two-color waves for mu=4 (including an epsilon interval overlapping the pinned endpoint), hence those preliminary existence/stability facts are not novel.",
+          "Gade–Amritkar 1993 Phys. Rev. E 47, 143, publisher abstract: analyzes spatial and temporal periodic orbits on 1D and higher-dimensional lattices with circulant/block-circulant stability reductions; full theorem not accessed.",
+          "Xie–Hu 1997 Phys. Rev. E 55,79, publisher abstract: two analytically solved 2D periodic patterns with small-system stability boundaries, full article inaccessible.",
+          "Resultary 2026/11/17 full RESULT.md: universal stationary logistic 2-color sink interval even on nonregular bipartite graphs; not a period-two orbit or fourth-iterate basin bound."
+        ],
+        "reasoning": "The 1991 block-replica theorem certainly precedes the ring special case and generic Floquet methodology, and the 1993 paper broadens from rings to higher-dimensional lattices. But the inspected accessible statements do not entail a pinned parameter-curve for all finite regular bipartite graphs with a *uniform* fourth-iterate norm and a common explicit attraction ball. The inaccessible 1993 and 1997 full-text comparisons could change that conclusion; priority remains qualified rather than falsely excluded.",
+        "searches": [
+          "Resultary semantic: period two checkerboard analytic graph independent Floquet singular value local basin",
+          "web: Gade Amritkar Spatially periodic orbits in coupled-map lattices 1993 pdf",
+          "web: Spatiotemporal periodic and chaotic patterns in a two-dimensional coupled map lattice system pdf 1997",
+          "web: Amritkar Gade Gangal Nandakumaran 1991 stability of periodic orbits coupled map lattices pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.00983",
+        "https://webfiles.amrita.edu/2017/06/stability-of-periodic-orbits-of-coupled-map-lattices.pdf",
+        "https://doi.org/10.1103/PhysRevE.47.143",
+        "https://doi.org/10.1103/PhysRevE.55.79",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-graph-independent-sharp-stability-window-for-stationary-logistic--868276d4c894/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-strong-coupling-window-for-a-two-colour-travelling-wave--9a03241b8715/RESULT.md",
+        "https://doi.org/10.1137/060652531",
+        "Resultary semantic queries for checkerboard, graph-uniform Floquet, critical pinning and alias equations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dixit–Chauhan–Shrimali (2026) §4 uses a 50x50 square CML with epsilon=0.4 and aims to predict the directional-sign ordering transition; here epsilon≤(7-sqrt(17))/16≈0.18, exact local two-cycle, and no transition claim.",
+          "Amritkar et al. (1991) Eq. (18) is output-diffusive with nearest-neighbor ring coupling and its pp. R3409-R3410 include a stable period-two wave at mu=4; it does not publish the all-regular-bipartite singular-value spectrum and a parameter/graph-independent 4-return attracting neighborhood.",
+          "Published stationary logistic checkerboard result 2026/11/17 has temporal period one and mu=4, whereas present theorem has p<->q swaps along a mu(t) branch.",
+          "Published Chebyshev traveling-wave 2026/10/11 uses f(x)=2x²-1 with linear neighbor state coupling, not neighbor logistic images; its Floquet identity is not a reduction implying this theorem."
+        ],
+        "reasoning": "We compared logical consequences rather than wording. The original analytic steps are short and use known graph-stochastic principles, but require the critical-point Jacobian cancellation and nonlinear fourth-iterate uniformity; the same-map earlier ring theorem covers special finite/ring stability yet not the asserted conjunction. The two inaccessible older generalizations remain specific priority risks, not established noncoverage.",
+        "searches": [
+          "web: Fagen Xie Gang Hu Spatiotemporal periodic chaotic patterns two dimensional coupled map lattice 1997 full text",
+          "web: Dixit Chauhan Shrimali Predicting Phase Ordering Chaotic Maps Coupled Map Lattices 2026 full article",
+          "Resultary semantic: period two checkerboard analytic graph independent Floquet singular value local basin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amritkar et al. 1991, PDF pp. R3407-R3410, especially equations (12)-(18), already treat temporal/spatial two-periodic lattice states, with k-fold ring-replica Floquet tests.",
+          "Dixit et al., arXiv:2609.00983, full accessible article §2 Eq.(4), §4 at fixed epsilon=0.4: same output-coupled logistic equation and directional-sign order observable, but different parameters and numerical prediction goal.",
+          "Resultary 2026/11/17 published stationary logistic checkerboard theorem uses f=4x(1-x), but its states are equilibria, not the pinned temporal two-cycle."
+        ],
+        "reasoning": "Alias search covered antiphase two-cluster swapping, checkerboard period-two, traveling two-color wave, degree-normalized output diffusion and critical-point pinning. General 1D wave existence and Bloch/Fourier reduction are old. A stationary bipartite logistic equilibrium and a Chebyshev period-two wave use different temporal/functional equations, so do not imply the exact present full-network norm and basin statement.",
+        "searches": [
+          "Resultary semantic: pinned bipartite anti-phase logistic checkerboard period two uniform contraction graph topology critical point cycle",
+          "Resultary semantic: coupled map lattice stable two cluster logistic map critical point period two 2D spatial patterns",
+          "web: logistic coupled maps period two antiphase checkerboard critical point 1/2 uniform stability bipartite graph two color"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Amritkar et al. 1991 PDF p. R3410 gives mu=4 epsilon stability ranges for a period-two ring wave; this covers existence/stability for some ring parameters, not the explicit present graph-wide return-norm identity or all-parameter basin constant.",
+          "Resultary semantic search's closest same-map stationary theorem has a different time-period and coupling parameters; the indexed self-claim is excluded from priority evidence.",
+          "No covering exact table for the rational witness or universal 1/174080 basin was observed in accessible primary material; 1993/1997 full texts remain unavailable."
+        ],
+        "reasoning": "A parameter-specific instance could be covered by a stronger prior stability table even without exact rational labels. The 1991 overlap is explicitly credited; the review does not mistake the new witness alone for novelty. The distinct quantified graph-independent attraction estimate is not mechanically obtained from the accessible tables, while inaccessible papers prevent claiming exhaustive novelty.",
+        "searches": [
+          "web: logistic coupled maps mu 88/23 epsilon 5/33 7/8 1/2 Floquet checkerboard",
+          "Resultary semantic: pinned bipartite anti-phase logistic checkerboard period two uniform contraction graph topology critical point cycle",
+          "web: Gade Amritkar period two epsilon 1991 1993 stability windows"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality of the combined critical-point-pinned logistic output-diffusion period-two curve, full spectrum on every finite connected regular bipartite graph, exact graph-uniform four-return infinity norm, and explicit graph/parameter-uniform basin radius. Two-color temporal waves, 1D Fourier reductions and generic local contraction are acknowledged prior art, not claimed as new. Current-source cross-checks distinguish stationary heterogeneous checkerboards and Chebyshev input coupling from this model. The 1993 higher-dimensional and 1997 two-dimensional primary articles were not accessible in full; their possible stronger implications remain named residual priority risks, not deemed disproved by searches or used as automatic FAIL.",
+      "residual_risks": [
+        "The 1993 higher-dimensional periodic CML primary article could not be examined beyond abstract because no lawful full text was located and authorized institutional VPN was disconnected; it might contain a stronger stability theorem or pinned specialization.",
+        "The 1997 Xie–Hu analytically solved two-dimensional pattern paper was abstract-only; priority to exact pinned-pattern constructions is unverified.",
+        "Earlier ring result 1991 already covers a stable period-two ring wave including mu=4 parameter range; this is acknowledged pre-existing science, not claimed as novel.",
+        "Exact graph-uniform basin radius might be independently derivable from older non-explicit general theorems; no exhaustive historical-priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The fixed-epsilon 0.4 numerical/ML phase-ordering study lacks the exact pinned curve/full-graph contraction; distinct and no claim here about its transition",
+          "evidence": [
+            "§4 L117-L126: 50×50 lattice and epsilon=0.4; §5 L139-L146 explicitly notes study focused on fixed coupling",
+            "§2 Eq.(4) same output-diffusive model"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.00983",
+          "material_read": "Full accessible arXiv HTML article: introduction, §2 Eqs. (1)-(6), §§3-4, §5 conclusions; in particular L43-L54 and L117-L146 of rendered HTML",
+          "method": "Full HTML article inspected via arXiv",
+          "title": "Predicting Phase Ordering in Chaotic Maps and Coupled Map Lattices",
+          "trigger": "Identical output-coupled logistic lattice and directional-phase observable"
+        },
+        {
+          "assessment": "Covers earlier 1D alternating wave and block methods; not the all-regular-bipartite uniform basin theorem in inspected pages",
+          "evidence": [
+            "p. R3409 Eq.(18) logistic output diffusion and period-two swapping; p. R3410 stable epsilon ranges",
+            "pp. R3408-R3409 Eqs.(12)-(17) block-circulant Floquet reduction"
+          ],
+          "identifier_or_url": "https://webfiles.amrita.edu/2017/06/stability-of-periodic-orbits-of-coupled-map-lattices.pdf",
+          "material_read": "Entire four-page PDF pp. R3407-R3410; equations (1)-(18), general block-circulant reduction and numerical mu=4 period-two wave windows; visually checked p. R3409",
+          "method": "Lawful institution-hosted PDF text and visual page screenshot",
+          "title": "Stability of periodic orbits of coupled-map lattices",
+          "trigger": "Earlier logistic output-diffusive traveling wave, possibly dominating present ring special case"
+        },
+        {
+          "assessment": "Potential strong coverage cannot be excluded; not assessed as whole-paper NOT_COVERING",
+          "evidence": [
+            "Phys Rev E 47 (1993) 143 abstract states 1D and higher-dimensional periodic-lattice waves, stability by circulant/block-circulant matrices"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.47.143",
+          "material_read": "Publisher abstract and bibliographic metadata only; no primary full-text pages could be obtained by open/preprint/OA searches; authorized Oxford attempt returned VPN disconnected",
+          "method": "Publisher abstract / OA searches / authorized institutional attempt (no PDF obtained)",
+          "title": "Spatially periodic orbits in coupled-map lattices",
+          "trigger": "Potential stronger 1993 general theorem extending periodic-wave stability to higher-dimensional lattices"
+        },
+        {
+          "assessment": "Unresolved priority risk; cannot certify that its full patterns do not specialize to the critical-point branch",
+          "evidence": [
+            "Phys Rev E 55 (1997) 79 abstract says two analytically solved 2D patterns with small-size stability boundaries"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.55.79",
+          "material_read": "Publisher abstract only; preprint/OA searches did not yield full text; authorized Oxford request blocked by disconnected VPN",
+          "method": "Publisher abstract / OA searches / authorized institutional attempt (no PDF obtained)",
+          "title": "Spatiotemporal periodic and chaotic patterns in a two-dimensional coupled map lattice system",
+          "trigger": "Two analytically solvable 2D periodic wave patterns potentially same pinned special branch"
+        },
+        {
+          "assessment": "Stationary heterogeneous equilibrium under mu=4 and degree-normalized diffusion, not temporal color swapping or uniform fourth-iterate radius",
+          "evidence": [
+            "Finding gives stationary two-color sink iff (4+sqrt(6))/16<D<(19+sqrt(73))/64; temporal period one",
+            "Source explicitly contrasts pinned anti-phase two-cycles in prior-work section"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-graph-independent-sharp-stability-window-for-stationary-logistic--868276d4c894/RESULT.md",
+          "material_read": "Complete Resultary published RESULT.md, finding, assumptions, proof, relationship to prior work and limitations",
+          "method": "GitHub frozen public text read",
+          "title": "Graph-independent sharp stability window for stationary logistic checkerboards",
+          "trigger": "Same local map, bipartite graph universality, possible broader coverage"
+        },
+        {
+          "assessment": "Chebyshev polynomial with neighbor-state (not neighbor-output) coupling and only even rings; does not imply pinned logistic full-bipartite theorem",
+          "evidence": [
+            "Map F_a(x)_j=(1-a)(2x_j²-1)+a(x_{j-1}+x_{j+1})/2; wave multiplier 4(1-a)²+a²"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-strong-coupling-window-for-a-two-colour-travelling-wave--9a03241b8715/RESULT.md",
+          "material_read": "Complete Resultary published RESULT.md including map, Floquet proof, scope, references",
+          "method": "GitHub published source text read",
+          "title": "A sharp strong-coupling window for a two-colour travelling wave",
+          "trigger": "Published graph-size-independent checkerboard Floquet theorem under another nonlinear lattice model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural object is a two-color anti-phase periodic state of a commonly studied output-diffusive logistic coupled-map lattice. A critical-point-pinned branch supplies a mathematically motivated exact solvable family: the vanishing derivative at one shore yields a nontrivial whole-network singular-mode simplification, rather than merely testing a tiny arbitrary graph. The exact parameter/domain characterization and sharp full-state two-step spectral radius combine with a topology/size/parameter-independent strictly sub-half four-return norm and explicit 1/174080 local basin. This is a quantitative robustness statement for arbitrary growing regular bipartite networks and is not implied by a numerical ordering observation or a pre-existing ring-wave stability table. The basin radius is conservative and its numerical value by itself is not the innovation; the uniformity and rigorous mechanism are the mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.00983",
+    "https://webfiles.amrita.edu/2017/06/stability-of-periodic-orbits-of-coupled-map-lattices.pdf",
+    "https://doi.org/10.1103/PhysRevE.47.143",
+    "https://doi.org/10.1103/PhysRevE.55.79",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-graph-independent-sharp-stability-window-for-stationary-logistic--868276d4c894/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-strong-coupling-window-for-a-two-colour-travelling-wave--9a03241b8715/RESULT.md",
+    "https://doi.org/10.1137/060652531",
+    "Resultary semantic queries for checkerboard, graph-uniform Floquet, critical pinning and alias equations",
+    "GitHub assigned frozen RESULT.md, check.py, METADATA.json, AUDIT.json, SLOGAN.txt, REVIEW.md, VERIFICATION.md and verified exact Git record tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The stronger 1993 and 1997 historical priority comparisons are abstract-only because lawful OA/preprint searches failed and authorized Oxford access returned vpn_disconnected; this is a named risk, not proof of noncoverage or a reason alone to reject O.",
+    "Independent exact finite checks C6 and K3,3 and symbolic endpoint tests corroborate, but do not replace the all-graph proof.",
+    "No GitHub mutation, dispatcher closeout, published certificate, expert attestation or formal Lean proof.",
+    "The actual dispatcher result could not be materialized directly to container; transferred exact displayed identifiers are explicitly recorded with that operational limitation."
+  ],
+  "residual_risks": [
+    "The 1993 higher-dimensional periodic CML primary article could not be examined beyond abstract because no lawful full text was located and authorized institutional VPN was disconnected; it might contain a stronger stability theorem or pinned specialization.",
+    "The 1997 Xie–Hu analytically solved two-dimensional pattern paper was abstract-only; priority to exact pinned-pattern constructions is unverified.",
+    "Earlier ring result 1991 already covers a stable period-two ring wave including mu=4 parameter range; this is acknowledged pre-existing science, not claimed as novel.",
+    "Exact graph-uniform basin radius might be independently derivable from older non-explicit general theorems; no exhaustive historical-priority guarantee is made."
+  ],
+  "schema_version": 1
+}
