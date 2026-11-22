@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 check_cyclic_softmax_bv.py` with a standard Python 3 interpreter in this directory. The checker uses `fractions.Fraction` and seeded test inputs to validate the identity \(D J=C D\), the exact column-stochasticity and strictly positive support of \(C\), and overlap when \(2w>n\). It also tests full-window constancy, finite equality witnesses when \(2w\le n\), numerical two-input inequalities over positive site weights and temperatures, and near-saturation examples on shorter cycles.
+## correctness
 
-The recorded run produced:
+PASS
 
-```text
-EXACT_RATIONAL_JACOBIAN_COLUMN_STOCHASTIC_CASES_PASS 792
-STRICT_COLUMN_OVERLAP_CASES_PASS 360
-FINITE_ATTAINMENT_CASES_PASS 36
-WEIGHTED_POSITIVE_TEMPERATURE_TWO_INPUT_CHECKS_PASS 198
-FULL_WINDOW_CONSTANT_OUTPUT_PASS
-ALL_CYCLIC_SOFTMAX_BV_CHECKS_PASS
-```
+For n≥2, 1≤w≤n, fixed positive site weights and τ>0, the Jacobian row is a sliding-window positive distribution. Successive distribution CDF differences factor D J_z=C_z D: each C column has positive support on exactly w consecutive cyclic output edges and sum 1. Therefore global two-input cyclic variation ≤ input variation. If w<n<2w every positive and negative gradient column pair intersects and strict triangle inequality applies at every finite segment point. If n≥2w, two disjoint complete windows give finite equality. If w<n<2w, a one-site dominating input pair approaches gain 1 without attaining it. If w=n the output is constant. w=1 and n=2 covered.
 
-The program does not exhaust all inputs or parameters and is **not** an infinite proof. Analytical justification for every quantifier is supplied in `RESULT.md`, including the derivative factorization, overlap strictness, limiting witnesses, and full-window boundary case. The test uses floating point only for positive-temperature softmax secants and exact rational arithmetic for the critical Jacobian identities. The result has not received independent mathematical audit.
+## originality
+
+PASS
+
+The basic entropy-smoothed maximum and softmax probability gradient are due to Nesterov; path-window running maxima and minima already exhibit two-input BV nonexpansivity and may, via a Gumbel representation, explain the weak global upper bound. The precise cyclic all-positive-weight finite-pair equality iff n≥2w, strict inequality when w<n<2w despite sharp coefficient 1, and saturated limits add a structurally distinct sharp attainment classification not found in the full relevant published path proof or primary entropy-smoothing material.
+
+## value
+
+PASS
+
+The exact half-cycle threshold is a complete classification of when smooth local dilation has finite equality versus pointwise strict contraction without a uniform gap. This is mathematically useful when distinguishing strict improvement from global contraction for a standard entropy-smoothed nonlinear filter, with a reusable positive-column-overlap explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

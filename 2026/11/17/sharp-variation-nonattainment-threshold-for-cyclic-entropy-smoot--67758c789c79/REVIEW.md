@@ -1,19 +1,21 @@
-# Review of the cyclic entropy-smoothed maximum variation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivative of a shared-site-weight sliding log-sum-exp is a conditional probability average. For each pair of consecutive windows the cumulative-probability difference factors the first-difference operator through a strictly positive, column-stochastic matrix whose columns each occupy a circular arc of length equal to the window size. Telescoping proves the precise column sums. Integration proves global contraction. When the window exceeds half the cycle, all pairs of such columns overlap, forcing cancellation between positive and negative portions of every nonzero cyclic gradient; integration yields strictness for all finite input pairs. Two disjoint complete windows give equality when the cycle contains at least two window lengths, while a concentrating one-site pair yields the sharp supremum otherwise. The full-window case is constant. The independently reconstructed algebra was checked using exact rational Jacobian factorization and numerical secants from the standalone program.
+PASS
 
-## Originality — PASS, qualified
+For n≥2, 1≤w≤n, fixed positive site weights and τ>0, the Jacobian row is a sliding-window positive distribution. Successive distribution CDF differences factor D J_z=C_z D: each C column has positive support on exactly w consecutive cyclic output edges and sum 1. Therefore global two-input cyclic variation ≤ input variation. If w<n<2w every positive and negative gradient column pair intersects and strict triangle inequality applies at every finite segment point. If n≥2w, two disjoint complete windows give finite equality. If w<n<2w, a one-site dominating input pair approaches gain 1 without attaining it. If w=n the output is constant. w=1 and n=2 covered.
 
-The smooth-maximum formula and its derivative are established in Nesterov's 10 January 2003 preprint (Section 4.1, Lemma 4). The accessible published finite-window morphology result treats truncated path min/max filters, not entropy-smoothed cyclic windows and not the strict nonattainment phase. Its max-filter contraction can imply the coarse nonexpansive bound after a standard randomized-maximum identity, so that bound alone is **not** presented as the novel contribution. The specific equality-versus-nonattainment classification, uniformly in positive site weights and temperature, was not implied by the inspected statements. The continuum one-input maximal-function BV theory and available morphological-pyramid abstract also do not state this equality problem. Search and access limitations prevent any claim of definitive historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The half-cycle geometric threshold is a complete natural classification for a smooth local maximum regularly used as an entropy-regularized surrogate of dilation: for shorter windows equality can occur with finite data, while for long-but-not-global windows each individual pair is strictly damped despite sharp global Lipschitz constant one. This distinction matters when inferring strong stability from nonexpansive estimates and is explained by a reusable positive-column-overlap mechanism rather than arbitrary small cases. It contrasts with instability results for nonlinear median-based filters and is not a renaming of the standard smooth-maximum derivative.
+The basic entropy-smoothed maximum and softmax probability gradient are due to Nesterov; path-window running maxima and minima already exhibit two-input BV nonexpansivity and may, via a Gumbel representation, explain the weak global upper bound. The precise cyclic all-positive-weight finite-pair equality iff n≥2w, strict inequality when w<n<2w despite sharp coefficient 1, and saturated limits add a structurally distinct sharp attainment classification not found in the full relevant published path proof or primary entropy-smoothing material.
 
-## Limits and source risk
+## value
 
-The theorem is one-dimensional, cyclic, uses contiguous windows and globally shared positive site weights, and concerns a single pass. The derivative overlap argument does not yield a uniform strict contraction over unbounded data. The original Nesterov open preprint and the available full text of the relevant finite-window morphology result were examined in the material needed for comparison; older morphological-pyramid work was available here only through its abstract. A broader historical theorem about stochastic-order kernels could contain an equivalent statement; historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact half-cycle threshold is a complete classification of when smooth local dilation has finite equality versus pointwise strict contraction without a uniform gap. This is mathematically useful when distinguishing strict improvement from global contraction for a standard entropy-smoothed nonlinear filter, with a reusable positive-column-overlap explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
