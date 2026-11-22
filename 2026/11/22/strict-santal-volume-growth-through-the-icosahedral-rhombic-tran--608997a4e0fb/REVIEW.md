@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The two primal volumes follow from the two facet fans and elementary pyramidal decompositions. The first polar branch is a twenty-cap truncation of the regular dodecahedron and the second is an explicit twelve-pentagon/twenty-hexagon facet decomposition. The strict inequalities are proved by differentiating the exact expressions, with rigorous rational radical bounds reproduced by `check.py`. The finite hull checks are corroborative only. Scope includes every real parameter in the closed interval, not only checked samples.
+
+**Originality — PASS (historical priority provisional).** Hoehner's 2026 paper establishes the unique thirty-two-vertex primal volume optimizer, with acknowledgement of Wimmer's earlier within-type optimization. Barthe–Fradelizi's 2011 symmetric-volume-product theorem implies the coarse inequality against the regular icosahedron but does not imply pointwise monotonicity across this radial family, the explicit dual-volume formulas, or the rhombic switching parameter. Publicly indexed exact polyhedral tables provide other metric values and often use the canonical Catalan scale rather than this spherical radial interpolation. Published-result searches for the same radial hull, polar, Mahler product, truncated dodecahedron and equivalently scaled formulation did not identify an encompassing earlier claim. The full Wimmer dissertation could not be consulted; this is a stated priority risk, not a fabricated negative full-text comparison.
+
+**Mathematical value — PASS.** The polar-volume profile is a natural affine-invariant invariant along a uniquely motivated interpolation ending at a newly determined sharp unit-sphere volume extremizer. The theorem gives two exact radical-rational formulas and an all-parameter strict ordering despite a combinatorial phase change, rather than a generic numeric evaluation of a known Platonic solid. The link with the older icosahedral symmetric Mahler minimization principle is structural.
+
+**Limits.** Nothing is asserted outside the specified real interval or about arbitrary deformations, and this is not a universal Mahler inequality. The linked historical dissertation was not accessible in full. No independent verification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
