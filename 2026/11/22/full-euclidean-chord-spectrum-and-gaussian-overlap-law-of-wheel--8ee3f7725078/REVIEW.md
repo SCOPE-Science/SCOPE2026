@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Each rim forest component must contain exactly one spoke. The explicit two-bit cyclic transfer lists every admissible local transition and isolates exactly two extra cyclic histories for the invalid full-rim/no-spoke set. Weighted inclusion-exclusion gives the exact trace identity. The Perron root is simple, the correction operators have smaller spectral radii, and implicit differentiation of the cubic factor yields the exact positive Gaussian variance. Independent exhaustive enumeration checks every overlap coefficient through eight rim vertices, totalling 5,688,628 ordered pairs.
+
+**Originality — PASS (bounded literature priority).** Comparisons are at statement and implication level. Published wheel complementary-tree enumeration gives only the distance-diameter coefficient, while published wheel vertex-covariance results give only low moments. The inspected signed-wheel Walsh papers classify zero and minimum multipliers but do not provide the complete overlap polynomial or the CLT constants. The inspected independent-tree intersection paper covers dense complete, multipartite and Erdős–Rényi families, not wheels. The 2020 lead paper develops matroid polytope reconstruction rather than this Euclidean metric invariant. Possible unindexed equivalent cyclic partition functions or multivariate Tutte evaluations remain a genuine risk.
+
+**Mathematical value — PASS.** An all-chord distance spectrum is a canonical metric invariant of an infinite family of graphic-matroid base polytopes. The formula captures all finite Euclidean distance multiplicities and an explicit positive-variance Gaussian regime, contrasting with the already established extremal complementary-pair count and with Poisson overlaps in dense graphs. It goes beyond calculating a known endpoint or merely restating a covariance identity.
+
+**Limitations.** This concerns labelled, unweighted wheel base polytopes with independent uniform vertex sampling; no local limit theorem or arbitrary-graph universality is asserted. Exhaustive small-size tests are supplementary, not a substitute for the proof. Priority is limited to inspected literature and records.
+
+Self-review: passed. Independent audit: not yet performed.
