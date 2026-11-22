@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "All k^8 colour assignments for each k=2,3,4,5 are exhaustively filtered by the 12 cube edges; all legal recolour moves generated; 48 cube automorphisms and all palette renamings canonically quotient the state graph without losing distance data. Exact breadth-first searches from every orbit representative, and full-source unquotiented checks at k3 and all 2628 mobile k4 states, establish eccentricities, connected components and weighted distance counts. The completed standalone checker was executed and returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cames van Batenburg arXiv:2611.17022v1 Proposition 2(iv) gives diam(R_k(G))=n+mu for all subcubic G, k>=Delta+2, so in Q3 at k=5 the number 12 itself is covered",
+        "Cambie et al. arXiv:2412.19695 discusses sharp lengths in other families and broad colour-reconfiguration lemmas"
+      ],
+      "reasoning": "A theorem fixing maximum pair-distance does not determine a graph’s radius, all eccentricities or histogram; it neither treats the critical four-colour disconnected sector nor its frozen count. The present result explicitly credits the covered global diameter.",
+      "searches": [
+        "diameter Delta+2 coloring reconfiguration cubes hypercubes exact Q3 2026",
+        "exact diameter 5-colouring reconfiguration graph three-dimensional cube Q3 proper five colors single-vertex recoloring",
+        "arXiv:2611.17022v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.17022v1, full text and Proposition 2(iv)",
+      "arXiv:2412.19695, full text",
+      "arXiv:1206.3202, full text and Remark 1.6",
+      "Accessible current-ledger claim and identifier comparisons; no same-object full matching theorem found",
+      "Targeted published mathematical-record and literature keyword searches over exact counts, synonyms, parameters and stronger general theorems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.17022v1 explicitly proves the maximum (diameter) 12 for k=5, which is subsumed and not asserted original",
+        "Galvin arXiv:1206.3202 discusses frozen dynamics in hypercubes, so bare frozen existence is credited rather than presented as novel",
+        "Indexed Heawood/Wagner/Petersen records give analogous metric enumerations for different source graphs, not the cube Q3"
+      ],
+      "reasoning": "Neither the prior diameter theorem nor results for other graphs logically imply that every mobile three-, four- or five-colour cube colouring has eccentricity 12 or determine the complete all-pair metrics. The new contribution is the exact palette-to-palette geometry on Q3.",
+      "searches": [
+        "hypercube 3-color 4-color 5-color reconfiguration all nontrivial components radius diameter twelve",
+        "arXiv:2611.17022v1",
+        "arXiv:1206.3202"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.17022v1, Proposition 2(iv), supplies a global diameter, not eccentricity of each state",
+        "Direct group-action proof identifies the orbit representatives on which the new exact all-state computation is exhaustive"
+      ],
+      "reasoning": "The state graph is also describable as proper-colouring Glauber dynamics. Its full eccentricity function and all-pairs distance distribution, not merely connectivity, are compared under these aliases; no equivalent complete statement was identified.",
+      "searches": [
+        "three-dimensional cube Q_3 self-centered recoloring graph radius 12 proper 5 colorings",
+        "coloring reconfiguration radius eccentricities cubical graph Q3 hypercube 5 colors",
+        "5-coloring graph reconfiguration hypercube extremal distance colourings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full ordered set of 12 distance-shell totals for each of k=3,4,5 is generated from the complete state adjacency graph by exact integer BFS and orbit-weighted summation",
+        "No matching published count table was found in inspected sources or indexed result records"
+      ],
+      "reasoning": "Searches targeted exact sizes and plausible equivalent integer tables, not just article titles. Absence of a retrieved match is evidence of a research gap, not proof of priority.",
+      "searches": [
+        "Q3 cube 24 frozen proper four colourings 2628 connected recolouring component",
+        "all 5-colorings cube Q3 eccentricity twelve 85870 diametral pairs",
+        "distance distribution antipodal 5-colorings cube 8 vertices 3-regular"
+      ]
+    },
+    "rationale": "Comparisons with the recent full primary preprint and earlier colour-reconfiguration and hypercube-dynamics literature distinguish the exact, all-state eccentricity and complete pair metric from the known global diameter and known existence of frozen cube colourings. No covering result was found by actual phrase/alias/parameter searches. Priority is provisional.",
+    "residual_risks": [
+      "An earlier or unpublished exact finite state table might have the same Q3 distance distributions even if unindexed.",
+      "The finite proof relies on the supplied standard-library checker and its implementation, not on a separate formally verified derivation.",
+      "Single-source paper and indexed-database coverage is not exhaustive; independent historical priority verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GLOBAL_DIAMETER_COVERED, COMPONENT_AND_POINTWISE_METRICS_NOT_STATED",
+        "evidence": "Proposition 2(iv) states diam R_k(G)=n+mu for Delta<=3 at k>=Delta+2, giving the known k=5 cube diameter 12; no all-vertex eccentricity or cube distance spectrum occurs in the inspected theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2611.17022",
+        "material_read": "Full paper, especially introduction and Proposition 2(iv), statements of Theorems 3-7 and concluding problems",
+        "method": "Read searchable full-text arXiv PDF, manually inspected page with Proposition 2(iv)",
+        "title": "Large diameter for (Delta+2)-colouring reconfiguration",
+        "trigger": "Recent motivating theorem and possible dominating results for subcubic recolouring"
+      },
+      {
+        "assessment": "RELATED_NONCOVERING",
+        "evidence": "The manuscript develops general recolouring bounds and explicit complete-bipartite examples; the exact 3-cube component population and pointwise metric spectrum are not given.",
+        "identifier_or_url": "https://arxiv.org/pdf/2412.19695",
+        "material_read": "Full-text PDF, introduction, main exact-diameter statements and related comparison",
+        "method": "Read lawful open arXiv PDF and inspected relevant first page",
+        "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences",
+        "trigger": "Earlier exact recolouring diameter and potentially dominating general results"
+      },
+      {
+        "assessment": "FROZEN_PHENOMENA_RELATED_NOT_NEW",
+        "evidence": "The discussion of hypercube colouring configurations and frozen states motivates crediting their existence; it does not furnish the stated exact all-palettes cube recolouring radii and pair-distance census.",
+        "identifier_or_url": "https://arxiv.org/pdf/1206.3202",
+        "material_read": "Full-text PDF, opening setup, hypercube discussion and Remark 1.6 on frozen configurations",
+        "method": "Read lawful open-access PDF and manually inspected the relevant page",
+        "title": "Sampling 3-colourings of regular bipartite graphs",
+        "trigger": "Natural hypercube-colouring dynamics and possible existing frozen-state examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dcf86ea4-c29a-4034-a3a0-64c50b328a78",
+  "value": {
+    "rationale": "The smallest three-regular Boolean cube naturally crosses three connectivity regimes at palettes 3,4,5. A uniform eccentricity of 12 in the entire mobile sector throughout this transition is not forced by the prior global diameter theorem and the exact all-pair distance distribution provides a reproducible metric benchmark and a sharp finite boundary example for reconfiguration investigations.",
+    "status": "PASS"
+  }
+}
