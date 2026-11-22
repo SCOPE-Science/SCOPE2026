@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof independently reconstructs the inversion-graph toggle lemma: adjacent-position swaps of layered permutations are legal exactly for merging two consecutive singleton layers or splitting a two-element layer. Long layers are therefore fixed, each free gap is the independent-set flip graph of a path and hence a Fibonacci cube, and all component metrics are Hamming distances. Gap-signature enumeration proves the two rational generating functions and a direct edge double count proves the edge formula. An independent deterministic Python checker uses the actual pop-stack operation through n=8, checks all-pairs shortest paths through n=8, and full graph enumerators through n=12. These finite checks supplement rather than substitute for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bauer–Copenhaver, arXiv:2307.08188, full accessible text §1–4, provides iteration-based pop-stack lower bounds, not feasible swaps within one-pass inverse fibers.",
+        "Elder–Goh, DOI:10.37236/9606, accessible abstract describes finite pattern characterization for k-pop-stack sortable classes, not an induced adjacent-position-transposition graph.",
+        "Published published-finding corpus result 2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec concerns Av(321), a strict different source class; an induced subset can have new components and distances not implied by the superclass metric."
+      ],
+      "reasoning": "Prior full-class descriptions of sortable permutations do not automatically provide their induced reconfiguration graph. Even a theorem about a supergraph of avoidance permutations, or a separate class with the same cardinality, cannot determine these components or their internal shortest paths without coverage of the exact feasible-edge predicate. No searched broader result was found that explicitly makes this implication.",
+      "searches": [
+        "published-finding corpus: pattern avoiding permutations graph Av(231,312) weak order induced subgraph components",
+        "published-finding corpus: pop-stack sortable permutations graph adjacency swaps Fibonacci cubes median connected",
+        "web: \"layered permutations\" \"Cayley graph\" \"Fibonacci\"",
+        "web: \"pop-stack sortable\" \"swap\" \"component\" graph",
+        "web: permutations one pop stack pass sortable layered patterns 231 312 2023 research"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.05005",
+      "https://faculty.valpo.edu/lpudwell/papers/popstacks.pdf",
+      "https://arxiv.org/abs/2307.08188",
+      "https://doi.org/10.37236/9606",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-quadratic-adjacent-swap-detours-among-132-avoiding-permutations--8ecaeb9ac4ba",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The established layered-composition bijection (Pudwell–Smith) gives \\(2^{n-1}\\) vertices but does not state that a feasible swap is exactly \\(2\\leftrightarrow1+1\\).",
+        "The existing adjacent-swap result on Av(231,321), a distinct class, yields a connected facilitated hypercube for every n≥2; the present G_3 already has two components.",
+        "The existing bubble-sort inverse-fiber graph result (own accessible claim 43496119-283c-4685-9d2d-62391d404b16) fixes an arbitrary bubble-sort output and gives record-dependent facilitated cubes, not one-pass pop-stack preimages of the identity or the frozen-layer product decomposition."
+      ],
+      "reasoning": "The pivotal new implication is from an inversion-edge toggle to the precise \\(2\\leftrightarrow1+1\\) layer move, not from the old bijection alone. This produces frozen long layers and Cartesian products of Fibonacci cubes, which yield the metric and rational enumerators. Neither earlier class nor sorter-fiber theorem has matching objects and edge semantics, so their claims do not subsume the new theorem.",
+      "searches": [
+        "published-finding corpus: pop-stack sortable permutations 231 312 adjacent swaps connected components",
+        "published-finding corpus: Av(231,312) layered permutations adjacent transpositions components isolated long layers",
+        "web: \"layered permutation\" \"graph\" \"adjacent swap\" Fibonacci",
+        "source: arXiv:1801.05005",
+        "source: arXiv:2307.08188"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pudwell–Smith, arXiv:1801.05005, full text pp. 2–4, states Av(231,312) equals layered permutations and compositions, but does not state an adjacent-position-swap graph theorem.",
+        "published-finding corpus closest: 2026/10/26/SCOPE-quadratic-adjacent-swap-detours-among-132-avoiding-permutations--8ecaeb9ac4ba has the single-pattern class Av(132) with connected swap geometry; it is not the present two-pattern class.",
+        "published-finding corpus closest: 2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702 analyzes avoiding specified fixed points, not avoiding 231 and 312."
+      ],
+      "reasoning": "The equivalent inversion-graph description here is a disjoint union of interval cliques, and an adjacent swap changes one inversion edge. No examined result classified its legal edge toggles or Cartesian products. Patterns 231/321 and 231/312 are not equivalent under the position-adjacency-preserving reversal/complement symmetries: the former includes a monotone forbidden pattern and has a connected feasible-swap graph, while the latter has disconnected graphs from length three.",
+      "searches": [
+        "published-finding corpus: one-pass pop-stack sortable permutations layered permutations adjacent transpositions reconfiguration graph components Fibonacci cubes",
+        "published-finding corpus: graph of layered permutations under adjacent swaps connected components Fibonacci cube tilings by dimers",
+        "web: \"231\" \"312\" permutations \"adjacent swaps\" components",
+        "web: \"layered permutations\" \"adjacent transpositions\" connected components",
+        "web: weak order of layered permutations induced graph connected components"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related but different objects, without an exact component count sequence (1,1,1,2,4,7,12,21,37,...) or the rational component generating function of the stated permutation graph.",
+        "Pudwell–Smith reports \\(2^{n-1}\\) permutations from compositions; this is a vertex count, not the component/isolated-state generating functions."
+      ],
+      "reasoning": "A known enumeration of one-pass-sortable permutations, or of Fibonacci cubes, is not an exact database/table for component counts of the induced position-swap graph. No inspected exact table dominates the new quantities. Failed searches cannot exclude an unindexed table, retained as a residual risk.",
+      "searches": [
+        "published-finding corpus: Av(231,312) layered permutations adjacent transpositions components isolated long layers",
+        "web: layered permutations swaps of consecutive positions 321 frozen blocks connected graph",
+        "web: \"231\" \"312\" \"Fibonacci cube\" adjacent permutation",
+        "web: \"pop-stack sortable\" \"swap\" \"component\" graph"
+      ]
+    },
+    "rationale": "Direct source inspection verifies that the composition representation of one-pass pop-stack sortable permutations is old. The new statement is the precise induced adjacent-position-swap graph decomposition, a result not implied by the permutation count, by iterative pop-stack bounds, or by related reconfiguration results on different avoidance classes. Multiple actual published-finding corpus and web searches for graph/weak-order/alias formulations found no covering statement. This is a best-knowledge originality judgement, not proof of worldwide priority; an unindexed general weak-order result remains a risk.",
+    "residual_risks": [
+      "Historical priority is not certified: an unindexed statement in the theory of induced weak-order graphs or permutation-class adjacency may already imply this exact component theorem.",
+      "The Elder–Goh comparison used the accessible abstract only and is not a whole-document NOT_COVERING judgment.",
+      "The exact known general Fibonacci-cube structure is standard; originality is claimed only for identifying those components and their signatures in the one-pass pop-stack sortable permutation graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The existing layer characterization and \\(2^{n-1}\\) count are explicitly attributed. The inspected material concerns two-pass pattern avoidance and counts; no adjacent-position-swap components or shortest paths are stated in the relevant material.",
+        "evidence": "PDF lines 127–137 identify Av(231,312), composition representation and \\(2^{n-1}\\); document contents lines 18–31 describe two-pass avoidance/enumeration/polyomino results; find searches for Fibonacci and adjacent swaps yielded no matches.",
+        "identifier_or_url": "arXiv:1801.05005; https://faculty.valpo.edu/lpudwell/papers/popstacks.pdf",
+        "material_read": "Full-text PDF introductory overview, §§1.1–1.2 and beginning of §2 (PDF pp. 1–5), the one-pass characterization passage and examples; searched the full retrieved text for adjacent swaps and Fibonacci.",
+        "method": "Public arXiv record, retrieved PDF text and page screenshot, with targeted text searches.",
+        "title": "Two-stack-sorting with pop stacks",
+        "trigger": "Directly states the one-pass sortable class and layer composition bijection used in this theorem."
+      },
+      {
+        "assessment": "Iteration-time lower bounds for arbitrary input permutations, not exact adjacency within the one-pass sortable class.",
+        "evidence": "ArXiv full text §1 defines reversing maximal decreasing runs; §3 establishes iterative pop-stop lemma and lower bound; §4 treats sorting iteration behavior.",
+        "identifier_or_url": "arXiv:2307.08188; https://arxiv.org/abs/2307.08188",
+        "material_read": "Accessible primary full text §§1–4, operator definition, stated theorem and proofs on number of passes and element motions.",
+        "method": "Public arXiv HTML full-text display and section inspection.",
+        "title": "A new lower bound for deterministic pop-stack-sorting",
+        "trigger": "Recent relevant paper on the identical deterministic pop-stack operator."
+      },
+      {
+        "assessment": "The accessible description concerns finite forbidden-pattern characterization for arbitrary numbers of passes. Full-text noncoverage is not claimed.",
+        "evidence": "The publisher abstract says the k-pass sortable sets have constructible finite pattern bases.",
+        "identifier_or_url": "https://doi.org/10.37236/9606",
+        "material_read": "Public journal abstract only.",
+        "method": "Publisher abstract review.",
+        "title": "k-Pop Stack Sortable Permutations and 2-Avoidance",
+        "trigger": "Potential broad characterization of pop-stack sortable permutation classes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "920b1e16-45a1-4935-8e82-792d80e91dca",
+  "value": {
+    "rationale": "Reconfiguration reachability and optimal local editing are natural algorithmic questions for the one-pass sortable permutation class. The result is a complete structural graph isomorphism classification, not an arbitrary slice of a known sequence: it gives all component sizes, diameters, median structure, exact geodesic routing, rational component and isolate counts, and exponential decay of the identity-reachable share. These answer distinct quantities not furnished by the prior sorting and enumeration papers.",
+    "status": "PASS"
+  }
+}
