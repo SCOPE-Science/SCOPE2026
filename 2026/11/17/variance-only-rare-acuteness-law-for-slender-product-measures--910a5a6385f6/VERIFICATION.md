@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The attached `check_product_acuteness.py` is standalone Python code using NumPy and mpmath. Running `python check_product_acuteness.py` in a Python environment with these dependencies produced `PRODUCT_ACUTENESS_CHECKS_OK`. Its direct checks include an exact one-dimensional Bernoulli-height integral at four scales, algebraic six-permutation identities including repeated ordinate values, and simulation of all three original strict-angle dot products in uniform, triangular and two-atom height laws at matched variance.
+## correctness
 
-The Bernoulli finite-width exact values test the predicted \(12\) coefficient as the logarithm grows, while direct simulation tests the geometry without using the asymptotic event criterion. At finite thickness the logarithmic convergence is slow and should not be used to infer an exact coefficient from the printed estimates. The proof does not depend on simulated agreement, numerical quadrature or computational claims about infinitely many samples.
+PASS
 
-The analysis proves the rare-acuteness asymptotic, fixed-parameter \(O(\varepsilon^2)\) remainder and conditional joint total-variation convergence. It does not prove uniform convergence over distribution families or general unbounded-support extension. Independent mathematical audit has not been performed.
+All three signed dot-product inequalities were independently matched to the ordered horizontal gaps s,t and ordinate differences. The middle horizontal vertex must be a strict vertical extreme, with 0<st/epsilon²<AB and a branch-dependent lower threshold. For the s<t branch put z=st/epsilon², t>constant*epsilon; the threshold error is O(epsilon²/t²) and the resulting integral produces epsilon² dt/t. Bounded-variation translation controls f(x)f(x+s)f(x+s+t) versus f(x)^3 by O(s+t). The exact six-permutation identity, including tied heights, has E[1_{middle strict extreme} A min(A,B)]=Var(Y), independently checked on triples with and without ties. Hence two equal logarithmic branches contribute 6v int f³ each. The common-measure change-of-variables density and matching total masses permit Scheffé to prove total-variation convergence, not just weak convergence; Jensen yields sharp int f³>=L^-2 with uniform equality. Numerical Bernoulli and Monte Carlo diagnostics are not an infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: Variance-only rare-acuteness law for slender product measures. The particular all-parameter statement is not directly implied by inspected previously published sources. Novelty limitations and primary material not obtained in full are retained below.
+
+## value
+
+PASS
+
+A mathematically natural degeneration of random triangles has a genuinely distribution-free coefficient depending only on transverse variance even for atomic height laws, and a detailed marked total-variation limit. It distinguishes nonuniform horizontal sampling, has sharp optimal density, and gives meaningful geometric information absent from previously studied uniform rectangles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
