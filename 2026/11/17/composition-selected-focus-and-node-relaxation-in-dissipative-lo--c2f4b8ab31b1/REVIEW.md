@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive conserved leaf is selected by the strictly increasing scalar exponential sum, while a proper weighted Volterra entropy has derivative \(-d(u-U)^2\). LaSalle attraction and unique intersection with the equilibrium manifold prove actual convergence. Leaf coordinates give the explicit two-by-two characteristic polynomial; the positive weighted-mean range proves necessity and sufficiency of the strict coexistence inequality. A focus has angular derivative converging to its nonzero linear angular frequency, so its central-level crossing density is twice the angular frequency divided by \(2\pi\); a distinct stable node eventually has a fixed sign in its central displacement. The exact three-species ratio threshold is an algebraic consequence of this complete classification. Symbolic and finite-integration checks support, but do not replace, the proof. The repeated-root case is excluded from the crossing dichotomy.
+## correctness
 
-## Originality — PASS within inspected evidence; priority provisional
-Du, Lu, Xu and Yang, *A complete classification for n-species Lotka–Volterra stably dissipative systems based on a generalized AHU algorithm*, arXiv:2611.00772v1 (31 October 2026), classify stably dissipative graph structures, not this explicit composition-dependent node/focus division or crossing clock. Duarte and Peixe, *Rank of Stably Dissipative Graphs*, arXiv:1104.0600, already establish invariant foliations, equilibrium intersections and global convergence. Those facts are expressly **not** asserted to be original. The quantitative sharp spectral and basin statement is the separately assessed increment; it is not implied merely by a graph/rank classification or qualitative convergence theorem without the computed spectrum and selected composition. The relevant full text of Zhao and Luo, *Classification and dynamics of stably dissipative Lotka–Volterra systems* (2010), could not be obtained; possible historical priority overlap remains.
+PASS
 
-## Mathematical value — PASS
-The model is the minimal multi-leaf predator-prey star with an equilibrium continuum: it permits **both visibly different forms of terminal relaxation at unchanged coupling coefficients**, selected by a measurable initial composition. The iff weighted-rate criterion identifies exactly when this coexistence can occur in arbitrary finite dimension. In three species, the invariant ratio gives a closed-form basin boundary independent of the initial central abundance, together with an exact experimental crossing-rate observable. These are motivated dynamical distinctions rather than another qualitative convergence corollary.
+PASS. Exact invariants log(v_i)/c_i-log(v_j)/c_j give v_j(t)=v_j(0)e^{c_jY(t)}. The scalar equation Σ b_jv_j(0)e^{c_ja}=Σb_jp_j has a unique root a, selecting one positive equilibrium on each conserved leaf. The convex relative-entropy L=Phi(u;U)+Σ(b_j/c_j)Phi(v_j;p_j) has derivative -d(u-U)²; compact strictly positive sublevels and LaSalle imply every strictly positive trajectory converges to that selected point. On the leaf the exact planar linearization is [[0,1],[-UB,-Ud]], B=Σb_jc_jv_j*: node/focus discriminant and strict coexistence precisely c_min<Ud²/(4S)<c_max follow from positive weighted means. For a focus, angular frequency ω=sqrt(UB-(Ud)^2/4) with polar angular drift ω+O(r), yielding central-level crossings ω/pi; stable real distinct nodes have eventual fixed-sign transverse velocity, hence finite crossings. Checked explicit m=2 example: S=2, B=2+8w, boundary w=7/8, invariant R*=7*8^8/9^9, crossing rate sqrt(8w-7)/pi. Read pinned check_star.py symbolic identities and its finite IVP tests, but the infinite claims rely on Lyapunov and local dynamical arguments, not numerics.
 
-## Sources and limitations
-Scientific sources: https://arxiv.org/html/2611.00772v1 ; https://arxiv.org/abs/1104.0600 ; https://doi.org/10.1016/j.ijnonlinmec.2009.07.006 ; https://doi.org/10.1016/0362-546X(81)90108-5 . The general star has no other damped leaves; the full-space equilibria are nonisolated; the critical repeated-root transient is not classified. The 2010 paper's complete text was unavailable and could contain more specific earlier results. Independent scientific audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete composition-selected strict focus/node basin criterion and exact central-level crossing clock in a fixed-coefficient LV star. The conservation and LaSalle methods themselves are classical and not credited as original. The source graph classification and older convergence theory do not state the specific quantitative two-dimensional leaf spectral partition, but older potentially relevant full text is inaccessible.
+
+## value
+
+PASS
+
+PASS. The natural dissipative star has a continuum of equilibria whose individual dynamics are selected by conserved compositions. A sharp iff criterion for coexistence of two distinct spectral relaxation types for the same fixed model coefficients, together with a computable basin divider and asymptotic oscillation clock, is a useful structural result even though its constituent linearization and LaSalle methods are standard. It is more than a generic stability exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
