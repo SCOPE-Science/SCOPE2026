@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The result optimizes the worst-initial-error conditional expected two-step energy decrement for every fixed law on nine ordered pairs. The exact gradient-decrease identity is derived from the unit diagonal Hessian. For weak coupling a universal symmetric-gradient witness bounds every pair, and a positive-semidefinite rank-one-plus-contrast certificate proves equality for the stated mixture. For strong coupling the smaller generalized eigenvalue is computed exactly, its contrast eigenvalue excluded, and an explicit positive-root witness bounds every ordered pair. The threshold is exact and both branches meet. The standalone symbolic checker reconstructs the update operators and verifies the critical matrix identities; finite computations supplement the proof rather than extending its quantifiers. Risk: translation to adaptive laws, longer horizons, or simultaneous pair solves is not justified.
+
+## Originality — PASS (qualified)
+The full papers by Tu et al. (2017) and Hanzely–Richtárik (2019) concern block sampling and general convergence bounds; they do not supply a sharp fixed-law optimum for two *successive* exact singleton updates on the nonregular three-node path. The closest available published records explicitly concern (i) simultaneous all-but-one-coordinate minimization on a three-variable star, (ii) one-step coordinate probability design, and (iii) repeated full-sweep ordering on arrowhead systems. The sequential two-step transition is not a corollary of those claims, because it uses different update operators and a different optimization metric. Searches of related exact phrases and aliases returned no identical result. Risk: classical finite SDP or ordered Gauss–Seidel literature may contain an equivalent closed form; independent priority review remains needed.
+
+## Value — PASS (limited scope)
+The star is the smallest nonregular connected graph and exposes a sharp failure of the natural edge-only policy for two sequential exact updates. The solution specifies the exact global optimum over all ordered-pair distributions, an explicit feasible sampler, a mandatory nonedge regime, and a different strong-coupling support class. This is a structural boundary for short-horizon randomized coordinate algorithms, not an asserted practical speedup. The three-dimensional scope limits downstream generality but gives a complete natural test case rather than an arbitrary numerical slice.
+
+## Closest literature and limits
+Tu et al., arXiv:1701.03863 (2017-01-14); Hanzely–Richtárik, arXiv:1809.09354 (2018-09-25); Rodomanov–Kropotov, arXiv:1904.04587 (2019-04-09). Related published mathematical records on three-variable simultaneous block descent and fixed-order Gauss–Seidel were compared by statement and update operator. The optimization law is fixed before seeing the error vector; adaptive, multi-block and implementation-cost conclusions are unproved.
+
+Self-review: passed. Independent audit: not yet performed.
