@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The phase-average tiling identity and exact convolution integral give the piecewise rational Fisher objective without approximation. Its derivative numerator is an explicit strictly decreasing quadratic on 0<x<=1 and a strictly decreasing cubic on x>=1 with matching sign at 1; this proves exactly one global maximum. Implicit differentiation proves both strict comparative statics, and limiting polynomial roots give the sharp asymptotics. The standalone checker passed 2283 numerical and symbolic tests, supplemental to the complete analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Price and Rogers (2014), §6 and §7, gives the general ingredients of exposure-time Fisher calculations, white-noise uncertainty and readout overhead; it does not in the inspected relevant sections give a closed complete classification for the specific additive independent floor model.",
+        "Hernandez Camero et al. (2023), arxiv:2302.02897, §2.3 and §3.4, numerically predicts transit parameter precision across cadences and uses photon-noise-based scaling."
+      ],
+      "reasoning": "General information matrices and transit-integration formulas can be specialized, so these sources are genuinely close. They do not present a theorem proving existence, global uniqueness, exact transition and all parameter monotonicities for the stated box-depth objective. A prior framework capable of later derivation is distinguished from prior proof of the exact optimization classification; priority risk of an implicit special case remains recorded.",
+      "searches": [
+        "arxiv:1408.4124",
+        "arxiv:2302.02897",
+        "optimal boxcar signal measurement exposure duration fixed dead time with photon counting variance plus additive per exposure floor cubic stationarity"
+      ]
+    },
+    "checked_sources": [
+      "Hernandez Camero et al. (2023), https://arxiv.org/abs/2302.02897",
+      "Kipping (2023), https://arxiv.org/abs/2305.06790",
+      "Price and Rogers (2014), https://arxiv.org/abs/1408.4124",
+      "British Astronomical Association, practical exoplanet cadence guidance, https://britastro.org/2020/exoplanet-transit-imaging-and-analysis",
+      "Public mathematical-research index results for exact objective, synonyms, and broader Fisher design"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kipping (2023) §4.3 establishes that smearing reduces signal information when overhead and the exposure-dependent variance law are absent; it does not contradict an optimum at positive exposure with overhead.",
+        "Price and Rogers (2014) §6 explains dead-time-aware survey planning without an exact unique optimizer theorem; §7 discusses non-photon noise and caveats.",
+        "Hernandez Camero et al. (2023) §5 concludes shorter cadences usually improve planet radius precision within their fitted and simulated settings, which differ from the present known-shape depth-only analysis."
+      ],
+      "reasoning": "None of the inspected claims entails, as a stated assertion, a strict analytical changeover at h(1-r)=1+3r or a finite positive limiting optimum for all r>0. The result is nevertheless a deliberately restricted benchmark, not a claim to have originated Fisher information, convolution smoothing, transit cadence analysis, or the general readout-duty-cycle principle.",
+      "searches": [
+        "\"Transit Light Curves with Finite Integration Time\" \"overhead\"",
+        "\"The SNR of a Transit\" \"dead time\" \"overhead\"",
+        "\"Fisher information\" \"overhead\" \"transit\" \"noise floor\" exposure",
+        "arxiv:2305.06790"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kipping (2023), arxiv:2305.06790, §4.2–4.4, derives top-hat convolution and monotone loss of SNR with exposure under fixed idealized observing noise; no optimization incorporating positive dead time and independent nonzero per-exposure variance floor was identified in the inspected discussion.",
+        "Price and Rogers (2014), arxiv:1408.4124, §6–7, discusses exposure integration and sampling-rate overhead in more general parameter Fisher calculations."
+      ],
+      "reasoning": "The squared-overlap formula is a familiar box-function convolution and is not asserted as novel. The current assertion concerns the global optimizer of this explicit depth-only phase-averaged objective, the parameter threshold for exposure longer than the entire event, monotonicity, and floor-versus-zero-floor asymptotics. These are not the same assertion as monotonicity of SNR with smearing alone.",
+      "searches": [
+        "astrophysical box transit finite integration Fisher information normalized exposure length readout overhead cadence photometric white noise photon noise floor unique optimum longer than transit",
+        "\"box transit\" \"exposure\" \"overhead\" \"Fisher information\" optimal",
+        "arxiv:2305.06790"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical research index retrieval returned a three-transit-window weather-reliability threshold as a close astronomical scheduling title, and distinct astronomy yield and imaging results; their objectives concern weather detection, multiple visits, orbital completeness or yield, rather than phase-averaged Fisher information with exposure-integrated depth and a fixed readout gap.",
+        "The same index returned general time-sampling Fisher optimization for ecological occupancy and damped oscillators, not the specific transit-convolution/dead-time objective."
+      ],
+      "reasoning": "The retrieved abstracts do not imply the present piecewise rational objective or its longer-than-event boundary. This is only a comparison with actually retrieved records; absence from retrieval is not a proof of global novelty.",
+      "searches": [
+        "astrophysical box transit finite integration Fisher information normalized exposure length readout overhead cadence photometric white noise photon noise floor unique optimum longer than transit",
+        "optimal boxcar signal measurement exposure duration fixed dead time with photon counting variance plus additive per exposure floor cubic stationarity",
+        "exoplanet observing exposure time optimizing signal to noise known transit depth with readout overhead and irreducible noise per exposure",
+        "sharp threshold x=exposure/transit duration h=deadtime/transit duration r=floor photon variance h(1-r)=1+3r cubic unique optimal exposure Fisher information depth box shaped event"
+      ]
+    },
+    "rationale": "Source inspections distinguish prior general transit Fisher-information formulas and known convolution smearing from the presently proved all-parameter unique exposure optimizer and the exact dead-time/floor phase boundary. Multiple literal, alias, and stronger-coverage searches in public literature and a mathematical findings index returned adjacent but not demonstrably covering results. This supports originality on inspected evidence, not an absolute priority guarantee.",
+    "residual_risks": [
+      "General earlier Fisher information/survey planning may implicitly contain some formula components: the claim of novelty is the exact optimizer theorem, not the framework.",
+      "Historical work outside the accessible and inspected sources could establish an equivalent optimized noise/overhead benchmark.",
+      "The noise-floor model is independent per exposure and the transit box shape is deliberately idealized."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No complete optimizer threshold under dead time and independent exposure variance floor located in the inspected methods/results; authors analyze actual transit models and numerical precision instead.",
+        "evidence": [
+          "https://academic.oup.com/mnras/article/520/3/4103/7028800",
+          "https://doi.org/10.1093/mnras/stad408"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.02897",
+        "material_read": "Publicly accessible journal full HTML: abstract, introduction, Methods 2.3 and noise equation (8), analysis of TOIs, discussion 4 and conclusion 5, with bibliography and appendix headers",
+        "method": "Focused inspection of full HTML article and passages about Fisher precision, assumed noise and cadence effects",
+        "title": "Understanding and predicting cadence effects in the characterization of exoplanet transits",
+        "trigger": "Direct 2023 primary transit cadence and Fisher precision research motivating the optimization objective"
+      },
+      {
+        "assessment": "Supplies the known smearing-energy aspect; the model lacks the positive dead-time and independently adjustable noise-floor factors whose interaction creates the claimed optimum.",
+        "evidence": [
+          "https://arxiv.org/pdf/2305.06790",
+          "https://doi.org/10.1093/mnras/stad1492"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.06790",
+        "material_read": "Original open PDF pp. 1, 7–8, including §§4.2–4.4 and SNR formulas; relevant page image and extracted text inspected",
+        "method": "Read arXiv full-text relevant model and long-exposure formula; examined SNR monotonicity proof and plotted regimes",
+        "title": "The SNR of a Transit",
+        "trigger": "Plausible exact convolution and box transit analytic formula"
+      },
+      {
+        "assessment": "Important earlier general coverage of the method and motivating tradeoff; does not explicitly solve the present all-parameter box-event depth objective or prove the sharp threshold. Any implicit specialization remains a residual historical risk.",
+        "evidence": [
+          "https://arxiv.org/pdf/1408.4124",
+          "https://doi.org/10.1088/0004-637X/794/1/92"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.4124",
+        "material_read": "Original open 16-page PDF: abstract, introduction, Section 6 pp. 5–8, Section 7 noise discussion p. 10 and relevant passage identified around Appendix expressions; relevant page images inspected",
+        "method": "Read full-text materials about Fisher formulas, overhead, white-noise assumptions, read-noise limitations, survey planning and stated optimization advice",
+        "title": "Transit Light Curves with Finite Integration Time: Fisher Information Analysis",
+        "trigger": "Most dangerous broad earlier mathematical source: analytical Fisher formulas, readout rate and discussion of read noise"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7545d2f-f30b-470a-990e-b653b213b768",
+  "value": {
+    "rationale": "The exposure-to-transit duration decision is a natural observable design parameter, not an arbitrary invariant. The exact boundary h>(1+3r)/(1-r) shows where extreme overhead can reverse the usual preference for sub-transit exposures; the additional finite-versus-diverging high-overhead result separates measurements with even a weak independent floor from the photon-only ideal. The complete unique optimizer is directly reproducible as a quantitative test case when evaluating more realistic cadence models. This is a structural benchmark and does not claim real telescope prescriptions.",
+    "status": "PASS"
+  }
+}
