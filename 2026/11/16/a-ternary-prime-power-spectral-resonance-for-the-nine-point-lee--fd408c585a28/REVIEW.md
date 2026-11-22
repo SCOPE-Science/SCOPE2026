@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier characters diagonalize the exact normalized nine-point convolution. Prime-power cyclotomic divisibility and evaluation at one exclude every odd prime except three. The coefficient-fiber criterion then forces precisely the two patterns claimed, with complete injective combinatorial counting. Every boundary case, including exponent one, is covered. Exact finite checks for moduli 3, 9 and 27 agree with the infinite proof and are not substituted for it.
+## correctness
 
-**Originality — PASS with residual historical-priority risk.** Relevant published work on Lee codes supplies the natural Lee-ball/Cayley setting but focuses on radius-two packing (Xu–Zhou, 2022) or two-error-correcting code spectral criteria (Mesnager–Tang–Qi, 2018). Neither source's identified statements imply an exact radius-one nine-point convolution-nullity formula over all prime powers. The nearest recoverable mathematical-record results treat Fourier moments of other crosses or Fourier support of a continuous four-dimensional cross-polytope, not these zero-multiplier families. No equivalent previously published exact count was located. The specialized earlier literature could still contain a missed equivalent result, particularly where full text was inaccessible.
+PASS
 
-**Mathematical value — PASS.** The four-dimensional radius-one Lee cross is the smallest such ball with composite cardinality nine, making its prime-power Fourier cancellation genuinely different from a prime-cardinality cross. Two separate arithmetic cancellation mechanisms are fully classified, giving the exact recovery rank and its vanishing fraction at every ternary depth, alongside invertibility for all other odd prime powers. This is a self-contained, naturally motivated spectral-invariant classification rather than a selected numerical instance.
+For odd prime power N=q^k, Fourier multipliers equal 1/9 times a nine-term roots-of-unity sum F_u(ζ_N). Cyclotomic divisibility and Φ_(q^k)(1)=q force q|9, hence only q=3 can be singular. At N=3m, Φ=1+X^m+X^(2m) makes all residue-fiber coefficients equal. The fiber containing 0 gives a=1,b=3 (32 type A) or a=0,b=1. In the latter all remaining three coordinates must form the three distinct positions of one nonzero lifted fiber after sign changes, giving 192(m−1) type B; case k=1 is covered by m=1. This exhausts all vanishing characters and yields exact nullity, not an estimate from the N=3,9,27 finite scans.
 
-**Limits.** General composite moduli and other radii remain outside the theorem; no independent review or publication-priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two exact ternary root-of-unity character families and the nullity 192*3^(k-1)-160 are not directly supplied by located radius-two perfect/quasi-perfect Lee-code theorems or general prime-power cyclotomic facts. The work applies a classical factorization to a natural nine-point local average; the all-exponent fiber classification adds a specific assertion. Best-of-knowledge PASS with a substantial full-text access caveat for specialized Lee-code work.
+
+## value
+
+PASS
+
+The four-dimensional Lee cross is the first radius-one Lee ball with composite 2d+1=9; the arithmetic factorization enables a genuinely nontrivial ternary singularity. Exact all-depth rank and two explicit invisible-character mechanisms are natural recoverability invariants of local averaging on prime-power tori, independently useful without a broader theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
