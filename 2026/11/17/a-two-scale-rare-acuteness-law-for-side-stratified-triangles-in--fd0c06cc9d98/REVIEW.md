@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The three scalar-product inequalities are written explicitly in `RESULT.md`, with no unstated generic-position assumption beyond measure-zero coincidences. The near-endpoint rescalings give exact intervals of lengths \((1-t)^2\) and \((1-q)^2\). The uniform integrable bound \(6/(q+t)\) controls the potentially singular corner \(q+t\downarrow0\), so pointwise expansions legitimately integrate. A second domination in the bounded signed mark proves the stronger total-variation statement. The coefficient has an independently evaluated integral and a checker using exact finite-height interval calculations. Risk: the numerical diagnostics alone would not validate an infinite limit; the analytic dominated-convergence steps are essential.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest inspected full texts concern Gaussian triangle shape, a fixed equilateral parent, thin **rectangle** boundary sampling, or thin **convex-body interior** sampling. None implies the two-scale rare-acuteness law or signed conditional density for one sample on each distinct side of a collapsing isosceles triangle. In particular, the known equilateral one-point-per-side acute probability fixes a nondegenerate parent and supplies no small-height expansion; the logarithmic thin-body laws use different sampling measures. The review compared sampling measures, geometric observables and scalings, not merely titles. Risk: a nonindexed historical analysis of acute triangles in narrow triangular boundaries might duplicate some or all of the statement; historical priority has not been independently established.
+PASS
 
-## Mathematical value — PASS
-A natural side-stratified version of the classical acute-random-triangle problem has an exact small-height power and coefficient, sharply contrasting the logarithmic behavior of two nearby thin-body models. The marked law identifies two geometrically distinct coincidence mechanisms, resolves their dependent side-parameter distributions, and gives a complete limiting geometric description rather than only a scalar numerical probability. It is a motivated boundary-sampling asymptotic, not an arbitrary finite evaluation. Scope is restricted to the stated isosceles collapsing family.
+Derived exact three acute-angle dot-product inequalities for P=(p,0), Q=(q,h(1-q)), R=(-t,h(1-t)). For fixed side parameters q,t>0, eligible p lies in two endpoint strips near -t and q of lengths h^2(1-t)^2/(q+t) and h^2(1-q)^2/(q+t), respectively. Verified uniform 6/(q+t) majorant, integrable on the unit square, and bounded signed scaled mark z to pass from pointwise interval convergence to L1 and conditional total-variation. Independently evaluated the one-variable coefficient integral as 8log2/3-7/6=0.6817258148265. Strict angle boundaries are null, parent height h->0. Full probability result is analytic dominated convergence, not extrapolation from Monte Carlo.
 
-## Closest literature and limits
-Edelman–Strang (arXiv:1501.03053, 2015) concerns Gaussian/hemisphere-uniform random triangle shape. An April 2015 one-point-per-equilateral-side discussion concerns an area event. Published equilateral-perimeter acuteness records give a fixed-height probability, and recent thin-rectangle and thin-interior-body acuteness results have logarithmic, non-comparable leading scales. The corresponding complete inspected primary texts and remaining uncertainty are recorded in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for specific one-independent-point-per-side collapsing isosceles host and joint two-strip rare configuration law; prior equilateral three-side probability concerns a fixed shape; thin convex interior/perimeter results have different sampling measures, typically h²log(1/h). An unavailable thin rectangle full result remains a bibliographic limitation, not asserted whole-paper noncoverage.
+
+## value
+
+PASS
+
+Side-stratified acute-triangle sampling is a natural geometric probability model; the sharp h² regime versus the classic h²log(1/h) thin-interior regime and the complete signed/labelled conditional rare-shape law identify a nontrivial degeneracy boundary. Exact leading coefficient and TV marks have independent utility for this canonical one-parameter collapsing triangle, not an arbitrary finite case. No claim of general hosts or entire finite-h distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
