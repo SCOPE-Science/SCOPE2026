@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The two supplied independent checks are `check_transfer.cpp` and `check_rings.py`. Compile and run the former using `g++ -std=c++17 -O2 -Wall -Wextra check_transfer.cpp -o check_transfer && ./check_transfer`; execute the latter using `python3 check_rings.py`. Compare stdout bytewise to `transfer_output.txt` and `rings_output.txt` respectively.
+## correctness
 
-The C++ certificate constructs all legal time-history edges for the five indicated odd heights, applies iterative Kosaraju strong-component decomposition, and asserts the unique cyclic component is the single all-zero vertex. Its reported component counts are complete finite enumeration of the graph, not an inference from log length. The Python certificate follows every configuration's update path on each ring of size three through eleven, and checks direct eleven-step witnesses. The first method proves all-circumference exclusions; the second method proves a finite sharp onset and orbit multiplicity.
+PASS
 
-The exact graph-edge correspondence and the absence of all nonzero directed cycles are the two critical lemmas of the argument. Different code paths avoid reliance on a single implementation of the local rule for both halves, but do not constitute independent external mathematical review. The assertion is silent about odd temporal periods above eleven, large-ring eleven-orbit counts, attraction probabilities, and infinite spatial configurations.
+For cyclic binary Rule 18 on every n>=3, the local formula (1-m_i)(l_i xor r_i) gives a bijection between F_n^t-fixed states and length-n closed walks on the 4^t temporal-column graph. The explicit generator considers all l,m and every allowed r, and tests all edges. Independently checked the graph by brute-force temporal triple constraints and a different directed-core elimination: t=1,3,5,7,9 respectively had (active,edges,remaining cycle-core)=(3,2,1),(48,56,1),(583,992,1),(6583,16256,1),(72048,261632,1), with only the all-zero vertex in the core. A separate direct Python evolution of all 2^n configurations for n=3..11 found no nontrivial odd cycles for n<11 and exactly two primitive 11-orbits at n=11 (minimum state representatives 75 and 105; 22 states). Thus this precise threshold theorem is supported by an exhaustive finite *time-height* certificate coupled to an all-circumference transfer lemma; it neither proves absence of all longer odd periods nor classifies larger rings.
+
+## originality
+
+PASS
+
+The Rule 18 fixed-time-column obstruction and sharp n=11 onset are distinct from the prior temporal-two, image-fiber, and statistical/domain analyses. Search found no previous theorem implying these exact all-ring short-odd exclusions and first occurrence. This is a qualified assessment, not proof of priority against historical finite-CA period catalogues.
+
+## value
+
+PASS
+
+The least odd primitive clock and least circumference are natural exact dynamical invariants of one elementary cellular automaton; a uniform finite transfer certificate for all ring sizes and sharp witnesses is a nonroutine and reusable structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

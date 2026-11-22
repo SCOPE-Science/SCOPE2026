@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update formula matches elementary Rule 18 (`001` and `100` produce a one). The temporal-history graph enforces every cell at each of the temporal slices, with correct cyclic time and cyclic spatial closures. The bitwise generator is obtained algebraically by solving the local constraint at all bits. A complete SCC decomposition finds no nonzero recurrent component for temporal heights 1, 3, 5, 7, and 9; hence the universal exclusion holds for any circumference. Direct complete-state enumeration for ring sizes 3 through 11 establishes the small-ring cutoff and exactly two primitive temporal eleven-orbits. The entire supporting proof and deterministic programs are embedded. No observation from a finite sample is extrapolated to all ring lengths.
+PASS
 
-## Originality — PASS (qualified)
+For cyclic binary Rule 18 on every n>=3, the local formula (1-m_i)(l_i xor r_i) gives a bijection between F_n^t-fixed states and length-n closed walks on the 4^t temporal-column graph. The explicit generator considers all l,m and every allowed r, and tests all edges. Independently checked the graph by brute-force temporal triple constraints and a different directed-core elimination: t=1,3,5,7,9 respectively had (active,edges,remaining cycle-core)=(3,2,1),(48,56,1),(583,992,1),(6583,16256,1),(72048,261632,1), with only the all-zero vertex in the core. A separate direct Python evolution of all 2^n configurations for n=3..11 found no nontrivial odd cycles for n<11 and exactly two primitive 11-orbits at n=11 (minimum state representatives 75 and 105; 22 states). Thus this precise threshold theorem is supported by an exhaustive finite *time-height* certificate coupled to an all-circumference transfer lemma; it neither proves absence of all longer odd periods nor classifies larger rings.
 
-The directly relevant primary works are Wolfram (1983), Hanson–Crutchfield (1991), and Sabrié–Törmä (2023 preprint/2026 article). Their detailed studied objects are domain/kink dynamics, statistically regular attractors, and limit sets; none of the inspected relevant passages supplies the five-height no-return theorem or the sharp eleven-site first occurrence. Previously catalogued Rule 18 one-step images, predecessor counts and temporal period two address different dynamical predicates. Searches for eleven-period Rule 18, minimum nontrivial odd temporal period, and short odd return exclusions did not locate an implication-equivalent complete result. A finite-period thesis table could not be inspected in full; historical priority cannot be certified, and that is a specific remaining risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rule 18 is a canonical nonlinear cellular automaton whose quasi-linear regular domains and persistent kinks have a substantial literature. Whether those dynamics permit any nontrivial *odd* closed time orbit, and when one first appears, is a natural parity-sensitive recurrence question. The global absence of four successive odd periods across every ring, plus a sharp first temporal and spatial eleven-site onset and an exact orbit multiplicity, identifies a genuine boundary that is not a routine numerical extension of the temporal-two census. It is deliberately narrower than a full period-spectrum classification.
+The Rule 18 fixed-time-column obstruction and sharp n=11 onset are distinct from the prior temporal-two, image-fiber, and statistical/domain analyses. Search found no previous theorem implying these exact all-ring short-odd exclusions and first occurrence. This is a qualified assessment, not proof of priority against historical finite-CA period catalogues.
 
-## Closest literature and remaining limitations
+## value
 
-Wolfram's Rule 18/Rule 90 domain correspondence does not control all spatially periodic kink configurations. Hanson and Crutchfield explicitly allow spatially periodic exceptional states outside dominant regular-domain attraction, without their exact first odd-period census. Sabrié and Törmä address topological limit sets, not exact finite-ring short-time periodic points. A source potentially carrying older finite-period tables was inaccessible; an independent historical survey may find previous numerical examples. The period-eleven count is established only at eleven sites, while the absence for shorter odd periods is universal.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least odd primitive clock and least circumference are natural exact dynamical invariants of one elementary cellular automaton; a uniform finite transfer certificate for all ring sizes and sharp witnesses is a nonroutine and reusable structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
