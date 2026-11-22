@@ -1,0 +1,15 @@
+# Scientific assessment of the quadratic-character phase spectrum
+
+## Correctness — PASS
+The precise object is the unnormalized complex matrix with entries \(\exp(2\pi i\eta(st+c)/p)\) over odd primes \(p\ge5\) and shifts \(c\ne0\). Multiplicative-character orthogonality splits it into a two-dimensional block and one-dimensional input sectors. The quadratic sector is evaluated using \(\sum_u\eta(u(u+1))=-1\); the other nontrivial sectors are bounded by the classical Jacobi-sum modulus \(\sqrt p\). The exact positive determinant of the shifted constant-block Gram matrix rules out an additional weakest mode. The upper spectral edge is shown to belong to the constant block for every admissible prime, including a separately bounded five-point case. The checker runs 140 independent finite assertions, but the all-prime conclusion is analytic; see `RESULT.md` Steps 1–6 and `CHECK.py`. The normalization, shift invariance, and large-prime asymptotics are explicit.
+
+## Originality — PASS (bounded best-knowledge comparison)
+Wei–Li–Wu (arXiv:2305.16064) compute determinants of generalized Legendre matrices over finite fields, with different index sets and coefficient fields; neither their objects nor their determinant claims imply the sharp complex singular value or unique quadratic-character weak mode. The quadratic-phase prime-field Fourier rank trichotomy concerns \(\omega^{a st+b s^2t^2}\), not the Legendre three-phase mask, and rank alone cannot imply the sharp spectral endpoints. The exact additive Fourier spectrum for rank-one idempotents in \(2\times2\) matrices concerns a different convolution operator and group. González-Riquelme–Oliveira e Silva (arXiv:2405.16647) treat sharp extension inequalities, not this finite square spectral problem. Eğecioğlu (2011 online) treats Jacobi-symbol enumerator Hankel determinants, not these complex matrix singular values. Further hidden equivalent spectral calculations cannot be ruled out; priority is not independently certified.
+
+## Value — PASS
+The family is a canonical three-phase quadratic-residue modulation of a multiplicative Hankel sampling operator on every prime field. Determining its least singular value is necessary to know the exact worst-case Euclidean reconstruction amplification; rank or entrywise unimodularity does not suffice. The theorem identifies a unique universally worst noise mode, computes both spectral endpoints, and proves quadratic growth of the optimal condition number. This is a natural exact stability invariant, not an arbitrary isolated numerical parameter. Its relevance is restricted to this phase family; no extension-field or broader coding consequences are claimed.
+
+## Limitations
+The result has an all-prime proof but only finite numerical test coverage; it does not cover other phase angles, zero shifts, other characters, or extension fields. The literature comparison is not exhaustive. No external validation of the complete finding has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

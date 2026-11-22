@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For c != 0, conjugation and row permutation reduce to c=1. In the orthonormal multiplicative-character basis, A is a 2x2 block B plus character permutation weighted by L_chi. For chi=eta, L_eta=-i sin theta+(1-cos theta)eta(-1) has exact modulus 2sin(pi/p). For all other nontrivial chi, the Jacobi sum has magnitude sqrt(p), giving a strict gap. The positive determinant (p-1)(p-3)(1-C)^2(1+2C) and positive trace of B*B-m²I rule out a block tie. Lower bounds on sigma_+(B) dominate every character sector, with explicit p=5 check. The largest block eigenvalue yields exact condition number and its p²/(2pi)+O(1) expansion. Supplementary 140 numerical assertions passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full published quadratic-phase rank result proves nonsingularity for exp(2pi i(a st+b s^2t^2)/p) when a != 0; its general singleton-phase-fiber argument asserts rank only and does not provide singular magnitudes.",
+        "The full published projection-spectrum result computes singular values of additive convolution by rank-one idempotents on M_2(F_q), a different group and kernel.",
+        "The 2024 sharp finite-field extension work addresses L2-to-L4/L6 norms and extremizers for parabola/paraboloid/cone, not the particular p-by-p Legendre-phase sampling operator."
+      ],
+      "reasoning": "No known general norm or rank theorem in the inspected sources yields both exact endpoints and the simple quadratic-character weak mode. The related quadratic-phase case agrees with our p=5 rank behavior but neither controls the all-prime family nor its p^2 conditioning.",
+      "searches": [
+        "Finite-field parabola self-Fourier restriction sampling matrix on set (x,x^2) is invertible for all odd primes; multiplicative convolution spectrum nonvanishing",
+        "Sharp least singular value and condition number of prime-field multiplicative matrix exp(2πi Legendre(st+1)/p), Jacobi sums, exceptional quadratic character weak mode",
+        "2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d",
+        "2026/11/8/SCOPE-exact-additive-fourier-singular-spectrum-of-rank-one-projections--12a508785908",
+        "https://arxiv.org/abs/2405.16647"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2305.16064",
+      "https://arxiv.org/abs/2405.16647",
+      "https://doi.org/10.1007/s00026-011-0069-6",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-additive-fourier-singular-spectrum-of-rank-one-projections--12a508785908",
+      "https://en.wikipedia.org/wiki/Jacobi_sum",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-conditioning-and-the-ternary-threshold-for-balanced-finite--efbde5ac5a6a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rank claims do not imply the exact least singular magnitude or the unique right singular line; even a nonsingular phase matrix may have arbitrarily poor conditioning.",
+        "The 2023 Legendre matrix is finite-field-valued and indexed by a power-residue subset; the present object is a p-by-p complex matrix with a shifted product and a three-phase embedding.",
+        "The 2011 Jacobi-symbol determinant paper and the rank-one projector exact spectrum concern inequivalent matrices with different size, operation or entry alphabet."
+      ],
+      "reasoning": "The candidate is stronger in a different quantitative dimension than nearby rank theorems. Its p^2 growth, sharp 2sin(pi/p) level, and unique Legendre direction require the block decomposition and the two-sided strict comparisons demonstrated here. No inspected prior claim logically entails them.",
+      "searches": [
+        "three-phase Legendre matrix e^{2πi χ(st+1)/p} sharp singular value quadratic character mode 2 sin(pi/p)",
+        "multiplicative Hankel matrix quadratic character-phase mask Jacobi sums optimal condition number p squared",
+        "shifted quadratic-character matrix spectral decomposition Jacobi sum smallest eigenvalue",
+        "2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d",
+        "https://arxiv.org/abs/2305.16064",
+        "2026/11/8/SCOPE-exact-additive-fourier-singular-spectrum-of-rank-one-projections--12a508785908"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The object is also a three-phase character-phase matrix, multiplicative Hankel operator on the nonzero field, and a shift of the Legendre sequence. The full arXiv:2305.16064 text evaluates finite-field determinants of matrices on power-residue subsets, not the p-by-p complex three-phase character sampling matrix.",
+        "The nontrivial singular sectors here use multiplicative characters with Jacobi-sum modulus; the unique weakest character has multiplier 2sin(pi/p)."
+      ],
+      "reasoning": "Equivalent descriptions were checked against the Legendre-matrix paper, exact matrix-phase queries, and associated Fourier/Jacobi terminology. Its determinant statements are over F_q for distinct dimensions and have no direct spectral implication; no identified equivalent p-by-p sharp singular-value statement.",
+      "searches": [
+        "three-phase Legendre matrix e^{2πi χ(st+1)/p} sharp singular value quadratic character mode 2 sin(pi/p)",
+        "multiplicative Hankel matrix quadratic character-phase mask Jacobi sums optimal condition number p squared",
+        "shifted quadratic-character matrix spectral decomposition Jacobi sum smallest eigenvalue",
+        "spectral values of exp(i theta quadratic character(x y + 1)) matrix",
+        "https://arxiv.org/abs/2305.16064",
+        "Sharp quadratic-character phase conditioning over prime fields: matrix omega^{eta(st+c)} least singular 2 sin(pi/p) unique Legendre weak vector condition number p^2",
+        "Legendre-symbol exponentiated multiplicative Hankel matrix singular spectral endpoint complex finite fields"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact spectral table matching the matrix, shifts, or 2sin(pi/p) weak singular level was returned in the searched index.",
+        "Egecioglu 2011 computes a Jacobi-symbol enumerator Hankel determinant and prime dependence of polynomial coefficients rather than a singular-value table of unit-modulus Legendre-phase matrices."
+      ],
+      "reasoning": "The retrieved tables and exact determinant problems have other entry functions and normalization. A negative index search alone is not proof of priority; no claim of exhaustive table coverage is made.",
+      "searches": [
+        "three-phase Legendre matrix e^{2πi χ(st+1)/p} sharp singular value quadratic character mode 2 sin(pi/p)",
+        "multiplicative Hankel matrix quadratic character-phase mask Jacobi sums optimal condition number p squared",
+        "condition number Legendre phase matrix Jacobi sums entries exp(i theta chi(xy+1))",
+        "https://doi.org/10.1007/s00026-011-0069-6",
+        "Sharp quadratic-character phase conditioning over prime fields: matrix omega^{eta(st+c)} least singular 2 sin(pi/p) unique Legendre weak vector condition number p^2"
+      ]
+    },
+    "rationale": "Bounded actual published-finding corpus, accessible-own-ledger and published-primary comparisons show no identified statement implying the new exact least and largest singular values, simple Legendre weak mode and quadratic noise amplification. Classical Jacobi sums and character diagonalization are acknowledged, not claimed new.",
+    "residual_risks": [
+      "Unindexed exact Legendre-phase matrix identities or older combinatorial-design calculations might contain an equivalent sharp spectrum.",
+      "Only bounded sections of the broad 2024 extension paper and selected parts of the 2011 PDF were inspected; this does not justify a whole-document noncoverage assertion.",
+      "Numerical supplementary tests are finite; the analytic proof is needed for all primes.",
+      "The final exact-claim published-finding corpus search returned generic conditioning work; only its published abstracts, not all full texts, were available for some weakly related hits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related character-indexed determinant algebra, different finite-field coefficient matrix and no matching sharp complex singular-value law",
+        "evidence": [
+          "Theorems 1.2–1.4 concern D_k and T_k determinants on power-residue subgroups and coefficients over finite fields; arxiv HTML lines 38–117 and 150–165."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.16064",
+        "material_read": "Full arXiv HTML sections 1.1–1.3, Theorems 1.2–1.4, selected proof sections 2–3 including the determinant/circulant reduction; not simply abstract",
+        "method": "Read arXiv HTML mathematical statements and proofs",
+        "title": "On generalized Legendre matrices involving roots of unity over finite fields",
+        "trigger": "Closest Legendre-matrix title and first source date"
+      },
+      {
+        "assessment": "Sharp extension norms on parabola, paraboloid and cone; no displayed implication to the p-by-p Legendre multiplicative phase operator",
+        "evidence": [
+          "Abstract and introductory formulation discuss finite-field L2 extension and extremizers; arxiv HTML lines 0–30."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.16647",
+        "material_read": "Abstract, introduction, formulation of sharp Lp extension, theorem scopes in accessible arXiv HTML",
+        "method": "Read arXiv HTML text and compared operator domains/quantifiers",
+        "title": "Sharp extension inequalities on finite fields",
+        "trigger": "Finite-field Fourier extension and stability as candidate broader coverage"
+      },
+      {
+        "assessment": "Different symbolic Jacobi-enumerator Hankel determinant; no matching p-by-p complex phase singular-value statement in material read",
+        "evidence": [
+          "The article studies Hankel determinants of Jacobi symbol enumerator polynomials, not the present 3-phase sampling matrix."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00026-011-0069-6",
+        "material_read": "PDF abstract/opening and sampled internal sections through extracted text and rendered pages",
+        "method": "Inspected legal publisher PDF text and screenshots",
+        "title": "A Prime Sensitive Hankel Determinant of Jacobi Symbol Enumerators",
+        "trigger": "Potential earlier special-function Hankel determinant overlap"
+      },
+      {
+        "assessment": "Quadratic-phase rank trichotomy; its general rank criterion does not imply the new singular-value endpoints",
+        "evidence": [
+          "Full theorem is rank p for exp(2pi i(a st+b s²t²)/p) with a nonzero, and rank (p+1)/2 or 1 for degenerate a."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d",
+        "material_read": "Complete published RESULT.md including proof of singleton-fiber lemma and all rank regimes",
+        "method": "Read complete openly available published result file and compare matrix phases and quantitative claim",
+        "title": "Sharp rank trichotomy for quadratic-phase Fourier sampling on a prime-field parabola",
+        "trigger": "Closest prime-field multiplicative Hankel full-rank theorem"
+      },
+      {
+        "assessment": "Convolution on M_2(F_q) with rank-one idempotent indicator, different operator and dimension; cannot imply matrix phase spectrum",
+        "evidence": [
+          "Multiplier is q times sum of additive characters of rational eigenvalues, unlike exp(2pi i eta(st+1)/p)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-additive-fourier-singular-spectrum-of-rank-one-projections--12a508785908",
+        "material_read": "Complete published RESULT.md including spectral table and proof",
+        "method": "Read all of the theorem, similarity-type reduction and Fourier multiplier formula",
+        "title": "Exact additive Fourier singular spectrum of rank-one projections over finite fields",
+        "trigger": "Closest available complete spectral law involving finite-field multiplicative characters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e02c810-8017-4fc0-baf1-7a7ffde1eb31",
+  "value": {
+    "rationale": "A natural canonical unit-modulus three-phase mask on every prime field has a sharply quantified worst-case inverse amplification, which neither rank nor entry magnitudes determine. The exact lowest spectral level, its unique worst signal direction, sharp largest level, and p² conditioning law define an interpretable exact stability invariant across all primes, not an ad hoc isolated computation.",
+    "status": "PASS"
+  }
+}
